@@ -94,7 +94,7 @@ const Nav: React.FC = () => {
             
             <li className="relative group bg-yellow gap-1">
               <div className="flex items-center justify-center">
-                <Link to="#">Services 6y6799</Link>
+                <Link to="#">Services </Link>
                 <i className="material-symbols-outlined font-thin">expand_more</i>
               </div>
               <ul className="hidden group-hover:inline-block z-[50] absolute p-2 lg:p-4 rounded-md bg-black text-sm font-poppins">
