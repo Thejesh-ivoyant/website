@@ -1,6 +1,6 @@
 // Sidebar.tsx
 import React, { useEffect, useState } from "react";
-import "./Sidebar.css";
+
 import Sidebar from "./sidebar";
 import { Link } from "@remix-run/react";
 
