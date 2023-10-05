@@ -1,6 +1,6 @@
 // Sidebar.tsx
 import React, { useState } from "react";
-import "./Sidebar.css";
+
 import Nav from "./nav";
 import { Link } from "@remix-run/react";
 
