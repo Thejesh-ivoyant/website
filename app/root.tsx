@@ -5,6 +5,7 @@ import stylesheet from "~/tailwind.css";
 import globalstyle from "~/styles/main.css";
 import Navstyle from "~/common-components/nav.css";
 import Sidebarstyle from "~/common-components/sidebar.css"
+import ContactUsStyle from "~/components/contact-us/contactUs.css"
 
 
 import {
@@ -18,6 +19,7 @@ import {
 
 import Sidebar from "./common-components/sidebar";
 import Nav from "./common-components/nav";
+
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },

@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 
 import Sidebar from "./sidebar";
 import { Link } from "@remix-run/react";
+import { strapiUrl } from "~/utils/urls";
 
 const Nav: React.FC = () => {
   // The URL of the API endpoint
-  const NAV_API_URL = "http://localhost:1337/api/logos?populate=%2A";
+  const NAV_API_URL = `${strapiUrl}/api/logos?populate=%2A`;
 
-  const strapiUrl = "http://localhost:1337";
+
+
 
 
   const [imageUrl, setImageUrl] = useState("");

@@ -25,10 +25,11 @@ interface BlogData {
   }
   
 import BlogCard from "./blog-card";
+import { strapiUrl } from "~/utils/urls";
 const BlogsContainer = () => {
 
-  const SECTION10_API_URL = "http://localhost:1337/api/blogs?populate=%2A";
-    const strapiUrl = "http://localhost:1337";
+  const SECTION10_API_URL = `${strapiUrl}/api/section10s?populate=%2A`
+  
   
     const [DateOfBlog, setDateOfBlog] = useState('');
     const [Content, setContent]= useState('');

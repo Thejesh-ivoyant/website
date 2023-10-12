@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from "react";
 import services from "~/routes/company.About_Us";
 
-
+import { strapiUrl } from "~/utils/urls";
 const Services = () => {
-  const SECTION5_API_URL = "http://localhost:1337/api/Section5s?populate=%2A";
-  const SECTION5_PICTURE_URL = "http://localhost:1337/api/industry-pictures?populate=%2A";
-  const strapiUrl = "http://localhost:1337";
+  const SECTION5_API_URL = `${strapiUrl}/api/section5s?populate=%2A`
+  const SECTION5_PICTURE_URL = `${strapiUrl}/api/industry-pictures?populate=%2A`
+
   const [Banner, setBanner] = useState('');
   // const Services = () => {
     const [IndustryList, setIndustryList] = useState<{ [key: string]: string } | undefined >();
@@ -60,7 +60,7 @@ const Services = () => {
       </section>
 
 <section className="section">
-  <div className="flex flex-row gradient-top">
+  <div className="flex flex-row gradient-top cursor-pointer">
   {IndustryList && Object.keys(IndustryList).map((service) => (
       <div key={service} id={service} onClick={() => handleServiceClick(service)} className="item" style={{fontSize:"1.4rem"}}>
         {service}

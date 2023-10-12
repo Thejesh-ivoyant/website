@@ -1,6 +1,6 @@
 // Sidebar.tsx
 import React, { useEffect, useState } from "react";
-
+import { strapiUrl } from "~/utils/urls";
 
 interface PartnerLogoData {
   id: number;
@@ -24,9 +24,7 @@ interface SectionData {
 }
 
 const Section6: React.FC = () => {
-  const SECTION6_API_URL = "http://localhost:1337/api/Section6s?populate=%2A";
-  const strapiUrl = "http://localhost:1337";
-
+  const SECTION6_API_URL = `${strapiUrl}/api/section6s?populate=%2A`
   const [PartnerLogos, setPartnerLogos] = useState<PartnerLogoData[]>([]);
 
   useEffect(() => {
