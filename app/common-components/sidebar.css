@@ -2,7 +2,7 @@
 /* Sidebar.css */
 .sidebar {
     position: fixed;
-    top: 0;
+
     right: 0px; /* Position the sidebar off the screen to the right */
     width: 100%;
     height: 100vh;

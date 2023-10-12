@@ -9,7 +9,7 @@ import AboutCardContainer from "~/components/section-2/about-card-container";
 import Section4 from "~/components/section-4/clients";
 import Section6 from "~/components/section-6/partners";
 import Testimonials from "~/components/section-9/testimonials";
-const strapiUrl = "http://localhost:1337";
+import { strapiUrl } from "~/utils/urls";
 // The URL of the API endpoint
 const ABOUTUS_API_URL= `${strapiUrl}/api/about-uses?populate=%2A`
 

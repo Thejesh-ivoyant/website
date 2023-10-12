@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { strapiUrl } from "~/utils/urls";
 
-const SECTION1_API_URL= `${strapiUrl}/api/section1s?populate=%2A`
+ const SECTION1_API_URL= `${strapiUrl}/api/section1s?populate=%2A`
 
 const Hero = () => {
   const [section1Data, setSection1Data] = useState({

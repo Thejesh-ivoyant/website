@@ -13,6 +13,7 @@ const Sidebar: React.FC = () => {
 
      <div className="sidebar" >
       <Nav/>
+      
         <ul >
           <li>
             <Link to="#services">Services</Link>
