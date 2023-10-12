@@ -192,8 +192,8 @@ const Nav: React.FC = () => {
                   y2="6.79801"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0.00621719" stop-color="#B9C1EC" />
-                  <stop offset="1" stop-color="#A3B1FF" />
+                  <stop offset="0.00621719" stopColor="#B9C1EC" />
+                  <stop offset="1" stopColor="#A3B1FF" />
                 </linearGradient>
                 <linearGradient
                   id="paint1_linear_886_30825"
@@ -203,8 +203,8 @@ const Nav: React.FC = () => {
                   y2="6.79801"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0.00621719" stop-color="#B9C1EC" />
-                  <stop offset="1" stop-color="#A3B1FF" />
+                  <stop offset="0.00621719" stopColor="#B9C1EC" />
+                  <stop offset="1" stopColor="#A3B1FF" />
                 </linearGradient>
                 <linearGradient
                   id="paint2_linear_886_30825"
@@ -214,8 +214,8 @@ const Nav: React.FC = () => {
                   y2="6.79801"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0.00621719" stop-color="#B9C1EC" />
-                  <stop offset="1" stop-color="#A3B1FF" />
+                  <stop offset="0.00621719" stopColor="#B9C1EC" />
+                  <stop offset="1" stopColor="#A3B1FF" />
                 </linearGradient>
                 <linearGradient
                   id="paint3_linear_886_30825"
@@ -225,8 +225,8 @@ const Nav: React.FC = () => {
                   y2="6.79801"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0.00621719" stop-color="#B9C1EC" />
-                  <stop offset="1" stop-color="#A3B1FF" />
+                  <stop offset="0.00621719" stopColor="#B9C1EC" />
+                  <stop offset="1" stopColor="#A3B1FF" />
                 </linearGradient>
               </defs>
             </svg>
