@@ -45,7 +45,7 @@ const Testimonials = () => {
     if (nextIndex < testimonialList.length) {
       setCurrentTestimonialIndex(nextIndex);
     } else {
-      alert("end of testimonial")
+      setCurrentTestimonialIndex(0)
       // Handle case where there are no more testimonials
     }
   };
@@ -56,7 +56,7 @@ const Testimonials = () => {
     if (nextIndex >= 0) {
       setCurrentTestimonialIndex(nextIndex);
     } else {
-      alert("end of testimonial 0")
+      setCurrentTestimonialIndex(testimonialList.length-1)
     }
   };
 
