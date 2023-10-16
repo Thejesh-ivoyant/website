@@ -424,6 +424,19 @@ line-height: 1.75rem; /* 175% */
   align-items: center;
 }
 
+.chats-ellipse-container {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.chats-ellipse-image {
+  width: 1.5rem; /* Adjust the size of the ellipse image */
+  height: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
 .add-image {
   position: absolute;
   top: 42%;
@@ -439,6 +452,20 @@ line-height: 1.75rem; /* 175% */
   transform: translate(-50%, -50%);
   width: 20px; /* Adjust the size of the add image */
   height: 40px;
+}
+
+.social-media-container {
+  position: fixed;
+  padding: 0.4rem;
+  top: 60%;
+
+  right: 0;
+  transform: translate(0, -50%);
+  z-index: 12;
+}
+
+.social-media-item {
+ padding-bottom: 0.5rem;
 }
 
 .faq-card{
