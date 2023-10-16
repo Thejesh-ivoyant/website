@@ -415,6 +415,7 @@ line-height: 1.75rem; /* 175% */
   position: relative;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .ellipse-image {
@@ -422,12 +423,14 @@ line-height: 1.75rem; /* 175% */
   height: 2.5rem;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .chats-ellipse-container {
   position: relative;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .chats-ellipse-image {
@@ -435,6 +438,7 @@ line-height: 1.75rem; /* 175% */
   height: 1.5rem;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .add-image {
@@ -444,6 +448,7 @@ line-height: 1.75rem; /* 175% */
   transform: translate(-50%, -50%);
   width: 40px; /* Adjust the size of the add image */
   height: 40px;
+  cursor: pointer;
 }
 .minus-image{
   position: absolute;
@@ -452,6 +457,7 @@ line-height: 1.75rem; /* 175% */
   transform: translate(-50%, -50%);
   width: 20px; /* Adjust the size of the add image */
   height: 40px;
+  cursor: pointer;
 }
 
 .social-media-container {
@@ -462,10 +468,12 @@ line-height: 1.75rem; /* 175% */
   right: 0;
   transform: translate(0, -50%);
   z-index: 12;
+  cursor: pointer;
 }
 
 .social-media-item {
  padding-bottom: 0.5rem;
+ cursor: pointer;
 }
 
 .faq-card{
@@ -506,10 +514,12 @@ align-self: stretch;
     background: linear-gradient(123deg, rgba(148.88, 159.27, 252.74, 0.17) 0%, rgba(243.29, 244.35, 253.96, 0.60) 100%, rgba(90.30, 104.33, 230.56, 0.60) 100%);
     color: white;
   }
+
   .second-div{
     display: flex;
     flex-direction: columna;
   }
+  
   .clearfix::after {
     content: "";
     display: table;
