@@ -29,18 +29,28 @@ const Hero = () => {
   }, []);
 
   const { HomeVideo, HomeTitle, HomeText, HomeDescription } = section1Data;
+  const [c, setC] = useState(0);
+
+  const closeChats = () => {
+setC(0);
+  };
+  const openChats = () => {
+    setC(1);
+      };
+  
+
 
   return (
     <div>
       <div className='video-content'>
-        <div className="nav-content">
+        {/* <div className="nav-content">
           <div className="hero-nav-left flex ">
             <img src="./assets/nav-left.svg" alt="ivoyant-logo" />
           </div>
           <div className="hero-nav-right flex ">
             <img src="./assets/nav-right.svg" alt="ivoyant-logo" />
           </div>
-        </div>
+        </div> */}
         <video muted loop playsInline src={`${strapiUrl}${HomeVideo}`} autoPlay width="100%" />
       </div>
       <div className="hero-container">
@@ -59,6 +69,56 @@ const Hero = () => {
         <p className="hero-description">{HomeDescription}</p>
         <button className="btn hero-btn">Let's Talk</button>
       </div>
+      {c===0 && (<div className="social-media-container" >
+        
+        <div className="ellipse-container">
+          <img
+            src="./assets/Ellipse.svg"
+            alt="Ellipse"
+            className="ellipse-image"
+          />
+           <img
+               src="./assets/Chats.svg"
+           alt="close"
+               className="minus-image"
+
+               onClick={() =>openChats()}
+          />
+
+        </div>
+    </div>)}
+      {c===1 && (<div className="social-media-container" >
+        <img className="social-media-item" src="../assets/Facebook.png"  />
+        <img className="social-media-item" src="../assets/linkedin.svg"  />
+        <div className="chats-ellipse-container social-media-item" >
+          <img
+            src="./assets/Ellipse.svg"
+            alt="Ellipse"
+            className="chats-ellipse-image"
+          />
+           <img
+            src="../assets/twitter.svg"
+           alt="close"
+               className="minus-image"
+          />
+
+        </div>
+        <img className="social-media-item" src="../assets/skype.svg"  />
+        <div className="chats-ellipse-container" onClick={() => closeChats()}>
+          <img
+            src="./assets/Ellipse.svg"
+            alt="Ellipse"
+            className="chats-ellipse-image"
+          />
+           <img
+               src="./assets/X.svg"
+           alt="close"
+               className="minus-image"
+          />
+
+        </div>
+    </div>
+      )}
     </div>
   );
 };
