@@ -1,4 +1,5 @@
 // src/components/Card.js
+import { Link } from "@remix-run/react";
 import React, { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 
@@ -35,9 +36,12 @@ const AboutCard = () => {
         <div className="text-md py-4 font-poppins font-light lg:leading-8 " id="about-desc">
           {aboutUsDescription}
         </div>
-        <button className="button-test relative py-4 lg:py-3">
-          <span>About Us</span>
-        </button>
+     
+    
+          <Link to={"/company/about_us"} className="button-test relative py-4 lg:py-3">
+            <a>About Us</a>
+          </Link>
+
       </div>
     </div>
   );

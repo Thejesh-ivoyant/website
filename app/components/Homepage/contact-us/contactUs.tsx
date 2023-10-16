@@ -9,7 +9,7 @@ export let action: ActionFunction = async({request}) =>{
 }
 const ContactUs = ()=>
 {
-    const CONTACT_US = "http://localhost:1337/api/contact-uses?populate=%2A";
+    const CONTACT_US = `${strapiUrl}/api/contact-uses?populate=%2A`
     const [imageUrl, setImageUrl] = useState(""); // Define the state here
 
     useEffect(() => {
