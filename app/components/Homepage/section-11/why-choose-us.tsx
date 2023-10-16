@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { strapiUrl } from "~/utils/urls";
 interface Description {
   title: string;
   description: string;
@@ -17,7 +17,7 @@ interface DescriptionData {
 }
 
 const Why_Choose_Us = () => {
-  const SECTION11_API_URL = "http://localhost:1337/api/Section11s?populate=%2A";
+  const SECTION11_API_URL = `${strapiUrl}/api/section11s?populate=%2A`
 
   const [descriptionList, setDescriptionList] = useState<Description[]>([]);
   const [Title, setTitle] = useState<string>("");
@@ -30,7 +30,7 @@ const Why_Choose_Us = () => {
         const firstItem = data.data[0];
         if (firstItem) {
           const descriptionList = firstItem.attributes.DescriptionList;
-         
+         debugger
           setDescriptionList(descriptionList);
         }
       })

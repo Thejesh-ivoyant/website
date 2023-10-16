@@ -1,8 +1,9 @@
+import { strapiUrl } from "~/utils/urls";
 const BlogCard = ({ blog }: { blog: any }) => {
     // Extract data from the blog object
     console.log(blog,"is the blog data passsedddd")
     const { Title, Content, DateOfBlog, BlogMedia } = blog.attributes;
-    const strapiUrl = "http://localhost:1337";
+
     return(
        <div className="blog-card z-10  min-w-[380px] lg:h-[400px] gap-x-6 relative justify-around whitespace-nowrap">
             <img src={strapiUrl+BlogMedia.data[0]?.attributes.url}

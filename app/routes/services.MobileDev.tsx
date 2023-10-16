@@ -1,11 +1,11 @@
 import { Link } from "@remix-run/react";
 import React, { useEffect, useState } from "react";
-import Footer from "~/components/footer";
-import Why_Choose_Us from "~/components/section-11/why-choose-us";
-import Section4 from "~/components/section-4/clients";
-
+import Footer from "~/common-components/footer";
+import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
+import Section4 from "~/components/Homepage/section-4/clients";
+import { strapiUrl } from "~/utils/urls";
 // The URL of the API endpoint
-const API_URL = "http://localhost:1337/api/companies";
+const API_URL = `${strapiUrl}/api/section1s?populate=%2A`
 
 export const meta = () => {
   return [
@@ -25,7 +25,7 @@ const MobDev = () => {
       .then((response) => response.json())
       .then((data) => {
         // Assuming data is in the expected format and HomeTitle holds the company name
-        const { HomeTitle, AboutUs } = data.data[0].attributes;
+        const { HomeTitle, HomeText } = data.data[0].attributes;
         setCompanyName(HomeTitle);
         setServiceDescription(AboutUs);
       })

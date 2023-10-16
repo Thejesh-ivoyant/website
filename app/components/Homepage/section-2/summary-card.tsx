@@ -1,8 +1,9 @@
 // src/components/Card.js
 import React, { useEffect, useState } from "react";
+import { strapiUrl } from "~/utils/urls";
 
 const SummaryCard = () => {
-  const SECTION2_API_URL = "http://localhost:1337/api/section2s";
+  const SECTION2_API_URL = `${strapiUrl}/api/section2s?populate=%2A`
 
   const [clientCount, setClientCount] = useState("");
   const [experienceCount, setExperienceCount] = useState("");

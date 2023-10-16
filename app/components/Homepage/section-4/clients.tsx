@@ -1,6 +1,6 @@
 // Sidebar.tsx
 import React, { useEffect, useState } from "react";
-
+import { strapiUrl } from "~/utils/urls";
 interface LogoData {
   id: number;
   attributes: {
@@ -22,8 +22,8 @@ interface SectionData {
 }
 
 const Section4: React.FC = () => {
-  const SECTION4_API_URL = "http://localhost:1337/api/Section4s?populate=%2A";
-  const strapiUrl = "http://localhost:1337";
+  const SECTION4_API_URL = `${strapiUrl}/api/section4s?populate=%2A`
+
 
   const [clientLogos, setClientLogos] = useState<LogoData[]>([]);
   

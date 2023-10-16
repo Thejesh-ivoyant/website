@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { strapiUrl } from "~/utils/urls";
 
-const API_URL = "http://localhost:1337/api/section7s?populate=%2A";
-const STRAPI_URL = "http://localhost:1337";
+const API_URL = `${strapiUrl}/api/section7s?populate=%2A`
+
 
 const Consultation = () => {
   const [tagline, setTagline] = useState("");
@@ -13,7 +14,9 @@ const Consultation = () => {
       .then(({ data }) => {
         const { ContactUsDescription, section7bg } = data[0].attributes;
         setTagline(ContactUsDescription);
-        setImageUrl(STRAPI_URL + section7bg.data.attributes.url);
+        debugger
+        setImageUrl(strapiUrl + section7bg.data[0].attributes.url);
+        console.log("url is" + strapiUrl + section7bg.data[0].attributes.url);
       })
       .catch((error) => {
         console.warn("Section 7 Error fetching data from API:", error);

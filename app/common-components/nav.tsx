@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 
 import Sidebar from "./sidebar";
 import { Link } from "@remix-run/react";
+import { strapiUrl } from "~/utils/urls";
 
 const Nav: React.FC = () => {
   // The URL of the API endpoint
-  const NAV_API_URL = "http://localhost:1337/api/logos?populate=%2A";
+  const NAV_API_URL = `${strapiUrl}/api/logos?populate=%2A`;
 
-  const strapiUrl = "http://localhost:1337";
+
+
 
 
   const [imageUrl, setImageUrl] = useState("");
@@ -192,8 +194,8 @@ const Nav: React.FC = () => {
                   y2="6.79801"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0.00621719" stop-color="#B9C1EC" />
-                  <stop offset="1" stop-color="#A3B1FF" />
+                  <stop offset="0.00621719" stopColor="#B9C1EC" />
+                  <stop offset="1" stopColor="#A3B1FF" />
                 </linearGradient>
                 <linearGradient
                   id="paint1_linear_886_30825"
@@ -203,8 +205,8 @@ const Nav: React.FC = () => {
                   y2="6.79801"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0.00621719" stop-color="#B9C1EC" />
-                  <stop offset="1" stop-color="#A3B1FF" />
+                  <stop offset="0.00621719" stopColor="#B9C1EC" />
+                  <stop offset="1" stopColor="#A3B1FF" />
                 </linearGradient>
                 <linearGradient
                   id="paint2_linear_886_30825"
@@ -214,8 +216,8 @@ const Nav: React.FC = () => {
                   y2="6.79801"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0.00621719" stop-color="#B9C1EC" />
-                  <stop offset="1" stop-color="#A3B1FF" />
+                  <stop offset="0.00621719" stopColor="#B9C1EC" />
+                  <stop offset="1" stopColor="#A3B1FF" />
                 </linearGradient>
                 <linearGradient
                   id="paint3_linear_886_30825"
@@ -225,8 +227,8 @@ const Nav: React.FC = () => {
                   y2="6.79801"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0.00621719" stop-color="#B9C1EC" />
-                  <stop offset="1" stop-color="#A3B1FF" />
+                  <stop offset="0.00621719" stopColor="#B9C1EC" />
+                  <stop offset="1" stopColor="#A3B1FF" />
                 </linearGradient>
               </defs>
             </svg>

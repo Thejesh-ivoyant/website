@@ -1,5 +1,6 @@
 // Sidebar.tsx
 import React, { useEffect, useState } from "react";
+import { strapiUrl } from "~/utils/urls";
 
 
 
@@ -24,13 +25,13 @@ interface SectionData {
 }
 
 const Technology = () => {
-  const SECTION8_API_URL = "http://localhost:1337/api/Section8s?populate=%2A";
+  const SECTION8_API_URL = `${strapiUrl}/api/section8s?populate=%2A`
 
   // const apiUrl = process.env.REACT_APP_STRAPI_URL || 'http://localhost:1337'
   // const strapi = new Strapi(apiUrl);
 
 
-  const strapiUrl = "http://localhost:1337";
+
 
   const [TechnologyExpertiseLogos, setTechnologyExpertiseLogos] = useState<
     LogoData[]

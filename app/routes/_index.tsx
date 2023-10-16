@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from "react";
 
-import AboutCardContainer from "../components/section-2/about-card-container";
+import AboutCardContainer from "../components/Homepage/section-2/about-card-container";
 import Sidebar from "~/common-components/sidebar";
 import Nav from "~/common-components/nav";
-import Section4 from "~/components/section-4/clients";
-import Section6 from "~/components/section-6/partners";
+import Section4 from "~/components/Homepage/section-4/clients";
+import Section6 from "~/components/Homepage/section-6/partners";
 
-import Section5 from "~/components/section-5/industry";
+import Section5 from "~/components/Homepage/section-5/industry";
 
-import Services from "~/components/section-3/services";
-import Consultation from "~/components/section-7/consultation";
-import Technology from "~/components/section-8/technology";
+import Services from "~/components/Homepage/section-3/services";
+import Consultation from "~/components/Homepage/section-7/consultation";
+import Technology from "~/components/Homepage/section-8/technology";
 import { LoaderFunction } from "@remix-run/node";
-import BlogsContainer from "~/components/section-10/blog-container";
-import Testimonials from "~/components/section-9/testimonials";
-import ContactUs from "~/components/contact-us/contactUs";
-import Why_Choose_Us from "~/components/section-11/why-choose-us";
-import Faq from "~/components/section-12/faq";
-import Footer from "~/components/footer";
-import Hero from "~/components/section-1/hero";
+import BlogsContainer from "~/components/Homepage/section-10/blog-container";
+import Testimonials from "~/components/Homepage/section-9/testimonials";
+import ContactUs from "~/components/Homepage/contact-us/contactUs";
+import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
+import Faq from "~/components/Homepage/section-12/faq";
+import Footer from "~/common-components/footer";
+import Hero from "~/components/Homepage/section-1/hero";
 
 // The URL of the API endpoint
 

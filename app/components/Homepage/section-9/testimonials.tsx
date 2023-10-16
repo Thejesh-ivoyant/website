@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { strapiUrl } from "~/utils/urls";
 interface Testimonial {
   title: string;
   subtitle: string;
@@ -18,7 +18,7 @@ interface TestimonialData {
 }
 
 const Testimonials = () => {
-  const SECTION9_API_URL = "http://localhost:1337/api/Section9s?populate=%2A";
+  const SECTION9_API_URL = `${strapiUrl}/api/section9s?populate=%2A`
 
 
   const [testimonialList, setTestimonialList] = useState<Testimonial[]>([]);
@@ -45,7 +45,7 @@ const Testimonials = () => {
     if (nextIndex < testimonialList.length) {
       setCurrentTestimonialIndex(nextIndex);
     } else {
-      alert("end of testimonial")
+      setCurrentTestimonialIndex(0)
       // Handle case where there are no more testimonials
     }
   };
@@ -56,7 +56,7 @@ const Testimonials = () => {
     if (nextIndex >= 0) {
       setCurrentTestimonialIndex(nextIndex);
     } else {
-      alert("end of testimonial 0")
+      setCurrentTestimonialIndex(testimonialList.length-1)
     }
   };
 
