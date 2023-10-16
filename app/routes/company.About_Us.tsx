@@ -1,14 +1,14 @@
 import { Link } from "@remix-run/react";
 import React, { useEffect, useState } from "react";
 import DescriptionCard from "~/components/about-us/description-card";
-import ContactUs from "~/components/contact-us/contactUs";
-import Footer from "~/components/footer";
-import BlogsContainer from "~/components/section-10/blog-container";
-import Why_Choose_Us from "~/components/section-11/why-choose-us";
-import AboutCardContainer from "~/components/section-2/about-card-container";
-import Section4 from "~/components/section-4/clients";
-import Section6 from "~/components/section-6/partners";
-import Testimonials from "~/components/section-9/testimonials";
+import ContactUs from "~/components/Homepage/contact-us/contactUs";
+import Footer from "~/common-components/footer";
+import BlogsContainer from "~/components/Homepage/section-10/blog-container";
+import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
+import AboutCardContainer from "~/components/Homepage/section-2/about-card-container";
+import Section4 from "~/components/Homepage/section-4/clients";
+import Section6 from "~/components/Homepage/section-6/partners";
+import Testimonials from "~/components/Homepage/section-9/testimonials";
 import { strapiUrl } from "~/utils/urls";
 // The URL of the API endpoint
 const ABOUTUS_API_URL= `${strapiUrl}/api/about-uses?populate=%2A`
