@@ -109,7 +109,9 @@ const Nav: React.FC = () => {
                     <path d="M7.25 13C7.66421 13 8 12.6642 8 12.25C8 11.8358 7.66421 11.5 7.25 11.5C6.83579 11.5 6.5 11.8358 6.5 12.25C6.5 12.6642 6.83579 13 7.25 13Z" fill="white" fill-opacity="0.85"/>
                     <path d="M10.5 15H4C3.73488 14.9997 3.4807 14.8942 3.29323 14.7068C3.10576 14.5193 3.0003 14.2651 3 14V2C3.0003 1.73488 3.10576 1.4807 3.29323 1.29323C3.4807 1.10576 3.73488 1.0003 4 1H10.5V2H4V14H10.5V10H11.5V14C11.4997 14.2651 11.3942 14.5193 11.2068 14.7068C11.0193 14.8942 10.7651 14.9997 10.5 15Z" fill="white" fill-opacity="0.85"/>
                   </svg>
-                  <Link to="#">Mobile development</Link>
+                  <Link to={"/services/mobiledev"} >
+            <a>Mobile Development</a>
+          </Link>
                 </li>
                 <li className=" whitespace-nowrap p-2 flex flex-row gap-1 items-center hover:border-b-[1px] border-indigo-400 w-fit">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
