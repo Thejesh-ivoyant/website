@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { strapiUrl } from "~/utils/urls";
-
- const SECTION1_API_URL= `${strapiUrl}/api/section1s?populate=%2A`
-
+import { scrollTo } from "~/root";
+ const SECTION1_API_URL= `${strapiUrl}/api/section1s?populate=%2A`;
+ 
 const Hero = () => {
   const [section1Data, setSection1Data] = useState({
     HomeVideo: '',
@@ -10,7 +10,7 @@ const Hero = () => {
     HomeDescription: '',
     HomeText: ''
   });
-
+  
   useEffect(() => {
     fetch(SECTION1_API_URL)
       .then((response) => response.json())
@@ -67,7 +67,7 @@ setC(0);
         <p className="hero-subtitle flex">{HomeText}</p>
         <hr className="hero-gradient-top flex"></hr>
         <p className="hero-description">{HomeDescription}</p>
-        <button className="btn hero-btn">Let's Talk</button>
+        <button className="btn hero-btn" onClick={() => scrollTo("contact-us")}>Let's Talk</button>
       </div>
       {c===0 && (<div className="social-media-container" >
         
