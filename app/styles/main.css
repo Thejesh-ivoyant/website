@@ -464,13 +464,15 @@ line-height: 1.75rem; /* 175% */
   position: fixed;
   padding: 0.4rem;
   top: 60%;
-
   right: 0;
   transform: translate(0, -50%);
   z-index: 12;
   cursor: pointer;
 }
-
+/* Expanded state for the chat container */
+.social-media-container.open {
+  height: 200px; /* Set the expanded height for the container */
+}
 .social-media-item {
  padding-bottom: 0.5rem;
  cursor: pointer;
@@ -491,6 +493,77 @@ justify-content: center;
 align-items: flex-start;
 flex: 1 0 0;
 align-self: stretch;
+}
+
+.side-nav {
+ /* Adjust this value based on your requirement */
+ position: fixed;
+ 
+  top: 60%;
+  left: 0;
+  width:120px;
+  transform: translate(0, -50%);
+  z-index: 12;
+  cursor: pointer;
+}
+
+.side-nav .line {
+  /* ... */
+  padding-bottom: 0.2rem;
+  margin-bottom: 1rem;
+width: 60%;
+cursor: pointer;
+border-bottom-width: 2px;
+border-style: solid;
+border-image: linear-gradient(96deg, #8275CF 0.58%, #6760B7 93.87%);
+border-image-slice: 1;
+}
+
+.side-nav .line:hover {
+  /* ... */
+  border-bottom-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(96deg, #8275CF 0.58%, #6760B7 93.87%);
+  border-image-slice: 1;
+  width: 100%;
+  cursor: pointer;
+
+}
+
+.side-nav .line p {
+  /* ... */ visibility: hidden; 
+  
+  color: var(--gray-3, #F5F5F5);
+font-family: Poppins;
+font-size: 11px;
+font-style: italic;
+font-weight: 600;
+line-height: normal;
+letter-spacing: 0.33px;
+padding-left: 0.3rem;
+}
+
+.side-nav .line:hover p {
+  /* ... */ visibility: visible;
+}
+
+.navigate{
+  padding-bottom: 0.2rem;
+  margin-bottom: 1rem;
+  color: var(--gray-3, #F5F5F5);
+  font-family: Poppins;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.33px;
+  width: 100%;
+cursor: pointer;
+padding-left: 0.3rem;
+border-bottom-width: 2px;
+border-style: solid;
+border-image: linear-gradient(96deg, #8275CF 0.58%, #6760B7 93.87%);
+border-image-slice: 1;
 }
 
 /* Hover styles */

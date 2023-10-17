@@ -87,7 +87,7 @@ setC(0);
 
         </div>
     </div>)}
-      {c===1 && (<div className="social-media-container" >
+      {c===1 && (<div className={`social-media-container ${c === 1 ? 'open' : ''}`}>
         <img className="social-media-item" src="../assets/Facebook.png"  />
         <img className="social-media-item" src="../assets/linkedin.svg"  />
         <div className="chats-ellipse-container social-media-item" >
@@ -117,8 +117,18 @@ setC(0);
           />
 
         </div>
+        
     </div>
       )}
+      <div className="side-nav">
+         <p className='navigate'> Navigate to</p>
+          <div className="line"><p>Contact Us</p> </div>
+          <div className="line"><p>Testimonials</p></div>
+          <div className="line"><p>About Us</p></div>
+          <div className="line"><p>Services</p></div>
+          <div className="line"><p>Industries</p></div>
+
+        </div>
     </div>
   );
 };
