@@ -9,7 +9,7 @@ export let action: ActionFunction = async({request}) =>{
 }
 const ContactUs = ()=>
 {
-    const CONTACT_US = "http://localhost:1337/api/contact-uses?populate=%2A";
+    const CONTACT_US = `${strapiUrl}/api/contact-uses?populate=%2A`
     const [imageUrl, setImageUrl] = useState(""); // Define the state here
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const ContactUs = ()=>
         setToggleState(index)
     }
     return (
-        <section className="w-full h-[90vh] bg-cover bg-center flex flex-row font-oxygen">
+        <section id="contact-us" className="w-full h-[90vh] bg-cover bg-center flex flex-row font-oxygen">
             <img src= {strapiUrl + imageUrl} className="h-full w-2/5 object-cover object-left"></img>
             <div className="w-full h-full dark-gradient flex flex-col text-center  p-10 ">
                 <div className="h-fit w-full border-b-[0.2rem] border-b-violet-400 flex gap-8  text-5xl justify-start">
