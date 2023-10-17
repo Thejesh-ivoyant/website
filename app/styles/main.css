@@ -1,5 +1,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  scroll-behaviour: smooth;
+}
 ::-webkit-scrollbar {
     width: 0em;
   }
@@ -415,6 +420,7 @@ line-height: 1.75rem; /* 175% */
   position: relative;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .ellipse-image {
@@ -422,12 +428,14 @@ line-height: 1.75rem; /* 175% */
   height: 2.5rem;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .chats-ellipse-container {
   position: relative;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .chats-ellipse-image {
@@ -435,6 +443,7 @@ line-height: 1.75rem; /* 175% */
   height: 1.5rem;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .add-image {
@@ -444,6 +453,7 @@ line-height: 1.75rem; /* 175% */
   transform: translate(-50%, -50%);
   width: 40px; /* Adjust the size of the add image */
   height: 40px;
+  cursor: pointer;
 }
 .minus-image{
   position: absolute;
@@ -452,20 +462,25 @@ line-height: 1.75rem; /* 175% */
   transform: translate(-50%, -50%);
   width: 20px; /* Adjust the size of the add image */
   height: 40px;
+  cursor: pointer;
 }
 
 .social-media-container {
   position: fixed;
   padding: 0.4rem;
   top: 60%;
-
   right: 0;
   transform: translate(0, -50%);
   z-index: 12;
+  cursor: pointer;
 }
-
+/* Expanded state for the chat container */
+.social-media-container.open {
+  height: 200px; /* Set the expanded height for the container */
+}
 .social-media-item {
  padding-bottom: 0.5rem;
+ cursor: pointer;
 }
 
 .faq-card{
@@ -483,6 +498,77 @@ justify-content: center;
 align-items: flex-start;
 flex: 1 0 0;
 align-self: stretch;
+}
+
+.side-nav {
+ /* Adjust this value based on your requirement */
+ position: fixed;
+ 
+  top: 60%;
+  left: 0;
+  width:120px;
+  transform: translate(0, -50%);
+  z-index: 12;
+  cursor: pointer;
+}
+
+.side-nav .line {
+  /* ... */
+  padding-bottom: 0.2rem;
+  margin-bottom: 1rem;
+width: 60%;
+cursor: pointer;
+border-bottom-width: 2px;
+border-style: solid;
+border-image: linear-gradient(96deg, #8275CF 0.58%, #6760B7 93.87%);
+border-image-slice: 1;
+}
+
+.side-nav .line:hover {
+  /* ... */
+  border-bottom-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(96deg, #8275CF 0.58%, #6760B7 93.87%);
+  border-image-slice: 1;
+  width: 100%;
+  cursor: pointer;
+
+}
+
+.side-nav .line p {
+  /* ... */ visibility: hidden; 
+  
+  color: var(--gray-3, #F5F5F5);
+font-family: Poppins;
+font-size: 11px;
+font-style: italic;
+font-weight: 600;
+line-height: normal;
+letter-spacing: 0.33px;
+padding-left: 0.3rem;
+}
+
+.side-nav .line:hover p {
+  /* ... */ visibility: visible;
+}
+
+.navigate{
+  padding-bottom: 0.2rem;
+  margin-bottom: 1rem;
+  color: var(--gray-3, #F5F5F5);
+  font-family: Poppins;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.33px;
+  width: 100%;
+cursor: pointer;
+padding-left: 0.3rem;
+border-bottom-width: 2px;
+border-style: solid;
+border-image: linear-gradient(96deg, #8275CF 0.58%, #6760B7 93.87%);
+border-image-slice: 1;
 }
 
 /* Hover styles */
@@ -506,10 +592,12 @@ align-self: stretch;
     background: linear-gradient(123deg, rgba(148.88, 159.27, 252.74, 0.17) 0%, rgba(243.29, 244.35, 253.96, 0.60) 100%, rgba(90.30, 104.33, 230.56, 0.60) 100%);
     color: white;
   }
+
   .second-div{
     display: flex;
     flex-direction: columna;
   }
+  
   .clearfix::after {
     content: "";
     display: table;

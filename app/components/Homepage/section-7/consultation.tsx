@@ -14,7 +14,7 @@ const Consultation = () => {
       .then(({ data }) => {
         const { ContactUsDescription, section7bg } = data[0].attributes;
         setTagline(ContactUsDescription);
-        debugger
+     
         setImageUrl(strapiUrl + section7bg.data[0].attributes.url);
         console.log("url is" + strapiUrl + section7bg.data[0].attributes.url);
       })

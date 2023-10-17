@@ -1,66 +1,89 @@
 import { Link } from "@remix-run/react";
 import React, { useEffect, useState } from "react";
+import DescriptionCard from "~/components/about-us/description-card";
+import ContactUs from "~/components/Homepage/contact-us/contactUs";
 import Footer from "~/common-components/footer";
+import BlogsContainer from "~/components/Homepage/section-10/blog-container";
 import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
+import AboutCardContainer from "~/components/Homepage/section-2/about-card-container";
 import Section4 from "~/components/Homepage/section-4/clients";
+import Section6 from "~/components/Homepage/section-6/partners";
+import Testimonials from "~/components/Homepage/section-9/testimonials";
 import { strapiUrl } from "~/utils/urls";
 // The URL of the API endpoint
-const API_URL = `${strapiUrl}/api/section1s?populate=%2A`
-
-export const meta = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
-};
+const ABOUTUS_API_URL= `${strapiUrl}/api/about-uses?populate=%2A`
 
 const MobDev = () => {
-  // State to store the company name
-  const [companyName, setCompanyName] = useState("");
-  const [AboutUs, setServiceDescription] = useState("");
+  const [aboutData, setAboutData] = useState({
+    BackgroundImage: '',
+    AboutHeading: '',
+    AboutDescription: '',
+    DescriptionBackground: '',
+  });
 
   useEffect(() => {
-    // Fetch data from the API endpoint
-    fetch(API_URL)
+    fetch(ABOUTUS_API_URL)
       .then((response) => response.json())
-      .then((data) => {
-        // Assuming data is in the expected format and HomeTitle holds the company name
-        const { HomeTitle, HomeText } = data.data[0].attributes;
-        setCompanyName(HomeTitle);
-        setServiceDescription(AboutUs);
+      .then((about_data) => {
+        const { AboutHeading,AboutDescription,BackgroundImage ,DescriptionBackground} = about_data.data[0].attributes;
+        setAboutData({
+          BackgroundImage: BackgroundImage.data[0].attributes.url,
+          AboutHeading,
+          AboutDescription,
+          DescriptionBackground: DescriptionBackground.data[0].attributes.url
+        });
       })
       .catch((error) => {
         console.error("Error fetching data from API:", error);
       });
   }, []);
 
-  // Hide the scroll bar for the entire page
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
+  const { BackgroundImage, AboutHeading, AboutDescription ,DescriptionBackground} = aboutData;
 
-    // Re-enable scroll when the component unmounts
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
+
 
   return (
-    <div style={{ backgroundColor: "#000000", padding: "0px", overflowX: "hidden" }}>
-      {/* Top Header Navbar */}
-      
+    <div>
+      <div className='video-content'>
+        <div className="nav-content">
+          <div className="hero-nav-left flex ">
+            <img src="../assets/nav-left.svg" alt="ivoyant-logo" />
+          </div>
+          <div className="hero-nav-right flex ">
+            <img src="../assets/nav-right.svg" alt="ivoyant-logo" />
+          </div>
+        </div>
+  <img src={`${strapiUrl}${BackgroundImage}`}/>
+      </div>
+      <div className="hero-container">
+        <p className="hero-title flex animated-text">
+          {"Company".split(' ').map((word, wordIndex) => (
+            <React.Fragment key={wordIndex}>
+              {word.split('').map((char, charIndex) => (
+                <span key={charIndex} className="animated-char">{char}</span>
+              ))}
+              <span>&nbsp;</span>
+            </React.Fragment>
+          ))}
+        </p>
 
-      <div style={{ position: "relative", width: "100%", height: "580px", overflow: "hidden"}}>
-      <video autoPlay muted loop playsInline id="myVideo" style={{ width: "100%", height: "100%", objectFit: "cover"}}>
-  <source src="./assets/video.mp4" type="video/mp4" />
-</video>
-</div>
-<Why_Choose_Us></Why_Choose_Us>
-<Footer/>
+        <hr className="hero-gradient-top flex"></hr>
+        <p className="hero-description">{AboutHeading}</p>
+        <button className="btn hero-btn">Let's Talk</button>
+      </div>
 
+      <DescriptionCard AboutDescription={AboutDescription} DescriptionBackground={DescriptionBackground} />
+
+      <BlogsContainer/>
+      <Section4/>
+      <Testimonials/>
+      <BlogsContainer/>
+      <ContactUs/>
+      <Footer/>
+ 
     </div>
-
-    
   );
 };
+
 
 export default MobDev;

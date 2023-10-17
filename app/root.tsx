@@ -28,7 +28,9 @@ export const links: LinksFunction = () => [
   {rel:"stylesheet", href:Sidebarstyle}
   // ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
-
+export function scrollTo(section: string) {
+  (document.getElementById(section)!).scrollIntoView({ behavior: "smooth" });
+}
 export default function App() {
  
   return (
