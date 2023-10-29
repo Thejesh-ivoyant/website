@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { strapiUrl } from "~/utils/urls";
 import { scrollTo } from "~/root";
- const SECTION1_API_URL= `${strapiUrl}/api/section1s?populate=%2A`;
+ const SECTION1_API_URL= `${strapiUrl}/api/s-mad-s1s?populate=%2A`;
  
 const Hero = () => {
   const [section1Data, setSection1Data] = useState({
-    HomeVideo: '',
-    HomeTitle: '',
-    HomeDescription: '',
-    HomeText: ''
+    HeroImage: '',
+    HeroTitle: '',
+    HeroDescription: '',
+
   });
   
   useEffect(() => {
     fetch(SECTION1_API_URL)
       .then((response) => response.json())
       .then((section1_data) => {
-        const { HomeTitle, HomeText, HomeDescription, HomeVideo } = section1_data.data[0].attributes;
+        const { HeroTitle, HeroDescription, HeroImage } = section1_data.data[0].attributes;
         setSection1Data({
-          HomeVideo: HomeVideo.data[0].attributes.url,
-          HomeTitle,
-          HomeText,
-          HomeDescription
+          HeroImage: HeroImage.data[0].attributes.url,
+          HeroTitle,
+          HeroDescription
         });
       })
       .catch((error) => {
@@ -28,7 +27,7 @@ const Hero = () => {
       });
   }, []);
 
-  const { HomeVideo, HomeTitle, HomeText, HomeDescription } = section1Data;
+  const { HeroImage, HeroTitle, HeroDescription } = section1Data;
   const [c, setC] = useState(0);
 
   const closeChats = () => {
@@ -44,11 +43,11 @@ setC(0);
     <div>
       <div className='video-content'>
      
-        <video muted loop playsInline src={`${strapiUrl}${HomeVideo}`} autoPlay width="100%" />
+       <img src={`${strapiUrl}${HeroImage}`} alt="video" width="100%"  />
       </div>
       <div className="hero-container">
         <p className="hero-title flex animated-text">
-          {HomeTitle.split(' ').map((word, wordIndex) => (
+          {HeroTitle.split(' ').map((word, wordIndex) => (
             <React.Fragment key={wordIndex}>
               {word.split('').map((char, charIndex) => (
                 <span key={charIndex} className="animated-char">{char}</span>
@@ -57,9 +56,9 @@ setC(0);
             </React.Fragment>
           ))}
         </p>
-        <p className="hero-subtitle flex">{HomeText}</p>
+    
         <hr className="hero-gradient-top flex"></hr>
-        <p className="hero-description">{HomeDescription}</p>
+        <p className="hero-description">{HeroDescription}</p>
         <button className="btn hero-btn" onClick={() => scrollTo("contact-us")}>Let's Talk</button>
       </div>
       {c===0 && (<div className="social-media-container" >
@@ -119,7 +118,7 @@ setC(0);
           <div className="line"><p>Testimonials</p></div>
           <div className="line"><p>About Us</p></div>
           <div className="line"><p>Services</p></div>
-          <div className="line"  onClick={() => scrollTo("industries")}><p>Industries</p></div>
+          <div className="line"><p>Industries</p></div>
 
         </div>
     </div>
