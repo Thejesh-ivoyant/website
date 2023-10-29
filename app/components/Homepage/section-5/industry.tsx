@@ -53,7 +53,7 @@ const Services = () => {
     setCurrentService(service);
   };
   return (
-    <div className="section-container">
+    <div id="industries" className="section-container">
       
       <section className="section-heading">
         <h2>Industry Expertise </h2>

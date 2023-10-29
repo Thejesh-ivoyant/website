@@ -17,20 +17,20 @@ interface DescriptionData {
 }
 
 const Why_Choose_Us = () => {
-  const SECTION11_API_URL = `${strapiUrl}/api/section11s?populate=%2A`
+  const SECTION11_API_URL = `${strapiUrl}/api/section11s?populate=%2A`;
 
   const [descriptionList, setDescriptionList] = useState<Description[]>([]);
-  const [Title, setTitle] = useState<string>("");
+  const [WhyChooseUs, setWhyChooseUs] = useState<string>("");
   useEffect(() => {
     fetch(SECTION11_API_URL)
       .then((response) => response.json())
       .then((data: DescriptionData) => {
-        const WhyChooseUs= data.data[0].attributes.WhyChooseUs;
-        setTitle(WhyChooseUs);
+        const WhyChooseUs = data.data[0].attributes.WhyChooseUs;
+        setWhyChooseUs(WhyChooseUs);
         const firstItem = data.data[0];
         if (firstItem) {
           const descriptionList = firstItem.attributes.DescriptionList;
-         debugger
+          debugger;
           setDescriptionList(descriptionList);
         }
       })
@@ -41,45 +41,48 @@ const Why_Choose_Us = () => {
 
   return (
     <div className="section-container">
-      <section className="section-heading">
-        <h2>Why Choose Us  </h2>
+      <section className="section-heading py-8 gradient-bottom">
+        <h2>Choose Confidence: Choose iVoyant </h2>
       </section>
-      
+
+      <div className="text-center text-violet-200 text-base font-normal font-poppins p-4 lg:mx-40">
+        {WhyChooseUs}
+          </div>
+
       {descriptionList.length > 0 && (
         <div>
-         
-            <section>
+          <section>
+            <div className="flex flex-col space-y-4 py-8 ">
+              {Array.from({
+                length: Math.ceil(descriptionList.length / 3),
+              }).map((_, row) => (
+                <div
+                  key={row}
+                  className="w-full gap-2 justify-evenly why-choose-us-Container"
+                >
+                  {descriptionList
+                    .slice(row * 3, (row + 1) * 3)
+                    .map((item, index) => (
+                      <div className=" flex flex-col Card-Container items-center justify-center">
+                        <div className="flex card-image">
+                          <img src="./assets/ClockCounterClockwise.svg" />
+                        </div>
+                        <div className="card-title flex   text-sm font-poppins font-normal">
+                          {item.title}
+                        </div>
 
-<div className="flex flex-col space-y-4 ">
-    {Array.from({ length: Math.ceil(descriptionList.length / 3) }).map((_, row) => (
-      <div key={row} className="flex flex-row w-full gap-2 justify-evenly   py-8">
-        {descriptionList.slice(row * 3, (row + 1) * 3).map((item, index) => (
-          <div className=" flex flex-col Card-Container ">
-          <div className="flex flex-row  gap-2 justify-start items-start ">
-            <div className="flex">
-            <img src="./assets/ClockCounterClockwise.svg"/>
+                        <span className="card-line h-6"></span>
+                        <div className="flex text-sm py-4 font-poppins font-normal card-description">
+                        <img src="./assets/ClockCounterClockwise.svg" />
+                        {item.description}
+
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              ))}
             </div>
-            <div className="card-title flex   text-sm font-poppins font-normal">
-            {item.title}
-            </div>
-
-          </div>
-
-           <span className="card-line h-6">
-            </span>
-          <div className="flex text-sm py-4 font-poppins font-normal card-description">
-           {item.description}
-          </div>
-      </div>
-        ))}
-      </div>
-    ))}
-  </div>
-
-
-           
-            </section>
-      
+          </section>
         </div>
       )}
     </div>
