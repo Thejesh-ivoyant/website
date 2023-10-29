@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Suspense } from "react";
 // Create a loading component for suspense fallback
+const ProjectPortfolio = React.lazy(() => import("~/components/S-MobileAppDev/section-3/project-portfolio"));
 const LoadingComponent = React.lazy(() => import("~/common-components/loading"));
 const ServiceCardContainer = React.lazy(() => import("../components/S-MobileAppDev/section-2/service-description-container"));
 const Sidebar = React.lazy(() => import("~/common-components/sidebar"));
@@ -29,6 +30,7 @@ const MobDev = () => {
       </div>
       <Suspense fallback={<LoadingComponent />}>
         <ServiceCardContainer />
+        <ProjectPortfolio/>
         <Services />
         <Section4 />
         <Section5 />
