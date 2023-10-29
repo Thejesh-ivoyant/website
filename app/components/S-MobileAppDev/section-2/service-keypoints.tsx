@@ -1,26 +1,23 @@
 // src/components/Card.js
+import { Link } from "@remix-run/react";
 import React, { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 
-const   ServiceKeypoints = () => {
-  const SECTION2_API_URL = `${strapiUrl}/api/section2s?populate=%2A`
+const ServiceKeypoints = () => {
+  const SECTION2_API_URL = `${strapiUrl}/api/s-mad-s2s?populate=%2A`
 
-  const [clientCount, setClientCount] = useState("");
-  const [experienceCount, setExperienceCount] = useState("");
-  const [projectsCount, setProjectsCount] = useState("");
-  const [inHouseExpertsCount, setInHouseExpertsCount] = useState("");
+  const [descriptionTitle, setDescriptionTitle] = useState("");
+  const [description, setDescription] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(SECTION2_API_URL);
         const { data } = await response.json();
-        const { ClientCount, InHouseExpertsCount, ProjectsCount, ExperienceCount } = data[0].attributes;
+        const { DescriptionTitle, Description } = data[0].attributes;
 
-        setClientCount(ClientCount);
-        setInHouseExpertsCount(InHouseExpertsCount);
-        setProjectsCount(ProjectsCount);
-        setExperienceCount(ExperienceCount);
+        setDescriptionTitle(DescriptionTitle);
+        setDescription(Description);
       } catch (error) {
         console.error("Error fetching data from API:", error);
       }
@@ -30,25 +27,47 @@ const   ServiceKeypoints = () => {
   }, []);
 
   return (
-    <div className="lg:w-1/2 relative w-full CardDark opacity-95 flex flex-col justify-center items-center">
-      {/* The moving dot animation 👻  */}
-      <div className='absolute  left-20 w-32 h-32 bg-slate-500 rounded-full blur-3xl -z-20' id='moving-circle'></div>
-      <div className='flex flex-1 w-full max-h-[300px] justify-center'>
-          <div className='aspect-square w-fit h-[300px] flex items-center px-12 grape-shadow'>
-            <div className='ml-auto flex gap-4 items-center '>
-              <span className='lg:text-6xl text-4xl font-bold'>{clientCount}</span>
-              <span className=' font-thin w-24'>Delighted Clients</span>
-            </div>
+    <div className="flex lg:w-1/2 bg-white w-full md:px-32 xl:px-28 lg:px-16 px-16 text-black font-[500px] justify-center items-center py-8">
+      <div className="flex flex-col gap- lg:gap-10 w-full h-fit">
+      <div className="key-points-container ">
+          <div className="key-points-icon">
+            hh
           </div>
-          <div className=' aspect-square  w-fit h-[300px] flex  gap-6 items-center border-container-top px-12 grape-shadow'>
-            <div className='mr-auto flex gap-4 items-center'>
-              <span className='lg:text-6xl font-bold text-4xl'>  {experienceCount} </span>
-              <span className=' font-thin w-24'>Years of Experience</span>
-            </div>
+          <div className="key-points-text">
+          test 1
           </div>
       </div>
-      
-      
+
+      <div className="key-points-container ">
+          <div className="key-points-icon">
+            hh
+          </div>
+          <div className="key-points-text">
+          test 2
+          </div>
+      </div>
+
+      <div className="key-points-container ">
+          <div className="key-points-icon">
+            hh
+          </div>
+          <div className="key-points-text">
+          test 3
+          </div>
+      </div>
+
+      <div className="key-points-container ">
+        <div className="key-points-icon">
+          hh
+        </div>
+        <div className="key-points-text">
+        test 4
+        </div>
+      </div>
+   
+     
+    
+      </div>
     </div>
   );
 };

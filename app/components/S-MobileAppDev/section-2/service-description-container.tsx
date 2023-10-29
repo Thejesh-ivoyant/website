@@ -3,7 +3,7 @@ import Description from './service-description';
 import ServiceKeypoints from './service-keypoints';
 
 
-const AboutCardContainer = () => {
+const ServiceCardContainer = () => {
   return (
     <div className = "flex flex-col gap-28 w-full lg:flex-row">
       <Description />
@@ -12,5 +12,5 @@ const AboutCardContainer = () => {
   );
 };
 
-export default AboutCardContainer;
+export default  ServiceCardContainer;
 
