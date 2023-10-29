@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Suspense } from "react";
-import LoadingComponent from "~/common-components/loading"; // Create a loading component for suspense fallback
+import LoadingComponent from "~/common-components/loading";
+import { strapiUrl } from "~/utils/urls";
 
 const AboutCardContainer = React.lazy(() => import("../components/Homepage/section-2/about-card-container"));
 const Sidebar = React.lazy(() => import("~/common-components/sidebar"));
@@ -17,7 +18,22 @@ const Why_Choose_Us = React.lazy(() => import("~/components/Homepage/section-11/
 const Faq = React.lazy(() => import("~/components/Homepage/section-12/faq"));
 const Footer = React.lazy(() => import("~/common-components/footer"));
 const Hero = React.lazy(() => import("~/components/Homepage/section-1/hero"));
+export async function loader() {
+  try {
+    const response = await fetch(`${strapiUrl}/api/contact-uses?populate=%2A`);
+    const data = await response.json();
+    const imageUrl = data.data[0]?.attributes.bgImage.data[0]?.attributes.url || '';
 
+    return {
+      contactUsImage: imageUrl,
+    };
+  } catch (error) {
+    console.error("Error fetching data from API:", error);
+    return {
+      contactUsImage: '', // Handle the error gracefully, possibly with a default value.
+    };
+  }
+}
 const App = () => {
   return (
     <div style={{ padding: "0px", overflowX: "hidden" }}>
