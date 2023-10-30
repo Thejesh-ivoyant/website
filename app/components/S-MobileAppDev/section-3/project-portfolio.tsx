@@ -3,24 +3,23 @@ import React, { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 
 const ProjectPortfolio = () => {
-  const SECTION2_API_URL = `${strapiUrl}/api/section2s?populate=%2A`
+  const SECTION2_API_URL = `${strapiUrl}/api/s-mad-s3s?populate=%2A`
 
-  const [clientCount, setClientCount] = useState("");
-  const [experienceCount, setExperienceCount] = useState("");
-  const [projectsCount, setProjectsCount] = useState("");
-  const [inHouseExpertsCount, setInHouseExpertsCount] = useState("");
-
+  const [countryCount, setCountryCount] = useState("");
+  const [projectDeliveredCount, setProjectDeliveredCount] = useState("");
+  const [totalProjectCount, setTotalProjectCount] = useState("");
+ 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(SECTION2_API_URL);
         const { data } = await response.json();
-        const { ClientCount, InHouseExpertsCount, ProjectsCount, ExperienceCount } = data[0].attributes;
+        const { CountryCount, ProjectDeliveredCount, TotalProjectCount } = data[0].attributes;
 
-        setClientCount(ClientCount);
-        setInHouseExpertsCount(InHouseExpertsCount);
-        setProjectsCount(ProjectsCount);
-        setExperienceCount(ExperienceCount);
+        setCountryCount(CountryCount);
+  
+        setProjectDeliveredCount(ProjectDeliveredCount);
+        setTotalProjectCount(TotalProjectCount);
       } catch (error) {
         console.error("Error fetching data from API:", error);
       }
@@ -36,19 +35,19 @@ const ProjectPortfolio = () => {
       <div className='flex flex-1 w-full max-h-[300px] justify-center'>
           <div className='aspect-square w-fit h-[300px] flex items-center px-12 grape-shadow'>
             <div className='ml-auto flex gap-4 items-center '>
-              <span className='lg:text-6xl text-4xl font-bold'>{clientCount}</span>
+              <span className='lg:text-6xl text-4xl font-bold'>{countryCount}</span>
               <span className=' font-thin w-24'>FDelighted Clients</span>
             </div>
           </div>
           <div className=' aspect-square  w-fit h-[300px] flex  gap-6 items-center border-container-top px-12 grape-shadow'>
             <div className='mr-auto flex gap-4 items-center'>
-              <span className='lg:text-6xl font-bold text-4xl'>  {experienceCount} </span>
+              <span className='lg:text-6xl font-bold text-4xl'>  {projectDeliveredCount} </span>
               <span className=' font-thin w-24'>sYears of Experience</span>
             </div>
           </div>
           <div className=' aspect-square  w-fit h-[300px] flex  gap-6 items-center border-container-top px-12 grape-shadow'>
             <div className='mr-auto flex gap-4 items-center'>
-              <span className='lg:text-6xl font-bold text-4xl'>  {experienceCount} </span>
+              <span className='lg:text-6xl font-bold text-4xl'>  {totalProjectCount} </span>
               <span className=' font-thin w-24'>third of Experience</span>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, Suspense } from "react";
+import IndustryFocus from "~/components/S-MobileAppDev/section-4/industry-focus";
 // Create a loading component for suspense fallback
 const ProjectPortfolio = React.lazy(() => import("~/components/S-MobileAppDev/section-3/project-portfolio"));
 const LoadingComponent = React.lazy(() => import("~/common-components/loading"));
@@ -32,7 +33,8 @@ const MobDev = () => {
         <ServiceCardContainer />
         <ProjectPortfolio/>
         <Services />
-        <Section4 />
+   <IndustryFocus />
+   
         <Section5 />
         <Section6 />
         <Consultation />
