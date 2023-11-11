@@ -36,7 +36,7 @@ const Faq = () => {
 
       <section className="px-4 py-8 gradient-top">
         <div className="flex flex-col space-y-4 py-4 relative">
-        <img src="./assets/Ornament.png" className="absolute top-4 left-4"></img>
+        <img src="../assets/Ornament.png" className="absolute top-4 left-4"></img>
           {faqList &&
             Object.keys(faqList).map((faq) => (
               <div className="flex flex-col px-28 relative" key={faq}>
@@ -54,20 +54,20 @@ const Faq = () => {
                       <div className="ellipse-container">
 
                         <img
-                          src="./assets/Ellipse.svg"
+                          src="../assets/Ellipse.svg"
                           alt="Ellipse"
                           className="ellipse-image"
                         />
 
                        {((selectedFaq === faq) && (faqAddState[faq]!=null))  ?  (
                             <img
-                            src="./assets/Minus.svg"
+                            src="../assets/Minus.svg"
                             alt="Minus"
                             className="minus-image"
                           />
                         ) : (
                           <img
-                            src="./assets/Add.svg"
+                            src="../assets/Add.svg"
                             alt="Add"
                             className="add-image"
                           />

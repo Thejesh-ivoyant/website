@@ -287,7 +287,34 @@ background: var(--LinearCard, linear-gradient(180deg, #360E81 0%, #20084D 100%))
   background: linear-gradient(0deg, rgba(27, 7, 64, 0.80) 0%, rgba(27, 7, 64, 0.80) 100%);
   z-index: 1;/* Adjust the z-index to place the gradient above the video */
 }
+.industry-focus-main{
+  background: #FFF;
+padding-right: 1rem;
+padding-left: 1rem;
+margin-right: 6rem;
+margin-left: 6rem;
 
+/* boxShadow */
+box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02), 0px 1px 6px -1px rgba(0, 0, 0, 0.02), 0px 1px 2px 0px rgba(0, 0, 0, 0.03);
+}
+.industry-focus-text{
+  color: var(--geekblue-2, #D6E4FF);
+font-family: Montserrat;
+font-size: 13px;
+font-style: italic;
+font-weight: 500;
+line-height: normal;
+}
+
+.industry-focus-text-container{
+  background: #170D26;
+  width: 83px;
+
+padding: 4px;
+
+
+gap: 10px;
+}
 /* Adjust the z-index of the video to make it below the gradient */
 .video video {
   position: relative; /* Set position to relative to establish a new stacking context */
