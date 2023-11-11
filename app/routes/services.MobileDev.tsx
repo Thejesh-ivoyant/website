@@ -32,9 +32,9 @@ const MobDev = () => {
       <Suspense fallback={<LoadingComponent />}>
         <ServiceCardContainer />
         <ProjectPortfolio/>
-        <Services />
+      
    <IndustryFocus />
-   
+
         <Section5 />
         <Section6 />
         <Consultation />
