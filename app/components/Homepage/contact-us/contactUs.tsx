@@ -1,7 +1,8 @@
-import { Form } from "@remix-run/react";
+import { Form, useRouteLoaderData } from "@remix-run/react";
 import { FormData, ActionFunction} from "@remix-run/node";
 import { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
+import { loader } from "~/routes/_index";
 
 export let action: ActionFunction = async({request}) =>{
     let formdata =  await request.formData();
@@ -9,29 +10,15 @@ export let action: ActionFunction = async({request}) =>{
 }
 const ContactUs = ()=>
 {
+    const loaderData = useRouteLoaderData<typeof loader>("routes/_index");
     const CONTACT_US = `${strapiUrl}/api/contact-uses?populate=%2A`
-    const [imageUrl, setImageUrl] = useState(""); // Define the state here
-
-    useEffect(() => {
-        fetch(CONTACT_US)
-          .then((response) => response.json())
-          .then((data) => {
-            const imageUrl =
-              data.data[0].attributes.bgImage.data[0].attributes.url;
-            setImageUrl(imageUrl);
-          })
-          .catch((error) => {
-            console.error("Error fetching data from API:", error);
-          });
-      }, []);
-      
     const [toggleState, setToggleState] = useState(1);
     const toggleTab = (index:number) => {
         setToggleState(index)
     }
     return (
         <section id="contact-us" className="w-full h-[90vh] bg-cover bg-center flex flex-row font-oxygen">
-            <img src= {strapiUrl + imageUrl} className="h-full w-2/5 object-cover object-left"></img>
+            <img src= {strapiUrl + loaderData?.contactUsImage} className="h-full w-2/5 object-cover object-left"></img>
             <div className="w-full h-full dark-gradient flex flex-col text-center  p-10 ">
                 <div className="h-fit w-full border-b-[0.2rem] border-b-violet-400 flex gap-8  text-5xl justify-start">
                     <div className={toggleState === 1? 'tab active-tab font-bold' : 'tab font-thin'}
