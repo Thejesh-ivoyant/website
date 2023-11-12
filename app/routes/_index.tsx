@@ -23,7 +23,7 @@ export async function loader() {
     const response = await fetch(`${strapiUrl}/api/contact-uses?populate=%2A`);
     const data = await response.json();
     const imageUrl = data.data[0]?.attributes.bgImage.data[0]?.attributes.url || '';
-console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\COMTACT US"+ imageUrl+"is the hero datattttttttt");
+
     return {
       contactUsImage: imageUrl,
     };

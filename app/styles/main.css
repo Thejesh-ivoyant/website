@@ -60,7 +60,6 @@
   display: none;
 }
 
-/* Base styles for the hero container */
 .hero-container {
 justify-content: center;
   position: absolute;
@@ -1175,3 +1174,25 @@ border-bottom-style: solid;
 .animated-text span:nth-child(11) { animation-delay: 0.11s; }
 .animated-text span:nth-child(12) { animation-delay: 0.12s; }
 /* Add more nth-child declarations for each span */
+.hero{
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), lightgray 50% / cover no-repeat;
+}
+.top-gradient {
+  border-image: linear-gradient(to right,
+                  transparent 10%, 
+                  #FFF 40%,
+                  #FFF 60%, 
+                  transparent 90% 
+                );
+  border-image-slice: 1; 
+  border-image-width: 1px 0 0 0;
+  border-style: solid;
+}
+.inline-card{
+  border-radius: 9.048px;
+  background: var(--CardDark, linear-gradient(180deg, #360E81 0%, #20084D 100%));
+}
