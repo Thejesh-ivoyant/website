@@ -40,7 +40,7 @@ const IndustryFocus = () => {
   };
   return (
     <div className="flex relative flex-col w-full min-h-full lg:mx-0 mb-16 lg:h-full bg-white">
-      <img src="../assets/Ornament.png" className="absolute top-16 left-4"></img>
+      <img src="../assets/Ellipse61.svg" className="absolute top-16 left-4"></img>
       <img src="../assets/Ornament.png" className="absolute top-32 right-4"></img>
       <div className="text-black text-4xl mb-10 w-full justify-center flex py-8 h-fit gradient-bottom">
         <span className="h-fit whitespace-nowrap font-oxygen font-bold">

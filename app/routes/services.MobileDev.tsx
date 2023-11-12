@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Suspense } from "react";
 import IndustryFocus from "~/components/S-MobileAppDev/section-4/industry-focus";
+import Phases from "~/components/S-MobileAppDev/section-5/phases";
 // Create a loading component for suspense fallback
 const ProjectPortfolio = React.lazy(() => import("~/components/S-MobileAppDev/section-3/project-portfolio"));
 const LoadingComponent = React.lazy(() => import("~/common-components/loading"));
@@ -47,7 +48,7 @@ const MobDev = () => {
       {/* Video Background */}
       <div className="video">
         <Suspense fallback={<LoadingComponent />}>
-          <Hero />
+          <Hero/>
         </Suspense>
       </div>
       <Suspense fallback={<LoadingComponent />}>
@@ -56,7 +57,7 @@ const MobDev = () => {
       
    <IndustryFocus />
 
-        <Section5 />
+        <Phases />
         <BlogsContainer />
         <Technology />
         <Consultation />

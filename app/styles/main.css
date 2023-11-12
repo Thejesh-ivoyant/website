@@ -736,7 +736,36 @@ font-weight: 600;
 line-height: 3.75rem; /* 166.667% */
 
 }
+.phases-container{
+  background: #1B0740;
+    color: var(--heading-gray, #E9E9EC);
+    font-family: Montserrat;
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.75rem; /* 166.667% */
+    
+    
+}
+.phases-title{
+  color: #EEEBFF;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 0.32px;
+}
 
+
+.phases-desc{
+  color: #FFF;
+font-family: Poppins;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
 .section h2{
 
 
