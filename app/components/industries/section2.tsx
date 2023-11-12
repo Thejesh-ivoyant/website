@@ -39,7 +39,7 @@ const Section2 = () => {
           veniam, nemo culpa doloribus accusamus repudiandae? Ducimus itaque
           saepe quisquam.
         </section>
-        <div className=" flex flex-row items-center inline-card w-fit -ml-32">
+        <div className=" flex flex-row items-center inline-card w-fit -ml-32 mb-10">
           <div className="ml-auto flex gap-4 items-center text-white p-10">
             <span className="lg:text-3xl font-bold">50</span>
             <span className=" font-thin text-xs w-24">Delighted Clients</span>
