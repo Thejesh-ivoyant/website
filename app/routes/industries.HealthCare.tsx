@@ -1,4 +1,4 @@
-import { useLoaderData } from "@remix-run/react";
+import { Outlet, useLoaderData } from "@remix-run/react";
 import Hero from "~/common-components/Hero";
 import { strapiUrl } from "~/utils/urls";
 
@@ -15,19 +15,22 @@ export const meta: MetaFunction = () => {
     },
   ];
 };
-export async function indexLoader() {
-  const response = await fetch( strapiUrl + "/api/healthcare/?populate=%2A" );
-  const jsonres = await response.json();
+export async function loader() {
+  const res = await fetch( strapiUrl+"/api/healthcare/?populate=%2A")
+  let res2 = await res.json();
   return {
-    jsonres,
+    heroBgImageURl : res2.data.attributes.heroBgImage.data.attributes.formats.medium.url,
+    heroTitle: res2.data.attributes.heroTitle
   };
 }
+
 export default function Index() {
-  const data = useLoaderData<typeof indexLoader>();
+  const data = useLoaderData<typeof loader>();
 
   return (
     <>
       <Hero />
+      <Outlet />
     </>
   );
 }
