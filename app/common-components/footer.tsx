@@ -4,14 +4,14 @@ const Footer = ()=>
         <footer className="w-full  bg-haiti py-16 px-32 font-montserrat text-white">
             <section className="flex flex-row w-full gradient-bottom p-6">
                 <div className="flex-1 object-contain items-center justify-center flex">
-                    <img src="./assets/ivoyant-light.svg" alt="ivoyant-logo" ></img>
+                    <img src="../assets/ivoyant-light.svg" alt="ivoyant-logo" ></img>
                 </div>
                 <div className="flex-1">
                     <span className="text-geekblue font-medium text-[1.25rem]">CONNECT WITH US</span>
                     
                         <div className="flex items-start py-3 gap-2">
                             <div className="flex flex-row">
-                                <img src="./assets/mail.svg" className=""></img>
+                                <img src="../assets/mail.svg" className=""></img>
                             </div>
                             <div className="flex flex-col justify-center">
                                 <span className="font-medium text-[1rem]">Mail</span>
