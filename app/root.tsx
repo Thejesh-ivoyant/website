@@ -43,10 +43,8 @@ export default function App() {
         <Links />
       </head>
       <body>
-
         <Nav />
         <Outlet />
-
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

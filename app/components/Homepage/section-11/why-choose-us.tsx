@@ -65,7 +65,7 @@ const Why_Choose_Us = () => {
                     .map((item, index) => (
                       <div className=" flex flex-col Card-Container items-center justify-center">
                         <div className="flex card-image">
-                          <img src="./assets/ClockCounterClockwise.svg" />
+                          <img src="../assets/ClockCounterClockwise.svg" />
                         </div>
                         <div className="card-title flex   text-sm font-poppins font-normal">
                           {item.title}
@@ -73,7 +73,7 @@ const Why_Choose_Us = () => {
 
                         <span className="card-line h-6"></span>
                         <div className="flex text-sm py-4 font-poppins font-normal card-description">
-                        <img src="./assets/ClockCounterClockwise.svg" />
+                        <img src="../assets/ClockCounterClockwise.svg" />
                         {item.description}
 
                         </div>
