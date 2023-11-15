@@ -44,7 +44,7 @@ const Phases = () => {
         <h2>Our software development process </h2>
       </section>
 
-      <section className=" mt-10 mb-24 px-16 py-8">
+      <section className=" mt-10  px-16 py-8">
         <div className="w-full flex flex-row justify-evenly gap-2">
           
 
