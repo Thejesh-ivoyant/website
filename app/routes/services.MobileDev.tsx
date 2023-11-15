@@ -23,50 +23,40 @@ const Hero = React.lazy(() => import("~/components/S-MobileAppDev/section-1/hero
 import { strapiUrl } from "~/utils/urls";
 import ServiceContainer from "../components/S-MobileAppDev/section-2/service-description-container";
 import ServiceCardContainer from "~/components/S-MobileAppDev/section-6/service-card-container";
+import { Outlet } from "@remix-run/react";
 
 export async function loader() {
-  try {
-    const response = await fetch(`${strapiUrl}/api/s-mad-s1s?populate=%2A`);
-    const data = await response.json();
-    const HeroDescription=data.data[0]?.attributes || '';
-    const HeroTitle= data.data[0]?.attributes.HeroTitle || '';
-    const imageUrl = data.data[0]?.attributes.HeroImage.data[0].attributes.url || '';
-
-    return {
-      HeroImage: imageUrl,
-      HeroTitle: HeroTitle,
-      HeroDescription : HeroDescription,
-    };
-  } catch (error) {
-    console.error("Error fetching data from API:", error);
-    return {
-      contactUsImage: '', // Handle the error gracefully, possibly with a default value.
-    };
-  }
+  const res = await fetch( strapiUrl+"/api/healthcare/?populate=%2A")
+  let jsonParsed = await res.json();
+  return {
+    heroTitle: jsonParsed.data.attributes.heroTitle,
+    section2Title: jsonParsed.data.attributes.section_2_title,
+    section2Image: jsonParsed.data.attributes.section_2_image.data.attributes.url,
+    section2Desc : jsonParsed.data.attributes.section_2_description,
+    section3Title :jsonParsed.data.attributes.section_3_title,
+    section3Desc : jsonParsed.data.attributes.section_3_description,
+    section3Tags : jsonParsed.data.attributes.section_3_tags,
+    section3Image : jsonParsed.data.attributes.section_3_image.data.attributes.formats.medium.url
+  };
 }
 const MobDev = () => {
   return (
     <div style={{ padding: "0px", overflowX: "hidden" }}>
       {/* Video Background */}
       <div className="video">
-        <Suspense fallback={<LoadingComponent />}>
           <Hero/>
-        </Suspense>
       </div>
-      <Suspense fallback={<LoadingComponent />}>
+
         <ServiceContainer />
         <ProjectPortfolio/>
-   <IndustryFocus />
+        <IndustryFocus />
         <Phases />
         <ServiceCardContainer />
         <Technology />
         <Consultation />
-      
-      
         <BlogsContainer />
-
         <Footer />
-      </Suspense>
+<Outlet/>
     </div>
   );
 };
