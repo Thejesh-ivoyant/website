@@ -4,7 +4,7 @@ import Phases from "~/components/S-MobileAppDev/section-5/phases";
 // Create a loading component for suspense fallback
 const ProjectPortfolio = React.lazy(() => import("~/components/S-MobileAppDev/section-3/project-portfolio"));
 const LoadingComponent = React.lazy(() => import("~/common-components/loading"));
-const ServiceCardContainer = React.lazy(() => import("../components/S-MobileAppDev/section-2/service-description-container"));
+
 const Sidebar = React.lazy(() => import("~/common-components/sidebar"));
 const Nav = React.lazy(() => import("~/common-components/nav"));
 const Section4 = React.lazy(() => import("~/components/Homepage/section-4/clients"));
@@ -21,6 +21,8 @@ const Faq = React.lazy(() => import("~/components/Homepage/section-12/faq"));
 const Footer = React.lazy(() => import("~/common-components/footer"));
 const Hero = React.lazy(() => import("~/components/S-MobileAppDev/section-1/hero"));
 import { strapiUrl } from "~/utils/urls";
+import ServiceContainer from "../components/S-MobileAppDev/section-2/service-description-container";
+import ServiceCardContainer from "~/components/S-MobileAppDev/section-6/service-card-container";
 
 export async function loader() {
   try {
@@ -52,19 +54,17 @@ const MobDev = () => {
         </Suspense>
       </div>
       <Suspense fallback={<LoadingComponent />}>
-        <ServiceCardContainer />
+        <ServiceContainer />
         <ProjectPortfolio/>
-      
    <IndustryFocus />
-
         <Phases />
-        <BlogsContainer />
+        <ServiceCardContainer />
         <Technology />
         <Consultation />
       
       
         <BlogsContainer />
-<LoadingComponent/>
+
         <Footer />
       </Suspense>
     </div>
