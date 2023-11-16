@@ -44,15 +44,16 @@ export async function loader() {
     s6_serviceTitle : jsonParsed.data.attributes.s6_serviceTitle,
     s6_serviceSummary :jsonParsed.data.attributes.s6_serviceSummary,
     s7_techTitle : jsonParsed.data.attributes.s7_techTitle,
-    
+
   };
 }
 const MobDev = () => {
+  const webDevRoute = 'services.WebDev';
   return (
     <div style={{ padding: "0px", overflowX: "hidden" }}>
       {/* Video Background */}
       <div className="video">
-          <Hero/>
+          <Hero route={webDevRoute} />
       </div>
 
         <ServiceContainer />
