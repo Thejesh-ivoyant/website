@@ -5,6 +5,7 @@ import Section2 from "~/components/industries/section2";
 import Section3 from "~/components/industries/section3";
 import Section4 from "~/components/industries/section4";
 import Section5 from "~/components/industries/section5";
+import Section6 from "~/components/industries/section6";
 import Section7 from "~/components/industries/section7";
 import { strapiUrl } from "~/utils/urls";
 
@@ -42,8 +43,16 @@ export async function loader() {
     const jsonParsed = await fetchData("/api/healthcare/?populate=%2A");
     const section7PairsJson = await fetchData("/api/healthcare/?populate=pairs.pic");
     const section5Parsed = await fetchData("/api/healthcare/?populate=process.ornament");
+    const techParsed = await fetchData("/api/healthcare/?populate=technologies.pic")
 
     const section7Pairs = section7PairsJson.pairs.map((pair:typeof section7PairsJson) => ({
+      id: pair.id,
+      text: pair.text,
+      picUrl: strapiUrl + pair.pic.data.attributes.url,
+      name: pair.pic.data.attributes.name,
+    }));
+
+    const technologies = techParsed.technologies.map((pair:typeof techParsed) => ({
       id: pair.id,
       text: pair.text,
       picUrl: strapiUrl + pair.pic.data.attributes.url,
@@ -72,7 +81,9 @@ export async function loader() {
       section7Title: jsonParsed.section_7_title,
       section7Desc: jsonParsed.section_7_description,
       section7Pairs: section7Pairs,
-      PhasesList: PhasesList
+      PhasesList: PhasesList,
+      techTitle : techParsed.techTitle,
+      techList : technologies
     };
   } catch (error:any) {
     console.error(`Error in loader: ${error.message}`);
@@ -91,6 +102,7 @@ export default function Index() {
       <Section3 />
       <Section4 />
       <Section5 />
+      <Section6 />
       <Section7 />
       <Outlet />
     </>
