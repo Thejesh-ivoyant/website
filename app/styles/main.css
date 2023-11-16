@@ -1196,3 +1196,30 @@ border-bottom-style: solid;
   border-radius: 9.048px;
   background: var(--CardDark, linear-gradient(180deg, #360E81 0%, #20084D 100%));
 }
+.service-description {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.service-description.open {
+  max-height: fit-content;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.service-title{
+  background: var(--CardDark, linear-gradient(180deg, #360E81 0%, #20084D 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.opaque-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 0;
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.02);
+}
