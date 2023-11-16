@@ -756,7 +756,24 @@ line-height: normal;
 letter-spacing: 0.32px;
 }
 
-
+.service-card-summary{
+  color: #FFF;
+font-family: Poppins;
+font-size: 12px;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+letter-spacing: 0.36px;
+}
+.service-summary{
+  color: #262626;
+text-align: center;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px; /* 175% */
+}
 .phases-desc{
   color: #FFF;
 font-family: Poppins;
@@ -1195,4 +1212,31 @@ border-bottom-style: solid;
 .inline-card{
   border-radius: 9.048px;
   background: var(--CardDark, linear-gradient(180deg, #360E81 0%, #20084D 100%));
+}
+.service-description {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.service-description.open {
+  max-height: fit-content;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.service-title{
+  background: var(--CardDark, linear-gradient(180deg, #360E81 0%, #20084D 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.opaque-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 0;
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.02);
 }

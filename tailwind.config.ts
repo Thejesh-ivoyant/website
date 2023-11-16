@@ -11,7 +11,10 @@ export default {
         'light': '#f3f4fe33',
         'grape-dark': '#02041833',
         'head-grape': '#433C4A',
-        'geekblue': '#85A5FF'
+        'geekblue': '#85A5FF',
+        'HeaderGray': '#E9E9EC',
+        'TinBlue': '#EEEBFF',
+        'PurpBlue': "#0D0B71"
         
       },
       fontFamily:{
