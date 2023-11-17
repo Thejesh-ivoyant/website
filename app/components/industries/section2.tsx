@@ -1,9 +1,8 @@
 import { Outlet, useLoaderData } from "@remix-run/react";
-import { loader } from "~/routes/Industries.Healthcare";
 import { strapiUrl } from "~/utils/urls";
 
 const Section2 = () => {
-  const loaderData = useLoaderData<typeof loader>();
+  const loaderData = useLoaderData() as any;
 
   return (
     <section className="relative flex justify-center flex-row lg:h-[600px] w-full">

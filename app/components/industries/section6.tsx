@@ -1,8 +1,7 @@
 import { Outlet, useLoaderData, useRouteLoaderData } from "@remix-run/react";
-import { loader } from "~/routes/Industries.Healthcare";
 import { strapiUrl } from "~/utils/urls";
 const Section6 = () => {
-    const loaderData = useLoaderData<typeof loader>();
+    const loaderData = useLoaderData() as any;
   
     return (
       <div className="bg-white py-5">
