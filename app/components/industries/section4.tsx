@@ -1,10 +1,9 @@
 import { Outlet, useLoaderData } from "@remix-run/react";
 import { useState } from "react";
-import { loader } from "~/routes/Industries.Healthcare";
 import { strapiUrl } from "~/utils/urls";
 
 const Section4 = () => {
-  const loaderData = useLoaderData<typeof loader>();
+  const loaderData = useLoaderData() as any;
   const [openServices, setOpenServices] = useState<number[]>([]);
   const [toggleState, setToggleState] = useState(1);
 

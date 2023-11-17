@@ -1,8 +1,7 @@
 import { Outlet, useLoaderData, useRouteLoaderData } from "@remix-run/react";
-import { loader } from "~/routes/Industries.Healthcare";
 import { strapiUrl } from "~/utils/urls";
 const Section5 = () => {
-  const loaderData = useLoaderData<typeof loader>();
+  const loaderData = useLoaderData() as any;
   const defaultDesc = "Lorem ipsum dolor sit amet consectetur adipiscing elit molestie, curabitur posuere ultricies habitant tempor convallis"
   return (
   <div className="bg-haiti py-5">
