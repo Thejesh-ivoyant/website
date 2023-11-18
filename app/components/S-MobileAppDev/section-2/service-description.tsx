@@ -6,8 +6,7 @@ import { Outlet, useLoaderData } from "@remix-run/react";
 import { loader } from "~/routes/Industries.Healthcare";
 
 const Description = () => {
-  const loaderData = useLoaderData<typeof loader>();
-
+  const loaderData = useLoaderData() as any;
   const SECTION2_API_URL = `${strapiUrl}/api/s-mad-s2s?populate=%2A`
 
   const [descriptionTitle, setDescriptionTitle] = useState("");

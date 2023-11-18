@@ -4,8 +4,8 @@ import { scrollTo } from "~/root";
 import { Outlet, useLoaderData } from "@remix-run/react";
 import { loader } from "~/routes/services.MobileDev";
 const Hero = () => {
-  const loaderData = useLoaderData<typeof loader>();
 
+  const loaderData = useLoaderData() as any;
   const [c, setC] = useState(0);
 
   const closeChats = () => {
