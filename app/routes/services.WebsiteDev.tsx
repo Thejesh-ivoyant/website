@@ -79,7 +79,7 @@ export async function loader() {
   };
 }
 
-const MobDev = () => {
+const WebDev = () => {
   const webDevRoute = "services.WebDev";
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);

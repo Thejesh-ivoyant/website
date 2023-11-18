@@ -2,12 +2,12 @@ import { Outlet, useLoaderData, useRouteLoaderData } from "@remix-run/react";
 import { loader } from "~/routes/Industries.Healthcare";
 import { strapiUrl } from "~/utils/urls";
 const Phases = () => {
-  const loaderData = useLoaderData<typeof loader>();
+  const loaderData = useLoaderData() as any;
   const defaultDesc = "Lorem ipsum dolor sit amet consectetur adipiscing elit molestie, curabitur posuere ultricies habitant tempor convallis"
   return (
   <div className="bg-haiti py-5">
     <h1 className="text-HeaderGray flex items-center justify-center text-5xl font-montserrat p-6">
-    Our software development processtest
+    Our software development process 
     </h1>
   <div className="w-full h-[500px] flex justify-around flex-row text-white p-10 top-gradient">
       {loaderData.PhasesList.map((item: any, index: number) => (

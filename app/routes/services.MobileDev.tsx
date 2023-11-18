@@ -60,8 +60,7 @@ export async function loader() {
   }));
 
   return {
-    heroImage:
-      jsonParsed.data.attributes.heroImage.data.attributes.formats.large.url,
+    heroImage:jsonParsed.data.attributes.heroImage.data.attributes.formats.large.url,
     heroTitle: jsonParsed.data.attributes.heroTitle,
     heroDescription: jsonParsed.data.attributes.heroDescription,
     s2_Title: jsonParsed.data.attributes.s2_Title,
