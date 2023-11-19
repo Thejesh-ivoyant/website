@@ -1,6 +1,7 @@
 import { json } from "@remix-run/node";
 import { Outlet, useLoaderData } from "@remix-run/react";
 import Hero from "~/common-components/Hero";
+import Footer from "~/common-components/footer";
 import Section2 from "~/components/industries/section2";
 import Section3 from "~/components/industries/section3";
 import Section4 from "~/components/industries/section4";
@@ -104,6 +105,7 @@ export default function Index() {
       <Section5 />
       <Section6 />
       <Section7 />
+      <Footer />
     </>
   );
 }
