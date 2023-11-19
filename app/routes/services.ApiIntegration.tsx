@@ -15,7 +15,7 @@ import { strapiUrl } from "~/utils/urls";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Ivoyant | API INTEGRATION" },
+    { title: "Ivoyant | API Integration" },
     {
       property: "og:title",
       content: "Services Page",
@@ -46,9 +46,9 @@ async function fetchData(endpoint: string) {
 }
 
 export async function loader() {
-  const res = await fetch(strapiUrl + "/api/s-api-integration?populate=%2A");
+  const res = await fetch(strapiUrl + "/api/s-mad?populate=%2A");
   const componentRes = await fetchData(
-    "/api/s-api-integration/?populate=s2_keyPoints.keyPointsImage,s5_phasesOfDevelopment.s5_phasesImage,s7_techIcons.s7_techIcon,s6_serviceCard.s6_serviceCardImage,s4_industryFocus.s4_IndustryFocusImage"
+    "/api/s-mad/?populate=s2_keyPoints.keyPointsImage,s5_phasesOfDevelopment.s5_phasesImage,s7_techIcons.s7_techIcon,s6_serviceCard.s6_serviceCardImage,s4_industryFocus.s4_IndustryFocusImage"
   );
   let jsonParsed = await res.json();
   const IndustryFocus = componentRes.s4_industryFocus.map((item: any) => ({
@@ -74,21 +74,34 @@ export async function loader() {
     s6_serviceCardDescription: item.s6_serviceCardDescription,
     s6_serviceCardImage: strapiUrl + item.s6_serviceCardImage.data.attributes.formats.medium.url,
   }));
-
+  const {
+    heroTitle,
+    heroDescription,
+    s2_Title,
+    s2_Description,
+    s3_countryCount,
+    s3_projectDelieverdCount,
+    s3_TotalProjectCount,
+    s4_industryFocusTitle,
+    s5_title,
+    s6_serviceTitle,
+    s6_serviceSummary,
+    s7_techTitle,
+  } = jsonParsed.data.attributes;
   return {
     heroImage:jsonParsed.data.attributes.heroImage.data.attributes.formats.large.url,
-    heroTitle: jsonParsed.data.attributes.heroTitle,
-    heroDescription: jsonParsed.data.attributes.heroDescription,
-    s2_Title: jsonParsed.data.attributes.s2_Title,
-    s2_Description: jsonParsed.data.attributes.s2_Description,
-    s3_countryCount: jsonParsed.data.attributes.s3_countryCount,
-    s3_projectDelieverdCount:jsonParsed.data.attributes.s3_projectDelieverdCount,
-    s3_TotalProjectCount: jsonParsed.data.attributes.s3_TotalProjectCount,
-    s4_industryFocusTitle: jsonParsed.data.attributes.s4_industryFocusTitle,
-    s5_title: jsonParsed.data.attributes.s5_title,
-    s6_serviceTitle: jsonParsed.data.attributes.s6_serviceTitle,
-    s6_serviceSummary: jsonParsed.data.attributes.s6_serviceSummary,
-    s7_techTitle: jsonParsed.data.attributes.s7_techTitle,
+    heroTitle,
+    heroDescription,
+    s2_Title,
+    s2_Description,
+    s3_countryCount,
+    s3_projectDelieverdCount,
+    s3_TotalProjectCount,
+    s4_industryFocusTitle,
+    s5_title,
+    s6_serviceTitle,
+    s6_serviceSummary,
+    s7_techTitle,
     PhasesList: PhasesList,
     KeyPoints:KeyPoints,
     IndustryFocus:IndustryFocus,
@@ -97,7 +110,7 @@ export async function loader() {
 }
 
 const ApiIntegration = () => {
-  
+
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
 

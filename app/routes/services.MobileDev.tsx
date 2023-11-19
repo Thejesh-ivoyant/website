@@ -74,21 +74,34 @@ export async function loader() {
     s6_serviceCardDescription: item.s6_serviceCardDescription,
     s6_serviceCardImage: strapiUrl + item.s6_serviceCardImage.data.attributes.formats.medium.url,
   }));
-
+  const {
+    heroTitle,
+    heroDescription,
+    s2_Title,
+    s2_Description,
+    s3_countryCount,
+    s3_projectDelieverdCount,
+    s3_TotalProjectCount,
+    s4_industryFocusTitle,
+    s5_title,
+    s6_serviceTitle,
+    s6_serviceSummary,
+    s7_techTitle,
+  } = jsonParsed.data.attributes;
   return {
     heroImage:jsonParsed.data.attributes.heroImage.data.attributes.formats.large.url,
-    heroTitle: jsonParsed.data.attributes.heroTitle,
-    heroDescription: jsonParsed.data.attributes.heroDescription,
-    s2_Title: jsonParsed.data.attributes.s2_Title,
-    s2_Description: jsonParsed.data.attributes.s2_Description,
-    s3_countryCount: jsonParsed.data.attributes.s3_countryCount,
-    s3_projectDelieverdCount:jsonParsed.data.attributes.s3_projectDelieverdCount,
-    s3_TotalProjectCount: jsonParsed.data.attributes.s3_TotalProjectCount,
-    s4_industryFocusTitle: jsonParsed.data.attributes.s4_industryFocusTitle,
-    s5_title: jsonParsed.data.attributes.s5_title,
-    s6_serviceTitle: jsonParsed.data.attributes.s6_serviceTitle,
-    s6_serviceSummary: jsonParsed.data.attributes.s6_serviceSummary,
-    s7_techTitle: jsonParsed.data.attributes.s7_techTitle,
+    heroTitle,
+    heroDescription,
+    s2_Title,
+    s2_Description,
+    s3_countryCount,
+    s3_projectDelieverdCount,
+    s3_TotalProjectCount,
+    s4_industryFocusTitle,
+    s5_title,
+    s6_serviceTitle,
+    s6_serviceSummary,
+    s7_techTitle,
     PhasesList: PhasesList,
     KeyPoints:KeyPoints,
     IndustryFocus:IndustryFocus,
@@ -97,7 +110,7 @@ export async function loader() {
 }
 
 const MobDev = () => {
-  const webDevRoute = "services.WebDev";
+
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
 
