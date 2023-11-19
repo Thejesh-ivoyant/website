@@ -1,53 +1,115 @@
 const Footer = ()=>
 {
     return (
-        <footer className="w-full  bg-haiti py-16 px-32 font-montserrat text-white">
+        <footer className="w-full  bg-haiti py-16 px-16 font-montserrat text-white">
             <section className="flex flex-row w-full gradient-bottom p-6">
-                <div className="flex-1 object-contain items-center justify-center flex">
-                    <img src="../assets/ivoyant-light.svg" alt="ivoyant-logo" ></img>
+             
+                
+                
+            </section>
+            <section className="flex flex-row w-full gradient-bottom p-6">
+                <div className="flex-1">
+                <span className="footer-heading">SERVICES</span>
+                        <div className="flex items-start py-3 gap-2">
+                            <div className="flex flex-col footer-font justify-center gap-4">
+                                <span className="">Privacy Policy</span>
+                                <span className="">Cookie Policy</span>
+                                <span className="">Terms & Conditions</span>
+                                <span className="">Privacy Policy</span>
+                                <span className="">Cookie Policy</span>
+                                <span className="">Privacy Policy</span>
+                                <span className="">Cookie Policy</span>
+                                <span className="">Terms & Conditions</span>
+                                <span className="">Privacy Policy</span>
+                               
+                            </div>
+                        </div>
                 </div>
                 <div className="flex-1">
-                    <span className="text-geekblue font-medium text-[1.25rem]">CONNECT WITH US</span>
+                <span className="footer-heading">PRODUCTS</span>
+                        <div className="flex items-start py-3 gap-2">
+                            <div className="flex flex-col  footer-font justify-center gap-4">
+                                <span className="">Privacy Policy</span>
+                                <span className="">Cookie Policy</span>
+                                <span className="">Terms & Conditions</span>
+                                <span className="">Privacy Policy</span>
+                                <span className="">Cookie Policy</span>
+                                <span className="">Terms & Conditions</span>
+                                <span className="">Privacy Policy</span>
+                               
+                            </div>
+                        </div>
+                </div>
+                <div className="flex-1">
+                <span className="footer-heading">RESOURCES</span>
+                        <div className="flex items-start py-3 gap-2">
+                            <div className="flex flex-col footer-font justify-center gap-4">
+                                <span className="">Privacy Policy</span>
+                                <span className="">Cookie Policy</span>
+                                <span className="">Terms & Conditions</span>
+                                <span className="">Privacy Policy</span>
+                                <span className="">Cookie Policy</span>
+                                <span className="">Terms & Conditions</span>
+                                <span className="">Privacy Policy</span>
+                                
+                            </div>
+                        </div>
+                </div>
+                <div className="flex-1">
+                <span className="footer-heading">RESOURCES</span>
+                        <div className="flex items-start py-3 gap-2">
+                            <div className="flex flex-col footer-font justify-center gap-4">
+                                <span className="">Privacy Policy</span>
+                                <span className="">Cookie Policy</span>
+                                <span className="">Terms & Conditions</span>
+                                <span className="">Privacy Policy</span>
+                                <span className="">Cookie Policy</span>
+                                <span className="">Terms & Conditions</span>
+                                <span className="">Privacy Policy</span>
+                                <span className="">Cookie Policy</span>
+                                <span className="">Terms & Conditions</span>
+                            </div>
+                        </div>
+                </div>
+                <div className="flex-1">
+                    <span className="footer-heading">CONNECT WITH US</span>
                     
                         <div className="flex items-start py-3 gap-2">
-                            <div className="flex flex-row">
-                                <img src="../assets/mail.svg" className=""></img>
-                            </div>
-                            <div className="flex flex-col justify-center">
-                                <span className="font-medium text-[1rem]">Mail</span>
-                                <span className="font-thin text-lg">sales@ivoyant.com</span>
+                          
+                            <div className="flex flex-col footer-font justify-center">
+                                <span className="">Mail</span>
+                                <span className="">sales@ivoyant.com</span>
                             </div>
                         </div>
                         <div className="flex items-start py-3 gap-2">
-                            <div className="flex flex-row">
-                                <img src="./assets/skype.svg" className=""></img>
-                            </div>
-                            <div className="flex flex-col justify-center">
-                                <span className="font-medium text-[1rem]">Skype</span>
-                                <span className="font-thin text-lg">live:.cid.37875f1d394a53b6</span>
-                                <span className="font-thin text-lg">ivoyantsales@outlook.com </span>
+                       
+                            <div className="flex flex-col footer-font  justify-center">
+                                <span className="">Skype</span>
+                                <span className="">live:.cid.37875f1d394a53b6</span>
+                                <span className="">ivoyantsales@outlook.com </span>
                             </div>
                         </div>
                         <div className="flex items-start py-3 gap-2">
-                            <div className="flex flex-row">
-                                <img src="./assets/phone.svg" className=""></img>
+                            
+                            <div className="flex flex-col footer-font justify-center">
+                                <span className="">Phone</span>
+                                <span className="">info@ivoyant.com</span>
                             </div>
-                            <div className="flex flex-col justify-center">
-                                <span className="font-medium text-[1rem]">Phone</span>
-                                <span className="font-thin text-lg">info@ivoyant.com</span>
-                            </div>
+
                         </div>
-                    
+                       
                     
                 </div>
+              
+              
                 <div className="flex-1 pl-4 ">
-                    <span className="text-geekblue font-medium text-[1.25rem]">MAIL US</span>
-                        <div className="flex items-start py-3 gap-2">
-                            <div className="flex flex-col justify-center gap-1">
-                                <span className="font-medium text-[1rem]">For Clients</span>
-                                <span className="font-thin text-lg">info@ivoyant.com</span>
-                                <span className="font-medium text-[1rem]">For Future developers</span>
-                                <span className="font-thin text-lg">jobs@ivoyant.com</span>
+                    <span className="footer-heading">MAIL US</span>
+                        <div className="flex flex-col items-start py-3 gap-2">
+                            <div className="flex flex-col footer-font justify-center gap-1">
+                                <span className="">For Clients</span>
+                                <span className="">info@ivoyant.com</span>
+                                <span className="">For Future developers</span>
+                                <span className="">jobs@ivoyant.com</span>
                                 <span className="flex gap-2 py-4">
                                     <img src="./assets/facebook.svg"></img>
                                     <img src="./assets/X.svg"></img>
@@ -55,59 +117,18 @@ const Footer = ()=>
                                     <img src="./assets/youtube.svg"></img>
                                 </span>
                             </div>
+                          
                         </div>
                 </div>
-            </section>
-            <section className="flex flex-row w-full gradient-bottom p-6">
-                <div className="flex-1">
-                <span className="text-geekblue font-medium text-[1.25rem]">SERVICES</span>
-                        <div className="flex items-start py-3 gap-2">
-                            <div className="flex flex-col justify-center gap-4">
-                                <span className="font-medium text-sm">Privacy Policy</span>
-                                <span className="font-medium text-sm">Cookie Policy</span>
-                                <span className="font-medium text-sm">Terms & Conditions</span>
-                            </div>
+                <div className="absolute mr-24 mb-32 right-0 bottom-0">
+                    <div className="flex flex-row gap-2">
+                        <div className="flex">
+                                <input  placeholder="Email*" className="footer-font email-container"></input>
                         </div>
-                </div>
-                <div className="flex-1">
-                <span className="text-geekblue font-medium text-[1.25rem]">PRODUCTS</span>
-                        <div className="flex items-start py-3 gap-2">
-                            <div className="flex flex-col justify-center gap-4">
-                                <span className="font-medium text-sm">Privacy Policy</span>
-                                <span className="font-medium text-sm">Cookie Policy</span>
-                                <span className="font-medium text-sm">Terms & Conditions</span>
-                            </div>
+                        <div className="flex subscribe">
+                                <button className="subscribe-text">Subscribe for NewsLetter</button>
                         </div>
-                </div>
-                <div className="flex-1">
-                <span className="text-geekblue font-medium text-[1.25rem]">RESOURCES</span>
-                        <div className="flex items-start py-3 gap-2">
-                            <div className="flex flex-col justify-center gap-4">
-                                <span className="font-medium text-sm">Privacy Policy</span>
-                                <span className="font-medium text-sm">Cookie Policy</span>
-                                <span className="font-medium text-sm">Terms & Conditions</span>
-                            </div>
-                        </div>
-                </div>
-                <div className="flex-1">
-                <span className="text-geekblue font-medium text-[1.25rem]">RESOURCES</span>
-                        <div className="flex items-start py-3 gap-2">
-                            <div className="flex flex-col justify-center gap-4">
-                                <span className="font-medium text-sm">Privacy Policy</span>
-                                <span className="font-medium text-sm">Cookie Policy</span>
-                                <span className="font-medium text-sm">Terms & Conditions</span>
-                            </div>
-                        </div>
-                </div>
-                <div className="flex-1">
-                <span className="text-geekblue font-medium text-[1.25rem]">RESOURCES</span>
-                        <div className="flex items-start py-3 gap-2">
-                            <div className="flex flex-col justify-center gap-4">
-                                <span className="font-medium text-sm">Privacy Policy</span>
-                                <span className="font-medium text-sm">Cookie Policy</span>
-                                <span className="font-medium text-sm">Terms & Conditions</span>
-                            </div>
-                        </div>
+                    </div>
                 </div>
             </section>
             <div className="flex gap-3 justify-center w-full text-xs font-medium text-center p-4"><span>&copy; 2023 iVoyant </span><span> All Rights Reserved</span> </div>

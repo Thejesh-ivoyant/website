@@ -15,7 +15,7 @@ import { strapiUrl } from "~/utils/urls";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Ivoyant | API Integration" },
+    { title: "Ivoyant | Low Code/No code development  " },
     {
       property: "og:title",
       content: "Services Page",
