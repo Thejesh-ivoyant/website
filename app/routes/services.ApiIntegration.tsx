@@ -15,7 +15,7 @@ import { strapiUrl } from "~/utils/urls";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Ivoyant | Mobile App Development" },
+    { title: "Ivoyant | API INTEGRATION" },
     {
       property: "og:title",
       content: "Services Page",
@@ -46,9 +46,9 @@ async function fetchData(endpoint: string) {
 }
 
 export async function loader() {
-  const res = await fetch(strapiUrl + "/api/s-mad?populate=%2A");
+  const res = await fetch(strapiUrl + "/api/s-api-integration?populate=%2A");
   const componentRes = await fetchData(
-    "/api/s-mad/?populate=s2_keyPoints.keyPointsImage,s5_phasesOfDevelopment.s5_phasesImage,s7_techIcons.s7_techIcon,s6_serviceCard.s6_serviceCardImage,s4_industryFocus.s4_IndustryFocusImage"
+    "/api/s-api-integration/?populate=s2_keyPoints.keyPointsImage,s5_phasesOfDevelopment.s5_phasesImage,s7_techIcons.s7_techIcon,s6_serviceCard.s6_serviceCardImage,s4_industryFocus.s4_IndustryFocusImage"
   );
   let jsonParsed = await res.json();
   const IndustryFocus = componentRes.s4_industryFocus.map((item: any) => ({
@@ -96,8 +96,8 @@ export async function loader() {
   };
 }
 
-const MobDev = () => {
-  const webDevRoute = "services.WebDev";
+const ApiIntegration = () => {
+  
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
 
@@ -143,4 +143,4 @@ const MobDev = () => {
   );
 };
 
-export default MobDev;
+export default ApiIntegration;

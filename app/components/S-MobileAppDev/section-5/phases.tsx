@@ -7,7 +7,7 @@ const Phases = () => {
   return (
   <div className="bg-haiti py-5">
     <h1 className="text-HeaderGray flex items-center justify-center text-5xl font-montserrat p-6">
-    Our software development process 
+{loaderData.s5_title} 
     </h1>
   <div className="w-full h-[500px] flex justify-around flex-row text-white p-10 top-gradient">
       {loaderData.PhasesList.map((item: any, index: number) => (
