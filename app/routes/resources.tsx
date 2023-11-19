@@ -119,7 +119,7 @@ export async function loader() {
   };
 }
 
-const MobDev = () => {
+const Resources = () => {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
@@ -150,15 +150,10 @@ const MobDev = () => {
           <div className="video">
             <Hero />
           </div>
-          <ServiceContainer />
-          <ProjectPortfolio />
-          <IndustryFocus />
-          <Phases />
-          <ServiceCardContainer />
-         <Technologies />
           <Consultation />
           <BlogsContainer />
-          <Footer />
+            <Footer/>
+     
           <Outlet />
         </div>
       )}
@@ -166,4 +161,4 @@ const MobDev = () => {
   );
 };
 
-export default MobDev;
+export default Resources;

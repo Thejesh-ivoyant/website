@@ -7,7 +7,7 @@ const Footer = ()=>
                 
                 
             </section>
-            <section className="flex flex-row w-full gradient-bottom p-6">
+            <section className="flex flex-row w-full  p-6">
                 <div className="flex-1">
                 <span className="footer-heading">SERVICES</span>
                         <div className="flex items-start py-3 gap-2">
@@ -120,9 +120,12 @@ const Footer = ()=>
                           
                         </div>
                 </div>
-                <div className="absolute mr-24 mb-32 right-0 bottom-0">
-                    <div className="flex flex-row gap-2">
-                        <div className="flex">
+                
+            </section>
+            <div className="relative flex flex-row w-full mr-24   bottom-24 justify-end items-end">
+                    <div className="flex row w-1/2 gap-1 justify-end items-end ">
+                        <div className="flex-1"></div>
+                        <div className="flex-1 w-3/4 justify-end">
                                 <input  placeholder="Email*" className="footer-font email-container"></input>
                         </div>
                         <div className="flex subscribe">
@@ -130,8 +133,7 @@ const Footer = ()=>
                         </div>
                     </div>
                 </div>
-            </section>
-            <div className="flex gap-3 justify-center w-full text-xs font-medium text-center p-4"><span>&copy; 2023 iVoyant </span><span> All Rights Reserved</span> </div>
+            <div className="flex gap-3 justify-center w-full text-xs gradient-top font-medium text-center p-4"><span>&copy; 2023 iVoyant </span><span> All Rights Reserved</span> </div>
         </footer>
     )
 }
