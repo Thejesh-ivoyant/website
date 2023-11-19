@@ -97,7 +97,7 @@ const Nav: React.FC = () => {
                   expand_more
                 </i>
               </div>
-              <ul className="hidden group-hover:inline-block z-[50] absolute p-2 lg:p-4 rounded-md bg-black text-sm font-poppins">
+              <ul className="hidden group-hover:inline-block z-[50] absolute p-2 lg:p-4 rounded-md w-full bg-black text-sm font-poppins">
                 <li className=" whitespace-nowrap p-2 flex flex-row gap-1 items-center hover:border-b-[1px] border-indigo-400 w-fit">
                   <svg
                     width="16"
