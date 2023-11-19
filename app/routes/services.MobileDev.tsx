@@ -12,6 +12,8 @@ import BlogsContainer from "~/components/Homepage/section-10/blog-container";
 import Footer from "~/common-components/footer";
 import { Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
+import Section6 from "~/components/industries/section6";
+import Technologies from "~/components/S-MobileAppDev/section-7/technologies";
 
 export const meta: MetaFunction = () => {
   return [
@@ -74,6 +76,13 @@ export async function loader() {
     s6_serviceCardDescription: item.s6_serviceCardDescription,
     s6_serviceCardImage: strapiUrl + item.s6_serviceCardImage.data.attributes.formats.medium.url,
   }));
+  const Technologies = componentRes.s7_techIcons.map((item: any) => ({
+    id: item.id,
+    s7_techIcon: strapiUrl + item.s7_techIcon.data.attributes.url,
+    s7_techIconName: item.s7_techIconName,
+    }));
+
+
   const {
     heroTitle,
     heroDescription,
@@ -106,6 +115,7 @@ export async function loader() {
     KeyPoints:KeyPoints,
     IndustryFocus:IndustryFocus,
     ServicesCard:ServicesCard,
+    Technologies,
   };
 }
 
@@ -144,8 +154,8 @@ const MobDev = () => {
           <ProjectPortfolio />
           <IndustryFocus />
           <Phases />
-          <ServiceCardContainer />
-          <Technology />
+          {/* <ServiceCardContainer /> */}
+         <Technologies />
           <Consultation />
           <BlogsContainer />
           <Footer />

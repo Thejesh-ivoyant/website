@@ -109,6 +109,16 @@ const Footer = ()=>
                             </div>
                         </div>
                 </div>
+                <div className="flex-1">
+                <span className="text-geekblue font-medium text-[1.25rem]">RESOURCES</span>
+                        <div className="flex items-start py-3 gap-2">
+                            <div className="flex flex-col justify-center gap-4">
+                                <span className="font-medium text-sm">Privacy Policy</span>
+                                <span className="font-medium text-sm">Cookie Policy</span>
+                                <span className="font-medium text-sm">Terms & Conditions</span>
+                            </div>
+                        </div>
+                </div>
             </section>
             <div className="flex gap-3 justify-center w-full text-xs font-medium text-center p-4"><span>&copy; 2023 iVoyant </span><span> All Rights Reserved</span> </div>
         </footer>
