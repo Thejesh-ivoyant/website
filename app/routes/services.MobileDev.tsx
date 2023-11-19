@@ -154,7 +154,7 @@ const MobDev = () => {
           <ProjectPortfolio />
           <IndustryFocus />
           <Phases />
-          {/* <ServiceCardContainer /> */}
+          <ServiceCardContainer />
          <Technologies />
           <Consultation />
           <BlogsContainer />
