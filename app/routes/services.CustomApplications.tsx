@@ -109,7 +109,7 @@ export async function loader() {
   };
 }
 
-const WebDev = () => {
+const CustomApplication = () => {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
@@ -156,4 +156,4 @@ const WebDev = () => {
   );
 };
 
-export default WebDev;
+export default CustomApplication;

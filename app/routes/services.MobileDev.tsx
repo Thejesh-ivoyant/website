@@ -51,36 +51,66 @@ export async function loader() {
     "/api/s-mad/?populate=s2_keyPoints.keyPointsImage,s5_phasesOfDevelopment.s5_phasesImage,s7_techIcons.s7_techIcon,s6_serviceCard.s6_serviceCardImage,s4_industryFocus.s4_IndustryFocusImage"
   );
   let jsonParsed = await res.json();
-
+  const IndustryFocus = componentRes.s4_industryFocus.map((item: any) => ({
+    id: item.id,
+    s4_industryFocusSubTitle: item.s4_industryFocusSubTitle,
+    s4_industryFocusDescription: item.s4_industryFocusDescription,
+    s4_industryFocusImage: strapiUrl + item.s4_IndustryFocusImage.data.attributes.formats.large.url,
+  }));
   const PhasesList = componentRes.s5_phasesOfDevelopment.map((item: any) => ({
     id: item.id,
     s5_phasesTitle: item.s5_phasesTitle,
     s5_phasesDescription: item.s5_phasesDescription,
     s5_phasesImage: strapiUrl + item.s5_phasesImage.data.attributes.url,
   }));
-
+  const KeyPoints = componentRes.s2_keyPoints.map((item: any) => ({
+    id: item.id,
+    keyPoints: item.keyPoints,
+    keyPointsImage: strapiUrl + item.keyPointsImage.data.attributes.url,
+  }));
+  const ServicesCard = componentRes.s6_serviceCard.map((item: any) => ({
+    id: item.id,
+    s6_serviceCardTitle: item.s6_serviceCardTitle,
+    s6_serviceCardDescription: item.s6_serviceCardDescription,
+    s6_serviceCardImage: strapiUrl + item.s6_serviceCardImage.data.attributes.formats.medium.url,
+  }));
+  const {
+    heroTitle,
+    heroDescription,
+    s2_Title,
+    s2_Description,
+    s3_countryCount,
+    s3_projectDelieverdCount,
+    s3_TotalProjectCount,
+    s4_industryFocusTitle,
+    s5_title,
+    s6_serviceTitle,
+    s6_serviceSummary,
+    s7_techTitle,
+  } = jsonParsed.data.attributes;
   return {
-    heroImage:
-      jsonParsed.data.attributes.heroImage.data.attributes.formats.large.url,
-    heroTitle: jsonParsed.data.attributes.heroTitle,
-    heroDescription: jsonParsed.data.attributes.heroDescription,
-    s2_Title: jsonParsed.data.attributes.s2_Title,
-    s2_Description: jsonParsed.data.attributes.s2_Description,
-    s3_countryCount: jsonParsed.data.attributes.s3_countryCount,
-    s3_projectDelieverdCount:
-      jsonParsed.data.attributes.s3_projectDelieverdCount,
-    s3_TotalProjectCount: jsonParsed.data.attributes.s3_TotalProjectCount,
-    s4_industryFocusTitle: jsonParsed.data.attributes.s4_industryFocusTitle,
-    s5_title: jsonParsed.data.attributes.s5_title,
-    s6_serviceTitle: jsonParsed.data.attributes.s6_serviceTitle,
-    s6_serviceSummary: jsonParsed.data.attributes.s6_serviceSummary,
-    s7_techTitle: jsonParsed.data.attributes.s7_techTitle,
+    heroImage:jsonParsed.data.attributes.heroImage.data.attributes.formats.large.url,
+    heroTitle,
+    heroDescription,
+    s2_Title,
+    s2_Description,
+    s3_countryCount,
+    s3_projectDelieverdCount,
+    s3_TotalProjectCount,
+    s4_industryFocusTitle,
+    s5_title,
+    s6_serviceTitle,
+    s6_serviceSummary,
+    s7_techTitle,
     PhasesList: PhasesList,
+    KeyPoints:KeyPoints,
+    IndustryFocus:IndustryFocus,
+    ServicesCard:ServicesCard,
   };
 }
 
 const MobDev = () => {
-  const webDevRoute = "services.WebDev";
+
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
 
@@ -108,7 +138,7 @@ const MobDev = () => {
       ) : (
         <div>
           <div className="video">
-            <Hero route={webDevRoute} />
+            <Hero />
           </div>
           <ServiceContainer />
           <ProjectPortfolio />
