@@ -35,7 +35,7 @@ export async function loader() {
 }
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [contactUsData, setContactUsData] = useState({ contactUsImage: "" });
 
   useEffect(() => {
@@ -61,8 +61,8 @@ const App = () => {
         <LoadingComponent />
       ) : (
         <div>
-          <div className="video">
-            <Hero />
+          {/* <div className="video"> */}
+            {/* <Hero />
           </div>
           <AboutCardContainer />
           <Services />
@@ -75,7 +75,7 @@ const App = () => {
           <BlogsContainer />
           <Why_Choose_Us />
           <Faq />
-          <ContactUs />
+          <ContactUs /> */}
           <Footer />
         </div>
       )}
