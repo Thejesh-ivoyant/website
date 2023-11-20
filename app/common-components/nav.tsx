@@ -9,30 +9,23 @@ const Nav: React.FC = () => {
   // The URL of the API endpoint
   const NAV_API_URL = `${strapiUrl}/api/logos?populate=%2A`;
 
-
-
-
-
   const [imageUrl, setImageUrl] = useState("");
-
 
   useEffect(() => {
     // Fetch data from the API endpoint
-  fetch(NAV_API_URL)
-    .then((response) => response.json())
-    .then((data) => {
-      // Assuming data is in the expected format and HomeTitle holds the company name
+    fetch(NAV_API_URL)
+      .then((response) => response.json())
+      .then((data) => {
+        // Assuming data is in the expected format and HomeTitle holds the company name
 
-      const{Logo} = data.data[0].attributes;
+        const { Logo } = data.data[0].attributes;
 
-      setImageUrl(Logo.data[0].attributes.url);
-      
-
-    })
-    .catch((error) => {
-      console.error("Error fetching data from API:", error);
-    });
-}, []);
+        setImageUrl(Logo.data[0].attributes.url);
+      })
+      .catch((error) => {
+        console.error("Error fetching data from API:", error);
+      });
+  }, []);
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -50,7 +43,8 @@ const Nav: React.FC = () => {
               <img
                 src={strapiUrl + imageUrl}
                 alt="iVoyant Logo"
-                className="logo"/>
+                className="logo"
+              />
             </div>
             <div className="company-name">
               <svg
@@ -92,35 +86,99 @@ const Nav: React.FC = () => {
             </div>
           </div>
 
-          <ul className="flex flex-row text-white font-oxygen text-[0.875rem] lg:gap-4 gap-2 " id ="main-menu">
-            
+          <ul
+            className="flex flex-row text-white font-oxygen text-[0.875rem] lg:gap-4 gap-2 "
+            id="main-menu"
+          >
             <li className="relative group bg-yellow gap-1">
               <div className="flex items-center justify-center">
                 <Link to="#">Services </Link>
-                <i className="material-symbols-outlined font-thin">expand_more</i>
+                <i className="material-symbols-outlined font-thin">
+                  expand_more
+                </i>
               </div>
-              <ul className="hidden group-hover:inline-block z-[50] absolute p-2 lg:p-4 rounded-md bg-black text-sm font-poppins">
+              <ul className="hidden group-hover:inline-block z-[50] absolute p-2 lg:p-4 rounded-md w-full bg-black text-sm font-poppins">
                 <li className=" whitespace-nowrap p-2 flex flex-row gap-1 items-center hover:border-b-[1px] border-indigo-400 w-fit">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13.5 3.5H11.5V5.5H13.5V3.5Z" fill="white" fillOpacity="0.85"/>
-                    <path d="M13.5 6.5H11.5V8.5H13.5V6.5Z" fill="white" fillOpacity="0.85"/>
-                    <path d="M10.5 3.5H8.5V5.5H10.5V3.5Z" fill="white" fillOpacity="0.85"/>
-                    <path d="M10.5 6.5H8.5V8.5H10.5V6.5Z" fill="white" fillOpacity="0.85"/>
-                    <path d="M7.25 13C7.66421 13 8 12.6642 8 12.25C8 11.8358 7.66421 11.5 7.25 11.5C6.83579 11.5 6.5 11.8358 6.5 12.25C6.5 12.6642 6.83579 13 7.25 13Z" fill="white" fillOpacity="0.85"/>
-                    <path d="M10.5 15H4C3.73488 14.9997 3.4807 14.8942 3.29323 14.7068C3.10576 14.5193 3.0003 14.2651 3 14V2C3.0003 1.73488 3.10576 1.4807 3.29323 1.29323C3.4807 1.10576 3.73488 1.0003 4 1H10.5V2H4V14H10.5V10H11.5V14C11.4997 14.2651 11.3942 14.5193 11.2068 14.7068C11.0193 14.8942 10.7651 14.9997 10.5 15Z" fill="white" fillOpacity="0.85"/>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.5 3.5H11.5V5.5H13.5V3.5Z"
+                      fill="white"
+                      fillOpacity="0.85"
+                    />
+                    <path
+                      d="M13.5 6.5H11.5V8.5H13.5V6.5Z"
+                      fill="white"
+                      fillOpacity="0.85"
+                    />
+                    <path
+                      d="M10.5 3.5H8.5V5.5H10.5V3.5Z"
+                      fill="white"
+                      fillOpacity="0.85"
+                    />
+                    <path
+                      d="M10.5 6.5H8.5V8.5H10.5V6.5Z"
+                      fill="white"
+                      fillOpacity="0.85"
+                    />
+                    <path
+                      d="M7.25 13C7.66421 13 8 12.6642 8 12.25C8 11.8358 7.66421 11.5 7.25 11.5C6.83579 11.5 6.5 11.8358 6.5 12.25C6.5 12.6642 6.83579 13 7.25 13Z"
+                      fill="white"
+                      fillOpacity="0.85"
+                    />
+                    <path
+                      d="M10.5 15H4C3.73488 14.9997 3.4807 14.8942 3.29323 14.7068C3.10576 14.5193 3.0003 14.2651 3 14V2C3.0003 1.73488 3.10576 1.4807 3.29323 1.29323C3.4807 1.10576 3.73488 1.0003 4 1H10.5V2H4V14H10.5V10H11.5V14C11.4997 14.2651 11.3942 14.5193 11.2068 14.7068C11.0193 14.8942 10.7651 14.9997 10.5 15Z"
+                      fill="white"
+                      fillOpacity="0.85"
+                    />
                   </svg>
-                  <Link to={"/services/mobiledev"} >
-            <a>Mobile Development</a>
-          </Link>
+                  <Link to={"/services/mobiledev"}>
+                    <a>Mobile Development</a>
+                  </Link>
                 </li>
                 <li className=" whitespace-nowrap p-2 flex flex-row gap-1 items-center hover:border-b-[1px] border-indigo-400 w-fit">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13.5 3.5H11.5V5.5H13.5V3.5Z" fill="white" fillOpacity="0.85"/>
-                    <path d="M13.5 6.5H11.5V8.5H13.5V6.5Z" fill="white" fillOpacity="0.85"/>
-                    <path d="M10.5 3.5H8.5V5.5H10.5V3.5Z" fill="white" fillOpacity="0.85"/>
-                    <path d="M10.5 6.5H8.5V8.5H10.5V6.5Z" fill="white" fillOpacity="0.85"/>
-                    <path d="M7.25 13C7.66421 13 8 12.6642 8 12.25C8 11.8358 7.66421 11.5 7.25 11.5C6.83579 11.5 6.5 11.8358 6.5 12.25C6.5 12.6642 6.83579 13 7.25 13Z" fill="white" fillOpacity="0.85"/>
-                    <path d="M10.5 15H4C3.73488 14.9997 3.4807 14.8942 3.29323 14.7068C3.10576 14.5193 3.0003 14.2651 3 14V2C3.0003 1.73488 3.10576 1.4807 3.29323 1.29323C3.4807 1.10576 3.73488 1.0003 4 1H10.5V2H4V14H10.5V10H11.5V14C11.4997 14.2651 11.3942 14.5193 11.2068 14.7068C11.0193 14.8942 10.7651 14.9997 10.5 15Z" fill="white" fillOpacity="0.85"/>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.5 3.5H11.5V5.5H13.5V3.5Z"
+                      fill="white"
+                      fillOpacity="0.85"
+                    />
+                    <path
+                      d="M13.5 6.5H11.5V8.5H13.5V6.5Z"
+                      fill="white"
+                      fillOpacity="0.85"
+                    />
+                    <path
+                      d="M10.5 3.5H8.5V5.5H10.5V3.5Z"
+                      fill="white"
+                      fillOpacity="0.85"
+                    />
+                    <path
+                      d="M10.5 6.5H8.5V8.5H10.5V6.5Z"
+                      fill="white"
+                      fillOpacity="0.85"
+                    />
+                    <path
+                      d="M7.25 13C7.66421 13 8 12.6642 8 12.25C8 11.8358 7.66421 11.5 7.25 11.5C6.83579 11.5 6.5 11.8358 6.5 12.25C6.5 12.6642 6.83579 13 7.25 13Z"
+                      fill="white"
+                      fillOpacity="0.85"
+                    />
+                    <path
+                      d="M10.5 15H4C3.73488 14.9997 3.4807 14.8942 3.29323 14.7068C3.10576 14.5193 3.0003 14.2651 3 14V2C3.0003 1.73488 3.10576 1.4807 3.29323 1.29323C3.4807 1.10576 3.73488 1.0003 4 1H10.5V2H4V14H10.5V10H11.5V14C11.4997 14.2651 11.3942 14.5193 11.2068 14.7068C11.0193 14.8942 10.7651 14.9997 10.5 15Z"
+                      fill="white"
+                      fillOpacity="0.85"
+                    />
                   </svg>
                   <Link to="#">Low Code / No Code Development</Link>
                 </li>
@@ -129,114 +187,123 @@ const Nav: React.FC = () => {
             <li className="relative group bg-yellow gap-1">
               <div className="flex items-center justify-center">
                 <Link to="#">Products</Link>
-                <i className="material-symbols-outlined font-thin">expand_more</i>
+                <i className="material-symbols-outlined font-thin">
+                  expand_more
+                </i>
               </div>
               {/* Insert lists here */}
             </li>
             <li className="relative group bg-yellow gap-1">
               <div className="flex items-center justify-center">
                 <Link to="#">Industries</Link>
-                <i className="material-symbols-outlined font-thin">expand_more</i>
+                <i className="material-symbols-outlined font-thin">
+                  expand_more
+                </i>
               </div>
               {/* Insert lists here */}
-
             </li>
-        
+
             <li className="relative group bg-yellow gap-1">
               <div className="flex items-center justify-center">
                 <Link to="#">Resources</Link>
-                <i className="material-symbols-outlined font-thin">expand_more</i>
+                <i className="material-symbols-outlined font-thin">
+                  expand_more
+                </i>
               </div>
-                            {/* Insert lists here */}
+              {/* Insert lists here */}
             </li>
             <li className="relative group bg-yellow gap-1">
               <div className="flex items-center justify-center">
                 <Link to="#">Company</Link>
-                <i className="material-symbols-outlined font-thin">expand_more</i>
+                <i className="material-symbols-outlined font-thin">
+                  expand_more
+                </i>
               </div>
-                            {/* Insert lists here */}
+              {/* Insert lists here */}
             </li>
-
           </ul>
 
           <div className="flex flex-row  gap-6 ">
             <div>
               <button className="btn">CONTACT US</button>
             </div>
-          <div className="hamburger justify-center items-center" onClick={handleHamburgerClick}>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              className="hamburger justify-center items-center"
+              onClick={handleHamburgerClick}
             >
-              <path
-                d="M21 4.5H3V6H21V4.5Z"
-                fill="url(#paint0_linear_886_30825)"
-              />
-              <path
-                d="M21 18H3V19.5H21V18Z"
-                fill="url(#paint1_linear_886_30825)"
-              />
-              <path
-                d="M21 9H3V10.5H21V9Z"
-                fill="url(#paint2_linear_886_30825)"
-              />
-              <path
-                d="M21 13.5H3V15H21V13.5Z"
-                fill="url(#paint3_linear_886_30825)"
-              />
-              <defs>
-                <linearGradient
-                  id="paint0_linear_886_30825"
-                  x1="3"
-                  y1="4.5"
-                  x2="21.3702"
-                  y2="6.79801"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop offset="0.00621719" stopColor="#B9C1EC" />
-                  <stop offset="1" stopColor="#A3B1FF" />
-                </linearGradient>
-                <linearGradient
-                  id="paint1_linear_886_30825"
-                  x1="3"
-                  y1="4.5"
-                  x2="21.3702"
-                  y2="6.79801"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop offset="0.00621719" stopColor="#B9C1EC" />
-                  <stop offset="1" stopColor="#A3B1FF" />
-                </linearGradient>
-                <linearGradient
-                  id="paint2_linear_886_30825"
-                  x1="3"
-                  y1="4.5"
-                  x2="21.3702"
-                  y2="6.79801"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop offset="0.00621719" stopColor="#B9C1EC" />
-                  <stop offset="1" stopColor="#A3B1FF" />
-                </linearGradient>
-                <linearGradient
-                  id="paint3_linear_886_30825"
-                  x1="3"
-                  y1="4.5"
-                  x2="21.3702"
-                  y2="6.79801"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop offset="0.00621719" stopColor="#B9C1EC" />
-                  <stop offset="1" stopColor="#A3B1FF" />
-                </linearGradient>
-              </defs>
-            </svg>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 4.5H3V6H21V4.5Z"
+                  fill="url(#paint0_linear_886_30825)"
+                />
+                <path
+                  d="M21 18H3V19.5H21V18Z"
+                  fill="url(#paint1_linear_886_30825)"
+                />
+                <path
+                  d="M21 9H3V10.5H21V9Z"
+                  fill="url(#paint2_linear_886_30825)"
+                />
+                <path
+                  d="M21 13.5H3V15H21V13.5Z"
+                  fill="url(#paint3_linear_886_30825)"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_886_30825"
+                    x1="3"
+                    y1="4.5"
+                    x2="21.3702"
+                    y2="6.79801"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0.00621719" stopColor="#B9C1EC" />
+                    <stop offset="1" stopColor="#A3B1FF" />
+                  </linearGradient>
+                  <linearGradient
+                    id="paint1_linear_886_30825"
+                    x1="3"
+                    y1="4.5"
+                    x2="21.3702"
+                    y2="6.79801"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0.00621719" stopColor="#B9C1EC" />
+                    <stop offset="1" stopColor="#A3B1FF" />
+                  </linearGradient>
+                  <linearGradient
+                    id="paint2_linear_886_30825"
+                    x1="3"
+                    y1="4.5"
+                    x2="21.3702"
+                    y2="6.79801"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0.00621719" stopColor="#B9C1EC" />
+                    <stop offset="1" stopColor="#A3B1FF" />
+                  </linearGradient>
+                  <linearGradient
+                    id="paint3_linear_886_30825"
+                    x1="3"
+                    y1="4.5"
+                    x2="21.3702"
+                    y2="6.79801"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0.00621719" stopColor="#B9C1EC" />
+                    <stop offset="1" stopColor="#A3B1FF" />
+                  </linearGradient>
+                </defs>
+              </svg>
 
-            {sidebarOpen && <Sidebar />}
-          </div>
+              {sidebarOpen && <Sidebar />}
+            </div>
           </div>
         </div>
       </nav>
