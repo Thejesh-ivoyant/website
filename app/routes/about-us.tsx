@@ -41,13 +41,18 @@ async function fetchData(endpoint:string) {
 export async function loader() {
   try {
     const jsonParsed = await fetchData("/api/healthcare/?populate=%2A");
+    const response = await fetch(`${strapiUrl}/api/contact-uses?populate=%2A`);
+    const data = await response.json();
+
+      const firstImageUrl = data.data[0]?.attributes.bgImage.data[0]?.attributes.formats.large.url || '';
+      const secondImageUrl = data.data[0]?.attributes.bgImage.data[1]?.attributes.formats.large.url || '';
 
     
     return defer({
         heroBgImageURl: jsonParsed.heroBgImage.data.attributes.formats.large.url,
         heroTitle: jsonParsed.heroTitle,
         heroDesc: jsonParsed.heroDescription,
-  
+        
       })
   } catch (error:any) {
     console.error(`Error in loader: ${error.message}`);
