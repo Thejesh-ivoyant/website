@@ -17,10 +17,7 @@ const Section2 = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <img
-            src={strapiUrl + loaderData.section2Image}
-            className="py-16 pl-16 w-full h-full"
-          > </img>
+        <img src={strapiUrl + loaderData.section2Image} className="py-16 pl-16 w-full h-full"alt="ornament" />
         </div>
       </div>
       <div className="flex flex-1 flex-col h-full">
