@@ -6,14 +6,6 @@ import { loader } from "~/routes/services.MobileDev";
 const Hero = () => {
 
   const loaderData = useLoaderData() as any;
-  const [c, setC] = useState(0);
-
-  const closeChats = () => {
-    setC(0);
-  };
-  const openChats = () => {
-    setC(1);
-  };
 
   return (
     <div>
