@@ -6,7 +6,7 @@ const ServiceCard = ({ service }: { service: any }) => {
             <div className=" " style={{ flexBasis: '40%', height: '140px' }}>
                 <img
                     src={service.s6_serviceCardImage}
-                    className="p-4  w-full h-full"
+                    className="p-4"
                     alt={service.s6_serviceCardTitle}
                 />
             </div>

@@ -14,6 +14,9 @@ import { Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import Section6 from "~/components/industries/section6";
 import Technologies from "~/components/S-MobileAppDev/section-7/technologies";
+import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
+import Faq from "~/components/Homepage/section-12/faq";
+import Index from "./Industries.Healthcare";
 
 export const meta: MetaFunction = () => {
   return [
@@ -40,7 +43,7 @@ async function fetchData(endpoint: string) {
     }
 
     const jsonData = await response.json();
-    return jsonData.data?.attributes;
+    return jsonData.data.attributes;
   } catch (error: any) {
     console.error(`Error fetching data from ${endpoint}: ${error.message}`);
     throw error; // Re-throw the error to be caught by the caller
@@ -48,39 +51,24 @@ async function fetchData(endpoint: string) {
 }
 
 export async function loader() {
-  const res = await fetch(strapiUrl + "/api/s-mad?populate=%2A");
+  const res = await fetch(strapiUrl + "/api/career?populate=%2A");
   const componentRes = await fetchData(
-    "/api/s-mad/?populate=s2_keyPoints.keyPointsImage,s5_phasesOfDevelopment.s5_phasesImage,s7_techIcons.s7_techIcon,s6_serviceCard.s6_serviceCardImage,s4_industryFocus.s4_IndustryFocusImage"
+    "/api/career/?populate=s2_whyJoinUs.image,s4_cards.image"
   );
   let jsonParsed = await res.json();
   const IndustryFocus = componentRes.s4_industryFocus.map((item: any) => ({
     id: item.id,
     s4_industryFocusSubTitle: item.s4_industryFocusSubTitle,
     s4_industryFocusDescription: item.s4_industryFocusDescription,
-    s4_industryFocusImage: strapiUrl + item.s4_IndustryFocusImage.data?.attributes.formats.large.url,
+    s4_industryFocusImage: strapiUrl + item.s4_IndustryFocusImage.data.attributes.formats.large.url,
   }));
-  const PhasesList = componentRes.s5_phasesOfDevelopment.map((item: any) => ({
-    id: item.id,
-    s5_phasesTitle: item.s5_phasesTitle,
-    s5_phasesDescription: item.s5_phasesDescription,
-    s5_phasesImage: strapiUrl + item.s5_phasesImage.data?.attributes.url,
-  }));
-  const KeyPoints = componentRes.s2_keyPoints.map((item: any) => ({
-    id: item.id,
-    keyPoints: item.keyPoints,
-    keyPointsImage: strapiUrl + item.keyPointsImage.data?.attributes.url,
-  }));
+
   const ServicesCard = componentRes.s6_serviceCard.map((item: any) => ({
     id: item.id,
-    s6_serviceCardTitle: item.s6_serviceCardTitle,
-    s6_serviceCardDescription: item.s6_serviceCardDescription,
-    s6_serviceCardImage: strapiUrl + item.s6_serviceCardImage.data?.attributes.formats.medium.url,
+    title: item.title,
+    description: item.description,
+    image: strapiUrl + item.image.data.attributes.formats.medium.url,
   }));
-  const Technologies = componentRes.s7_techIcons.map((item: any) => ({
-    id: item.id,
-    s7_techIcon: strapiUrl + item.s7_techIcon.data?.attributes.url,
-    s7_techIconName: item.s7_techIconName,
-    }));
 
 
   const {
@@ -96,9 +84,9 @@ export async function loader() {
     s6_serviceTitle,
     s6_serviceSummary,
     s7_techTitle,
-  } = jsonParsed.data?.attributes;
+  } = jsonParsed.data.attributes;
   return {
-    heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.formats.large.url,
+    heroImage:jsonParsed.data.attributes.heroImage.data.attributes.formats.large.url,
     heroTitle,
     heroDescription,
     s2_Title,
@@ -111,15 +99,13 @@ export async function loader() {
     s6_serviceTitle,
     s6_serviceSummary,
     s7_techTitle,
-    PhasesList: PhasesList,
-    KeyPoints:KeyPoints,
     IndustryFocus:IndustryFocus,
     ServicesCard:ServicesCard,
-    Technologies:Technologies,
+    Technologies,
   };
 }
 
-const MobDev = () => {
+const Index = () => {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
@@ -148,16 +134,11 @@ const MobDev = () => {
       ) : (
         <div>
           <div className="video">
-            <Hero />
+          <Hero />
           </div>
-          <ServiceContainer />
-          <ProjectPortfolio />
-          <IndustryFocus />
-          <Phases />
-          <ServiceCardContainer />
-         <Technologies />
-          <Consultation />
-          <BlogsContainer />
+          <Why_Choose_Us />
+          <Faq />
+          <ServiceCardContainer/>
           <Footer />
           <Outlet />
         </div>
@@ -166,4 +147,4 @@ const MobDev = () => {
   );
 };
 
-export default MobDev;
+export default Index;
