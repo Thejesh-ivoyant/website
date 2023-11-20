@@ -1,7 +1,9 @@
 import { json } from "@remix-run/node";
 import { Outlet, useLoaderData } from "@remix-run/react";
+import { useEffect, useState } from "react";
 import Hero from "~/common-components/Hero";
 import Footer from "~/common-components/footer";
+import LoadingComponent from "~/common-components/loading";
 import Section2 from "~/components/industries/section2";
 import Section3 from "~/components/industries/section3";
 import Section4 from "~/components/industries/section4";
@@ -92,10 +94,30 @@ export async function loader() {
 
 
 export default function Index() {
-  const data = useLoaderData<typeof loader>();
 
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      try {
+        const fetchedData = await loader();
+        setData(fetchedData);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setLoading(false); // Set loading to false in case of an error
+      }
+    };
+
+    fetchDataAsync();
+  }, []);
   return (
-    <>
+    <div>
+      {loading ? (
+        <LoadingComponent />
+      ) : (
+        <div>
       <Hero />
       <Section2 />
       <Section3 />
@@ -104,6 +126,8 @@ export default function Index() {
       <Section6 />
       <Section7 />
       <Footer />
-    </>
+      </div>
+      )}
+    </div>
   );
 }

@@ -48,78 +48,39 @@ async function fetchData(endpoint: string) {
 }
 
 export async function loader() {
-  const res = await fetch(strapiUrl + "/api/s-mad?populate=%2A");
+  const res = await fetch(strapiUrl + "/api/resource?populate=%2A");
   const componentRes = await fetchData(
-    "/api/s-mad/?populate=s2_keyPoints.keyPointsImage,s5_phasesOfDevelopment.s5_phasesImage,s7_techIcons.s7_techIcon,s6_serviceCard.s6_serviceCardImage,s4_industryFocus.s4_IndustryFocusImage"
+    "/api/resource?populate=s2_card.image,s4_card.image"
   );
   let jsonParsed = await res.json();
-  const IndustryFocus = componentRes.s4_industryFocus.map((item: any) => ({
+  const s2_Cards = componentRes.s2_card.map((item: any) => ({
     id: item.id,
-    s4_industryFocusSubTitle: item.s4_industryFocusSubTitle,
-    s4_industryFocusDescription: item.s4_industryFocusDescription,
-    s4_industryFocusImage: strapiUrl + item.s4_IndustryFocusImage.data.attributes.formats.large.url,
+    title: item.title,
+    description: item.description,
+    image: strapiUrl + item.image.data.attributes.formats.small.url,
   }));
-  const PhasesList = componentRes.s5_phasesOfDevelopment.map((item: any) => ({
+  const s4_Cards = componentRes.s4_card.map((item: any) => ({
     id: item.id,
-    s5_phasesTitle: item.s5_phasesTitle,
-    s5_phasesDescription: item.s5_phasesDescription,
-    s5_phasesImage: strapiUrl + item.s5_phasesImage.data.attributes.url,
+    title: item.title,
+    description: item.description,
+    image: strapiUrl + item.image.data.attributes.formats.small.url,
   }));
-  const KeyPoints = componentRes.s2_keyPoints.map((item: any) => ({
-    id: item.id,
-    keyPoints: item.keyPoints,
-    keyPointsImage: strapiUrl + item.keyPointsImage.data.attributes.url,
-  }));
-  const ServicesCard = componentRes.s6_serviceCard.map((item: any) => ({
-    id: item.id,
-    s6_serviceCardTitle: item.s6_serviceCardTitle,
-    s6_serviceCardDescription: item.s6_serviceCardDescription,
-    s6_serviceCardImage: strapiUrl + item.s6_serviceCardImage.data.attributes.formats.medium.url,
-  }));
-  const Technologies = componentRes.s7_techIcons.map((item: any) => ({
-    id: item.id,
-    s7_techIcon: strapiUrl + item.s7_techIcon.data.attributes.url,
-    s7_techIconName: item.s7_techIconName,
-    }));
-
+ 
 
   const {
     heroTitle,
     heroDescription,
-    s2_Title,
-    s2_Description,
-    s3_countryCount,
-    s3_projectDelieverdCount,
-    s3_TotalProjectCount,
-    s4_industryFocusTitle,
-    s5_title,
-    s6_serviceTitle,
-    s6_serviceSummary,
-    s7_techTitle,
   } = jsonParsed.data.attributes;
   return {
     heroImage:jsonParsed.data.attributes.heroImage.data.attributes.formats.large.url,
     heroTitle,
     heroDescription,
-    s2_Title,
-    s2_Description,
-    s3_countryCount,
-    s3_projectDelieverdCount,
-    s3_TotalProjectCount,
-    s4_industryFocusTitle,
-    s5_title,
-    s6_serviceTitle,
-    s6_serviceSummary,
-    s7_techTitle,
-    PhasesList: PhasesList,
-    KeyPoints:KeyPoints,
-    IndustryFocus:IndustryFocus,
-    ServicesCard:ServicesCard,
-    Technologies,
+    s2_Cards:s2_Cards,
+    s4_Cards:s4_Cards,
   };
 }
 
-const Resources = () => {
+const Index = () => {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
@@ -148,12 +109,12 @@ const Resources = () => {
       ) : (
         <div>
           <div className="video">
-            <Hero />
+          <Hero />
           </div>
+          <BlogsContainer />
           <Consultation />
           <BlogsContainer />
-            <Footer/>
-     
+          <Footer/>
           <Outlet />
         </div>
       )}
@@ -161,4 +122,4 @@ const Resources = () => {
   );
 };
 
-export default Resources;
+export default Index;

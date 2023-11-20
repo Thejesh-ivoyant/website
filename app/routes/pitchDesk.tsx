@@ -14,8 +14,6 @@ import { Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import Section6 from "~/components/industries/section6";
 import Technologies from "~/components/S-MobileAppDev/section-7/technologies";
-import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
-import Faq from "~/components/Homepage/section-12/faq";
 
 export const meta: MetaFunction = () => {
   return [
@@ -50,61 +48,32 @@ async function fetchData(endpoint: string) {
 }
 
 export async function loader() {
-  const res = await fetch(strapiUrl + "/api/career?populate=%2A");
+  const res = await fetch(strapiUrl + "/api/pitch-desk?populate=%2A");
   const componentRes = await fetchData(
-    "/api/career/?populate=s2_whyJoinUs.image,s4_cards.image"
+    "/api/pitch-desk/?populate=s3_card.image"
   );
   let jsonParsed = await res.json();
-  const IndustryFocus = componentRes.s4_industryFocus.map((item: any) => ({
-    id: item.id,
-    s4_industryFocusSubTitle: item.s4_industryFocusSubTitle,
-    s4_industryFocusDescription: item.s4_industryFocusDescription,
-    s4_industryFocusImage: strapiUrl + item.s4_IndustryFocusImage.data.attributes.formats.large.url,
-  }));
-
-  const ServicesCard = componentRes.s6_serviceCard.map((item: any) => ({
+  const s3_Cards = componentRes.s3_card.map((item: any) => ({
     id: item.id,
     title: item.title,
     description: item.description,
-    image: strapiUrl + item.image.data.attributes.formats.medium.url,
+    image: strapiUrl + item.image.data.attributes.formats.small.url,
   }));
-
+ 
 
   const {
     heroTitle,
     heroDescription,
-    s2_Title,
-    s2_Description,
-    s3_countryCount,
-    s3_projectDelieverdCount,
-    s3_TotalProjectCount,
-    s4_industryFocusTitle,
-    s5_title,
-    s6_serviceTitle,
-    s6_serviceSummary,
-    s7_techTitle,
   } = jsonParsed.data.attributes;
   return {
     heroImage:jsonParsed.data.attributes.heroImage.data.attributes.formats.large.url,
     heroTitle,
     heroDescription,
-    s2_Title,
-    s2_Description,
-    s3_countryCount,
-    s3_projectDelieverdCount,
-    s3_TotalProjectCount,
-    s4_industryFocusTitle,
-    s5_title,
-    s6_serviceTitle,
-    s6_serviceSummary,
-    s7_techTitle,
-    IndustryFocus:IndustryFocus,
-    ServicesCard:ServicesCard,
-    Technologies,
+    s3_Cards:s3_Cards
   };
 }
 
-const Careers = () => {
+const Index = () => {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
@@ -135,10 +104,9 @@ const Careers = () => {
           <div className="video">
           <Hero />
           </div>
-          <Why_Choose_Us />
-          <Faq />
-          <ServiceCardContainer/>
-          <Footer />
+          <Consultation />
+          <BlogsContainer />
+          <Footer/>
           <Outlet />
         </div>
       )}
@@ -146,4 +114,4 @@ const Careers = () => {
   );
 };
 
-export default Careers;
+export default Index;
