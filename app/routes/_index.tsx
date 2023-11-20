@@ -22,14 +22,17 @@ export async function loader() {
   try {
     const response = await fetch(`${strapiUrl}/api/contact-uses?populate=%2A`);
     const data = await response.json();
-    const imageUrl = data.data[0]?.attributes.bgImage.data[0]?.attributes.url || '';
+      const firstImageUrl = data.data[0]?.attributes.bgImage.data[0]?.attributes.formats.large.url || '';
+      const secondImageUrl = data.data[0]?.attributes.bgImage.data[1]?.attributes.formats.large.url || '';
 
     return {
-      contactUsImage: imageUrl,
+      hireUsImage: firstImageUrl,
+      contactUsImage: secondImageUrl,
     };
   } catch (error) {
     console.error("Error fetching data from API:", error);
     return {
+      hireUsImage: '',
       contactUsImage: '', // Handle the error gracefully, possibly with a default value.
     };
   }

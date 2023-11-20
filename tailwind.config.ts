@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss'
 
 export default {
+  mode: "jit",
   content: ['./app/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
@@ -14,8 +15,10 @@ export default {
         'geekblue': '#85A5FF',
         'HeaderGray': '#E9E9EC',
         'TinBlue': '#EEEBFF',
-        'PurpBlue': "#0D0B71"
-        
+        'PurpBlue': "#0D0B71",
+        'iv-purple': '#969AFB',
+        'form-gray': '#7D7890',
+        'form-border': '#0D0D16'
       },
       fontFamily:{
         poppins : ['Poppins'],

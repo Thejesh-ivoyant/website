@@ -5,7 +5,6 @@ import stylesheet from "~/tailwind.css";
 import globalstyle from "~/styles/main.css";
 import Navstyle from "~/common-components/nav.css";
 import Sidebarstyle from "~/common-components/sidebar.css"
-import ContactUsStyle from "~/components/contact-us/contactUs.css"
 
 
 import {
