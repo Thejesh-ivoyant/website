@@ -2,7 +2,7 @@ import { strapiUrl } from "~/utils/urls";
 const ServiceCard = ({ service }: { service: any }) => {
     
     return (
-        <div className="blog-card justify-around">
+        <div className="blog-card absolute justify-around">
             <div className=" " style={{ flexBasis: '40%', height: '140px' }}>
                 <img
                     src={service.s6_serviceCardImage}
