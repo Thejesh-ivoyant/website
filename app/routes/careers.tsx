@@ -14,6 +14,8 @@ import { Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import Section6 from "~/components/industries/section6";
 import Technologies from "~/components/S-MobileAppDev/section-7/technologies";
+import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
+import Faq from "~/components/Homepage/section-12/faq";
 
 export const meta: MetaFunction = () => {
   return [
@@ -119,7 +121,7 @@ export async function loader() {
   };
 }
 
-const MobDev = () => {
+const Careers = () => {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
@@ -150,14 +152,9 @@ const MobDev = () => {
           <div className="video">
             <Hero />
           </div>
-          <ServiceContainer />
-          <ProjectPortfolio />
-          <IndustryFocus />
-          <Phases />
-          <ServiceCardContainer />
-         <Technologies />
-          <Consultation />
-          <BlogsContainer />
+          <Why_Choose_Us />
+          <Faq />
+          
           <Footer />
           <Outlet />
         </div>
@@ -166,4 +163,4 @@ const MobDev = () => {
   );
 };
 
-export default MobDev;
+export default Careers;

@@ -18,6 +18,7 @@ import {
 
 import Sidebar from "./common-components/sidebar";
 import Nav from "./common-components/nav";
+import Footer from "./common-components/footer";
 
 
 export const links: LinksFunction = () => [
