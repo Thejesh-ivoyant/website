@@ -38,7 +38,7 @@ const AboutCard = () => {
         </div>
      
     
-          <Link to={"/company/about_us"} className="button-test relative py-4 lg:py-3">
+          <Link to={"/company/about_us"} className="button-test relative py-4 lg:py-3 hover:text-white">
             <a>About Us</a>
           </Link>
 

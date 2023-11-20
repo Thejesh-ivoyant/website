@@ -1352,3 +1352,19 @@ border-bottom-style: solid;
   align-self: stretch;
   background: rgba(255, 255, 255, 0.02);
 }
+.mission {
+  transition: background 0.3s ease; 
+}
+
+.mission:hover {
+  mix-blend-mode: normal;
+  background: radial-gradient(
+    225.99% 112.99% at 100.42% -0.35%,
+    #15416E 0%,
+    #0A0353 1%,
+    #0D2954 23%,
+    #091657 45%,
+    #071D70 70%,
+    #0A195E 100%
+  );
+}
