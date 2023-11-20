@@ -148,12 +148,11 @@ const Resources = () => {
       ) : (
         <div>
           <div className="video">
-            <Hero />
+          <Hero />
           </div>
           <Consultation />
           <BlogsContainer />
-            <Footer/>
-     
+          <Footer/>
           <Outlet />
         </div>
       )}

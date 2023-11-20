@@ -150,11 +150,10 @@ const Careers = () => {
       ) : (
         <div>
           <div className="video">
-            <Hero />
+          <Hero />
           </div>
           <Why_Choose_Us />
           <Faq />
-          
           <Footer />
           <Outlet />
         </div>
