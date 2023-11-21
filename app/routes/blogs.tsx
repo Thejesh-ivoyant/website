@@ -43,7 +43,7 @@ async function fetchData(endpoint: string) {
     }
 
     const jsonData = await response.json();
-    return jsonData.data.attributes;
+    return jsonData.data?.attributes;
   } catch (error: any) {
     console.error(`Error fetching data from ${endpoint}: ${error.message}`);
     throw error; // Re-throw the error to be caught by the caller
@@ -60,14 +60,14 @@ export async function loader() {
     id: item.id,
     s4_industryFocusSubTitle: item.s4_industryFocusSubTitle,
     s4_industryFocusDescription: item.s4_industryFocusDescription,
-    s4_industryFocusImage: strapiUrl + item.s4_IndustryFocusImage.data.attributes.formats.large.url,
+    s4_industryFocusImage: strapiUrl + item.s4_IndustryFocusImage.data?.attributes.formats.large.url,
   }));
 
   const ServicesCard = componentRes.s6_serviceCard.map((item: any) => ({
     id: item.id,
     title: item.title,
     description: item.description,
-    image: strapiUrl + item.image.data.attributes.formats.medium.url,
+    image: strapiUrl + item.image.data?.attributes.formats.medium.url,
   }));
 
 
@@ -84,9 +84,9 @@ export async function loader() {
     s6_serviceTitle,
     s6_serviceSummary,
     s7_techTitle,
-  } = jsonParsed.data.attributes;
+  } = jsonParsed.data?.attributes;
   return {
-    heroImage:jsonParsed.data.attributes.heroImage.data.attributes.formats.large.url,
+    heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.formats.large.url,
     heroTitle,
     heroDescription,
     s2_Title,
@@ -101,11 +101,10 @@ export async function loader() {
     s7_techTitle,
     IndustryFocus:IndustryFocus,
     ServicesCard:ServicesCard,
-    Technologies,
-  };
+    };
 }
 
-const Index = () => {
+const Blogs = () => {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
@@ -147,4 +146,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Blogs;
