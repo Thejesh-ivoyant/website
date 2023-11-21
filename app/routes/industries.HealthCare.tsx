@@ -34,7 +34,7 @@ async function fetchData(endpoint:string) {
     }
 
     const jsonData = await response.json();
-    return jsonData.data.attributes;
+    return jsonData.data?.attributes;
   } catch (error: any ) {
     console.error(`Error fetching data from ${endpoint}: ${error.message}`);
     throw error; // Re-throw the error to be caught by the caller
@@ -51,34 +51,34 @@ export async function loader() {
     const section7Pairs = section7PairsJson.pairs.map((pair:typeof section7PairsJson) => ({
       id: pair.id,
       text: pair.text,
-      picUrl: strapiUrl + pair.pic.data.attributes.url,
-      name: pair.pic.data.attributes.name,
+      picUrl: strapiUrl + pair.pic.data?.attributes.url,
+      name: pair.pic.data?.attributes.name,
     }));
 
     const technologies = techParsed.technologies.map((pair:typeof techParsed) => ({
       id: pair.id,
       text: pair.text,
-      picUrl: strapiUrl + pair.pic.data.attributes.url,
-      name: pair.pic.data.attributes.name,
+      picUrl: strapiUrl + pair.pic.data?.attributes.url,
+      name: pair.pic.data?.attributes.name,
     }));
     const PhasesList = section5Parsed.process.map((item:any) => ({
       id: item.id,
       title: item.title,
       description: item.description,
-      ornament: strapiUrl + item.ornament.data.attributes.url, // Access the nested structure
+      ornament: strapiUrl + item.ornament.data?.attributes.url, // Access the nested structure
     }));
 
     return {
-      heroBgImageURl: jsonParsed.heroBgImage.data.attributes.formats.large.url,
+      heroBgImageURl: jsonParsed.heroBgImage.data?.attributes.formats.large.url,
       heroTitle: jsonParsed.heroTitle,
       section2Title: jsonParsed.section_2_title,
-      section2Image: jsonParsed.section_2_image.data.attributes.url,
+      section2Image: jsonParsed.section_2_image.data?.attributes.url,
       section2Desc: jsonParsed.section_2_description,
       section3Title: jsonParsed.section_3_title,
       section3Desc: jsonParsed.section_3_description,
       section3Tags: jsonParsed.section_3_tags,
-      section3Image: jsonParsed.section_3_image.data.attributes.formats.large.url,
-      section4Image: jsonParsed.section_4_image.data.attributes.formats.large.url,
+      section3Image: jsonParsed.section_3_image.data?.attributes.formats.large.url,
+      section4Image: jsonParsed.section_4_image.data?.attributes.formats.large.url,
       section4Title: jsonParsed.section_4_title,
       servicesList: jsonParsed.servicesList,
       section7Title: jsonParsed.section_7_title,
