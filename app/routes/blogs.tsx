@@ -101,11 +101,10 @@ export async function loader() {
     s7_techTitle,
     IndustryFocus:IndustryFocus,
     ServicesCard:ServicesCard,
-    Technologies,
-  };
+    };
 }
 
-const Index = () => {
+const Blogs = () => {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
@@ -147,4 +146,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Blogs;
