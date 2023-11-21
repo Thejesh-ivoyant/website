@@ -43,7 +43,9 @@ async function fetchData(endpoint: string) {
     }
 
     const jsonData = await response.json();
+
     return jsonData.data?.attributes;
+
   } catch (error: any) {
     console.error(`Error fetching data from ${endpoint}: ${error.message}`);
     throw error; // Re-throw the error to be caught by the caller
@@ -87,6 +89,7 @@ export async function loader() {
   } = jsonParsed.data?.attributes;
   return {
     heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.formats.large.url,
+
     heroTitle,
     heroDescription,
     s2_Title,
@@ -101,11 +104,17 @@ export async function loader() {
     s7_techTitle,
     IndustryFocus:IndustryFocus,
     ServicesCard:ServicesCard,
+
     };
 }
 
 const Blogs = () => {
 
+    Technologies,
+  };
+}
+
+const Index = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
 
@@ -147,3 +156,4 @@ const Blogs = () => {
 };
 
 export default Blogs;
+
