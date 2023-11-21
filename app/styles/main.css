@@ -1368,3 +1368,15 @@ border-bottom-style: solid;
     #0A195E 100%
   );
 }
+#navTab {
+  position: relative;
+}
+#navTab.active::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background-color: #a68ae3;
+  top: -25px;
+  left: 0;
+}
