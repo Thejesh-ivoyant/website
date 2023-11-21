@@ -1194,7 +1194,17 @@ border-bottom-style: solid;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+.btn-purp-grad{
+  display: flex;
+  width: 182px;
+  height: 60px;
+  padding: 13px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  background: linear-gradient(97deg, #6C39DB 0.62%, #1C083E 100%);
+}
 
 .Container {
   overflow: hidden;
@@ -1232,9 +1242,8 @@ border-bottom-style: solid;
   display: flex !important;
 }
 .active-content > input{
-  border: solid #fff;
+  border: solid #000000;
   border-width : 0px 0px 1px 0px;
-  color: var(--gray-gray-2, #FAFAFA);
   font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
@@ -1242,15 +1251,15 @@ border-bottom-style: solid;
   line-height: 20px;
 }
 .active-tab{
-  border-bottom: #FAFAFA ;
-  border-bottom: 4px solid white;
+  border-bottom: #000000 ;
   margin-bottom: -0.2rem;
 }
 .tab{
-  color: #d9d9d9;
+  color: #000000;
   padding: 1rem;
   cursor:pointer;
   text-align: center;
+  white-space: nowrap;
 }
 .CardDark{
   background: var(--card-dark, linear-gradient(180deg, #360E81 0%, #20084D 100%));
@@ -1342,4 +1351,20 @@ border-bottom-style: solid;
   flex: 1 0 0;
   align-self: stretch;
   background: rgba(255, 255, 255, 0.02);
+}
+.mission {
+  transition: background 0.3s ease; 
+}
+
+.mission:hover {
+  mix-blend-mode: normal;
+  background: radial-gradient(
+    225.99% 112.99% at 100.42% -0.35%,
+    #15416E 0%,
+    #0A0353 1%,
+    #0D2954 23%,
+    #091657 45%,
+    #071D70 70%,
+    #0A195E 100%
+  );
 }
