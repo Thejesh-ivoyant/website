@@ -21,8 +21,8 @@ export async function loader() {
     const response = await fetch(`${strapiUrl}/api/contact-uses?populate=%2A`);
     const data = await response.json();
 
-      const firstImageUrl = data.data[0]?.attributes.bgImage.data[0]?.attributes.formats.large.url || '';
-      const secondImageUrl = data.data[0]?.attributes.bgImage.data[1]?.attributes.formats.large.url || '';
+      const firstImageUrl = data.data[0]?.attributes.bgImage.data[0]?.attributes.url|| '';
+      const secondImageUrl = data.data[0]?.attributes.bgImage.data[1]?.attributes.url || '';
 
 
     return {
@@ -30,7 +30,7 @@ export async function loader() {
       contactUsImage: secondImageUrl,
     };
   } catch (error) {
-    console.error("Error fetching data from API:", error);
+    console.warn("Error fetching data from contact API:", error);
     return {
       hireUsImage: '',
       contactUsImage: '', 
