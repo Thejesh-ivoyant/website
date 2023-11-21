@@ -1375,8 +1375,8 @@ border-bottom-style: solid;
   content: '';
   position: absolute;
   width: 100%;
-  height: 5px;
-  background-color: #5E40A0;
+  height: 10px;
+  background-color: #a68ae3;
   top: -25px;
   left: 0;
 }
