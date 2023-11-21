@@ -18,7 +18,8 @@ export default {
         'PurpBlue': "#0D0B71",
         'iv-purple': '#969AFB',
         'form-gray': '#7D7890',
-        'form-border': '#0D0D16'
+        'form-border': '#0D0D16',
+        'nav-dark': '#1C0F38'
       },
       fontFamily:{
         poppins : ['Poppins'],
