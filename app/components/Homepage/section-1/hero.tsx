@@ -81,8 +81,8 @@ setC(0);
         </div>
     </div>)}
       {c===1 && (<div className={`social-media-container ${c === 1 ? 'open' : ''}`}>
-        <img className="social-media-item" src=".../assets/Facebook.png"  />
-        <img className="social-media-item" src=".../assets/linkedin.svg"  />
+        <img className="social-media-item" src="../assets/Facebook.png"  />
+        <img className="social-media-item" src="../assets/linkedin.svg"  />
         <div className="chats-ellipse-container social-media-item" >
           <img
             src="../assets/Ellipse.svg"
@@ -90,13 +90,13 @@ setC(0);
             className="chats-ellipse-image"
           />
            <img
-            src=".../assets/twitter.svg"
+            src="../assets/skype.svg"
            alt="close"
                className="minus-image"
           />
 
         </div>
-        <img className="social-media-item" src=".../assets/skype.svg"  />
+        <img className="social-media-item" src="../assets/skype.svg"  />
         <div className="chats-ellipse-container" onClick={() => closeChats()}>
           <img
             src="../assets/Ellipse.svg"
