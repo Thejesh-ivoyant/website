@@ -16,7 +16,6 @@ import Section6 from "~/components/industries/section6";
 import Technologies from "~/components/S-MobileAppDev/section-7/technologies";
 import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
 import Faq from "~/components/Homepage/section-12/faq";
-import Index from "./Industries.Healthcare";
 
 export const meta: MetaFunction = () => {
   return [
