@@ -128,19 +128,19 @@ const Nav= () => {
       <div className= {key > 0? `fixed w-full h-screen bg-black z-30 opacity-95`: `hidden`}>
         <div className= {key == 1 ?`grid grid-cols-3 text-white p-28 font-thin w-full text-left  items-center gap-6`: `hidden`}>
           <div className="col-span-1">
-            <Link to={'#'} className="hover:text-[#cabfe2]" onClick={(key)=>setKey(0)}>Mobile App Development</Link>
+            <Link to={'/services/mobiledev'} className="hover:text-[#cabfe2]" onClick={(key)=>setKey(0)}>Mobile App Development</Link>
           </div>
           <div className="col-span-1">
-            <Link to={'#'} className="hover:text-[#cabfe2]" onClick={(key)=>setKey(0)} >Custom Applications </Link>
+            <Link to={'/services/customapplications'} className="hover:text-[#cabfe2]" onClick={(key)=>setKey(0)} >Custom Applications </Link>
           </div>
           <div className="col-span-1">
-            <Link to={'#'} className="hover:text-[#cabfe2]" onClick={(key)=>setKey(0)}>API integration</Link>
+            <Link to={'/services/apiintegration'} className="hover:text-[#cabfe2]" onClick={(key)=>setKey(0)}>API integration</Link>
           </div>
           <div className="col-span-1">
-            <Link to={'#'} className="hover:text-[#cabfe2]" onClick={(key)=>setKey(0)}>UI/UX design</Link>
+            <Link to={'/services/ui.ux'} className="hover:text-[#cabfe2]" onClick={(key)=>setKey(0)}>UI/UX design</Link>
           </div>
           <div className="col-span-1">
-            <Link to={'#'} className="hover:text-[#cabfe2]" onClick={(key)=>setKey(0)}>Custom application</Link>
+            <Link to={''} className="hover:text-[#cabfe2]" onClick={(key)=>setKey(0)}>Custom application</Link>
           </div>
           <div className="col-span-1">
             <Link to={'#'} className="hover:text-[#cabfe2]" onClick={(key)=>setKey(0)}>Cloud migration</Link>
@@ -188,7 +188,7 @@ const Nav= () => {
             <Link to={'#'} className="hover:text-[#cabfe2]" onClick={(key)=>setKey(0)}>Aviation</Link>
           </div>
           <div className="col-span-1">
-            <Link to={'#'} className="hover:text-[#cabfe2]" onClick={(key)=>setKey(0)}>Healthcare</Link>
+            <Link to={'industries/healthcare'} className="hover:text-[#cabfe2]" onClick={(key)=>setKey(0)}>Healthcare</Link>
           </div>
           <div className="col-span-1">
             <Link to={'#'} className="hover:text-[#cabfe2]" onClick={(key)=>setKey(0)}>Big Data</Link>
