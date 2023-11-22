@@ -30,7 +30,7 @@ const Consultation = () => {
         src={bgImageUrl}
         alt="Background"
       />
-      <div className="absolute left-8 font-oxygen text-white text-4xl font-bold leading-[60px] tracking-wide lg:w-2/5 ">
+      <div className="absolute left-8 font-montserrat text-white text-4xl font-bold leading-[60px] tracking-wide lg:w-2/5 ">
         {tagline}
       </div>
       <button className="absolute right-8 btn-white">
