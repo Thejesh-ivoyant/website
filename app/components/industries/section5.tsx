@@ -15,11 +15,11 @@ const Section5 = () => {
           <div className="flex flex-col ml-4 items-start justify-center p-3 gap-6">
             <strong className="text-base font-bold tracking-wide font-montserrat text-TinBlue ">{item.title}</strong>
             <div className="font-poppins text-xs font-normal text-left leading-5">{defaultDesc}</div>
-            <img src = {item.ornament} className="w-10 h-10 mx-auto"></img>
+                  <img src={item.ornament} className="w-10 h-10 mx-auto" alt={item.ornament} />
           </div>
         </div>
       ))}
-      <img src = "../assets/0.svg" className="h-[400px]"></img>
+              <img src="../assets/0.svg" className="h-[400px]" alt="vector" />
     </div>
   </div>
 

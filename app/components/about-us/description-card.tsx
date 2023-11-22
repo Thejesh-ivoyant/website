@@ -12,7 +12,7 @@ const DescriptionCard  = ({ AboutDescription, DescriptionBackground }: { AboutDe
            <div className="lg:w-1/3 relative w-full CardDark opacity-95 flex flex-col justify-center items-center">
       {/* The moving dot animation 👻  */}
     
-      <img src= {strapiUrl + DescriptionBackground} className="h-full  object-cover object-left"></img>
+                <img src={strapiUrl + DescriptionBackground} className="h-full  object-cover object-left" alt={DescriptionBackground} />
     </div>
 
 

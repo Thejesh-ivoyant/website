@@ -11,7 +11,7 @@ const Section6 = () => {
         <div className="w-full flex justify-around flex-wrap text-black p-10 border-t-2">
           {loaderData.techList.map((pair: any) => (
             <div key={pair.id} className="flex flex-col items-center m-4">
-              <img src={pair.picUrl} alt={pair.name} className="w-16 h-16" />
+              <img src={pair.picUrl} alt={pair.name} className="w-16 h-16"  />
               <figcaption className="text-black mt-2">{pair.text}</figcaption>
             </div>
           ))}

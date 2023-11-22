@@ -24,7 +24,7 @@ const Nav= () => {
                 src= '../assets/ivoyant-white.png'
                 alt="iVoyant Logo"
                 className="w-full h-full"
-              ></img>
+              />
             </div>
           </div>
 
