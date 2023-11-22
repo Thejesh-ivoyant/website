@@ -798,7 +798,13 @@ border-image-slice: 1;
   width: 100%;
   background: #F9F8FC;
   }
-
+.title{
+  color: var(--heading-gray, #000000);
+  font-family: Montserrat;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+}
     
   
   .heading h2{
