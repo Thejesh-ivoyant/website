@@ -36,7 +36,7 @@ const Faq = () => {
 
       <section className="px-4 py-8 gradient-top">
         <div className="flex flex-col space-y-4 py-4 relative">
-        <img src="../assets/Ornament.png" className="absolute top-4 left-4"></img>
+                  <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="icons" />
           {faqList &&
             Object.keys(faqList).map((faq) => (
               <div className="flex flex-col px-28 relative" key={faq}>
