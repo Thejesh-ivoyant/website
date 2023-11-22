@@ -12,15 +12,15 @@ const Phases = () => {
   <div className="w-full h-[500px] flex justify-around flex-row text-white p-10 top-gradient">
       {loaderData.PhasesList.map((item: any, index: number) => (
         <div key={item.id} className="flex items-center px-4 h-[400px]">
-          <img src={`../assets/${index + 1}.svg`} alt={`SVG ${index + 1}`} className="w-fit h-full p-1" />
+          <img src={`../assets/${index + 1}.svg`} alt={`SVG ${index + 1}`} className="w-fit h-full p-1"  />
           <div className="flex flex-col ml-4 items-start justify-center p-3 gap-6">
             <strong className="text-base font-bold tracking-wide font-montserrat text-TinBlue ">{item.s5_phasesTitle}</strong>
             <div className="font-poppins text-xs font-normal text-left leading-5">{defaultDesc}</div>
-            <img src = {item.s5_phasesImage} className="w-10 h-10 mx-auto"></img>
+                  <img src={item.s5_phasesImage} className="w-10 h-10 mx-auto" alt="phasesicons" />
           </div>
         </div>
       ))}
-      <img src = "../assets/0.svg" className="h-[400px]"></img>
+              <img src="../assets/0.svg" className="h-[400px]" alt="vector" />
     </div>
   </div>
 
