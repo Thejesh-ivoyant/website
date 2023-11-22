@@ -33,7 +33,7 @@ const ContactUs = () => {
                 ? strapiUrl + loaderData?.contactUsImage
                 : strapiUrl + loaderData?.hireUsImage
             }
-            alt="Image Alt Text"
+            alt="contactUs"
           />
         </div>
         <div className="w-full py-6">
@@ -43,28 +43,28 @@ const ContactUs = () => {
           <div className="grid grid-cols-2 top-gradient border-t-iv-purple w-full items-center p-2 gap-3">
             <div className="col-span-1 text-white items-center justify-self-center">
               <div className="flex text-iv-purple items-center gap-2">
-                <img className="w-4 h-4 inline" src="../assets/phone.svg"></img>
+                              <img className="w-4 h-4 inline" src="../assets/phone.svg" alt="phoneImg" />
                 <span>Enquires</span>
               </div>
               <a className="block">9999999999</a>
             </div>
             <div className="col-span-1 text-white items-center justify-self-center">
               <div className="flex text-iv-purple items-center gap-2">
-                <img className="w-4 h-4 inline" src="../assets/phone.svg"></img>
+                              <img className="w-4 h-4 inline" src="../assets/phone.svg" alt="phoneImg" />
                 <span>Enquires</span>
               </div>
               <a className="block">9999999999</a>
             </div>
             <div className="col-span-1 text-white items-center justify-self-center">
               <div className="flex text-iv-purple items-center gap-2">
-                <img className="w-4 h-4 inline" src="../assets/phone.svg"></img>
+                              <img className="w-4 h-4 inline" src="../assets/phone.svg" alt="phoneImg" />
                 <span>Enquires</span>
               </div>
               <a className="block">9999999999</a>
             </div>
             <div className="col-span-1 text-white items-center justify-self-center">
               <div className="flex text-iv-purple items-center gap-2">
-                <img className="w-4 h-4 inline" src="../assets/phone.svg"></img>
+                              <img className="w-4 h-4 inline" src="../assets/phone.svg" alt="phoneImg" />
                 <span>Enquires</span>
               </div>
               <a className="block">9999999999</a>

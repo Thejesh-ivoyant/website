@@ -81,8 +81,8 @@ setC(0);
         </div>
     </div>)}
       {c===1 && (<div className={`social-media-container ${c === 1 ? 'open' : ''}`}>
-        <img className="social-media-item" src="../assets/Facebook.png"  />
-        <img className="social-media-item" src="../assets/linkedin.svg"  />
+              <img className="social-media-item" src="../assets/Facebook.png" alt="social-media-icons" />
+              <img className="social-media-item" src="../assets/linkedin.svg" alt="social-media-icons" />
         <div className="chats-ellipse-container social-media-item" >
           <img
             src="../assets/Ellipse.svg"
