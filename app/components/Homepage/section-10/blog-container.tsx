@@ -58,7 +58,7 @@ const BlogsContainer = () => {
   return (
     <div className="w-full bg-white p-8 min-h-[90vh]">
       <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
-        <span className="h-fit whitespace-nowrap font-oxygen font-bold">
+        <span className="h-fit whitespace-nowrap font-montserrat font-bold">
           What's new on our blog?
         </span>
       </div>

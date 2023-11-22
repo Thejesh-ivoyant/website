@@ -11,7 +11,7 @@ const ServiceCard = ({ service }: { service: any }) => {
                 />
             </div>
 
-            <div className=" px-4 text-white font-oxygen font-medium text-xl justify-start">
+            <div className=" px-4 text-white font-montserrat font-medium text-xl justify-start">
                 <span className="">{service.s6_serviceCardTitle}</span>
             </div>
 

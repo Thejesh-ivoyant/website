@@ -15,7 +15,7 @@ const IndustryFocus = () => {
         className="absolute top-32 right-4"
       ></img>
       <div className="text-black text-4xl mb-10 w-full justify-center flex py-8 h-fit gradient-bottom">
-        <span className="h-fit whitespace-nowrap font-oxygen font-bold">
+        <span className="h-fit whitespace-nowrap font-montserrat font-bold">
           {loaderData.s4_industryFocusTitle}
         </span>
       </div>
