@@ -61,8 +61,9 @@ const Services = () => {
         <figure className="flex object-contain lg:h-[600px] relative">
           <img
             className="w-full h-full object-cover"
-            src={serviceImage}
-          ></img>
+                      src={serviceImage}
+                      alt={serviceImage}
+          />
           <div className="z-10 absolute inset-x-0 bottom-0 md:left-1/2 md:transform md:-translate-x-1/2 flex justify-center items-center text-white bg-opacity-50 p-4 flex-col lg:w-4/6">
             <figcaption className="text-neutral-50 text-2xl font-medium font-poppins">
               <div className="w-fit px-2 p-1 bg-gray-900 items-center justify-center flex">

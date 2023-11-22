@@ -53,7 +53,7 @@ const About_Us = () => {
             <img src="../assets/nav-right.svg" alt="ivoyant-logo" />
           </div>
         </div>
-  <img src={`${strapiUrl}${BackgroundImage}`}/>
+              <img src={`${strapiUrl}${BackgroundImage}`} alt="backgroundImage" />
       </div>
       <div className="hero-container">
         <p className="hero-title flex animated-text">

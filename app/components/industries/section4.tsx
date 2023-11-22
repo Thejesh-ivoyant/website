@@ -36,8 +36,8 @@ const toggleTab = () => {
         <div key={service.id} className="flex flex-col items-center gap-1 w-full p-4">
           <div onClick={() => toggleService(service.id) } className="flex justify-start items-start cursor-pointer font-medium text-xl w-full service-title p-4">
             <span>{service.name}</span>
-            <img src="../assets/down-arrow.svg" className={toggleState === 1? 'ml-auto block' : 'hidden'}></img>
-            <img src="../assets/up-arrow-Dbg.svg" className={toggleState === 0? 'ml-auto block' : 'hidden'}></img>
+                  <img src="../assets/down-arrow.svg" className={toggleState === 1 ? 'ml-auto block' : 'hidden'} alt="vector" />
+                  <img src="../assets/up-arrow-Dbg.svg" className={toggleState === 0 ? 'ml-auto block' : 'hidden'} alt="vector" />
           </div>
           <div className={`service-description ${openServices.includes(service.id) ? 'open' : ''} font-poppins px-4`}>
             <p>{service.description}</p>

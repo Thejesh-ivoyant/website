@@ -78,7 +78,7 @@ const Testimonials = () => {
                   
                     <div className="flex">{testimonialList[currentTestimonialIndex].subtitle}</div>
 
-                    <div className="flex mb-4"><img src="../assets/Quote.svg"/></div>
+                                  <div className="flex mb-4"><img src="../assets/Quote.svg" alt="vector" /></div>
                 </div>
                 <div className="flex text-sm py-2 font-poppins font-normal designation ">
                   {testimonialList[currentTestimonialIndex].designation}
