@@ -30,7 +30,7 @@ const Why_Choose_Us = () => {
         const firstItem = data.data[0];
         if (firstItem) {
           const descriptionList = firstItem.attributes.DescriptionList;
-          debugger;
+    
           setDescriptionList(descriptionList);
         }
       })
