@@ -803,7 +803,7 @@ border-image-slice: 1;
   
   .heading h2{
       color: var(--heading-gray, #000000);
-    font-family: Oxygen;
+    font-family: Montserrat;
     font-size: 2rem;
     font-style: normal;
     font-weight: 700;
