@@ -798,6 +798,7 @@ border-image-slice: 1;
   width: 100%;
   background: #F9F8FC;
   }
+
 .title{
   color: var(--heading-gray, #000000);
   font-family: Montserrat;
@@ -805,8 +806,7 @@ border-image-slice: 1;
   font-style: normal;
   font-weight: 700;
 }
-    
-  
+   
   .heading h2{
       color: var(--heading-gray, #000000);
     font-family: Montserrat;
@@ -817,16 +817,16 @@ border-image-slice: 1;
     letter-spacing: 0.05rem;
     justify-items: center;
     display: flex;
-justify-content: center;
+    justify-content: center;
   }
 
 .section {
   display: flex;
   flex-direction: column;
   align-items: center;
- 
   width: 100%;
 }
+
 .industry{
 display: flex;
 padding: 0.25rem;
@@ -835,14 +835,12 @@ gap: 0.625rem;
 background: #170D26;
 }
 .section-container{
-  
 color: var(--heading-gray, #E9E9EC);
 font-family: Montserrat;
 font-size: 2.25rem;
 font-style: normal;
 font-weight: 600;
 line-height: 3.75rem; /* 166.667% */
-
 }
 .phases-container{
   background: #1B0740;
@@ -852,11 +850,9 @@ line-height: 3.75rem; /* 166.667% */
     font-style: normal;
     font-weight: 600;
     line-height: 1.75rem; /* 166.667% */
-    
-    
 }
 .phases-title{
-  color: #EEEBFF;
+color: #EEEBFF;
 font-family: Montserrat;
 font-size: 16px;
 font-style: normal;
@@ -866,7 +862,7 @@ letter-spacing: 0.32px;
 }
 
 .service-card-summary{
-  color: #FFF;
+color: #FFF;
 font-family: Poppins;
 font-size: 12px;
 font-style: normal;
@@ -875,7 +871,7 @@ line-height: normal;
 letter-spacing: 0.36px;
 }
 .service-summary{
-  color: #262626;
+color: #262626;
 text-align: center;
 font-family: Poppins;
 font-size: 16px;
@@ -1062,6 +1058,7 @@ hr {
   .hero-description{
     font-size: 12px;
     margin-top: 8px;
+    
   }
 
   .hero-line {
