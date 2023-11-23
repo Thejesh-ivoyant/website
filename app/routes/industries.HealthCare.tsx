@@ -128,6 +128,7 @@ export default function Index() {
       <Section6 />
       <Section7 />
       <Footer />
+      <Outlet />
       </div>
       )}
     </div>
