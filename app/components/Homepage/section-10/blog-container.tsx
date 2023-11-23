@@ -58,13 +58,13 @@ const BlogsContainer = () => {
   return (
     <div className="w-full bg-white p-8 min-h-[90vh]">
       <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
-        <span className="h-fit whitespace-nowrap font-oxygen font-bold">
+        <span className="h-fit whitespace-nowrap font-montserrat font-bold">
           What's new on our blog?
         </span>
       </div>
       
       <div className="w-full h-fit relative p-2 flex flex-row justify-around">
-        <img src="../assets/Ornament.png" className="absolute top-4 left-4"></img>
+              <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="ornament" />
         <div className="w-full h-full flex justify-start gap-x-6 p-6  px-40 overflow-x-scroll whitespace-nowrap ">
   
         {BlogMedia.map((blog) => (

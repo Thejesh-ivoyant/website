@@ -10,7 +10,7 @@ const Description = () => {
   return (
     <div className="flex lg:w-1/2 bg-white w-full md:px-32 xl:px-28 lg:px-16 px-16 text-black font-[500px] justify-center items-center py-8">
       <div className="flex flex-col gap- lg:gap-10 w-full h-fit">
-        <div className="leading-10 text-4xl md:text-[36px] py-4 font-oxygen font-medium">
+        <div className="leading-10 text-4xl md:text-[36px] py-4 font-montserrat font-medium">
           {loaderData.s2_Title}
           <span className="text-grape"> iVoyant </span>
         </div>

@@ -7,8 +7,8 @@ const BlogCard = ({ blog }: { blog: any }) => {
     return(
        <div className="blog-card z-10  min-w-[380px] lg:h-[400px] gap-x-6 relative justify-around whitespace-nowrap">
             <img src={strapiUrl+BlogMedia.data[0]?.attributes.url}
-            className="p-4 object-scale-down w-full justify-self-start"></img>
-            <div className="px-4 text-white font-oxygen font-medium text-xl justify-start">
+                className="p-4 object-scale-down w-full justify-self-start" alt="blogimage"/>
+            <div className="px-4 text-white font-montserrat font-medium text-xl justify-start">
                 <span className="no-wrap">{Title}</span>
             </div>
             <hr className="text-white relative block "></hr>

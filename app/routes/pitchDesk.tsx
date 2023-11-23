@@ -40,7 +40,7 @@ async function fetchData(endpoint: string) {
     }
 
     const jsonData = await response.json();
-    return jsonData.data.attributes;
+    return jsonData.data?.attributes;
   } catch (error: any) {
     console.error(`Error fetching data from ${endpoint}: ${error.message}`);
     throw error; // Re-throw the error to be caught by the caller
@@ -57,16 +57,16 @@ export async function loader() {
     id: item.id,
     title: item.title,
     description: item.description,
-    image: strapiUrl + item.image.data.attributes.formats.small.url,
+    image: strapiUrl + item.image.data?.attributes.formats.small.url,
   }));
  
 
   const {
     heroTitle,
     heroDescription,
-  } = jsonParsed.data.attributes;
+  } = jsonParsed.data?.attributes;
   return {
-    heroImage:jsonParsed.data.attributes.heroImage.data.attributes.formats.large.url,
+    heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.formats.large.url,
     heroTitle,
     heroDescription,
     s3_Cards:s3_Cards

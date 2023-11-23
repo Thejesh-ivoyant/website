@@ -15,8 +15,10 @@ const ServiceKeypoints = () => {
             <div className="key-points-icon">
               <img
                 src={item.keyPointsImage}
-                className="w-10 h-10 mx-auto"
-              ></img>
+
+                        className="w-10 h-10 mx-auto"
+                        alt="keypointslogo"
+              />
             </div>
             <div className="key-points-text">{item.keyPoints}</div>
           </div>
