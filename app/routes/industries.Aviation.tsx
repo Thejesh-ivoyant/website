@@ -72,6 +72,7 @@ export async function loader() {
       heroTitle: jsonParsed.heroTitle,
       section2Title: jsonParsed.section_2_title,
       section2Desc: jsonParsed.section_2_description,
+      section2Image: jsonParsed.section_2_image.data.attributes.url,
       section3Title: jsonParsed.section_3_title,
       section3Desc: jsonParsed.section_3_description,
       section3Tags: jsonParsed.section_3_tags,
@@ -98,26 +99,10 @@ export default function Index() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
 
-  useEffect(() => {
-    const fetchDataAsync = async () => {
-      try {
-        const fetchedData = await loader();
-        setData(fetchedData);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setLoading(false); // Set loading to false in case of an error
-      }
-    };
-
-    fetchDataAsync();
-  }, []);
+  
   return (
     <div>
-      {loading ? (
-        <LoadingComponent />
-      ) : (
-        <div>
+      
       <Hero />
       <Section2 />
       <Section3 />
@@ -126,8 +111,6 @@ export default function Index() {
       <Section6 />
       <Section7 />
       <Footer />
-      </div>
-      )}
     </div>
   );
 }
