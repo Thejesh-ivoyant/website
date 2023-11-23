@@ -25,6 +25,7 @@ const Nav= () => {
                 alt="iVoyant Logo"
                 className="w-full h-full"
               />
+               <Link to={'industries/healthcare'}/>
             </div>
           </div>
 
