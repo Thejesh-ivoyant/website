@@ -1225,11 +1225,8 @@ border-bottom-style: solid;
 }
 
 .blog-card{
-  display: flex;
-  padding-bottom: 0px;
-  flex-direction: column;
-  background: #24114F;
-  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.12);
+  background: var(--CardDark, linear-gradient(180deg, #360E81 0%, #20084D 100%));
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
 }
 .no-wrap {
   white-space: normal !important;
@@ -1375,7 +1372,7 @@ border-bottom-style: solid;
   position: absolute;
   width: 100%;
   height: 10px;
-  background-color: #a68ae3;
+  background-color: #5E40A0;
   top: -25px;
   left: 0;
 }

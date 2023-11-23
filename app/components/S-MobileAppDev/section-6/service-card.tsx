@@ -2,21 +2,15 @@ import { strapiUrl } from "~/utils/urls";
 const ServiceCard = ({ service }: { service: any }) => {
     
     return (
-        <div className="blog-card absolute justify-around">
-            <div className=" " style={{ flexBasis: '40%', height: '140px' }}>
-                <img
+        <div className="blog-card flex flex-col w-full h-full">
+             <img
                     src={service.s6_serviceCardImage}
-                    className="p-4"
+                    className="w-full h-[50%] object-cover"
                     alt={service.s6_serviceCardTitle}
                 />
-            </div>
-
-            <div className=" px-4 text-white font-montserrat font-medium text-xl justify-start">
-                <span className="">{service.s6_serviceCardTitle}</span>
-            </div>
-
-            <div className="py-4 text-white font-light font-montserrat text-xs w-full justify-between p-4">
-                <span className="service-card-summary">{service.s6_serviceCardDescription}</span>
+            <div className="text-white p-4 flex flex-col h-full w-full">
+                <p className="flex mt-4 w-full text-left text-xl font-semibold leading-7 font-montserrat">{service.s6_serviceCardTitle}</p>
+                <p className="flex font-thin text-xs font-poppins my-auto">{service.s6_serviceCardDescription}</p>
             </div>
         </div>
     );

@@ -102,7 +102,6 @@ export default function Index() {
   
   return (
     <div>
-      
       <Hero />
       <Section2 />
       <Section3 />
