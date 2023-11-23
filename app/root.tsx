@@ -1,5 +1,5 @@
 import { cssBundleHref } from "@remix-run/css-bundle";
-import type { LinksFunction } from "@remix-run/node";
+import { defer, type LinksFunction } from "@remix-run/node";
 import stylesheet from "~/tailwind.css";
 
 import globalstyle from "~/styles/main.css";
@@ -19,6 +19,8 @@ import {
 import Sidebar from "./common-components/sidebar";
 import Nav from "./common-components/nav";
 import Footer from "./common-components/footer";
+import { strapiUrl } from "./utils/urls";
+import { fetchData } from "./utils/fetchdata";
 
 
 export const links: LinksFunction = () => [
@@ -26,11 +28,16 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: globalstyle },
   { rel: "stylesheet", href: Navstyle},
   {rel:"stylesheet", href:Sidebarstyle}
-  // ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 export function scrollTo(section: string) {
   (document.getElementById(section)!).scrollIntoView({ behavior: "smooth" });
 }
+export async function loader() {
+  const navdata = await fetchData("/api/navbar?populate=*");
+  return {
+    navres: navdata
+  }
+};
 export default function App() {
  
   return (
@@ -40,7 +47,7 @@ export default function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title className="heading"><h1>ivoyant systems pvt ltd</h1></title>
         <meta name="description" content="Crafting Customer-Driven Digital Experiences" /> 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
         <Meta />
         <Links />
       </head>
