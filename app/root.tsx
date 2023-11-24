@@ -45,7 +45,7 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title className="title">ivoyant systems pvt ltd</title>
+        <title className="title">iVoyant Systems</title>
         <meta name="description" content="Crafting Customer-Driven Digital Experiences" /> 
 
         <Meta />
