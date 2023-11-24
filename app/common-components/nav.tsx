@@ -20,14 +20,21 @@ const  Nav= () => {
           <div className="flex flex-row  justify-center items-center object-contain gap-3 lg:gap-4 min-w-fit">
             <div className="flex justify-center object-contain">
               <img
-                src= '../assets/ivoyant-white.png'
+                src= '../assets/logoicon.svg'
                 alt="iVoyant Logo"
-                className="w-full h-full"
-              ></img>
+                className="logo"
+              />
             </div>
+            <div className="company-name">
+            <img
+                src= '../assets/companyName.png'
+                alt="iVoyant Logo"
+            className="w-full h-full object-contain"
+              />
+              </div>
           </div>
 
-          <ul className="flex flex-row gap-6 text-white first:cursor-pointer">
+          <ul className="flex flex-row gap-6 text-white first:cursor-pointer " id="main-menu">
             {categories?.map((category, index) => (
               <li
                 key={index}
@@ -48,13 +55,18 @@ const  Nav= () => {
               className="hamburger justify-center items-center"
               onClick={handleHamburgerClick}
             >
-              <svg className="w-6 h-6"></svg>
+               <img
+                src= '../assets/logoicon.svg'
+                alt="iVoyant Logo"
+                className="logo"
+              />
 
               {sidebarOpen && <Sidebar />}
             </div>
           </div>
         </div>
       </nav>
+
       <div className={key > 0 ? "fixed w-full h-screen transition duration-500 bg-black z-30 opacity-95" : "h-0"}>
       {categories.map((category, index) => (
         <div key={index} className={key === index + 1 ? `grid grid-cols-3 text-white p-28 font-thin w-full text-left items-center gap-6` : `hidden`}>
