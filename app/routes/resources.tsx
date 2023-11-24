@@ -114,6 +114,8 @@ const Index = () => {
           <BlogsContainer />
           <Consultation />
           <BlogsContainer />
+          <Consultation />
+          <BlogsContainer />
           <Footer/>
           <Outlet />
         </div>

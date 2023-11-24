@@ -30,12 +30,14 @@ const Consultation = () => {
         src={bgImageUrl}
         alt="Background"
       />
-      <div className="absolute left-8 font-montserrat text-white text-4xl font-bold leading-[60px] tracking-wide lg:w-2/5 ">
+      <div className="flex flex-row items-center justify-between"> 
+       <div className=" flex absolute left-8 font-montserrat text-white text-4xl font-bold leading-[60px] tracking-wide lg:w-2/3 xl:w-2/3">
         {tagline}
       </div>
-      <button className="absolute right-8 btn-white">
+      <button className="flex absolute right-8 btn-white">
         GRAB A CONSULTATION
-      </button>
+      </button></div>
+     
     </div>
   );
 };
