@@ -14,6 +14,7 @@ import { Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import Section6 from "~/components/industries/section6";
 import Technologies from "~/components/S-MobileAppDev/section-7/technologies";
+import BlogPostsContainer from "~/components/Resources/blogPosts-container";
 
 export const meta: MetaFunction = () => {
   return [
@@ -31,7 +32,7 @@ export const meta: MetaFunction = () => {
 
 async function fetchData(endpoint: string) {
   try {
-    const response = await fetch(strapiUrl + endpoint);
+    const response = await fetch("http://localhost:1337" + endpoint);
 
     if (!response.ok) {
       throw new Error(
@@ -50,46 +51,67 @@ async function fetchData(endpoint: string) {
 export async function loader() {
   const res = await fetch(strapiUrl + "/api/resource?populate=%2A");
   const componentRes = await fetchData(
-    "/api/resource?populate=s2_card.image,s4_card.image"
+    "/api/posts?populate=%2A"
   );
-  let jsonParsed = await res.json();
-  const s2_Cards = componentRes.s2_card.map((item: any) => ({
-    id: item.id,
-    title: item.title,
-    description: item.description,
-    image: strapiUrl + item.image.data?.attributes.formats.small.url,
-  }));
-  const s4_Cards = componentRes.s4_card.map((item: any) => ({
-    id: item.id,
-    title: item.title,
-    description: item.description,
-    image: strapiUrl + item.image.data?.attributes.formats.small.url,
-  }));
- 
 
-  const {
-    heroTitle,
-    heroDescription,
-  } = jsonParsed.data?.attributes;
+  let jsonParsed = await res.json();
+
+  const blogData = componentRes.data?.map((item: any) => ({
+    id: item.id,
+    title: item.attributes.title,
+    date: item.attributes.date,
+    maxReadTime: item.attributes.maxReadTime,
+    description1: item.attributes.description1,
+    description2: item.attributes.description2,
+    description3: item.attributes.description3,
+    slug: item.attributes.slug,
+    bannerImage: {
+      name: item.attributes.bannerImage.data.attributes.name,
+      url: strapiUrl + item.attributes.bannerImage.data.attributes.url,
+    },
+    DescriptionImage1: {
+      name: item.attributes.DescriptionImage1.data.attributes.name,
+      url: strapiUrl + item.attributes.DescriptionImage1.data.attributes.url,
+    },
+    descriptionImage2: {
+      name: item.attributes.DescriptionImage1.data.attributes.name,
+      url: strapiUrl + item.attributes.DescriptionImage1.data.attributes.url,
+    },
+    descriptionImage3: {
+      name: item.attributes.DescriptionImage1.data.attributes.name,
+      url: strapiUrl + item.attributes.DescriptionImage1.data.attributes.url,
+    },
+    author: {
+      name: item.attributes.author.data.attributes.name,
+      profileSummary: item.attributes.author.data.attributes.profileSummary,
+    },
+  }));
+
+  // const {
+  //   title,
+  //   heroDescription,
+  // } = componentRes.data?.attributes;
+
   return {
-    heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.formats.large.url,
-    heroTitle,
-    heroDescription,
-    s2_Cards:s2_Cards,
-    s4_Cards:s4_Cards,
+    title: blogData[0].title,
+    blogData: blogData,
+    // s2_Cards:s2_Cards,
+    // s4_Cards:s4_Cards,
   };
 }
 
 const Index = () => {
 
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchDataAsync = async () => {
       try {
         const fetchedData = await loader();
-        setData(fetchedData);
+        console.log("data fetched in resource is ", fetchedData);
+        setData(fetchedData.blogData);
+        console.log("blog totle is ", fetchedData.title);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -109,13 +131,13 @@ const Index = () => {
       ) : (
         <div>
           <div className="video">
-          <Hero />
+          {/* <Hero /> */}
           </div>
-          <BlogsContainer />
+          <BlogPostsContainer />
           <Consultation />
-          <BlogsContainer />
+          {/* <BlogsContainer />
           <Consultation />
-          <BlogsContainer />
+          <BlogsContainer /> */}
           <Footer/>
           <Outlet />
         </div>

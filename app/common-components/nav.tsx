@@ -56,7 +56,7 @@ const  Nav= () => {
               onClick={handleHamburgerClick}
             >
                <img
-                src= '../assets/logoicon.svg'
+                src= '../assets/Menu.svg'
                 alt="iVoyant Logo"
                 className="logo"
               />
