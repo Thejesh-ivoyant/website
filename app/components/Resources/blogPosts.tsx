@@ -6,8 +6,8 @@ const BlogPostCard = ({ blog }: { blog: any }) => {
 
     return(
        <div className="blog-card z-10  min-w-[380px] lg:h-[400px] gap-x-6 relative justify-around whitespace-nowrap">
-            <img src={strapiUrl+blog[0]?.attributes.url}
-                className="p-4 object-scale-down w-full justify-self-start" alt="blogimage"/>
+            <img src={blog?.bannerImage.url}
+                className="p-4 object-scale-down w-60 h-24 justify-self-start" alt="blogimage"/>
             <div className="px-4 text-white font-montserrat font-medium text-xl justify-start">
                 <span className="no-wrap">{blog.title}</span>
             </div>
@@ -23,9 +23,10 @@ const BlogPostCard = ({ blog }: { blog: any }) => {
                     <path d="M5.13281 8H10.4661" stroke="white" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M4.46484 10.666H9.79818" stroke="white" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-               {blog.description1}
+               {blog?.author.name}
                <br></br>
                {blog.maxReadTime}
+            
                 </span>
             </div>
             
