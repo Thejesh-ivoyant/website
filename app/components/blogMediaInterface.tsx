@@ -1,4 +1,5 @@
-interface BlogMedia {
+// IBlogMedia.ts
+interface IBlogMedia {
     id: number;
     title: string;
     date: string;
@@ -15,7 +16,7 @@ interface BlogMedia {
         };
       };
     };
-    DescriptionImage1: {
+    descriptionImage1: {
       data: {
         attributes: {
           name: string;
@@ -26,16 +27,16 @@ interface BlogMedia {
     descriptionImage2: {
       data: {
         attributes: {
-           name: string;
-           url: string;
+          name: string;
+          url: string;
         };
-       };
+      };
     };
     descriptionImage3: {
       data: {
         attributes: {
-           name: string;
-           url: string;
+          name: string;
+          url: string;
         };
       };
     };
@@ -49,5 +50,5 @@ interface BlogMedia {
     };
   }
   
-  export default BlogMedia;
+  export default IBlogMedia;
   
