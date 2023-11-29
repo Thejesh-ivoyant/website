@@ -1,6 +1,5 @@
-import IBlogMedia from "~/interfaces/IBlogMedia";
 import { strapiUrl } from "~/utils/urls";
-const BlogPostCard = ({ blog }: { blog: IBlogMedia }) => {
+const WhitePapersCard = ({ blog }: { blog: any }) => {
     // Extract data from the blog object
     console.log(blog,"is the blog data passsedddd")
 
@@ -34,4 +33,4 @@ const BlogPostCard = ({ blog }: { blog: IBlogMedia }) => {
        </div> 
     );
 }
-export default BlogPostCard;
+export default WhitePapersCard;
