@@ -1,16 +1,15 @@
-import IBlogMedia from "~/interfaces/IBlogMedia";
 import { strapiUrl } from "~/utils/urls";
-const BlogPostCard = ({ blog }: { blog: IBlogMedia }) => {
+const CaseStudy = ({ case }: { case: any }) => {
     // Extract data from the blog object
-    console.log(blog,"is the blog data passsedddd")
+    console.log(case,"is the blog data passsedddd")
 
 
     return(
        <div className="blog-card z-10  min-w-[380px] lg:h-[400px] gap-x-6 relative justify-around whitespace-nowrap">
-            <img src={blog?.bannerImage.url}
+            <img src={case?.bannerImage.url}
                 className="p-4 object-scale-down w-60 h-24 justify-self-start" alt="blogimage"/>
             <div className="px-4 text-white font-montserrat font-medium text-xl justify-start">
-                <span className="no-wrap">{blog.title}</span>
+                <span className="no-wrap">{case.title}</span>
             </div>
             <hr className="text-white relative block "></hr>
             <div className="flex text-white font-light font-montserrat text-xs w-full justify-between p-4">
@@ -24,9 +23,9 @@ const BlogPostCard = ({ blog }: { blog: IBlogMedia }) => {
                     <path d="M5.13281 8H10.4661" stroke="white" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M4.46484 10.666H9.79818" stroke="white" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-               {blog?.author.name}
+               {case?.author.name}
                <br></br>
-               {blog.maxReadTime}
+               {case.maxReadTime}
             
                 </span>
             </div>
@@ -34,4 +33,4 @@ const BlogPostCard = ({ blog }: { blog: IBlogMedia }) => {
        </div> 
     );
 }
-export default BlogPostCard;
+export default CaseStudy;

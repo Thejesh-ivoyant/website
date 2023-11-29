@@ -6,7 +6,8 @@ import Consultation from "~/components/Homepage/section-7/consultation";
 import Footer from "~/common-components/footer";
 import { Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
-import IBlogMedia from "./IBlogMedia"; // Import the IBlogMedia interface
+import Hero from "~/components/S-MobileAppDev/section-1/hero";
+import IBlogMedia from "../interfaces/IBlogMedia";
 
 export const meta: MetaFunction = () => {
   return [
@@ -43,15 +44,20 @@ async function fetchData(endpoint: string) {
 export async function loader() {
   try {
     const res = await fetch(strapiUrl + "/api/resource?populate=%2A");
+    let jsonParsed = await res.json();
+
     const componentRes = await fetchData("/api/blogs?populate=%2A");
-
-    console.log("API Response:", componentRes);
-
     if (!componentRes || !Array.isArray(componentRes)) {
       throw new Error("Invalid API response structure");
     }
+    const {
+      heroTitle,
+      heroDescription,
+    } = jsonParsed.data?.attributes;
 
-    const blogData: IBlogMedia[] = componentRes.map((item: any) => ({
+
+    // const blogData: IBlogMedia[] = componentRes.map((item: any) => ({
+  const blogData = componentRes.map((item: any) => ({
       id: item.id,
       title: item.attributes.title,
       date: item.attributes.date,
@@ -81,8 +87,13 @@ export async function loader() {
         profileSummary: item.attributes.author.data.attributes.profileSummary,
       },
     }));
-console.log("loader data ", blogData[0].title);
+
+  console.log("loader data ", blogData[0].title);
     return {
+      heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.formats.large.url,
+      pitchDeck:strapiUrl + jsonParsed.data?.attributes.pitchDesk.data?.attributes.url,
+      heroTitle,
+      heroDescription,
       blogData: blogData,
     };
   } catch (error) {
@@ -100,7 +111,7 @@ const Index = () => {
       try {
         const fetchedData = await loader();
         setData(fetchedData);
-        console.log("/////////////////", fetchedData);
+        console.log("//", fetchedData);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -118,10 +129,12 @@ const Index = () => {
       ) : (
         <div>
           <div className="video">
+            <Hero/>
             {/* Render the entire data */}
-            <BlogPostsContainer />
           </div>
+          <BlogPostsContainer />
           <Consultation />
+          <BlogPostsContainer />
           <Footer />
           <Outlet />
         </div>

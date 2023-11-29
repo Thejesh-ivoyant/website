@@ -1,7 +1,7 @@
-// IBlogMedia.ts
-interface IBlogMedia {
+
+interface ICaseStudy {
     id: number;
-    title: string;
+    titpe: string;
     date: string;
     maxReadTime: string;
     description1: string;
@@ -50,5 +50,5 @@ interface IBlogMedia {
     };
   }
   
-  export default IBlogMedia;
+  export default ICaseStudy;
   

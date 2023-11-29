@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 import BlogPostCard from "./blogPosts";
 import { useLoaderData } from "@remix-run/react";
-import IBlogMedia from "../../interfaces/IBlogMedia";
-const BlogPostsContainer = () => {
+
+const WhitePapersCardContainer = () => {
   const loaderData = useLoaderData() as any;
   
   return (
@@ -19,8 +19,8 @@ const BlogPostsContainer = () => {
       <div className="w-full h-fit relative p-2 flex flex-row justify-around">
         <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="ornament" />
       <div className="w-full h-full flex justify-start gap-x-6 p-6  px-40 overflow-x-scroll whitespace-nowrap ">
-  
-        {loaderData.blogData.map((blog:IBlogMedia) => (
+      {/* {loaderData.blogData.map((blog:IBlogMedia) => ( */}
+        {loaderData.blogData.map((blog:any) => (
             <BlogPostCard key={blog.id} blog={blog} />
         ))}
 
@@ -31,4 +31,4 @@ const BlogPostsContainer = () => {
   );
 };
 
-export default BlogPostsContainer;
+export default WhitePapersCardContainer;
