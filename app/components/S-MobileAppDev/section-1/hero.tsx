@@ -7,15 +7,9 @@ import { loader } from "~/routes/services.MobileDev";
 
 const Hero = () => {
   const loaderData = useLoaderData() as any;
-  
-  // Use the correct route pattern for your "/resources" route
   const match = useMatch("/resources");
-
-  // Check if the current route matches the pattern
   const isResourcesRoute = match !== null;
-
   const handleDownload = () => {
-    // Use the provided PDF URL for the pitch deck
     const pitchDeckUrl = loaderData.pitchDeck;
     window.open(pitchDeckUrl, '_blank');
   };

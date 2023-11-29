@@ -1,13 +1,14 @@
 // Index.tsx
 import React, { useEffect, useState } from "react";
 import LoadingComponent from "~/common-components/loading";
-import BlogPostsContainer from "~/components/Resources/blogPosts-container";
+import BlogPostsContainer from "~/components/Resources/section-2/blogPosts-container";
 import Consultation from "~/components/Homepage/section-7/consultation";
 import Footer from "~/common-components/footer";
 import { Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import Hero from "~/components/S-MobileAppDev/section-1/hero";
 import IBlogMedia from "../interfaces/IBlogMedia";
+import PitchDeckConsultation from "~/components/Resources/section-5/pitchDeckConsultation";
 
 export const meta: MetaFunction = () => {
   return [
@@ -53,6 +54,10 @@ export async function loader() {
     const {
       heroTitle,
       heroDescription,
+      s2_title,
+      s4_title,
+      s5_statement,
+      s6_title,
     } = jsonParsed.data?.attributes;
 
 
@@ -94,6 +99,10 @@ export async function loader() {
       pitchDeck:strapiUrl + jsonParsed.data?.attributes.pitchDesk.data?.attributes.url,
       heroTitle,
       heroDescription,
+      s2_title,
+      s4_title,
+      s5_statement,
+      s6_title,
       blogData: blogData,
     };
   } catch (error) {
@@ -134,6 +143,8 @@ const Index = () => {
           </div>
           <BlogPostsContainer />
           <Consultation />
+          <BlogPostsContainer />
+          <PitchDeckConsultation />
           <BlogPostsContainer />
           <Footer />
           <Outlet />
