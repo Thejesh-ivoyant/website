@@ -42,86 +42,111 @@ setC(0);
 
   return (
     <div>
-      <div className='video-content'>
-     
-        <video muted loop playsInline src={`${strapiUrl}${HomeVideo}`} autoPlay width="100%" />
-      </div>
-      <div className="hero-container">
-        <p className="hero-title flex animated-text">
-          {HomeTitle.split(' ').map((word, wordIndex) => (
+      <div className="h-screen">
+            <video
+              preload="true"
+              muted
+              loop
+              playsInline
+              style={{ backgroundColor: "#000000" }}
+              src={`${HomeVideo}`}
+              autoPlay
+              width="100%"
+              height="100%"
+              className='object-cover'
+            />
+             <div className="hero-container">
+        <p className="hero-title flex animated-text ">
+          {HomeTitle.split(" ").map((word, wordIndex) => (
             <React.Fragment key={wordIndex}>
-              {word.split('').map((char, charIndex) => (
-                <span key={charIndex} className="animated-char">{char}</span>
+              {word.split("").map((char, charIndex) => (
+                <span key={charIndex} className="animated-char">
+                  {char}
+                </span>
               ))}
               <span>&nbsp;</span>
             </React.Fragment>
           ))}
         </p>
-        <p className="hero-subtitle flex">{HomeText}</p>
+        <p className="hero-subtitle flex xl:whitespace-nowrap">{HomeText}</p>
         <hr className="hero-gradient-top flex"></hr>
         <p className="hero-description">{HomeDescription}</p>
-        <button className="btn hero-btn" onClick={() => scrollTo("contact-us")}>Let's Talk</button>
+        <button className="btn hero-btn" onClick={() => scrollTo("contact-us")}>
+          Let's Talk
+        </button>
       </div>
-      {c===0 && (<div className="social-media-container" >
-        
-        <div className="ellipse-container">
-          <img
-            src="../assets/Ellipse.svg"
-            alt="Ellipse"
-            className="ellipse-image"
-          />
-           <img
-               src="../assets/Chats.svg"
-           alt="close"
-               className="minus-image"
-
-               onClick={() =>openChats()}
-          />
-
+      </div>
+     
+      {c === 0 && (
+        <div className="social-media-container">
+          <div className="ellipse-container">
+            <img
+              src="../assets/Ellipse.svg"
+              alt="Ellipse"
+              className="ellipse-image"
+            />
+            <img
+              src="../assets/Chats.svg"
+              alt="close"
+              className="minus-image"
+              onClick={() => openChats()}
+            />
+          </div>
         </div>
-    </div>)}
-      {c===1 && (<div className={`social-media-container ${c === 1 ? 'open' : ''}`}>
-              <img className="social-media-item" src="../assets/Facebook.png" alt="social-media-icons" />
-              <img className="social-media-item" src="../assets/linkedin.svg" alt="social-media-icons" />
-        <div className="chats-ellipse-container social-media-item" >
+      )}
+      {c === 1 && (
+        <div className={`social-media-container ${c === 1 ? "open" : ""}`}>
           <img
-            src="../assets/Ellipse.svg"
-            alt="Ellipse"
-            className="chats-ellipse-image"
+            className="social-media-item"
+            src="../assets/Facebook.png"
+            alt="social-media-icons"
           />
-           <img
-            src="../assets/skype.svg"
-           alt="close"
-               className="minus-image"
-          />
-
-        </div>
-        <img className="social-media-item" src="../assets/skype.svg"  />
-        <div className="chats-ellipse-container" onClick={() => closeChats()}>
           <img
-            src="../assets/Ellipse.svg"
-            alt="Ellipse"
-            className="chats-ellipse-image"
+            className="social-media-item"
+            src="../assets/linkedin.svg"
+            alt="social-media-icons"
           />
-           <img
-               src="../assets/X.svg"
-           alt="close"
-               className="minus-image"
-          />
-
+          <div className="chats-ellipse-container social-media-item">
+            <img
+              src="../assets/Ellipse.svg"
+              alt="Ellipse"
+              className="chats-ellipse-image"
+            />
+            <img
+              src="../assets/skype.svg"
+              alt="close"
+              className="minus-image"
+            />
+          </div>
+          <img className="social-media-item" src="../assets/skype.svg" />
+          <div className="chats-ellipse-container" onClick={() => closeChats()}>
+            <img
+              src="../assets/Ellipse.svg"
+              alt="Ellipse"
+              className="chats-ellipse-image"
+            />
+            <img src="../assets/X.svg" alt="close" className="minus-image" />
+          </div>
         </div>
-        
-    </div>
       )}
       <div className="side-nav">
-         <p className='navigate'> Navigate to</p>
-          <div className="line"><p>Contact Us</p> </div>
-          <div className="line"><p>Testimonials</p></div>
-          <div className="line"><p>About Us</p></div>
-          <div className="line"><p>Services</p></div>
-          <div className="line"  onClick={() => scrollTo("industries")}><p>Industries</p></div>
-
+        <p className="navigate"> Navigate to</p>
+        <div className="line">
+          <p>Contact Us</p>{" "}
         </div>
+        <div className="line">
+          <p>Testimonials</p>
+        </div>
+        <div className="line">
+          <p>About Us</p>
+        </div>
+        <div className="line">
+          <p>Services</p>
+        </div>
+        <div className="line" onClick={() => scrollTo("industries")}>
+          <p>Industries</p>
+        </div>
+      </div>
     </div>
   );
 };

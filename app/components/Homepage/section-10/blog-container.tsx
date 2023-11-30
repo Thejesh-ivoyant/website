@@ -64,8 +64,8 @@ const BlogsContainer = () => {
       </div>
       
       <div className="w-full h-fit relative p-2 flex flex-row justify-around">
-              <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="ornament" />
-        <div className="w-full h-full flex justify-start gap-x-6 p-6  px-40 overflow-x-scroll whitespace-nowrap ">
+        <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="ornament" />
+      <div className="w-full h-full flex justify-start gap-x-6 p-6  px-40 overflow-x-scroll whitespace-nowrap ">
   
         {BlogMedia.map((blog) => (
             <BlogCard key={blog.id} blog={blog} />

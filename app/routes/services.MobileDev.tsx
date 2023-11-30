@@ -98,7 +98,8 @@ export async function loader() {
     s7_techTitle,
   } = jsonParsed.data?.attributes;
   return {
-    heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.formats.large.url,
+    // heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.formats.large.url,
+    heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.url,
     heroTitle,
     heroDescription,
     s2_Title,
