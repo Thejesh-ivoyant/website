@@ -1,10 +1,19 @@
+import { useLoaderData, useMatch } from "@remix-run/react";
 import React, { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 
 const API_URL = `${strapiUrl}/api/section7s?populate=%2A`
 
 
-const Consultation = () => {
+const PitchDeckConsultation = () => {
+    const loaderData = useLoaderData() as any;
+    const match = useMatch("/resources");
+    const isResourcesRoute = match !== null;
+    const handleDownload = () => {
+      const pitchDeckUrl = loaderData.pitchDeck;
+      window.open(pitchDeckUrl, '_blank');
+    };
+
   const [tagline, setTagline] = useState("");
   const [bgImageUrl, setImageUrl] = useState("");
 
@@ -34,12 +43,13 @@ const Consultation = () => {
        <div className=" flex absolute left-8 font-montserrat text-white text-4xl font-bold leading-[60px] tracking-wide lg:w-2/3 xl:w-2/3">
         {tagline}
       </div>
-      <button className="flex absolute right-8 btn-white">
-        GRAB A CONSULTATION
-      </button></div>
+      <button className="flex absolute right-8 btn-white" onClick={handleDownload}>
+            Download
+          </button>
+      </div>
      
     </div>
   );
 };
 
-export default Consultation;
+export default PitchDeckConsultation;

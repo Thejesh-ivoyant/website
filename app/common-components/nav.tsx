@@ -27,12 +27,20 @@ const Nav = () => {
               <img
                 src="../assets/ivoyant-white.png"
                 alt="iVoyant Logo"
-                className="w-full h-full"
-              ></img>
+                className="logo"
+              />
             </div>
+            <div className="company-name">
+            <img
+                src= '../assets/companyName.png'
+                alt="iVoyant Logo"
+            className="w-full h-full object-contain"
+              />
+              </div>
           </div>
 
           <ul className="flex flex-row gap-6 text-white first:cursor-pointer font-montserrat">
+
             {categories?.map((category, index) => (
               <li
                 key={index}
@@ -55,7 +63,11 @@ const Nav = () => {
               className="hamburger justify-center items-center"
               onClick={handleHamburgerClick}
             >
-              <svg className="w-6 h-6"></svg>
+               <img
+                src= '../assets/Menu.svg'
+                alt="iVoyant Logo"
+                className="logo"
+              />
 
               {sidebarOpen && <Sidebar />}
             </div>
