@@ -29,9 +29,8 @@ async function fetchData(endpoint:string) {
     if (!response.ok) {
       throw new Error(`Error fetching data from ${endpoint}: ${response.status} ${response.statusText}`);
     }
-
     const jsonData = await response.json();
-    return jsonData.data.attributes;
+    return jsonData.data?.attributes;
   } catch (error: any ) {
     console.error(`Error fetching data from ${endpoint}: ${error.message}`);
     throw error; // Re-throw the error to be caught by the caller
@@ -44,12 +43,12 @@ export async function loader() {
     const response = await fetch(`${strapiUrl}/api/contact-uses?populate=%2A`);
     const data = await response.json();
 
-      const firstImageUrl = data.data[0]?.attributes.bgImage.data[0]?.attributes.formats.large.url || '';
-      const secondImageUrl = data.data[0]?.attributes.bgImage.data[1]?.attributes.formats.large.url || '';
+      const firstImageUrl = data?.data[0]?.attributes.bgImage.url || '';
+      const secondImageUrl = data?.data[0]?.attributes.bgImage.url || '';
 
     
     return defer({
-        heroBgImageURl: jsonParsed.heroBgImage.data.attributes.formats.large.url,
+        heroBgImageURl: jsonParsed.heroBgImage.data?.attributes.formats.large.url,
         heroTitle: jsonParsed.heroTitle,
         heroDesc: jsonParsed.heroDescription,
         
