@@ -49,7 +49,7 @@ setC(0);
               loop
               playsInline
               style={{ backgroundColor: "#000000" }}
-              src={`${strapiUrl}${HomeVideo}`}
+              src={`${HomeVideo}`}
               autoPlay
               width="100%"
               height="100%"
