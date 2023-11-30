@@ -31,5 +31,24 @@ line-height: normal;
     
     }
 }
-
-
+.nav-btn{
+    cursor: pointer; 
+    border: 0.5px solid #FFF;
+    background-color: transparent; 
+    gap: 0.625rem;
+    padding: 0.83rem;
+    color: white; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 0;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    text-transform: uppercase;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6); 
+}
