@@ -49,7 +49,7 @@ const Nav = () => {
 
           <div className="flex flex-row gap-6 ">
             <div>
-              <button className="nav-btn"><span>CONTACT US</span></button>
+              <button className="hue-btn"><span>CONTACT US</span></button>
             </div>
             <div
               className="hamburger justify-center items-center"
