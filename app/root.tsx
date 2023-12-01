@@ -21,6 +21,8 @@ import Nav from "./common-components/nav";
 import Footer from "./common-components/footer";
 import { strapiUrl } from "./utils/urls";
 import { fetchData } from "./utils/fetchdata";
+import { fetchGraphQL } from "./graphql/fetchGraphQl";
+import { navQuery } from "./graphql/queries";
 
 
 export const links: LinksFunction = () => [
@@ -33,9 +35,10 @@ export function scrollTo(section: string) {
   (document.getElementById(section)!).scrollIntoView({ behavior: "smooth" });
 }
 export async function loader() {
-  const navdata = await fetchData("/api/navbar?populate=*");
+  const navGraphql = await fetchGraphQL(navQuery)
+  
   return {
-    navres: navdata
+    navGraphql : navGraphql
   }
 };
 export default function App() {
