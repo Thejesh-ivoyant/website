@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "./sidebar";
 import { Link, useRouteLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 
 const Nav = () => {
   const navdata = useRouteLoaderData("root") as any;
-
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [key, setKey] = useState(0);
   const handleHamburgerClick = () => {
     setSidebarOpen(!sidebarOpen);
   };
+  const detectkeydown = (e:any) =>{
+      if (e.key == 'Escape')
+        setKey(0)
+  }
+  useEffect(() => {
+    document.addEventListener<'keydown'>('keydown',detectkeydown,true)
+  },[])
   const categories = [
     "services",
     "industries",
