@@ -10,12 +10,12 @@ import Section5 from "~/components/Homepage/section-5/industry";
 import Consultation from "~/components/Homepage/section-7/consultation";
 import Technology from "~/components/Homepage/section-8/technology";
 import Testimonials from "~/components/Homepage/section-9/testimonials";
-import BlogsContainer from "~/components/Homepage/section-10/blog-container";
 import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
 import Faq from "~/components/Homepage/section-12/faq";
 import ContactUs from "~/components/Homepage/contact-us/contactUs";
 import Footer from "~/common-components/footer";
 import BlogPostsContainer from "~/components/Resources/section-2/blogPosts-container";
+import { Outlet } from "@remix-run/react";
 
 export async function loader() {
   try {
@@ -40,6 +40,7 @@ export async function loader() {
 }
 
 const App = () => {
+
   const [loading, setLoading] = useState(true);
   const [contactUsData, setContactUsData] = useState({ contactUsImage: "" });
 
@@ -82,6 +83,7 @@ const App = () => {
           <Faq />
           <ContactUs />
           <Footer />
+          <Outlet />
         </div>
       )}
     </div>
