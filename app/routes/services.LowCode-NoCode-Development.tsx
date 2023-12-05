@@ -12,6 +12,7 @@ import BlogsContainer from "~/components/Homepage/section-10/blog-container";
 import Footer from "~/common-components/footer";
 import { Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
+import BlogPostsContainer from "~/components/Resources/section-2/blogPosts-container";
 
 export const meta: MetaFunction = () => {
   return [
@@ -147,7 +148,7 @@ const LowCode_NoCode = () => {
           <ServiceCardContainer />
           <Technology />
           <Consultation />
-          <BlogsContainer />
+          <BlogPostsContainer />
           <Footer />
           <Outlet />
         </div>

@@ -15,6 +15,7 @@ import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
 import Faq from "~/components/Homepage/section-12/faq";
 import ContactUs from "~/components/Homepage/contact-us/contactUs";
 import Footer from "~/common-components/footer";
+import BlogPostsContainer from "~/components/Resources/section-2/blogPosts-container";
 
 export async function loader() {
   try {
@@ -76,7 +77,7 @@ const App = () => {
           <Consultation />
           <Technology />
           <Testimonials />
-          <BlogsContainer />
+          <BlogPostsContainer />
           <Why_Choose_Us />
           <Faq />
           <ContactUs />

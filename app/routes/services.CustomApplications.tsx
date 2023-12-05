@@ -55,24 +55,24 @@ export async function loader() {
     id: item.id,
     s4_industryFocusSubTitle: item.s4_industryFocusSubTitle,
     s4_industryFocusDescription: item.s4_industryFocusDescription,
-    s4_industryFocusImage: strapiUrl + item.s4_IndustryFocusImage.data?.attributes.formats.large.url,
+    s4_industryFocusImage: item.s4_IndustryFocusImage.data?.attributes.formats.large.url,
   }));
   const PhasesList = componentRes.s5_phasesOfDevelopment.map((item: any) => ({
     id: item.id,
     s5_phasesTitle: item.s5_phasesTitle,
     s5_phasesDescription: item.s5_phasesDescription,
-    s5_phasesImage: strapiUrl + item.s5_phasesImage.data?.attributes.url,
+    s5_phasesImage: item.s5_phasesImage.data?.attributes.url,
   }));
   const KeyPoints = componentRes.s2_keyPoints.map((item: any) => ({
     id: item.id,
     keyPoints: item.keyPoints,
-    keyPointsImage: strapiUrl + item.keyPointsImage.data?.attributes.url,
+    keyPointsImage: item.keyPointsImage.data?.attributes.url,
   }));
   const ServicesCard = componentRes.s6_serviceCard.map((item: any) => ({
     id: item.id,
     s6_serviceCardTitle: item.s6_serviceCardTitle,
     s6_serviceCardDescription: item.s6_serviceCardDescription,
-    s6_serviceCardImage: strapiUrl + item.s6_serviceCardImage.data?.attributes.formats.medium.url,
+    s6_serviceCardImage: item.s6_serviceCardImage.data?.attributes.formats.medium.url,
   }));
   const {
     heroTitle,
@@ -147,7 +147,7 @@ const CustomApplication = () => {
           <ServiceCardContainer />
           <Technology />
           <Consultation />
-          <BlogsContainer />
+          <BlogPostsContainer />
           <Footer />
           <Outlet />
         </div>
