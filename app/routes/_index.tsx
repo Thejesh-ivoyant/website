@@ -76,7 +76,7 @@ const App = () => {
           <Consultation />
           <Technology />
           <Testimonials />
-          <BlogsContainer />
+          {/* <BlogsContainer /> */}
           <Why_Choose_Us />
           <Faq />
           <ContactUs />
