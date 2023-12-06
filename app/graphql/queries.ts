@@ -164,3 +164,61 @@ query {
     }
   }  
 `;
+export const blogQuery = `query{
+  blogs{
+    data{
+      id,
+      attributes{
+        title
+        maxReadTime
+        date
+        bannerImage{
+          data{
+            attributes{
+              url
+            }
+          }
+        }
+        author{
+          data{
+            attributes{
+            name
+            }
+          }
+        }
+      }
+    }
+  }
+}`;
+
+export const topBlogQuery = `
+query {
+  blogs(
+    sort: "date:desc",
+    pagination: {limit:3}
+  ) {
+    data {
+      id,
+      attributes {
+        title
+        maxReadTime
+        date
+        bannerImage {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        author {
+          data {
+            attributes {
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;

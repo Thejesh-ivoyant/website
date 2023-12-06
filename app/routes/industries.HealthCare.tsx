@@ -51,21 +51,21 @@ export async function loader() {
     const section7Pairs = section7PairsJson.pairs.map((pair:typeof section7PairsJson) => ({
       id: pair.id,
       text: pair.text,
-      picUrl: strapiUrl + pair.pic.data?.attributes.url,
+      picUrl: pair.pic.data?.attributes.url,
       name: pair.pic.data?.attributes.name,
     }));
 
     const technologies = techParsed.technologies.map((pair:typeof techParsed) => ({
       id: pair.id,
       text: pair.text,
-      picUrl: strapiUrl + pair.pic.data?.attributes.url,
+      picUrl:  pair.pic.data?.attributes.url,
       name: pair.pic.data?.attributes.name,
     }));
     const PhasesList = section5Parsed.process.map((item:any) => ({
       id: item.id,
       title: item.title,
       description: item.description,
-      ornament: strapiUrl + item.ornament.data?.attributes.url, // Access the nested structure
+      ornament:  item.ornament.data?.attributes.url, // Access the nested structure
     }));
 
     return {

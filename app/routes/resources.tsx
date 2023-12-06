@@ -9,6 +9,8 @@ import { strapiUrl } from "~/utils/urls";
 import Hero from "~/components/S-MobileAppDev/section-1/hero";
 import IBlogMedia from "../interfaces/IBlogMedia";
 import PitchDeckConsultation from "~/components/Resources/section-5/pitchDeckConsultation";
+import { fetchGraphQL } from "~/graphql/fetchGraphQl";
+import { blogQuery } from "~/graphql/queries";
 
 export const meta: MetaFunction = () => {
   return [
@@ -44,6 +46,8 @@ async function fetchData(endpoint: string) {
 
 export async function loader() {
   try {
+    const blogGql = await fetchGraphQL(blogQuery)
+
     const res = await fetch(strapiUrl + "/api/resource?populate=%2A");
     let jsonParsed = await res.json();
 
@@ -58,45 +62,29 @@ export async function loader() {
       s4_title,
       s5_statement,
       s6_title,
-    } = jsonParsed.data?.attributes;
+    } = jsonParsed.data?.attributes ?? "";
 
 
     // const blogData: IBlogMedia[] = componentRes.map((item: any) => ({
-  const blogData = componentRes.map((item: any) => ({
+  const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
       id: item.id,
       title: item.attributes.title,
       date: item.attributes.date,
       maxReadTime: item.attributes.maxReadTime,
-      description1: item.attributes.description1,
-      description2: item.attributes.description2 || null,
-      description3: item.attributes.description3 || null,
-      slug: item.attributes.slug,
       bannerImage: {
-        name: item.attributes.bannerImage.data.attributes.name,
-        url: strapiUrl + item.attributes.bannerImage.data.attributes.url,
-      },
-      descriptionImage1: {
-        name: item.attributes.descriptionImage1.data.attributes.name,
-        url: strapiUrl + item.attributes.descriptionImage1.data.attributes.url,
-      },
-      descriptionImage2: {
-        name: item.attributes.descriptionImage2.data.attributes.name,
-        url: strapiUrl + item.attributes.descriptionImage2.data.attributes.url,
-      },
-      descriptionImage3: {
-        name: item.attributes.descriptionImage3.data.attributes.name,
-        url: strapiUrl + item.attributes.descriptionImage3.data.attributes.url,
+        name: item.attributes.bannerImage.data?.attributes.name ?? "",
+        url:  item.attributes.bannerImage.data?.attributes.url ?? "",
       },
       author: {
-        name: item.attributes.author.data.attributes.name,
-        profileSummary: item.attributes.author.data.attributes.profileSummary,
+        name: item.attributes.author.data?.attributes.name,
+        profileSummary: item.attributes.author.data?.attributes.profileSummary,
       },
     }));
-
-  console.log("loader data ", blogData[0].title);
+    console.log("compsres loader data ", componentRes);
+  console.log("loader data ", blogGql.data?.blogs.data);
     return {
-      heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.formats.large.url,
-      pitchDeck:strapiUrl + jsonParsed.data?.attributes.pitchDesk.data?.attributes.url,
+      heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.url,
+      pitchDeck:jsonParsed.data?.attributes.pitchDeck.data?.attributes.url,
       heroTitle,
       heroDescription,
       s2_title,
@@ -138,7 +126,7 @@ const Index = () => {
       ) : (
         <div>
           <div className="video">
-            <Hero/>
+          <Hero/>
             {/* Render the entire data */}
           </div>
           <BlogPostsContainer />

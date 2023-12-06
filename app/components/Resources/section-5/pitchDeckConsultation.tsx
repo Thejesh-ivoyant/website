@@ -24,7 +24,7 @@ const PitchDeckConsultation = () => {
         const { ContactUsDescription, section7bg } = data[0].attributes;
         setTagline(ContactUsDescription);
      
-        setImageUrl(strapiUrl + section7bg.data[0].attributes.url);
+        setImageUrl(section7bg.data[0].attributes.url);
         console.log("url is" + strapiUrl + section7bg.data[0].attributes.url);
       })
       .catch((error) => {
