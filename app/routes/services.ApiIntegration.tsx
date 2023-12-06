@@ -8,7 +8,9 @@ import Phases from "~/components/S-MobileAppDev/section-5/phases";
 import ServiceCardContainer from "~/components/S-MobileAppDev/section-6/service-card-container";
 import Technology from "~/components/Homepage/section-8/technology";
 import Consultation from "~/components/Homepage/section-7/consultation";
-import BlogsContainer from "~/components/Homepage/section-10/blog-container";
+import { topBlogQuery } from "~/graphql/queries";
+import { fetchGraphQL } from "~/graphql/fetchGraphQl";
+
 import Footer from "~/common-components/footer";
 import { Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
@@ -47,11 +49,26 @@ async function fetchData(endpoint: string) {
 }
 
 export async function loader() {
+  const blogGql = await fetchGraphQL(topBlogQuery)
   const res = await fetch(strapiUrl + "/api/s-mad?populate=%2A");
   const componentRes = await fetchData(
     "/api/s-mad/?populate=s2_keyPoints.keyPointsImage,s5_phasesOfDevelopment.s5_phasesImage,s7_techIcons.s7_techIcon,s6_serviceCard.s6_serviceCardImage,s4_industryFocus.s4_IndustryFocusImage"
   );
   let jsonParsed = await res.json();
+  const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
+    id: item.id,
+    title: item.attributes.title,
+    date: item.attributes.date,
+    maxReadTime: item.attributes.maxReadTime,
+    bannerImage: {
+      name: item.attributes.bannerImage.data?.attributes.name ?? "",
+      url:  item.attributes.bannerImage.data?.attributes.url ?? "",
+    },
+    author: {
+      name: item.attributes.author.data?.attributes.name,
+      profileSummary: item.attributes.author.data?.attributes.profileSummary,
+    },
+  }));
   const IndustryFocus = componentRes.s4_industryFocus.map((item: any) => ({
     id: item.id,
     s4_industryFocusSubTitle: item.s4_industryFocusSubTitle,
@@ -107,6 +124,7 @@ export async function loader() {
     KeyPoints:KeyPoints,
     IndustryFocus:IndustryFocus,
     ServicesCard:ServicesCard,
+    blogData:blogData,
   };
 }
 

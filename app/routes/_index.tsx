@@ -45,7 +45,7 @@ export async function loader() {
         },
       }));
  
-    console.log("loader data ", blogGql.data?.blogs.data);
+    console.warn("loader data IN DEX PAGE ", blogGql.data?.blogs.data);
 
     return {
       hireUsImage: firstImageUrl,
