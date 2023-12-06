@@ -36,7 +36,6 @@ const Hero = () => {
 
         <hr className="hero-gradient-top flex"></hr>
         <p className="hero-description">{loaderData.heroDescription}</p>
-
         {/* Conditionally render button based on the route */}
         {isResourcesRoute ? (
           <button className="btn hero-btn" onClick={handleDownload}>
