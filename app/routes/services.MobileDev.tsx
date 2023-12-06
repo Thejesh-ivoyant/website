@@ -8,7 +8,6 @@ import Phases from "~/components/S-MobileAppDev/section-5/phases";
 import ServiceCardContainer from "~/components/S-MobileAppDev/section-6/service-card-container";
 import Technology from "~/components/Homepage/section-8/technology";
 import Consultation from "~/components/Homepage/section-7/consultation";
-import BlogsContainer from "~/components/Homepage/section-10/blog-container";
 import Footer from "~/common-components/footer";
 import { MetaFunction, Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";

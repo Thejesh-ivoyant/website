@@ -8,7 +8,6 @@ import Phases from "~/components/S-MobileAppDev/section-5/phases";
 import ServiceCardContainer from "~/components/S-MobileAppDev/section-6/service-card-container";
 import Technology from "~/components/Homepage/section-8/technology";
 import Consultation from "~/components/Homepage/section-7/consultation";
-import BlogsContainer from "~/components/Homepage/section-10/blog-container";
 import Footer from "~/common-components/footer";
 import { Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
@@ -16,6 +15,8 @@ import Section6 from "~/components/industries/section6";
 import Technologies from "~/components/S-MobileAppDev/section-7/technologies";
 import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
 import Faq from "~/components/Homepage/section-12/faq";
+import Why_Join_Us from "~/components/careers/section-2/why-join-us";
+import JobCards from "~/components/careers/section-3/job-cards";
 
 export const meta: MetaFunction = () => {
   return [
@@ -135,8 +136,8 @@ const Careers = () => {
           <div className="video">
           <Hero />
           </div>
-          <Why_Choose_Us />
-          <Faq />
+          <Why_Join_Us />
+          <JobCards />
           <ServiceCardContainer/>
           <Footer />
           <Outlet />
