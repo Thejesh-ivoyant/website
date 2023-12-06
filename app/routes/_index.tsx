@@ -16,19 +16,41 @@ import ContactUs from "~/components/Homepage/contact-us/contactUs";
 import Footer from "~/common-components/footer";
 import BlogPostsContainer from "~/components/Resources/section-2/blogPosts-container";
 import { Outlet } from "@remix-run/react";
+import { fetchGraphQL } from "~/graphql/fetchGraphQl";
+import { blogQuery, topBlogQuery } from "~/graphql/queries";
 
 export async function loader() {
   try {
+    const blogGql = await fetchGraphQL(topBlogQuery)
+
     const response = await fetch(`${strapiUrl}/api/contact-uses?populate=%2A`);
     const data = await response.json();
 
       const firstImageUrl = data.data[0]?.attributes.bgImage.data[0]?.attributes.url|| '';
       const secondImageUrl = data.data[0]?.attributes.bgImage.data[1]?.attributes.url || '';
-
+      
+      
+      const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
+        id: item.id,
+        title: item.attributes.title,
+        date: item.attributes.date,
+        maxReadTime: item.attributes.maxReadTime,
+        bannerImage: {
+          name: item.attributes.bannerImage.data?.attributes.name ?? "",
+          url:  item.attributes.bannerImage.data?.attributes.url ?? "",
+        },
+        author: {
+          name: item.attributes.author.data?.attributes.name,
+          profileSummary: item.attributes.author.data?.attributes.profileSummary,
+        },
+      }));
+ 
+    console.log("loader data ", blogGql.data?.blogs.data);
 
     return {
       hireUsImage: firstImageUrl,
       contactUsImage: secondImageUrl,
+      blogData: blogData, 
     };
   } catch (error) {
     console.warn("Error fetching data from contact API:", error);

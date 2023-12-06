@@ -190,3 +190,35 @@ export const blogQuery = `query{
     }
   }
 }`;
+
+export const topBlogQuery = `
+query {
+  blogs(
+    sort: "date:desc",
+    pagination: {limit:3}
+  ) {
+    data {
+      id,
+      attributes {
+        title
+        maxReadTime
+        date
+        bannerImage {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        author {
+          data {
+            attributes {
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;

@@ -92,7 +92,6 @@ export async function loader() {
       s5_statement,
       s6_title,
       blogData: blogData,
-      blogPostCardData : blogGql.data?.blogs.data,
     };
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -127,7 +126,7 @@ const Index = () => {
       ) : (
         <div>
           <div className="video">
-            <Hero/>
+          <Hero/>
             {/* Render the entire data */}
           </div>
           <BlogPostsContainer />
