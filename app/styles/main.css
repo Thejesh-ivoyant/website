@@ -1252,14 +1252,105 @@ border-bottom-style: solid;
 }
 .active-tab{
   border-bottom: #000000 ;
-  margin-bottom: -0.2rem;
 }
 .tab{
   color: #000000;
   padding: 1rem;
   cursor:pointer;
+  font-size: 2rem;
   text-align: center;
   white-space: nowrap;
+  transition: 0.3s ease;
+}
+.glider {
+  font-size: 2rem;
+  width: 2ch;
+  padding: 0px 13px;
+  height: 4.5px;
+  border-radius: 0 0 1px 1px;
+  box-shadow: 0px 0px 8px 0px hsl(262deg 100% 70% / 70%);
+  background: #7A4BD3;
+  /* background: linear-gradient(
+    113deg,
+    hsl(260deg 100% 64%) 0%,
+    hsl(190deg 100% 55%) 100%
+  ); */
+  transition: 0.3s;
+  top: 36px;
+  z-index: 2;
+}
+.ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner, :where(.css-dev-only-do-not-override-2q8sxy).ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner, :where(.css-dev-only-do-not-override-2q8sxy).ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner {
+  color: #fff;
+  background: #7A4BD3;
+}
+.ant-picker-dropdown .ant-picker-time-panel-column >li.ant-picker-time-panel-cell-selected .ant-picker-time-panel-cell-inner {
+  background: #f2d1f3;
+}
+:where(.css-dev-only-do-not-override-2q8sxy).ant-btn.ant-btn-sm {
+  font-size: 14px;
+  height: 24px;
+  padding: 0px 7px;
+  border-radius: 4px;
+  background-color: #7A4BD3;
+}
+.ant-picker {
+  margin: 0;
+  padding: 4px 5px 4px;
+  color: black;
+  font-size: 14px;
+  line-height: 1;
+  list-style: none;
+  font-family: poppins;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border: transparent;
+  transition: border 0.2s,box-shadow 0.2s;
+}
+.ant-picker-focused.ant-picker {
+  border-color: transparent;
+  box-shadow: 0 0 0 0px rgba(5, 145, 255, 0.1);
+  outline: 0;
+}
+.ant-picker .ant-picker-input >input {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-width: 1px;
+  color:black;
+  opacity:1;
+  padding: 0;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.5714285714285714;
+  background-color: #ffffff;
+  background-image: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d9d9d9;
+  border-radius: 0;
+  transition: all 0.2s;
+  flex: auto;
+  height: auto;
+  background: transparent;
+  border: 0;
+  font-family: inherit;
+}
+.ant-picker-input > input::before {
+  content: url('../../public/assets/calendar.svg') !important; 
+  margin-right: 8px !important;
+}
+
+.ant-picker-input > input::placeholder {
+  color: black !important;
+  font-family: poppins;
+  font-size: medium;
+}
+.ant-upload{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
 }
 .CardDark{
   background: var(--card-dark, linear-gradient(180deg, #360E81 0%, #20084D 100%));
