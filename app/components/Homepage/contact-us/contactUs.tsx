@@ -83,7 +83,7 @@ const ContactUs = () => {
             </span>
           </h1>
           <img
-            className="flex w-[300px] h-[300px] justify-self-center mx-auto object-cover"
+            className="flex w-full max-h-[500px] justify-self-center mx-auto object-cover"
             src={
               toggleState === 1
                 ? loaderData?.contactUsImage
@@ -96,50 +96,50 @@ const ContactUs = () => {
           <p className="text-HeaderGray w-full text-xl text-center p-4">
             Connect with us
           </p>
-          <div className="grid grid-cols-2 top-gradient border-t-iv-purple w-full items-center p-2 gap-3">
-            <div className="col-span-1 text-white items-center justify-self-center">
-              <div className="flex text-iv-purple items-center gap-2">
+          <div className="grid grid-cols-2 top-gradient border-t-iv-purple max-w-xl mx-auto gap-x-4 gap-4 items-center p-4">
+            <div className="col-span-1 text-white items-left">
+              <div className="flex text-iv-purple items-left gap-2">
                 <img
                   className="w-4 h-4 inline"
-                  src="../assets/phone.svg"
-                  alt="phoneImg"
+                  src="../assets/enquire.svg"
+                  alt="enquire"
                 />
                 <span>Enquires</span>
               </div>
-              <a className="block">9999999999</a>
+              <a className="block" href="mailto:sales@ivoyant.com">sales@ivoyant.com</a>
             </div>
-            <div className="col-span-1 text-white items-center justify-self-center">
-              <div className="flex text-iv-purple items-center gap-2">
+            <div className="col-span-1 text-white items-left ">
+              <div className="flex text-iv-purple items-left gap-2">
                 <img
                   className="w-4 h-4 inline"
-                  src="../assets/phone.svg"
-                  alt="phoneImg"
+                  src="../assets/phone-outlined.svg"
+                  alt="phone"
                 />
-                <span>Enquires</span>
+                <span>Phone</span>
               </div>
-              <a className="block">9999999999</a>
+              <a className="block" href="tel:+91 987654121">+91 987654121</a>
             </div>
-            <div className="col-span-1 text-white items-center justify-self-center">
-              <div className="flex text-iv-purple items-center gap-2">
+            <div className="col-span-1 text-white items-left">
+              <div className="flex text-iv-purple items-left gap-2">
                 <img
                   className="w-4 h-4 inline"
-                  src="../assets/phone.svg"
-                  alt="phoneImg"
+                  src="../assets/info.svg"
+                  alt="info"
                 />
-                <span>Enquires</span>
+                <span>Information</span>
               </div>
-              <a className="block">9999999999</a>
+              <a className="block" href="mailto:info@ivoyant.com">info@ivoyant.com</a>
             </div>
-            <div className="col-span-1 text-white items-center justify-self-center">
-              <div className="flex text-iv-purple items-center gap-2">
+            <div className="col-span-1 text-white items-left ">
+              <div className="flex text-iv-purple items-left gap-2">
                 <img
                   className="w-4 h-4 inline"
-                  src="../assets/phone.svg"
-                  alt="phoneImg"
+                  src="../assets/skype-outlined.svg"
+                  alt="skype"
                 />
-                <span>Enquires</span>
+                <span>Connect with us</span>
               </div>
-              <a className="block">9999999999</a>
+              <a className="block" href="mailto:ivoyantsales@outlook.com">ivoyantsales@outlook.com</a>
             </div>
           </div>
         </div>
@@ -235,7 +235,7 @@ const ContactUs = () => {
                 Organization
               </label>
             </div>
-            <div className="w-full relative grid">
+            <div className="w-full relative grid col-span-2">
               <label className="py-2 text-xs">Your Message</label>
               <textarea
                 minLength={3}
@@ -244,7 +244,7 @@ const ContactUs = () => {
                 cols={30}
                 rows={5}
                 required
-                className="p-4 text-sm peer border-[1px] border-black outline-none cursor-pointer col-span-2"
+                className="p-4 text-sm peer border-[1px] border-black outline-none cursor-pointer"
               ></textarea>
             </div>
           </div>
@@ -372,7 +372,7 @@ const ContactUs = () => {
                 <option value="option2">Option 2</option>
               </select>
             </div>
-            <div className="w-full relative grid">
+            <div className="w-full relative grid col-span-2">
               <label className="py-2 text-xs">Your Message</label>
               <textarea
                 minLength={3}
@@ -385,7 +385,40 @@ const ContactUs = () => {
               ></textarea>
             </div>
           </div>
-
+          <Space
+            direction="horizontal"
+            size={12}
+            className="grid-cols-1 flex justify-between"
+          >
+          <div className="flex">
+          <span
+              className="cursor-pointer"
+              onClick={() => {
+                setOpen(!openc1);
+              }}
+            >
+              <CalendarOutlined className="bg-[#AF99DD] rounded-full p-2 text-black" />
+            </span>
+            <DatePicker
+              format="YYYY-MM-DD  HH:mm"
+              disabledDate={disabledDate}
+              disabledTime={(current) => disabledDateTime(current)}
+              placeholder="Schedule a Meet"
+              showTime={{ defaultValue: dayjs("00:00:00", "HH:mm:ss") }}
+              suffixIcon={null}
+              open={openc1}
+              onOk={() => setOpen(false)}
+            />
+          </div>
+            <div className="flex flex-row">
+            <Upload {...props} className="font-poppins">
+              <div className="flex flex-row items-center gap-2">
+                <Button icon={<FileAddOutlined />} className="items-center flex justify-center bg-[#AF99DD] rounded-full p-2 text-black"></Button>
+                <div className="flex text-base">Attach a File</div>
+              </div>
+            </Upload>
+            </div>
+          </Space>
           <button
             type="submit"
             className="btn-purp-grad w-fit text-HeaderGray font-normal"
