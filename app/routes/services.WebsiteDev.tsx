@@ -166,7 +166,6 @@ const WebDev = () => {
           <ServiceCardContainer />
           <Technology />
           <Consultation />
-          <BlogPostsContainer />
           <Footer />
           <Outlet />
         </div>
