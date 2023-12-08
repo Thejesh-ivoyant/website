@@ -19,6 +19,7 @@ import Why_Join_Us from "~/components/careers/section-2/why-join-us";
 import JobCards from "~/components/careers/section-3/job-cards";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { CareerQuery, blogQuery, careersQuery, topBlogQuery } from "~/graphql/queries";
+import JobDescription from "~/components/careers/job-description";
 
 export const meta: MetaFunction = () => {
   return [
@@ -53,12 +54,11 @@ console.log("fetttttttttc response",response);
 }
 
 export async function loader() {
-  const jsonParsed = await fetchGraphQL(careersQuery)
+  
   // const componentRes = await fetchData(
   //   "/api/career?populate=s4_cards.bgImage,s2_whyJoinUs.bgImage"
   // );
 
-console.warn("jsonpareded i career/////////////",jsonParsed)
 
   // const JoinUsCard = componentRes.s4_cards.map((item: any) => ({
   //   id: item.id,
@@ -100,7 +100,7 @@ console.warn("jsonpareded i career/////////////",jsonParsed)
   };
 }
 
-const Careers = () => {
+const Index = () => {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
@@ -129,18 +129,13 @@ const Careers = () => {
         <LoadingComponent />
       ) : (
         <div>
-          <div className="video">
-          {/* <Hero /> */}
-          </div>
-         {/* <Why_Join_Us />
-          <JobCards />
-          <ServiceCardContainer/>
+        <JobDescription/>
           <Footer />
-          <Outlet /> */}
+          <Outlet />
         </div>
       )}
     </div>
   );
 };
 
-export default Careers;
+export default Index;
