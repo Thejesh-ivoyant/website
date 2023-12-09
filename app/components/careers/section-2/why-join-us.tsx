@@ -41,11 +41,11 @@ const Why_Join_Us = () => {
 
                         <span className="card-line h-6"></span>
                         <div className="flex text-sm py-4 font-poppins font-normal card-description">
-                          <div className="flex flex-row gap-2">
-                         <div className="flex-1">
+                          <div className="flex flex-row justify-between">
+                         <div className="flex">
                            <img src={item.bgImage} alt="cardIcon" />
                           </div>
-                          <div className="flex-1 text-sm font-poppins font-normal">
+                          <div className="flex text-start text-sm font-poppins font-normal ml-2">
                                   {item.title}
                           </div>
 
