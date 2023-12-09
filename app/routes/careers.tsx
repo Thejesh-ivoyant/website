@@ -54,49 +54,50 @@ console.log("fetttttttttc response",response);
 
 export async function loader() {
   const jsonParsed = await fetchGraphQL(careersQuery)
-  // const componentRes = await fetchData(
-  //   "/api/career?populate=s4_cards.bgImage,s2_whyJoinUs.bgImage"
-  // );
+  const componentRes = await fetchData(
+    "/api/career?populate=s4_cards.bgImage,s2_whyJoinUs.bgImage"
+  );
 
-console.warn("jsonpareded i career/////////////",jsonParsed)
+console.warn("jsonpareded i career//////////sss///",jsonParsed.data?.career.data?.attributes)
+console.warn("comp res i career//////////sss///",componentRes)
 
-  // const JoinUsCard = componentRes.s4_cards.map((item: any) => ({
-  //   id: item.id,
-  //   title: item.title,
-  //   description: item.description,
-  //   link: item.link,
-  //   bgImage: item.bgImage.data?.attributes.url,
-  // }));
-  // const JobDescription = componentRes.s2_whyJoinUs.map((item: any) => ({
-  //   id: item.id,
-  //   title: item.title,
-  //   description: item.description,
-  //   link: item.link,
-  //   bgImage: item.bgImage.data?.attributes.url,
-  // }));
+  const JoinUsCard = componentRes.s2_whyJoinUs.map((item: any) => ({
+    id: item.id,
+    title: item.title,
+    description: item.description,
+    link: item.link,
+    bgImage: item.bgImage.data?.attributes.url,
+  }));
+  const JobDescription = componentRes.s4_cards.map((item: any) => ({
+    id: item.id,
+    title: item.title,
+    description: item.description,
+    link: item.link,
+    bgImage: item.bgImage.data?.attributes.url,
+  }));
 
 
-  // const {
-  //   heroTitle,
-  //   heroDescription,
-  //   s2_title,
-  //   s2_description,
-  //   s3_title,
-  //   s3_description,
-  //   s3_email,
-  // } = jsonParsed.data?.career.data?.attributes;
+  const {
+    heroTitle,
+    heroDescription,
+    s2_title,
+    s2_description,
+    s3_title,
+    s3_description,
+    s3_email,
+  } = jsonParsed.data?.career.data?.attributes;
   
   return {
-    // heroImage:jsonParsed.data?.attributes.url,
-    // heroTitle,
-    // heroDescription,
-    // s2_title,
-    // s2_description,
-    // s3_title,
-    // s3_description,
-    // s3_email,
-    // JoinUsCard:JoinUsCard,
-    // JobDescription:JobDescription,
+    heroImage:jsonParsed.data?.career.data?.attributes.heroImage.data?.attributes.url,
+    heroTitle,
+    heroDescription,
+    s2_title,
+    s2_description,
+    s3_title,
+    s3_description,
+    s3_email,
+    JoinUsCard:JoinUsCard,
+    JobDescription:JobDescription,
   };
 }
 
@@ -130,13 +131,13 @@ const Careers = () => {
       ) : (
         <div>
           <div className="video">
-          {/* <Hero /> */}
+          <Hero />
           </div>
-         {/* <Why_Join_Us />
-          <JobCards />
-          <ServiceCardContainer/>
+         <Why_Join_Us />
+          {/* <JobCards />
+          <ServiceCardContainer/> */}
           <Footer />
-          <Outlet /> */}
+          <Outlet />
         </div>
       )}
     </div>
