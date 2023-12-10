@@ -222,3 +222,70 @@ query {
   }
 }
 `;
+
+export const productsQuery = `
+query{
+  product{
+    data{
+      attributes{
+        phrase
+        carousel{
+          id
+          title
+          description
+          ornament{
+            data{
+              attributes{
+                url
+              }
+            }
+          }
+        }
+        section2
+        section2Bg{
+          data{
+            attributes{
+              url
+            }
+          }
+        }
+        tabsTitle
+        TabContents{
+          id
+          name
+          title
+          description
+          logo{
+            data{
+              attributes{
+                url
+              }
+            }
+          }
+          caption
+        }
+        section_4_title
+        section_4_description
+        pairs{
+          id
+          text
+          pic{
+            data{
+              attributes{
+                url
+              }
+            }
+          }
+        }
+        faqTitle
+        faq{
+          id
+          question
+          answer
+        }
+      }
+    }
+    
+  }
+}
+`;
