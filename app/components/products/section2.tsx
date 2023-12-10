@@ -5,7 +5,6 @@ export default function Section2() {
   const attributes = data?.productsResponse?.data?.product?.data?.attributes;
   const section2 = attributes?.section2 || "";
   const section2Bg = attributes?.section2Bg?.data?.attributes?.url || "";
-  console.warn("hello"+ JSON.stringify(attributes))
 
   return (
     <>
