@@ -32,6 +32,7 @@ const Why_Choose_Us = () => {
           const descriptionList = firstItem.attributes.DescriptionList;
 
           setDescriptionList(descriptionList);
+          console.warn("is the description lists i home",descriptionList);
         }
       })
       .catch((error) => {
