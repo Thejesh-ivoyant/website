@@ -8,7 +8,7 @@ const JoinUsCardContainer = () => {
   const loaderData = useLoaderData() as any;
 
   return (
-    <div className="w-full bg-[#F9F8FC]">
+    <div className="w-full bg-[#1B0740]">
       
 
      
