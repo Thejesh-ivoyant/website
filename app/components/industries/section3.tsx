@@ -1,11 +1,10 @@
 import { Outlet, useLoaderData } from "@remix-run/react";
-import { strapiUrl } from "~/utils/urls";
 
 const Section3 = () => {
   const loaderData = useLoaderData() as any;
   const gradientStyle = {
     background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${
-      strapiUrl + loaderData.section3Image
+      loaderData.section3Image
     }) lightgray 50% / cover no-repeat`,
     backgroundPosition: "100% 50%",
   };
