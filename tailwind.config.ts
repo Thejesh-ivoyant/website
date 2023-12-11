@@ -19,7 +19,9 @@ export default {
         'iv-purple': '#969AFB',
         'form-gray': '#7D7890',
         'form-border': '#0D0D16',
-        'nav-dark': '#1C0F38'
+        'nav-dark': '#1C0F38',
+        'slate': '#F9F8FC',
+        'light-indigo': '#7A4BD3'
       },
       fontFamily:{
         poppins : ['Poppins'],

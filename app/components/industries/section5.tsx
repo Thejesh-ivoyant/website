@@ -1,5 +1,4 @@
 import { Outlet, useLoaderData, useRouteLoaderData } from "@remix-run/react";
-import { strapiUrl } from "~/utils/urls";
 const Section5 = () => {
   const loaderData = useLoaderData() as any;
   const defaultDesc = "Lorem ipsum dolor sit amet consectetur adipiscing elit molestie, curabitur posuere ultricies habitant tempor convallis"
