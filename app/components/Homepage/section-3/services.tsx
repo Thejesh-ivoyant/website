@@ -1,40 +1,42 @@
-import React, { useEffect, useState } from "react";
-import { strapiUrl } from "~/utils/urls";
+import React, { useState, useEffect } from "react";
+import { Link, useLoaderData } from "@remix-run/react";
+
 const Services = () => {
-  const SECTION3_API_URL = `${strapiUrl}/api/section3s?populate=%2A`
+  const servicesData = useLoaderData() as any;
+  const servicesArray =
+    servicesData?.homePage?.homepage?.data?.attributes?.services || [];
   const [serviceDescr, setServiceDescr] = useState<string>("");
-  const [servicesList, setServicesList] = useState<{ [key: string]: string } | undefined >();
-  const [selectedService, setSelectedService] = useState<string | null>(null);
-  const [description, setDescription] = useState<string>("");
   const [currentSelectedService, setCurrentService] = useState<string>("");
   const [serviceImage, setServiceImage] = useState("");
+  const [description, setDescription] = useState<string>("");
+  const [link, setLink] = useState("#");
 
   useEffect(() => {
-    // Fetch data from the API endpoint
-    fetch(SECTION3_API_URL)
-      .then((response) => response.json())
-      .then((section3_data) => {
-        const { ServiceDescription, servicesList, serviceImage } =
-          section3_data.data[0].attributes;
-        setServiceDescr(ServiceDescription);
-        setServicesList(servicesList);
-        setServiceImage(serviceImage.data[0].attributes.formats.large.url);
-        setDescription(servicesList ? servicesList[Object.keys(servicesList)[0]] : "defaultDescription");//default desc
-        setCurrentService(Object.keys(servicesList)[0])//setting default service
-      })
-      .catch((error) => {
-        console.error("Error fetching data from API:", error);
-      });
-  }, []);
+    if (servicesArray.length > 0) {
+      const defaultService = servicesArray[0];
+      setCurrentService(defaultService.title);
+      setServiceImage(defaultService.bgImage.data.attributes.url);
+      setDescription(defaultService.description);
+      setLink(defaultService.link);
+    }
+  }, [servicesArray]);
 
-  const handleServiceClick = (service: string) => {
-    setSelectedService(service);
-    setDescription(servicesList ? servicesList[service] : "");
-    setCurrentService(service);
+  const handleServiceClick = (serviceTitle: string) => {
+    const selectedService = servicesArray.find(
+      (service: any) => service.title === serviceTitle
+    );
+
+    if (selectedService) {
+      setCurrentService(serviceTitle);
+      setServiceImage(selectedService.bgImage.data.attributes.url);
+      setDescription(selectedService.description);
+      setLink(selectedService.link);
+    }
   };
+
   return (
     <div className="flex flex-col w-full min-h-full lg:mx-0 lg:h-fit bg-haiti">
-      <div className="text-gray-200 text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
+      <div className="text-gray-200 text-4xl w-full justify-center flex py-8 h-fit gradient-bottom">
         <span className="h-fit whitespace-nowrap font-montserrat font-bold">
           Services we offer
         </span>
@@ -44,25 +46,37 @@ const Services = () => {
       </div>
       <div className="w-fit flex flex-row h-min services-gradient place-self-end lg:my-8 ml-10 cursor-pointer">
         <div className="float-right w-fit flex flex-col overflow-y-auto items-center p-4 py-8 font-poppins cursor-pointer">
-          {servicesList &&
-            Object.keys(servicesList).map((service) => (
-              <div key={service}
-                id={service}
-                className={currentSelectedService === service? 'service-list-cur' : 'service-list'}
-                onClick={() => handleServiceClick(service)}>
-                {service}
-                <span className={currentSelectedService === service? 'material-symbols-outlined text-lg  font-bold arrow' : 'material-symbols-outlined text-lg opacity-0 font-bold arrow'}>
-                  arrow_forward_ios
-                </span>
-              </div>
-            ))}
+          {servicesArray.map((service: any) => (
+            <div
+              key={service.id}
+              id={service.title}
+              className={
+                currentSelectedService === service.title
+                  ? "service-list-cur"
+                  : "service-list"
+              }
+              onClick={() => handleServiceClick(service.title)}
+            >
+              {service.title}
+              <span
+                className={
+                  currentSelectedService === service.title
+                    ? "material-symbols-outlined text-lg font-bold arrow"
+                    : "material-symbols-outlined text-lg opacity-0 font-bold arrow"
+                }
+              >
+                arrow_forward_ios
+              </span>
+            </div>
+          ))}
         </div>
-        
-        <figure className="flex object-contain lg:h-[600px] relative">
+
+        <figure className="flex object-contain lg:h-[600px] lg:max-w-[52rem] xl:w-[63rem] relative service-img">
+          
           <img
             className="w-full h-full object-cover"
-                      src={serviceImage}
-                      alt={serviceImage}
+            src={serviceImage}
+            alt={currentSelectedService}
           />
           <div className="z-10 absolute inset-x-0 bottom-0 md:left-1/2 md:transform md:-translate-x-1/2 flex justify-center items-center text-white bg-opacity-50 p-4 flex-col lg:w-4/6">
             <figcaption className="text-neutral-50 text-2xl font-medium font-poppins">
@@ -73,7 +87,7 @@ const Services = () => {
               </div>
               {description}
               <div className="flex justify-end font-normal items-center gap-3">
-                <span>Learn more.</span>
+                <Link to={link}>Learn More</Link>
                 <span>
                   <svg
                     width="40"

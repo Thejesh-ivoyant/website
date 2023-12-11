@@ -1,3 +1,27 @@
+export const homeQuery= `
+query{
+  homepage{
+    data{
+      attributes{
+        services{
+          id
+          title
+          description
+        	bgImage{
+            data{
+              attributes{
+                url
+              }
+            }
+          }
+          link
+        }
+      }
+    }
+  }
+}
+`
+
 export const navQuery = `
 query {
     navbar {
