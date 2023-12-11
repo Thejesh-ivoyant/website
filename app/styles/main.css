@@ -659,7 +659,7 @@ line-height: 1.75rem; /* 175% */
 .social-media-container {
   position: fixed;
   padding: 0.4rem;
-  top: 60%;
+  bottom: 5%;
   right: 0;
   transform: translate(0, -50%);
   z-index: 12;
@@ -667,11 +667,13 @@ line-height: 1.75rem; /* 175% */
 }
 /* Expanded state for the chat container */
 .social-media-container.open {
-  height: 200px; /* Set the expanded height for the container */
+  height: 260px; 
+  /* Set the expanded height for the container */
 }
 .social-media-item {
  padding-bottom: 0.5rem;
  cursor: pointer;
+ 
 }
 
 .faq-card{
