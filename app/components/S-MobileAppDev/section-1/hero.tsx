@@ -7,7 +7,7 @@ import { loader } from "~/routes/services.MobileDev";
 
 const Hero = () => {
   const loaderData = useLoaderData() as any;
-  const match = useMatch("/resources");
+  const match = useMatch("/resources/pitch-deck");
   const isResourcesRoute = match !== null;
   const handleDownload = () => {
     const pitchDeckUrl = loaderData.pitchDeck;

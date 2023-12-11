@@ -8,6 +8,7 @@ interface LogoData {
   id: number;
   attributes: {
     url: string;
+
     // Add any other attributes if present in the actual API response
   };
 }
@@ -44,7 +45,6 @@ const Technology = () => {
       .then((section8_data: SectionData) => {
         const TechnologyExpertiseLogos =
           section8_data.data[0].attributes.TechnologyExpertiseLogos.data || [];
-
         setTechnologyExpertiseLogos(TechnologyExpertiseLogos);
         console.log("hhhhhhhhhhhhssss" + TechnologyExpertiseLogos);
       })
@@ -67,10 +67,11 @@ const Technology = () => {
         {TechnologyExpertiseLogos.slice(row * 5, (row + 1) * 5).map((logo, index) => (
           <div className="logoitems" key={logo.id}>
             <img
-              src={`${strapiUrl}${logo.attributes.url}`}
+              src={`${logo.attributes.url}`}
               className="ClientLogo"
               alt={`Logo ${index}`}
             />
+            <figcaption className="text-black mt-2">testtlogo</figcaption>
           </div>
         ))}
       </div>

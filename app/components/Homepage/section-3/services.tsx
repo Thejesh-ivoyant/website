@@ -18,7 +18,7 @@ const Services = () => {
           section3_data.data[0].attributes;
         setServiceDescr(ServiceDescription);
         setServicesList(servicesList);
-        setServiceImage(strapiUrl + serviceImage.data[0].attributes.formats.large.url);
+        setServiceImage(serviceImage.data[0].attributes.formats.large.url);
         setDescription(servicesList ? servicesList[Object.keys(servicesList)[0]] : "defaultDescription");//default desc
         setCurrentService(Object.keys(servicesList)[0])//setting default service
       })

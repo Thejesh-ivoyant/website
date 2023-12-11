@@ -130,10 +130,8 @@ const Index = () => {
             {/* Render the entire data */}
           </div>
           <BlogPostsContainer />
+      
           <Consultation />
-          <BlogPostsContainer />
-          <PitchDeckConsultation />
-          <BlogPostsContainer />
           <Footer />
           <Outlet />
         </div>
