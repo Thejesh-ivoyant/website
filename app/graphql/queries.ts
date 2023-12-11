@@ -223,6 +223,39 @@ query {
 }
 `;
 
+export const careersQuery = `
+query{
+  career{
+     data{
+      attributes{
+        heroDescription
+        heroTitle
+        heroImage{
+          data{
+            attributes{
+            	url
+          	}
+          }
+        }
+        s2_title
+        s2_description
+        s3_title
+        s3_description
+        s3_email
+        job_descriptions{
+          data{
+            attributes{
+              job_id
+              Title
+            }
+          }
+        }
+      } 
+    }
+  }
+}
+`;
+
 export const productsQuery = `
 query{
   product{
