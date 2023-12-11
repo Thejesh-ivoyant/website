@@ -1,6 +1,5 @@
 import { Outlet, useLoaderData } from "@remix-run/react";
 import { useState } from "react";
-import { strapiUrl } from "~/utils/urls";
 
 const Section4 = () => {
   const loaderData = useLoaderData() as any;
@@ -19,7 +18,7 @@ const toggleTab = () => {
   };
   const gradientStyle = {
     background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${
-      strapiUrl + loaderData.section4Image
+      loaderData.section4Image
     }) lightgray 50% / cover no-repeat`,
     backgroundPosition: "100% 50%",
   };

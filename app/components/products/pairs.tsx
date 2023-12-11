@@ -7,7 +7,7 @@ const Pairs = () => {
   const pairsData = attributes?.pairs || [];
 
   return (
-    <section className="relative flex flex-col items-center h-screen w-full bg-haiti text-white p-10">
+    <section className="relative flex flex-col items-center min-h-screen h-fit w-full bg-haiti text-white p-10">
       <h1 className="text-HeaderGray font-montserrat text-5xl p-4">
         {attributes.section_4_title}
       </h1>
