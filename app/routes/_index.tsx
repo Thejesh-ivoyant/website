@@ -17,10 +17,11 @@ import Footer from "~/common-components/footer";
 import BlogPostsContainer from "~/components/Resources/section-2/blogPosts-container";
 import { Outlet } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { blogQuery, topBlogQuery } from "~/graphql/queries";
+import { blogQuery, homeQuery, topBlogQuery } from "~/graphql/queries";
 
 export async function loader() {
   try {
+    const homeGql = await fetchGraphQL(homeQuery)
     const blogGql = await fetchGraphQL(topBlogQuery)
 
     const response = await fetch(`${strapiUrl}/api/contact-uses?populate=%2A`);
@@ -51,6 +52,7 @@ export async function loader() {
       hireUsImage: firstImageUrl,
       contactUsImage: secondImageUrl,
       blogData: blogData, 
+      homePage: homeGql.data
     };
   } catch (error) {
     console.warn("Error fetching data from contact API:", error);
