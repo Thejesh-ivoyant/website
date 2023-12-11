@@ -14,11 +14,12 @@ const BlogPostsContainer = () => {
         <span className="h-fit whitespace-nowrap font-montserrat font-bold">
         {loaderData.s2_title}
         </span>
+
       </div>
       
       <div className="w-full h-fit relative p-2 flex flex-row justify-around">
         <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="ornament" />
-      <div className="w-full h-full flex justify-start gap-x-6 p-6  px-40 overflow-x-scroll whitespace-nowrap ">
+      <div className="w-[1100px] h-[340px] flex flex-col justify-center gap-x-6 p-6  px-40 overflow-x-scroll whitespace-nowrap ">
   
         {loaderData.blogData.map((blog:IBlogMedia) => (
             <BlogPostCard key={blog.id} blog={blog} />

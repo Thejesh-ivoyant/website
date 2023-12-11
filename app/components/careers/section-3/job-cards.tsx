@@ -17,6 +17,8 @@ const JobCards = () => {
       .then((section12_data) => {
         const { FaqList } = section12_data.data[0].attributes;
         setFaqList(FaqList);
+        console.warn("faq list is ",faqList)
+
       })
       .catch((error) => {
         console.error("Error fetching data from API:", error);
@@ -30,7 +32,7 @@ const JobCards = () => {
     }));
     setSelectedFaq(selectedFaq === faq ? null : faq);
   };
-console.warn("faq list is ",faqList)
+
   return (
     <div className="technology-section py-16">
 
@@ -48,9 +50,12 @@ console.warn("faq list is ",faqList)
         <input className="flex w-full flex-col justify-center items-stretch mt-3.5 pl-2.5 pr-7 py-2.5 rounded-sm border-[0.5px] border-solid border-indigo-950 max-md:pr-5" />
       </div>
       <div className="flex items-center justify-between gap-5 mt-7 pl-2.5 pr-5 py-2.5 rounded-sm border-[0.5px] border-solid border-indigo-950 self-end max-md:pr-5">
-        <div className="text-indigo-950 text-sm capitalize grow whitespace-nowrap my-auto">
+        <option className="text-indigo-950 text-sm capitalize grow whitespace-nowrap my-auto">
           All Locations
-        </div>
+          <select>
+            BANGALORRE
+          </select>
+        </option>
         <img
           loading="lazy"
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/2a5f692b70847249b98b81aedffe4ab14a102823ce4fe79a064ae7a04425aac1?apiKey=9e16588387084fb2a9a51a1b99489136&"

@@ -6,32 +6,47 @@ const BlogPostCard = ({ blog }: { blog: IBlogMedia }) => {
 
 
     return(
-       <div className="blog-card z-10  min-w-[380px] lg:h-[400px] gap-x-6 relative justify-around whitespace-nowrap">
-            <img src={blog?.bannerImage.url}
-                className="p-4 object-scale-down w-60 h-24 justify-self-start" alt="blogimage"/>
-            <div className="px-4 text-white font-montserrat font-medium text-xl justify-start">
-                <span className="no-wrap">{blog.title}</span>
+        <form className="self-stretch">
+        <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
+          <div className="flex flex-col items-stretch w-[39%] max-md:w-full max-md:ml-0">
+            <header className="justify-between items-stretch shadow-sm bg-[linear-gradient(180deg,#360E81_0%,#20084D_100%)] flex grow flex-col w-full pb-2 max-md:max-w-full max-md:mt-6">
+              <img
+                loading="lazy"
+                srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/2c250c861f6fcfd1ce19f02f9f128cec933cd97a63ba877b4c8d9daabd625542?apiKey=9e16588387084fb2a9a51a1b99489136&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/2c250c861f6fcfd1ce19f02f9f128cec933cd97a63ba877b4c8d9daabd625542?apiKey=9e16588387084fb2a9a51a1b99489136&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/2c250c861f6fcfd1ce19f02f9f128cec933cd97a63ba877b4c8d9daabd625542?apiKey=9e16588387084fb2a9a51a1b99489136&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/2c250c861f6fcfd1ce19f02f9f128cec933cd97a63ba877b4c8d9daabd625542?apiKey=9e16588387084fb2a9a51a1b99489136&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/2c250c861f6fcfd1ce19f02f9f128cec933cd97a63ba877b4c8d9daabd625542?apiKey=9e16588387084fb2a9a51a1b99489136&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/2c250c861f6fcfd1ce19f02f9f128cec933cd97a63ba877b4c8d9daabd625542?apiKey=9e16588387084fb2a9a51a1b99489136&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/2c250c861f6fcfd1ce19f02f9f128cec933cd97a63ba877b4c8d9daabd625542?apiKey=9e16588387084fb2a9a51a1b99489136&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/2c250c861f6fcfd1ce19f02f9f128cec933cd97a63ba877b4c8d9daabd625542?apiKey=9e16588387084fb2a9a51a1b99489136&"className="aspect-[1.22] object-contain object-center w-full overflow-hidden max-md:max-w-full"
+                alt="AI Protection"
+              />
+            </header>
+          </div>
+          <div className="flex flex-col items-stretch w-[61%] ml-5 max-md:w-full max-md:ml-0">
+            <div className="self-stretch flex grow flex-col pb-3 px-5 items-start max-md:max-w-full max-md:mt-6">
+              <div className="text-blue-100 text-base italic font-medium whitespace-nowrap justify-center items-stretch bg-gray-900 p-1">
+                Artificial Intelligence
+              </div>
+              <div className="self-stretch text-black text-4xl font-semibold mt-3 max-md:max-w-full">
+               {blog.title}th
+              </div>
+              <div className="text-black text-base leading-5 self-stretch mt-6 max-md:max-w-full">
+                Artificial intelligence (AI) allows machines to learn directly from their experiences and problem-solve. Combine this with the rapid rise of robotics in the workplace, and both the business world and society in general are potentially facing problems.
+              </div>
+              <div className="items-stretch flex justify-between gap-5 mt-28 max-md:mt-10">
+                <img
+                  loading="lazy"
+                  srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/ae4e2dca8a7c0c6ca02aef60748ab20e047f111c8e12c4c5402ef3abaa400997?apiKey=9e16588387084fb2a9a51a1b99489136&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae4e2dca8a7c0c6ca02aef60748ab20e047f111c8e12c4c5402ef3abaa400997?apiKey=9e16588387084fb2a9a51a1b99489136&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae4e2dca8a7c0c6ca02aef60748ab20e047f111c8e12c4c5402ef3abaa400997?apiKey=9e16588387084fb2a9a51a1b99489136&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae4e2dca8a7c0c6ca02aef60748ab20e047f111c8e12c4c5402ef3abaa400997?apiKey=9e16588387084fb2a9a51a1b99489136&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae4e2dca8a7c0c6ca02aef60748ab20e047f111c8e12c4c5402ef3abaa400997?apiKey=9e16588387084fb2a9a51a1b99489136&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae4e2dca8a7c0c6ca02aef60748ab20e047f111c8e12c4c5402ef3abaa400997?apiKey=9e16588387084fb2a9a51a1b99489136&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae4e2dca8a7c0c6ca02aef60748ab20e047f111c8e12c4c5402ef3abaa400997?apiKey=9e16588387084fb2a9a51a1b99489136&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae4e2dca8a7c0c6ca02aef60748ab20e047f111c8e12c4c5402ef3abaa400997?apiKey=9e16588387084fb2a9a51a1b99489136&"className="aspect-square object-contain object-center w-[50px] overflow-hidden shrink-0 max-w-full rounded-[50%]"
+                  alt="Amada Smith"
+                />
+                <div className="items-stretch flex grow basis-[0%] flex-col self-start">
+                  <div className="text-black text-base font-medium whitespace-nowrap">
+                    Amada Smith
+                  </div>
+                  <div className="text-black text-sm whitespace-nowrap mt-2.5">
+                    8 Min Read
+                  </div>
+                </div>
+              </div>
             </div>
-            <hr className="text-white relative block "></hr>
-            <div className="flex text-white font-light font-montserrat text-xs w-full justify-between p-4">
-                <span>By iVoyant</span>
-                <span className="flex flex-row gap-2">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14.6194 4.50732L12.3728 13.5273C12.2128 14.2007 11.6128 14.6673 10.9194 14.6673H2.15944C1.15277 14.6673 0.432779 13.6806 0.732779 12.7139L3.53944 3.70068C3.73277 3.07402 4.31278 2.64062 4.96612 2.64062H13.1661C13.7994 2.64062 14.3261 3.02729 14.5461 3.56063C14.6728 3.84729 14.6994 4.17399 14.6194 4.50732Z" stroke="white" stroke-width="0.5" stroke-miterlimit="10"/>
-                    <path d="M10.668 14.6667H13.8546C14.7146 14.6667 15.388 13.94 15.328 13.08L14.668 4" stroke="white" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M6.45312 4.25301L7.14646 1.37305" stroke="white" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10.9219 4.2605L11.5485 1.36719" stroke="white" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M5.13281 8H10.4661" stroke="white" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M4.46484 10.666H9.79818" stroke="white" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-               {blog?.author.name}
-               <br></br>
-               {blog.maxReadTime}
-            
-                </span>
-            </div>
-            
-       </div> 
+          </div>
+        </div>
+      </form>
     );
 }
 export default BlogPostCard;

@@ -55,9 +55,9 @@ const Section6: React.FC = () => {
           {PartnerLogos.map((logo) => (
             <div key={logo.id} className="card gradient-left">
               <img
-                src={`${strapiUrl}${logo.attributes.url}`}
+                src={`${logo.attributes.url}`}
                 alt="Client Logo"
-                className="ClientLogo"
+                className="ClientLogo grayscale hover:grayscale-0"
               />
             </div>
           ))}
