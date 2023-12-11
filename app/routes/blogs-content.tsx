@@ -19,7 +19,8 @@ import Why_Join_Us from "~/components/careers/section-2/why-join-us";
 import JobCards from "~/components/careers/section-3/job-cards";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { CareerQuery, blogQuery, careersQuery, topBlogQuery } from "~/graphql/queries";
-import JoinUsCardContainer from "~/components/careers/section-4/join-us-card-container";
+import JobDescription from "~/components/careers/job-description";
+import BlobContent from "~/components/Resources/blob-content";
 
 export const meta: MetaFunction = () => {
   return [
@@ -54,55 +55,53 @@ console.log("fetttttttttc response",response);
 }
 
 export async function loader() {
-  const jsonParsed = await fetchGraphQL(careersQuery)
-  const componentRes = await fetchData(
-    "/api/career?populate=s4_cards.bgImage,s2_whyJoinUs.bgImage"
-  );
-
-console.warn("jsonpareded i career//////////sss///",jsonParsed.data?.career.data?.attributes)
+  
+  // const componentRes = await fetchData(
+  //   "/api/career?populate=s4_cards.bgImage,s2_whyJoinUs.bgImage"
+  // );
 
 
-  const JoinUsCard = componentRes.s2_whyJoinUs.map((item: any) => ({
-    id: item.id,
-    title: item.title,
-    description: item.description,
-    link: item.link,
-    bgImage: item.bgImage.data?.attributes.url,
-  }));
-  const DescriptionCard = componentRes.s4_cards.map((item: any) => ({
-    id: item.id,
-    title: item.title,
-    description: item.description,
-    link: item.link,
-    bgImage: item.bgImage.data?.attributes.url,
-  }));
-  console.warn("comp res i career descripy s///",DescriptionCard)
+  // const JoinUsCard = componentRes.s4_cards.map((item: any) => ({
+  //   id: item.id,
+  //   title: item.title,
+  //   description: item.description,
+  //   link: item.link,
+  //   bgImage: item.bgImage.data?.attributes.url,
+  // }));
+  // const JobDescription = componentRes.s2_whyJoinUs.map((item: any) => ({
+  //   id: item.id,
+  //   title: item.title,
+  //   description: item.description,
+  //   link: item.link,
+  //   bgImage: item.bgImage.data?.attributes.url,
+  // }));
 
-  const {
-    heroTitle,
-    heroDescription,
-    s2_title,
-    s2_description,
-    s3_title,
-    s3_description,
-    s3_email,
-  } = jsonParsed.data?.career.data?.attributes;
+
+  // const {
+  //   heroTitle,
+  //   heroDescription,
+  //   s2_title,
+  //   s2_description,
+  //   s3_title,
+  //   s3_description,
+  //   s3_email,
+  // } = jsonParsed.data?.career.data?.attributes;
   
   return {
-    heroImage:jsonParsed.data?.career.data?.attributes.heroImage.data?.attributes.url,
-    heroTitle,
-    heroDescription,
-    s2_title,
-    s2_description,
-    s3_title,
-    s3_description,
-    s3_email,
-    JoinUsCard:JoinUsCard,
-    DescriptionCard:DescriptionCard,
+    // heroImage:jsonParsed.data?.attributes.url,
+    // heroTitle,
+    // heroDescription,
+    // s2_title,
+    // s2_description,
+    // s3_title,
+    // s3_description,
+    // s3_email,
+    // JoinUsCard:JoinUsCard,
+    // JobDescription:JobDescription,
   };
 }
 
-const Careers = () => {
+const Index = () => {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
@@ -131,12 +130,8 @@ const Careers = () => {
         <LoadingComponent />
       ) : (
         <div>
-          <div className="video">
-          <Hero />
-          </div>
-         <Why_Join_Us />
-          <JobCards />
-          <JoinUsCardContainer/>
+            <Hero/>
+        <BlobContent/>
           <Footer />
           <Outlet />
         </div>
@@ -145,4 +140,4 @@ const Careers = () => {
   );
 };
 
-export default Careers;
+export default Index;

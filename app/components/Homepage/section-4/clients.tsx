@@ -57,13 +57,13 @@ const Section4: React.FC = () => {
         <hr />
       </section>
       <section className="section">
-        <div className="carousel">
+        <div className="carousel ">
           {clientLogos.map((logo) => (
             <div key={logo.id} className="card gradient-left">
               <img
-                src={`${strapiUrl}${logo.attributes.url}`}
+                src={`${logo.attributes.url}`}
                 alt="Client Logo"
-                className="ClientLogo"
+                className="ClientLogo grayscale hover:grayscale-0"
               />
             </div>
           ))}
