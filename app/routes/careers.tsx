@@ -61,7 +61,12 @@ export async function loader() {
 
 console.warn("jsonpareded i career//////////sss///",jsonParsed.data?.career.data?.attributes)
 
-
+const JobDesc = jsonParsed.data?.career.data?.map((item: any) => ({
+  job_descriptions: {
+    Title: item.attributes.job_decriptions.data?.attributes.Title,
+    profileSummary: item.attributes.job_decriptions.data?.attributes.job_id,
+  },
+}));
   const JoinUsCard = componentRes.s2_whyJoinUs.map((item: any) => ({
     id: item.id,
     title: item.title,
@@ -99,6 +104,7 @@ console.warn("jsonpareded i career//////////sss///",jsonParsed.data?.career.data
     s3_email,
     JoinUsCard:JoinUsCard,
     DescriptionCard:DescriptionCard,
+    JobDesc:JobDesc,
   };
 }
 
