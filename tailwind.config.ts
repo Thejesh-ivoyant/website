@@ -21,7 +21,8 @@ export default {
         'form-border': '#0D0D16',
         'nav-dark': '#1C0F38',
         'slate': '#F9F8FC',
-        'light-indigo': '#7A4BD3'
+        'light-indigo': '#7A4BD3',
+        'link-pink': '#E0D4FF'
       },
       fontFamily:{
         poppins : ['Poppins'],
