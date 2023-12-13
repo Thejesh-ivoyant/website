@@ -27,8 +27,10 @@ const Nav = () => {
     <div>
       <nav className="fixed top-0 z-50 w-full bg-nav-dark p-2">
         <div className="flex flex-row items-center justify-around">
-          <div className="flex flex-row justify-center items-center object-contain gap-3 lg:gap-4 min-w-fit">
+    <Link to="/" prefetch="intent"> <div className="flex flex-row justify-center items-center object-contain gap-3 lg:gap-4 min-w-fit">
+          
           <div className="flex justify-center object-contain">
+            
               <img
            
                 src= '../assets/logoicon.svg'
@@ -47,6 +49,7 @@ const Nav = () => {
          
 
           </div>
+          </Link>
 
           <ul className="flex flex-row gap-6 text-white first:cursor-pointer font-montserrat">
             {categories?.map((category, index) => (
