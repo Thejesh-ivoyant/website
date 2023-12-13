@@ -14,7 +14,7 @@ import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
 import Faq from "~/components/Homepage/section-12/faq";
 import ContactUs from "~/components/Homepage/contact-us/contactUs";
 import Footer from "~/common-components/footer";
-import BlogPostsContainer from "~/components/Resources/section-2/blogPosts-container";
+import BlogPostsContainer from "~/components/Resources/blogPosts-container";
 import { Outlet } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { blogQuery, homeQuery, topBlogQuery } from "~/graphql/queries";

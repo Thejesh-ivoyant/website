@@ -1,7 +1,7 @@
 // Index.tsx
 import React, { useEffect, useState } from "react";
 import LoadingComponent from "~/common-components/loading";
-import BlogPostsContainer from "~/components/Resources/section-2/blogPosts-container";
+import BlogPostsContainer from "~/components/Resources/blogPosts-container";
 import Consultation from "~/components/Homepage/section-7/consultation";
 import Footer from "~/common-components/footer";
 import { Outlet } from "@remix-run/react";
