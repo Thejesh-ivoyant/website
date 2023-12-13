@@ -101,7 +101,7 @@ const Services = () => {
             </div>
 
             <div className="flex  items-center justify-center">
-                <img src={strapiUrl+Banner} alt="iVoyant Logo"  />
+                <img src={Banner} alt="iVoyant Logo"  />
             </div>
           
         </div>
