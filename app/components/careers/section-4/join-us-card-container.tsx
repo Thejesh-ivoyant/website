@@ -8,19 +8,13 @@ const JoinUsCardContainer = () => {
   const loaderData = useLoaderData() as any;
 
   return (
-    <div className="w-full bg-[#F9F8FC]">
-      <div className="text-PurpBlue text-4xl  w-full justify-center flex flex-col items-center text-center py-6 gradient-bottom">
-        <span className="h-fit whitespace-nowrap font-montserrat font-semibold flex ">
-          {loaderData.s6_serviceTitle}hfgfhhg
-        </span>
-      </div>
+    <div className="w-full bg-[#1B0740]">
+      
 
-      <p className="h-fit mt-2 font-montserrat flex flex-wrap service-summary lg:w-[720px] text-center mx-auto">
-        {loaderData.s6_serviceSummary}
-      </p>
+     
       <div className="w-full  flex flex-col p-4">
-        <div className="grid grid-cols-3 self-center h-fit gap-4 p-2">
-          {loaderData.ServicesCard.map(
+        <div className="flex justify-between flex-row self-center h-fit gap-8 p-2">
+          {loaderData.DescriptionCard.map(
             (item: { id: React.Key | null | undefined }, index: any) => (
               <div
                 key={item.id}

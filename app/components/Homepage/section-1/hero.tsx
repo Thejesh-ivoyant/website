@@ -106,18 +106,13 @@ setC(0);
             src="../assets/linkedin.svg"
             alt="social-media-icons"
           />
-          <div className="chats-ellipse-container social-media-item">
-            <img
-              src="../assets/Ellipse.svg"
-              alt="Ellipse"
-              className="chats-ellipse-image"
-            />
+          
             <img
               src="../assets/skype.svg"
               alt="close"
               className="minus-image"
             />
-          </div>
+
           <img className="social-media-item" src="../assets/skype.svg" />
           <div className="chats-ellipse-container" onClick={() => closeChats()}>
             <img
