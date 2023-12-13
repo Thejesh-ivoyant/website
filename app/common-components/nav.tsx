@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./sidebar";
 import { Link, useRouteLoaderData } from "@remix-run/react";
-import { strapiUrl } from "~/utils/urls";
 
 const Nav = () => {
   const navdata = useRouteLoaderData("root") as any;
@@ -69,14 +68,14 @@ const Nav = () => {
         </div>
       </nav>
       <div
-        className={key > 0 ? "fixed w-full h-screen bg-black z-30" : "hidden"}
+        className={key > 0 ? "fixed w-full h-screen z-30" : "hidden"}
       >
         {categories.map((category, index) => (
           <div
             key={index}
             className={
               key === index + 1
-                ? `grid grid-cols-5 text-white pt-16 pl-36 font-thin w-full h-80 text-left items-center`
+                ? `grid grid-cols-5 text-white pt-16 px-16 font-thin w-full h-fit text-left items-center bg-black`
                 : `hidden`
             }
           >
@@ -85,15 +84,21 @@ const Nav = () => {
                 {navdata.navGraphql?.data?.navbar?.data?.attributes?.[
                   category
                 ]?.map((item: any) => (
-                  <div key={item.id} className="col-span-1 py-6 my-auto items-center">
+                  <div key={item.id} className="col-span-1 py-6 my-auto flex items-center">
                     
-                      {item.icon?.data?.attributes?.url && (
+                    {item.icon?.data?.attributes?.url ? (
                         <img
-                          src={strapiUrl + item.icon.data.attributes.url}
+                          src={item.icon.data.attributes.url}
                           alt={item.name}
-                          className="h-4 w-4 inline pb-1"
+                          className="h-4 w-4 inline"
                         />
-                      )}
+                      ) : (
+                        <img
+                          src="../assets/default.svg"
+                          alt={item.name}
+                          className="h-4 w-4 inline"
+                        />
+                     )}
                     <Link
                       to={item.link}
                       prefetch="intent"
@@ -108,22 +113,20 @@ const Nav = () => {
             </div>
 
             <div className="col-span-2 h-full" id="featured-post">
-              {/* Featured post */}
               {navdata.navGraphql?.data?.navbar?.data?.attributes?.[
                 category
               ]?.find(
                 (item: any) => item.__typename === "ComponentCardCard"
               ) && (
-                <div>
+                <figure className="relative nav-img">
                   <img
-                    src={strapiUrl+
-                      navdata.navGraphql.data.navbar.data.attributes[
+                    src={ navdata.navGraphql.data.navbar.data.attributes[
                         category
                       ].find(
                         (item: any) => item.__typename === "ComponentCardCard"
                       ).bgImage.data.attributes.url
                     }
-                    className="h-80 w-[30rem] mx-auto object-cover"
+                    className="h-fit w-[30rem] mx-auto object-cover"
                     alt={
                       navdata.navGraphql.data.navbar.data.attributes[
                         category
@@ -132,13 +135,39 @@ const Nav = () => {
                       ).title
                     }
                   />
-                </div>
+                  <figcaption className="text-white absolute bottom-0 gap-2 z-30 p-14">
+                    <div className="font-semibold text-xl font-poppins">
+                    {
+                      navdata.navGraphql.data.navbar.data.attributes[
+                        category
+                      ].find(
+                        (item: any) => item.__typename === "ComponentCardCard"
+                      ).title
+                    }
+                    </div>
+                    <div className="font-montserrat text-sm">
+                    {
+                      navdata.navGraphql.data.navbar.data.attributes[
+                        category
+                      ].find(
+                        (item: any) => item.__typename === "ComponentCardCard"
+                      ).description
+                    }
+                    </div>
+                    <Link to={
+                      navdata.navGraphql.data.navbar.data.attributes[
+                        category
+                      ].find(
+                        (item: any) => item.__typename === "ComponentCardCard"
+                      ).link
+                    } className="text-link-pink underline text-sm float-right mt-2">Read More</Link>
+                  </figcaption>
+                </figure>
               )}
             </div>
           </div>
         ))}
-        {/* placeholder div to close the nav */}
-        <div className="w-full h-full" onClick={() => setKey(0)}></div>
+        <div className="w-full h-full blur-xl" onClick={() => setKey(0)}></div>
       </div>
     </div>
   );

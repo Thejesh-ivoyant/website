@@ -1,3 +1,33 @@
+export const homeQuery : string = `
+query{
+  homepage{
+    data{
+      attributes{
+        AboutUs
+        AboutUsTitle
+        ClientCount
+        ExperienceCount
+        ProjectsCount
+        InHouseExpertsCount
+        services{
+          id
+          title
+          description
+        	bgImage{
+            data{
+              attributes{
+                url
+              }
+            }
+          }
+          link
+        }
+      }
+    }
+  }
+}
+`
+
 export const navQuery = `
 query {
     navbar {
