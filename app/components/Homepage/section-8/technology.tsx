@@ -65,13 +65,17 @@ const Technology = () => {
     {Array.from({ length: Math.ceil(TechnologyExpertiseLogos.length / 5) }).map((_, row) => (
       <div key={row} className="flex flex-row w-full justify-evenly gradient-top py-8">
         {TechnologyExpertiseLogos.slice(row * 5, (row + 1) * 5).map((logo, index) => (
-          <div className="logoitems" key={logo.id}>
-            <img
+          <div className="logoitems flex flex-col gap-2 " key={logo.id}>
+            <div className="flex"><img
               src={`${logo.attributes.url}`}
               className="ClientLogo"
               alt={`Logo ${index}`}
             />
-            <figcaption className="text-black mt-2">testtlogo</figcaption>
+            </div>
+            <div className="flex"> 
+              <figcaption className="text-black mt-2">testtlogo</figcaption>
+            </div>
+          
           </div>
         ))}
       </div>

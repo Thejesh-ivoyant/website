@@ -415,7 +415,7 @@ line-height: normal;
 
 .industry-focus-text-container{
   background: #170D26;
-  width: 83px;
+  width: 180px;
 
 padding: 4px;
 
@@ -772,6 +772,14 @@ border-image-slice: 1;
   background: linear-gradient(123deg, rgba(148.88, 159.27, 252.74, 0.17) 0%, rgba(243.29, 244.35, 253.96, 0.60) 100%, rgba(90.30, 104.33, 230.56, 0.60) 100%);
   color: white;
 }
+
+.main-jd-content ul {
+  list-style-type: disc;
+  color: black;
+  margin-left: 1.5rem;
+}
+
+/* Add more specific styles for ul elements if needed */
 
 .logoitems{
     display: flex;

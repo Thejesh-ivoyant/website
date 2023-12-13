@@ -102,30 +102,18 @@ const JobCards = () => {
                           className="ellipse-image"
                         />
 
-                       {((selectedFaq === faq) && (faqAddState[faq]!=null))  ?  (
-                            <img
-                            src="../assets/Minus.svg"
+                          <img
+                            src="../assets/redirect.svg"
                             alt="Minus"
                             className="minus-image"
                           />
-                        ) : (
-                          <img
-                            src="../assets/Add.svg"
-                            alt="Add"
-                            className="add-image"
-                          />
-                        )}
 
 
                       </div>
                     </div>
                   </div>
               
-                    {selectedFaq === faq && (
-                      <div className="flex w-full faq-description">
-                        <div>{faqList[faq]}</div>
-                      </div>
-                    )}
+                 
                 </div>
               </div>
             ))}

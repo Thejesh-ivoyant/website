@@ -14,7 +14,7 @@ const { Option } = Select;
       };
     
     return (
-        <div className="items-start flex flex-col mt-10 p-20">
+        <div className=" main-jd-content items-start flex flex-col mt-10 p-20">
           <div className="text-black text-4xl font-semibold self-stretch w-full max-md:max-w-full">
             Java Microservices Developer
           </div>

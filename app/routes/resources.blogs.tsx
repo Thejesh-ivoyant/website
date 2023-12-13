@@ -81,7 +81,9 @@ export async function loader() {
         profileSummary: item.attributes.author.data?.attributes.profileSummary,
       },
     }));
-    console.log("compsres loader data ", componentRes);
+    console.log("compsres loader data ", blogData);
+
+    
   console.log("loader data ", blogGql.data?.blogs.data);
     return {
       heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.url,

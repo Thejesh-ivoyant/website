@@ -75,7 +75,7 @@ export async function loader() {
     id: item.id,
     s4_industryFocusSubTitle: item.s4_industryFocusSubTitle,
     s4_industryFocusDescription: item.s4_industryFocusDescription,
-    s4_industryFocusImage: item.s4_IndustryFocusImage.data?.attributes.formats.large.url,
+    s4_industryFocusImage: item.s4_IndustryFocusImage.data?.attributes.url,
   }));
   const PhasesList = componentRes.s5_phasesOfDevelopment.map((item: any) => ({
     id: item.id,
