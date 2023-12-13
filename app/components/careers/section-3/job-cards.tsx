@@ -1,11 +1,12 @@
 import { useLoaderData } from "@remix-run/react";
 import React, { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
+import JobDescription from "../job-description";
 const JobCards = () => {
   const loaderData = useLoaderData() as any;
 
   const SECTION12_API_URL = `${strapiUrl}/api/section12s?populate=%2A`
-
+ 
 
   const [faqList, setFaqList] = useState<{ [key: string]: string } | undefined>();
   const [selectedFaq, setSelectedFaq] = useState<string | null>(null);
@@ -17,7 +18,7 @@ const JobCards = () => {
       .then((section12_data) => {
         const { FaqList } = section12_data.data[0].attributes;
         setFaqList(FaqList);
-        console.warn("faq list is ",faqList)
+        console.warn("faq list is ",loaderData.JobDesc[1].Title)
 
       })
       .catch((error) => {
@@ -25,6 +26,9 @@ const JobCards = () => {
       });
   }, []);
 
+  const GetJobDescription=(index:string)=>{
+  console.warn("index is ",index)
+  }
   const handleFaqClick = (faq: string) => {
     setFaqAddState((prevState) => ({
       ...prevState,
@@ -80,17 +84,17 @@ const JobCards = () => {
       <section className="px-4 py-8 ">
         <div className="flex flex-col space-y-4 py-4 relative">
                   <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="icons" />
-          {faqList &&
-            Object.keys(faqList).map((faq) => (
-              <div className="flex flex-col px-28 relative" key={faq}>
-                <div className="faq-card flex flex-col ">
+         
+              {loaderData.JobDesc.map((jobs:any) => (
+              <div className="flex flex-col px-28 relative ">
+                <div className="faq-card  flex flex-col " onClick={() => GetJobDescription(jobs.job_id)}> 
                   <div className="flex flex-row w-full">
                     <div className="flex w-1/2">
                       <div
                         className="item"
                         style={{ fontSize: "1.4rem", cursor: "pointer" }}
                       >
-                        {faq}
+                        {jobs.Title}
                       </div>
                     </div>
                     <div className="flex w-1/2 justify-end" onClick={() => handleFaqClick(faq)}>
@@ -116,7 +120,8 @@ const JobCards = () => {
                  
                 </div>
               </div>
-            ))}
+               ))}
+            
         </div>
       </section>
     </div>

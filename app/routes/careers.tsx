@@ -67,6 +67,10 @@ console.warn("jsonpareded i career//////////sss///",jsonParsed.data?.career.data
 //     profileSummary: item.attributes.job_decriptions.data?.attributes.job_id,
 //   },
 // }));
+const JobDesc = jsonParsed?.data?.career?.data?.attributes?.job_descriptions?.data?.map((item: any) => ({
+  job_id: item.attributes.job_id,
+  Title: item.attributes.Title,
+}));
 
   const JoinUsCard = componentRes.s2_whyJoinUs.map((item: any) => ({
     id: item.id,
@@ -82,7 +86,9 @@ console.warn("jsonpareded i career//////////sss///",jsonParsed.data?.career.data
     link: item.link,
     bgImage: item.bgImage.data?.attributes.url,
   }));
-  // console.warn("comp res i career descripy job s///",JobDesc);
+  // console.warn("jooobs",JobDesc);
+  // console.warn("jooobs2222",JobDesc[0].Title);
+  
 
   const {
     heroTitle,
@@ -106,6 +112,7 @@ console.warn("jsonpareded i career//////////sss///",jsonParsed.data?.career.data
     JoinUsCard:JoinUsCard,
     DescriptionCard:DescriptionCard,
     JobDesc:JobDesc,
+ 
   };
 }
 
