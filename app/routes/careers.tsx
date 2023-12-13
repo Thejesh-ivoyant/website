@@ -18,7 +18,7 @@ import Faq from "~/components/Homepage/section-12/faq";
 import Why_Join_Us from "~/components/careers/section-2/why-join-us";
 import JobCards from "~/components/careers/section-3/job-cards";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { CareerQuery, blogQuery, careersQuery, topBlogQuery } from "~/graphql/queries";
+import {  blogQuery, careersQuery, topBlogQuery } from "~/graphql/queries";
 import JoinUsCardContainer from "~/components/careers/section-4/join-us-card-container";
 
 export const meta: MetaFunction = () => {
@@ -61,12 +61,17 @@ export async function loader() {
 
 console.warn("jsonpareded i career//////////sss///",jsonParsed.data?.career.data?.attributes)
 
-const JobDesc = jsonParsed.data?.career.data?.map((item: any) => ({
-  job_descriptions: {
-    Title: item.attributes.job_decriptions.data?.attributes.Title,
-    profileSummary: item.attributes.job_decriptions.data?.attributes.job_id,
-  },
+// const JobDesc = jsonParsed.data?.career.data?.map((item: any) => ({
+//   job_descriptions: {
+//     Title: item.attributes.job_decriptions.data?.attributes.Title,
+//     profileSummary: item.attributes.job_decriptions.data?.attributes.job_id,
+//   },
+// }));
+const JobDesc = jsonParsed?.data?.career?.data?.attributes?.job_descriptions?.data?.map((item: any) => ({
+  job_id: item.attributes.job_id,
+  Title: item.attributes.Title,
 }));
+
   const JoinUsCard = componentRes.s2_whyJoinUs.map((item: any) => ({
     id: item.id,
     title: item.title,
@@ -81,7 +86,9 @@ const JobDesc = jsonParsed.data?.career.data?.map((item: any) => ({
     link: item.link,
     bgImage: item.bgImage.data?.attributes.url,
   }));
-  console.warn("comp res i career descripy s///",DescriptionCard)
+  // console.warn("jooobs",JobDesc);
+  // console.warn("jooobs2222",JobDesc[0].Title);
+  
 
   const {
     heroTitle,
@@ -105,6 +112,7 @@ const JobDesc = jsonParsed.data?.career.data?.map((item: any) => ({
     JoinUsCard:JoinUsCard,
     DescriptionCard:DescriptionCard,
     JobDesc:JobDesc,
+ 
   };
 }
 
