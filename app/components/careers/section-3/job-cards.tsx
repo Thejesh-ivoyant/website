@@ -1,7 +1,8 @@
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData, useNavigate } from "@remix-run/react";
 import React, { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 import JobDescription from "../job-description";
+import { redirect } from "@remix-run/node";
 const JobCards = () => {
   const loaderData = useLoaderData() as any;
 
@@ -25,10 +26,8 @@ const JobCards = () => {
         console.error("Error fetching data from API:", error);
       });
   }, []);
-
-  const GetJobDescription=(index:string)=>{
-  console.warn("index is ",index)
-  }
+  const navigate = useNavigate();
+ 
   const handleFaqClick = (faq: string) => {
     setFaqAddState((prevState) => ({
       ...prevState,
@@ -46,7 +45,7 @@ const JobCards = () => {
         <h2>{loaderData.s3_title}</h2>
       </section>
 
-      <div className="items-stretch flex justify-between gap-5 max-md:flex-wrap max-md:justify-center">
+      <div className="px-10 flex justify-between gap-3 max-md:flex-wrap max-md:justify-center">
       <div className="items-stretch flex grow basis-[0%] flex-col px-5">
         <div className="text-indigo-950 text-sm capitalize whitespace-nowrap">
           Filter By:
@@ -87,15 +86,21 @@ const JobCards = () => {
          
               {loaderData.JobDesc.map((jobs:any) => (
               <div className="flex flex-col px-28 relative ">
-                <div className="faq-card  flex flex-col " onClick={() => GetJobDescription(jobs.job_id)}> 
+                <Link to={`/job-description/${jobs.id}`} key={jobs.id}>
+                <div className="faq-card  flex flex-col "> 
                   <div className="flex flex-row w-full">
-                    <div className="flex w-1/2">
+                    <div className="flex  w-1/2 justify-items-start flex-col">
                       <div
                         className="item"
-                        style={{ fontSize: "1.4rem", cursor: "pointer" }}
+                        
                       >
                         {jobs.Title}
                       </div>
+                      <div className="item"
+                        style={{ fontSize: "1rem", cursor: "pointer" }}>
+                        {jobs.location}
+                      </div>
+
                     </div>
                     <div className="flex w-1/2 justify-end" onClick={() => handleFaqClick(faq)}>
                       <div className="ellipse-container">
@@ -119,6 +124,7 @@ const JobCards = () => {
               
                  
                 </div>
+                </Link>
               </div>
                ))}
             

@@ -68,9 +68,12 @@ console.warn("jsonpareded i career//////////sss///",jsonParsed.data?.career.data
 //   },
 // }));
 const JobDesc = jsonParsed?.data?.career?.data?.attributes?.job_descriptions?.data?.map((item: any) => ({
+  id: item.id, // Add this line to capture the job ID
   job_id: item.attributes.job_id,
   Title: item.attributes.Title,
+  location: item.attributes.location,
 }));
+
 
   const JoinUsCard = componentRes.s2_whyJoinUs.map((item: any) => ({
     id: item.id,
