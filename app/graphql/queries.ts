@@ -274,9 +274,11 @@ query{
         s3_email
         job_descriptions{
           data{
+            id
             attributes{
               job_id
               Title
+              location
             }
           }
         }
