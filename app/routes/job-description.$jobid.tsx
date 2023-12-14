@@ -8,7 +8,7 @@ import ServiceCardContainer from "~/components/S-MobileAppDev/section-6/service-
 import Technology from "~/components/Homepage/section-8/technology";
 import Consultation from "~/components/Homepage/section-7/consultation";
 import Footer from "~/common-components/footer";
-import { Outlet, useParams } from "@remix-run/react";
+import { Outlet, useLoaderData, useParams } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import Section6 from "~/components/industries/section6";
 import Technologies from "~/components/S-MobileAppDev/section-7/technologies";
@@ -19,6 +19,7 @@ import JobCards from "~/components/careers/section-3/job-cards";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import {  blogQuery, careersQuery, topBlogQuery } from "~/graphql/queries";
 import JobDescription from "~/components/careers/job-description";
+import { LoaderFunctionArgs } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
   return [
@@ -34,38 +35,25 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-async function fetchData(endpoint: string) {
+
+
+export async function loader({   params, }: LoaderFunctionArgs){
+
+  const url= strapiUrl+`/api/job-descriptions/${params.jobid}`;
   try {
-    const response = await fetch(strapiUrl + endpoint);
-console.log("fetttttttttc response",response);
-    if (!response.ok) {
-      throw new Error(
-        `Error fetching data from ${endpoint}: ${response.status} ${response.statusText}`
-      );
-    }
-
-    const jsonData = await response.json();
-    return jsonData.data?.attributes;
-  } catch (error: any) {
-    console.error(`Error fetching data from ${endpoint}: ${error.message}`);
-    throw error; // Re-throw the error to be caught by the caller
-  }
-}
-
-export async function loader() {
- 
-  const res = await fetch(strapiUrl+`/api/job-descriptions/1`);
-  let jsonParsed = await res.json();
-console.warn("data in",jsonParsed);
+    const res = await fetch(url);
+    let jsonParsed = await res.json();
+   
+      
  const {
- Title,
-location,
-date,
-job_id,
-s1_title,
-s2_title, 
-s3_title, 
-summary,
+  Title,
+  location,
+  date,
+  job_id,
+  s1_title,
+  s2_title, 
+  s3_title, 
+  summary,
 
   } = jsonParsed.data?.attributes;
 
@@ -83,39 +71,24 @@ summary,
 
   };
 }
+catch (error:any) {
 
+  console.error(`Error fetching data from ${url}: ${error.message}`);
+}
+
+}
 const Index = () => {
-  const { jobid } = useParams();
-
-
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    const fetchDataAsync = async () => {
-      try {
-        const fetchedData = await loader();
-    
-        setData(fetchedData);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setLoading(false); // Set loading to false in case of an error
-      }
-    };
-
-    fetchDataAsync();
-  }, []);
-
+const data= useLoaderData() as any;
+console.warn(JSON.stringify(data));
   return (
     <div style={{ padding: "0px", overflowX: "hidden" }}>
       {/* Video Background */}
 
-      {loading ? (
+      {!data ? (
         <LoadingComponent />
       ) : (
         <div>
-        <JobDescription/>
+          <JobDescription />
           <Footer />
           <Outlet />
         </div>
