@@ -7,26 +7,81 @@ const Pairs = () => {
   const pairsData = attributes?.pairs || [];
 
   return (
-    <section className="relative flex flex-col items-center min-h-screen h-fit w-full bg-haiti text-white p-10">
-      <h1 className="text-HeaderGray font-montserrat text-5xl p-4">
+    <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white p-10 gap-8">
+      <h1 className="text-HeaderGray font-montserrat text-5xl font-semibold">
         {attributes.section_4_title}
       </h1>
-      <p className="top-gradient p-6 text-center w-2/3">
+      <svg
+        width="1257"
+        height="25"
+        viewBox="0 0 1257 25"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          y="12.248"
+          width="0.5"
+          height="628.5"
+          transform="rotate(-90 0 12.248)"
+          fill="url(#paint0_linear_3363_29830)"
+        />
+        <rect
+          x="1257"
+          y="11.748"
+          width="0.5"
+          height="628.5"
+          transform="rotate(90 1257 11.748)"
+          fill="url(#paint1_linear_3363_29830)"
+        />
+        <defs>
+          <linearGradient
+            id="paint0_linear_3363_29830"
+            x1="0.75"
+            y1="636.065"
+            x2="0.749987"
+            y2="1.0081"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stopColor="#AEBEFF" />
+            <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient
+            id="paint1_linear_3363_29830"
+            x1="1257.75"
+            y1="635.565"
+            x2="1257.75"
+            y2="0.508102"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stopColor="#AEBEFF" />
+            <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <p className="text-center w-2/3 font-normal leading-6 text-sm tracking-wider font-poppins">
         {attributes.section_4_description}
       </p>
-      <div className="grid grid-cols-3 gap-4">
-      {pairsData.map((pair: any) => (
-        <div key={pair.id} className="flex flex-col items-center opaque-card px-10 aspect-video py-2">
-          <img src={pair.pic.data.attributes.url} alt={pair.text} className="mb-2 p-2 aspect-square"></img>
-          <p className="text-center leading-8 text-[FFFFFFD9] font-poppins">{pair.text}</p>
-        </div>
-      ))}
-    </div>
+      <div className="grid grid-cols-3 gap-4 p-6 blur-[150%] bg-opacity-[0.16]">
+        {pairsData.map((pair: any) => (
+          <div
+            key={pair.id}
+            className="flex flex-col items-center opaque-card aspect-video py-2"
+          >
+            <img
+              src={pair.pic.data.attributes.url}
+              alt={pair.text}
+              className="mb-2 p-2 aspect-square"
+            ></img>
+            <p className="text-center leading-8 text-[FFFFFFD9] font-poppins w-3/5">
+              {pair.text}
+            </p>
+          </div>
+        ))}
+      </div>
 
-      <Outlet />
     </section>
   );
 };
-
 
 export default Pairs;
