@@ -21,7 +21,6 @@ export default function Index() {
   
   return (
     <>
-      <Nav />
       <Carousel>
       {carousel.map((item:any) => (
         <div key={item.id} className="relative h-screen text-white slit-gradient flex flex-row">
@@ -42,7 +41,6 @@ export default function Index() {
       <Section2 />
       <Tabs/>
       <Pairs/>
-
       <Footer/>
     </>
   );
