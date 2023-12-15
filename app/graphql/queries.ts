@@ -221,6 +221,41 @@ export const blogQuery = `query{
   }
 }`;
 
+export const getAuthorQuery = (id:any) => {
+  console.warn("getAuthorQuery id is ", id);
+  return `
+    query GetAuthorById {
+      author(id: ${id}) {
+        data {
+          attributes {
+            avatar {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            socialMediaLinks {
+              ... on ComponentSocialMediaLinksSocialMediaLinks {
+                link
+                logo {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+};
+
+
+
 export const topBlogQuery = `
 query {
   blogs(
