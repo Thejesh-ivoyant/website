@@ -2,13 +2,17 @@ import IBlogMedia from "~/interfaces/IBlogMedia";
 import { strapiUrl } from "~/utils/urls";
 const BlogCard = ({ blog }: { blog: IBlogMedia }) => {
     // Extract data from the blog object
+    function trimWords(text:string) {
+      return text.split(' ').slice(0, 30).join(' ') + (text.split(' ').length > 30 ? ' .....' : '');
+    }
+    
     console.log(blog,"is the blog data passsedddd")
 
 
     return(
         <form className=" bg-[#ffffff]">
         <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-          <div className="flex flex-col items-center w-[39%] max-md:w-full max-md:ml-0">
+          <div className="flex flex-col items-center w-[42%] max-md:w-full max-md:ml-0">
             <header className="justify-between items-stretch shadow-sm flex grow flex-col w-full pb-2 max-md:max-w-full max-md:mt-6">
               <img
                 loading="lazy"
@@ -26,14 +30,12 @@ const BlogCard = ({ blog }: { blog: IBlogMedia }) => {
                {blog.title}
               </div>
               <div className="text-black text-base leading-5 self-stretch mt-6 max-md:max-w-full">
-                Artificial intelligence (AI) allows machines to learn directly from their experiences and problem-solve. Combine this with the rapid rise of robotics in the workplace, and both the business world and society in general are potentially facing problems.
-              </div>
-              <div className="items-stretch flex justify-between gap-5 mt-28 max-md:mt-10">
-                <img
-                  loading="lazy"
-                  srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/ae4e2dca8a7c0c6ca02aef60748ab20e047f111c8e12c4c5402ef3abaa400997?apiKey=9e16588387084fb2a9a51a1b99489136&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae4e2dca8a7c0c6ca02aef60748ab20e047f111c8e12c4c5402ef3abaa400997?apiKey=9e16588387084fb2a9a51a1b99489136&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae4e2dca8a7c0c6ca02aef60748ab20e047f111c8e12c4c5402ef3abaa400997?apiKey=9e16588387084fb2a9a51a1b99489136&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae4e2dca8a7c0c6ca02aef60748ab20e047f111c8e12c4c5402ef3abaa400997?apiKey=9e16588387084fb2a9a51a1b99489136&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae4e2dca8a7c0c6ca02aef60748ab20e047f111c8e12c4c5402ef3abaa400997?apiKey=9e16588387084fb2a9a51a1b99489136&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae4e2dca8a7c0c6ca02aef60748ab20e047f111c8e12c4c5402ef3abaa400997?apiKey=9e16588387084fb2a9a51a1b99489136&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae4e2dca8a7c0c6ca02aef60748ab20e047f111c8e12c4c5402ef3abaa400997?apiKey=9e16588387084fb2a9a51a1b99489136&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/ae4e2dca8a7c0c6ca02aef60748ab20e047f111c8e12c4c5402ef3abaa400997?apiKey=9e16588387084fb2a9a51a1b99489136&"className="aspect-square object-contain object-center w-[50px] overflow-hidden shrink-0 max-w-full rounded-[50%]"
-                  alt="Amada Smith"
-                />
+              {trimWords(blog.description1)}  </div>
+              <div className="items-stretch flex justify-between gap-5  mt-5  max-md:mt-10">
+              <img
+                loading="lazy"
+                src={blog.author.avatar} className="aspect-square object-contain object-center w-[84px] overflow-hidden max-w-full rounded-[50%]"
+              />
                 <div className="items-stretch flex grow basis-[0%] flex-col self-start">
                   <div className="text-black text-base font-medium whitespace-nowrap">
                  {blog.author.name}
