@@ -41,7 +41,7 @@ export async function loader() {
         },
         author: {
           name: item.attributes.author.data?.attributes.name,
-          profileSummary: item.attributes.author.data?.attributes.profileSummary,
+       
         },
       }));
  

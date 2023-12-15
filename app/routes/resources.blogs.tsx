@@ -70,6 +70,7 @@ export async function loader() {
   const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
       id: item.id,
       title: item.attributes.title,
+      description1: item.attributes.description1,
       date: item.attributes.date,
       maxReadTime: item.attributes.maxReadTime,
       bannerImage: {
@@ -78,7 +79,7 @@ export async function loader() {
       },
       author: {
         name: item.attributes.author.data?.attributes.name,
-        profileSummary: item.attributes.author.data?.attributes.profileSummary,
+        avatar: item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
       },
     }));
     console.log("compsres loader data ", blogData);
