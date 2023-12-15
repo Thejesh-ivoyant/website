@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 import { Button, Col, DatePicker, Drawer, Form, Input, Row, Select, Space } from 'antd';
+import { useLoaderData, useLocation, useParams } from "@remix-run/react";
+import { loader } from "~/root";
 
 const JobDescription = () => {
+  const loaderData = useLoaderData() as any;
+
+
+
     const [open, setOpen] = useState(false);
 const { Option } = Select;
     const showDrawer = () => {
@@ -12,29 +18,26 @@ const { Option } = Select;
       const onClose = () => {
         setOpen(false);
       };
-    
+ 
     return (
-        <div className="items-start flex flex-col mt-10 p-20">
+        <div className=" main-jd-content items-start flex flex-col mt-10 p-20">
           <div className="text-black text-4xl font-semibold self-stretch w-full max-md:max-w-full">
-            Java Microservices Developer
+  {loaderData.title}
           </div>
           <div className="text-black text-3xl font-semibold self-stretch w-full mt-6 max-md:max-w-full">
-            Bengaluru
+   {loaderData.location}
           </div>
           <div className="text-black text-xl font-medium self-stretch w-full mt-6 max-md:max-w-full">
-            11-22-2022
+{loaderData.date}
           </div>
           <div className="text-black text-base font-medium self-stretch w-full mt-6 max-md:max-w-full">
-            JO-2201-16004
+ {loaderData.job_id}
           </div>
           <div className="text-black text-base leading-6 self-stretch w-full mt-6 max-md:max-w-full">
-            ivoyant is an emerging digital platform engineering and development
-            services company headquartered in Atlanta. At ivoyant, we are <br />
-            helping our customers solve complex challenges, support their growth &
-            transformation agenda, leveraging technology to make a difference.
+      {loaderData.summary}
           </div>
           <div className="text-black text-lg font-semibold whitespace-nowrap mt-6 self-start max-md:max-w-full">
-            Responsibilities:
+     {loaderData.s1_title}
           </div>
           <div className="text-black text-base whitespace-nowrap mt-4 self-start max-md:max-w-full">
             <ul>
@@ -49,7 +52,7 @@ const { Option } = Select;
             </ul>
           </div>
           <div className="text-black text-lg font-semibold whitespace-nowrap mt-5 self-start max-md:max-w-full">
-            Qualifications
+     {loaderData.s2_title}
           </div>
           <div className="text-black text-base whitespace-nowrap mt-4 self-start max-md:max-w-full">
             <ul>
@@ -121,7 +124,7 @@ const { Option } = Select;
             </ul>
           </div>
           <div className="text-black text-lg font-semibold whitespace-nowrap mt-5 self-start">
-            Perks & Benifits
+     {loaderData.s3_title}
           </div>
           <div className="text-black text-base whitespace-nowrap mt-5 self-start">
             <ul>

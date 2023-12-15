@@ -1,11 +1,13 @@
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData, useNavigate } from "@remix-run/react";
 import React, { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
+import JobDescription from "../job-description";
+import { redirect } from "@remix-run/node";
 const JobCards = () => {
   const loaderData = useLoaderData() as any;
 
   const SECTION12_API_URL = `${strapiUrl}/api/section12s?populate=%2A`
-
+ 
 
   const [faqList, setFaqList] = useState<{ [key: string]: string } | undefined>();
   const [selectedFaq, setSelectedFaq] = useState<string | null>(null);
@@ -17,14 +19,15 @@ const JobCards = () => {
       .then((section12_data) => {
         const { FaqList } = section12_data.data[0].attributes;
         setFaqList(FaqList);
-        console.warn("faq list is ",faqList)
+        console.warn("faq list is ",loaderData.JobDesc[1].Title)
 
       })
       .catch((error) => {
         console.error("Error fetching data from API:", error);
       });
   }, []);
-
+  const navigate = useNavigate();
+ 
   const handleFaqClick = (faq: string) => {
     setFaqAddState((prevState) => ({
       ...prevState,
@@ -42,7 +45,7 @@ const JobCards = () => {
         <h2>{loaderData.s3_title}</h2>
       </section>
 
-      <div className="items-stretch flex justify-between gap-5 max-md:flex-wrap max-md:justify-center">
+      <div className="px-10 flex justify-between gap-3 max-md:flex-wrap max-md:justify-center">
       <div className="items-stretch flex grow basis-[0%] flex-col px-5">
         <div className="text-indigo-950 text-sm capitalize whitespace-nowrap">
           Filter By:
@@ -80,18 +83,24 @@ const JobCards = () => {
       <section className="px-4 py-8 ">
         <div className="flex flex-col space-y-4 py-4 relative">
                   <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="icons" />
-          {faqList &&
-            Object.keys(faqList).map((faq) => (
-              <div className="flex flex-col px-28 relative" key={faq}>
-                <div className="faq-card flex flex-col ">
+         
+              {loaderData.JobDesc.map((jobs:any) => (
+              <div className="flex flex-col px-28 relative ">
+                <Link to={`/job-description/${jobs.id}`} key={jobs.id}>
+                <div className="faq-card  flex flex-col "> 
                   <div className="flex flex-row w-full">
-                    <div className="flex w-1/2">
+                    <div className="flex  w-1/2 justify-items-start flex-col">
                       <div
                         className="item"
-                        style={{ fontSize: "1.4rem", cursor: "pointer" }}
+                        
                       >
-                        {faq}
+                        {jobs.Title}
                       </div>
+                      <div className="item"
+                        style={{ fontSize: "1rem", cursor: "pointer" }}>
+                        {jobs.location}
+                      </div>
+
                     </div>
                     <div className="flex w-1/2 justify-end" onClick={() => handleFaqClick(faq)}>
                       <div className="ellipse-container">
@@ -102,33 +111,23 @@ const JobCards = () => {
                           className="ellipse-image"
                         />
 
-                       {((selectedFaq === faq) && (faqAddState[faq]!=null))  ?  (
-                            <img
-                            src="../assets/Minus.svg"
+                          <img
+                            src="../assets/redirect.svg"
                             alt="Minus"
                             className="minus-image"
                           />
-                        ) : (
-                          <img
-                            src="../assets/Add.svg"
-                            alt="Add"
-                            className="add-image"
-                          />
-                        )}
 
 
                       </div>
                     </div>
                   </div>
               
-                    {selectedFaq === faq && (
-                      <div className="flex w-full faq-description">
-                        <div>{faqList[faq]}</div>
-                      </div>
-                    )}
+                 
                 </div>
+                </Link>
               </div>
-            ))}
+               ))}
+            
         </div>
       </section>
     </div>

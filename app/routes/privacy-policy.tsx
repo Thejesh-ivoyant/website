@@ -20,6 +20,7 @@ import JobCards from "~/components/careers/section-3/job-cards";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { CareerQuery, blogQuery, careersQuery, topBlogQuery } from "~/graphql/queries";
 import JobDescription from "~/components/careers/job-description";
+import PrivacyPolicy from "~/components/privacy-policy";
 
 export const meta: MetaFunction = () => {
   return [
@@ -129,7 +130,8 @@ const Index = () => {
         <LoadingComponent />
       ) : (
         <div>
-        <JobDescription/>
+        <PrivacyPolicy/>
+        <Consultation/>
           <Footer />
           <Outlet />
         </div>
