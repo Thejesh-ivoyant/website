@@ -42,6 +42,7 @@ export default function Index() {
       <Section2 />
       <Tabs/>
       <Pairs/>
+
       <Footer/>
     </>
   );
