@@ -2,10 +2,10 @@ import { defer, json } from "@remix-run/node";
 import { Outlet, useLoaderData } from "@remix-run/react";
 import Hero from "~/common-components/Hero";
 import Footer from "~/common-components/footer";
-import ContactUs from "~/components/Homepage/contact-us/contactUs";
-import AboutCardContainer from "~/components/Homepage/section-2/about-card-container";
-import Section4 from "~/components/Homepage/section-4/clients";
-import Testimonials from "~/components/Homepage/section-9/testimonials";
+import ContactUs from "~/components/Homepage/contactUs";
+import AboutCardContainer from "~/components/Homepage/about-card-container";
+import Section4 from "~/components/Homepage/clients";
+import Testimonials from "~/components/Homepage/testimonials";
 import MissionCard from "~/components/about-us/mission";
 import { strapiUrl } from "~/utils/urls";
 
