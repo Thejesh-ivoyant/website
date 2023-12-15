@@ -7,6 +7,7 @@ import AboutCardContainer from "~/components/Homepage/section-2/about-card-conta
 import Section4 from "~/components/Homepage/section-4/clients";
 import Testimonials from "~/components/Homepage/section-9/testimonials";
 import MissionCard from "~/components/about-us/mission";
+import Faq from "~/components/products/faq";
 import { strapiUrl } from "~/utils/urls";
 
 export const meta: MetaFunction = () => {
@@ -71,6 +72,7 @@ export default function Index() {
       <MissionCard />
       <Section4 />
       <Testimonials />
+      <Faq />
       <ContactUs />
       <Footer />
     </>

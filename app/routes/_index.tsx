@@ -11,7 +11,6 @@ import Consultation from "~/components/Homepage/section-7/consultation";
 import Technology from "~/components/Homepage/section-8/technology";
 import Testimonials from "~/components/Homepage/section-9/testimonials";
 import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
-import Faq from "~/components/Homepage/section-12/faq";
 import ContactUs from "~/components/Homepage/contact-us/contactUs";
 import Footer from "~/common-components/footer";
 import BlogPostsContainer from "~/components/Resources/blogPosts-container";
@@ -104,7 +103,6 @@ const App = () => {
           <Testimonials />
           <BlogPostsContainer />
           <Why_Choose_Us />
-          <Faq />
           <ContactUs />
           <Footer />
           <Outlet />

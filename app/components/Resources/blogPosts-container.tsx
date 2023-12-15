@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import { strapiUrl } from "~/utils/urls";
 import BlogPostCard from "./blogPosts";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import IBlogMedia from "../../interfaces/IBlogMedia";
 const BlogPostsContainer = () => {
   const loaderData = useLoaderData() as any;
@@ -21,7 +21,9 @@ const BlogPostsContainer = () => {
       <div className="w-full h-full flex justify-start gap-x-6 p-6  px-40 overflow-x-scroll whitespace-nowrap ">
   
         {loaderData.blogData.map((blog:IBlogMedia) => (
+           <Link to={`resources/blog/${blog.id}`} key={blog.id}>
             <BlogPostCard key={blog.id} blog={blog} />
+            </Link>
         ))}
 
         </div>

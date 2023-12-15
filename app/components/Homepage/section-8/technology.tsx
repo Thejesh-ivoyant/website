@@ -8,6 +8,7 @@ interface LogoData {
   id: number;
   attributes: {
     url: string;
+    caption:string;
 
     // Add any other attributes if present in the actual API response
   };
@@ -28,8 +29,7 @@ interface SectionData {
 const Technology = () => {
   const SECTION8_API_URL = `${strapiUrl}/api/section8s?populate=%2A`
 
-  // const apiUrl = process.env.REACT_APP_STRAPI_URL || 'http://localhost:1337'
-  // const strapi = new Strapi(apiUrl);
+
 
 
 
@@ -73,7 +73,7 @@ const Technology = () => {
             />
             </div>
             <div className="flex"> 
-              <figcaption className="text-black mt-2">testtlogo</figcaption>
+              <figcaption className="text-black mt-2">{logo.attributes.caption}</figcaption>
             </div>
           
           </div>
