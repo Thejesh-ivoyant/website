@@ -26,7 +26,9 @@ interface IBlogMedia {
     };
     author: {
       name: string;
-      profileSummary: string;
+  
+      avatar: string;
+
     };
   }
   

@@ -200,6 +200,7 @@ export const blogQuery = `query{
       id,
       attributes{
         title
+        description1
         maxReadTime
         date
         bannerImage{
@@ -213,6 +214,13 @@ export const blogQuery = `query{
           data{
             attributes{
             name
+            avatar{
+              data{
+                attributes{
+                  url
+                }
+              }
+            }
             }
           }
         }
