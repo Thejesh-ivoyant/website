@@ -1,5 +1,5 @@
 import React from 'react';
-import SummaryCard from '../Homepage/summary-card';
+import SummaryCard from '../Homepage/section-2/summary-card';
 import { strapiUrl } from '~/utils/urls';
 
 

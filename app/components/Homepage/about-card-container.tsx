@@ -1,6 +1,6 @@
 import React from 'react';
 import AboutCard from './about-card';
-import SummaryCard from './summary-card';
+import SummaryCard from './section-2/summary-card';
 
 
 const AboutCardContainer = () => {
