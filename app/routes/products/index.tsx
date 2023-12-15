@@ -41,10 +41,6 @@ export default function Index() {
       <Section2 />
       <Tabs/>
       <Pairs/>
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/Develop
       <Footer/>
     </>
   );
