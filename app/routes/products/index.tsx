@@ -5,7 +5,6 @@ import { useLoaderData } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { productsQuery } from "~/graphql/queries";
 import Footer from "~/common-components/footer";
-import Faq from "~/components/products/faq";
 import Pairs from "~/components/products/pairs";
 import Section2 from "~/components/products/section2";
 
@@ -42,6 +41,10 @@ export default function Index() {
       <Section2 />
       <Tabs/>
       <Pairs/>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/Develop
       <Footer/>
     </>
   );

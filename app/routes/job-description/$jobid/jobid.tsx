@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LoadingComponent from "~/common-components/loading";
 import Hero from "~/components/S-MobileAppDev/section-1/hero";
-import ServiceContainer from "../components/S-MobileAppDev/section-2/service-description-container";
+
 import ProjectPortfolio from "~/components/S-MobileAppDev/section-3/project-portfolio";
 import IndustryFocus from "~/components/S-MobileAppDev/section-4/industry-focus";
 import Phases from "~/components/S-MobileAppDev/section-5/phases";
@@ -18,9 +18,8 @@ import Faq from "~/components/Homepage/section-12/faq";
 import Why_Join_Us from "~/components/careers/section-2/why-join-us";
 import JobCards from "~/components/careers/section-3/job-cards";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { CareerQuery, blogQuery, careersQuery, topBlogQuery } from "~/graphql/queries";
+import { blogQuery, careersQuery, topBlogQuery } from "~/graphql/queries";
 import JobDescription from "~/components/careers/job-description";
-import BlobContent from "~/components/Resources/blob-content";
 
 export const meta: MetaFunction = () => {
   return [
@@ -130,8 +129,7 @@ const Index = () => {
         <LoadingComponent />
       ) : (
         <div>
-            <Hero/>
-        <BlobContent/>
+        <JobDescription/>
           <Footer />
           <Outlet />
         </div>

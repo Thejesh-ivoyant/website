@@ -7,6 +7,7 @@ import AboutCardContainer from "~/components/Homepage/about-card-container";
 import Section4 from "~/components/Homepage/section-4/clients";
 import Testimonials from "~/components/Homepage/section-9/testimonials";
 import MissionCard from "~/components/about-us/mission";
+import Faq from "~/components/products/faq";
 import { strapiUrl } from "~/utils/urls";
 import DescriptionCard from "~/components/about-us/description-card";
 import AboutCard from "~/components/about-us/about-desc";
@@ -74,6 +75,7 @@ export default function Index() {
       <MissionCard />
       <Section4 />
       <Testimonials />
+      <Faq />
       <ContactUs />
       <Footer />
     </>

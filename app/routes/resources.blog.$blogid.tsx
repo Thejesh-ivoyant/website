@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LoadingComponent from "~/common-components/loading";
 import Hero from "~/components/S-MobileAppDev/section-1/hero";
+import ServiceContainer from "../components/S-MobileAppDev/section-2/service-description-container";
 import ProjectPortfolio from "~/components/S-MobileAppDev/section-3/project-portfolio";
 import IndustryFocus from "~/components/S-MobileAppDev/section-4/industry-focus";
 import Phases from "~/components/S-MobileAppDev/section-5/phases";
@@ -8,7 +9,7 @@ import ServiceCardContainer from "~/components/S-MobileAppDev/section-6/service-
 import Technology from "~/components/Homepage/section-8/technology";
 import Consultation from "~/components/Homepage/section-7/consultation";
 import Footer from "~/common-components/footer";
-import { Outlet, useLoaderData, useParams } from "@remix-run/react";
+import { Outlet, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import Section6 from "~/components/industries/section6";
 import Technologies from "~/components/S-MobileAppDev/section-7/technologies";
@@ -16,10 +17,12 @@ import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
 import Faq from "~/components/Homepage/section-12/faq";
 import Why_Join_Us from "~/components/careers/section-2/why-join-us";
 import JobCards from "~/components/careers/section-3/job-cards";
-import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import {  blogQuery, careersQuery, productsQuery, topBlogQuery } from "~/graphql/queries";
+import { fetchGraphQL, fetchGraphQLWithParameter } from "~/graphql/fetchGraphQl";
+import { blogQuery, careersQuery, getAuthorQuery, productsQuery, topBlogQuery } from "~/graphql/queries";
 import JobDescription from "~/components/careers/job-description";
+import BlobContent from "~/components/Resources/blob-content";
 import { LoaderFunctionArgs } from "@remix-run/node";
+import BlogHero from "~/components/Resources/blog-hero";
 
 export const meta: MetaFunction = () => {
   return [
@@ -36,50 +39,62 @@ export const meta: MetaFunction = () => {
 };
 
 
-
 export async function loader({   params, }: LoaderFunctionArgs){
-  // const productsData =  await fetchGraphQLWithParameter(productsQuery,`${params.jobid}`);
-  const url= strapiUrl+`/api/job-descriptions/${params.jobid}`;
+
+  const authorId = 1; // Replace this with the dynamic ID you want to use
+  
+  const updatedQuery = getAuthorQuery(authorId);
+  const authorData =  await fetchGraphQL(updatedQuery);
+
+  console.warn("/////////////////author data is ",authorData.data?.author.data?.attributes.avatar.data?.attributes?.url);
+  const url= strapiUrl+`/api/blogs/${params.blogid}?populate=%2A`;
   try {
     const res = await fetch(url);
     let jsonParsed = await res.json();
    
-      
+    
  const {
-  Title,
-  location,
+  title,
+  maxReadTime,
   date,
-  job_id,
-  s1_title,
-  s2_title, 
-  s3_title, 
-  summary,
+  description1,
+  description2,
+  description3,
 
   } = jsonParsed.data?.attributes;
 
 
   return {
-  
-  title:Title,
-  location,
-  date,
-  job_id,
-  s1_title,
-  s2_title, 
-  s3_title, 
-  summary,
+        avatar:authorData.data?.author.data?.attributes.avatar.data?.attributes?.url,
+        bannerImage: jsonParsed.data?.attributes?.bannerImage?.data?.attributes?.url,
+        descriptionImage1: jsonParsed.data?.attributes?.descriptionImage1?.data?.attributes?.url,
+        descriptionImage2: jsonParsed.data?.attributes?.descriptionImage2?.data?.attributes?.url, 
+        descriptionImage3: jsonParsed.data?.attributes?.descriptionImage3?.data?.attributes?.url, 
+        authorName: jsonParsed.data?.attributes?.author?.data?.attributes?.name,
+        authorSummary: jsonParsed.data?.attributes?.author?.data?.attributes?.profileSummary,
+        title,
+        maxReadTime,
+        date,
+        description1,
+        description2,
+        description3,
 
   };
+ 
 }
 catch (error:any) {
 
   console.error(`Error fetching data from ${url}: ${error.message}`);
+  return null;
 }
 
 }
+
+
 const Index = () => {
-const data= useLoaderData() as any;
-console.warn(JSON.stringify(data));
+
+  const data= useLoaderData() as any;
+  console.warn(JSON.stringify(data));
   return (
     <div style={{ padding: "0px", overflowX: "hidden" }}>
       {/* Video Background */}
@@ -88,7 +103,10 @@ console.warn(JSON.stringify(data));
         <LoadingComponent />
       ) : (
         <div>
-          <JobDescription />
+          <div className="mt-20">
+          <BlogHero/>
+        </div>
+          <BlobContent/>
           <Footer />
           <Outlet />
         </div>
