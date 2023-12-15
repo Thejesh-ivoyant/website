@@ -2,12 +2,14 @@ import { defer, json } from "@remix-run/node";
 import { Outlet, useLoaderData } from "@remix-run/react";
 import Hero from "~/common-components/Hero";
 import Footer from "~/common-components/footer";
-import ContactUs from "~/components/Homepage/contact-us/contactUs";
-import AboutCardContainer from "~/components/Homepage/section-2/about-card-container";
+import ContactUs from "~/components/Homepage/contactUs";
+import AboutCardContainer from "~/components/Homepage/about-card-container";
 import Section4 from "~/components/Homepage/section-4/clients";
 import Testimonials from "~/components/Homepage/section-9/testimonials";
 import MissionCard from "~/components/about-us/mission";
 import { strapiUrl } from "~/utils/urls";
+import DescriptionCard from "~/components/about-us/description-card";
+import AboutCard from "~/components/about-us/about-desc";
 
 export const meta: MetaFunction = () => {
   return [
@@ -51,6 +53,7 @@ export async function loader() {
         heroBgImageURl: jsonParsed.heroBgImage.data?.attributes.formats.large.url,
         heroTitle: jsonParsed.heroTitle,
         heroDesc: jsonParsed.heroDescription,
+
         
       })
   } catch (error:any) {
@@ -67,7 +70,7 @@ export default function Index() {
   return (
     <>
       <Hero />
-      <AboutCardContainer />
+      <AboutCard />
       <MissionCard />
       <Section4 />
       <Testimonials />

@@ -43,7 +43,7 @@ export default function Index() {
       <Section2 />
       <Tabs/>
       <Pairs/>
-      <Faq/>
+      {/* <Faq/> */}
       <Footer/>
     </>
   );
