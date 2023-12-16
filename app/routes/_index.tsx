@@ -17,6 +17,7 @@ import BlogPostsContainer from "~/components/Resources/blogPosts-container";
 import { Outlet } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { blogQuery, homeQuery, topBlogQuery } from "~/graphql/queries";
+import { ActionFunction } from "@remix-run/node";
 
 export async function loader() {
   try {
@@ -45,8 +46,7 @@ export async function loader() {
         },
       }));
  
-    console.warn("loader data IN DEX PAGE ", blogGql.data?.blogs.data);
-
+  
     return {
       hireUsImage: firstImageUrl,
       contactUsImage: secondImageUrl,
@@ -61,6 +61,36 @@ export async function loader() {
     };
   }
 }
+export let action: ActionFunction = async ({ request }) => {
+  try {
+    let formData: FormData = await request.formData();
+    console.log(formData.get("email"));
+
+    const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/52d6bea6-d664-4d5c-a3e9-81a21ba79d3b', {
+      method: 'POST',
+      // Remove the 'Cookie' header
+      headers: {
+        'Cookie': '__cf_bm=f1sOxyZJ8dXs6sgy4m7irTgPh_Nkg18ksr_6Bopy9.k-1702755816-1-Adx75tG8fVTuot+S05cTc5kwtaSINbUVxs8gLUSfwP+vGFMO95dncla4hh1ZK2HOkQchQHYZg5UZPFfcKINqhj8=; _cfuvid=sCdmCXqINoC7GuunaPCEFVsQ3HqXZprqkbBpNRrtMLk-1702753774390-0-604800000',
+      },
+      body: formData,
+    });
+console.warn("///////////////response from contact us form", response);
+console.warn("///////////////response from contact us form", JSON.stringify(formData));
+    if (response.ok) {
+      console.warn('Form submitted successfully');
+      return null;
+      // Add any success handling logic here
+    } else {
+      console.warn('Form submission failed');
+      return null;
+      // Add any error handling logic here
+    }
+  } catch (error) {
+    console.warn('Error during form submission:', error);
+    return null;
+    // Add any additional error handling logic here
+  }
+};
 
 const App = () => {
 
