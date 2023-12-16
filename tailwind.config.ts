@@ -3,6 +3,9 @@ import type { Config } from 'tailwindcss'
 export default {
   mode: "jit",
   content: ['./app/**/*.{js,jsx,ts,tsx}'],
+  variants: {
+    display: ['responsive', 'group-hover', 'group-focus'],
+   },
   theme: {
     extend: {
       colors:{
