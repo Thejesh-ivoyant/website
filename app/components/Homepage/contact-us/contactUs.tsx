@@ -13,6 +13,41 @@ import type { RangePickerProps } from "antd/es/date-picker";
 import { UploadOutlined } from "@ant-design/icons";
 dayjs.extend(customParseFormat);
 
+// const handleSubmit = async (values: any) => {
+//   alert('Form submitted initail ');
+
+//   try {
+//     const formData = new FormData();
+
+//     // Append form data to formData
+//     Object.keys(values).forEach((key) => {
+//       formData.append(key, values[key]);
+//     });
+
+//     const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/52d6bea6-d664-4d5c-a3e9-81a21ba79d3b', {
+//       method: 'POST',
+//       headers: {
+//         'Cookie': '__cf_bm=f1sOxyZJ8dXs6sgy4m7irTgPh_Nkg18ksr_6Bopy9.k-1702755816-1-Adx75tG8fVTuot+S05cTc5kwtaSINbUVxs8gLUSfwP+vGFMO95dncla4hh1ZK2HOkQchQHYZg5UZPFfcKINqhj8=; _cfuvid=sCdmCXqINoC7GuunaPCEFVsQ3HqXZprqkbBpNRrtMLk-1702753774390-0-604800000',
+//       },
+//       body: formData,
+//     });
+
+//     if (response.ok) {
+//       console.warn('Form submitted successfully');
+//       alert('Form submitted successfully');
+//       // Add any success handling logic here
+//     } else {
+//       console.warn('Form submission failed');
+//       alert('Form failed');
+//       // Add any error handling logic here
+//     }
+//   } catch (error) {
+//     console.error('Error during form submission:', error);
+//     alert('Form failed');
+//     // Add any additional error handling logic here
+//   }
+// };
+
 const props: UploadProps = {
   name: "file",
   action: "https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188",
@@ -58,9 +93,13 @@ const disabledDateTime = (selectedDate: dayjs.Dayjs | null) => {
   };
 };
 
-export let action: ActionFunction = async ({ request }) => {
-  let formdata: Formdata = await request.formData();
-};
+// ... (other imports)
+
+
+
+// ... (rest of the code)
+
+
 const ContactUs = () => {
   const loaderData = useRouteLoaderData<typeof loader>("routes/_index");
   const CONTACT_US = `${strapiUrl}/api/contact-uses?populate=%2A`;
@@ -181,8 +220,11 @@ const ContactUs = () => {
           disruption is just around the corner and customer retention is
           everything. Ensure high availabi
         </p>
-        <Form
+        <Form 
+          preventScrollReset
           method="post"
+          encType="multipart/form-data"
+         
           className={
             toggleState === 1
               ? "flex flex-col gap-8 active-content p-8"
@@ -194,7 +236,8 @@ const ContactUs = () => {
             <div className="w-56 relative group col-span-1">
               <input
                 type="text"
-                id="username"
+                id="name"
+                name="name"
                 required
                 className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
               ></input>
@@ -205,7 +248,8 @@ const ContactUs = () => {
             <div className="w-56 relative group col-span-1">
               <input
                 type="text"
-                id="username"
+                id="email"
+                name="email"
                 required
                 className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
               ></input>
@@ -216,7 +260,8 @@ const ContactUs = () => {
             <div className="w-56 relative group col-span-1">
               <input
                 type="text"
-                id="username"
+                id="phonenumber"
+                name="phonenumber"
                 required
                 className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
               ></input>
@@ -227,7 +272,8 @@ const ContactUs = () => {
             <div className="w-56 relative group col-span-1">
               <input
                 type="text"
-                id="username"
+                id="organization"
+                name="organization"
                 required
                 className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
               ></input>
@@ -240,7 +286,8 @@ const ContactUs = () => {
               <textarea
                 minLength={3}
                 maxLength={250}
-                id="username"
+                id="message"
+                name="message"
                 cols={30}
                 rows={5}
                 required
@@ -274,7 +321,7 @@ const ContactUs = () => {
             />
           </div>
             <div className="flex flex-row">
-            <Upload {...props} className="font-poppins">
+        <Upload {...props} className="font-poppins">
               <div className="flex flex-row items-center gap-2">
                 <Button icon={<FileAddOutlined />} className="items-center flex justify-center bg-[#AF99DD] rounded-full p-2 text-black"></Button>
                 <div className="flex text-base">Attach a File</div>
@@ -290,7 +337,8 @@ const ContactUs = () => {
             Send my message
           </button>
         </Form>
-        <Form
+        <Form 
+        preventScrollReset
           method="post"
           className={
             toggleState === 2
