@@ -1,3 +1,4 @@
+import { Link } from '@remix-run/react';
 import React, { Component, ErrorInfo } from 'react';
 
 interface ErrorBoundaryProps {
