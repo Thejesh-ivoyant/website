@@ -1,5 +1,4 @@
 import { Outlet, useLoaderData, useRouteLoaderData } from "@remix-run/react";
-import { loader } from "~/routes/Industries.Healthcare";
 import { strapiUrl } from "~/utils/urls";
 const Phases = () => {
   const loaderData = useLoaderData() as any;

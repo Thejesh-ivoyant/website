@@ -1,4 +1,4 @@
-import { json } from "@remix-run/node";
+import { defer, json } from "@remix-run/node";
 import { Outlet, useLoaderData } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import Hero from "~/common-components/Hero";
@@ -10,6 +10,7 @@ import Section4 from "~/components/industries/section4";
 import Section5 from "~/components/industries/section5";
 import Section6 from "~/components/industries/section6";
 import Section7 from "~/components/industries/section7";
+import { fetchData } from "~/utils/fetchdata";
 import { strapiUrl } from "~/utils/urls";
 
 export const meta: MetaFunction = () => {
@@ -25,32 +26,18 @@ export const meta: MetaFunction = () => {
     },
   ];
 };
-async function fetchData(endpoint:string) {
+
+export async function loader({   params }: LoaderFunctionArgs) {  
   try {
-    const response = await fetch(strapiUrl + endpoint);
-
-    if (!response.ok) {
-      throw new Error(`Error fetching data from ${endpoint}: ${response.status} ${response.statusText}`);
-    }
-
-    const jsonData = await response.json();
-    return jsonData.data?.attributes;
-  } catch (error: any ) {
-    console.error(`Error fetching data from ${endpoint}: ${error.message}`);
-    throw error; // Re-throw the error to be caught by the caller
-  }
-}
-
-export async function loader() {
-  try {
-    const jsonParsed = await fetchData("/api/healthcare/?populate=%2A");
-    const section7PairsJson = await fetchData("/api/healthcare/?populate=pairs.pic");
-    const section5Parsed = await fetchData("/api/healthcare/?populate=process.ornament");
-    const techParsed = await fetchData("/api/healthcare/?populate=technologies.pic")
+    const jsonParsed = await fetchData(`/api/${params.slug}/?populate=%2A`);
+    const section7PairsJson = await fetchData(`/api/${params.slug}/?populate=pairs.pic`);
+    const section5Parsed = await fetchData(`/api/${params.slug}/?populate=process.ornament`);
+    const techParsed = await fetchData(`/api/${params.slug}/?populate=technologies.pic`)
 
     const section7Pairs = section7PairsJson.pairs.map((pair:typeof section7PairsJson) => ({
       id: pair.id,
       text: pair.text,
+      description: pair.description,
       picUrl: pair.pic.data?.attributes.url,
       name: pair.pic.data?.attributes.name,
     }));
@@ -68,9 +55,10 @@ export async function loader() {
       ornament:  item.ornament.data?.attributes.url, // Access the nested structure
     }));
 
-    return {
+    return defer({
       heroBgImageURl: jsonParsed.heroBgImage.data?.attributes.formats.large.url,
       heroTitle: jsonParsed.heroTitle,
+      heroDescription : jsonParsed.heroDescription,
       section2Title: jsonParsed.section_2_title,
       section2Image: jsonParsed.section_2_image.data?.attributes.url,
       section2Desc: jsonParsed.section_2_description,
@@ -87,39 +75,16 @@ export async function loader() {
       PhasesList: PhasesList,
       techTitle : techParsed.techTitle,
       techList : technologies
-    };
+    });
   } catch (error:any) {
-    console.error(`Error in loader: ${error.message}`);
-    throw error;
+    return json({})
   }
 }
 
 
 export default function Index() {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    const fetchDataAsync = async () => {
-      try {
-        const fetchedData = await loader();
-        setData(fetchedData);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setLoading(false); // Set loading to false in case of an error
-      }
-    };
-
-    fetchDataAsync();
-  }, []);
   return (
     <>
-      <div>
-      {loading ? (
-        <LoadingComponent />
-      ) : (
-        <div>
       <Hero />
       <Section2 />
       <Section3 />
@@ -129,9 +94,6 @@ export default function Index() {
       <Section7 />
       <Footer />
       <Outlet />
-      </div>
-      )}
-    </div>
     </>
   );
 }

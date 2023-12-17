@@ -12,7 +12,7 @@ const Hero = () => {
         <h1 className="font-semibold font-montserrat text-4xl">{loaderData.heroTitle}</h1>
         <div className="top-gradient p-4">
           <span>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas quos amet eveniet quis temporibus aperiam! Ex sed reprehenderit necessitatibus rem et. Nisi, autem nesciunt consequuntur sunt rerum vero.
+          {loaderData.heroDescription}
           </span>
         </div>
         <button className="btn hero-btn">Let's Talk</button>
