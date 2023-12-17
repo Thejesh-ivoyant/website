@@ -64,18 +64,20 @@ export async function loader() {
     };
   }
 }
+
 export let action: ActionFunction = async ({ request }) => {
   try {
     let formData: FormData = await request.formData();
     let {_action, ...values}= Object.fromEntries(formData);
     if(_action === "contact"){
 
-    // const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/28d8b167-abb4-44db-b4a3-19758d09a360',{
       const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/52d6bea6-d664-4d5c-a3e9-81a21ba79d3b', {
         method: 'POST',
         body: formData,
       });
-  
+      console.log('Form Data:', values);
+      console.warn("/////////////////////////////// contact" ,JSON.stringify(response.json))
+
       if (response.ok) {
         console.warn('Form submitted successfully');
         return null;
@@ -90,7 +92,8 @@ export let action: ActionFunction = async ({ request }) => {
       method: 'POST',
       body: formData,
     });
-
+    console.log('Form Data:', values);
+console.warn("/////////////////////////////// hire" ,response.json)
     if (response.ok) {
       console.warn('Form submitted successfully');
       return null;
