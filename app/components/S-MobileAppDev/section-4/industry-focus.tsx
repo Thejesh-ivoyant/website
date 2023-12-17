@@ -72,7 +72,9 @@ const IndustryFocus = () => {
 
             
             </div>
-              <div className="flex flex-row gap-6 items-end">
+             
+          </div>
+          <div className="flex flex-row gap-6 items-end">
                 <button className="my-button" onClick={handleBackClick}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +110,6 @@ const IndustryFocus = () => {
                 </button>
 
                 </div>
-          </div>
 
           <div className="relative flex w-1/4 bg-white  text-black font-[500px] justify-center items-center">
             <img
