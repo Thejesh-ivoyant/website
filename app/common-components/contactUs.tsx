@@ -238,7 +238,7 @@ const ContactUs = () => {
               <input
                 type="text"
                 id="organization"
-                name="organization"
+                name="organisation"
                 required
                 className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
               ></input>
@@ -286,7 +286,7 @@ const ContactUs = () => {
               />
             </div>
 
-            <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-1">
       <div className="flex flex-col">
         <label htmlFor="attachment" style={{ cursor: "pointer" }}>
           <FileAddOutlined className="bg-[#AF99DD] rounded-full p-2 text-black mr-2" />
@@ -455,10 +455,10 @@ const ContactUs = () => {
       <div className="flex flex-col">
         <label htmlFor="attachment" style={{ cursor: "pointer" }}>
           <FileAddOutlined className="bg-[#AF99DD] rounded-full p-2 text-black mr-2" />
-          Attach File:
+          Attach File :
         </label>
         <input
-          style={{ display: "none" }}
+          style={{ display: "visible" }}
           type="file"
           id="attachment"
           name="file_attachment"
