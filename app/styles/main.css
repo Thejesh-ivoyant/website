@@ -1463,6 +1463,23 @@ border-bottom-style: solid;
   align-self: stretch;
   background: rgba(255, 255, 255, 0.02);
 }
+.opaque-card:hover{
+  background: rgba(150, 154, 251, 0.24);
+}
+.moving-noise{
+  background: url('/public/assets/noise.png');
+  background-size: cover;
+  z-index: 10;
+  animation: moveBackground 4s linear infinite alternate;
+}
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
 
 
 

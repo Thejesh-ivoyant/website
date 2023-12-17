@@ -62,19 +62,27 @@ const Pairs = () => {
       <p className="text-center w-2/3 font-normal leading-6 text-sm tracking-wider font-poppins">
         {attributes.section_4_description}
       </p>
-      <div className="grid grid-cols-3 gap-4 p-6 blur-[150%] bg-opacity-[0.16]">
+      <div className="ggrid grid-cols-3 gap-4 p-6 blur-[150%] bg-opacity-[0.16] moving-noise">
         {pairsData.map((pair: any) => (
           <div
             key={pair.id}
-            className="flex flex-col items-center opaque-card aspect-video py-2"
+            className="group relative flex flex-col items-center opaque-card aspect-video py-2 w-[28.5rem] h-[16.563rem] cursor-pointer"
           >
             <img
               src={pair.pic.data.attributes.url}
               alt={pair.text}
-              className="mb-2 p-2 aspect-square"
+              className="hidden mb-2 p-2 aspect-square absolute top-0 left-0 transition-opacity group-hover:block"
             ></img>
-            <p className="text-center leading-8 text-[FFFFFFD9] font-poppins w-3/5">
+            <img
+              src={pair.pic.data.attributes.url}
+              alt={pair.text}
+              className="mb-2 p-2 aspect-square group-hover:hidden"
+            ></img>
+            <p className="text-center leading-8 text-[FFFFFFD9] font-poppins w-3/5 group-hover:hidden">
               {pair.text}
+            </p>
+            <p className="relative p-4 text-sm text-left text-[FFFFFFD9] font-poppins  hidden group-hover:block font-thin">
+              {pair.description}
             </p>
           </div>
         ))}
