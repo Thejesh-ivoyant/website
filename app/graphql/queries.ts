@@ -377,6 +377,7 @@ query{
         pairs{
           id
           text
+          description
           pic{
             data{
               attributes{
@@ -384,12 +385,6 @@ query{
               }
             }
           }
-        }
-        faqTitle
-        faq{
-          id
-          question
-          answer
         }
       }
     }

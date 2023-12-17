@@ -93,7 +93,7 @@ const Nav = () => {
                                   <Link
                                     to={item.link}
                                     prefetch="intent"
-                                    className="inline font-poppins font-normal"
+                                    className="inline font-poppins font-normal hover:text-[#bea7ef]"
                                   >
                                     {item.name}
                                   </Link>
