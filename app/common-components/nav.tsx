@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./sidebar";
 import { Link, useRouteLoaderData } from "@remix-run/react";
+import { scrollTo } from "~/root";
 
 const Nav = () => {
   const navdata = useRouteLoaderData("root") as any;
@@ -172,11 +173,11 @@ const Nav = () => {
             ))}
           </div>
 
-          <div className="flex flex-row gap-6 ">
+          <div className="flex flex-row gap-6 " >
             <div>
-              <button className="hue-btn">
-                <span>CONTACT US</span>
-              </button>
+
+              <button className="hue-btn" onClick={() => scrollTo("contact-us")}><span>CONTACT US</span></button>
+
             </div>
             <div
               className="hamburger justify-center items-center"

@@ -5,7 +5,7 @@ import SummaryCard from './summary-card';
 
 const AboutCardContainer = () => {
   return (
-    <div className = "flex flex-col w-full lg:flex-row">
+    <div id="about-us" className = "flex flex-col w-full lg:flex-row">
       <AboutCard />
       <SummaryCard />
     </div>
