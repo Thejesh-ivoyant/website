@@ -35,7 +35,7 @@ const Services = () => {
   };
 
   return (
-    <div className="flex flex-col w-full min-h-full lg:mx-0 lg:h-fit bg-haiti">
+    <div  id="services" className="flex flex-col w-full min-h-full lg:mx-0 lg:h-fit bg-haiti">
       <div className="text-gray-200 text-4xl w-full justify-center flex py-8 h-fit gradient-bottom">
         <span className="h-fit whitespace-nowrap font-montserrat font-bold">
           Services we offer
