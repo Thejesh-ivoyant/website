@@ -1464,18 +1464,16 @@ border-bottom-style: solid;
   background: rgba(255, 255, 255, 0.02);
 }
 
-#navTab {
-  position: relative;
+
+
+#nav-text-bg {
+  background: var(--L3, linear-gradient(96deg, #B9C1EC 0.58%, #A3B1FF 93.87%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-#navTab.active::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 10px;
-  background-color: #5E40A0;
-  top: -25px;
-  left: 0;
-}
+
+
 .ant-carousel .slick-dots li button {
   display: block;
   width: 1rem;
