@@ -7,64 +7,11 @@ import React from "react";
 import dayjs, { Dayjs } from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { Button, DatePicker, Space, Upload, UploadProps, message } from "antd";
-import { CalendarOutlined, FileAddOutlined} from "@ant-design/icons";
+import { CalendarOutlined, FileAddOutlined, DeleteOutlined, CloseOutlined } from "@ant-design/icons";
 
 import type { RangePickerProps } from "antd/es/date-picker";
 import { UploadOutlined } from "@ant-design/icons";
 dayjs.extend(customParseFormat);
-
-// const handleSubmit = async (values: any) => {
-//   alert('Form submitted initail ');
-
-//   try {
-//     const formData = new FormData();
-
-//     // Append form data to formData
-//     Object.keys(values).forEach((key) => {
-//       formData.append(key, values[key]);
-//     });
-
-//     const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/52d6bea6-d664-4d5c-a3e9-81a21ba79d3b', {
-//       method: 'POST',
-//       headers: {
-//         'Cookie': '__cf_bm=f1sOxyZJ8dXs6sgy4m7irTgPh_Nkg18ksr_6Bopy9.k-1702755816-1-Adx75tG8fVTuot+S05cTc5kwtaSINbUVxs8gLUSfwP+vGFMO95dncla4hh1ZK2HOkQchQHYZg5UZPFfcKINqhj8=; _cfuvid=sCdmCXqINoC7GuunaPCEFVsQ3HqXZprqkbBpNRrtMLk-1702753774390-0-604800000',
-//       },
-//       body: formData,
-//     });
-
-//     if (response.ok) {
-//       console.warn('Form submitted successfully');
-//       alert('Form submitted successfully');
-//       // Add any success handling logic here
-//     } else {
-//       console.warn('Form submission failed');
-//       alert('Form failed');
-//       // Add any error handling logic here
-//     }
-//   } catch (error) {
-//     console.error('Error during form submission:', error);
-//     alert('Form failed');
-//     // Add any additional error handling logic here
-//   }
-// };
-
-const props: UploadProps = {
-  name: "file",
-  action: "https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188",
-  headers: {
-    authorization: "authorization-text",
-  },
-  onChange(info) {
-    if (info.file.status !== "uploading") {
-      console.log(info.file, info.fileList);
-    }
-    if (info.file.status === "done") {
-      message.success(`${info.file.name} file uploaded successfully`);
-    } else if (info.file.status === "error") {
-      message.error(`${info.file.name} file upload failed.`);
-    }
-  },
-};
 
 const range = (start: number, end: number) => {
   const result = [];
@@ -93,19 +40,30 @@ const disabledDateTime = (selectedDate: dayjs.Dayjs | null) => {
   };
 };
 
-// ... (other imports)
-
-
-
-// ... (rest of the code)
-
-
 const ContactUs = () => {
   const loaderData = useRouteLoaderData<typeof loader>("routes/_index");
   const CONTACT_US = `${strapiUrl}/api/contact-uses?populate=%2A`;
   const [toggleState, setToggleState] = useState(1);
   const [openc1, setOpen] = useState(false);
+  const [selectedFileName, setSelectedFileName] = useState<string | null>(null);
 
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = event.target.files?.[0];
+    if (selectedFile) {
+      setSelectedFileName(selectedFile.name);
+      // Perform actions with the selected file
+      console.warn("Selected File:", selectedFile);
+    }
+  };
+  const handleClearFile = () => {
+    // Clear the selected file and hide the file information
+    setSelectedFileName(null);
+    // Optionally, you can reset the file input value to allow selecting the same file again
+    const fileInput = document.getElementById("attachment") as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = "";
+    }
+  };
   const toggleTab = (index: number) => {
     setToggleState(index);
   };
@@ -145,7 +103,9 @@ const ContactUs = () => {
                 />
                 <span>Enquires</span>
               </div>
-              <a className="block" href="mailto:sales@ivoyant.com">sales@ivoyant.com</a>
+              <a className="block" href="mailto:sales@ivoyant.com">
+                sales@ivoyant.com
+              </a>
             </div>
             <div className="col-span-1 text-white items-left ">
               <div className="flex text-iv-purple items-left gap-2">
@@ -156,7 +116,9 @@ const ContactUs = () => {
                 />
                 <span>Phone</span>
               </div>
-              <a className="block" href="tel:+91 987654121">+91 987654121</a>
+              <a className="block" href="tel:+91 987654121">
+                +91 987654121
+              </a>
             </div>
             <div className="col-span-1 text-white items-left">
               <div className="flex text-iv-purple items-left gap-2">
@@ -167,7 +129,9 @@ const ContactUs = () => {
                 />
                 <span>Information</span>
               </div>
-              <a className="block" href="mailto:info@ivoyant.com">info@ivoyant.com</a>
+              <a className="block" href="mailto:info@ivoyant.com">
+                info@ivoyant.com
+              </a>
             </div>
             <div className="col-span-1 text-white items-left ">
               <div className="flex text-iv-purple items-left gap-2">
@@ -178,7 +142,9 @@ const ContactUs = () => {
                 />
                 <span>Connect with us</span>
               </div>
-              <a className="block" href="mailto:ivoyantsales@outlook.com">ivoyantsales@outlook.com</a>
+              <a className="block" href="mailto:ivoyantsales@outlook.com">
+                ivoyantsales@outlook.com
+              </a>
             </div>
           </div>
         </div>
@@ -220,11 +186,10 @@ const ContactUs = () => {
           disruption is just around the corner and customer retention is
           everything. Ensure high availabi
         </p>
-        <Form 
+        <Form
           preventScrollReset
           method="post"
           encType="multipart/form-data"
-         
           className={
             toggleState === 1
               ? "flex flex-col gap-8 active-content p-8"
@@ -273,7 +238,7 @@ const ContactUs = () => {
               <input
                 type="text"
                 id="organization"
-                name="organization"
+                name="organisation"
                 required
                 className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
               ></input>
@@ -300,46 +265,67 @@ const ContactUs = () => {
             size={12}
             className="grid-cols-1 flex justify-between"
           >
-          <div className="flex">
-          <span
-              className="cursor-pointer"
-              onClick={() => {
-                setOpen(!openc1);
-              }}
-            >
-              <CalendarOutlined className="bg-[#AF99DD] rounded-full p-2 text-black" />
-            </span>
-            <DatePicker
-              format="YYYY-MM-DD  HH:mm"
-              disabledDate={disabledDate}
-              disabledTime={(current) => disabledDateTime(current)}
-              placeholder="Schedule a Meet"
-              showTime={{ defaultValue: dayjs("00:00:00", "HH:mm:ss") }}
-              suffixIcon={null}
-              open={openc1}
-              onOk={() => setOpen(false)}
-            />
-          </div>
-            <div className="flex flex-row">
-        <Upload {...props} className="font-poppins">
-              <div className="flex flex-row items-center gap-2">
-                <Button icon={<FileAddOutlined />} className="items-center flex justify-center bg-[#AF99DD] rounded-full p-2 text-black"></Button>
-                <div className="flex text-base">Attach a File</div>
-              </div>
-            </Upload>
+            <div className="flex">
+              <span
+                className="cursor-pointer"
+                onClick={() => {
+                  setOpen(!openc1);
+                }}
+              >
+                <CalendarOutlined className="bg-[#AF99DD] rounded-full p-2 text-black" />
+              </span>
+              <DatePicker
+                format="YYYY-MM-DD  HH:mm"
+                disabledDate={disabledDate}
+                disabledTime={(current) => disabledDateTime(current)}
+                placeholder="Schedule a Meet"
+                showTime={{ defaultValue: dayjs("00:00:00", "HH:mm:ss") }}
+                suffixIcon={null}
+                open={openc1}
+                onOk={() => setOpen(false)}
+              />
             </div>
+
+    <div className="flex flex-col gap-1">
+      <div className="flex flex-col">
+        <label htmlFor="attachment" style={{ cursor: "pointer" }}>
+          <FileAddOutlined className="bg-[#AF99DD] rounded-full p-2 text-black mr-2" />
+          Attach File:
+        </label>
+        <input
+          style={{ display: "none" }}
+          type="file"
+          id="attachment"
+          name="attachment"
+          onChange={handleFileChange}
+        />
+      </div>
+      {selectedFileName && (
+        <div className="file-info">
+          <span>{`${selectedFileName}`}</span>
+          <button onClick={handleClearFile}>
+            
+            <DeleteOutlined className="text-red-500 ml-2" />
+          </button>
+        </div>
+      )}
+    </div>
+
           </Space>
 
           <button
             type="submit"
+            name="_action"
+            value="contact"
             className="btn-purp-grad w-fit text-HeaderGray font-normal"
           >
             Send my message
           </button>
         </Form>
-        <Form 
+        <Form
+        method="post"
+        encType="multipart/form-data"
         preventScrollReset
-          method="post"
           className={
             toggleState === 2
               ? "flex flex-col gap-14 active-content px-10 py-4"
@@ -352,6 +338,7 @@ const ContactUs = () => {
               <input
                 type="text"
                 id="username"
+                name="personname"
                 required
                 className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
               ></input>
@@ -364,6 +351,7 @@ const ContactUs = () => {
                 type="text"
                 id="username"
                 required
+                name="email"
                 className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
               ></input>
               <label className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0">
@@ -375,6 +363,7 @@ const ContactUs = () => {
                 type="text"
                 id="username"
                 required
+                name="phone_no"
                 className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
               ></input>
               <label className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0">
@@ -385,39 +374,42 @@ const ContactUs = () => {
               <select
                 id="username"
                 required
+                name="area_of_expertise"
                 className="w-full h-10  text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
               >
                 <option value="" disabled selected hidden>
                   Area of Expertise
                 </option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
+                <option value="option1">Front End coding</option>
+                <option value="option2">Devops </option>
               </select>
             </div>
             <div className="w-56 relative group col-span-1">
               <select
                 id="username"
+                name="hiring_duration"
                 required
                 className="w-full h-10  text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
               >
                 <option value="" disabled selected hidden>
                   Hiring Duration
                 </option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
+                <option value="option1">10</option>
+                <option value="option2">8</option>
               </select>
             </div>
             <div className="w-56 relative group col-span-1">
               <select
                 id="username"
+                name="choose_skill_set"
                 required
                 className="w-full h-10  text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
               >
                 <option value="" disabled selected hidden>
                   Choose skillset
                 </option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
+                <option value="option1">python</option>
+                <option value="option2">java</option>
               </select>
             </div>
             <div className="w-full relative grid col-span-2">
@@ -428,6 +420,7 @@ const ContactUs = () => {
                 id="username"
                 cols={30}
                 rows={3}
+                name="messages"
                 required
                 className="p-4 text-sm peer border-[1px] border-black outline-none cursor-pointer col-span-2"
               ></textarea>
@@ -438,37 +431,56 @@ const ContactUs = () => {
             size={12}
             className="grid-cols-1 flex justify-between"
           >
-          <div className="flex">
-          <span
-              className="cursor-pointer"
-              onClick={() => {
-                setOpen(!openc1);
-              }}
-            >
-              <CalendarOutlined className="bg-[#AF99DD] rounded-full p-2 text-black" />
-            </span>
-            <DatePicker
-              format="YYYY-MM-DD  HH:mm"
-              disabledDate={disabledDate}
-              disabledTime={(current) => disabledDateTime(current)}
-              placeholder="Schedule a Meet"
-              showTime={{ defaultValue: dayjs("00:00:00", "HH:mm:ss") }}
-              suffixIcon={null}
-              open={openc1}
-              onOk={() => setOpen(false)}
-            />
-          </div>
-            <div className="flex flex-row">
-            <Upload {...props} className="font-poppins">
-              <div className="flex flex-row items-center gap-2">
-                <Button icon={<FileAddOutlined />} className="items-center flex justify-center bg-[#AF99DD] rounded-full p-2 text-black"></Button>
-                <div className="flex text-base">Attach a File</div>
-              </div>
-            </Upload>
+            <div className="flex">
+              <span
+                className="cursor-pointer"
+                onClick={() => {
+                  setOpen(!openc1);
+                }}
+              >
+                <CalendarOutlined className="bg-[#AF99DD] rounded-full p-2 text-black" />
+              </span>
+              <DatePicker
+                format="YYYY-MM-DD  HH:mm"
+                disabledDate={disabledDate}
+                disabledTime={(current) => disabledDateTime(current)}
+                placeholder="Schedule a Meet"
+                showTime={{ defaultValue: dayjs("00:00:00", "HH:mm:ss") }}
+                suffixIcon={null}
+                open={openc1}
+                onOk={() => setOpen(false)}
+              />
             </div>
+            <div className="flex flex-col gap-1">
+      <div className="flex flex-col">
+        <label htmlFor="attachment" style={{ cursor: "pointer" }}>
+          <FileAddOutlined className="bg-[#AF99DD] rounded-full p-2 text-black mr-2" />
+          Attach File :
+        </label>
+        <input
+          style={{ display: "visible" }}
+          type="file"
+          id="attachment"
+          name="file_attachment"
+          onChange={handleFileChange}
+        />
+      </div>
+      {selectedFileName && (
+        <div className="file-info">
+          <span>{`${selectedFileName}`}</span>
+          <button onClick={handleClearFile}>
+            
+            <DeleteOutlined className="text-red-500 ml-2" />
+          </button>
+        </div>
+      )}
+    </div>
+
           </Space>
           <button
             type="submit"
+            name="_action"
+            value="hire"
             className="btn-purp-grad w-fit text-HeaderGray font-normal"
           >
             Send my message

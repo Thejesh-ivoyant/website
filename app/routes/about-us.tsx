@@ -2,7 +2,6 @@ import { defer, json } from "@remix-run/node";
 import { Await, Outlet, useLoaderData } from "@remix-run/react";
 import Hero from "~/components/about-us/Hero";
 import Footer from "~/common-components/footer";
-import ContactUs from "~/components/Homepage/contactUs";
 import Testimonials from "~/components/Homepage/section-9/testimonials";
 import MissionCard from "~/components/about-us/mission";
 import { strapiUrl } from "~/utils/urls";

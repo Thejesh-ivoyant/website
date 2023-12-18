@@ -126,16 +126,16 @@ setC(0);
       )}
       <div className="side-nav">
         <p className="navigate"> Navigate to</p>
-        <div className="line">
+        <div className="line" onClick={() => scrollTo("contact-us")}>
           <p>Contact Us</p>{" "}
         </div>
-        <div className="line">
+        <div className="line" onClick={() => scrollTo("testimonials")}>
           <p>Testimonials</p>
         </div>
-        <div className="line">
+        <div className="line" onClick={() => scrollTo("about-us")}>
           <p>About Us</p>
         </div>
-        <div className="line">
+        <div className="line" onClick={() => scrollTo("services")}>
           <p>Services</p>
         </div>
         <div className="line" onClick={() => scrollTo("industries")}>
