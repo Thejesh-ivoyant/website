@@ -7,12 +7,6 @@ import { loader } from "~/routes/services.MobileDev";
 
 const PrivacyHero = () => {
   const loaderData = useLoaderData() as any;
-//   const match = useMatch("/resources/pitch-deck");
-//   const isResourcesRoute = match !== null;
-//   const handleDownload = () => {
-//     const pitchDeckUrl = loaderData.pitchDeck;
-//     window.open(pitchDeckUrl, '_blank');
-//   };
 
   return (
     <div>
@@ -26,18 +20,13 @@ const PrivacyHero = () => {
                 className="absolute h-full w-full object-cover object-center inset-0"
               />
               <div className="relative text-indigo-950 text-opacity-80 text-xl leading-8 whitespace-nowrap mt-24 max-md:max-w-full max-md:mt-10">
-                Last reviewed on: Dec 09, 2023
+                Last reviewed on: {loaderData.last_reviewed}
               </div>
               <div className="relative text-violet-950 text-4xl italic font-extrabold leading-[58px] w-[504px] max-w-full mt-1">
-                iVoyant web Privacy Policy
+            {loaderData.heroTitle}
               </div>
               <div className="relative text-indigo-950 text-xl leading-8 w-[504px] max-w-full mt-5 mb-16 max-md:mb-10">
-                At iVoyant, safeguarding your privacy is our top priority.
-                Committed to responsible data processing, we adhere to global
-                data protection laws. Our Privacy Statement outlines how we
-                handle personal information collected from consumers, clients,
-                and business partners. Trust iVoyant for secure and compliant
-                data practices.
+              {loaderData.heroDescription}
               </div>
             </div>
           </div>

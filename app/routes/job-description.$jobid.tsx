@@ -39,7 +39,7 @@ export const meta: MetaFunction = () => {
 
 export async function loader({   params, }: LoaderFunctionArgs){
   // const productsData =  await fetchGraphQLWithParameter(productsQuery,`${params.jobid}`);
- const url=  strapiUrl +`/api/job-descriptions/${params.jobid}?populate=%2A`;
+ const url =  strapiUrl +`/api/job-descriptions/${params.jobid}?populate=%2A`;
   try {
     const res = await fetch(url);
     let jsonParsed = await res.json();

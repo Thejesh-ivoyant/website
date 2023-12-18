@@ -9,7 +9,7 @@ import ServiceCardContainer from "~/components/S-MobileAppDev/section-6/service-
 import Technology from "~/components/Homepage/section-8/technology";
 import Consultation from "~/components/Homepage/section-7/consultation";
 import Footer from "~/common-components/footer";
-import { Outlet } from "@remix-run/react";
+import { Outlet, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import Section6 from "~/components/industries/section6";
 import Technologies from "~/components/S-MobileAppDev/section-7/technologies";
@@ -18,9 +18,9 @@ import Faq from "~/components/Homepage/section-12/faq";
 import Why_Join_Us from "~/components/careers/section-2/why-join-us";
 import JobCards from "~/components/careers/section-3/job-cards";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { CareerQuery, blogQuery, careersQuery, topBlogQuery } from "~/graphql/queries";
+import {  blogQuery, careersQuery, topBlogQuery } from "~/graphql/queries";
 import JobDescription from "~/components/careers/job-description";
-import PrivacyPolicy from "~/components/privacy-policy";
+import PrivacyPolicy from "~/components/policy-terms-cookies/privacy-policy";
 import PrivacyHero from "~/components/policy-terms-cookies/policy-hero";
 
 export const meta: MetaFunction = () => {
@@ -37,97 +37,100 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-async function fetchData(endpoint: string) {
-  try {
-    const response = await fetch(strapiUrl + endpoint);
-console.log("fetttttttttc response",response);
-    if (!response.ok) {
-      throw new Error(
-        `Error fetching data from ${endpoint}: ${response.status} ${response.statusText}`
-      );
-    }
-
-    const jsonData = await response.json();
-    return jsonData.data?.attributes;
-  } catch (error: any) {
-    console.error(`Error fetching data from ${endpoint}: ${error.message}`);
-    throw error; // Re-throw the error to be caught by the caller
-  }
-}
 
 export async function loader() {
+ const url = strapiUrl +`/api/privacy-policies?populate=%2A`;
+  try {
+    const res = await fetch(url);
+    let jsonParsed = await res.json();
+    const componentRes = jsonParsed.data[0]?.attributes;
   
-  // const componentRes = await fetchData(
-  //   "/api/career?populate=s4_cards.bgImage,s2_whyJoinUs.bgImage"
-  // );
-
-
-  // const JoinUsCard = componentRes.s4_cards.map((item: any) => ({
-  //   id: item.id,
-  //   title: item.title,
-  //   description: item.description,
-  //   link: item.link,
-  //   bgImage: item.bgImage.data?.attributes.url,
-  // }));
-  // const JobDescription = componentRes.s2_whyJoinUs.map((item: any) => ({
-  //   id: item.id,
-  //   title: item.title,
-  //   description: item.description,
-  //   link: item.link,
-  //   bgImage: item.bgImage.data?.attributes.url,
-  // }));
-
-
-  // const {
-  //   heroTitle,
-  //   heroDescription,
-  //   s2_title,
-  //   s2_description,
-  //   s3_title,
-  //   s3_description,
-  //   s3_email,
-  // } = jsonParsed.data?.career.data?.attributes;
+ 
+     const CTP_Points = componentRes.CTP_Points?.map((item: any) => ({
+       id: item.id,
+       description: item.description,
+     }));
+ 
+     const CTP_List = componentRes.CTP_List?.map((item: any) => ({
+       id: item.id,
+       name: item.name,
+       description: item.description,
+     }));
+ 
+     const collection_of_info = componentRes.collection_of_info?.map((item: any) => ({
+       id: item.id,
+       name: item.name,
+       description: item.description,
+     }));
+     const user_info_handling = componentRes.user_info_handling?.map((item: any) => ({
+       id: item.id,
+       name: item.name,
+       description: item.description,
+     }));
+ 
+       
+  const {
+   
+   heroTitle,
+   heroDescription,
+   last_reviewed,
+   s2_Title,
+   s2_Description,
+   committed_to_protect_title,
+   access_and_use,
+   solutions,
+   contacts,
+   marketing,
+   share_personal_info,
+   info_and_security,
+   retention,
+   contact_us,
+   rights,
+   changes_to_privacy,
+ 
+   } = jsonParsed.data[0]?.attributes;
+ 
+   return {
+ 
+     collection_of_info: collection_of_info,
+     CTP_List: CTP_List,
+     CTP_Points: CTP_Points,
+     user_info_handling: user_info_handling,
+     heroTitle,
+     heroDescription,
+     last_reviewed,
+     s2_Title,
+     s2_Description,
+     committed_to_protect_title,
+     access_and_use,
+     solutions,
+     contacts,
+     marketing,
+     share_personal_info,
+     info_and_security,
+     retention,
+     contact_us,
+     rights,
+     changes_to_privacy,
+   };
+       
   
-  return {
-    // heroImage:jsonParsed.data?.attributes.url,
-    // heroTitle,
-    // heroDescription,
-    // s2_title,
-    // s2_description,
-    // s3_title,
-    // s3_description,
-    // s3_email,
-    // JoinUsCard:JoinUsCard,
-    // JobDescription:JobDescription,
-  };
+}
+catch (error:any) {
+
+  console.error(`Error fetching data hggfrom ${url}: ${error.message}`);
+}
+
 }
 
 const Index = () => {
-
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    const fetchDataAsync = async () => {
-      try {
-        const fetchedData = await loader();
-    
-        setData(fetchedData);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setLoading(false); // Set loading to false in case of an error
-      }
-    };
-
-    fetchDataAsync();
-  }, []);
-
+  const data= useLoaderData() as any;
+ 
   return (
     <div style={{ padding: "0px", overflowX: "hidden" }}>
       {/* Video Background */}
 
-      {loading ? (
+      {!data ? (
         <LoadingComponent />
       ) : (
         <div>
