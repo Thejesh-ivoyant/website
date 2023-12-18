@@ -39,13 +39,32 @@ export const meta: MetaFunction = () => {
 
 export async function loader({   params, }: LoaderFunctionArgs){
   // const productsData =  await fetchGraphQLWithParameter(productsQuery,`${params.jobid}`);
-  const url= strapiUrl+`/api/job-descriptions/${params.jobid}`;
+ const url =  strapiUrl +`/api/job-descriptions/${params.jobid}?populate=%2A`;
   try {
     const res = await fetch(url);
     let jsonParsed = await res.json();
+       
+    const componentRes = jsonParsed.data?.attributes;
+    console.warn("/////////////",componentRes.s1_points[0].description)
+   console.warn("//////////////",JSON.stringify(componentRes))
    
+
+    const s1_points = componentRes.s1_points?.map((item: any) => ({
+      id: item.id,
+      description: item.description,
+    }));
+    const s2_points = componentRes.s2_points?.map((item: any) => ({
+      id: item.id,
+      description: item.description,
+    }));
+    const s3_points = componentRes.s3_points?.map((item: any) => ({
+      id: item.id,
+      description: item.description,
+    }));
+
       
  const {
+  
   Title,
   location,
   date,
@@ -57,18 +76,18 @@ export async function loader({   params, }: LoaderFunctionArgs){
 
   } = jsonParsed.data?.attributes;
 
-
   return {
-  
-  title:Title,
-  location,
-  date,
-  job_id,
-  s1_title,
-  s2_title, 
-  s3_title, 
-  summary,
-
+    s1_points: s1_points || '',
+    s2_points: s2_points || '',
+    s3_points: s3_points || '',
+    title: Title || '',
+    location: location || '',
+    date: date || '',
+    job_id: job_id || '',
+    s1_title: s1_title || '',
+    s2_title: s2_title || '',
+    s3_title: s3_title || '',
+    summary: summary || '',
   };
 }
 catch (error:any) {

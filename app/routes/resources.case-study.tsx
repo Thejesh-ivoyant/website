@@ -20,7 +20,7 @@ import JobCards from "~/components/careers/section-3/job-cards";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { blogQuery, careersQuery, topBlogQuery } from "~/graphql/queries";
 import JobDescription from "~/components/careers/job-description";
-import PrivacyPolicy from "~/components/privacy-policy";
+import PrivacyPolicy from "~/components/policy-terms-cookies/privacy-policy";
 import Section2 from "~/components/case-study/section-2";
 import Section4 from "~/components/case-study/section-4";
 import Section5 from "~/components/case-study/section-5";

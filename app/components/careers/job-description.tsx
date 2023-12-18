@@ -39,128 +39,37 @@ const { Option } = Select;
           <div className="text-black text-lg font-semibold whitespace-nowrap mt-6 self-start max-md:max-w-full">
      {loaderData.s1_title}
           </div>
+          {loaderData.s1_points.map((item: any) => (
           <div className="text-black text-base whitespace-nowrap mt-4 self-start max-md:max-w-full">
             <ul>
-              <li>Design, develop, test, deploy, maintain and improve software.</li>
+              <li>{item.description}</li>
             </ul>
           </div>
-          <div className="text-black text-base whitespace-nowrap mt-2.5 self-start max-md:max-w-full">
-            <ul>
-              <li>
-                Manage individual project priorities, deadlines and deliverables.
-              </li>
-            </ul>
-          </div>
+          ))}
+          
           <div className="text-black text-lg font-semibold whitespace-nowrap mt-5 self-start max-md:max-w-full">
      {loaderData.s2_title}
           </div>
+         
+          
+          {loaderData.s2_points.map((item: any) => (
           <div className="text-black text-base whitespace-nowrap mt-4 self-start max-md:max-w-full">
             <ul>
-              <li>3+ years of practical experience in software development.</li>
+              <li>{item.description}</li>
             </ul>
           </div>
-          <div className="text-black text-base mt-2.5 max-md:max-w-full">
-            <ul>
-              <li>
-                BS or Masters degree in Computer Science, similar technical field of
-                study or equivalent practical experience.
-              </li>
-            </ul>
-          </div>
-          <div className="text-black text-base whitespace-nowrap mt-2.5 self-start max-md:max-w-full">
-            <ul>
-              <li>
-                Software development experience in Java programming language
-                (Java8+)
-              </li>
-            </ul>
-          </div>
-          <div className="text-black text-base mt-2.5 max-md:max-w-full">
-            <ul>
-              <li>
-                Experience developing REST Microservices with Spring Boot and
-                related technologies.
-              </li>
-            </ul>
-          </div>
-          <div className="text-black text-base whitespace-nowrap mt-2.5 self-start max-md:max-w-full">
-            <ul>
-              <li>
-                Working proficiency and communication skills in verbal and written
-                English.
-              </li>
-            </ul>
-          </div>
-          <div className="text-black text-base whitespace-nowrap mt-2.5 self-start max-md:max-w-full">
-            <ul>
-              <li>
-                Working knowledge of Kafka, RabbitMQ, Cassandra, MongoDB preferred.
-              </li>
-            </ul>
-          </div>
-          <div className="text-black text-base whitespace-nowrap mt-2.5 self-start max-md:max-w-full">
-            <ul>
-              <li>
-                Experience in API Design, Database design and
-                troubleshooting/debugging
-              </li>
-            </ul>
-          </div>
-          <div className="text-black text-base whitespace-nowrap mt-2.5 self-start max-md:max-w-full">
-            <ul>
-              <li>
-                Must have hands-on and should be able to debug Code and provide{" "}
-              </li>
-            </ul>
-          </div>
-          <div className="text-black text-base whitespace-nowrap mt-2.5 self-start max-md:max-w-full">
-            <ul>
-              <li>Experience with Devops, CI/CD a plus.</li>
-            </ul>
-          </div>
-          <div className="text-black text-base whitespace-nowrap mt-2.5 self-start max-md:max-w-full">
-            <ul>
-              <li>Experience with Kubernetes, Docker a plus</li>
-            </ul>
-          </div>
+          ))}
+
           <div className="text-black text-lg font-semibold whitespace-nowrap mt-5 self-start">
      {loaderData.s3_title}
           </div>
-          <div className="text-black text-base whitespace-nowrap mt-5 self-start">
+          {loaderData.s3_points.map((item: any) => (
+          <div className="text-black text-base whitespace-nowrap mt-4 self-start max-md:max-w-full">
             <ul>
-              <li>Competitive Salary</li>
+              <li>{item.description}</li>
             </ul>
           </div>
-          <div className="text-black text-base whitespace-nowrap mt-2.5 self-start">
-            <ul>
-              <li>Room for growth</li>
-            </ul>
-          </div>
-          <div className="text-black text-base whitespace-nowrap mt-2.5 self-start">
-            <ul>
-              <li>Flexible schedule</li>
-            </ul>
-          </div>
-          <div className="text-black text-base whitespace-nowrap mt-2.5 self-start">
-            <ul>
-              <li>2 weeks PTO and general holidays</li>
-            </ul>
-          </div>
-          <div className="text-black text-base whitespace-nowrap mt-2.5 self-start">
-            <ul>
-              <li>Health, Dental, Vision, Life Insurance</li>
-            </ul>
-          </div>
-          <div className="text-black text-base whitespace-nowrap mt-2.5 self-start">
-            <ul>
-              <li>401k</li>
-            </ul>
-          </div>
-          <div className="text-black text-base whitespace-nowrap mt-2.5 self-start">
-            <ul>
-              <li>Bonus Programs</li>
-            </ul>
-          </div>
+          ))}
           <button className="btn hero-btn" onClick={showDrawer}>
             Apply Now
           </button>
