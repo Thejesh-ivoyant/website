@@ -10,7 +10,7 @@ const Hero = () => {
       
       <div className="relative flex mx-auto max-w-2xl text-center items-center justify-center flex-col gap-4" >
         <h1 className="font-semibold font-montserrat text-4xl">{loaderData.heroTitle}</h1>
-        <div className="top-gradient p-4">
+        <div className="top-gradient p-4 font-poppins">
           <span>
           {loaderData.heroDescription}
           </span>

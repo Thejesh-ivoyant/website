@@ -5,13 +5,12 @@ export async function fetchData(endpoint:string) {
       const response:Response = await fetch(strapiUrl + endpoint);
   
       if (!response.ok) {
-        throw new Error(`Error fetching data from ${endpoint}: ${response.status} ${response.statusText}`);
+        console.error(`Error fetching data from ${endpoint}: ${response.status} ${response.statusText}`);
       }
   
       const jsonData = await response.json();
       return jsonData.data.attributes;
     } catch (error: any ) {
       console.error(`Error fetching data from ${endpoint}: ${error.message}`);
-      throw error;
     }
   }
