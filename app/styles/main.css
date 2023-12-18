@@ -529,6 +529,19 @@ padding: 10px;
   font-weight: 400;
   line-height: normal;
 }
+.privacy-policy{
+display: grid;
+grid-gap: 50px;
+grid-template-columns: 400px auto;
+margin-top: 80px;
+}
+.contact-sidebar{
+  position: relative;
+  display: block;
+}
+.contact-main{
+display: block;
+}
 .contact-card{
   display: flex;
 
