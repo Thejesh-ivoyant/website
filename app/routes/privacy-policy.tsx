@@ -21,6 +21,7 @@ import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { CareerQuery, blogQuery, careersQuery, topBlogQuery } from "~/graphql/queries";
 import JobDescription from "~/components/careers/job-description";
 import PrivacyPolicy from "~/components/privacy-policy";
+import PrivacyHero from "~/components/policy-terms-cookies/policy-hero";
 
 export const meta: MetaFunction = () => {
   return [
@@ -130,6 +131,7 @@ const Index = () => {
         <LoadingComponent />
       ) : (
         <div>
+          <PrivacyHero/>
         <PrivacyPolicy/>
         <Consultation/>
           <Footer />

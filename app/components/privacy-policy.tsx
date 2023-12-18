@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 import { Button, Col, DatePicker, Drawer, Form, Input, Row, Select, Space } from 'antd';
 
@@ -13,42 +13,14 @@ const { Option } = Select;
         setOpen(false);
       };
     
+   // Empty dependency array ensures the effect runs only once https://eleks.com/privacy-policy/ reference sidebar
+    
+      
     return (
         <div className="items-stretch flex flex-col">
-      <div className="bg-slate-50 w-full max-md:max-w-full">
-        <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-          <div className="flex flex-col items-stretch w-[47%] max-md:w-full max-md:ml-0">
-            <div className="flex-col fill-white overflow-hidden relative flex min-h-[691px] grow items-center px-20 py-12 max-md:max-w-full max-md:px-5">
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/148318fef351963bb785afbe912b65e4c7ed9bede74e37026bb541ce8a7de832?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                className="absolute h-full w-full object-cover object-center inset-0"
-              />
-              <div className="relative text-indigo-950 text-opacity-80 text-xl leading-8 whitespace-nowrap mt-24 max-md:max-w-full max-md:mt-10">
-                Last reviewed on: Dec 09, 2023
-              </div>
-              <div className="relative text-violet-950 text-4xl italic font-extrabold leading-[58px] w-[504px] max-w-full mt-1">
-                iVoyant web Privacy Policy
-              </div>
-              <div className="relative text-indigo-950 text-xl leading-8 w-[504px] max-w-full mt-5 mb-16 max-md:mb-10">
-                At iVoyant, safeguarding your privacy is our top priority.
-                Committed to responsible data processing, we adhere to global
-                data protection laws. Our Privacy Statement outlines how we
-                handle personal information collected from consumers, clients,
-                and business partners. Trust iVoyant for secure and compliant
-                data practices.
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col items-stretch w-[53%] ml-5 max-md:w-full max-md:ml-0">
-            <img
-              loading="lazy"
-              srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/bd8aeff5bc1b74a1a681b1437bc64306f99812614a6ed8d7684ed1e45874e5de?apiKey=9e16588387084fb2a9a51a1b99489136&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/bd8aeff5bc1b74a1a681b1437bc64306f99812614a6ed8d7684ed1e45874e5de?apiKey=9e16588387084fb2a9a51a1b99489136&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/bd8aeff5bc1b74a1a681b1437bc64306f99812614a6ed8d7684ed1e45874e5de?apiKey=9e16588387084fb2a9a51a1b99489136&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/bd8aeff5bc1b74a1a681b1437bc64306f99812614a6ed8d7684ed1e45874e5de?apiKey=9e16588387084fb2a9a51a1b99489136&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/bd8aeff5bc1b74a1a681b1437bc64306f99812614a6ed8d7684ed1e45874e5de?apiKey=9e16588387084fb2a9a51a1b99489136&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/bd8aeff5bc1b74a1a681b1437bc64306f99812614a6ed8d7684ed1e45874e5de?apiKey=9e16588387084fb2a9a51a1b99489136&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/bd8aeff5bc1b74a1a681b1437bc64306f99812614a6ed8d7684ed1e45874e5de?apiKey=9e16588387084fb2a9a51a1b99489136&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/bd8aeff5bc1b74a1a681b1437bc64306f99812614a6ed8d7684ed1e45874e5de?apiKey=9e16588387084fb2a9a51a1b99489136&"
-              className="aspect-[1.3] object-contain object-center w-full overflow-hidden grow max-md:max-w-full"
-            />
-          </div>
-        </div>
-      </div>
+     
+
+
       <div className="items-center bg-slate-50 flex w-full flex-col justify-center px-16 py-12 max-md:max-w-full max-md:px-5">
         <div className="flex w-full max-w-[1200px] flex-col items-center max-md:max-w-full">
           <div className="text-violet-950 text-4xl font-semibold max-w-[530px] max-md:max-w-full">
@@ -65,10 +37,15 @@ const { Option } = Select;
             This policy tells you what information we do collect from you, what
             we do with it, who can access it, and what you can do about it.
           </div>{" "}
-          <div className="self-stretch mt-20 max-md:max-w-full max-md:mt-10">
-            <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-              <div className="flex flex-col items-stretch w-[48%] max-md:w-full max-md:ml-0">
-                <div className="items-stretch flex flex-col max-md:max-w-full max-md:mt-10">
+
+
+            <div className="self-stretch mt-20 max-md:max-w-full max-md:mt-10">
+                <div className="gap-5 w-full flex flex-row justify-center h-fit over">
+                   
+                <div id="contact-sidebar" className=" w-1/2 contact-sidebar  bg-black  p-2 h-fit flex flex-col items-stretch  max-md:w-full max-md:ml-0">
+                    {/* side nav content goes here*/}
+                       
+                    <div className="items-stretch flex flex-col max-md:max-w-full max-md:mt-10">
                   <div className="items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full">
                     <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
                       <img
@@ -237,10 +214,13 @@ const { Option } = Select;
                       </div>
                     </div>
                   </div>
+                    </div>
                 </div>
-              </div>{" "}
-              <div className="flex flex-col items-stretch w-[52%] ml-5 max-md:w-full max-md:ml-0">
-                <div className="items-stretch flex grow flex-col max-md:max-w-full max-md:mt-10">
+
+                  <div id="contact-main" className="overflow-y  h-screen w-1/2 contact-main bg-[#f06565] flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0">
+                    {/* main content goes here */}
+
+                    <div className="items-stretch flex grow flex-col max-md:max-w-full max-md:mt-10">
                   <div className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider max-md:max-w-full">
                     iVoyant is committed to protect the information you provide
                     us
@@ -626,9 +606,11 @@ const { Option } = Select;
                     understand the changes. 
                   </div>
                 </div>
-              </div>
+
+                  </div>
+                 
+                </div>
             </div>
-          </div>
         </div>
       </div>
     
