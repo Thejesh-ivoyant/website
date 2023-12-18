@@ -49,11 +49,7 @@ const ContactUs = () => {
     fetch(ContactUsAPIData)
       .then((response) => response.json())
       .then((ContactUs_data) => {
-        console.warn("/////////ContactUs_data", ContactUs_data);
-        
         const { contactImage, hireImage } = ContactUs_data.data[0]?.attributes|| '';
-        console.warn("/////////ContactUs_datadep", ContactUs_data.data[0]?.attributes);
-        console.warn("/////////ContactUs_datadep", ContactUs_data.data[0]?.attributes?.contactImage.data?.attributes?.url);
         setcontactImage(contactImage.data?.attributes?.url);
         sethireImage(hireImage.data?.attributes?.url);
       
@@ -92,17 +88,17 @@ const ContactUs = () => {
   return (
     <section
       id="contact-us"
-      className="w-full h-[90vh] bg-cover bg-center flex font-montserrat overflow-hidden"
+      className="w-full h-fit bg-cover bg-center flex font-montserrat overflow-hidden"
     >
       <div className="flex flex-col flex-1 bg-haiti p-10">
-        <div>
+        <div className="flex flex-col w-fit mx-auto">
           <h1 className="py-4">
             <span className="flex text-white text-4xl font-medium">
               Contact
             </span>
           </h1>
           <img
-            className="flex w-full max-h-[500px] justify-self-center mx-auto object-cover"
+            className="flex w-[35rem] h-[35rem] justify-self-center mx-auto object-cover"
             src={
               toggleState === 1
                 ? contactImage
@@ -112,10 +108,11 @@ const ContactUs = () => {
           />
         </div>
         <div className="w-full py-6">
-          <p className="text-HeaderGray w-full text-xl text-center p-4">
+          <p className="text-HeaderGray w-full text-2xl text-center p-1 font-semibold font-montserrat">
             Connect with us
           </p>
-          <div className="grid grid-cols-2 top-gradient border-t-iv-purple max-w-xl mx-auto gap-x-4 gap-4 items-center p-4">
+          <svg className="mx-auto" width="561" height="24" viewBox="0 0 561 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path transform="rotate(-90 0 12)" fill="url(#a)" d="M0 12h.5v280.5H0z"/><path transform="rotate(90 561 11.5)" fill="url(#b)" d="M561 11.5h.5V292h-.5z"/><defs><linearGradient id="a" x1=".75" y1="290.41" x2=".75" y2="6.984" gradientUnits="userSpaceOnUse"><stop stopColor="#AEBEFF"/><stop offset="1" stopColor="#A7B8FE" stopOpacity="0"/></linearGradient><linearGradient id="b" x1="561.75" y1="289.91" x2="561.75" y2="6.484" gradientUnits="userSpaceOnUse"><stop stopColor="#AEBEFF"/><stop offset="1" stopColor="#A7B8FE" stopOpacity="0"/></linearGradient></defs></svg>
+          <div className="grid grid-cols-2 border-t-iv-purple max-w-xl mx-auto gap-x-4 gap-4 items-center p-4">
             <div className="col-span-1 text-white items-left">
               <div className="flex text-iv-purple items-left gap-2">
                 <img
@@ -204,11 +201,6 @@ const ContactUs = () => {
         <div
           className={toggleState === 2 ? "glider ml-[15rem]" : "glider ml-5"}
         ></div>
-        <p className="font-poppins text-sm font-light px-8 pt-10">
-          Take a no-compromise approach to customer experience in times where
-          disruption is just around the corner and customer retention is
-          everything. Ensure high availabi
-        </p>
         <Form
           preventScrollReset
           method="post"
