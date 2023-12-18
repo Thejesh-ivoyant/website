@@ -1,9 +1,10 @@
 import { defer, json } from "@remix-run/node";
-import { Outlet, useLoaderData } from "@remix-run/react";
-import { useEffect, useState } from "react";
+import { Await, Outlet, useLoaderData } from "@remix-run/react";
+import { Suspense, useEffect, useState } from "react";
 import Hero from "~/common-components/Hero";
 import Footer from "~/common-components/footer";
 import LoadingComponent from "~/common-components/loading";
+import LoadingTest from "~/common-components/loading-test";
 import Section2 from "~/components/industries/section2";
 import Section3 from "~/components/industries/section3";
 import Section4 from "~/components/industries/section4";
@@ -83,17 +84,23 @@ export async function loader({   params }: LoaderFunctionArgs) {
 
 
 export default function Index() {
+  const data =  useLoaderData<typeof loader>() as any;
   return (
     <>
+    <Suspense fallback={<LoadingTest />}>
+    <Await resolve={data.jsonParsed}>
       <Hero />
-      <Section2 />
-      <Section3 />
-      <Section4 />
-      <Section5 />
-      <Section6 />
-      <Section7 />
-      <Footer />
-      <Outlet />
+          <Section2 />
+          <Section3 />
+          <Section4 />
+          <Section5 />
+          <Section6 />
+          <Section7 />
+          <Footer />
+          <Outlet />
+      </Await>
+    </Suspense>
+      
     </>
   );
 }

@@ -392,3 +392,45 @@ query{
   }
 }
 `;
+
+export const aboutUsQuery= `
+query{
+  aboutus{
+    data{
+      attributes{
+        heroTitle
+        heroDescription
+        heroBgImage{
+          data{
+            attributes{
+              url
+            }
+          } 
+        }
+        aboutus
+        vision
+        mission
+        faq{
+          id
+          question
+          answer
+        }
+        ClientCount
+        ExperienceCount
+        InHouseExpertsCount
+        ProjectsCount
+        clientsTitle
+        clients{
+          text
+          pic{
+            data{
+              attributes{
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`;

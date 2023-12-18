@@ -1,7 +1,9 @@
 import { useLoaderData } from "@remix-run/react";
+import { loader } from "~/routes/about-us";
 
 const MissionCard = () => {
-    const data = useLoaderData() as any;
+  const loaderData = useLoaderData<typeof loader>()
+  const data =  loaderData?.aboutUsData.data?.aboutus.data.attributes
   return (
     <>
       <div className="w-full flex bg-haiti h-[500px] relative">
@@ -13,7 +15,7 @@ const MissionCard = () => {
           }}>
             <h1 className=" flex text-3xl font-montserrat text-HeaderGray py-3 z-50"> Vision </h1>
             <p className="flex w-96 h-fit font-poppins font-light text-HeaderGray text-sm z-50">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima a quidem quam quo laudantium et commodi? Perspiciatis similique eos enim, corporis iste recusandae est ducimus laborum ad temporibus officiis!
+              {data.vision}
             </p>
         </div>
         <div className="flex-col flex-1 p-10 h-full mix-blend-luminosity relative cyan-gradient-mission" style={{
@@ -25,7 +27,7 @@ const MissionCard = () => {
           }}>
             <h1 className=" flex text-3xl font-montserrat text-HeaderGray py-3 z-10"> Mission </h1>
             <p className="flex w-96 h-fit font-poppins font-light text-HeaderGray text-sm z-10">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima a quidem quam quo laudantium et commodi? Perspiciatis similique eos enim, corporis iste recusandae est ducimus laborum ad temporibus officiis!
+              {data.mission}
             </p>
             
         </div>

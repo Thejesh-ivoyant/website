@@ -31,7 +31,6 @@ const SummaryCard = () => {
 
   return (
     <div className="lg:w-1/2 relative w-full CardDark opacity-95 flex flex-col justify-center items-center">
-      {/* The moving dot animation 👻  */}
       <div className='absolute  left-20 w-32 h-32 bg-slate-500 rounded-full blur-3xl -z-20' id='moving-circle'></div>
       <div className='flex flex-1 w-full max-h-[300px] justify-center'>
           <div className='aspect-square w-fit h-[300px] flex items-center px-12 grape-shadow'>
