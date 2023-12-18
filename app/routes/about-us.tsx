@@ -1,16 +1,19 @@
 import { defer, json } from "@remix-run/node";
-import { Outlet, useLoaderData } from "@remix-run/react";
-import Hero from "~/common-components/Hero";
+import { Await, Outlet, useLoaderData } from "@remix-run/react";
+import Hero from "~/components/about-us/Hero";
 import Footer from "~/common-components/footer";
 import ContactUs from "~/components/Homepage/contactUs";
-import AboutCardContainer from "~/components/Homepage/about-card-container";
-import Section4 from "~/components/Homepage/section-4/clients";
 import Testimonials from "~/components/Homepage/section-9/testimonials";
 import MissionCard from "~/components/about-us/mission";
-import Faq from "~/components/products/faq";
 import { strapiUrl } from "~/utils/urls";
-import DescriptionCard from "~/components/about-us/description-card";
+import Faq from "~/components/about-us/faq";
 import AboutCard from "~/components/about-us/about-desc";
+import { fetchData } from "~/utils/fetchdata";
+import { Suspense } from "react";
+import LoadingTest from "~/common-components/loading-test";
+import { fetchGraphQL } from "~/graphql/fetchGraphQl";
+import { aboutUsQuery } from "~/graphql/queries";
+import Clients from "~/components/about-us/clients";
 
 export const meta: MetaFunction = () => {
   return [
@@ -24,38 +27,11 @@ export const meta: MetaFunction = () => {
       content: "Your achievement reflects our performance",
     },
   ];
-};
-async function fetchData(endpoint:string) {
-  try {
-    const response = await fetch(strapiUrl + endpoint);
-
-    if (!response.ok) {
-      console.error(`Error fetching data from ${endpoint}: ${response.status} ${response.statusText}`);
-      return;
-    }
-    const jsonData = await response.json();
-    return jsonData.data?.attributes;
-  } catch (error: any ) {
-    console.error(`Error fetching data from ${endpoint}: ${error.message}`);
-  }
 }
-
 export async function loader() {
   try {
-    const jsonParsed = await fetchData("/api/healthcare/?populate=%2A");
-    const response = await fetch(`${strapiUrl}/api/contact-uses?populate=%2A`);
-    const data = await response.json();
-
-      const firstImageUrl = data?.data[0]?.attributes.bgImage.url || '';
-      const secondImageUrl = data?.data[0]?.attributes.bgImage.url || '';
-
-    
     return defer({
-        heroBgImageURl: jsonParsed.heroBgImage.data?.attributes.formats.large.url,
-        heroTitle: jsonParsed.heroTitle,
-        heroDesc: jsonParsed.heroDescription,
-
-        
+        aboutUsData : await fetchGraphQL(aboutUsQuery),
       })
   } catch (error:any) {
     console.error(`Error in loader: ${error.message}`);
@@ -67,17 +43,23 @@ export async function loader() {
 
 export default function Index() {
   const data = useLoaderData<typeof loader>();
-
+  const aboutData = data?.aboutUsData.data?.aboutus.data.attributes 
   return (
     <>
-      <Hero />
-      <AboutCard />
-      <MissionCard />
-      <Section4 />
-      <Testimonials />
-      <Faq />
-      <ContactUs />
-      <Footer />
+    <Suspense fallback={<LoadingTest />}>
+      <Await resolve={data.aboutUsData}>
+        <Hero />
+        <AboutCard />
+        <MissionCard />
+        <Clients clients={aboutData.clients} title={aboutData.clientsTitle} />
+        <Testimonials />
+        
+        <Faq faqContents={aboutData.faq} />
+        {/* <ContactUs /> */}
+        <Footer />
+      </Await>
+    </Suspense>
+      
     </>
   );
 }
