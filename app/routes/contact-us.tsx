@@ -9,8 +9,10 @@ import Faq from "~/components/products/faq";
 import { strapiUrl } from "~/utils/urls";
 import DescriptionCard from "~/components/about-us/description-card";
 import AboutCard from "~/components/about-us/about-desc";
+
+import GoogleMapComponent from "~/components/contact-us/GoogleMaps";
+import ContactCard from "~/components/contact-us/contact-card";
 import ContactUs from "~/common-components/contactUs";
-import GoogleMapComponent from "~/components/GoogleMaps";
 
 export const meta: MetaFunction = () => {
   return [
@@ -33,7 +35,19 @@ export default function Index() {
 
   return (
     <>
-     <GoogleMapComponent/>
+    <div className="mt-20">
+    <ContactUs/>
+
+    </div>
+<div className="flex flex-row justify-center">
+  <div className="flex w-full">
+      <ContactCard/>
+  </div>
+  {/* <div className="flex w-1/2">
+    <GoogleMapComponent/>
+  </div> */}
+</div>
+   
       <Footer />
     </>
   );
