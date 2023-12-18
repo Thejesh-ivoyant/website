@@ -411,6 +411,7 @@ query{
         vision
         mission
         faq{
+          id
           question
           answer
         }
