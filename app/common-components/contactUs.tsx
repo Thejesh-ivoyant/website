@@ -1,4 +1,4 @@
-import { Form, useRouteLoaderData } from "@remix-run/react";
+import { Form, useLoaderData, useRouteLoaderData } from "@remix-run/react";
 import { FormData, ActionFunction } from "@remix-run/node";
 import { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
@@ -41,8 +41,30 @@ const disabledDateTime = (selectedDate: dayjs.Dayjs | null) => {
 };
 
 const ContactUs = () => {
-  const loaderData = useRouteLoaderData<typeof loader>("routes/_index");
-  const CONTACT_US = `${strapiUrl}/api/contact-uses?populate=%2A`;
+  const ContactUsAPIData = `${strapiUrl}/api/contact-uses?populate=%2A`
+  const [contactImage, setcontactImage] = useState<string>("");
+  const [hireImage, sethireImage] = useState<string>("");
+
+  useEffect(() => {
+    fetch(ContactUsAPIData)
+      .then((response) => response.json())
+      .then((ContactUs_data) => {
+        console.warn("/////////ContactUs_data", ContactUs_data);
+        
+        const { contactImage, hireImage } = ContactUs_data.data[0]?.attributes|| '';
+        console.warn("/////////ContactUs_datadep", ContactUs_data.data[0]?.attributes);
+        console.warn("/////////ContactUs_datadep", ContactUs_data.data[0]?.attributes?.contactImage.data?.attributes?.url);
+        setcontactImage(contactImage.data?.attributes?.url);
+        sethireImage(hireImage.data?.attributes?.url);
+      
+      })
+      .catch((error) => {
+        console.error("Error fetching data from API:", error);
+      });
+  }, []);
+
+ 
+
   const [toggleState, setToggleState] = useState(1);
   const [openc1, setOpen] = useState(false);
   const [selectedFileName, setSelectedFileName] = useState<string | null>(null);
@@ -72,7 +94,7 @@ const ContactUs = () => {
       id="contact-us"
       className="w-full h-[90vh] bg-cover bg-center flex font-montserrat overflow-hidden"
     >
-      <div className="flex flex-col flex-1 bg-haiti pl-20 p-10">
+      <div className="flex flex-col flex-1 bg-haiti p-10">
         <div>
           <h1 className="py-4">
             <span className="flex text-white text-4xl font-medium">
@@ -83,8 +105,8 @@ const ContactUs = () => {
             className="flex w-full max-h-[500px] justify-self-center mx-auto object-cover"
             src={
               toggleState === 1
-                ? loaderData?.contactUsImage
-                : loaderData?.hireUsImage
+                ? contactImage
+                : hireImage
             }
             alt="contactUs"
           />
@@ -149,6 +171,7 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
+
       <div className="flex flex-1 flex-col bg-white p-10">
         <div className="flex flex-row gap-x-10">
           <div>
