@@ -3,6 +3,7 @@ import { useLoaderData } from "@remix-run/react";
 import React, { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 
+
 const ProjectPortfolio = () => {
   const loaderData = useLoaderData() as any;
 

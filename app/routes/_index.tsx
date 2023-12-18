@@ -27,12 +27,7 @@ export async function loader() {
     const homeGql = await fetchGraphQL(homeQuery)
     const blogGql = await fetchGraphQL(topBlogQuery)
 
-    const response = await fetch(`${strapiUrl}/api/contact-uses?populate=%2A`);
-    const data = await response.json();
-
-      const firstImageUrl = data.data[0]?.attributes.bgImage.data[0]?.attributes.url|| '';
-      const secondImageUrl = data.data[0]?.attributes.bgImage.data[1]?.attributes.url || '';
-      
+   
       
       const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
         id: item.id,
@@ -51,8 +46,6 @@ export async function loader() {
  
   
     return {
-      hireUsImage: firstImageUrl,
-      contactUsImage: secondImageUrl,
       blogData: blogData, 
       homePage: homeGql.data
     };
