@@ -60,7 +60,7 @@ const Section7 = () => {
         {loaderData.section7Desc}
       </p>
       <div className="grid grid-cols-3 gap-4 p-6 blur-[150%] bg-opacity-[0.16] moving-noise">
-  {loaderData.section7Pairs.map((pair: any) => (
+  {loaderData.section7Pairs?.map((pair: any) => (
     <div
       key={pair.id}
       className="group relative flex flex-col items-center opaque-card aspect-video py-2 w-[28.5rem] h-[16.563rem] cursor-pointer"

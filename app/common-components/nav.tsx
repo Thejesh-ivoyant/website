@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "./sidebar";
 import { Link, useRouteLoaderData } from "@remix-run/react";
 import { scrollTo } from "~/root";
-
+import ivurl from '../../public/assets/ivoyant.svg';
+import defaultsvg from '../../public/assets/default.svg';
 const Nav = () => {
   const navdata = useRouteLoaderData("root") as any;
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -28,20 +29,12 @@ const Nav = () => {
           <Link to="/">
             {" "}
             <div className="flex flex-row justify-center items-center object-contain gap-3 lg:gap-4 min-w-fit">
-              <div className="flex justify-center object-contain">
+              
                 <img
-                  src="../assets/logoicon.svg"
+                  src={ivurl}
                   alt="iVoyant Logo"
-                  className="logo"
+                  className="aspect-video h-16 object-contain"
                 />
-              </div>
-              <div className="company-name">
-                <img
-                  src="../assets/companyName.png"
-                  alt="iVoyant Logo"
-                  className="w-full h-full object-contain"
-                />
-              </div>
             </div>
           </Link>
 
@@ -88,7 +81,7 @@ const Nav = () => {
                                     />
                                   ) : (
                                     <img
-                                      src="../assets/default.svg"
+                                      src={defaultsvg}
                                       alt={item.name}
                                       className="w-4 h-4 inline my-auto mr-2 mb-1"
                                     />
