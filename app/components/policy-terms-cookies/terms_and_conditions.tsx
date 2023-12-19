@@ -34,7 +34,7 @@ const Terms = () => {
                         src={Bulletimg}                          className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                       />{" "}
                       <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
-                      What Are Cookies
+                      Overview
                       </div>
                     </div>
                   </div>{" "}
@@ -45,7 +45,7 @@ const Terms = () => {
                         src={Bulletimg}                          className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                       />{" "}
                       <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
-                      How We Use Cookies                      </div>
+                      Generic Terms of Use                     </div>
                     </div>
                   </div>{" "}
                   <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
@@ -55,7 +55,7 @@ const Terms = () => {
     src={Bulletimg}                          className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                       />{" "}
                       <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
-                      Disabling Cookies                       </div>
+                      Disclaimer                   </div>
                     </div>
                   </div>{" "}
                   <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
@@ -65,7 +65,7 @@ const Terms = () => {
                         src={Bulletimg}                          className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                       />{" "}
                       <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
-                      Forms related cookies                    </div>
+                      Client and Partner Confidentiality                    </div>
                     </div>
                   </div>{" "}
                   <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
@@ -75,7 +75,7 @@ const Terms = () => {
                         src={Bulletimg}                          className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                       />{" "}
                       <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
-                      Third Party Cookies                   </div>
+                      Business Relationships               </div>
                     </div>
                   </div>{" "}
                   <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
@@ -85,12 +85,22 @@ const Terms = () => {
                         src={Bulletimg}                          className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                       />{" "}
                       <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
-                      More Information                       </div>
+                      Disclaimer of Warranty                    </div>
+                    </div>
+                  </div>{" "}
+                  <div className="items-stretch shadow bg-white flex flex-col justify-center mt-4 max-md:max-w-full">
+                    <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
+                      <img
+                        loading="lazy"
+                        src={Bulletimg}                          className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
+                      />{" "}
+                      <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                      Limitation of Liability            </div>
                     </div>
                   </div>{" "}
                  
-                    </div>
-                </div>
+            </div>
+        </div>
 
                   <div id="contact-main" className="overflow-y  h-screen w-1/2 contact-main flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0">
                     {/* main content goes here */}
@@ -101,42 +111,48 @@ const Terms = () => {
                
                   
                   <div className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full">
-                  What Are Cookies
+                  Overview
                   </div>
                   <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
-                {loaderData.cookies} 
+                {loaderData.overview} 
                   </div>
                   <div className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full">
-                  How We Use Cookies
+                  Generic Terms of Use 
                   </div>
-                  {loaderData.use} 
+                  {loaderData.generic} 
                   <div className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full">
-                  Disabling Cookies 
+                  Disclaimer
                   </div>
                   <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
-                  {loaderData.disabling} 
+                  {loaderData.disclaimer} 
                   </div>
                   <div className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
-                  Forms related cookies 
+                  Confidential Information from Clients and Partners 
                   </div>
                   <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
-                   {loaderData.forms_cookies} 
+                   {loaderData.confidentialityParagraph1} 
                   </div>
                   <div className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
-                  Third Party Cookies 
+                  Business Relationships 
                   </div>
                   <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
                    
-                {loaderData.third_party_cookies}
+                {loaderData.relationships}
                    
                   </div>
                   <div className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full">
-                  More Information 
+                  Disclaimer of Warranty
                   </div>
                   <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
-                  {loaderData.more_info}
+                  {loaderData.warranty}
                   </div>
-                  
+
+                  <div className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full">
+              Limitation of Liability 
+                  </div>
+                  <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
+                  {loaderData.limitation}
+                  </div>
                   
                   
                  
