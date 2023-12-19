@@ -62,7 +62,7 @@ const Pairs = () => {
       <p className="text-center w-2/3 font-normal leading-6 text-sm tracking-wider font-poppins">
         {attributes.section_4_description}
       </p>
-      <div className="ggrid grid-cols-3 gap-4 p-6 blur-[150%] bg-opacity-[0.16] moving-noise">
+      <div className="grid grid-cols-3 gap-4 p-6 blur-[150%] bg-opacity-[0.16] moving-noise">
         {pairsData.map((pair: any) => (
           <div
             key={pair.id}
