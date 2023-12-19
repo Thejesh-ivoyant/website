@@ -51,9 +51,9 @@ async function fetchData(endpoint: string) {
 
 export async function loader() {
   const blogGql = await fetchGraphQL(topBlogQuery)
-  const res = await fetch(strapiUrl + "/api/s-mad?populate=%2A");
+  const res = await fetch(strapiUrl + "/api/s-data-integration?populate=%2A");
   const componentRes = await fetchData(
-    "/api/s-mad/?populate=s2_keyPoints.keyPointsImage,s5_phasesOfDevelopment.s5_phasesImage,s7_techIcons.s7_techIcon,s6_serviceCard.s6_serviceCardImage,s4_industryFocus.s4_IndustryFocusImage"
+    "/api/s-data-integration/?populate=s2_keyPoints.keyPointsImage,s5_phasesOfDevelopment.s5_phasesImage,s7_techIcons.s7_techIcon,s6_serviceCard.s6_serviceCardImage,s4_industryFocus.s4_IndustryFocusImage"
   );
   let jsonParsed = await res.json();
   const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
