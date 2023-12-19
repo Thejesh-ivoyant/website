@@ -39,7 +39,7 @@ const BlogPostCard = ({ blog }: { blog: IBlogMedia }) => {
                 stroke-linejoin="round"
               />
             </svg>
-            {blog.maxReadTime}
+            {blog.maxReadTime} Mins Read
           </div>
         </div>
       </div>

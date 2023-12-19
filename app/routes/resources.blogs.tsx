@@ -1,7 +1,7 @@
 // Index.tsx
 import React, { useEffect, useState } from "react";
 import LoadingComponent from "~/common-components/loading";
-import BlogPostsContainer from "~/components/Resources/blogPosts-container";
+import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
 import Consultation from "~/components/Homepage/section-7/consultation";
 import Footer from "~/common-components/footer";
 import { Outlet } from "@remix-run/react";
@@ -11,7 +11,7 @@ import IBlogMedia from "../interfaces/IBlogMedia";
 import PitchDeckConsultation from "~/components/Resources/section-5/pitchDeckConsultation";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { blogQuery } from "~/graphql/queries";
-import BlogCardContainer from "~/components/Resources/section-2/blogCard-container";
+import BlogCardContainer from "~/components/Resources/blogs/blogCard-container";
 
 export const meta: MetaFunction = () => {
   return [

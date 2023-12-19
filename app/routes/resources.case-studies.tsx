@@ -1,7 +1,7 @@
 // Index.tsx
 import React, { useEffect, useState } from "react";
 import LoadingComponent from "~/common-components/loading";
-import BlogPostsContainer from "~/components/Resources/blogPosts-container";
+import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
 import Consultation from "~/components/Homepage/section-7/consultation";
 import Footer from "~/common-components/footer";
 import { Outlet } from "@remix-run/react";
@@ -11,6 +11,7 @@ import IBlogMedia from "../interfaces/IBlogMedia";
 import PitchDeckConsultation from "~/components/Resources/section-5/pitchDeckConsultation";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { blogQuery } from "~/graphql/queries";
+import BlogCardContainer from "~/components/Resources/blogs/blogCard-container";
 
 export const meta: MetaFunction = () => {
   return [
@@ -65,7 +66,25 @@ export async function loader() {
     } = jsonParsed.data?.attributes ?? "";
 
 
+    // const blogData: IBlogMedia[] = componentRes.map((item: any) => ({
+  const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
+      id: item.id,
+      title: item.attributes.title,
+      description1: item.attributes.description1,
+      date: item.attributes.date,
+      maxReadTime: item.attributes.maxReadTime,
+      bannerImage: {
+        name: item.attributes.bannerImage.data?.attributes.name ?? "",
+        url:  item.attributes.bannerImage.data?.attributes.url ?? "",
+      },
+      author: {
+        name: item.attributes.author.data?.attributes.name,
+        avatar: item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
+      },
+    }));
+    console.log("compsres loader data ", blogData);
 
+    
   console.log("loader data ", blogGql.data?.blogs.data);
     return {
       heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.url,
@@ -76,7 +95,7 @@ export async function loader() {
       s4_title,
       s5_statement,
       s6_title,
- 
+      blogData: blogData,
     };
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -114,9 +133,9 @@ const Index = () => {
           <Hero/>
             {/* Render the entire data */}
           </div>
+          <BlogCardContainer />
       
-          <PitchDeckConsultation />
-      
+          <Consultation />
           <Footer />
           <Outlet />
         </div>

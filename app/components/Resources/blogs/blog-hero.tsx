@@ -22,7 +22,7 @@ const BlogHero = () => {
                     {loaderData.authorName}
          
                 <br/>
-                {loaderData.maxReadTime} Min Read
+                {loaderData.maxReadTime} Mins Read
                 </div>
         </div>
       

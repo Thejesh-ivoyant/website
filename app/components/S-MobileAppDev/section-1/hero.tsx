@@ -1,5 +1,5 @@
 import React from "react";
-import { useMatch } from "@remix-run/react";
+import { Link, useMatch } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import { scrollTo } from "~/root";
 import { Outlet, useLoaderData } from "@remix-run/react";
@@ -7,12 +7,7 @@ import { loader } from "~/routes/services.MobileDev";
 
 const Hero = () => {
   const loaderData = useLoaderData() as any;
-  const match = useMatch("/resources/pitch-deck");
-  const isResourcesRoute = match !== null;
-  const handleDownload = () => {
-    const pitchDeckUrl = loaderData.pitchDeck;
-    window.open(pitchDeckUrl, '_blank');
-  };
+
 
   return (
     <div>
@@ -37,15 +32,12 @@ const Hero = () => {
         <hr className="hero-gradient-top flex"></hr>
         <p className="hero-description">{loaderData.heroDescription}</p>
         {/* Conditionally render button based on the route */}
-        {isResourcesRoute ? (
-          <button className="btn hero-btn" onClick={handleDownload}>
-            Download Pitch Deck
-          </button>
-        ) : (
-          <button className="btn hero-btn" onClick={() => scrollTo("contact-us")}>
+   
+         <Link to="/contact-us" className="btn hero-btn">
+          <button className="btn hero-btn" >
             Let's Talk
           </button>
-        )}
+      </Link>
       </div>
     </div>
   );
