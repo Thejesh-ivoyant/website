@@ -98,7 +98,7 @@ const ContactUs = () => {
             </span>
           </h1>
           <img
-            className="flex w-[35rem] h-[35rem] justify-self-center mx-auto object-cover"
+            className="flex aspect-square h-[35rem] justify-self-center mx-auto object-cover"
             src={
               toggleState === 1
                 ? contactImage
