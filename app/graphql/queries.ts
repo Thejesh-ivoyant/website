@@ -230,7 +230,7 @@ export const blogQuery = `query{
 }`;
 
 export const getAuthorQuery = (id:any) => {
-  console.warn("getAuthorQuery id is ", id);
+  console.warn("author id is ", id);
   return `
     query GetAuthorById {
       author(id: ${id}) {
@@ -263,6 +263,29 @@ export const getAuthorQuery = (id:any) => {
 };
 
 
+
+export const getBlogAuthorIDQuery = (id:any) => {
+  console.warn("blog id is ", id);
+  return `
+  query GetBlogById{
+    blog(id: ${id}){
+    data{
+      attributes{
+        title
+        author{
+          data{
+            id
+            attributes{
+              publishedAt
+            }
+          }
+        }
+      }
+    }
+  }
+  }
+  `;
+}; 
 
 export const topBlogQuery = `
 query {

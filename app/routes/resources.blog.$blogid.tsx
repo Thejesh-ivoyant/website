@@ -18,11 +18,11 @@ import Faq from "~/components/Homepage/section-12/faq";
 import Why_Join_Us from "~/components/careers/section-2/why-join-us";
 import JobCards from "~/components/careers/section-3/job-cards";
 import { fetchGraphQL, fetchGraphQLWithParameter } from "~/graphql/fetchGraphQl";
-import { blogQuery, careersQuery, getAuthorQuery, productsQuery, topBlogQuery } from "~/graphql/queries";
+import { blogQuery, careersQuery, getAuthorIDQuery, getAuthorQuery, getBlogAuthorIDQuery, productsQuery, topBlogQuery } from "~/graphql/queries";
 import JobDescription from "~/components/careers/job-description";
-import BlobContent from "~/components/Resources/blob-content";
+import BlobContent from "~/components/Resources/blogs/blob-content";
 import { LoaderFunctionArgs } from "@remix-run/node";
-import BlogHero from "~/components/Resources/blog-hero";
+import BlogHero from "~/components/Resources/blogs/blog-hero";
 
 export const meta: MetaFunction = () => {
   return [
@@ -40,13 +40,17 @@ export const meta: MetaFunction = () => {
 
 
 export async function loader({   params, }: LoaderFunctionArgs){
+const blogid=`${params.blogid}`;
+  const updatedAuthorGetIdQuery= getBlogAuthorIDQuery(blogid)
 
-  const authorId = 1; // Replace this with the dynamic ID you want to use
-  
+  const authorIdData=await fetchGraphQL(updatedAuthorGetIdQuery);
+  console.warn("////////////////////// is ",authorIdData.data?.blog.data?.attributes.author.data?.id);
+  const authorId=authorIdData.data?.blog.data?.attributes.author.data?.id;
+
   const updatedQuery = getAuthorQuery(authorId);
   const authorData =  await fetchGraphQL(updatedQuery);
 
-  console.warn("/////////////////author data is ",authorData.data?.author.data?.attributes.avatar.data?.attributes?.url);
+  console.warn("/////////////////author url is ",authorData.data?.author.data?.attributes.avatar.data?.attributes?.url);
   const url= strapiUrl+`/api/blogs/${params.blogid}?populate=%2A`;
   try {
     const res = await fetch(url);

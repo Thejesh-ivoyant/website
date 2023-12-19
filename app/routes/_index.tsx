@@ -13,7 +13,7 @@ import Testimonials from "~/components/Homepage/section-9/testimonials";
 import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
 
 import Footer from "~/common-components/footer";
-import BlogPostsContainer from "~/components/Resources/blogPosts-container";
+import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
 import { Outlet } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { blogQuery, homeQuery, topBlogQuery } from "~/graphql/queries";
