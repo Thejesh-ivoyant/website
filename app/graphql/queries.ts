@@ -149,6 +149,13 @@ query {
               id
               name
               link
+              attachment{
+                data{
+                  attributes{
+                    url
+                  }
+                }
+              }
               icon{
                 data{
                   attributes{
