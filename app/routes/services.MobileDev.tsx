@@ -13,7 +13,7 @@ import { MetaFunction, Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import Section6 from "~/components/industries/section6";
 import Technologies from "~/components/S-MobileAppDev/section-7/technologies";
-import BlogPostsContainer from "~/components/Resources/blogPosts-container";
+import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
 import { topBlogQuery } from "~/graphql/queries";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 

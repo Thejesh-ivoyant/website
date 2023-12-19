@@ -12,7 +12,7 @@ import Consultation from "~/components/Homepage/section-7/consultation";
 import Footer from "~/common-components/footer";
 import { Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
-import BlogPostsContainer from "~/components/Resources/blogPosts-container";
+import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { topBlogQuery } from "~/graphql/queries";
 

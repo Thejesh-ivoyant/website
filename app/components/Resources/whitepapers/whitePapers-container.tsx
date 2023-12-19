@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 
 import { strapiUrl } from "~/utils/urls";
-import BlogPostCard from "../blogPosts";
+import BlogPostCard from "../blogs/blogPosts";
 import { useLoaderData } from "@remix-run/react";
 
 const WhitePapersCardContainer = () => {

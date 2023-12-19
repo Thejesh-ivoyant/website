@@ -41,7 +41,7 @@ const BlogCard = ({ blog }: { blog: IBlogMedia }) => {
                  {blog.author.name}
                   </div>
                   <div className="text-black text-sm whitespace-nowrap mt-2.5">
-                    8 Min Read
+         {blog.maxReadTime} Mins Read
                   </div>
                 </div>
               </div>

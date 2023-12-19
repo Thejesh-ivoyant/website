@@ -13,7 +13,7 @@ import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import Footer from "~/common-components/footer";
 import { MetaFunction, Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
-import BlogPostsContainer from "~/components/Resources/blogPosts-container";
+import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
 
 export const meta: MetaFunction = () => {
   return [
