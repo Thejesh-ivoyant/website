@@ -10,7 +10,10 @@ const Nav = () => {
   const handleHamburgerClick = () => {
     setSidebarOpen(!sidebarOpen);
   };
-
+  const handleDownload = ( PdfUrl:string) => {
+    
+    window.open(PdfUrl, '_blank');
+  };
   const categories = [
     "services",
     "industries",
@@ -90,6 +93,15 @@ const Nav = () => {
                                       className="w-4 h-4 inline my-auto mr-2 mb-1"
                                     />
                                   )}
+                                  {item.attachment?.data?.attributes?.url ? (
+                                    <a
+                                    href={item.attachment?.data?.attributes?.url}
+                                    target="_blank"
+                                    className="inline font-poppins font-normal hover:text-[#bea7ef] "
+                                  >
+                                    {item.name}
+                                  </a>
+                                  ):
                                   <Link
                                     to={item.link}
                                     prefetch="intent"
@@ -97,6 +109,8 @@ const Nav = () => {
                                   >
                                     {item.name}
                                   </Link>
+                                  }
+                                  
                                 </div>
                               )
                           )}

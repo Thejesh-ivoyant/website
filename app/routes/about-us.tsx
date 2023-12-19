@@ -13,6 +13,8 @@ import LoadingTest from "~/common-components/loading-test";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { aboutUsQuery } from "~/graphql/queries";
 import Clients from "~/components/about-us/clients";
+import React from "react";
+import ContactUs from "../common-components/contactUs";
 
 export const meta: MetaFunction = () => {
   return [
@@ -54,7 +56,7 @@ export default function Index() {
         <Testimonials />
         
         <Faq faqContents={aboutData.faq} />
-        {/* <ContactUs /> */}
+        <ContactUs/>
         <Footer />
       </Await>
     </Suspense>
