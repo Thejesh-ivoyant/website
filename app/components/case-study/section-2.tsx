@@ -43,8 +43,7 @@ const Section2 = () => {
         <div className="flex flex-col items-stretch w-[55%] ml-5 max-md:w-full max-md:ml-0">
           <img
             loading="lazy"
-            srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/b883b343-cbd3-40f2-a38c-1cc5a03e4540?apiKey=9e16588387084fb2a9a51a1b99489136&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/b883b343-cbd3-40f2-a38c-1cc5a03e4540?apiKey=9e16588387084fb2a9a51a1b99489136&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b883b343-cbd3-40f2-a38c-1cc5a03e4540?apiKey=9e16588387084fb2a9a51a1b99489136&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/b883b343-cbd3-40f2-a38c-1cc5a03e4540?apiKey=9e16588387084fb2a9a51a1b99489136&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/b883b343-cbd3-40f2-a38c-1cc5a03e4540?apiKey=9e16588387084fb2a9a51a1b99489136&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/b883b343-cbd3-40f2-a38c-1cc5a03e4540?apiKey=9e16588387084fb2a9a51a1b99489136&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/b883b343-cbd3-40f2-a38c-1cc5a03e4540?apiKey=9e16588387084fb2a9a51a1b99489136&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/b883b343-cbd3-40f2-a38c-1cc5a03e4540?apiKey=9e16588387084fb2a9a51a1b99489136&"
-            className="aspect-[0.84] object-contain object-center w-full self-stretch overflow-hidden grow max-md:max-w-full max-md:mt-10"
+src="../assets/builderimage.png"           className="aspect-[0.84] object-contain object-center w-full self-stretch overflow-hidden grow max-md:max-w-full max-md:mt-10"
           />
         </div>
       </div>
