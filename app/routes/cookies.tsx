@@ -45,8 +45,7 @@ export async function loader() {
   try {
     const res = await fetch(url);
     let jsonParsed = await res.json();
-    const componentRes = jsonParsed.data[0]?.attributes;
-  
+
        
   const {
    

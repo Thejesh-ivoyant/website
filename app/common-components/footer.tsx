@@ -1,3 +1,5 @@
+import { Link } from "@remix-run/react"
+
 const Footer = ()=>
 {
     return (
@@ -134,15 +136,22 @@ const Footer = ()=>
                     </div>
                 </div>
             <div className="flex flex-row gap-[6rem] justify-center w-full text-xs gradient-top font-medium text-center p-4">
+              
+          <Link to={"/privacy-policy"}>
                 <div className="flex">
                     Privacy Policy
                 </div>
+                </Link>
+                <Link to={"/terms-and-conditions"}>
                 <div className="flex">
                     Terms and Conditions
                 </div>
+                </Link>
+                <Link to={"/cookies"}>
                 <div className="flex">
                   Cookie Policy
                 </div>
+                </Link>
 
             </div>
      

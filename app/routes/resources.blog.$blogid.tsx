@@ -107,7 +107,7 @@ const Index = () => {
         <LoadingComponent />
       ) : (
         <div>
-          <div className="mt-20">
+          <div className="mt-16">
           <BlogHero/>
         </div>
           <BlobContent/>
