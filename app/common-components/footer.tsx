@@ -133,6 +133,20 @@ const Footer = ()=>
                         </div>
                     </div>
                 </div>
+            <div className="flex flex-row gap-[6rem] justify-center w-full text-xs gradient-top font-medium text-center p-4">
+                <div className="flex">
+                    Privacy Policy
+                </div>
+                <div className="flex">
+                    Terms and Conditions
+                </div>
+                <div className="flex">
+                  Cookie Policy
+                </div>
+
+            </div>
+     
+
             <div className="flex gap-3 justify-center w-full text-xs gradient-top font-medium text-center p-4"><span>&copy; 2023 iVoyant </span><span> All Rights Reserved</span> </div>
         </footer>
     )

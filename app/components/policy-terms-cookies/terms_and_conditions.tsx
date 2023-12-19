@@ -5,7 +5,7 @@ import  Bulletimg from "../../../public/assets/BulletPoint.svg";
 
 import { useLoaderData } from "@remix-run/react";
 
-const PrivacyPolicy = () => {
+const Terms = () => {
   const loaderData = useLoaderData() as any;
 
    
@@ -352,4 +352,4 @@ const PrivacyPolicy = () => {
     </div>
       );  
 };
-export default PrivacyPolicy;
+export default Terms;

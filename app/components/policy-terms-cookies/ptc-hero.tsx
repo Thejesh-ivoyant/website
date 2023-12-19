@@ -5,7 +5,7 @@ import { scrollTo } from "~/root";
 import { Outlet, useLoaderData } from "@remix-run/react";
 import { loader } from "~/routes/services.MobileDev";
 
-const PrivacyHero = () => {
+const PTCHero = () => {
   const loaderData = useLoaderData() as any;
 
   return (
@@ -43,4 +43,4 @@ const PrivacyHero = () => {
   );
 };
 
-export default PrivacyHero;
+export default PTCHero;
