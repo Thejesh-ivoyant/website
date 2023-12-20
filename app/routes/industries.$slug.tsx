@@ -1,4 +1,4 @@
-import { defer, json } from "@remix-run/node";
+import { LoaderFunctionArgs, defer, json } from "@remix-run/node";
 import { Await, Outlet, useLoaderData } from "@remix-run/react";
 import { Suspense, useEffect, useState } from "react";
 import Hero from "~/common-components/Hero";

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import LoadingComponent from "~/common-components/loading";
 import Hero from "~/components/S-MobileAppDev/section-1/hero";
 import ServiceContainer from "../components/S-MobileAppDev/section-2/service-description-container";
@@ -8,18 +8,21 @@ import Phases from "~/components/S-MobileAppDev/section-5/phases";
 import ServiceCardContainer from "~/components/S-MobileAppDev/section-6/service-card-container";
 import Technology from "~/components/Homepage/section-8/technology";
 import Consultation from "~/components/Homepage/section-7/consultation";
+import Footer from "~/common-components/footer";
+import { Await, MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
+import { strapiUrl } from "~/utils/urls";
+import Section6 from "~/components/industries/section6";
+import Technologies from "~/components/S-MobileAppDev/section-7/technologies";
+import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
 import { topBlogQuery } from "~/graphql/queries";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import Footer from "~/common-components/footer";
-import { Outlet } from "@remix-run/react";
-import { strapiUrl } from "~/utils/urls";
-import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
-
-
+import LoadingTest from "~/common-components/loading-test";
+import { fetchData } from "~/utils/fetchdata";
+import { LoaderFunctionArgs, defer } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Ivoyant | DataIntegration" },
+    { title: "Ivoyant | Mobile App Development" },
     {
       property: "og:title",
       content: "Services Page",
@@ -31,31 +34,32 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-async function fetchData(endpoint: string) {
-  try {
-    const response = await fetch(strapiUrl + endpoint);
-
-    if (!response.ok) {
-      throw new Error(
-        `Error fetching data from ${endpoint}: ${response.status} ${response.statusText}`
-      );
-    }
-
-    const jsonData = await response.json();
-    return jsonData.data?.attributes;
-  } catch (error: any) {
-    console.error(`Error fetching data from ${endpoint}: ${error.message}`);
-    throw error; // Re-throw the error to be caught by the caller
-  }
-}
-
-export async function loader() {
+export async function loader({   params }: LoaderFunctionArgs) {  
   const blogGql = await fetchGraphQL(topBlogQuery)
-  const res = await fetch(strapiUrl + "/api/s-data-integration?populate=%2A");
+
+  const slugToServiceMap: Record<string, string> = {
+    "mobiledev": "s-mad",
+    "ui-ux": "s-ui-ux",
+    "apiintegration": "s-api-integration",
+    "cloudmigration": "s-cloud-migration",
+    "customapplication": "s-custom-application",
+    "dataintegration": "s-data-integration",
+    "lowcode-nocode": "s-low-code-no-code",
+    "devops": "s-dev-op",
+    "websitedev" : "s-website-development",
+
+
+
+  };
+  
+  const service = slugToServiceMap[`${params.slug}`];
+  
+  const res = await fetch(strapiUrl + `/api/${service}?populate=%2A`);
   const componentRes = await fetchData(
-    "/api/s-data-integration/?populate=s2_keyPoints.keyPointsImage,s5_phasesOfDevelopment.s5_phasesImage,s7_techIcons.s7_techIcon,s6_serviceCard.s6_serviceCardImage,s4_industryFocus.s4_IndustryFocusImage"
+    `/api/s-mad/?populate=s2_keyPoints.keyPointsImage,s5_phasesOfDevelopment.s5_phasesImage,s7_techIcons.s7_techIcon,s6_serviceCard.s6_serviceCardImage,s4_industryFocus.s4_IndustryFocusImage`
   );
   let jsonParsed = await res.json();
+
   const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
     id: item.id,
     title: item.attributes.title,
@@ -74,7 +78,7 @@ export async function loader() {
     id: item.id,
     s4_industryFocusSubTitle: item.s4_industryFocusSubTitle,
     s4_industryFocusDescription: item.s4_industryFocusDescription,
-    s4_industryFocusImage: item.s4_IndustryFocusImage.data?.attributes.formats.large.url,
+    s4_industryFocusImage: item.s4_IndustryFocusImage.data?.attributes.url,
   }));
   const PhasesList = componentRes.s5_phasesOfDevelopment.map((item: any) => ({
     id: item.id,
@@ -93,6 +97,13 @@ export async function loader() {
     s6_serviceCardDescription: item.s6_serviceCardDescription,
     s6_serviceCardImage: item.s6_serviceCardImage.data?.attributes.formats.medium.url,
   }));
+  const Technologies = componentRes.s7_techIcons.map((item: any) => ({
+    id: item.id,
+    s7_techIcon: item.s7_techIcon.data?.attributes.url,
+    s7_techIconName: item.s7_techIconName,
+    }));
+
+
   const {
     heroTitle,
     heroDescription,
@@ -107,8 +118,9 @@ export async function loader() {
     s6_serviceSummary,
     s7_techTitle,
   } = jsonParsed.data?.attributes;
-  return {
-    heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.formats.large.url,
+  return defer({
+    // heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.formats.large.url,
+    heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.url,
     heroTitle,
     heroDescription,
     s2_Title,
@@ -125,55 +137,38 @@ export async function loader() {
     KeyPoints:KeyPoints,
     IndustryFocus:IndustryFocus,
     ServicesCard:ServicesCard,
-    blogData:blogData,  
-  };
+    Technologies:Technologies,
+    blogData:blogData,
+  });
+
 }
 
-const DataIntegration = () => {
-
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    const fetchDataAsync = async () => {
-      try {
-        const fetchedData = await loader();
-        setData(fetchedData);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setLoading(false); // Set loading to false in case of an error
-      }
-    };
-
-    fetchDataAsync();
-  }, []);
-
+const MobDev = () => {
+const data=useLoaderData<typeof loader>();
   return (
-    <div style={{ padding: "0px", overflowX: "hidden" }}>
-      {/* Video Background */}
 
-      {loading ? (
-        <LoadingComponent />
-      ) : (
-        <div>
-          <div className="video">
-            <Hero />
-          </div>
-          <ServiceContainer />
-          <ProjectPortfolio />
-          <IndustryFocus />
-          <Phases />
-          <ServiceCardContainer />
-          <Technology />
-          <Consultation />
-          <BlogPostsContainer />
-          <Footer />
-          <Outlet />
-        </div>
-      )}
-    </div>
+        <>
+        <Suspense fallback={<LoadingTest />}>
+          <Await resolve={data.IndustryFocus}>
+                <div className="video">
+                    <Hero />
+                </div>
+                <ServiceContainer />
+                <ProjectPortfolio />
+                <IndustryFocus />
+                <Phases />
+                <ServiceCardContainer />
+                <Technologies />
+                <Consultation />
+                <BlogPostsContainer />
+                <Footer />
+                <Outlet />
+          </Await>
+        </Suspense>
+        </>
+      
+
   );
 };
 
-export default DataIntegration;
+export default MobDev;
