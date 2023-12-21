@@ -1,0 +1,32 @@
+
+.ant-carousel .slick-dots li button {
+    display: block;
+    width: 1rem;
+    height: 10px;
+    padding: 0;
+    color: transparent;
+    font-size: 0;
+    background: #200A46;
+    border: 0;
+    border-radius: 0px !important;
+    outline: none;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: all 0.3s;
+    transform: skew(-20deg);
+  }
+  .ant-carousel .slick-dots li.slick-active {
+    margin-right: 25px;
+  }
+  .ant-carousel .slick-dots li.slick-active button {
+    background: red;
+    width: 3.125rem !important;
+    opacity: 1;
+  }
+  .ant-carousel .slick-dots-bottom {
+    margin-left: -40%;
+    position: relative;
+    bottom: 10rem;
+    display: flex;
+    flex-wrap: wrap;
+  }

@@ -1558,12 +1558,11 @@ border-bottom-style: solid;
   opacity: 1;
 }
 .ant-carousel .slick-dots-bottom {
-  margin-left: -40%;
   position: relative;
-  bottom: 10rem;
+  top: 2rem;
   display: flex;
   flex-wrap: wrap;
-}
+} 
 .slit-gradient{
   z-index: -1;
   background: linear-gradient(100deg, white 50%, #AB99C8 50%);
@@ -1691,3 +1690,20 @@ border-bottom-style: solid;
   background: url('/assets/vision.png'), radial-gradient(225.99% 112.99% at 100.42% -0.35%, #15416E 0%, #0A0353 1%, #0D2954 23%, #091657 45%, #071D70 70%, #0A195E 100%);
   transition: opacity 0.3s ease;
 }
+.tags-indigo::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0.25rem;
+  background-color: #7389FA;
+}
+.cyan-gradient-arrow{
+  background: url('/assets/vision.png');
+  background-size:  50rem;
+  aspect-ratio: 1/1;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+}
+
