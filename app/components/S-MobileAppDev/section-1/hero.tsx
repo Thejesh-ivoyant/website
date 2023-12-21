@@ -17,16 +17,7 @@ const Hero = () => {
       </div>
       <div className="hero-container">
         <p className="hero-title flex animated-text">
-          {loaderData.heroTitle.split(" ").map((word, wordIndex) => (
-            <React.Fragment key={wordIndex}>
-              {word.split("").map((char, charIndex) => (
-                <span key={charIndex} className="animated-char">
-                  {char}
-                </span>
-              ))}
-              <span>&nbsp;</span>
-            </React.Fragment>
-          ))}
+          {loaderData.heroTitle}
         </p>
 
         <hr className="hero-gradient-top flex"></hr>
