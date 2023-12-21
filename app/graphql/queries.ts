@@ -464,3 +464,101 @@ query{
     }
   }
 }`;
+export const case_study_paginated = `
+    query {
+      caseStudies(sort: "\${sort}", pagination: { limit: \${limit} }) {
+        data {
+          id
+          attributes {
+            publishedAt
+            heroTitle
+          }
+        }
+      }
+    }
+  `;
+export const case_study_home = `query{
+  caseStudyHome{
+    data{
+      attributes{
+        heroTitle
+        heroDescription
+        heroBgImage{
+          data{
+            attributes{
+              url
+              formats
+            }
+          }
+        }
+      }
+    }
+  }
+}`;
+
+  const case_study_filterd = `
+    
+  `;
+export const case_study_query = `
+query{
+  caseStudies (sort: "createdAt:asc", pagination: { limit: 3 }){
+    data{
+      id
+      attributes{
+        publishedAt
+        heroTitle
+        heroDescription
+        heroBgImage{
+          data{
+            attributes{
+              url
+            }
+          }
+        }
+        heroImage{
+          data{
+            attributes{
+              url
+              formats
+            }
+          }
+        }
+        tags{
+          id
+          name
+          description
+        }
+        section2MiniTag
+        section2Title
+        section_2_description
+        section3MiniTitle
+        section_3_title
+        section_3_description
+        section3Slideshow{
+          data{
+            attributes{
+              url
+            }
+          }
+        }
+        section4MiniTitle
+        section_4_title
+        section_4_description
+        section_4_cards{
+          id
+          name
+          description
+        }
+        section_5_pairs{
+          name
+          description
+        }
+        section6MiniTitle
+        section_6_title
+        section_6_description
+        section_7_phrase
+        cases_list
+      }
+    }
+  }
+}`
