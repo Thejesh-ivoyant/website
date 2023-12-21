@@ -113,7 +113,7 @@ const Footer = ()=>
                                 <span className="">For Future developers</span>
                                 <span className="">jobs@ivoyant.com</span>
                                 <span className="flex gap-2 py-4">
-                                <img src="../assets/facebook.png" alt="icons" />
+                                <img src="../assets/Facebook.png" alt="icons" />
                                 <img src="../assets/mail.svg" alt="icons" />
                                 <img src="../assets/linkedin.svg" alt="icons" />
                                 <img src="../assets/youtube.svg" alt="icons" />
