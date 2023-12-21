@@ -394,6 +394,22 @@ background: var(--LinearCard, linear-gradient(180deg, #360E81 0%, #20084D 100%))
   background: linear-gradient(0deg, rgba(27, 7, 64, 0.80) 0%, rgba(27, 7, 64, 0.80) 100%);
   z-index: 1;/* Adjust the z-index to place the gradient above the video */
 }
+.video-service{
+  position: relative; /* Set position to relative to act as a positioning context */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.video-service::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(43, 21, 83, 0.8) 0%, rgba(27, 7, 64, 0.80) 0%);
+  z-index: 1;/* Adjust the z-index to place the gradient above the video */
+}
 .industry-focus-main{
   background: #FFF;
 padding-right: 1rem;

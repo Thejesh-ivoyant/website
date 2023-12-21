@@ -1,13 +1,25 @@
-import Nav from "~/common-components/nav";
 import Tabs from "~/components/products/Tabs";
 import { Carousel } from "antd";
-import { useLoaderData } from "@remix-run/react";
+import { MetaFunction, useLoaderData } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { productsQuery } from "~/graphql/queries";
 import Footer from "~/common-components/footer";
 import Pairs from "~/components/products/pairs";
 import Section2 from "~/components/products/section2";
 
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Ivoyant | Homepage" },
+    {
+      property: "og:title",
+      content: "Home Page",
+    },
+    {
+      name: "description",
+      content: "Ivoyants Homepage",
+    },
+  ];
+};
 export const loader = async () => {
   const productsData =  await fetchGraphQL(productsQuery);
   return { productsResponse : productsData};

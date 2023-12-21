@@ -11,7 +11,7 @@ const Hero = () => {
 
   return (
     <div>
-      <div className="video-content h-screen">
+      <div className="">
       {/* <img src={`${strapiUrl}${loaderData.heroImage}`} alt="video" width="100%" /> */}
         <img src={`${loaderData.heroImage}`} alt="video" width="100%" />
       </div>

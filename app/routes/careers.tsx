@@ -1,24 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import LoadingComponent from "~/common-components/loading";
 import Hero from "~/components/S-MobileAppDev/section-1/hero";
-import ServiceContainer from "../components/S-MobileAppDev/section-2/service-description-container";
-import ProjectPortfolio from "~/components/S-MobileAppDev/section-3/project-portfolio";
-import IndustryFocus from "~/components/S-MobileAppDev/section-4/industry-focus";
-import Phases from "~/components/S-MobileAppDev/section-5/phases";
-import ServiceCardContainer from "~/components/S-MobileAppDev/section-6/service-card-container";
-import Technology from "~/components/Homepage/section-8/technology";
-import Consultation from "~/components/Homepage/section-7/consultation";
 import Footer from "~/common-components/footer";
-import { Outlet } from "@remix-run/react";
+import { MetaFunction, Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
-import Section6 from "~/components/industries/section6";
-import Technologies from "~/components/S-MobileAppDev/section-7/technologies";
-import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
-import Faq from "~/components/Homepage/section-12/faq";
 import Why_Join_Us from "~/components/careers/section-2/why-join-us";
 import JobCards from "~/components/careers/section-3/job-cards";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import {  blogQuery, careersQuery, topBlogQuery } from "~/graphql/queries";
+import { careersQuery } from "~/graphql/queries";
 import JoinUsCardContainer from "~/components/careers/section-4/join-us-card-container";
 
 export const meta: MetaFunction = () => {
@@ -38,7 +27,7 @@ export const meta: MetaFunction = () => {
 async function fetchData(endpoint: string) {
   try {
     const response = await fetch(strapiUrl + endpoint);
-console.log("fetttttttttc response",response);
+    console.log("fetttttttttc response", response);
     if (!response.ok) {
       throw new Error(
         `Error fetching data from ${endpoint}: ${response.status} ${response.statusText}`
@@ -54,26 +43,20 @@ console.log("fetttttttttc response",response);
 }
 
 export async function loader() {
-  const jsonParsed = await fetchGraphQL(careersQuery)
+  const jsonParsed = await fetchGraphQL(careersQuery);
   const componentRes = await fetchData(
     "/api/career?populate=s4_cards.bgImage,s2_whyJoinUs.bgImage"
   );
 
-console.warn("jsonpareded i career//////////sss///",jsonParsed.data?.career.data?.attributes)
-
-// const JobDesc = jsonParsed.data?.career.data?.map((item: any) => ({
-//   job_descriptions: {
-//     Title: item.attributes.job_decriptions.data?.attributes.Title,
-//     profileSummary: item.attributes.job_decriptions.data?.attributes.job_id,
-//   },
-// }));
-const JobDesc = jsonParsed?.data?.career?.data?.attributes?.job_descriptions?.data?.map((item: any) => ({
-  id: item.id, // Add this line to capture the job ID
-  job_id: item.attributes.job_id,
-  Title: item.attributes.Title,
-  location: item.attributes.location,
-}));
-
+  const JobDesc =
+    jsonParsed?.data?.career?.data?.attributes?.job_descriptions?.data?.map(
+      (item: any) => ({
+        id: item.id, // Add this line to capture the job ID
+        job_id: item.attributes.job_id,
+        Title: item.attributes.Title,
+        location: item.attributes.location,
+      })
+    );
 
   const JoinUsCard = componentRes.s2_whyJoinUs.map((item: any) => ({
     id: item.id,
@@ -91,7 +74,6 @@ const JobDesc = jsonParsed?.data?.career?.data?.attributes?.job_descriptions?.da
   }));
   // console.warn("jooobs",JobDesc);
   // console.warn("jooobs2222",JobDesc[0].Title);
-  
 
   const {
     heroTitle,
@@ -102,9 +84,10 @@ const JobDesc = jsonParsed?.data?.career?.data?.attributes?.job_descriptions?.da
     s3_description,
     s3_email,
   } = jsonParsed.data?.career.data?.attributes;
-  
+
   return {
-    heroImage:jsonParsed.data?.career.data?.attributes.heroImage.data?.attributes.url,
+    heroImage:
+      jsonParsed.data?.career.data?.attributes.heroImage.data?.attributes.url,
     heroTitle,
     heroDescription,
     s2_title,
@@ -112,15 +95,13 @@ const JobDesc = jsonParsed?.data?.career?.data?.attributes?.job_descriptions?.da
     s3_title,
     s3_description,
     s3_email,
-    JoinUsCard:JoinUsCard,
-    DescriptionCard:DescriptionCard,
-    JobDesc:JobDesc,
- 
+    JoinUsCard: JoinUsCard,
+    DescriptionCard: DescriptionCard,
+    JobDesc: JobDesc,
   };
 }
 
 const Careers = () => {
-
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
 
@@ -128,7 +109,7 @@ const Careers = () => {
     const fetchDataAsync = async () => {
       try {
         const fetchedData = await loader();
-    
+
         setData(fetchedData);
         setLoading(false);
       } catch (error) {
@@ -149,11 +130,11 @@ const Careers = () => {
       ) : (
         <div>
           <div className="video">
-          <Hero />
+            <Hero />
           </div>
-         <Why_Join_Us />
+          <Why_Join_Us />
           <JobCards />
-          <JoinUsCardContainer/>
+          <JoinUsCardContainer />
           <Footer />
           <Outlet />
         </div>
