@@ -183,7 +183,7 @@ const Nav = () => {
           <div className="flex flex-row gap-6 " >
             <div>
 
-              <button className="hue-btn" onClick={() => scrollTo("contact-us")}><span>CONTACT US</span></button>
+              <button name="contactus" className="hue-btn" onClick={() => scrollTo("contact-us")}><span>CONTACT US</span></button>
 
             </div>
             <div

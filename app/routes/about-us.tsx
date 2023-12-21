@@ -1,19 +1,16 @@
-import { defer, json } from "@remix-run/node";
-import { Await, Outlet, useLoaderData } from "@remix-run/react";
+import { defer } from "@remix-run/node";
+import { Await, MetaFunction, useLoaderData } from "@remix-run/react";
 import Hero from "~/components/about-us/Hero";
 import Footer from "~/common-components/footer";
 import Testimonials from "~/components/Homepage/section-9/testimonials";
 import MissionCard from "~/components/about-us/mission";
-import { strapiUrl } from "~/utils/urls";
 import Faq from "~/components/about-us/faq";
 import AboutCard from "~/components/about-us/about-desc";
-import { fetchData } from "~/utils/fetchdata";
 import { Suspense } from "react";
 import LoadingTest from "~/common-components/loading-test";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { aboutUsQuery } from "~/graphql/queries";
 import Clients from "~/components/about-us/clients";
-import React from "react";
 import ContactUs from "../common-components/contactUs";
 
 export const meta: MetaFunction = () => {
