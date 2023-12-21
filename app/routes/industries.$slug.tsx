@@ -98,7 +98,6 @@ export default function Index() {
           <Outlet />
       </Await>
     </Suspense>
-      
     </>
   );
 }
