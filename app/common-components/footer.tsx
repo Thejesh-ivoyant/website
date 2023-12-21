@@ -1,3 +1,5 @@
+import { Link } from "@remix-run/react"
+
 const Footer = ()=>
 {
     return (
@@ -111,10 +113,10 @@ const Footer = ()=>
                                 <span className="">For Future developers</span>
                                 <span className="">jobs@ivoyant.com</span>
                                 <span className="flex gap-2 py-4">
-                                <img src="./assets/facebook.png" alt="icons" />
-                                <img src="./assets/mail.svg" alt="icons" />
-                                <img src="./assets/linkedin.svg" alt="icons" />
-                                <img src="./assets/youtube.svg" alt="icons" />
+                                <img src="../assets/Facebook.png" alt="icons" />
+                                <img src="../assets/mail.svg" alt="icons" />
+                                <img src="../assets/linkedin.svg" alt="icons" />
+                                <img src="../assets/youtube.svg" alt="icons" />
                                 </span>
                             </div>
                           
@@ -133,6 +135,27 @@ const Footer = ()=>
                         </div>
                     </div>
                 </div>
+            <div className="flex flex-row gap-[6rem] justify-center w-full text-xs gradient-top font-medium text-center p-4">
+              
+          <Link to={"/privacy-policy"}>
+                <div className="flex">
+                    Privacy Policy
+                </div>
+                </Link>
+                <Link to={"/terms-and-conditions"}>
+                <div className="flex">
+                    Terms and Conditions
+                </div>
+                </Link>
+                <Link to={"/cookies"}>
+                <div className="flex">
+                  Cookie Policy
+                </div>
+                </Link>
+
+            </div>
+     
+
             <div className="flex gap-3 justify-center w-full text-xs gradient-top font-medium text-center p-4"><span>&copy; 2023 iVoyant </span><span> All Rights Reserved</span> </div>
         </footer>
     )

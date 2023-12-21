@@ -11,7 +11,7 @@ const Hero = () => {
 
   return (
     <div>
-      <div className="video-content h-screen">
+      <div className="">
       {/* <img src={`${strapiUrl}${loaderData.heroImage}`} alt="video" width="100%" /> */}
         <img src={`${loaderData.heroImage}`} alt="video" width="100%" />
       </div>
@@ -31,13 +31,12 @@ const Hero = () => {
 
         <hr className="hero-gradient-top flex"></hr>
         <p className="hero-description">{loaderData.heroDescription}</p>
-        {/* Conditionally render button based on the route */}
-   
-         <Link to="/contact-us" className="btn hero-btn">
+      
+         <Link to="/contact-us">
           <button className="btn hero-btn" >
             Let's Talk
           </button>
-      </Link>
+        </Link>
       </div>
     </div>
   );
