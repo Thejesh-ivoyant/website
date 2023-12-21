@@ -39,7 +39,7 @@ const Services = () => {
     .then((section5_pic) => {
       // Assuming data is in the expected format and HomeTitle holds the company name
       const{Banner} = section5_pic.data[0].attributes;
-      setBanner(Banner.data[0].attributes.url)
+      setBanner(Banner.data[1].attributes.url)
 
     })
     .catch((error) => {

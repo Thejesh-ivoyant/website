@@ -91,7 +91,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
             </div>
           </div>
         </div>{" "}
-        <div className="bg-slate-50 self-stretch flex w-full items-start justify-between gap-5 mt-10 pl-20 pr-20 pb-8 max-md:max-w-full max-md:flex-wrap max-md:px-5">
+        <div className="bg-[#F9F8FC] self-stretch flex w-full items-start justify-between gap-5 mt-10 pl-20 pr-20 pb-8 max-md:max-w-full max-md:flex-wrap max-md:px-5">
           <div className="items-start self-center flex grow basis-[0%] flex-col my-auto">
             <div className="text-neutral-800 text-base leading-8 self-stretch whitespace-nowrap">
               Here are some helpful links instead
@@ -121,14 +121,14 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
               We have curated a Web accessibility guide for you, prepared by our
               Accessibility experts.{" "}
             </div>{" "}
-            <div className="text-white text-sm leading-6 tracking-wide capitalize justify-center items-stretch mt-3 px-3 py-1">
+            <div className=" hero-btn error-btn btn text-white text-sm leading-6 tracking-wide capitalize justify-center items-stretch mt-3 px-3 py-1">
               Download Guide
             </div>
           </div>{" "}
           <img
             loading="lazy"
-            srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/a5a24d8c04cf5b64cbd44e50a22cf083e1f691c8058a8d4bd947e769a364b25b?apiKey=9e16588387084fb2a9a51a1b99489136&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/a5a24d8c04cf5b64cbd44e50a22cf083e1f691c8058a8d4bd947e769a364b25b?apiKey=9e16588387084fb2a9a51a1b99489136&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a5a24d8c04cf5b64cbd44e50a22cf083e1f691c8058a8d4bd947e769a364b25b?apiKey=9e16588387084fb2a9a51a1b99489136&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/a5a24d8c04cf5b64cbd44e50a22cf083e1f691c8058a8d4bd947e769a364b25b?apiKey=9e16588387084fb2a9a51a1b99489136&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/a5a24d8c04cf5b64cbd44e50a22cf083e1f691c8058a8d4bd947e769a364b25b?apiKey=9e16588387084fb2a9a51a1b99489136&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a5a24d8c04cf5b64cbd44e50a22cf083e1f691c8058a8d4bd947e769a364b25b?apiKey=9e16588387084fb2a9a51a1b99489136&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/a5a24d8c04cf5b64cbd44e50a22cf083e1f691c8058a8d4bd947e769a364b25b?apiKey=9e16588387084fb2a9a51a1b99489136&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/a5a24d8c04cf5b64cbd44e50a22cf083e1f691c8058a8d4bd947e769a364b25b?apiKey=9e16588387084fb2a9a51a1b99489136&"
-            className="aspect-[0.63] object-contain object-center w-[156px] overflow-hidden self-stretch shrink-0 max-w-full"
+      src='../assets/error-mobile.png'  
+          className="aspect-[0.33] object-contain object-center w-[166px] overflow-hidden self-stretch shrink-0 max-w-full"
           />
         </div>{" "}
        
