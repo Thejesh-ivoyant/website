@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 
-import { strapiUrl } from "~/utils/urls";
+
 import BlogPostCard from "./blogPosts";
 import { Link, useLoaderData } from "@remix-run/react";
 import IBlogMedia from "../../../interfaces/IBlogMedia";
@@ -29,7 +29,7 @@ const BlogPostsContainer = () => {
         </div>
       </div>
       <div className="mx-auto w-full flex justify-center items-center">
-        <button className="button-test font-montserrat font-thin"> <span className="font-thin">Explore Now</span></button>
+      <Link to={`resources/blogs`} key="explore"> <button className="button-test font-montserrat font-thin"> <span className="font-thin">Explore Now</span></button></Link>
       </div>
       
     </div>

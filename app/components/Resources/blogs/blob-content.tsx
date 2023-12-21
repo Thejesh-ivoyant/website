@@ -1,19 +1,8 @@
-import { useState } from "react";
-import { strapiUrl } from "~/utils/urls";
-import { Button, Col, DatePicker, Drawer, Form, Input, Row, Select, Space } from 'antd';
 import { useLoaderData } from "@remix-run/react";
 
 const BlobContent = () => {
   const loaderData = useLoaderData() as any;
-    const [open, setOpen] = useState(false);
-const { Option } = Select;
-    const showDrawer = () => {
-        setOpen(true);
-      };
-    
-      const onClose = () => {
-        setOpen(false);
-      };
+
     
     return (
         <div className="justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 py-12 max-md:px-5">
