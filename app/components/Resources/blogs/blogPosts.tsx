@@ -6,6 +6,7 @@ const BlogPostCard = ({ blog }: { blog: IBlogMedia }) => {
     <div className="blog-card w-96 h-96 z-10 pb-2 cursor-pointer">
       <div className="w-full h-60">
         <img
+        alt="blog-image"
           src={blog?.bannerImage.url}
           className="w-full h-full object-cover"
         ></img>

@@ -124,7 +124,7 @@ setC(0);
           </div>
         </div>
       )}
-      <div className="side-nav">
+      {/* <div className="side-nav">
         <p className="navigate"> Navigate to</p>
         <div className="line" onClick={() => scrollTo("contact-us")}>
           <p>Contact Us</p>{" "}
@@ -141,7 +141,7 @@ setC(0);
         <div className="line" onClick={() => scrollTo("industries")}>
           <p>Industries</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
