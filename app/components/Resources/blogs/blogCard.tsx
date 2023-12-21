@@ -16,8 +16,7 @@ const BlogCard = ({ blog }: { blog: IBlogMedia }) => {
             <header className="justify-between items-stretch shadow-sm flex grow flex-col w-full pb-2 max-md:max-w-full max-md:mt-6">
               <img
                 loading="lazy"
-                srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/2c250c861f6fcfd1ce19f02f9f128cec933cd97a63ba877b4c8d9daabd625542?apiKey=9e16588387084fb2a9a51a1b99489136&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/2c250c861f6fcfd1ce19f02f9f128cec933cd97a63ba877b4c8d9daabd625542?apiKey=9e16588387084fb2a9a51a1b99489136&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/2c250c861f6fcfd1ce19f02f9f128cec933cd97a63ba877b4c8d9daabd625542?apiKey=9e16588387084fb2a9a51a1b99489136&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/2c250c861f6fcfd1ce19f02f9f128cec933cd97a63ba877b4c8d9daabd625542?apiKey=9e16588387084fb2a9a51a1b99489136&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/2c250c861f6fcfd1ce19f02f9f128cec933cd97a63ba877b4c8d9daabd625542?apiKey=9e16588387084fb2a9a51a1b99489136&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/2c250c861f6fcfd1ce19f02f9f128cec933cd97a63ba877b4c8d9daabd625542?apiKey=9e16588387084fb2a9a51a1b99489136&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/2c250c861f6fcfd1ce19f02f9f128cec933cd97a63ba877b4c8d9daabd625542?apiKey=9e16588387084fb2a9a51a1b99489136&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/2c250c861f6fcfd1ce19f02f9f128cec933cd97a63ba877b4c8d9daabd625542?apiKey=9e16588387084fb2a9a51a1b99489136&"className="aspect-[1.22] object-contain object-center w-full overflow-hidden max-md:max-w-full"
-                alt="AI Protection"
+                src={blog?.bannerImage.url}   alt="AI Protection"
               />
             </header>
           </div>

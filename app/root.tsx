@@ -31,6 +31,8 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: Navstyle},
   {rel:"stylesheet", href:Sidebarstyle}
 ];
+
+
 export function scrollTo(section: string) {
   (document.getElementById(section)!).scrollIntoView({ behavior: "smooth" });
 }

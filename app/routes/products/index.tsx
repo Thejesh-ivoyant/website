@@ -1,7 +1,6 @@
-import Nav from "~/common-components/nav";
 import Tabs from "~/components/products/Tabs";
 import { Carousel } from "antd";
-import { useLoaderData } from "@remix-run/react";
+import { MetaFunction, useLoaderData } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { productsQuery } from "~/graphql/queries";
 import Footer from "~/common-components/footer";

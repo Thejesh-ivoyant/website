@@ -1,14 +1,12 @@
 // Index.tsx
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import LoadingComponent from "~/common-components/loading";
-import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
 import Consultation from "~/components/Homepage/section-7/consultation";
 import Footer from "~/common-components/footer";
-import { Outlet } from "@remix-run/react";
+import { MetaFunction, Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import Hero from "~/components/S-MobileAppDev/section-1/hero";
 import IBlogMedia from "../interfaces/IBlogMedia";
-import PitchDeckConsultation from "~/components/Resources/section-5/pitchDeckConsultation";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { blogQuery } from "~/graphql/queries";
 import BlogCardContainer from "~/components/Resources/blogs/blogCard-container";

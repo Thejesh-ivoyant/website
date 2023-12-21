@@ -1,9 +1,8 @@
-import { defer, json } from "@remix-run/node";
-import { Await, Outlet, useLoaderData } from "@remix-run/react";
-import { Suspense, useEffect, useState } from "react";
+import { LoaderFunctionArgs, defer, json } from "@remix-run/node";
+import { Await, MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
+import { Suspense } from "react";
 import Hero from "~/common-components/Hero";
 import Footer from "~/common-components/footer";
-import LoadingComponent from "~/common-components/loading";
 import LoadingTest from "~/common-components/loading-test";
 import Section2 from "~/components/industries/section2";
 import Section3 from "~/components/industries/section3";
@@ -12,7 +11,6 @@ import Section5 from "~/components/industries/section5";
 import Section6 from "~/components/industries/section6";
 import Section7 from "~/components/industries/section7";
 import { fetchData } from "~/utils/fetchdata";
-import { strapiUrl } from "~/utils/urls";
 
 export const meta: MetaFunction = () => {
   return [

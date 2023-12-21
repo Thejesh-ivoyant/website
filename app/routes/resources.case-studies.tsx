@@ -36,7 +36,7 @@ const Index = () => {
         {(lists) => (
           <>
             <Hero
-              heroBgImageUrl={attributes.heroBgImage?.data?.attributes?.url}
+              heroBgImageUrl={attributes?.heroBgImage?.data?.attributes?.url}
               heroTitle={attributes.heroTitle}
               heroDescription={attributes.heroDescription}
             />

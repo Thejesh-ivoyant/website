@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import LoadingComponent from "~/common-components/loading";
-import { strapiUrl } from "~/utils/urls";
 import Hero from "~/components/Homepage/section-1/hero";
 import AboutCardContainer from "../components/Homepage/section-2/about-card-container";
 import Services from "~/components/Homepage/section-3/services";
@@ -14,14 +13,25 @@ import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
 
 import Footer from "~/common-components/footer";
 import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
-import { Outlet } from "@remix-run/react";
+import { MetaFunction, Outlet } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { blogQuery, homeQuery, topBlogQuery } from "~/graphql/queries";
+import { homeQuery, topBlogQuery } from "~/graphql/queries";
 import { ActionFunction } from "@remix-run/node";
 import ErrorBoundary from "~/components/ErrorBoundary";
 import ContactUs from "~/common-components/contactUs";
-import { create } from "@mui/material/styles/createTransitions";
-
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Ivoyant | Homepage" },
+    {
+      property: "og:title",
+      content: "Home Page",
+    },
+    {
+      name: "description",
+      content: "Ivoyants Homepage",
+    },
+  ];
+};
 export async function loader() {
   try {
     const homeGql = await fetchGraphQL(homeQuery)
