@@ -8,6 +8,9 @@ const Nav = () => {
   const navdata = useRouteLoaderData("root") as any;
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [key, setKey] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+
   const handleHamburgerClick = () => {
     setSidebarOpen(!sidebarOpen);
   };
@@ -15,6 +18,25 @@ const Nav = () => {
     
     window.open(PdfUrl, '_blank');
   };
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      setScrollProgress(scrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const categories = [
     "services",
     "industries",
@@ -24,7 +46,7 @@ const Nav = () => {
   ];
   return (
     <div>
-      <nav className="fixed top-0 z-50 w-full bg-nav-dark p-2">
+      <nav className="fixed top-0 z-50 w-full bg-nav-dark pt-2 pb-1">
         <div className="flex flex-row items-center justify-around">
           <Link to="/">
             {" "}
@@ -196,7 +218,15 @@ const Nav = () => {
             </div>
           </div>
         </div>
+        <div className="progress-container pt-2">
+          <div
+            className="progress-bar"
+            id="myBar"
+            style={{ width: `${scrollProgress}%` }}
+          ></div>
+        </div>
       </nav>
+
     </div>
   );
 };
