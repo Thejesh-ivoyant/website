@@ -49,10 +49,10 @@ export async function loader() {
   try {
     const blogGql = await fetchGraphQL(blogQuery)
 
-    const res = await fetch(strapiUrl + "/api/resource?populate=%2A");
+    const res = await fetch(strapiUrl + "/api/white-paper-home?populate=%2A");
     let jsonParsed = await res.json();
 
-    const componentRes = await fetchData("/api/blogs?populate=%2A");
+    const componentRes = await fetchData("/api/white-papers?populate=%2A");
     if (!componentRes || !Array.isArray(componentRes)) {
       throw new Error("Invalid API response structure");
     }
@@ -60,14 +60,12 @@ export async function loader() {
       heroTitle,
       heroDescription,
       s2_title,
-      s4_title,
-      s5_statement,
-      s6_title,
+     
     } = jsonParsed.data?.attributes ?? "";
 
 
     // const blogData: IBlogMedia[] = componentRes.map((item: any) => ({
-  const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
+  const whitePaperData = blogGql.data?.blogs.data?.map((item: any) => ({
       id: item.id,
       title: item.attributes.title,
       description1: item.attributes.description1,
@@ -82,20 +80,16 @@ export async function loader() {
         avatar: item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
       },
     }));
-    console.log("compsres loader data ", blogData);
+    console.log("compsres loader data ", whitePaperData);
 
     
   console.log("loader data ", blogGql.data?.blogs.data);
     return {
       heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.url,
-      pitchDeck:jsonParsed.data?.attributes.pitchDeck.data?.attributes.url,
       heroTitle,
       heroDescription,
       s2_title,
-      s4_title,
-      s5_statement,
-      s6_title,
-      blogData: blogData,
+      whitePaperData: whitePaperData,
     };
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -133,7 +127,7 @@ const Index = () => {
           <Hero/>
             {/* Render the entire data */}
         
-          <WhitePaperCardContainer />
+          {/* <WhitePaperCardContainer /> */}
       
           <Consultation />
           <Footer />

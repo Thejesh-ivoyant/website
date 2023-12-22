@@ -1,12 +1,13 @@
-import IBlogMedia from "~/interfaces/IBlogMedia";
+
+import IWhitePaper from "~/interfaces/IWhitePaper";
 import { strapiUrl } from "~/utils/urls";
-const WhitePaperCard = ({ blog }: { blog: IBlogMedia }) => {
+const WhitePaperCard = ({ paper }: { paper: IWhitePaper }) => {
     // Extract data from the blog object
     function trimWords(text:string) {
       return text.split(' ').slice(0, 30).join(' ') + (text.split(' ').length > 30 ? ' .....' : '');
     }
     
-    console.log(blog,"is the blog data passsedddd")
+    console.log(paper,"is the blog data passsedddd")
 
 
  
@@ -15,16 +16,16 @@ const WhitePaperCard = ({ blog }: { blog: IBlogMedia }) => {
           <div className="w-full h-60">
             <img
             alt="blog-image"
-              src={blog?.bannerImage.url}
+              src={paper?.bannerImage.url}
               className="w-full h-full object-cover"
             ></img>
           </div>
           <div className="h-fit w-full text-white flex-col p-4 flex justify-between gap-y-6">
             <div className="flex font-montserrat text-xl font-medium" style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              {blog.title}
+              {paper.title}
             </div>
             <div className="h-fit w-full flex flex-row justify-between mt-auto font-poppins font-light tracking-wide text-xs">
-              <div className="flex capitalize">By {blog?.author.name}</div>
+              <div className="flex capitalize">By {paper?.author.name}</div>
               <div className="flex gap-x-2">
                 <svg
                   width="16"
@@ -48,7 +49,7 @@ const WhitePaperCard = ({ blog }: { blog: IBlogMedia }) => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                {blog.maxReadTime} Mins Read
+                {paper.maxReadTime} Mins Read
               </div>
             </div>
           </div>

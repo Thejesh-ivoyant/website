@@ -25,7 +25,7 @@ export const meta: MetaFunction = () => {
 
 
 export async function loader({   params, }: LoaderFunctionArgs){
-const blogid=`${params.blogid}`;
+const blogid=`${params.paperid}`;
   const updatedAuthorGetIdQuery= getBlogAuthorIDQuery(blogid)
 
   const authorIdData=await fetchGraphQL(updatedAuthorGetIdQuery);
