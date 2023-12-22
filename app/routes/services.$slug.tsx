@@ -10,7 +10,7 @@ import { LoaderFunctionArgs, defer } from "@remix-run/node";
 
 // Dynamic Imports
 const Hero = React.lazy(
-  () => import("~/components/S-MobileAppDev/section-1/hero")
+  () => import("~/common-components/Hero")
 );
 const ServiceContainer = React.lazy(
   () =>
@@ -140,7 +140,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
   } = jsonParsed.data?.attributes;
 
   return defer({
-    heroImage: jsonParsed.data?.attributes.heroImage.data?.attributes.url,
+    heroBgImageURl: jsonParsed.data?.attributes.heroImage.data?.attributes.url,
     heroTitle,
     heroDescription,
     s2_Title,
@@ -168,9 +168,9 @@ const MobDev = () => {
     <>
       <Suspense fallback={<LoadingTest />}>
     <Await resolve={data.IndustryFocus}>
-          <div className="video-service">
+   
             <Hero />
-          </div>
+      
           <ServiceContainer />
           <ProjectPortfolio />
           <IndustryFocus />
