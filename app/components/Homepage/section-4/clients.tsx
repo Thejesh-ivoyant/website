@@ -39,8 +39,7 @@ const Section4: React.FC = () => {
         const logos = section4_data.data[0]?.attributes.ClientLogos.data || [];
         setClientLogos(logos);
 
-        console.log(logos+"lofgooooooooooooooooo");
-        
+      
       })
       .catch((error) => {
         console.error("Error fetching data from API:", error);

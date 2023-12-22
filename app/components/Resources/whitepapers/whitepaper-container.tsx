@@ -1,8 +1,9 @@
 
 import { Link, useLoaderData } from "@remix-run/react";
 import IBlogMedia from "../../../interfaces/IBlogMedia";
-import BlogCard from "./blogCard";
-const BlogCardContainer = () => {
+import BlogCard from "./whitepaper";
+import WhitePaperCard from "./whitepaper";
+const WhitePaperCardContainer = () => {
   const loaderData = useLoaderData() as any;
   
   return (
@@ -14,13 +15,13 @@ const BlogCardContainer = () => {
 
       </div>
       
-      <div className="w-full h-fit relative p-2 flex flex-row justify-around">
-        <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="ornament" />
-      <div className="w-[1100px] z-10 h-full flex flex-col justify-center gap-y-6 p-6  px-20 overflow-y-scroll  ">
+      <div className="w-full h-fit p-2 relative flex flex-row justify-around">
+        <img src="../assets/Ornament.png" className="absolute z-0 top-4 left-4" alt="ornament" />
+      <div className="w-full h-full justify-center flex gap-x-6 p-6 z-10 px-40 mx-auto">
   
         {loaderData.blogData.map((blog:IBlogMedia) => (
-           <Link to={`../resources/blog/${blog.id}`} key={blog.id}>
-            <BlogCard key={blog.id} blog={blog} />
+           <Link to={`resources/blog/${blog.id}`} key={blog.id}>
+            <WhitePaperCard key={blog.id} blog={blog} />
             </Link>
         ))}
 
@@ -31,4 +32,4 @@ const BlogCardContainer = () => {
   );
 };
 
-export default BlogCardContainer;
+export default WhitePaperCardContainer;
