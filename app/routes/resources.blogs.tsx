@@ -83,7 +83,6 @@ export async function loader() {
   console.log("loader data ", blogGql.data?.blogs.data);
     return {
       heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.url,
-      pitchDeck:jsonParsed.data?.attributes.pitchDeck.data?.attributes.url,
       heroTitle,
       heroDescription,
       s2_title,
