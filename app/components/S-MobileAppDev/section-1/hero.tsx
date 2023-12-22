@@ -1,9 +1,5 @@
-import React from "react";
-import { Link, useMatch } from "@remix-run/react";
-import { strapiUrl } from "~/utils/urls";
-import { scrollTo } from "~/root";
-import { Outlet, useLoaderData } from "@remix-run/react";
-import { loader } from "~/routes/services.MobileDev";
+import { Link } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 
 const Hero = () => {
   const loaderData = useLoaderData() as any;
@@ -11,7 +7,7 @@ const Hero = () => {
 
   return (
     <div>
-      <div className="">
+      <div className="h-screen">
       {/* <img src={`${strapiUrl}${loaderData.heroImage}`} alt="video" width="100%" /> */}
         <img src={`${loaderData.heroImage}`} alt="video" width="100%" />
       </div>

@@ -1,8 +1,14 @@
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useMatch } from "@remix-run/react";
 
 const BlobContent = () => {
   const loaderData = useLoaderData() as any;
+  const match = useMatch("/resources/whitepaper/:id");
+  const isResourcesRoute = match !== null;
 
+  const handleDownload = () => {
+    const whitepaperURL = loaderData.whitepaper;
+    window.open(whitepaperURL, '_blank');
+  };
     
     return (
         <div className="justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 py-12 max-md:px-5">
@@ -15,6 +21,13 @@ const BlobContent = () => {
              
            {loaderData.description1}
             </div>
+            {isResourcesRoute ? (
+          <button className="btn hero-btn" onClick={handleDownload}>
+            Download white Paper 
+          </button>
+        ) : (
+          <div>
+
             <img
               loading="lazy"
               src={`${loaderData.descriptionImage1}`}  className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
@@ -22,6 +35,8 @@ const BlobContent = () => {
             <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
              {loaderData.description2}
             </div>
+           </div>
+          )}
           </div>
           <div className="bg-gray-200 self-stretch flex w-px shrink-0 h-[1653px] flex-col" />
           <div className=" flex grow basis-[0%] flex-col items-stretch self-start">

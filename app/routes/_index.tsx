@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import LoadingComponent from "~/common-components/loading";
 import Hero from "~/components/Homepage/section-1/hero";
 import AboutCardContainer from "../components/Homepage/section-2/about-card-container";
@@ -13,12 +13,13 @@ import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
 
 import Footer from "~/common-components/footer";
 import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
-import { MetaFunction, Outlet } from "@remix-run/react";
+import { Await, MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { homeQuery, topBlogQuery } from "~/graphql/queries";
 import { ActionFunction } from "@remix-run/node";
 import ErrorBoundary from "~/components/ErrorBoundary";
 import ContactUs from "~/common-components/contactUs";
+import LoadingTest from "~/common-components/loading-test";
 export const meta: MetaFunction = () => {
   return [
     { title: "Ivoyant | Homepage" },
@@ -113,38 +114,17 @@ console.warn("/////////////////////////////// hire" ,response.json)
 };
 
 const App = () => {
-
-  const [loading, setLoading] = useState(true);
-  const [contactUsData, setContactUsData] = useState({ contactUsImage: "" });
-
-  useEffect(() => {
-    const fetchDataAsync = async () => {
-      try {
-        const data = await loader();
-        setContactUsData(data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setLoading(false); // Set loading to false in case of an error
-      }
-    };
-
-    fetchDataAsync();
-  }, []);
+  const data = useLoaderData<typeof loader>();
 
   return (
+  
     <ErrorBoundary>
-    <div style={{ padding: "0px", overflowX: "hidden" }}>
-      {/* Video Background */}
-
-      {loading ? (
-        <LoadingComponent />
-      ) : (
-        <div>
+     <>
+     <Suspense fallback={<LoadingTest />}>
+    <Await resolve={data}>
+ 
           <div className="video">
-       
             <Hero />
-        
           </div>
           <AboutCardContainer />
           <Services />
@@ -161,10 +141,13 @@ const App = () => {
           
           <Footer />
           <Outlet />
-        </div>
-      )}
-    </div>
+          </Await>
+          </Suspense>
+
+    
+    </>
     </ErrorBoundary>
+  
   );
 };
 
