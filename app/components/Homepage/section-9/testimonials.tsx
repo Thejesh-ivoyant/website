@@ -87,7 +87,7 @@ const Testimonials = () => {
                   {testimonialList[currentTestimonialIndex].summary}
                 </div>
                 <div className="flex flex-row gap-6">
-                <button className="my-button" onClick={handleBackClick}>
+                <button id="backbutton" name="backbutton" className="my-button" onClick={handleBackClick}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -104,7 +104,7 @@ const Testimonials = () => {
                   </svg>
                 </button>
 
-                <button className="my-button" onClick={handleNextClick}>
+                <button id="nextbutton"  name="nextbutton" className="my-button" onClick={handleNextClick}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
