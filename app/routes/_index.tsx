@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import LoadingComponent from "~/common-components/loading";
 import Hero from "~/components/Homepage/section-1/hero";
 import AboutCardContainer from "../components/Homepage/section-2/about-card-container";
 import Services from "~/components/Homepage/section-3/services";
@@ -19,6 +18,7 @@ import { homeQuery, topBlogQuery } from "~/graphql/queries";
 import { ActionFunction } from "@remix-run/node";
 import ErrorBoundary from "~/components/ErrorBoundary";
 import ContactUs from "~/common-components/contactUs";
+import LoadingTest from "~/common-components/loading-test";
 export const meta: MetaFunction = () => {
   return [
     { title: "Ivoyant | Homepage" },
@@ -138,7 +138,7 @@ const App = () => {
       {/* Video Background */}
 
       {loading ? (
-        <LoadingComponent />
+        <LoadingTest />
       ) : (
         <div>
           <div className="video">

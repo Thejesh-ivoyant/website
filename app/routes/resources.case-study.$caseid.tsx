@@ -7,6 +7,7 @@ import { MetaFunction, Outlet } from "@remix-run/react";
 import Section2 from "~/components/Resources/case-study/section-2";
 import Section4 from "~/components/Resources/case-study/section-4";
 import Section5 from "~/components/Resources/case-study/section-5";
+import LoadingTest from "~/common-components/loading-test";
 
 
 export const meta: MetaFunction = () => {
@@ -80,7 +81,7 @@ const Index = () => {
       {/* Video Background */}
 
       {!loading ? (
-        <LoadingComponent />
+        <LoadingTest />
       ) : (
         <div>
         <Section2/>
