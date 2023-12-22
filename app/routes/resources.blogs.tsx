@@ -58,9 +58,6 @@ export async function loader() {
       heroTitle,
       heroDescription,
       s2_title,
-      s4_title,
-      s5_statement,
-      s6_title,
     } = jsonParsed.data?.attributes ?? "";
 
 
@@ -90,9 +87,6 @@ export async function loader() {
       heroTitle,
       heroDescription,
       s2_title,
-      s4_title,
-      s5_statement,
-      s6_title,
       blogData: blogData,
     };
   } catch (error) {
