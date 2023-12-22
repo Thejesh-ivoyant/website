@@ -11,6 +11,7 @@ import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { blogQuery } from "~/graphql/queries";
 import BlogCardContainer from "~/components/Resources/blogs/blogCard-container";
 import WhitePaperCardContainer from "~/components/Resources/whitepapers/whitepaper-container";
+import LoadingTest from "~/common-components/loading-test";
 
 export const meta: MetaFunction = () => {
   return [
@@ -125,7 +126,7 @@ const Index = () => {
   return (
     <div style={{ padding: "0px", overflowX: "hidden" }}>
       {loading ? (
-        <LoadingComponent />
+        <LoadingTest />
       ) : (
         <div>
           <div className="video">
