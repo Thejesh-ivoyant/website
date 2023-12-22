@@ -5,13 +5,13 @@ import Consultation from "~/components/Homepage/section-7/consultation";
 import Footer from "~/common-components/footer";
 import { MetaFunction, Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
-import Hero from "~/components/S-MobileAppDev/section-1/hero";
 import IBlogMedia from "../interfaces/IBlogMedia";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { blogQuery } from "~/graphql/queries";
 import BlogCardContainer from "~/components/Resources/blogs/blogCard-container";
 import WhitePaperCardContainer from "~/components/Resources/whitepapers/whitepaper-container";
 import LoadingTest from "~/common-components/loading-test";
+import Hero from "~/common-components/Hero";
 
 export const meta: MetaFunction = () => {
   return [
@@ -129,10 +129,10 @@ const Index = () => {
         <LoadingTest />
       ) : (
         <div>
-          <div className="video">
+       
           <Hero/>
             {/* Render the entire data */}
-          </div>
+        
           <WhitePaperCardContainer />
       
           <Consultation />
