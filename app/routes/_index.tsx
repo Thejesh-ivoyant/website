@@ -97,7 +97,7 @@ export let action: ActionFunction = async ({ request }) => {
       body: formData,
     });
     console.log('Form Data:', values);
-console.warn("/////////////////////////////// hire" ,response.json)
+console.warn("//.................// hire" ,response.json)
     if (response.ok) {
       console.warn('Form submitted successfully');
       return null;
@@ -136,9 +136,7 @@ const App = () => {
           <Testimonials />
           <BlogPostsContainer />
           <Why_Choose_Us />
-        
-            <ContactUs />
-          
+          <ContactUs />
           <Footer />
           <Outlet />
           </Await>
