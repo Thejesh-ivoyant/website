@@ -145,10 +145,12 @@ const App = () => {
           </Suspense>
 
     
-    </>
+    </> 
+
     </ErrorBoundary>
   
   );
 };
+
 
 export default App;
