@@ -9,6 +9,7 @@ import JobCards from "~/components/careers/section-3/job-cards";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { careersQuery } from "~/graphql/queries";
 import JoinUsCardContainer from "~/components/careers/section-4/join-us-card-container";
+import LoadingTest from "~/common-components/loading-test";
 
 export const meta: MetaFunction = () => {
   return [
@@ -126,7 +127,7 @@ const Careers = () => {
       {/* Video Background */}
 
       {loading ? (
-        <LoadingComponent />
+        <LoadingTest />
       ) : (
         <div>
           <div className="video">

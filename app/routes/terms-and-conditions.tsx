@@ -5,6 +5,7 @@ import { MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import PTCHero from "~/components/policy-terms-cookies/ptc-hero";
 import Terms from "~/components/policy-terms-cookies/terms_and_conditions";
+import LoadingTest from "~/common-components/loading-test";
 
 export const meta: MetaFunction = () => {
   return [
@@ -85,7 +86,7 @@ const Index = () => {
       {/* Video Background */}
 
       {!data ? (
-        <LoadingComponent />
+        <LoadingTest />
       ) : (
         <div>
           <PTCHero/>

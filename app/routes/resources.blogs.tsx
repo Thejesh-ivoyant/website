@@ -58,9 +58,6 @@ export async function loader() {
       heroTitle,
       heroDescription,
       s2_title,
-      s4_title,
-      s5_statement,
-      s6_title,
     } = jsonParsed.data?.attributes ?? "";
 
 
@@ -86,13 +83,9 @@ export async function loader() {
   console.log("loader data ", blogGql.data?.blogs.data);
     return {
       heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.url,
-      pitchDeck:jsonParsed.data?.attributes.pitchDeck.data?.attributes.url,
       heroTitle,
       heroDescription,
       s2_title,
-      s4_title,
-      s5_statement,
-      s6_title,
       blogData: blogData,
     };
   } catch (error) {
