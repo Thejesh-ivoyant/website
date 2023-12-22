@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import LoadingComponent from "~/common-components/loading";
 import Hero from "~/components/Homepage/section-1/hero";
 import AboutCardContainer from "../components/Homepage/section-2/about-card-container";
@@ -13,13 +13,12 @@ import Why_Choose_Us from "~/components/Homepage/section-11/why-choose-us";
 
 import Footer from "~/common-components/footer";
 import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
-import { Await, MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
+import { MetaFunction, Outlet } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { homeQuery, topBlogQuery } from "~/graphql/queries";
 import { ActionFunction } from "@remix-run/node";
 import ErrorBoundary from "~/components/ErrorBoundary";
 import ContactUs from "~/common-components/contactUs";
-import LoadingTest from "~/common-components/loading-test";
 export const meta: MetaFunction = () => {
   return [
     { title: "Ivoyant | Homepage" },
@@ -97,7 +96,7 @@ export let action: ActionFunction = async ({ request }) => {
       body: formData,
     });
     console.log('Form Data:', values);
-console.warn("//.................// hire" ,response.json)
+console.warn("/////////////////////////////// hire" ,response.json)
     if (response.ok) {
       console.warn('Form submitted successfully');
       return null;
@@ -114,17 +113,38 @@ console.warn("//.................// hire" ,response.json)
 };
 
 const App = () => {
-  const data = useLoaderData<typeof loader>();
+
+  const [loading, setLoading] = useState(true);
+  const [contactUsData, setContactUsData] = useState({ contactUsImage: "" });
+
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      try {
+        const data = await loader();
+        setContactUsData(data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setLoading(false); // Set loading to false in case of an error
+      }
+    };
+
+    fetchDataAsync();
+  }, []);
 
   return (
-  
     <ErrorBoundary>
-     <>
-     <Suspense fallback={<LoadingTest />}>
-    <Await resolve={data}>
- 
+    <div style={{ padding: "0px", overflowX: "hidden" }}>
+      {/* Video Background */}
+
+      {loading ? (
+        <LoadingComponent />
+      ) : (
+        <div>
           <div className="video">
+       
             <Hero />
+        
           </div>
           <AboutCardContainer />
           <Services />
@@ -136,19 +156,16 @@ const App = () => {
           <Testimonials />
           <BlogPostsContainer />
           <Why_Choose_Us />
-          <ContactUs />
+        
+            <ContactUs />
+          
           <Footer />
           <Outlet />
-          </Await>
-          </Suspense>
-
-    
-    </> 
-
+        </div>
+      )}
+    </div>
     </ErrorBoundary>
-  
   );
 };
-
 
 export default App;
