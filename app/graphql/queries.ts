@@ -201,6 +201,42 @@ query {
     }
   }  
 `;
+export const whitepaperQuery = `query {
+  whitePapers{
+   data{
+     id,
+     attributes{
+       title
+       description1
+       maxReadTime
+       date
+       bannerImage{
+         data{
+           attributes{
+             url
+           }
+         }
+       }
+       author{
+         data{
+           attributes{
+           name
+           avatar{
+             data{
+               attributes{
+                 url
+               }
+             }
+           }
+           }
+         }
+       }
+     }
+   }
+ }
+}
+`;
+
 export const blogQuery = `query{
   blogs{
     data{

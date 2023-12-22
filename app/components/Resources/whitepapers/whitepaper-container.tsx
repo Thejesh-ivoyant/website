@@ -1,7 +1,6 @@
 
 import { Link, useLoaderData } from "@remix-run/react";
-import IBlogMedia from "../../../interfaces/IBlogMedia";
-import BlogCard from "./whitepaper";
+
 import WhitePaperCard from "./whitepaper";
 import IWhitePaper from "~/interfaces/IWhitePaper";
 const WhitePaperCardContainer = () => {
