@@ -1,9 +1,5 @@
-import React from "react";
-import { Link, useMatch } from "@remix-run/react";
-import { strapiUrl } from "~/utils/urls";
-import { scrollTo } from "~/root";
-import { Outlet, useLoaderData } from "@remix-run/react";
-import { loader } from "~/routes/services.MobileDev";
+import { Link } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 
 const Hero = () => {
   const loaderData = useLoaderData() as any;
@@ -11,22 +7,13 @@ const Hero = () => {
 
   return (
     <div>
-      <div className="">
+      <div className="h-screen">
       {/* <img src={`${strapiUrl}${loaderData.heroImage}`} alt="video" width="100%" /> */}
         <img src={`${loaderData.heroImage}`} alt="video" width="100%" />
       </div>
       <div className="hero-container">
         <p className="hero-title flex animated-text">
-          {loaderData.heroTitle.split(" ").map((word, wordIndex) => (
-            <React.Fragment key={wordIndex}>
-              {word.split("").map((char, charIndex) => (
-                <span key={charIndex} className="animated-char">
-                  {char}
-                </span>
-              ))}
-              <span>&nbsp;</span>
-            </React.Fragment>
-          ))}
+          {loaderData.heroTitle}
         </p>
 
         <hr className="hero-gradient-top flex"></hr>

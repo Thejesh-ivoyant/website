@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 
 
 
-import BlogPostCard from "./blogPosts";
+import WhitePaperPostCard from "./whitepaperPosts";
 import { Link, useLoaderData } from "@remix-run/react";
 import IBlogMedia from "../../../interfaces/IBlogMedia";
-const BlogPostsContainer = () => {
+const WhitePaperPostsContainer = () => {
   const loaderData = useLoaderData() as any;
   
   return (
@@ -17,12 +17,12 @@ const BlogPostsContainer = () => {
       </div>
       
       <div className="w-full h-fit p-2 relative flex flex-row justify-around">
-        <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="ornament" />
-      <div className="w-full h-full justify-center flex gap-x-6 p-6  px-40 mx-auto">
+        <img src="../assets/Ornament.png" className="absolute z-0 top-4 left-4" alt="ornament" />
+      <div className="w-full h-full justify-center flex gap-x-6 p-6 z-10 px-40 mx-auto">
   
         {loaderData.blogData.map((blog:IBlogMedia) => (
            <Link to={`resources/blog/${blog.id}`} key={blog.id}>
-            <BlogPostCard key={blog.id} blog={blog} />
+            <WhitePaperPostCard key={blog.id} blog={blog} />
             </Link>
         ))}
 
@@ -36,4 +36,4 @@ const BlogPostsContainer = () => {
   );
 };
 
-export default BlogPostsContainer;
+export default WhitePaperPostsContainer;
