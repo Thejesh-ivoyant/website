@@ -329,7 +329,28 @@ export const getBlogAuthorIDQuery = (id:any) => {
   }
   `;
 }; 
-
+export const getPaperAuthorIDQuery = (id:any) => {
+  console.warn("paper id is ", id);
+  return `
+  query GetWhitePaperById{
+    whitePaper(id: ${id}){
+    data{
+      attributes{
+        title
+        author{
+          data{
+            id
+            attributes{
+              publishedAt
+            }
+          }
+        }
+      }
+    }
+  }
+  }
+  `;
+}; 
 export const topBlogQuery = `
 query {
   blogs(

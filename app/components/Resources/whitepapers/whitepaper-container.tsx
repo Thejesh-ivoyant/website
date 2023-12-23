@@ -20,7 +20,7 @@ const WhitePaperCardContainer = () => {
       <div className="w-full h-full justify-center flex gap-x-6 p-6 z-10 px-40 mx-auto">
   
         {loaderData.whitePaperData.map((paper:IWhitePaper) => (
-           <Link to={`resources/whitepaper/${paper.id}`} key={paper.id}>
+           <Link to={`../resources/whitepaper/${paper.id}`} key={paper.id}>
             <WhitePaperCard key={paper.id} paper={paper} />
             </Link>
         ))}
