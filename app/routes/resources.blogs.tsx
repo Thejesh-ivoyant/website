@@ -120,10 +120,10 @@ const Index = () => {
         <LoadingComponent />
       ) : (
         <div>
-          <div className="video">
+         
           <Hero/>
             {/* Render the entire data */}
-          </div>
+       
           <BlogCardContainer />
       
           <Consultation />

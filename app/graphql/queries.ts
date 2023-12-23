@@ -201,6 +201,42 @@ query {
     }
   }  
 `;
+export const whitepaperQuery = `query {
+  whitePapers{
+   data{
+     id,
+     attributes{
+       title
+       description1
+       maxReadTime
+       date
+       bannerImage{
+         data{
+           attributes{
+             url
+           }
+         }
+       }
+       author{
+         data{
+           attributes{
+           name
+           avatar{
+             data{
+               attributes{
+                 url
+               }
+             }
+           }
+           }
+         }
+       }
+     }
+   }
+ }
+}
+`;
+
 export const blogQuery = `query{
   blogs{
     data{
@@ -293,7 +329,28 @@ export const getBlogAuthorIDQuery = (id:any) => {
   }
   `;
 }; 
-
+export const getPaperAuthorIDQuery = (id:any) => {
+  console.warn("paper id is ", id);
+  return `
+  query GetWhitePaperById{
+    whitePaper(id: ${id}){
+    data{
+      attributes{
+        title
+        author{
+          data{
+            id
+            attributes{
+              publishedAt
+            }
+          }
+        }
+      }
+    }
+  }
+  }
+  `;
+}; 
 export const topBlogQuery = `
 query {
   blogs(

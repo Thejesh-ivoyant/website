@@ -6,8 +6,9 @@ const BlobContent = () => {
   const isResourcesRoute = match !== null;
 
   const handleDownload = () => {
-    const whitepaperURL = loaderData.whitepaper;
-    window.open(whitepaperURL, '_blank');
+    console.warn("whute paper donluad")
+    // const whitepaperURL = loaderData.whitepaper;
+    // window.open(whitepaperURL, '_blank');
   };
     
     return (
