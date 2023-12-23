@@ -6,19 +6,21 @@ import { defer } from "@remix-run/node";
 import { Suspense } from "react";
 import LoadingTest from "~/common-components/loading-test";
 import Hero from "~/components/case-study/Hero";
+import { Container } from "~/components/case-study/Search-containter";
 
 export async function loader() {
   const dynamicQuery = await generateDynamicQuery(case_study_paginated, [
     "limit",
     "sort",
+    "title",
+    "category"
   ]);
-  const interpolatedQuery = dynamicQuery(1, "createdAt:asc");
+  const interpolatedQuery = dynamicQuery(3, "createdAt:asc",'','');
 
   const [data, lists] = await Promise.all([
     await fetchGraphQL(case_study_home),
     await fetchGraphQL(interpolatedQuery),
   ]);
-
   return defer({
     data,
     lists,
@@ -28,6 +30,7 @@ export async function loader() {
 const Index = () => {
   const { data, lists } = useLoaderData<typeof loader>();
   //   "data":{"caseStudyHome":{"data":{"attributes":{"heroTitle"
+  
   const attributes = data?.data?.caseStudyHome?.data?.attributes;
 
   return (
@@ -36,11 +39,11 @@ const Index = () => {
         {(lists) => (
           <>
             <Hero
-              heroBgImageUrl={attributes.heroBgImage?.data?.attributes?.url}
-              heroTitle={attributes.heroTitle}
-              heroDescription={attributes.heroDescription}
+              heroBgImageUrl={attributes?.heroBgImage?.data?.attributes?.url}
+              heroTitle={attributes?.heroTitle}
+              heroDescription={attributes?.heroDescription}
             />
-            
+            <Container data={lists} />
           </>
         )}
       </Await>

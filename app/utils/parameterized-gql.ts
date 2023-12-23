@@ -9,21 +9,23 @@
   }
   
   // Example usage:
-  const query = `
-    query {
-      caseStudies(sort: "\${sort}", pagination: { limit: \${limit} }) {
-        data {
-          attributes {
-            publishedAt
-            heroTitle
-          }
-        }
-      }
-    }
-  `;
+  // const query = `
+  //   query {
+  //     caseStudies(sort: "\${sort}",
+  //     filters:{heroTitle :{containsi : "\${title}"}, category:{name : {containsi :"\${category}"}}},
+  //     pagination: { limit: \${limit} }) {
+  //       data {
+  //         attributes {
+  //           publishedAt
+  //           heroTitle
+  //         }
+  //       }
+  //     }
+  //   }
+  // `;
   
-  const dynamicQuery = generateDynamicQuery(query, ['limit', 'sort']);
-  const interpolatedQuery = dynamicQuery(5, 'createdAt:asc');
+  // const dynamicQuery = generateDynamicQuery(query, ['limit', 'sort']);
+  // const interpolatedQuery = dynamicQuery(5, 'createdAt:asc');
   
 
   
