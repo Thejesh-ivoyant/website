@@ -25,8 +25,8 @@ export const meta: MetaFunction = () => {
 
 
 export async function loader({   params, }: LoaderFunctionArgs){
-const blogid=`${params.paperid}`;
-  const updatedAuthorGetIdQuery= getBlogAuthorIDQuery(blogid)
+const paperid=`${params.paperid}`;
+  const updatedAuthorGetIdQuery= getBlogAuthorIDQuery(paperid)
 
   const authorIdData=await fetchGraphQL(updatedAuthorGetIdQuery);
   console.warn("////////////////////// is ",authorIdData.data?.blog.data?.attributes.author.data?.id);
@@ -47,8 +47,7 @@ const blogid=`${params.paperid}`;
   maxReadTime,
   date,
   description1,
-  description2,
-  description3,
+
 
   } = jsonParsed.data?.attributes;
 
@@ -57,16 +56,13 @@ const blogid=`${params.paperid}`;
         avatar:authorData.data?.author.data?.attributes.avatar.data?.attributes?.url,
         bannerImage: jsonParsed.data?.attributes?.bannerImage?.data?.attributes?.url,
         descriptionImage1: jsonParsed.data?.attributes?.descriptionImage1?.data?.attributes?.url,
-        descriptionImage2: jsonParsed.data?.attributes?.descriptionImage2?.data?.attributes?.url, 
-        descriptionImage3: jsonParsed.data?.attributes?.descriptionImage3?.data?.attributes?.url, 
         authorName: jsonParsed.data?.attributes?.author?.data?.attributes?.name,
         authorSummary: jsonParsed.data?.attributes?.author?.data?.attributes?.profileSummary,
         title,
         maxReadTime,
         date,
         description1,
-        description2,
-        description3,
+  
         // whitepaper,
 
   };
