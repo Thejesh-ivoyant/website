@@ -466,12 +466,44 @@ query{
 }`;
 export const case_study_paginated = `
     query {
-      caseStudies(sort: "\${sort}", pagination: { limit: \${limit} }) {
+      caseStudies(sort: "\${sort}",
+      filters:{ or: [{ category:{name : {containsi :"\${category}"}}},{heroTitle :{containsi : "\${title}"}}] },
+       pagination: { limit: \${limit} }) {
         data {
           id
           attributes {
             publishedAt
             heroTitle
+            heroDescription
+            heroBgImage{
+              data{
+                attributes{
+                  url
+                  formats
+                }
+              }
+            }
+            category{
+              data{
+                attributes{
+                  name
+                }
+              }
+            }
+            author {
+              data {
+                attributes {
+                  name
+                  avatar {
+                    data {
+                      attributes {
+                        formats
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
