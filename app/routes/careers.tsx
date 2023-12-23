@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import LoadingComponent from "~/common-components/loading";
-import Hero from "~/components/S-MobileAppDev/section-1/hero";
+
 import Footer from "~/common-components/footer";
 import { MetaFunction, Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
@@ -9,6 +9,8 @@ import JobCards from "~/components/careers/section-3/job-cards";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { careersQuery } from "~/graphql/queries";
 import JoinUsCardContainer from "~/components/careers/section-4/join-us-card-container";
+import LoadingTest from "~/common-components/loading-test";
+import Hero from "~/common-components/Hero";
 
 export const meta: MetaFunction = () => {
   return [
@@ -126,12 +128,12 @@ const Careers = () => {
       {/* Video Background */}
 
       {loading ? (
-        <LoadingComponent />
+        <LoadingTest />
       ) : (
         <div>
-          <div className="video">
+        
             <Hero />
-          </div>
+       
           <Why_Join_Us />
           <JobCards />
           <JoinUsCardContainer />

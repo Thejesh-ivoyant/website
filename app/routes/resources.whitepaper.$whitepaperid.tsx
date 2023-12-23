@@ -52,7 +52,7 @@ const blogid=`${params.blogid}`;
 
   } = jsonParsed.data?.attributes;
 
-
+// const whitepaper="abcs/dkhuidh/d.png"
   return {
         avatar:authorData.data?.author.data?.attributes.avatar.data?.attributes?.url,
         bannerImage: jsonParsed.data?.attributes?.bannerImage?.data?.attributes?.url,
@@ -67,6 +67,7 @@ const blogid=`${params.blogid}`;
         description1,
         description2,
         description3,
+        // whitepaper,
 
   };
  

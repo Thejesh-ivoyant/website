@@ -14,8 +14,8 @@ const Phases = () => {
           <img src={`../assets/${index + 1}.svg`} alt={`SVG ${index + 1}`} className="w-fit h-full p-1"  />
           <div className="flex flex-col ml-4 items-start justify-center p-3 gap-6">
             <strong className="text-base font-bold tracking-wide font-montserrat text-TinBlue ">{item.s5_phasesTitle}</strong>
-            <div className="font-poppins text-xs font-normal text-left leading-5">{defaultDesc}</div>
-                  <img src={item.s5_phasesImage} className="w-10 h-10 mx-auto" alt="phasesicons" />
+            <div className="phases-description ">{item.s5_phasesDescription}</div>
+            <img src={item.s5_phasesImage} className="w-10 h-10 mx-auto" alt="phasesicons" />
           </div>
         </div>
       ))}

@@ -4,6 +4,7 @@ import { MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import JobDescription from "~/components/careers/job-description";
 import { LoaderFunctionArgs } from "@remix-run/node";
+import LoadingTest from "~/common-components/loading-test";
 
 export const meta: MetaFunction = () => {
   return [
@@ -88,7 +89,7 @@ console.warn(JSON.stringify(data));
       {/* Video Background */}
 
       {!data ? (
-        <LoadingComponent />
+        <LoadingTest />
       ) : (
         <div>
           <JobDescription />

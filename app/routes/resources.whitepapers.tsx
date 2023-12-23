@@ -9,6 +9,8 @@ import IBlogMedia from "../interfaces/IBlogMedia";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { blogQuery } from "~/graphql/queries";
 import BlogCardContainer from "~/components/Resources/blogs/blogCard-container";
+import WhitePaperCardContainer from "~/components/Resources/whitepapers/whitepaper-container";
+import LoadingTest from "~/common-components/loading-test";
 import Hero from "~/common-components/Hero";
 
 export const meta: MetaFunction = () => {
@@ -58,6 +60,9 @@ export async function loader() {
       heroTitle,
       heroDescription,
       s2_title,
+      s4_title,
+      s5_statement,
+      s6_title,
     } = jsonParsed.data?.attributes ?? "";
 
 
@@ -83,9 +88,13 @@ export async function loader() {
   console.log("loader data ", blogGql.data?.blogs.data);
     return {
       heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.url,
+      pitchDeck:jsonParsed.data?.attributes.pitchDeck.data?.attributes.url,
       heroTitle,
       heroDescription,
       s2_title,
+      s4_title,
+      s5_statement,
+      s6_title,
       blogData: blogData,
     };
   } catch (error) {
@@ -117,14 +126,14 @@ const Index = () => {
   return (
     <div style={{ padding: "0px", overflowX: "hidden" }}>
       {loading ? (
-        <LoadingComponent />
+        <LoadingTest />
       ) : (
         <div>
-          <div className="video">
+       
           <Hero/>
             {/* Render the entire data */}
-          </div>
-          <BlogCardContainer />
+        
+          <WhitePaperCardContainer />
       
           <Consultation />
           <Footer />
