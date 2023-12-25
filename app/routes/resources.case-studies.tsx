@@ -29,7 +29,6 @@ export async function loader() {
 
 const Index = () => {
   const { data, lists } = useLoaderData<typeof loader>();
-  //   "data":{"caseStudyHome":{"data":{"attributes":{"heroTitle"
   
   const attributes = data?.data?.caseStudyHome?.data?.attributes;
 

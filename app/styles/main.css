@@ -1773,3 +1773,13 @@ border-bottom-style: solid;
     background-position: 100% 0%;
   }
 }
+
+.hue-blue-text-gradient{
+  background: radial-gradient(75.24% 40.05% at 50% 49.98%, #2B15D1 0%, #6762D9 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.feature-card{
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+}
