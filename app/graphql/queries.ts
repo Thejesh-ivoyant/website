@@ -590,7 +590,7 @@ export const case_study_home = `query{
   `;
 export const case_study_query = `
 query{
-  caseStudies (sort: "createdAt:asc", pagination: { limit: 3 }){
+  caseStudies (filters:{ id: { eq: "\${id}" } }){
     data{
       id
       attributes{
@@ -620,6 +620,14 @@ query{
         section2MiniTag
         section2Title
         section_2_description
+        section2Bg{
+          data{
+            attributes{
+              formats
+              url
+            }
+          }
+        }
         section3MiniTitle
         section_3_title
         section_3_description
@@ -647,6 +655,14 @@ query{
         section_6_description
         section_7_phrase
         cases_list
+        category{
+          data
+          {
+            attributes{
+              name
+            }
+          }
+        }
       }
     }
   }
