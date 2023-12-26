@@ -25,9 +25,9 @@ export const meta: MetaFunction = () => {
 
 
 export async function loader({   params, }: LoaderFunctionArgs){
-const paperid=`${params.paperid}`;
-// const paperid=`1`; //hardcoded value
-try {
+const paperid=`${params.whitepaperid}`;
+console.warn(",,,,,,,,,,,,,,,,,,,,,,,,",paperid)
+
   const updatedAuthorGetIdQuery= getPaperAuthorIDQuery(paperid)
 
   const authorIdData=await fetchGraphQL(updatedAuthorGetIdQuery);
@@ -38,8 +38,9 @@ try {
   const authorData =  await fetchGraphQL(updatedQuery);
 
   console.warn("/////////////////author url is ",authorData.data?.author.data?.attributes.avatar.data?.attributes?.url);
-  const url= strapiUrl+`/api/white-papers/${params.paperid}?populate=%2A`;// hardcoded value
+  const url= strapiUrl+`/api/white-papers/${paperid}?populate=%2A`;// hardcoded value
  
+  try {
     const res = await fetch(url);
     let jsonParsed = await res.json();
    
@@ -53,28 +54,24 @@ try {
 
   } = jsonParsed.data?.attributes;
 
-// const whitepaper="abcs/dkhuidh/d.png"
+
   return {
-        avatar:authorData.data?.author.data?.attributes.avatar.data?.attributes?.url,
-        bannerImage: jsonParsed.data?.attributes?.bannerImage?.data?.attributes?.url,
-        authorName: jsonParsed.data?.attributes?.author?.data?.attributes?.name,
-        authorSummary: jsonParsed.data?.attributes?.author?.data?.attributes?.profileSummary,
-        title,
-        maxReadTime,
-        date,
-        description1,
-  
-        // whitepaper,
+    avatar:authorData.data?.author.data?.attributes.avatar.data?.attributes?.url,
+    bannerImage: jsonParsed.data?.attributes?.bannerImage?.data?.attributes?.url,
+    authorName: jsonParsed.data?.attributes?.author?.data?.attributes?.name,
+    authorSummary: jsonParsed.data?.attributes?.author?.data?.attributes?.profileSummary,
+    title,
+    maxReadTime,
+    date,
+    description1,
 
   };
  
 }
 catch (error:any) {
 
-  console.error(`Error fetching data from : ${error.message}`);
+  console.error(`Error fetching data from ${url}: ${error.message}`);
   return null;
-
-
 }
 
 }
@@ -84,23 +81,24 @@ const Index = () => {
 
   const data= useLoaderData() as any;
   console.warn(JSON.stringify(data));
-  return(
+  return (
     <div >
       
 
-    {!data ? (
-      <LoadingTest />
-    ) : (
-      <div>
-        <div className="mt-16">
-        <BlogHero/>
-      </div>
-        <BlobContent/>
-        <Footer />
-        <Outlet />
-      </div>
-    )}
-  </div>
+      {!data ? (
+        <LoadingTest />
+      ) : (
+      
+        <div>
+          <div className="mt-16">
+          <BlogHero/>
+        </div>
+          <BlobContent/>
+          <Footer />
+          <Outlet />
+        </div>
+      )}
+    </div>
   );
 };
 
