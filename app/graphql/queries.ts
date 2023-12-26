@@ -623,6 +623,13 @@ query{
         section2Bg{
           data{
             attributes{
+              url
+            }
+          }
+        }
+        section2Bg{
+          data{
+            attributes{
               formats
               url
             }

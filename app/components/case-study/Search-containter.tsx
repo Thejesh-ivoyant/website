@@ -87,7 +87,7 @@ export const Container = ({ data }: { data: any }) => {
         </div>
         {listData &&
           listData.map((item: any) => (
-            <Link to={`../resources/case-study/${item?.id}`} className="h-96  aspect-[241/78] flex ">
+            <Link prefetch="intent" to={`../resources/case-study/${item?.id}`} className="h-96  aspect-[241/78] flex ">
               <img
                 key={item.id}
                 src={
