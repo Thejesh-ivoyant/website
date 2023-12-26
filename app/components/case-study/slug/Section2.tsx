@@ -1,5 +1,8 @@
+import ReactMarkdown from "react-markdown";
 
 const Section2 = ({data}:{data:any}) => {
+  let markdownString = "";
+  markdownString = data?.section_2_description;
   const gradientStyle = {
     background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${
       data?.section2Bg?.data?.attributes.url
@@ -15,7 +18,8 @@ const Section2 = ({data}:{data:any}) => {
         <div className="bg-[#170D26] font-montserrat italic font-medium w-fit h-fit pb-2">{data?.section2MiniTag}</div>
         <h2 className="text-white font-montserrat text-4xl font-semibold">{data?.section2Title}</h2>
         <section className="h-full w-full mt-6">
-          {data?.section_2_description}
+          {/* {data?.section_2_description} */}
+          <ReactMarkdown>{markdownString}</ReactMarkdown>
         </section>
       </div>
       <div className="flex flex-1 flex-col h-full" style={gradientStyle}>
