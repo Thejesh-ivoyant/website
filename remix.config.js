@@ -6,6 +6,7 @@ module.exports = {
   tailwind: true,
   // ... other configurations
   serverModuleFormat: "cjs",
+  serverDependenciesToBundle: [/^(?!.*(jsdom|fluent-ffmpeg)).*$/],
   styles: {
     postcss: {
       plugins: {

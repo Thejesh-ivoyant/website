@@ -1,12 +1,12 @@
-const Section6 = () => {
+const Section6 = ({data}:{data:any}) => {
   return (
     <>
       <div className="flex">
         <div className="flex-grow justify-center items-center flex">
             <div className=" flex flex-col h-fit w-[32rem] gap-4">
-                <p className="w-fit bg-black font-montserrat italic text-white">The Results</p>
-                <p className="text-5xl font-light self-stretch leading-[3rem] tracking-wide">Aramex automates and optimises its entire operational and business ecosystem.</p>
-                <p className="font-poppins text-base leading-7">At iVoyant, we understand the unique challenges that your business is facing. Unique challenges demand custom-tailored solutions. Explore our comprehensive suite of services ranges from expert consultation to the design and deployment of failproof, user-centered solutions.</p>
+                <p className="w-fit bg-black font-montserrat italic text-white">{data?.section6MiniTitle}</p>
+                <p className="text-5xl font-light self-stretch leading-[3rem] tracking-wide">{data?.section_6_title}</p>
+                <p className="font-poppins text-base leading-7">{data?.section_6_description}</p>
             </div>
         </div>
         <div className="lg:w-1/2 relative w-full CardDark opacity-95 flex flex-col justify-center items-center">

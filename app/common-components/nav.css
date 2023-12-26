@@ -63,7 +63,6 @@ line-height: normal;
     line-height: normal;
     letter-spacing: 0.48px;
     text-transform: uppercase;
-    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6); 
 }
 .hue-btn:hover{
     background: linear-gradient(
