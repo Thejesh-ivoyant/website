@@ -58,6 +58,7 @@ console.warn(",,,,,,,,,,,,,,,,,,,,,,,,",paperid)
   return {
     avatar:authorData.data?.author.data?.attributes.avatar.data?.attributes?.url,
     bannerImage: jsonParsed.data?.attributes?.bannerImage?.data?.attributes?.url,
+    whitepaper: jsonParsed.data?.attributes?.whitepaper?.data?.attributes?.url,
     authorName: jsonParsed.data?.attributes?.author?.data?.attributes?.name,
     authorSummary: jsonParsed.data?.attributes?.author?.data?.attributes?.profileSummary,
     title,
