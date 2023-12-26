@@ -2,7 +2,6 @@ import { Carousel } from "antd";
 import type { LinksFunction } from "@remix-run/node"; // or cloudflare/deno
 
 const Section4 = ({ data }: { data: any }) => {
-  console.log(JSON.stringify(data));
   return (
     <>
       <Carousel className="w-full p-6 my-6">
