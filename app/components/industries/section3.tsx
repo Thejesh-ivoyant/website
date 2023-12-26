@@ -8,7 +8,7 @@ const Section3 = () => {
     }) lightgray 50% / cover no-repeat`,
     backgroundPosition: "100% 50%",
   };
-  const items = loaderData.section3Tags.split(",");
+  const items = loaderData.section3Tags?.split(",");
   return (
     <section className="relative flex justify-center flex-row lg:h-[600px] w-full">
       <div
@@ -17,7 +17,7 @@ const Section3 = () => {
       >
         <section className="">{loaderData.section3Desc}</section>
         <div className="grid grid-cols-2 gap-2 font-poppins">
-          {items.map((item: string, index: number) => (
+          {items?.map((item: string, index: number) => (
             <div
               key={index}
               className="col-span-1 flex gap-2 items-center justify-start p-4 bg-gradient-to-b from-[#360E81] to-[#20084D] w-full h-full"
