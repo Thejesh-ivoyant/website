@@ -8,7 +8,7 @@ const Section5 = () => {
     Our software development process
     </h1>
   <div className="w-full h-[500px] flex justify-around flex-row text-white p-10 top-gradient">
-      {loaderData.PhasesList.map((item: any, index: number) => (
+      {loaderData.PhasesList?.map((item: any, index: number) => (
         <div key={item.id} className="flex items-center px-4 h-[400px]">
           <img src={`../assets/${index + 1}.svg`} alt={`SVG ${index + 1}`} className="w-fit h-full p-1" />
           <div className="flex flex-col ml-4 items-start justify-center p-3 gap-6">

@@ -31,7 +31,7 @@ const toggleTab = () => {
       </div>
       <div className="flex flex-1 flex-col h-full font-montserrat justify-center">
       <div className="overflow-y-auto w-fit">
-      {loaderData.servicesList.map((service:any) => (
+      {loaderData.servicesList?.map((service:any) => (
         <div key={service.id} className="flex flex-col items-center gap-1 w-full p-4">
           <div onClick={() => toggleService(service.id) } className="flex justify-start items-start cursor-pointer font-medium text-xl w-full service-title p-4">
             <span>{service.name}</span>
