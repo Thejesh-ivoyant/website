@@ -57,7 +57,7 @@ export async function loader() {
 
 const Index = () => {
   const data = useLoaderData() as any;
-
+console.log(",,,,,,,,,,,cookie ",JSON.stringify(data))
   return (
     <div style={{ padding: "0px", overflowX: "hidden" }}>
       {/* Video Background */}
