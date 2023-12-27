@@ -203,11 +203,13 @@ const Nav = () => {
           </div>
 
           <div className="flex flex-row gap-6 " >
+          <Link to="/contact-us">
             <div>
 
-              <button name="contactus" className="hue-btn" onClick={() => scrollTo("contact-us")}><span>CONTACT US</span></button>
+              <button name="contactus" className="hue-btn" ><span>CONTACT US</span></button>
 
             </div>
+            </Link>
             <div
               className="hamburger justify-center items-center"
               onClick={handleHamburgerClick}
