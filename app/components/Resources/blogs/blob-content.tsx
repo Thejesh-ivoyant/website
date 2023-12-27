@@ -6,6 +6,34 @@ const BlobContent = () => {
   const loaderData = useLoaderData() as any;
   const match = useMatch("/resources/whitepaper/:id");
   const isResourcesRoute = match !== null;
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    try {
+      event.preventDefault();
+      console.warn("Whitepaper download form clicked ");
+      const formData = new FormData(event.currentTarget);
+      formData.append('action', 'whitepaper');
+      formData.forEach((value, key) => {
+        console.warn(`${key}: ${value}`);
+      });
+      const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/52d6bea6-d664-4d5c-a3e9-81a21ba79d3b', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      if (response.ok) {
+        console.warn('Form submitted successfully');
+        handleDownload();
+      } else {
+        console.warn('Form submission failed');
+        
+      }
+ 
+    } catch (error) {
+      console.error('An error occurred during form submission:', error);
+    }
+  };
+  
+  
 
   const handleDownload = () => {
     console.warn("white paper donluad")
@@ -17,15 +45,7 @@ const BlobContent = () => {
   const showModal = () => {
     setOpen(true);
   };
-  const handleOk = () => {
-    handleDownload();
-    setOpen(false);
-  };
 
-  const handleCancel = () => {
-    setOpen(false);
-  };
-    
     return (
         <div className="justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 py-12 max-md:px-5">
         <div className="flex ml-0 justify-between gap-5  max-md:max-w-full max-md:flex-wrap max-md:justify-center">
@@ -221,22 +241,52 @@ const BlobContent = () => {
         </div>
         <Modal
         open={open}
-        title="Title"
-        onOk={handleOk}
-        onCancel={handleCancel}
-        footer={(_, { OkBtn, CancelBtn }) => (
-          <>
-            <Button>Custom Button</Button>
-            <CancelBtn />
-            <OkBtn />
-          </>
-        )}
+        title="Download Whitepaper"
+       
+       
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+   <form className="form" onSubmit={handleSubmit}>
+    <div className="items-stretch bg-white flex  flex-col py-2">
+
+      <div className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
+        Please provide required information to view the Whitepaper
+      </div>
+      
+      <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
+        Full name
+      </div>
+      <input
+        type="text"
+        className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+        name="fullName"
+        required
+      />
+
+      <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
+        Email
+      </div>
+      <input
+        type="email"
+        className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+        name="email"
+        required
+      />
+
+      <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
+        Phone number
+      </div>
+      <input
+        type="tel"
+        className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+        name="phoneNumber"
+        required
+      />
+
+      <button type="submit" className="mt-4 btn w-full">
+        Get the Copy
+      </button>
+    </div>
+  </form>
       </Modal>
       </div>
       );  
