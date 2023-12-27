@@ -45,7 +45,7 @@ async function fetchData(endpoint: string) {
 
 export async function loader() {
   try {
-    const blogGql = await fetchGraphQL(blogQuery)
+    const blogGql = await fetchGraphQL(blogQuery);
 
     const res = await fetch(strapiUrl + "/api/resource?populate=%2A");
     let jsonParsed = await res.json();
@@ -54,15 +54,11 @@ export async function loader() {
     if (!componentRes || !Array.isArray(componentRes)) {
       throw new Error("Invalid API response structure");
     }
-    const {
-      heroTitle,
-      heroDescription,
-      s2_title,
-    } = jsonParsed.data?.attributes ?? "";
-
+    const { heroTitle, heroDescription, s2_title } =
+      jsonParsed.data?.attributes ?? "";
 
     // const blogData: IBlogMedia[] = componentRes.map((item: any) => ({
-  const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
+    const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
       id: item.id,
       title: item.attributes.title,
       description1: item.attributes.description1,
@@ -70,19 +66,19 @@ export async function loader() {
       maxReadTime: item.attributes.maxReadTime,
       bannerImage: {
         name: item.attributes.bannerImage.data?.attributes.name ?? "",
-        url:  item.attributes.bannerImage.data?.attributes.url ?? "",
+        url: item.attributes.bannerImage.data?.attributes.url ?? "",
       },
       author: {
         name: item.attributes.author.data?.attributes.name,
-        avatar: item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
+        avatar:
+          item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
       },
     }));
     console.log("compsres loader data ", blogData);
 
-    
-  console.log("loader data ", blogGql.data?.blogs.data);
+    console.log("loader data ", blogGql.data?.blogs.data);
     return {
-      heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.url,
+      heroImage: jsonParsed.data?.attributes.heroImage.data?.attributes.url,
       heroTitle,
       heroDescription,
       s2_title,
@@ -120,12 +116,11 @@ const Index = () => {
         <LoadingComponent />
       ) : (
         <div>
-         
-          <Hero/>
-            {/* Render the entire data */}
-       
+          <Hero />
+          {/* Render the entire data */}
+
           <BlogCardContainer />
-      
+
           <Consultation />
           <Footer />
           <Outlet />

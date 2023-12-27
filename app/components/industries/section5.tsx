@@ -13,7 +13,7 @@ const Section5 = () => {
           <img src={`../assets/${index + 1}.svg`} alt={`SVG ${index + 1}`} className="w-fit h-full p-1" />
           <div className="flex flex-col ml-4 items-start justify-center p-3 gap-6">
             <strong className="text-base font-bold tracking-wide font-montserrat text-TinBlue ">{item.title}</strong>
-            <div className="font-poppins text-xs font-normal text-left leading-5">{defaultDesc}</div>
+            <div className="font-poppins text-xs font-normal text-left leading-5">{item.description}</div>
                   <img src={item.ornament} className="w-10 h-10 mx-auto" alt={item.ornament} />
           </div>
         </div>

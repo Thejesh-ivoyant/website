@@ -82,7 +82,7 @@ export async function loader() {
     
 
     return {
-      heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.url,
+      heroBgImageURl:jsonParsed.data?.attributes.heroImage.data?.attributes.url,
       heroTitle,
       heroDescription,
       s2_title,
@@ -96,7 +96,7 @@ export async function loader() {
 
 const Index = () => {
   const data1 =  useLoaderData<typeof loader>() as any;
-  console.warn(".....................",JSON.stringify(data1));
+  console.warn("....................data1 is.",JSON.stringify(data1));
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<{ blogData: IBlogMedia[] } | null>(null);
