@@ -1,32 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { strapiUrl } from "~/utils/urls";
 import { Clients } from "~/interfaces/Homepage";
+import line from '../../../public/assets/pur-line.svg'
 
-const Section4 = ({clients}:{clients:Clients | undefined}) => {
-  
-  
+const Section4 = ({ clients }: { clients: Clients | undefined }) => {
   return (
-    <div className="Container">
-      <section className="section">
-        <h2>Satisfied Clients</h2>
-      </section>
-      <section className="section">
-        <hr />
-      </section>
-      <section className="section">
-        <div className="carousel ">
-          {clients?.data.map((logo,index:number) => (
-            <div key={index} className="card gradient-left grayscale hover:grayscale-0">
-              <img
-                src={`${logo.attributes.url}`}
-                alt="Client Logo"
-                className="ClientLogo "
-              />
-            </div>
+    <>
+      <div className="text-PurpBlue font-montserrat font-medium text-4xl text-center p-10 tracking-wider">
+        <h1>Satisfied clients</h1>
+      </div>
+      <img className= "mx-auto" src = {line}/>
+      <div className="logos">
+        <div className="logos-slide whitespace-nowrap">
+          {clients?.data.map((logo, index: number) => (
+            <img src={`${logo.attributes.url}`} alt="Client Logo" className="gradient-left grayscale hover:grayscale-0" />
           ))}
         </div>
-      </section>
-    </div>
+
+        <div className="logos-slide">
+          {clients?.data.map((logo, index: number) => (
+            <img src={`${logo.attributes.url}`} alt="Client Logo" className="gradient-left grayscale hover:grayscale-0" />
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 
