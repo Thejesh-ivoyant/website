@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 import { scrollTo } from "~/root";
 import { HeroBg } from "~/interfaces/Homepage";
-const SECTION1_API_URL = `${strapiUrl}/api/section1s?populate=%2A`;
 
 const Hero = ({
   heroText,
@@ -36,11 +35,22 @@ const Hero = ({
           autoPlay
           className="-z-10 absolute top-0 object-cover right-0 w-full h-full"
         />
-        <div className="w-fit h-fit grid place-items-center capitalize gap-4 z-20">
-          <div className=" text-white text-4xl font-montserrat font-normal leading-[4rem] tracking-wider">
-          {heroText}
+        <div className="w-fit h-fit grid place-items-center  gap-4 z-20">
+          <div className=" hero-title leading-[4rem] tracking-wider animated-text">
+          
+          {heroText.split(" ").map((word, wordIndex) => (
+            <React.Fragment key={wordIndex}>
+              {word.split("").map((char, charIndex) => (
+                <span key={charIndex} className="animated-char">
+                  {char}
+                </span>
+              ))}
+              <span>&nbsp;</span>
+            </React.Fragment>
+          ))}
+        
           </div>
-          <div className="text-white text-7xl font-montserrat font-bold leading-[4rem] tracking-[0.0969rem]">
+          <div className="text-white text-7xl flex font-montserrat font-bold leading-[4rem] tracking-[0.0969rem]">
             {heroTitle}
           </div>
           <svg
@@ -86,10 +96,10 @@ const Hero = ({
               </linearGradient>
             </defs>
           </svg>
-          <p className="paragraph-animation  h-14 aspect-[61/6] text-white text-center text-xl font-normal font-poppins">
+          <p className="paragraph-animation flex h-14 aspect-[66/6] text-white text-center text-xl font-normal font-poppins">
             {heroDescription}
           </p>
-          <button className="hue-btn-primary mt-16">
+          <button className="hue-btn-primary mt-14">
             <span>Lets Talk</span>
           </button>
         </div>

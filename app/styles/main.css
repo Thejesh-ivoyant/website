@@ -40,6 +40,10 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
 }
+.ant-modal-footer{
+  visibility:hidden;
+  padding: 0;
+}
 
 .error-btn{
   color: #FFF;
@@ -211,7 +215,7 @@ justify-content: center;
 .hero-title {
   font-size: 2rem;
   color: white;
-  position: relative;
+
 }
 
 /* Styles for the hero subtitle */
@@ -264,9 +268,7 @@ background: #58448E;
 
 
 .hero-description{
-  padding-left: 40px;
-  padding-right: 40px;
-  margin-top: 15px;
+
   color: #FFF;
   text-align: center;
   font-family: Poppins;

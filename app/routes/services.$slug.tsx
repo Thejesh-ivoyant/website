@@ -15,23 +15,23 @@ const Hero = React.lazy(
 const ServiceContainer = React.lazy(
   () =>
     import(
-      "~/components/S-MobileAppDev/section-2/service-description-container"
+      "~/components/services/section-2/service-description-container"
     )
 );
 const ProjectPortfolio = React.lazy(
-  () => import("~/components/S-MobileAppDev/section-3/project-portfolio")
+  () => import("~/components/services/section-3/project-portfolio")
 );
 const IndustryFocus = React.lazy(
-  () => import("~/components/S-MobileAppDev/section-4/industry-focus")
+  () => import("~/components/services/section-4/industry-focus")
 );
 const Phases = React.lazy(
-  () => import("~/components/S-MobileAppDev/section-5/phases")
+  () => import("~/components/services/section-5/phases")
 );
 const ServiceCardContainer = React.lazy(
-  () => import("~/components/S-MobileAppDev/section-6/service-card-container")
+  () => import("~/components/services/section-6/service-card-container")
 );
 const Technologies = React.lazy(
-  () => import("~/components/S-MobileAppDev/section-7/technologies")
+  () => import("~/components/services/section-7/technologies")
 );
 const Consultation = React.lazy(
   () => import("~/components/Homepage/consultation")
@@ -173,7 +173,7 @@ const MobDev = () => {
       
           <ServiceContainer />
           <ProjectPortfolio />
-          <IndustryFocus />
+        <IndustryFocus/>
           <Phases />
           <ServiceCardContainer />
           <Technologies />
