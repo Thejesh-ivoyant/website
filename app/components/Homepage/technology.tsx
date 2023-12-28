@@ -46,7 +46,6 @@ const Technology = () => {
         const TechnologyExpertiseLogos =
           section8_data.data[0].attributes.TechnologyExpertiseLogos.data || [];
         setTechnologyExpertiseLogos(TechnologyExpertiseLogos);
-        console.log("hhhhhhhhhhhhssss" + TechnologyExpertiseLogos);
       })
       .catch((error) => {
         console.error("Error fetching data from API:", error);

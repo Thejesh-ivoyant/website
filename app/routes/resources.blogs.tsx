@@ -1,7 +1,7 @@
 // Index.tsx
 import { useEffect, useState } from "react";
 import LoadingComponent from "~/common-components/loading";
-import Consultation from "~/components/Homepage/section-7/consultation";
+import Consultation from "~/components/Homepage/consultation";
 import Footer from "~/common-components/footer";
 import { MetaFunction, Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";

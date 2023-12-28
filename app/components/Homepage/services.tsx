@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLoaderData } from "@remix-run/react";
+import { Attributes } from "~/interfaces/Homepage";
 
-const Services = () => {
+const Services = ({attributes}:{attributes:Attributes}) => {
   const servicesData = useLoaderData() as any;
   const servicesArray =
     servicesData?.homePage?.homepage?.data?.attributes?.services || [];
@@ -38,11 +39,11 @@ const Services = () => {
     <div className="flex flex-col w-full min-h-full lg:mx-0 lg:h-fit bg-haiti">
       <div className="text-gray-200 text-4xl w-full justify-center flex py-8 h-fit gradient-bottom">
         <span className="h-fit whitespace-nowrap font-montserrat font-bold">
-          Services we offer
+         {attributes.servicesTitle}
         </span>
       </div>
       <div className="text-center text-violet-200 text-base font-normal font-poppins p-4 lg:mx-40">
-        {serviceDescription}
+        {attributes.serviceDescription}
       </div>
       <div className="w-fit flex flex-row h-min services-gradient place-self-end lg:my-8 ml-10 cursor-pointer">
         <div className="float-right w-fit flex flex-col overflow-y-auto items-center p-4 py-8 font-poppins cursor-pointer">
@@ -61,8 +62,8 @@ const Services = () => {
               <span
                 className={
                   currentSelectedService === service.title
-                    ? "material-symbols-outlined text-lg font-bold arrow"
-                    : "material-symbols-outlined text-lg opacity-0 font-bold arrow"
+                    ? "material-symbols-outlined text-xl font-extrabold arrow mr-4"
+                    : "material-symbols-outlined text-xl opacity-0 font-extrabold arrow mr-4"
                 }
               >
                 arrow_forward_ios
@@ -76,6 +77,7 @@ const Services = () => {
           <img
             className="w-full h-full object-cover"
             src={serviceImage}
+            loading="eager"
             alt={currentSelectedService}
           />
           <div className="z-10 absolute inset-x-0 bottom-0 md:left-1/2 md:transform md:-translate-x-1/2 flex justify-center items-center text-white bg-opacity-50 p-4 flex-col lg:w-5/6">
@@ -86,8 +88,8 @@ const Services = () => {
                 </i>
               </div>
               {description}
-              <div className="flex justify-end font-normal items-center gap-3 text-lg mt-4">
-                <Link to={link}>Learn More</Link>
+              <div className="flex justify-end font-montserrat font-normal items-center gap-3 text-base mt-4">
+                <Link to={link}>Learn more.</Link>
                 <span>
                   <svg
                     width="40"

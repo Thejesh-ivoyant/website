@@ -1,5 +1,5 @@
 import React from 'react';
-import SummaryCard from '../Homepage/section-2/summary-card';
+import SummaryCard from '../Homepage/summary-card';
 import { Client } from '~/DTO/clients';
 
 
