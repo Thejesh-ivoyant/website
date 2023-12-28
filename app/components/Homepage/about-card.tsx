@@ -17,7 +17,7 @@ const AboutCard = ({attributes}:{attributes:Attributes}) => {
         {attributes.AboutUs}
         </div>
           <Link to={"/company/about_us"} className="button-test relative py-4 lg:py-3 hover:text-white mt-2">
-            <a>{attributes.AboutUsBtnText}</a>
+            {attributes.AboutUsBtnText}
           </Link>
 
       </div>

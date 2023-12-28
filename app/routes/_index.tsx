@@ -18,7 +18,6 @@ import { ActionFunction } from "@remix-run/node";
 import ErrorBoundary from "~/components/ErrorBoundary";
 import ContactUs from "~/common-components/contactUs";
 import LoadingTest from "~/common-components/loading-test";
-import Section2 from "~/components/products/section2";
 import { Attributes } from "~/interfaces/Homepage";
 import WhyChooseUs from "~/components/Homepage/why-choose-us";
 export const meta: MetaFunction = () => {
