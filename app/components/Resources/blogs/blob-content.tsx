@@ -15,10 +15,11 @@ const BlobContent = () => {
       formData.forEach((value, key) => {
         console.warn(`${key}: ${value}`);
       });
-      const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/52d6bea6-d664-4d5c-a3e9-81a21ba79d3b', {
+      const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/c4e42171-a7d2-4ce1-b0dc-c7adeba7c46d', {
         method: 'POST',
         body: formData,
       });
+      
   
       if (response.ok) {
         console.warn('Form submitted successfully');
@@ -38,12 +39,17 @@ const BlobContent = () => {
   const handleDownload = () => {
     console.warn("white paper donluad")
     const whitepaperURL = loaderData.whitepaper;
+    setOpen(false);
     window.open(whitepaperURL, '_blank');
   };
   const [open, setOpen] = useState(false);
 
   const showModal = () => {
     setOpen(true);
+  };
+  const handleCancel = () => {
+    console.warn("cancel clicked.................")
+    setOpen(false);
   };
 
     return (
@@ -242,8 +248,7 @@ const BlobContent = () => {
         <Modal
         open={open}
         title="Download Whitepaper"
-       
-       
+        onCancel={handleCancel} 
       >
    <form className="form" onSubmit={handleSubmit}>
     <div className="items-stretch bg-white flex  flex-col py-2">
@@ -258,7 +263,7 @@ const BlobContent = () => {
       <input
         type="text"
         className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
-        name="fullName"
+        name="firstName"
         required
       />
 
