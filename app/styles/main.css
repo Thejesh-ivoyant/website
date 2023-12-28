@@ -1949,6 +1949,11 @@ border-bottom-style: solid;
   object-fit: contain;
   cursor: pointer;
 }
+.logos-slide img:hover{
+  border-radius: 0.125rem;
+  background: #FFF;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15); 
+}
 @keyframes slidex {
   from {
     transform: translateX(0);
