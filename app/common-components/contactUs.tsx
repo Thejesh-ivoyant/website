@@ -202,7 +202,7 @@ const ContactUs = () => {
           className={toggleState === 2 ? "glider ml-[15rem]" : "glider ml-5"}
         ></div>
         <Form
-         
+          preventScrollReset
           method="post"
           encType="multipart/form-data"
           className={
@@ -340,6 +340,7 @@ const ContactUs = () => {
         <Form
         method="post"
         encType="multipart/form-data"
+        preventScrollReset
           className={
             toggleState === 2
               ? "flex flex-col gap-14 active-content px-10 py-4"

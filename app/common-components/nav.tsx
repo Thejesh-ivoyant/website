@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./sidebar";
-import { Link, useRouteLoaderData } from "@remix-run/react";
+import { Form, Link, useRouteLoaderData } from "@remix-run/react";
 import { scrollTo } from "~/root";
 import { Button, Modal } from "antd";
 
@@ -101,7 +101,7 @@ const Nav = () => {
        
        
       >
-   <form className="form" onSubmit={handleSubmit}>
+   <Form className="form" onSubmit={handleSubmit}>
     <div className="items-stretch bg-white flex  flex-col py-2">
 
       <div className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
@@ -138,11 +138,11 @@ const Nav = () => {
         required
       />
 
-      <button type="submit" className="mt-4 btn w-full">
+      <button type="submit" className="mt-6 btn w-full">
         Get the Copy
       </button>
     </div>
-  </form>
+  </Form>
       </Modal>
       <nav className="fixed top-0 z-50 w-full bg-nav-dark pt-2 pb-1">
         <div className="flex flex-row items-center justify-around">
