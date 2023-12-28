@@ -215,7 +215,7 @@ justify-content: center;
 .hero-title {
   font-size: 2rem;
   color: white;
-  position: relative;
+
 }
 
 /* Styles for the hero subtitle */
@@ -268,9 +268,7 @@ background: #58448E;
 
 
 .hero-description{
-  padding-left: 40px;
-  padding-right: 40px;
-  margin-top: 15px;
+
   color: #FFF;
   text-align: center;
   font-family: Poppins;
