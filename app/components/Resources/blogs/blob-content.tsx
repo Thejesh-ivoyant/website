@@ -1,4 +1,6 @@
 import { useLoaderData, useMatch } from "@remix-run/react";
+import { Button, Modal } from "antd";
+import { useState } from "react";
 
 const BlobContent = () => {
   const loaderData = useLoaderData() as any;
@@ -6,8 +8,22 @@ const BlobContent = () => {
   const isResourcesRoute = match !== null;
 
   const handleDownload = () => {
+    console.warn("white paper donluad")
     const whitepaperURL = loaderData.whitepaper;
     window.open(whitepaperURL, '_blank');
+  };
+  const [open, setOpen] = useState(false);
+
+  const showModal = () => {
+    setOpen(true);
+  };
+  const handleOk = () => {
+    handleDownload();
+    setOpen(false);
+  };
+
+  const handleCancel = () => {
+    setOpen(false);
   };
     
     return (
@@ -22,7 +38,7 @@ const BlobContent = () => {
            {loaderData.description1}
             </div>
             {isResourcesRoute ? (
-          <button className="btn hero-btn" onClick={handleDownload}>
+          <button className="btn hero-btn" onClick={showModal}>
             Download white Paper 
           </button>
         ) : (
@@ -203,6 +219,25 @@ const BlobContent = () => {
             </div>
           </div>
         </div>
+        <Modal
+        open={open}
+        title="Title"
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={(_, { OkBtn, CancelBtn }) => (
+          <>
+            <Button>Custom Button</Button>
+            <CancelBtn />
+            <OkBtn />
+          </>
+        )}
+      >
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Modal>
       </div>
       );  
 };

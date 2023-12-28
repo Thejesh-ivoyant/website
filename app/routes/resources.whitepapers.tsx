@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import LoadingComponent from "~/common-components/loading";
 import Consultation from "~/components/Homepage/consultation";
 import Footer from "~/common-components/footer";
-import { MetaFunction, Outlet } from "@remix-run/react";
+import { MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import IBlogMedia from "../interfaces/IBlogMedia";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { blogQuery } from "~/graphql/queries";
+import { blogQuery, whitepaperQuery } from "~/graphql/queries";
 import BlogCardContainer from "~/components/Resources/blogs/blogCard-container";
 import WhitePaperCardContainer from "~/components/Resources/whitepapers/whitepaper-container";
 import LoadingTest from "~/common-components/loading-test";
@@ -47,27 +47,22 @@ async function fetchData(endpoint: string) {
 
 export async function loader() {
   try {
-    const blogGql = await fetchGraphQL(blogQuery)
+    const whitepaperGql = await fetchGraphQL(whitepaperQuery)
 
-    const res = await fetch(strapiUrl + "/api/resource?populate=%2A");
+    const res = await fetch(strapiUrl + "/api/white-paper-home?populate=%2A");
     let jsonParsed = await res.json();
 
-    const componentRes = await fetchData("/api/blogs?populate=%2A");
-    if (!componentRes || !Array.isArray(componentRes)) {
-      throw new Error("Invalid API response structure");
-    }
+   
     const {
       heroTitle,
       heroDescription,
       s2_title,
-      s4_title,
-      s5_statement,
-      s6_title,
+     
     } = jsonParsed.data?.attributes ?? "";
 
 
     // const blogData: IBlogMedia[] = componentRes.map((item: any) => ({
-  const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
+  const whitePaperData = whitepaperGql.data?.whitePapers.data?.map((item: any) => ({
       id: item.id,
       title: item.attributes.title,
       description1: item.attributes.description1,
@@ -82,20 +77,16 @@ export async function loader() {
         avatar: item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
       },
     }));
-    console.log("compsres loader data ", blogData);
+    console.log("whitepaper loader data ", whitePaperData);
 
     
-  console.log("loader data ", blogGql.data?.blogs.data);
+
     return {
-      heroImage:jsonParsed.data?.attributes.heroImage.data?.attributes.url,
-      pitchDeck:jsonParsed.data?.attributes.pitchDeck.data?.attributes.url,
+      heroBgImageURl:jsonParsed.data?.attributes.heroImage.data?.attributes.url,
       heroTitle,
       heroDescription,
       s2_title,
-      s4_title,
-      s5_statement,
-      s6_title,
-      blogData: blogData,
+      whitePaperData: whitePaperData,
     };
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -104,6 +95,9 @@ export async function loader() {
 }
 
 const Index = () => {
+  const data1 =  useLoaderData<typeof loader>() as any;
+  console.warn("....................data1 is.",JSON.stringify(data1));
+
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<{ blogData: IBlogMedia[] } | null>(null);
 

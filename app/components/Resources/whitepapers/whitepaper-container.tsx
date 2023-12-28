@@ -1,8 +1,8 @@
 
 import { Link, useLoaderData } from "@remix-run/react";
-import IBlogMedia from "../../../interfaces/IBlogMedia";
-import BlogCard from "./whitepaper";
+
 import WhitePaperCard from "./whitepaper";
+import IWhitePaper from "~/interfaces/IWhitePaper";
 const WhitePaperCardContainer = () => {
   const loaderData = useLoaderData() as any;
   
@@ -19,9 +19,9 @@ const WhitePaperCardContainer = () => {
         <img src="../assets/Ornament.png" className="absolute z-0 top-4 left-4" alt="ornament" />
       <div className="w-full h-full justify-center flex gap-x-6 p-6 z-10 px-40 mx-auto">
   
-        {loaderData.blogData.map((blog:IBlogMedia) => (
-           <Link to={`resources/blog/${blog.id}`} key={blog.id}>
-            <WhitePaperCard key={blog.id} blog={blog} />
+        {loaderData.whitePaperData.map((paper:IWhitePaper) => (
+           <Link to={`../resources/whitepaper/${paper.id}`} key={paper.id}>
+            <WhitePaperCard key={paper.id} paper={paper} />
             </Link>
         ))}
 

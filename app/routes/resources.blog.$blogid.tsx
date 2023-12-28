@@ -85,8 +85,8 @@ const Index = () => {
   const data= useLoaderData() as any;
   console.warn(JSON.stringify(data));
   return (
-    <div style={{ padding: "0px", overflowX: "hidden" }}>
-      {/* Video Background */}
+    <div >
+      
 
       {!data ? (
         <LoadingTest />
