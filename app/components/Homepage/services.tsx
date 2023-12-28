@@ -88,8 +88,8 @@ const Services = ({attributes}:{attributes:Attributes}) => {
                 </i>
               </div>
               {description}
-              <div className="flex justify-end font-normal items-center gap-3 text-lg mt-4">
-                <Link to={link}>Learn More</Link>
+              <div className="flex justify-end font-montserrat font-normal items-center gap-3 text-base mt-4">
+                <Link to={link}>Learn more.</Link>
                 <span>
                   <svg
                     width="40"
