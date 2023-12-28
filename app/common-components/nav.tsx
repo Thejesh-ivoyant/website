@@ -138,7 +138,7 @@ const Nav = () => {
         required
       />
 
-      <button type="submit" className="mt-4 btn w-full">
+      <button type="submit" className="mt-6 btn w-full">
         Get the Copy
       </button>
     </div>

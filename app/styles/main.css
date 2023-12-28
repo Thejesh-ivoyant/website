@@ -40,6 +40,10 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
 }
+.ant-modal-footer{
+  visibility:hidden;
+  padding: 0;
+}
 
 .error-btn{
   color: #FFF;
