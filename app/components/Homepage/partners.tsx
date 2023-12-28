@@ -19,7 +19,7 @@ const Section6 = ({partners}:{partners:Partners | undefined}) => {
 
         <div className="logos-slide">
           {partners?.data.map((logo, index: number) => (
-            <img src={`${logo.attributes.url}`} alt="Client Logo" className="gradient-left grayscale hover:grayscale-0" />
+            <img src={`${logo.attributes.url}`} alt="Client Logo" className="gradient-left grayscale hover:grayscale-0 hover:shadow-xl" />
           ))}
         </div>
       </div>

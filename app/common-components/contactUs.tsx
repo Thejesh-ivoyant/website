@@ -382,7 +382,7 @@ const ContactUs = () => {
         preventScrollReset
           className={
             toggleState === 2
-              ? "flex flex-col gap-14 active-content px-10 py-4"
+              ? "flex flex-col gap-10 active-content px-10 py-4"
               : "hidden"
           }
           autoComplete="off"
