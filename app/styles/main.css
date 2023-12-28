@@ -261,11 +261,20 @@ background: #58448E;
 }
 /* Styles for the hero line */
 .hero-line {
+  
   width: 100%;
   margin-top: 15px;
   position: relative;
 }
-
+.country-text{
+  color: #7D7890;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px; /* 125% */
+width:70px;
+}
 
 .hero-description{
 
