@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "./sidebar";
 import { Link, useRouteLoaderData } from "@remix-run/react";
 import { scrollTo } from "~/root";
+import { Button, Modal } from "antd";
+
 import ivurl from '../../public/assets/ivoyant.svg';
 import defaultsvg from '../../public/assets/default.svg';
 const Nav = () => {
@@ -9,15 +11,62 @@ const Nav = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [key, setKey] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [open, setOpen] = useState(false);
+  const [download, setDownload] = useState<string>("");
 
+  const showModal = (url:any) => {
+    // Your existing code for opening the modal
+    setDownload(url);
+    setOpen(true);
+
+    // Now, you can use the 'url' parameter as needed, for example, log it
+    console.log(url);
+};
+
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    try {
+      event.preventDefault();
+      console.warn("pitchdck download form clicked ");
+      const formData = new FormData(event.currentTarget);
+      formData.append('action', 'pitchdeck');
+      formData.forEach((value, key) => {
+        console.warn(`${key}: ${value}`);
+      });
+      const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/c4e42171-a7d2-4ce1-b0dc-c7adeba7c46d', {
+        method: 'POST',
+        body: formData,
+      });
+      
+  
+      if (response.ok) {
+        console.warn('Form submitted successfully');
+        handleDownload();
+      } else {
+        console.warn('Form submission failed');
+        
+      }
+ 
+    } catch (error) {
+      console.error('An error occurred during form submission:', error);
+    }
+  };
+  
+  
+
+  const handleDownload = () => {
+ 
+    const PitchDeskUrl = download;
+    console.warn("pich deck ul issjsjssssssssssssss",download)
+    setOpen(false);
+    //success mesage here
+    window.open(PitchDeskUrl, '_blank');
+  };
 
   const handleHamburgerClick = () => {
     setSidebarOpen(!sidebarOpen);
   };
-  const handleDownload = ( PdfUrl:string) => {
-    
-    window.open(PdfUrl, '_blank');
-  };
+ 
   
   useEffect(() => {
     const handleScroll = () => {
@@ -46,6 +95,55 @@ const Nav = () => {
   ];
   return (
     <div>
+       <Modal
+        open={open}
+        title="Download Whitepaper"
+       
+       
+      >
+   <form className="form" onSubmit={handleSubmit}>
+    <div className="items-stretch bg-white flex  flex-col py-2">
+
+      <div className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
+        Please provide required information to view the Whitepaper
+      </div>
+      
+      <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
+        Full name
+      </div>
+      <input
+        type="text"
+        className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+        name="firstName"
+        required
+      />
+
+      <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
+        Email
+      </div>
+      <input
+        type="email"
+        className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+        name="email"
+        required
+      />
+
+      <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
+        Phone number
+      </div>
+      <input
+        type="tel"
+        className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+        name="phoneNumber"
+        required
+      />
+
+      <button type="submit" className="mt-4 btn w-full">
+        Get the Copy
+      </button>
+    </div>
+  </form>
+      </Modal>
       <nav className="fixed top-0 z-50 w-full bg-nav-dark pt-2 pb-1">
         <div className="flex flex-row items-center justify-around">
           <Link to="/">
@@ -109,13 +207,12 @@ const Nav = () => {
                                     />
                                   )}
                                   {item.attachment?.data?.attributes?.url ? (
-                                    <a
-                                    href={item.attachment?.data?.attributes?.url}
-                                    target="_blank"
-                                    className="inline font-poppins font-normal hover:text-[#bea7ef] "
-                                  >
-                                    {item.name}
-                                  </a>
+                                   <button
+                                   onClick={() => showModal(item.attachment?.data?.attributes?.url)}
+                                   className="inline font-poppins font-normal hover:text-[#bea7ef]"
+                               >
+                                   {item.name}
+                               </button>
                                   ):
                                   <Link
                                     to={item.link}
