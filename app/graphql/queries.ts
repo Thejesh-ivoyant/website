@@ -3,12 +3,26 @@ query{
   homepage{
     data{
       attributes{
+        heroTitle
+        heroText
+        heroDescription
+        heroBg{
+          data{
+            attributes{
+              url
+            }
+          }
+        }
         AboutUs
         AboutUsTitle
+        AboutUsBtnText
+				servicesTitle
+        clientsTitle
         ClientCount
         ExperienceCount
         ProjectsCount
         InHouseExpertsCount
+        serviceDescription
         services{
           id
           title
@@ -21,6 +35,64 @@ query{
             }
           }
           link
+        }
+        industriesTitle
+        IndustriesDescription
+        industriesTabs{
+          id
+          title
+          description
+          image{
+            data{
+              attributes{
+                url
+              }
+            }
+          }
+          link
+        }
+        clients{
+          data{
+            attributes{
+              url
+            }
+          }
+        }
+        partners{
+          data{
+            attributes{url}
+          }
+        }
+        technologies{
+          text
+          pic{
+            data{
+              attributes{
+                url
+              }
+            }
+          }
+        }
+        techTitle
+        testimonalsTitle
+        testimonals{
+          category
+          title
+          designation
+          description
+        }
+        whychooseus
+        whychooseusDesc
+        pairs{
+          text
+          pic{
+            data{attributes{url}}
+          }
+          description
+        }
+        faq{
+          question
+          answer
         }
       }
     }

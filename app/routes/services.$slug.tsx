@@ -34,7 +34,7 @@ const Technologies = React.lazy(
   () => import("~/components/S-MobileAppDev/section-7/technologies")
 );
 const Consultation = React.lazy(
-  () => import("~/components/Homepage/section-7/consultation")
+  () => import("~/components/Homepage/consultation")
 );
 const Footer = React.lazy(() => import("~/common-components/footer"));
 
