@@ -40,6 +40,59 @@ const disabledDateTime = (selectedDate: dayjs.Dayjs | null) => {
         : [],
   };
 };
+const handleSubmit = async (event: React.FormEvent<HTMLFormElement>,formType) => {
+  try {
+    event.preventDefault();
+    if (formType === 'contact') {
+
+    console.warn("contact us submit download form clicked ");
+    const formData = new FormData(event.currentTarget);
+    formData.append('action', 'Contact');
+    formData.forEach((value, key) => {
+      console.warn(`${key}: ${value}`);
+    });
+    const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/52d6bea6-d664-4d5c-a3e9-81a21ba79d3b', {
+              method: 'POST',
+              body: formData,
+            });
+            
+    
+    if (response.ok) {
+      console.warn('Form submitted successfully');
+  
+    } else {
+      console.warn('Form submission failed');
+      
+    }
+  }
+  else if (formType === 'hireus') {
+    console.warn("contact us submit download form clicked ");
+    const formData = new FormData(event.currentTarget);
+    formData.append('action', 'HireUs');
+    formData.forEach((value, key) => {
+      console.warn(`${key}: ${value}`);
+    });
+    const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/28d8b167-abb4-44db-b4a3-19758d09a360',{
+            method: 'POST',
+            body: formData,
+          });
+    
+    
+    if (response.ok) {
+      console.warn('Form submitted successfully');
+  
+    } else {
+      console.warn('Form submission failed');
+      
+    }
+  }
+
+
+  } catch (error) {
+    console.error('An error occurred during form submission:', error);
+  }
+};
+
 
 const ContactUs = () => {
   const ContactUsAPIData = `${strapiUrl}/api/contact-uses?populate=%2A`
@@ -225,6 +278,7 @@ const ContactUs = () => {
         ></div>
         <Form
           preventScrollReset
+          onSubmit={(event) => handleSubmit(event, 'contact')}
           method="post"
           encType="multipart/form-data"
           className={
@@ -377,6 +431,7 @@ const ContactUs = () => {
           </button>
         </Form>
         <Form
+     onSubmit={(event) => handleSubmit(event, 'hireus')}
         method="post"
         encType="multipart/form-data"
         preventScrollReset
