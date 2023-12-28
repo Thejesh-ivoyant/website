@@ -1886,7 +1886,7 @@ border-bottom-style: solid;
 }
 
 .screen-height {
-  height: calc(100vh - 4rem);
+  height: calc(100vh - 4.5rem);
 }
 
 .gradient-mesh{
