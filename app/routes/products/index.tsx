@@ -8,6 +8,8 @@ import Pairs from "~/components/products/pairs";
 import Section2 from "~/components/products/section2";
 import Hero from "~/components/products/Hero";
 import ContactUs from "~/common-components/contactUs";
+import { Technologies } from "~/components/products/technologies";
+import { Attributes } from "~/interfaces/ProductsPage";
 
 export const loader = async () => {
   const productsData =  await fetchGraphQL(productsQuery);
@@ -17,7 +19,7 @@ export const loader = async () => {
 
 export default function Index() {
   const data = useLoaderData() as any
-  const attributes = data?.productsResponse?.data?.product?.data?.attributes;
+  const attributes = data?.productsResponse?.data?.product?.data?.attributes as Attributes;
   const carousel = attributes?.carousel || [];
   
   return (
@@ -26,6 +28,7 @@ export default function Index() {
       <Section2 />
       <Tabs/>
       <Pairs/>
+      <Technologies title={attributes.techTitle} pairs={attributes.technologies} />
       <ContactUs/>
       <Footer/>
 
