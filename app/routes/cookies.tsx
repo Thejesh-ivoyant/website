@@ -69,7 +69,6 @@ console.log(",,,,,,,,,,,cookie ",JSON.stringify(data))
           <PTCHero />
           <Cookies />
           <Consultation />
-          <Footer />
           <Outlet />
         </div>
       )}
