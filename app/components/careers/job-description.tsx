@@ -142,7 +142,7 @@ const { Option } = Select;
         }
       >
  <Form onSubmit={handleSubmit} method="post" encType="multipart/form-data">
-  <div className="items-start bg-white flex flex-col px-8 py-6 max-md:px-5">
+  <div className="items-start bg-white flex flex-col py-8 px-2">
     <div className="justify-between self-stretch flex gap-5 items-start max-md:max-w-full max-md:flex-wrap">
       <div className="text-black text-3xl font-semibold grow whitespace-nowrap">
         Internship Application Form
@@ -254,7 +254,7 @@ const { Option } = Select;
     ></textarea>
     <button
       type="submit"
-      className="btn "
+      className="btn mt-4 justify-end right-0"
     >
       Submit
     </button>
