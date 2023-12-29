@@ -54,7 +54,6 @@ export default function Index() {
         
         <Faq faqContents={aboutData.faq} />
         <ContactUs/>
-        <Footer />
       </Await>
     </Suspense>
       

@@ -28,6 +28,7 @@ export default function Index() {
       <Pairs/>
       <ContactUs/>
       <Footer/>
+
     </>
   );
 }

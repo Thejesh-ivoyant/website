@@ -137,7 +137,6 @@ const Careers = () => {
           <Why_Join_Us />
           <JobCards />
           <JoinUsCardContainer />
-          <Footer />
           <Outlet />
         </div>
       )}
