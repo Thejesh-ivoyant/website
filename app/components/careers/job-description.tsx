@@ -1,14 +1,63 @@
 import { useState } from "react";
 import { strapiUrl } from "~/utils/urls";
-import { Button, Col, DatePicker, Drawer, Form, Input, Row, Select, Space } from 'antd';
+import { Button, Col, DatePicker, Drawer, Input, Row, Select, Space } from 'antd';
 import { useLoaderData, useLocation, useParams } from "@remix-run/react";
 import { loader } from "~/root";
+import { Form, Link, useRouteLoaderData } from "@remix-run/react";
+import { errorMessage, success } from "~/utils/notifications";
+const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  try {
+    event.preventDefault();
 
+    const formData = new FormData(event.currentTarget);
+    formData.append('action', 'Internship');
+    formData.forEach((value, key) => {
+      console.warn(`${key}: ${value}`);
+    });
+    const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/b3a88f65-2b4f-4515-b186-2191b2c01494', {
+      method: 'POST',
+      body: formData,
+    });
+    
+
+    if (response.ok) {
+          
+    success("Thank you for showing interest in us!",2);
+      console.warn('Form submitted successfully');
+      
+    } else {
+      errorMessage("Error occured, please retry",3);
+      console.warn('Form submission failed');
+      
+    }
+
+  } catch (error) {
+    errorMessage("Error occured, please retry",3);
+    console.error('An error occurred during form submission:', error);
+  }
+};
 const JobDescription = () => {
   const loaderData = useLoaderData() as any;
 
+  const [selectedFileName, setSelectedFileName] = useState<string | null>(null);
 
-
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = event.target.files?.[0];
+    if (selectedFile) {
+      setSelectedFileName(selectedFile.name);
+      // Perform actions with the selected file
+      console.warn("Selected File:", selectedFile);
+    }
+  };
+  const handleClearFile = () => {
+    // Clear the selected file and hide the file information
+    setSelectedFileName(null);
+    // Optionally, you can reset the file input value to allow selecting the same file again
+    const fileInput = document.getElementById("attachment") as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = "";
+    }
+  };
     const [open, setOpen] = useState(false);
 const { Option } = Select;
     const showDrawer = () => {
@@ -92,6 +141,9 @@ const { Option } = Select;
           </Space>
         }
       >
+  <Form onSubmit={handleSubmit}
+            method="post"
+            encType="multipart/form-data">
         <div className="items-start bg-white flex flex-col px-8 py-6 max-md:px-5">
       <div className="justify-between self-stretch flex gap-5 items-start max-md:max-w-full max-md:flex-wrap">
         <div className="text-black text-3xl font-semibold grow whitespace-nowrap">
@@ -105,18 +157,17 @@ const { Option } = Select;
           />
         </div>
       </div>
-      <div className="text-black text-center text-lg font-semibold self-stretch whitespace-nowrap mt-11 max-md:max-w-full max-md:mt-10">
+      <div className="text-black  text-lg font-semibold self-stretch whitespace-nowrap mt-11 max-md:max-w-full max-md:mt-10">
         Personal Information
       </div>
-      <div className="text-neutral-800 text-center text-xs self-stretch whitespace-nowrap mt-8 max-md:max-w-full">
-        Full name
-      </div>
+      <div className="text-neutral-800  text-xs self-stretch whitespace-nowrap mt-8 max-md:max-w-full">
+      Name</div>
       <div className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full" />
-      <div className="text-neutral-800 text-center text-xs self-stretch whitespace-nowrap mt-4 max-md:max-w-full">
+      <div className="text-neutral-800  text-xs self-stretch whitespace-nowrap mt-4 max-md:max-w-full">
         Email
       </div>
       <div className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full" />
-      <div className="text-neutral-800 text-center text-xs self-stretch whitespace-nowrap mt-4 max-md:max-w-full">
+      <div className="text-neutral-800  text-xs self-stretch whitespace-nowrap mt-4 max-md:max-w-full">
         Phone number
       </div>
       <div className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full" />
@@ -125,7 +176,7 @@ const { Option } = Select;
         <div className="text-black text-lg font-semibold grow whitespace-nowrap my-auto">
           Education
         </div>
-        <div className="items-stretch border border-[color:var(--gray-gray-10,#000)] self-stretch flex justify-between gap-2 pl-2.5 pr-5 py-1.5 border-solid">
+        {/* <div className="items-stretch border border-[color:var(--gray-gray-10,#000)] self-stretch flex justify-between gap-2 pl-2.5 pr-5 py-1.5 border-solid">
           <img
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/d89b8fff0a6d0d7fe5de20139f217f37ec8bccf476c1f3d6f4d9e33c35e12b61?"
@@ -134,19 +185,19 @@ const { Option } = Select;
           <div className="text-black text-sm font-semibold grow whitespace-nowrap self-start">
             Add
           </div>
-        </div>
+        </div> */}
       </div>
-      <div className="text-neutral-800 text-center text-xs self-stretch whitespace-nowrap mt-6 max-md:max-w-full">
+      <div className="text-neutral-800  text-xs self-stretch whitespace-nowrap mt-6 max-md:max-w-full">
         Institution
       </div>
       <div className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full" />
-      <div className="text-neutral-800 text-center text-xs self-stretch whitespace-nowrap mt-4 max-md:max-w-full">
+      <div className="text-neutral-800  text-xs self-stretch whitespace-nowrap mt-4 max-md:max-w-full">
         Degree
       </div>
       <div className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full" />
       <div className="items-stretch self-stretch flex justify-between gap-5 mt-4 max-md:max-w-full max-md:flex-wrap">
         <div className="items-stretch flex grow basis-[0%] flex-col">
-          <div className="text-neutral-800 text-center text-xs whitespace-nowrap">
+          <div className="text-neutral-800  text-xs whitespace-nowrap">
             From
           </div>
           <div className="border-[color:var(--gray-gray-7,#8C8C8C)] flex flex-col justify-center mt-1 pr-16 py-1.5 border-[0.5px] border-solid items-start max-md:pr-5">
@@ -158,7 +209,7 @@ const { Option } = Select;
           </div>
         </div>
         <div className="items-stretch flex grow basis-[0%] flex-col">
-          <div className="text-neutral-800 text-center text-xs whitespace-nowrap">
+          <div className="text-neutral-800  text-xs whitespace-nowrap">
             To
           </div>
           <div className="border-[color:var(--gray-gray-7,#8C8C8C)] flex flex-col justify-center mt-1 pr-16 py-1.5 border-[0.5px] border-solid items-start max-md:pr-5">
@@ -190,10 +241,11 @@ const { Option } = Select;
         Let the Company know your interest working there
       </div>
       <div className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[163px] flex-col mt-8 border-[0.5px] border-solid max-md:max-w-full" />
-      <div className="text-blue-50 text-xl font-medium tracking-wide capitalize whitespace-nowrap justify-center items-stretch mt-6 px-11 py-5 self-end max-md:px-5">
+      <button type="submit" className="text-blue-50 text-xl font-medium tracking-wide capitalize whitespace-nowrap justify-center items-stretch mt-6 px-11 py-5 self-end max-md:px-5">
         Submit
-      </div>
+      </button>
     </div>
+    </Form>
       </Drawer>
 
 

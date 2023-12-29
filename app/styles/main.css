@@ -259,6 +259,14 @@ background: #58448E;
   border-radius: 0.25rem;
 background: #58448E;
 }
+.labels{
+  color: #7D7890;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px; /* 125% */
+}
 /* Styles for the hero line */
 .hero-line {
   
