@@ -83,7 +83,6 @@ const App = () => {
       <BlogPostsContainer />
       <WhyChooseUs pairs={attributes.pairs} title={attributes.whychooseus} description={attributes.whychooseusDesc} />
       <ContactUs />
-      <Footer />
     </ErrorBoundary>
     </>
   );
