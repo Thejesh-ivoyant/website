@@ -1,9 +1,9 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import { Attributes } from "~/interfaces/NavType";
-import fb from '~/../public/assets/facebook.png'
-import mail from '~/../public/assets/mail.svg'
-import linkedin from '~/../public/assets/linkedin.svg'
-import yt from '~/../public/assets/youtube.svg'
+import fb from '~/../public/assets/Facebook svg.svg'
+import mail from '~/../public/assets/Twitter  svg.svg'
+import linkedin from '~/../public/assets/Linkedin-white.svg'
+import yt from '~/../public/assets/YouTube svg.svg'
 
 const Footer = () => {
   const data = useLoaderData() as any;
@@ -136,10 +136,10 @@ const Footer = () => {
               <span className="">For Future developers</span>
               <span className="">jobs@ivoyant.com</span>
               <span className="flex gap-2 py-4">
-                <img src={fb} alt="facebook-meta" className=" h-7  object-contain"/>
-                <img src={mail} alt="Mail" className="h-7 object-contain"/>
-                <img src={linkedin} alt="Linked-in" className="h-7  object-contain"/>
-                <img src={yt} alt="Youtube-channel" className="h-7 object-contain" />
+                <img src={fb} alt="facebook-meta" className=" h-7  object-contain cursor-pointer"/>
+                <img src={mail} alt="Mail" className="h-7 object-contain cursor-pointer"/>
+                <img src={linkedin} alt="Linked-in" className="h-7  object-contain cursor-pointer"/>
+                <img src={yt} alt="Youtube-channel" className="h-7 object-contain cursor-pointer" />
               </span>
             </div>
           </div>
