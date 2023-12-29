@@ -536,7 +536,17 @@ query{
         pairs{
           id
           text
-          description
+          pic{
+            data{
+              attributes{
+                url
+              }
+            }
+          }
+        }
+        techTitle
+        technologies{
+          text
           pic{
             data{
               attributes{
@@ -547,7 +557,6 @@ query{
         }
       }
     }
-    
   }
 }
 `;
