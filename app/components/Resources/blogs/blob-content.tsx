@@ -1,6 +1,7 @@
 import { useLoaderData, useMatch } from "@remix-run/react";
 import { Button, Modal } from "antd";
 import { useState } from "react";
+import { errorMessage, success } from "~/utils/notifications";
 
 const BlobContent = () => {
   const loaderData = useLoaderData() as any;
@@ -22,10 +23,12 @@ const BlobContent = () => {
       
   
       if (response.ok) {
-        console.warn('Form submitted successfully');
+        success("Thank you for showing interest in us!",2);
+       
         handleDownload();
       } else {
-        console.warn('Form submission failed');
+        errorMessage('Error occured, please retry',2)
+       
         
       }
  

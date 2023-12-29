@@ -12,6 +12,7 @@ import Country from 'country-calling-code';
 
 import type { RangePickerProps } from "antd/es/date-picker";
 import { UploadOutlined } from "@ant-design/icons";
+import { errorMessage , success } from "~/utils/notifications";
 dayjs.extend(customParseFormat);
 
 const range = (start: number, end: number) => {
@@ -21,6 +22,7 @@ const range = (start: number, end: number) => {
   }
   return result;
 };
+
 
 const disabledDate: RangePickerProps["disabledDate"] = (current) => {
   return current && current < dayjs().startOf("day");
@@ -40,7 +42,7 @@ const disabledDateTime = (selectedDate: dayjs.Dayjs | null) => {
         : [],
   };
 };
-const handleSubmit = async (event: React.FormEvent<HTMLFormElement>,formType) => {
+const handleSubmit = async (event: React.FormEvent<HTMLFormElement>,formType:any) => {
   try {
     event.preventDefault();
     if (formType === 'contact') {
@@ -58,9 +60,12 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>,formType) =>
             
     
     if (response.ok) {
-      console.warn('Form submitted successfully');
+      
+      success("Thank you for contacting us! We will get back to you soon.",3);
+      console.warn('Form submitted successfully ');
   
     } else {
+       errorMessage('Error occured while submitting, Please retry',3)
       console.warn('Form submission failed');
       
     }
@@ -95,6 +100,9 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>,formType) =>
 
 
 const ContactUs = () => {
+
+ 
+  
   const ContactUsAPIData = `${strapiUrl}/api/contact-uses?populate=%2A`
   const [contactImage, setcontactImage] = useState<string>("");
   const [hireImage, sethireImage] = useState<string>("");
@@ -161,6 +169,8 @@ const ContactUs = () => {
     setToggleState(index);
   };
   return (
+    <>
+         
     <section
       id="contact-us"
       className="w-full h-fit bg-cover bg-center flex font-montserrat overflow-hidden"
@@ -597,6 +607,7 @@ const ContactUs = () => {
         </Form>
       </div>
     </section>
+    </>
   );
 };
 
