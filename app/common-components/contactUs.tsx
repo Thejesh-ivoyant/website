@@ -74,6 +74,7 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>,formType:any
     console.warn("contact us submit download form clicked ");
     const formData = new FormData(event.currentTarget);
     formData.append('action', 'HireUs');
+    
     formData.forEach((value, key) => {
       console.warn(`${key}: ${value}`);
     });
@@ -477,18 +478,35 @@ const ContactUs = () => {
                 Email*
               </label>
             </div>
-            <div className="w-56 relative group col-span-1">
-              <input
-                type="text"
-                id="username"
-                required
-                name="phone_no"
-                className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
-              ></input>
-              <label className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0">
-                Phone Number
-              </label>
-            </div>
+            <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex gap-2.5  h-11 py-3 ">
+        <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center pr-3 border-r border-solid">
+          <div className="items-stretch flex  gap-1 ">
+            <select
+              value={selectedCountryCode}
+              onChange={handleCountryCodeChange}
+              className=" text-base h-10  font-medium leading-5 grow country-text outline-none cursor-pointer"
+              required
+              name="country"
+            >
+              {countryCodes.map((code) => (
+                <option key={code} value={code}>
+                  {code}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        
+        <input
+          type="tel"
+          placeholder="Phone Number"
+          value={phoneNumber}
+          onChange={handlePhoneNumberChange}
+          required
+          className="outline-none  cursor-pointer"
+          name="phone_no"
+        />
+      </div>
             <div className="w-56 relative group col-span-1">
               <select
                 id="username"
