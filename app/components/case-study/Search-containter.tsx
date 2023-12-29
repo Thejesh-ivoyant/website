@@ -5,14 +5,16 @@ import { generateDynamicQuery } from "~/utils/parameterized-gql";
 import { case_study_paginated } from "~/graphql/queries";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { Link } from "@remix-run/react";
-const handleChange = (value: string) => {
-  console.log(`selected ${value}`);
-};
+import { Daum } from "~/interfaces/CategoriesType";
 
-export const Container = ({ data }: { data: any }) => {
+
+export const Container = ({ data, tags, categories }: { data: any, tags:any, categories: any }) => {
   const [listData, setListData] = useState(data.data?.caseStudies?.data);
   const [searchValue, setSearchValue] = useState("");
-
+  const [tag, setTag] = useState('')
+  const [category, setCategory] = useState('')
+  
+  
   const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     setSearchValue(inputValue);
@@ -20,9 +22,10 @@ export const Container = ({ data }: { data: any }) => {
         "limit",
         "sort",
         "title",
+        "tag",
         "category"
       ]);
-      const interpolatedQuery = dynamicQuery(10, "createdAt:asc",searchValue,searchValue);
+      const interpolatedQuery = dynamicQuery(10, "createdAt:asc",searchValue,tag,category);
 
       const [lists] = await Promise.all([
         await fetchGraphQL(interpolatedQuery),
@@ -40,25 +43,15 @@ export const Container = ({ data }: { data: any }) => {
             placeholder="All Categories"
             style={{ width: 190 }}
             suffixIcon={<DropDownIcon />}
-            onChange={handleChange}
-            options={[
-              { value: "jack", label: "Jack" },
-              { value: "lucy", label: "Lucy" },
-              { value: "Yiminghe", label: "yiminghe" },
-              { value: "disabled", label: "Disabled", disabled: true },
-            ]}
+            onChange={setCategory}
+            options= {categories}
           />
           <Select
-            defaultValue="lucy"
+            placeholder = "All Tags"
             style={{ width: 190 }}
             suffixIcon={<DropDownIcon />}
-            onChange={handleChange}
-            options={[
-              { value: "jack", label: "Jack" },
-              { value: "lucy", label: "Lucy" },
-              { value: "Yiminghe", label: "yiminghe" },
-              { value: "disabled", label: "Disabled", disabled: true },
-            ]}
+            onChange={setTag}
+            options={tags}
           />
           <div className="relative">
             <svg

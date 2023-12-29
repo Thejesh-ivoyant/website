@@ -605,7 +605,7 @@ query{
 export const case_study_paginated = `
     query {
       caseStudies(sort: "\${sort}",
-      filters:{ or: [{ category:{name : {containsi :"\${category}"}}},{heroTitle :{containsi : "\${title}"}}] },
+      filters:{ or: [{ category:{name : {containsi :"\${category}"}}},{heroTitle :{containsi : "\${title}"}}, { topic_tags:{name : {containsi :"\${tag}"}}}] },
        pagination: { limit: \${limit} }) {
         data {
           id
@@ -751,6 +751,28 @@ query{
             }
           }
         }
+      }
+    }
+  }
+}`
+
+export const tagsQuery = `
+query{
+  topicTags{
+    data{
+      attributes{
+        name
+      }
+    }
+  }
+}`
+
+export const categories = `
+query{
+  categories{
+    data{
+      attributes{
+        name
       }
     }
   }
