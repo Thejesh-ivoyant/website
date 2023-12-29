@@ -19,8 +19,6 @@ import {
 import Sidebar from "./common-components/sidebar";
 import Nav from "./common-components/nav";
 import Footer from "./common-components/footer";
-import { strapiUrl } from "./utils/urls";
-import { fetchData } from "./utils/fetchdata";
 import { fetchGraphQL } from "./graphql/fetchGraphQl";
 import { navQuery } from "./graphql/queries";
 
@@ -62,6 +60,7 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        <Footer  />
       </body>
     </html>
   );

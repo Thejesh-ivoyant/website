@@ -96,7 +96,6 @@ const Index = () => {
           <BlogHero/>
         </div>
           <BlobContent/>
-          <Footer />
           <Outlet />
         </div>
       )}

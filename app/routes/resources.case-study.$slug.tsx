@@ -45,7 +45,6 @@ const sample = () => {
         <Features data={attributes} />
         <Section5 data={attributes} />
         <Section6 data={attributes} />
-        <Footer/>
     </>
   );
 };
