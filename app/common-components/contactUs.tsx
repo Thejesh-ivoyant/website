@@ -1,5 +1,5 @@
 import { Form, useLoaderData, useRouteLoaderData } from "@remix-run/react";
-import { FormData, ActionFunction } from "@remix-run/node";
+
 import { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 import { loader } from "~/routes/_index";
@@ -8,6 +8,7 @@ import dayjs, { Dayjs } from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { Button, DatePicker, Space, Upload, UploadProps, message } from "antd";
 import { CalendarOutlined, FileAddOutlined, DeleteOutlined, CloseOutlined } from "@ant-design/icons";
+import Country from 'country-calling-code';
 
 import type { RangePickerProps } from "antd/es/date-picker";
 import { UploadOutlined } from "@ant-design/icons";
@@ -39,11 +40,85 @@ const disabledDateTime = (selectedDate: dayjs.Dayjs | null) => {
         : [],
   };
 };
+const handleSubmit = async (event: React.FormEvent<HTMLFormElement>,formType) => {
+  try {
+    event.preventDefault();
+    if (formType === 'contact') {
+
+    console.warn("contact us submit download form clicked ");
+    const formData = new FormData(event.currentTarget);
+    formData.append('action', 'Contact');
+    formData.forEach((value, key) => {
+      console.warn(`${key}: ${value}`);
+    });
+    const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/52d6bea6-d664-4d5c-a3e9-81a21ba79d3b', {
+              method: 'POST',
+              body: formData,
+            });
+            
+    
+    if (response.ok) {
+      console.warn('Form submitted successfully');
+  
+    } else {
+      console.warn('Form submission failed');
+      
+    }
+  }
+  else if (formType === 'hireus') {
+    console.warn("contact us submit download form clicked ");
+    const formData = new FormData(event.currentTarget);
+    formData.append('action', 'HireUs');
+    formData.forEach((value, key) => {
+      console.warn(`${key}: ${value}`);
+    });
+    const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/28d8b167-abb4-44db-b4a3-19758d09a360',{
+            method: 'POST',
+            body: formData,
+          });
+    
+    
+    if (response.ok) {
+      console.warn('Form submitted successfully');
+  
+    } else {
+      console.warn('Form submission failed');
+      
+    }
+  }
+
+
+  } catch (error) {
+    console.error('An error occurred during form submission:', error);
+  }
+};
+
 
 const ContactUs = () => {
   const ContactUsAPIData = `${strapiUrl}/api/contact-uses?populate=%2A`
   const [contactImage, setcontactImage] = useState<string>("");
   const [hireImage, sethireImage] = useState<string>("");
+  const [countryCodes, setCountryCodes] = useState<string[]>([]);;
+  const [selectedCountryCode, setSelectedCountryCode] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+
+  useEffect(() => {
+    // Fetch all countries and their calling codes
+    const codes = Object.values(Country).map((country) => `+${country.countryCodes}`);
+
+    // Extract calling codes from the country data
+    
+    setCountryCodes(codes);
+    setSelectedCountryCode(codes[0]); // Set default value
+  }, []);
+
+  const handleCountryCodeChange = (e:any) => {
+    setSelectedCountryCode(e.target.value);
+  };
+
+  const handlePhoneNumberChange = (e:any) => {
+    setPhoneNumber(e.target.value);
+  };
 
   useEffect(() => {
     fetch(ContactUsAPIData)
@@ -203,6 +278,7 @@ const ContactUs = () => {
         ></div>
         <Form
           preventScrollReset
+          onSubmit={(event) => handleSubmit(event, 'contact')}
           method="post"
           encType="multipart/form-data"
           className={
@@ -237,18 +313,35 @@ const ContactUs = () => {
                 Email*
               </label>
             </div>
-            <div className="w-56 relative group col-span-1">
-              <input
-                type="text"
-                id="phonenumber"
-                name="phonenumber"
-                required
-                className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
-              ></input>
-              <label className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0">
-                Phone Number
-              </label>
-            </div>
+      <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex gap-2.5  h-11 py-3 ">
+        <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center pr-3 border-r border-solid">
+          <div className="items-stretch flex  gap-1 ">
+            <select
+              value={selectedCountryCode}
+              onChange={handleCountryCodeChange}
+              className=" text-base h-10  font-medium leading-5 grow country-text outline-none cursor-pointer"
+              required
+              name="country"
+            >
+              {countryCodes.map((code) => (
+                <option key={code} value={code}>
+                  {code}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        
+        <input
+          type="tel"
+          placeholder="Phone Number"
+          value={phoneNumber}
+          onChange={handlePhoneNumberChange}
+          required
+          className="outline-none  cursor-pointer"
+          name="phonenumber"
+        />
+      </div>
             <div className="w-56 relative group col-span-1">
               <input
                 type="text"
@@ -338,6 +431,7 @@ const ContactUs = () => {
           </button>
         </Form>
         <Form
+     onSubmit={(event) => handleSubmit(event, 'hireus')}
         method="post"
         encType="multipart/form-data"
         preventScrollReset

@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import Hero from "~/components/Homepage/hero";
-import AboutCardContainer from "../components/Homepage/about-card-container";
 import Services from "~/components/Homepage/services"
 import Section4 from "~/components/Homepage/clients";
 import Section6 from "~/components/Homepage/partners";
@@ -11,15 +9,16 @@ import Testimonials from "~/components/Homepage/testimonials";
 
 import Footer from "~/common-components/footer";
 import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
-import { MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
+import { MetaFunction, useLoaderData } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { homeQuery, topBlogQuery } from "~/graphql/queries";
-import { ActionFunction } from "@remix-run/node";
-import ErrorBoundary from "~/components/ErrorBoundary";
 import ContactUs from "~/common-components/contactUs";
 import LoadingTest from "~/common-components/loading-test";
 import { Attributes } from "~/interfaces/Homepage";
 import WhyChooseUs from "~/components/Homepage/why-choose-us";
+import ErrorBoundary from "~/components/ErrorBoundary";
+import { ActionFunction } from "@remix-run/node";
+import AboutCardContainer from "~/components/Homepage/about-card-container";
 export const meta: MetaFunction = () => {
   return [
     { title: "Ivoyant | Homepage" },
@@ -71,6 +70,7 @@ const App = () => {
   const attributes = data?.homePage?.homepage?.data?.attributes as Attributes
   return (
     <>
+    <ErrorBoundary>
       <Hero heroBgImage={attributes.heroBg} heroText={attributes.heroText}  heroTitle={attributes.heroTitle} heroDescription={attributes.heroDescription}/>
       <AboutCardContainer attributes={attributes} />
       <Services attributes={attributes} />
@@ -83,7 +83,8 @@ const App = () => {
       <BlogPostsContainer />
       <WhyChooseUs pairs={attributes.pairs} title={attributes.whychooseus} description={attributes.whychooseusDesc} />
       <ContactUs />
-      
+      <Footer />
+    </ErrorBoundary>
     </>
   );
 };
