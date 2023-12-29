@@ -12,7 +12,7 @@ import Country from 'country-calling-code';
 
 import type { RangePickerProps } from "antd/es/date-picker";
 import { UploadOutlined } from "@ant-design/icons";
-import { error, success } from "~/utils/notifications";
+import { errorMessage , success } from "~/utils/notifications";
 dayjs.extend(customParseFormat);
 
 const range = (start: number, end: number) => {
@@ -65,7 +65,7 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>,formType:any
       console.warn('Form submitted successfully ');
   
     } else {
-       error('Error occured while submitting, Please retry',3)
+       errorMessage('Error occured while submitting, Please retry',3)
       console.warn('Form submission failed');
       
     }
