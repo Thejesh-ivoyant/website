@@ -2,6 +2,7 @@ import Footer from "~/common-components/footer";
 import ContactCard from "~/components/contact-us/contact-card";
 import ContactUs from "~/common-components/contactUs";
 import { MetaFunction } from "@remix-run/react";
+import { ActionFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
   return [

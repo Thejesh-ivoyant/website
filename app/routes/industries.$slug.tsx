@@ -28,11 +28,12 @@ export const meta: MetaFunction = () => {
 
 export async function loader({   params }: LoaderFunctionArgs) {  
   try {
-    const jsonParsed = await fetchData(`/api/${params.slug}/?populate=%2A`);
-    const section7PairsJson = await fetchData(`/api/${params.slug}/?populate=pairs.pic`);
-    const section5Parsed = await fetchData(`/api/${params.slug}/?populate=process.ornament`);
-    const techParsed = await fetchData(`/api/${params.slug}/?populate=technologies.pic`)
-
+   const industry=`${params.slug}`;
+console.log("url is//////////",`/api/${industry}/?populate=%2A`);
+const jsonParsed = await fetchData(`/api/${industry}/?populate=%2A`);
+const section7PairsJson = await fetchData(`/api/${industry}/?populate=pairs.pic`);
+const section5Parsed = await fetchData(`/api/${industry}/?populate=process.ornament`);
+const techParsed = await fetchData(`/api/${industry}/?populate=technologies.pic`)
     const section7Pairs = section7PairsJson.pairs.map((pair:typeof section7PairsJson) => ({
       id: pair.id,
       text: pair.text,
@@ -81,8 +82,9 @@ export async function loader({   params }: LoaderFunctionArgs) {
 }
 
 
-export default function Index() {
+const Index = () => {
   const data =  useLoaderData<typeof loader>() as any;
+  console.log("/////////////////////////////",JSON.stringify(data));
   return (
     <>
     <Suspense fallback={<LoadingTest />}>
@@ -100,3 +102,4 @@ export default function Index() {
     </>
   );
 }
+export default Index;
