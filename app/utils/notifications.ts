@@ -19,7 +19,7 @@ export const success = (content: React.ReactNode, duration?: number) => {
   openMessage({ type: 'success', content, duration });
 };
 
-export const error = (content: React.ReactNode, duration?: number) => {
+export const errorMessage = (content: React.ReactNode, duration?: number) => {
   openMessage({ type: 'error', content, duration });
 };
 

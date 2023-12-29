@@ -6,6 +6,7 @@ import { Button, Modal } from "antd";
 
 import ivurl from '../../public/assets/ivoyant.svg';
 import defaultsvg from '../../public/assets/default.svg';
+import { success,errorMessage } from "~/utils/notifications";
 const Nav = () => {
   const navdata = useRouteLoaderData("root") as any;
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -40,6 +41,8 @@ const Nav = () => {
       
   
       if (response.ok) {
+            
+      success("Thank you for showing interest in us!",2);
         console.warn('Form submitted successfully');
         handleDownload();
       } else {
@@ -48,6 +51,7 @@ const Nav = () => {
       }
  
     } catch (error) {
+      errorMessage("Error occured, please retry",3);
       console.error('An error occurred during form submission:', error);
     }
   };
