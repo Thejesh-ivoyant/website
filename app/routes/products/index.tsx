@@ -7,6 +7,7 @@ import Footer from "~/common-components/footer";
 import Pairs from "~/components/products/pairs";
 import Section2 from "~/components/products/section2";
 import Hero from "~/components/products/Hero";
+import ContactUs from "~/common-components/contactUs";
 
 export const loader = async () => {
   const productsData =  await fetchGraphQL(productsQuery);
@@ -25,6 +26,7 @@ export default function Index() {
       <Section2 />
       <Tabs/>
       <Pairs/>
+      <ContactUs/>
       <Footer/>
     </>
   );
