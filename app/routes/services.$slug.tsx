@@ -179,7 +179,6 @@ const MobDev = () => {
           <Technologies />
           <Consultation />
           <BlogPostsContainer />
-          <Footer />
           <Outlet />
         </Await>
       </Suspense>

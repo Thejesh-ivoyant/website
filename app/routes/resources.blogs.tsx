@@ -122,7 +122,6 @@ const Index = () => {
           <BlogCardContainer />
 
           <Consultation />
-          <Footer />
           <Outlet />
         </div>
       )}

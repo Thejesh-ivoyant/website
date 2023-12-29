@@ -130,7 +130,6 @@ const Index = () => {
           <WhitePaperCardContainer />
       
           <Consultation />
-          <Footer />
           <Outlet />
         </div>
       )}

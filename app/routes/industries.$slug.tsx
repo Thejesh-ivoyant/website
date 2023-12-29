@@ -94,7 +94,6 @@ export default function Index() {
           <Section5 />
           <Section6 />
           <Section7 />
-          <Footer />
           <Outlet />
       </Await>
     </Suspense>

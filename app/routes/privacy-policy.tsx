@@ -121,7 +121,6 @@ const Index = () => {
           <PTCHero/>
         <PrivacyPolicy/>
         <Consultation/>
-          <Footer />
           <Outlet />
         </div>
       )}

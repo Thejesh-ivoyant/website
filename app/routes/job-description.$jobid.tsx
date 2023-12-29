@@ -93,7 +93,6 @@ console.warn(JSON.stringify(data));
       ) : (
         <div>
           <JobDescription />
-          <Footer />
           <Outlet />
         </div>
       )}
