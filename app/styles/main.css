@@ -86,14 +86,21 @@ text-transform: capitalize;
     text-transform: uppercase;
     background: linear-gradient(135deg, #6C39DB 0.62%, #1C083E 100%);
     }
+  .ant-drawer-header {
+display: none;
+    }
+.ant-drawer-content-wrapper{
+      margin-top: 94px;
+}
 
 .hamburger{
   color: white;
   visibility: hidden;
   display: none;
 }
+
 .footer-heading{
-  color: var(--geek-blue-geekblue-2, #D6E4FF);
+color: var(--geek-blue-geekblue-2, #D6E4FF);
 font-family: Montserrat;
 font-size: 16px;
 font-style: normal;
@@ -101,8 +108,9 @@ font-weight: 600;
 line-height: normal;
 letter-spacing: 0.32px;
 }
+
 .footer-font{
-  color: var(--gray-gray-1, #FFF);
+color: var(--gray-gray-1, #FFF);
 font-family: Poppins;
 font-size: 13px;
 font-style: normal;

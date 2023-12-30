@@ -37,6 +37,22 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   }
 };
 const JobDescription = () => {
+  const [toDate, setToDate] = useState('');
+  const [isCurrentlyAttend, setIsCurrentlyAttend] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setIsCurrentlyAttend((prev) => !prev); // Toggle the checkbox state
+
+    if (!isCurrentlyAttend) {
+      // If checkbox is checked, set "To" date to today's date
+      const today = new Date();
+      const formattedDate = today.toISOString().split('T')[0];
+      setToDate(formattedDate);
+    } else {
+      // If checkbox is unchecked, clear the "To" date
+      setToDate('');
+    }
+  };
   const loaderData = useLoaderData() as any;
 
   const [selectedFileName, setSelectedFileName] = useState<string | null>(null);
@@ -206,35 +222,46 @@ const { Option } = Select;
       name="degree"
       className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
     />
-    <div className="items-stretch self-stretch flex justify-between gap-5 mt-4 max-md:max-w-full max-md:flex-wrap">
-      {/* Date fields can be added here if needed */}
-      <div className="items-stretch flex grow basis-[0%] flex-col">
-        <div className="text-neutral-800 text-xs whitespace-nowrap">
-          From
+  <div className="items-stretch self-stretch flex justify-between gap-5 mt-4 max-md:max-w-full max-md:flex-wrap">
+        <div className="items-stretch flex grow basis-[0%] flex-col">
+          <div className="text-neutral-800 text-xs whitespace-nowrap">
+            From
+          </div>
+          <input
+            type="date"
+            id="fromDate"
+            className="border-[color:var(--gray-gray-7,#8C8C8C)] flex flex-col justify-center mt-1 pr-16 py-1.5 border-[0.5px] border-solid items-start max-md:pr-5"
+          />
         </div>
-        <input
-          type="date"
-          className="border-[color:var(--gray-gray-7,#8C8C8C)] flex flex-col justify-center mt-1 pr-16 py-1.5 border-[0.5px] border-solid items-start max-md:pr-5"
-        />
-      </div>
-      <div className="items-stretch flex grow basis-[0%] flex-col">
-        <div className="text-neutral-800 text-xs whitespace-nowrap">
-          To
+        <div className="items-stretch flex grow basis-[0%] flex-col">
+          <div className="text-neutral-800 text-xs whitespace-nowrap">
+            To
+          </div>
+          <input
+            type="date"
+            id="toDate"
+            value={toDate}
+            className="border-[color:var(--gray-gray-7,#8C8C8C)] flex flex-col justify-center mt-1 pr-16 py-1.5 border-[0.5px] border-solid items-start max-md:pr-5"
+            disabled={isCurrentlyAttend}
+          />
         </div>
-        <input
-          type="date"
-          className="border-[color:var(--gray-gray-7,#8C8C8C)] flex flex-col justify-center mt-1 pr-16 py-1.5 border-[0.5px] border-solid items-start max-md:pr-5"
-        />
       </div>
 
-   
-    </div>
-    <div className="items-center flex gap-3 mt-5 self-start">
-      <div className="flex w-3 shrink-0 h-3 flex-col my-auto border-[0.5px] border-solid border-zinc-300" />
-      <div className="text-neutral-800 text-center text-xs self-stretch grow whitespace-nowrap">
-        I Currently Attend
-      </div>
-    </div>
+     
+    
+
+<div className="items-center flex gap-3 mt-5 self-start">
+  <input
+    type="checkbox"
+    id="currentlyAttendCheckbox"
+    onChange={handleCheckboxChange}
+  />
+  <div className="text-neutral-800 text-center text-xs self-stretch grow whitespace-nowrap">
+    I Currently Attend
+  </div>
+  
+</div>
+
     <div className="text-black text-lg font-semibold self-stretch whitespace-nowrap mt-8 max-md:max-w-full">
       Resume
     </div>

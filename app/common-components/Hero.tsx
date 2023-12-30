@@ -1,5 +1,5 @@
 import { Outlet, useLoaderData } from "@remix-run/react";
-
+import { scrollTo } from "~/root";
 const Hero = () => {
   const loaderData = useLoaderData() as any;
   const gradientStyle = {
@@ -15,7 +15,7 @@ const Hero = () => {
           {loaderData.heroDescription}
           </span>
         </div>
-        <button className="btn hero-btn">Let's Talk</button>
+        <button className="btn hero-btn"  onClick={() => scrollTo('contact-us')}>Let's Talk</button>
       </div>
       <Outlet />
     </section>
