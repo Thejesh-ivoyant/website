@@ -68,6 +68,7 @@ const handleSubmit = async (
       );
 
       if (response.ok) {
+        console.warn
         success(
           "Thank you for contacting us! We will get back to you soon.",
           3
@@ -485,7 +486,7 @@ const ContactUs = () => {
             </button>
           </Form>
           <Form
-            onSubmit={(event) => handleSubmit(event, "hireus")}
+           onSubmit={(event) => handleSubmit(event, "hireus")}
             method="post"
             encType="multipart/form-data"
             preventScrollReset
@@ -496,12 +497,12 @@ const ContactUs = () => {
             }
             autoComplete="off"
           >
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-10">
               <div className="w-56 relative group col-span-1">
                 <input
                   type="text"
-                  id="username"
-                  name="personname"
+                  id="name"
+                  name="name"
                   placeholder="Name*"
                   required
                   className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
@@ -510,14 +511,14 @@ const ContactUs = () => {
               <div className="w-56 relative group col-span-1">
                 <input
                   type="text"
-                  id="username"
-                  required
-                  placeholder="Email*"
+                  id="email"
                   name="email"
+                  placeholder="Email*"
+                  required
                   className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
               </div>
-              <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex gap-2.5  h-11 py-3 ">
+              <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex gap-2.5  h-10 py-3 ">
                 <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center pr-3 border-r border-solid">
                   <div className="items-stretch flex  gap-1 ">
                     <select
@@ -543,7 +544,7 @@ const ContactUs = () => {
                   onChange={handlePhoneNumberChange}
                   required
                   className="outline-none  cursor-pointer"
-                  name="phone_no"
+                  name="phonenumber"
                 />
               </div>
               <div className="w-56 relative group col-span-1">
@@ -590,11 +591,11 @@ const ContactUs = () => {
                 <textarea
                   minLength={3}
                   maxLength={250}
-                  id="username"
+                  id="message"
+                  name="message"
                   cols={30}
-                  rows={3}
-                  name="messages"
-                  className="p-4 text-sm peer border-[1px] border-black outline-none cursor-pointer col-span-2"
+                  rows={5}
+                  className="p-4 text-sm peer border-[1px] border-black outline-none cursor-pointer"
                 ></textarea>
               </div>
             </div>
@@ -623,15 +624,15 @@ const ContactUs = () => {
                   onOk={() => setOpen(false)}
                 />
               </div>
+
               <div className="flex flex-col gap-1">
-                <div className="flex flex-row">
-                  <label htmlFor="attachment" style={{ cursor: "pointer" }} onClick={handleLabelClick}>
+                <div className="flex flex-col">
+                  <label htmlFor="attachment" style={{ cursor: "pointer" }}>
                     <FileAddOutlined className="bg-[#AF99DD] rounded-full p-2 text-black mr-2" />
-                    Attach File :
+                    Attach File:
                   </label>
                   <input
-                  className="flex-1"
-                    style={{ display: "visible" }}
+                    style={{ display: "none" }}
                     type="file"
                     id="attachment"
                     name="attachment"
@@ -648,10 +649,11 @@ const ContactUs = () => {
                 )}
               </div>
             </Space>
+
             <button
               type="submit"
               name="_action"
-              value="hire"
+              value="contact"
               className="btn-purp-grad w-fit text-HeaderGray font-normal"
             >
               Send my message
