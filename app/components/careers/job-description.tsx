@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 import { Button, Col, DatePicker, Drawer, Input, Row, Select, Space } from 'antd';
 import { useLoaderData, useLocation, useParams } from "@remix-run/react";
 import { loader } from "~/root";
 import { Form, Link, useRouteLoaderData } from "@remix-run/react";
 import { errorMessage, success } from "~/utils/notifications";
+import { useDropzone } from 'react-dropzone';
+import { FileAddOutlined, DeleteOutlined } from '@ant-design/icons';
+
+import React from "react";
 const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   try {
     event.preventDefault();
@@ -12,7 +16,8 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     const formData = new FormData(event.currentTarget);
     formData.append('action', 'Internship');
     formData.forEach((value, key) => {
-      console.warn(`${key}: ${value}`);
+      console.warn(">>>>>>>>>>>>>>>>>>>>>>>");
+      console.warn(`attribute is ${key}: ${value}`);
     });
     const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/b3a88f65-2b4f-4515-b186-2191b2c01494', {
       method: 'POST',
@@ -37,6 +42,24 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   }
 };
 const JobDescription = () => {
+  const [selectedFileName, setSelectedFileName] = React.useState<string | null>(null);
+
+  const onDrop = useCallback((acceptedFiles:any) => {
+    // Handle the dropped files
+    if (acceptedFiles.length > 0) {
+      const file = acceptedFiles[0];
+      setSelectedFileName(file.name);
+      // Perform actions with the selected file
+      console.warn("Selected File:", file);
+    }
+  }, []);
+
+  const handleClearFile = () => {
+    // Clear the selected file and hide the file information
+    setSelectedFileName(null);
+  };
+
+
   const [toDate, setToDate] = useState('');
   const [isCurrentlyAttend, setIsCurrentlyAttend] = useState(false);
 
@@ -55,25 +78,8 @@ const JobDescription = () => {
   };
   const loaderData = useLoaderData() as any;
 
-  const [selectedFileName, setSelectedFileName] = useState<string | null>(null);
+ 
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFile = event.target.files?.[0];
-    if (selectedFile) {
-      setSelectedFileName(selectedFile.name);
-      // Perform actions with the selected file
-      console.warn("Selected File:", selectedFile);
-    }
-  };
-  const handleClearFile = () => {
-    // Clear the selected file and hide the file information
-    setSelectedFileName(null);
-    // Optionally, you can reset the file input value to allow selecting the same file again
-    const fileInput = document.getElementById("attachment") as HTMLInputElement;
-    if (fileInput) {
-      fileInput.value = "";
-    }
-  };
     const [open, setOpen] = useState(false);
 const { Option } = Select;
     const showDrawer = () => {
@@ -83,7 +89,8 @@ const { Option } = Select;
       const onClose = () => {
         setOpen(false);
       };
- 
+  const { getRootProps, getInputProps } = useDropzone({ onDrop });
+
     return (
         <div className=" main-jd-content items-start flex flex-col mt-10 p-20">
           <div className="text-black text-4xl font-semibold self-stretch w-full max-md:max-w-full">
@@ -228,6 +235,7 @@ const { Option } = Select;
             From
           </div>
           <input
+          name="FromDate"
             type="date"
             id="fromDate"
             className="border-[color:var(--gray-gray-7,#8C8C8C)] flex flex-col justify-center mt-1 pr-16 py-1.5 border-[0.5px] border-solid items-start max-md:pr-5"
@@ -239,6 +247,7 @@ const { Option } = Select;
           </div>
           <input
             type="date"
+            name="ToDate"
             id="toDate"
             value={toDate}
             className="border-[color:var(--gray-gray-7,#8C8C8C)] flex flex-col justify-center mt-1 pr-16 py-1.5 border-[0.5px] border-solid items-start max-md:pr-5"
@@ -265,9 +274,23 @@ const { Option } = Select;
     <div className="text-black text-lg font-semibold self-stretch whitespace-nowrap mt-8 max-md:max-w-full">
       Resume
     </div>
-    <div className="text-black text-sm border-[color:var(--gray-gray-7,#8C8C8C)] bg-violet-700 bg-opacity-0 self-stretch items-center mt-8 pt-6 pb-1 px-16 border-[0.5px] border-dashed max-md:max-w-full max-md:px-5">
-      <span className="font-semibold">Upload resume</span>
-      <span className=""> or just drop it here</span>
+    <div
+      {...getRootProps()}
+      className={`flex flex-col gap-1 text-black text-sm text-center border-[color:var(--gray-gray-7,#8C8C8C)] bg-violet-700 bg-opacity-10 self-stretch items-center mt-8 pt-6 pb-1 px-16 border-[0.5px] border-dashed max-md:max-w-full max-md:px-5`}
+    >
+      <label htmlFor="attachment" style={{ cursor: "pointer" }}>
+        <FileAddOutlined className="bg-[#AF99DD] rounded-full p-2 text-black mr-2" />
+        Upload resume
+      </label>
+      <input {...getInputProps()} type="file" name="attachment" style={{ display: "none" }} />
+      {selectedFileName && (
+        <div className="file-info">
+          <span>{`${selectedFileName}`}</span>
+          <button onClick={handleClearFile}>
+            <DeleteOutlined className="text-red-500 ml-2" />
+          </button>
+        </div>
+      )}
     </div>
     <div className="text-black text-lg font-semibold whitespace-nowrap mt-8 self-start">
       Message to Hiring Manager
