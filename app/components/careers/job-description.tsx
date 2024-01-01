@@ -42,6 +42,7 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   }
 };
 const JobDescription = () => {
+
   const [selectedFileName, setSelectedFileName] = React.useState<string | null>(null);
 
   const onDrop = useCallback((acceptedFiles:any) => {
@@ -282,7 +283,7 @@ const { Option } = Select;
         <FileAddOutlined className="bg-[#AF99DD] rounded-full p-2 text-black mr-2" />
         Upload resume
       </label>
-      <input {...getInputProps()} type="file" name="attachment" style={{ display: "none" }} />
+      <input {...getInputProps()} type="file" name="resume_attachement" style={{ display: "none" }} />
       {selectedFileName && (
         <div className="file-info">
           <span>{`${selectedFileName}`}</span>
