@@ -57,7 +57,7 @@ const handleSubmit = async (
       const formData = new FormData(event.currentTarget);
       formData.append("action", "Contact");
       formData.forEach((value, key) => {
-        console.warn(`${key}: ${value}`);
+        console.warn(`attribute is :  ${key}: ${value}`);
       });
       const response = await fetch(
         "https://forms.hubspot.com/uploads/form/v2/39872873/52d6bea6-d664-4d5c-a3e9-81a21ba79d3b",
@@ -79,12 +79,12 @@ const handleSubmit = async (
         console.warn("Form submission failed");
       }
     } else if (formType === "hireus") {
-      console.warn("contact us submit download form clicked ");
+      console.warn("hire us submit  form clicked ");
       const formData = new FormData(event.currentTarget);
       formData.append("action", "HireUs");
 
       formData.forEach((value, key) => {
-        console.warn(`${key}: ${value}`);
+        console.warn(`attribute is : ${key}: ${value}`);
       });
       const response = await fetch(
         "https://forms.hubspot.com/uploads/form/v2/39872873/28d8b167-abb4-44db-b4a3-19758d09a360",
@@ -165,7 +165,7 @@ const ContactUs = () => {
   const [toggleState, setToggleState] = useState(1);
   const [openc1, setOpen] = useState(false);
   const [selectedFileName, setSelectedFileName] = useState<string | null>(null);
-
+  const [hireselectedFileName, sethireSelectedFileName] = useState<string | null>(null);
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
     if (selectedFile) {
@@ -179,6 +179,22 @@ const ContactUs = () => {
     setSelectedFileName(null);
     // Optionally, you can reset the file input value to allow selecting the same file again
     const fileInput = document.getElementById("attachment") as HTMLInputElement;
+    if (fileInput) {
+      fileInput.value = "";
+    }
+  };
+  const handlehireFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = event.target.files?.[0];
+    if (selectedFile) {
+      sethireSelectedFileName(selectedFile.name);
+      // Perform actions with the selected file
+      console.warn("Selected File:", selectedFile);
+    }
+  };
+  const handlehireClearFile = () => {
+    sethireSelectedFileName(null);
+    // Optionally, you can reset the file input value to allow selecting the same file again
+    const fileInput = document.getElementById("hire_attachment") as HTMLInputElement;
     if (fileInput) {
       fileInput.value = "";
     }
@@ -382,7 +398,7 @@ const ContactUs = () => {
                       onChange={handleCountryCodeChange}
                       className=" text-base h-10  font-medium leading-5 grow country-text outline-none cursor-pointer"
                       required
-                      name="country"
+                      name="country_code"
                     >
                       {countryCodes.map((code) => (
                         <option key={code} value={code}>
@@ -526,7 +542,7 @@ const ContactUs = () => {
                       onChange={handleCountryCodeChange}
                       className=" text-base h-10  font-medium leading-5 grow country-text outline-none cursor-pointer"
                       required
-                      name="country"
+                      name="country_code"
                     >
                       {countryCodes.map((code) => (
                         <option key={code} value={code}>
@@ -544,7 +560,7 @@ const ContactUs = () => {
                   onChange={handlePhoneNumberChange}
                   required
                   className="outline-none  cursor-pointer"
-                  name="phonenumber"
+                  name="phone_number"
                 />
               </div>
               <div className="w-56 relative group col-span-1">
@@ -592,7 +608,7 @@ const ContactUs = () => {
                   minLength={3}
                   maxLength={250}
                   id="message"
-                  name="message"
+                  name="message_hire"
                   cols={30}
                   rows={5}
                   className="p-4 text-sm peer border-[1px] border-black outline-none cursor-pointer"
@@ -627,22 +643,22 @@ const ContactUs = () => {
 
               <div className="flex flex-col gap-1">
                 <div className="flex flex-col">
-                  <label htmlFor="attachment" style={{ cursor: "pointer" }}>
+                  <label htmlFor="hire_attachment" style={{ cursor: "pointer" }}>
                     <FileAddOutlined className="bg-[#AF99DD] rounded-full p-2 text-black mr-2" />
                     Attach File:
                   </label>
                   <input
+                    name="hire_attachment"
                     style={{ display: "none" }}
                     type="file"
-                    id="attachment"
-                    name="attachment"
-                    onChange={handleFileChange}
+                    id="hire_attachment"
+                    onChange={handlehireFileChange}
                   />
                 </div>
-                {selectedFileName && (
+                {hireselectedFileName && (
                   <div className="file-info">
-                    <span>{`${selectedFileName}`}</span>
-                    <button onClick={handleClearFile}>
+                    <span>{`${hireselectedFileName}`}</span>
+                    <button onClick={handlehireClearFile}>
                       <DeleteOutlined className="text-red-500 ml-2" />
                     </button>
                   </div>
@@ -653,7 +669,7 @@ const ContactUs = () => {
             <button
               type="submit"
               name="_action"
-              value="contact"
+              value="hireus"
               className="btn-purp-grad w-fit text-HeaderGray font-normal"
             >
               Send my message
