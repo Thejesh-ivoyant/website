@@ -398,7 +398,7 @@ const ContactUs = () => {
                       onChange={handleCountryCodeChange}
                       className=" text-base h-10  font-medium leading-5 grow country-text outline-none cursor-pointer"
                       required
-                      name="country"
+                      name="country_code"
                     >
                       {countryCodes.map((code) => (
                         <option key={code} value={code}>
