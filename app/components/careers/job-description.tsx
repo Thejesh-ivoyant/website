@@ -42,6 +42,7 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   }
 };
 const JobDescription = () => {
+
   const [selectedFileName, setSelectedFileName] = React.useState<string | null>(null);
 
   const onDrop = useCallback((acceptedFiles:any) => {
@@ -186,7 +187,7 @@ const { Option } = Select;
     </div>
     <input
       type="text"
-      name="name"
+      name="firstname"
       required
       className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
     />
@@ -237,7 +238,7 @@ const { Option } = Select;
           <input
           name="FromDate"
             type="date"
-            id="fromDate"
+            id="fromdate"
             className="border-[color:var(--gray-gray-7,#8C8C8C)] flex flex-col justify-center mt-1 pr-16 py-1.5 border-[0.5px] border-solid items-start max-md:pr-5"
           />
         </div>
@@ -247,7 +248,7 @@ const { Option } = Select;
           </div>
           <input
             type="date"
-            name="ToDate"
+            name="todate"
             id="toDate"
             value={toDate}
             className="border-[color:var(--gray-gray-7,#8C8C8C)] flex flex-col justify-center mt-1 pr-16 py-1.5 border-[0.5px] border-solid items-start max-md:pr-5"
@@ -282,7 +283,7 @@ const { Option } = Select;
         <FileAddOutlined className="bg-[#AF99DD] rounded-full p-2 text-black mr-2" />
         Upload resume
       </label>
-      <input {...getInputProps()} type="file" name="attachment" style={{ display: "none" }} />
+      <input {...getInputProps()} type="file" name="resume_attachement" style={{ display: "none" }} />
       {selectedFileName && (
         <div className="file-info">
           <span>{`${selectedFileName}`}</span>
