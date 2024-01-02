@@ -125,14 +125,13 @@ font-weight: 400;
 line-height: normal;
 }
 .email-container{
-  display: flex;
-padding: 12px 8px;
-align-items: center;
-gap: 10px;
-flex: 1 0 0;
-align-self: stretch;
-border: 0.5px solid #F2F0FB;
-background: #ffffff00;
+  max-height: 40px;
+  padding: 12px 8px;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 0;
+  border: 0.5px solid #F2F0FB;
+  background: transparent;
 }
 
 .subscribe{
