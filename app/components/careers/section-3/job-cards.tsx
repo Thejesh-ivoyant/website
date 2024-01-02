@@ -3,8 +3,37 @@ import React, { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 import JobDescription from "../job-description";
 import { redirect } from "@remix-run/node";
+import { fetchGraphQL } from "~/graphql/fetchGraphQl";
+import { getJDBasedonLimit } from "~/graphql/queries";
 const JobCards = () => {
   const loaderData = useLoaderData() as any;
+  const [JobDesc, setJobDescData] = useState(loaderData.JobDesc || []);
+  const [limit, setLimit] = useState(0); // Initial limit
+
+  const fetchMoreData = async () => {
+    const updatedQuery = getJDBasedonLimit(limit + 3);
+    const newJobDescData = await fetchGraphQL(updatedQuery);
+
+    // Map and update the state with the new data
+    setJobDescData(() => [
+      ...newJobDescData.data?.career?.data?.attributes?.job_descriptions?.data?.map(
+        (item: any) => ({
+          id: item.id, // Add this line to capture the job ID
+          job_id: item.attributes.job_id,
+          Title: item.attributes.Title,
+          location: item.attributes.location,
+          role: item.attributes.Role,
+          MinExperience:item.attributes.MinExperience,
+          MaxExperience:item.attributes.MaxExperience,
+          DepartmentName: item.attributes.department.data.attributes.DepartmentName,
+  
+        })
+      )
+    ]);
+
+    // Increment the limit for the next fetch
+    setLimit(limit + 3);
+  };
 
 
   return (
@@ -53,7 +82,7 @@ const JobCards = () => {
             alt="icons"
           />
 
-          {loaderData.JobDesc.map((jobs: any) => (
+          {JobDesc.map((jobs: any) => (
             <div className="flex flex-col px-28 relative ">
 
               <Link to={`/job-description/${jobs.id}`} key={jobs.id}>
@@ -108,6 +137,9 @@ const JobCards = () => {
             </div>
           ))}
         </div>
+        <div className="mx-auto w-full flex justify-center items-center" onClick={fetchMoreData}>
+    <button className="button-test font-montserrat font-thin"> <span className="font-thin">Show More</span></button>
+      </div>
       </section>
     </div>
   );

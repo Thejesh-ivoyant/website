@@ -546,6 +546,38 @@ query{
   }
 }
 `;
+export const getJDBasedonLimit = (limit: number) => {
+  return `
+  query{
+    career{
+       data{
+        attributes{
+          job_descriptions(pagination: { limit: ${limit} }){
+            data{
+              id
+              attributes{
+                job_id
+                Title
+                location
+                Role
+                MinExperience
+                MaxExperience
+                department{
+                  data{
+                    attributes{
+                     DepartmentName 
+                    }
+                  }
+                }
+              }
+            }
+          }
+        } 
+      }
+    }
+  }
+  `;
+}
 
 export const productsQuery = `
 query{
