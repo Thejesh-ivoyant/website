@@ -34,6 +34,7 @@ html, body {
   }
   :root {
     --color-tin: rgba(244, 243, 251, 0.80);
+    --color-geekblue-2: #D6E4FF;
     --font-size: 16px;
   }
   
@@ -1602,37 +1603,6 @@ border-bottom-style: solid;
 }
 
 
-.ant-carousel .slick-dots li button {
-  display: block;
-  width: 1rem;
-  height: 10px;
-  padding: 0;
-  color: transparent;
-  font-size: 0;
-  background: #200A46;
-  border: 0;
-  border-radius: 0px !important;
-  outline: none;
-  cursor: pointer;
-  opacity: 0.3;
-  transition: all 0.3s;
-  transform: skew(-20deg);
-}
-.ant-carousel .slick-dots li.slick-active {
-  margin-right: 25px;
-}
-
-.ant-carousel .slick-dots li.slick-active button {
-  background: #200A46;
-  width: 3.125rem !important;
-  opacity: 1;
-}
-.ant-carousel .slick-dots-bottom {
-  position: relative;
-  top: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-} 
 .slit-gradient{
   z-index: -1;
   background: linear-gradient(100deg, white 50%, #AB99C8 50%);
@@ -1980,4 +1950,16 @@ border-bottom-style: solid;
 }
 .summary-card{
   color: var(--color-tin);
+}
+
+.carousel-ornament{
+  filter:blur(9.5rem);
+  background: linear-gradient(137deg, rgba(110, 159, 253, 0.24) 27.15%, rgba(47, 66, 165, 0.12) 83.22%);
+  border-radius: 100%;
+  border: none;
+  outline: none;
+  position:absolute;
+  height: 100%;
+  aspect-ratio: 1/1;
+  margin-left: -1/2;
 }

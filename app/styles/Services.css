@@ -1,0 +1,40 @@
+
+.ant-carousel .slick-dots li button {
+  display: block;
+  width: 1rem;
+  height: 10px;
+  padding: 0;
+  color: transparent;
+  font-size: 0;
+  background: #200A46;
+  border: 0;
+  border-radius: 0px !important;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: all 0.3s;
+  transform: skew(-20deg);
+}
+.ant-carousel .slick-dots li.slick-active {
+  margin-right: 25px;
+}
+.ant-carousel .slick-dots li.slick-active button {
+  background: #200A46;
+  width: 3.125rem !important;
+  opacity: 1;
+}
+.ant-carousel .slick-dots-bottom {
+  
+  position: relative;
+  bottom: 8rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+  #none-display{
+    display: grid !important;
+  }
+  .shadow{
+    background: #FFF;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02), 0px 1px 6px -1px rgba(0, 0, 0, 0.02), 0px 1px 2px 0px rgba(0, 0, 0, 0.03);
+  }
