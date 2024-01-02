@@ -25,9 +25,9 @@ const IndustryFocus = () => {
               {item?.s4_industryFocusDescription}
             </p>
           </div>
-          <div className="absolute top-1/2 transform -translate-y-1/2 right-16">
+          <div className="relative w-full h-full">
             <img
-              className="w-fit object-contain aspect-[25/48]"
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-[25rem] object-contain w-auto h-auto"
               src={item?.s4_industryFocusImage}
               alt={item?.s4_industryFocusSubTitle}
             />
