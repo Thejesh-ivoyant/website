@@ -274,7 +274,10 @@ query {
   }  
 `;
 export const whitepaperQuery = `query {
-  whitePapers{
+  whitePapers(
+    sort: "date:desc",
+    pagination: {limit:6}
+  ){
    data{
      id,
      attributes{
@@ -401,6 +404,50 @@ export const getBlogAuthorIDQuery = (id:any) => {
   }
   `;
 }; 
+export const getWhitepaperBasedonLimit = (limit: number) => {
+  return `
+    query {
+      whitePapers (
+        sort: "date:desc",
+        pagination: { limit: ${limit} }
+      ) {
+        data {
+          id,
+          attributes {
+            title,
+            description1,
+            date,
+            maxReadTime,
+            bannerImage {
+              data {
+                attributes {
+                  name,
+                  url
+                }
+              }
+            },
+            author {
+              data {
+                attributes {
+                  name,
+                  avatar {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+};
+
+
 export const getPaperAuthorIDQuery = (id:any) => {
   console.warn("paper id is ", id);
   return `
