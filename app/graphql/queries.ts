@@ -276,7 +276,7 @@ query {
 export const whitepaperQuery = `query {
   whitePapers(
     sort: "date:desc",
-    pagination: {limit:6}
+    pagination: {limit:1}
   ){
    data{
      id,
@@ -521,13 +521,23 @@ query{
         s3_title
         s3_description
         s3_email
-        job_descriptions{
+        job_descriptions(pagination: { limit: 2 }){
           data{
             id
             attributes{
               job_id
               Title
               location
+              Role
+              MinExperience
+              MaxExperience
+              department{
+                data{
+                  attributes{
+                   DepartmentName 
+                  }
+                }
+              }
             }
           }
         }

@@ -57,6 +57,11 @@ export async function loader() {
         job_id: item.attributes.job_id,
         Title: item.attributes.Title,
         location: item.attributes.location,
+        role: item.attributes.Role,
+        MinExperience:item.attributes.MinExperience,
+        MaxExperience:item.attributes.MaxExperience,
+        DepartmentName: item.attributes.department.data.attributes.DepartmentName,
+
       })
     );
 
