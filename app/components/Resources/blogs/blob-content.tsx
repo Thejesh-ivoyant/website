@@ -98,7 +98,7 @@ const BlobContent = () => {
               </div>
               <img
                 loading="lazy"
-                src= '../assets/socialdummyplaceholder.png'                 className="aspect-[6.92] object-contain object-center w-[173px] items-center overflow-hidden max-w-full mt-7"
+                src= '../../assets/socialdummyplaceholder.png'                 className="aspect-[6.92] object-contain object-center w-[173px] items-center overflow-hidden max-w-full mt-7"
               />
             </div>
             <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 pl-9 pr-16 pt-11 pb-5 max-md:px-5">
@@ -109,11 +109,11 @@ const BlobContent = () => {
                 <div className="flex basis-[0%] flex-col items-center">
                   <img
                     loading="lazy"
-                    src= '../assets/error-mobile.png'                     className="aspect-[0.93] object-contain object-center w-[83px] shadow-sm overflow-hidden"
+                    src= '../../assets/error-mobile.png'                     className="aspect-[0.93] object-contain object-center w-[83px] shadow-sm overflow-hidden"
                   />
                   <img
                     loading="lazy"
-                    src= '../assets/error-mobile.png'                  className="aspect-[0.93] object-contain object-center w-[83px] shadow-sm overflow-hidden mt-8"
+                    src= '../../assets/error-mobile.png'                  className="aspect-[0.93] object-contain object-center w-[83px] shadow-sm overflow-hidden mt-8"
                   />
                   <img
                     loading="lazy"
@@ -127,7 +127,7 @@ const BlobContent = () => {
                   <div className="flex justify-between gap-2 mt-4 pr-20 items-start max-md:pr-5">
                     <img
                       loading="lazy"
-                      src= '../assets/calendericon.svg'                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
+                      src= '../../assets/calendericon.svg'                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                     />
                     <div className="text-zinc-600 text-sm font-medium self-stretch grow whitespace-nowrap">
                       31 May 2022
@@ -139,7 +139,7 @@ const BlobContent = () => {
                   <div className="flex justify-between gap-2 mt-4 pr-20 items-start max-md:pr-5">
                     <img
                       loading="lazy"
-                      src= '../assets/calendericon.svg'                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
+                      src= '../../assets/calendericon.svg'                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                     />
                     <div className="text-zinc-600 text-sm font-medium self-stretch grow whitespace-nowrap">
                       31 May 2022
@@ -151,7 +151,7 @@ const BlobContent = () => {
                   <div className="flex justify-between gap-2 mt-4 pr-20 items-start max-md:pr-5">
                     <img
                       loading="lazy"
-                      src= '../assets/calendericon.svg'                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
+                      src= '../../assets/calendericon.svg'                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                     />
                     <div className="text-zinc-600 text-sm font-medium self-stretch grow whitespace-nowrap">
                       31 May 2022
