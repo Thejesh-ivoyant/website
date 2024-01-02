@@ -19,15 +19,20 @@ const WhitePaperCardContainer = () => {
         <img src="../assets/Ornament.png" className="absolute z-0 top-4 left-4" alt="ornament" />
       <div className="w-full h-full justify-center flex gap-x-6 p-6 z-10 px-40 mx-auto">
   
-        {loaderData.whitePaperData.map((paper:IWhitePaper) => (
-           <Link to={`../resources/whitepaper/${paper.id}`} key={paper.id}>
-            <WhitePaperCard key={paper.id} paper={paper} />
-            </Link>
-        ))}
+      <div className="grid grid-cols-3 gap-6 p-6 z-10 mx-auto">
+  {loaderData.whitePaperData.map((paper: IWhitePaper) => (
+    <Link to={`../resources/whitepaper/${paper.id}`} key={paper.id}>
+      <WhitePaperCard key={paper.id} paper={paper} />
+    </Link>
+  ))}
+</div>
+
 
         </div>
       </div>
-      <button className="mx-40 button-test te"> <span>Learn more</span></button>
+      <div className="mx-auto w-full flex justify-center items-center">
+      <Link to={`../resources/whitepapers`} key="explore"> <button className="button-test font-montserrat font-thin"> <span className="font-thin">Explore Now</span></button></Link>
+      </div>
     </div>
   );
 };

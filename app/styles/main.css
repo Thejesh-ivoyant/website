@@ -5,6 +5,11 @@
   scroll-behavior: smooth;
 
 }
+/* In your global styles or specific page styles */
+html {
+  scroll-behavior: smooth; /* or smooth */
+}
+
 html, body { 
   margin:0;
   padding:0;
