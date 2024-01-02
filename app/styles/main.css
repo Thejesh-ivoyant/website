@@ -32,6 +32,11 @@ html, body {
     -moz-appearance: textfield;
     /* Firefox */
   }
+  :root {
+    --color-tin: rgba(244, 243, 251, 0.80);
+    --font-size: 16px;
+  }
+  
 .phases-description{
   color: #FFF;
 font-family: Poppins;
@@ -1988,4 +1993,7 @@ border-bottom-style: solid;
   to {
     transform: translateX(-100%);
   }
+}
+.summary-card{
+  color: var(--color-tin);
 }

@@ -10,6 +10,11 @@ import Hero from "~/components/products/Hero";
 import ContactUs from "~/common-components/contactUs";
 import { Technologies } from "~/components/products/technologies";
 import { Attributes } from "~/interfaces/ProductsPage";
+import ProductStyle from '~/styles/Products.css'
+
+export const links: LinksFunction = () => [
+  {rel:"stylesheet", href:ProductStyle}
+];
 
 export const loader = async () => {
   const productsData =  await fetchGraphQL(productsQuery);

@@ -1,6 +1,4 @@
 import { Outlet, useLoaderData } from "@remix-run/react";
-import { Carousel } from "antd";
-import React from "react";
 import Section2 from "~/components/case-study/slug/Section2";
 import Section3 from "~/components/case-study/slug/Section3";
 import Hero from "~/components/case-study/slug/hero";
@@ -11,9 +9,12 @@ import { LinksFunction, defer } from "@remix-run/node";
 import Section5 from "~/components/case-study/slug/section5";
 import Section6 from "~/components/case-study/slug/Section6";
 import { generateDynamicQuery } from "~/utils/parameterized-gql";
-import Footer from "~/common-components/footer";
 import { Features } from "~/components/case-study/slug/key-features";
+import CaseStyle from '~/styles/CaseStudySlug.css'
 
+export const links: LinksFunction = () => [
+  {rel:"stylesheet", href:CaseStyle}
+];
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const dynamicQuery = generateDynamicQuery(case_study_query, [
