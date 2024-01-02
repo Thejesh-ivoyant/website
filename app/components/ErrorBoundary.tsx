@@ -67,7 +67,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
                 <div className="justify-centeritems-center flex gap-1 mt-1 py-2 self-start">
                   <img
                     loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/54dd3a15d1dc9fdb24a826c2c16dbfff3da6835480960c7fa27e753cfed1031a?apiKey=9e16588387084fb2a9a51a1b99489136&"
+                    src= '../assets/backarrow.svg'
                     className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full my-auto"
                   />{" "}
                   <div className="text-blue-600 text-base self-stretch grow whitespace-nowrap">
