@@ -416,7 +416,6 @@ height: 60px;
 justify-content: center;
 align-items: center;
 gap: 4px;
-background: var(--LinearCard, linear-gradient(180deg, #360E81 0%, #20084D 100%));
 }
 
 .video {
