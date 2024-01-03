@@ -1,7 +1,8 @@
 // Index.tsx
 import { Suspense, useEffect, useState } from "react";
 import Consultation from "~/components/Homepage/consultation";
-import { Await, MetaFunction, Outlet, defer, useLoaderData } from "@remix-run/react";
+import { Await, MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
+import { LinksFunction, LoaderFunctionArgs, defer } from "@remix-run/node";
 import { strapiUrl } from "~/utils/urls";
 import IBlogMedia from "../interfaces/IBlogMedia";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
@@ -24,23 +25,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-async function fetchData(endpoint: string) {
-  try {
-    const response = await fetch(strapiUrl + endpoint);
 
-    if (!response.ok) {
-      throw new Error(
-        `Error fetching data from ${endpoint}: ${response.status} ${response.statusText}`
-      );
-    }
-
-    const jsonData = await response.json();
-    return jsonData.data;
-  } catch (error: any) {
-    console.error(`Error fetching data from ${endpoint}: ${error.message}`);
-    throw error;
-  }
-}
 
 export async function loader() {
   try {
