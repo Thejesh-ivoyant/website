@@ -42,7 +42,9 @@ html, body {
     --color-geekblue-2: #D6E4FF;
     --font-size: 16px;
   }
-  
+  .geekblue-1{
+    color: var(--geekblue-1, #F0F5FF);
+  }
 .phases-description{
   color: #FFF;
 font-family: Poppins;
@@ -1058,14 +1060,8 @@ justify-content: center;
 background: #1B0740;
 }
 
-.industry-inner-container{
+.industry-container-bg{
   background: linear-gradient(180deg, #360E81 0%, #20084D 100%);
-  display: flex;
-  margin-bottom: 3.18rem;
-  padding: 4rem 1.875rem;
-  align-items: center;
-  flex-direction: row;
-  gap: 2rem;
 }
 .inner-container{
   display: flex;
