@@ -98,8 +98,7 @@ const BlobContent = () => {
               </div>
               <img
                 loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/083b40140470c1700a75afc412425e8262670b696f60aea263de690145e852f1?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                className="aspect-[6.92] object-contain object-center w-[173px] items-center overflow-hidden max-w-full mt-7"
+                src= '../../assets/socialdummyplaceholder.png'                 className="aspect-[6.92] object-contain object-center w-[173px] items-center overflow-hidden max-w-full mt-7"
               />
             </div>
             <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 pl-9 pr-16 pt-11 pb-5 max-md:px-5">
@@ -110,18 +109,15 @@ const BlobContent = () => {
                 <div className="flex basis-[0%] flex-col items-center">
                   <img
                     loading="lazy"
-                    srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                    className="aspect-[0.93] object-contain object-center w-[83px] shadow-sm overflow-hidden"
+                    src= '../../assets/error-mobile.png'                     className="aspect-[0.93] object-contain object-center w-[83px] shadow-sm overflow-hidden"
                   />
                   <img
                     loading="lazy"
-                    srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                    className="aspect-[0.93] object-contain object-center w-[83px] shadow-sm overflow-hidden mt-8"
+                    src= '../../assets/error-mobile.png'                  className="aspect-[0.93] object-contain object-center w-[83px] shadow-sm overflow-hidden mt-8"
                   />
                   <img
                     loading="lazy"
-                    srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/162be867793f4880649a43990085cd3a7579b8fcaa6273dd22f42c52acafe2f4?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                    className="aspect-[0.93] object-contain object-center w-[83px] shadow-sm overflow-hidden mt-8"
+                    src= '../assets/error-mobile.png'                   className="aspect-[0.93] object-contain object-center w-[83px] shadow-sm overflow-hidden mt-8"
                   />
                 </div>
                 <div className="self-center flex grow basis-[0%] flex-col items-stretch my-auto">
@@ -131,8 +127,7 @@ const BlobContent = () => {
                   <div className="flex justify-between gap-2 mt-4 pr-20 items-start max-md:pr-5">
                     <img
                       loading="lazy"
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/b0dd2fc64c155e12482eb7cd121feec82e5c671f8eed5d61895d85fbb38da91c?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                      className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
+                      src= '../../assets/calendericon.svg'                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                     />
                     <div className="text-zinc-600 text-sm font-medium self-stretch grow whitespace-nowrap">
                       31 May 2022
@@ -144,8 +139,7 @@ const BlobContent = () => {
                   <div className="flex justify-between gap-2 mt-4 pr-20 items-start max-md:pr-5">
                     <img
                       loading="lazy"
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/b0dd2fc64c155e12482eb7cd121feec82e5c671f8eed5d61895d85fbb38da91c?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                      className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
+                      src= '../../assets/calendericon.svg'                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                     />
                     <div className="text-zinc-600 text-sm font-medium self-stretch grow whitespace-nowrap">
                       31 May 2022
@@ -157,8 +151,7 @@ const BlobContent = () => {
                   <div className="flex justify-between gap-2 mt-4 pr-20 items-start max-md:pr-5">
                     <img
                       loading="lazy"
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/b0dd2fc64c155e12482eb7cd121feec82e5c671f8eed5d61895d85fbb38da91c?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                      className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
+                      src= '../../assets/calendericon.svg'                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                     />
                     <div className="text-zinc-600 text-sm font-medium self-stretch grow whitespace-nowrap">
                       31 May 2022

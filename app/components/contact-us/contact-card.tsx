@@ -20,8 +20,7 @@ const ContactCard = () => {
                         <div className="flex flex-col items-stretch w-[21%] max-md:w-full max-md:ml-0">
                             <img
                             loading="lazy"
-                            srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/ab82e28afd140cdd82f45b92d406f801d5359dcb8f33f14c64ef36fc3287e28b?apiKey=9e16588387084fb2a9a51a1b99489136&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/ab82e28afd140cdd82f45b92d406f801d5359dcb8f33f14c64ef36fc3287e28b?apiKey=9e16588387084fb2a9a51a1b99489136&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/ab82e28afd140cdd82f45b92d406f801d5359dcb8f33f14c64ef36fc3287e28b?apiKey=9e16588387084fb2a9a51a1b99489136&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/ab82e28afd140cdd82f45b92d406f801d5359dcb8f33f14c64ef36fc3287e28b?apiKey=9e16588387084fb2a9a51a1b99489136&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/ab82e28afd140cdd82f45b92d406f801d5359dcb8f33f14c64ef36fc3287e28b?apiKey=9e16588387084fb2a9a51a1b99489136&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/ab82e28afd140cdd82f45b92d406f801d5359dcb8f33f14c64ef36fc3287e28b?apiKey=9e16588387084fb2a9a51a1b99489136&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/ab82e28afd140cdd82f45b92d406f801d5359dcb8f33f14c64ef36fc3287e28b?apiKey=9e16588387084fb2a9a51a1b99489136&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/ab82e28afd140cdd82f45b92d406f801d5359dcb8f33f14c64ef36fc3287e28b?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                            className="aspect-square object-contain object-center w-[117px] overflow-hidden shrink-0 max-w-full max-md:mt-6"
+                            src= '../assets/contactavatar.jpg'   className="aspect-square object-contain object-center w-[117px] overflow-hidden shrink-0 max-w-full max-md:mt-6"
                             />
                         </div>
                         <div className="flex flex-col items-stretch w-[79%] ml-5 max-md:w-full max-md:ml-0">
@@ -35,8 +34,7 @@ const ContactCard = () => {
                             <div className="items-center flex gap-2 mt-2.5 self-start">
                                 <img
                                 loading="lazy"
-                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/e23ba88df09e52d6149b09694bacc10277cfc8cef6542b924b40bb9008f5971c?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                                className="aspect-square object-contain object-center w-5 justify-center items-center overflow-hidden shrink-0 max-w-full my-auto"
+                                src= '../assets/phoneicon.svg'                                className="aspect-square object-contain object-center w-5 justify-center items-center overflow-hidden shrink-0 max-w-full my-auto"
                                 />
                                 <div className="text-black text-base leading-7 tracking-wide self-stretch grow whitespace-nowrap">
                                 {" "}
@@ -46,8 +44,7 @@ const ContactCard = () => {
                             <div className="items-center flex gap-2 mt-2.5 self-start">
                                 <img
                                 loading="lazy"
-                                src="https://cdn.builder.io/api/v1/image/assets/TEMP/babf5e0206ff54c16a466eb5abc59a3ba4b148557ca2622ca4e96737ecbf6ad7?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                                className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full my-auto"
+                                src= '../assets/Chatsicon.svg'                                className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full my-auto"
                                 />
                                 <div className="text-black text-base leading-7 tracking-wide self-stretch grow whitespace-nowrap">
                                 mail@ivoyant.com
@@ -75,8 +72,7 @@ const ContactCard = () => {
                 <div className="flex flex-col items-stretch w-[21%] max-md:w-full max-md:ml-0">
                     <img
                     loading="lazy"
-                    srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/ab82e28afd140cdd82f45b92d406f801d5359dcb8f33f14c64ef36fc3287e28b?apiKey=9e16588387084fb2a9a51a1b99489136&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/ab82e28afd140cdd82f45b92d406f801d5359dcb8f33f14c64ef36fc3287e28b?apiKey=9e16588387084fb2a9a51a1b99489136&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/ab82e28afd140cdd82f45b92d406f801d5359dcb8f33f14c64ef36fc3287e28b?apiKey=9e16588387084fb2a9a51a1b99489136&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/ab82e28afd140cdd82f45b92d406f801d5359dcb8f33f14c64ef36fc3287e28b?apiKey=9e16588387084fb2a9a51a1b99489136&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/ab82e28afd140cdd82f45b92d406f801d5359dcb8f33f14c64ef36fc3287e28b?apiKey=9e16588387084fb2a9a51a1b99489136&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/ab82e28afd140cdd82f45b92d406f801d5359dcb8f33f14c64ef36fc3287e28b?apiKey=9e16588387084fb2a9a51a1b99489136&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/ab82e28afd140cdd82f45b92d406f801d5359dcb8f33f14c64ef36fc3287e28b?apiKey=9e16588387084fb2a9a51a1b99489136&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/ab82e28afd140cdd82f45b92d406f801d5359dcb8f33f14c64ef36fc3287e28b?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                    className="aspect-square object-contain object-center w-[117px] overflow-hidden shrink-0 max-w-full max-md:mt-6"
+                    src= '../assets/contactavatar.jpg'                    className="aspect-square object-contain object-center w-[117px] overflow-hidden shrink-0 max-w-full max-md:mt-6"
                     />
                 </div>
                 <div className="flex flex-col items-stretch w-[79%] ml-5 max-md:w-full max-md:ml-0">
@@ -90,8 +86,7 @@ const ContactCard = () => {
                     <div className="items-center flex gap-2 mt-2.5 self-start">
                         <img
                         loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/e23ba88df09e52d6149b09694bacc10277cfc8cef6542b924b40bb9008f5971c?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                        className="aspect-square object-contain object-center w-5 justify-center items-center overflow-hidden shrink-0 max-w-full my-auto"
+                        src= '../assets/phoneicon.svg'                        className="aspect-square object-contain object-center w-5 justify-center items-center overflow-hidden shrink-0 max-w-full my-auto"
                         />
                         <div className="text-black text-base leading-7 tracking-wide self-stretch grow whitespace-nowrap">
                         {" "}
@@ -101,8 +96,7 @@ const ContactCard = () => {
                     <div className="items-center flex gap-2 mt-2.5 self-start">
                         <img
                         loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/babf5e0206ff54c16a466eb5abc59a3ba4b148557ca2622ca4e96737ecbf6ad7?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                        className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full my-auto"
+                        src= '../assets/Chatsicon.svg'                         className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full my-auto"
                         />
                         <div className="text-black text-base leading-7 tracking-wide self-stretch grow whitespace-nowrap">
                         mail@ivoyant.com

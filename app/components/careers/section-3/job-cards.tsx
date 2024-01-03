@@ -54,19 +54,11 @@ const JobCards = () => {
             All Locations
             <select>BANGALORRE</select>
           </option>
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/2a5f692b70847249b98b81aedffe4ab14a102823ce4fe79a064ae7a04425aac1?apiKey=9e16588387084fb2a9a51a1b99489136&"
-            className="aspect-square object-contain object-center w-4 overflow-hidden self-stretch shrink-0 max-w-full"
-          />
+       
         </div>
         <div className="flex grow basis-[0%] flex-col justify-center items-stretch mt-7 py-1.5 rounded-sm border-[0.5px] border-solid border-indigo-950 self-end">
           <div className="items-stretch flex justify-between gap-2 px-5 py-1.5">
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/0bbc1d7bb2a2b3ac5861b4c4ca7b4a9638fa8a76522cc5e929d51ef2add28240?apiKey=9e16588387084fb2a9a51a1b99489136&"
-              className="aspect-square object-contain object-center w-3 overflow-hidden shrink-0 max-w-full"
-            />
+           
             <div className="text-indigo-950 text-sm capitalize grow whitespace-nowrap self-start">
               Search
             </div>
@@ -95,8 +87,7 @@ const JobCards = () => {
             <div className="items-stretch flex justify-between gap-2">
               <img
                 loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/a0fa60c633333391413dc49d4cbbecc1b715e364633fc9ed765efd57d14797ba?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
+                src= '../assets/location.svg'                className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
               />
               <div className="text-slate-950 text-opacity-70 text-right text-base font-medium grow whitespace-nowrap">
                 {jobs.location}
@@ -105,8 +96,7 @@ const JobCards = () => {
             <div className="items-stretch flex justify-between gap-2">
               <img
                 loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/d42b017cf12fcc2856cf0c4d41f6f8a613c2e68434873f108fdf8732dc2c3d2f?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
+                src= '../assets/department.svg'                className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
               />
               <div className="text-slate-950 text-opacity-70 text-right text-base font-medium grow whitespace-nowrap">
                {jobs.DepartmentName}
@@ -115,8 +105,7 @@ const JobCards = () => {
             <div className="items-stretch flex justify-between gap-2">
               <img
                 loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/7e66b251440c5db437608ec74109248d634bcc16bc7755ab311a072948321c8f?apiKey=9e16588387084fb2a9a51a1b99489136&"
-                className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
+                src= '../assets/experience.svg'                className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
               />
               <div className="text-slate-950 text-opacity-70 text-right text-base font-medium grow whitespace-nowrap">
                 {jobs.MinExperience}-{jobs.MaxExperience} Yrs
@@ -127,8 +116,7 @@ const JobCards = () => {
         <div className="items-center self-center flex aspect-square flex-col justify-center my-auto">
           <img
             loading="lazy"
-            srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/187c2b18-0e40-489f-893e-597c71799169?apiKey=9e16588387084fb2a9a51a1b99489136&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/187c2b18-0e40-489f-893e-597c71799169?apiKey=9e16588387084fb2a9a51a1b99489136&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/187c2b18-0e40-489f-893e-597c71799169?apiKey=9e16588387084fb2a9a51a1b99489136&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/187c2b18-0e40-489f-893e-597c71799169?apiKey=9e16588387084fb2a9a51a1b99489136&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/187c2b18-0e40-489f-893e-597c71799169?apiKey=9e16588387084fb2a9a51a1b99489136&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/187c2b18-0e40-489f-893e-597c71799169?apiKey=9e16588387084fb2a9a51a1b99489136&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/187c2b18-0e40-489f-893e-597c71799169?apiKey=9e16588387084fb2a9a51a1b99489136&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/187c2b18-0e40-489f-893e-597c71799169?apiKey=9e16588387084fb2a9a51a1b99489136&"
-            className="aspect-square object-contain object-center w-10 overflow-hidden rounded-[50%]"
+            src= '../assets/Arrow.png'            className="aspect-square object-contain object-center w-10 overflow-hidden rounded-[50%]"
           />
      
       </div>

@@ -1,24 +1,22 @@
 // Index.tsx
-import { useEffect, useState } from "react";
-import LoadingComponent from "~/common-components/loading";
+import { Suspense, useEffect, useState } from "react";
 import Consultation from "~/components/Homepage/consultation";
-import Footer from "~/common-components/footer";
-import { MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
+import { Await, MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
+import { LinksFunction, LoaderFunctionArgs, defer } from "@remix-run/node";
 import { strapiUrl } from "~/utils/urls";
 import IBlogMedia from "../interfaces/IBlogMedia";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { blogQuery, whitepaperQuery } from "~/graphql/queries";
-import BlogCardContainer from "~/components/Resources/blogs/blogCard-container";
+import { whitepaperQuery } from "~/graphql/queries";
 import WhitePaperCardContainer from "~/components/Resources/whitepapers/whitepaper-container";
 import LoadingTest from "~/common-components/loading-test";
 import Hero from "~/common-components/Hero";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Ivoyant | Mobile App Development" },
+    { title: "Ivoyant | Whitepaper" },
     {
       property: "og:title",
-      content: "Services Page",
+      content: "Whitepaper Page",
     },
     {
       name: "description",
@@ -27,23 +25,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-async function fetchData(endpoint: string) {
-  try {
-    const response = await fetch(strapiUrl + endpoint);
 
-    if (!response.ok) {
-      throw new Error(
-        `Error fetching data from ${endpoint}: ${response.status} ${response.statusText}`
-      );
-    }
-
-    const jsonData = await response.json();
-    return jsonData.data;
-  } catch (error: any) {
-    console.error(`Error fetching data from ${endpoint}: ${error.message}`);
-    throw error;
-  }
-}
 
 export async function loader() {
   try {
@@ -81,13 +63,14 @@ export async function loader() {
 
     
 
-    return {
+    return defer({ 
       heroBgImageURl:jsonParsed.data?.attributes.heroImage.data?.attributes.url,
       heroTitle,
       heroDescription,
       s2_title,
       whitePaperData: whitePaperData,
-    };
+    });
+
   } catch (error) {
     console.error("Error fetching data:", error);
     throw error;
@@ -95,45 +78,27 @@ export async function loader() {
 }
 
 const Index = () => {
-  const data1 =  useLoaderData<typeof loader>() as any;
-  console.warn("....................data1 is.",JSON.stringify(data1));
+ 
+  const data = useLoaderData<typeof loader>();
 
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<{ blogData: IBlogMedia[] } | null>(null);
-
-  useEffect(() => {
-    const fetchDataAsync = async () => {
-      try {
-        const fetchedData = await loader();
-        setData(fetchedData);
-        console.log("//", fetchedData);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      }
-    };
-
-    fetchDataAsync();
-  }, []);
 
   return (
-    <div style={{ padding: "0px", overflowX: "hidden" }}>
-      {loading ? (
-        <LoadingTest />
-      ) : (
-        <div>
-       
+    <>
+    <Suspense fallback={<LoadingTest />}>
+  <Await resolve={data.heroBgImageURl}>
+ 
           <Hero/>
-            {/* Render the entire data */}
+          
         
           <WhitePaperCardContainer />
       
           <Consultation />
           <Outlet />
-        </div>
-      )}
-    </div>
+          </Await>
+      </Suspense>
+    </>
+
+      
   );
 };
 
