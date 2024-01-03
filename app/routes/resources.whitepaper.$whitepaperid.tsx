@@ -4,10 +4,11 @@ import { MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { getAuthorQuery, getBlogAuthorIDQuery, getPaperAuthorIDQuery } from "~/graphql/queries";
-import BlobContent from "~/components/Resources/blogs/blob-content";
+import BlobContent from "~/components/Resources/blogs/blog-content";
 import { LoaderFunctionArgs } from "@remix-run/node";
 import BlogHero from "~/components/Resources/blogs/blog-hero";
 import LoadingTest from "~/common-components/loading-test";
+import BlogContent from "~/components/Resources/blogs/blog-content";
 
 export const meta: MetaFunction = () => {
   return [
@@ -90,7 +91,7 @@ const Index = () => {
           <div className="mt-16">
           <BlogHero/>
         </div>
-          <BlobContent/>
+          <BlogContent/>
           <Outlet />
         </div>
       )}
