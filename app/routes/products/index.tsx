@@ -11,6 +11,7 @@ import ContactUs from "~/common-components/contactUs";
 import { Technologies } from "~/components/products/technologies";
 import { Attributes } from "~/interfaces/ProductsPage";
 import ProductStyle from '~/styles/Products.css'
+import { LinksFunction } from "@remix-run/node";
 
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:ProductStyle}
@@ -35,7 +36,7 @@ export default function Index() {
       <Pairs/>
       <Technologies title={attributes.techTitle} pairs={attributes.technologies} />
       <ContactUs/>
-      <Footer/>
+      
 
     </>
   );
