@@ -9,7 +9,7 @@ import { getWhitepaperBasedonLimit } from "~/graphql/queries";
 const WhitePaperCardContainer = () => {
   const loaderData = useLoaderData() as any;
   const [whitePaperData, setWhitePaperData] = useState(loaderData.whitePaperData || []);
-  const [limit, setLimit] = useState(0); // Initial limit
+  const [limit, setLimit] = useState(6); // Initial limit
 
   const fetchMoreData = async () => {
     const updatedQuery = getWhitepaperBasedonLimit(limit + 3);

@@ -2,12 +2,43 @@ import { Link, useLoaderData } from "@remix-run/react";
 import IBlogMedia from "../../../interfaces/IBlogMedia";
 import BlogCard from "./blogCard";
 import { useState } from "react";
+import { fetchGraphQL } from "~/graphql/fetchGraphQl";
+import { getBlogsBasedonLimit } from "~/graphql/queries";
 const BlogCardContainer = () => {
   const loaderData = useLoaderData() as any;
   const [category, setCategory] = useState("");
   const [tag, setTag] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [blogData, setBlogData] = useState(loaderData.blogData || []);
+  const [limit, setLimit] = useState(3); // Initial limit
+
+  const fetchMoreData = async () => {
+    const updatedQuery = getBlogsBasedonLimit(limit + 3);
+    const newBlogData = await fetchGraphQL(updatedQuery);
+
+    // Map and update the state with the new data
+    setBlogData(() => [
+      ...newBlogData.data?.blogs.data?.map((item: any) => ({
+        id: item.id,
+      title: item.attributes.title,
+      description1: item.attributes.description1,
+      date: item.attributes.date,
+      maxReadTime: item.attributes.maxReadTime,
+      bannerImage: {
+        name: item.attributes.bannerImage.data?.attributes.name ?? "",
+        url: item.attributes.bannerImage.data?.attributes.url ?? "",
+      },
+      author: {
+        name: item.attributes.author.data?.attributes.name,
+        avatar:
+          item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
+      },
+      }))
+    ]);
+
+    // Increment the limit for the next fetch
+    setLimit(limit + 3);
+  };
   // Mock data for categories and tags
   const categories = ["Category1", "Category2", "Category3"];
   const tags = ["Tag1", "Tag2", "Tag3"];
@@ -114,10 +145,9 @@ const BlogCardContainer = () => {
           ))}
         </div>
       </div>
-      <button className="mx-40 button-test te">
-        {" "}
-        <span>Learn more</span>
-      </button>
+      <div className="mx-auto w-full flex justify-center items-center" onClick={fetchMoreData}>
+    <button className="button-test font-montserrat font-thin"> <span className="font-thin">Show More</span></button>
+      </div>
     </div>
   );
 };

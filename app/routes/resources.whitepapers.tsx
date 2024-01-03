@@ -1,14 +1,11 @@
 // Index.tsx
 import { useEffect, useState } from "react";
-import LoadingComponent from "~/common-components/loading";
 import Consultation from "~/components/Homepage/consultation";
-import Footer from "~/common-components/footer";
 import { MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import IBlogMedia from "../interfaces/IBlogMedia";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { blogQuery, whitepaperQuery } from "~/graphql/queries";
-import BlogCardContainer from "~/components/Resources/blogs/blogCard-container";
+import { whitepaperQuery } from "~/graphql/queries";
 import WhitePaperCardContainer from "~/components/Resources/whitepapers/whitepaper-container";
 import LoadingTest from "~/common-components/loading-test";
 import Hero from "~/common-components/Hero";
