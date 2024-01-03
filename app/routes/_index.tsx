@@ -75,7 +75,7 @@ const App = () => {
       <AboutCardContainer attributes={attributes} />
       <Services attributes={attributes} />
       <Section4 clients={attributes?.clients} />
-      <Section5 />
+      <Section5 industries={attributes?.industriesTabs} title={attributes?.industriesTitle} description={attributes.IndustriesDescription} />
       <Section6 partners={attributes?.partners}/>
       <Consultation />
       <Technology/>
