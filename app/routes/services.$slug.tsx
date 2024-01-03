@@ -7,8 +7,12 @@ import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { fetchData } from "~/utils/fetchdata";
 import LoadingTest from "~/common-components/loading-test";
 import { LoaderFunctionArgs, defer } from "@remix-run/node";
+import ServicesStyle from '~/styles/Services.css'
 
-// Dynamic Imports
+export const links: LinksFunction = () => [
+  {rel:"stylesheet", href:ServicesStyle}
+];
+
 const Hero = React.lazy(
   () => import("~/common-components/Hero")
 );

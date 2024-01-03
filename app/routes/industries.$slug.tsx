@@ -29,7 +29,6 @@ export const meta: MetaFunction = () => {
 export async function loader({   params }: LoaderFunctionArgs) {  
   try {
    const industry=`${params.slug}`;
-console.log("url is//////////",`/api/${industry}/?populate=%2A`);
 const jsonParsed = await fetchData(`/api/${industry}/?populate=%2A`);
 const section7PairsJson = await fetchData(`/api/${industry}/?populate=pairs.pic`);
 const section5Parsed = await fetchData(`/api/${industry}/?populate=process.ornament`);
@@ -84,7 +83,6 @@ const techParsed = await fetchData(`/api/${industry}/?populate=technologies.pic`
 
 const Index = () => {
   const data =  useLoaderData<typeof loader>() as any;
-  console.log("/////////////////////////////",JSON.stringify(data));
   return (
     <>
     <Suspense fallback={<LoadingTest />}>

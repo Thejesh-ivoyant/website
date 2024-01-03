@@ -6,7 +6,7 @@ const Technologies = () => {
   return (
     <div className="bg-white py-5">
       <h1 className="text-PurpBlue flex items-center justify-center text-5xl font-montserrat p-6">
-        {loaderData.techTitle}
+        {loaderData.s7_techTitle}
       </h1>
       <div className="w-full flex justify-around flex-wrap text-black p-10 border-t-2">
         {loaderData.Technologies.map((item: any) => (
