@@ -35,8 +35,6 @@ export default function Index() {
       <Pairs/>
       <Technologies title={attributes.techTitle} pairs={attributes.technologies} />
       <ContactUs/>
-      <Footer/>
-
     </>
   );
 }
