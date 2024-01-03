@@ -315,7 +315,7 @@ export const whitepaperQuery = `query {
 export const blogQuery = `query{
   blogs(
   sort: "date:desc",
-  pagination: {limit:1}
+  pagination: {limit:3}
 ){
     data{
       id,

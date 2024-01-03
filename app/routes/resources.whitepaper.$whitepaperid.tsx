@@ -26,18 +26,15 @@ export const meta: MetaFunction = () => {
 
 export async function loader({   params, }: LoaderFunctionArgs){
 const paperid=`${params.whitepaperid}`;
-console.warn(",,,,,,,,,,,,,,,,,,,,,,,,",paperid)
 
   const updatedAuthorGetIdQuery= getPaperAuthorIDQuery(paperid)
 
   const authorIdData=await fetchGraphQL(updatedAuthorGetIdQuery);
-  console.warn("////////////////////// is ",authorIdData.data?.whitePaper.data?.attributes.author.data?.id);
   const authorId=authorIdData.data?.whitePaper.data?.attributes.author.data?.id;
 
   const updatedQuery = getAuthorQuery(authorId);
   const authorData =  await fetchGraphQL(updatedQuery);
 
-  console.warn("/////////////////author url is ",authorData.data?.author.data?.attributes.avatar.data?.attributes?.url);
   const url= strapiUrl+`/api/white-papers/${paperid}?populate=%2A`;// hardcoded value
  
   try {
@@ -81,7 +78,6 @@ catch (error:any) {
 const Index = () => {
 
   const data= useLoaderData() as any;
-  console.warn(JSON.stringify(data));
   return (
     <div >
       

@@ -6,7 +6,7 @@ import { topBlogQuery } from "~/graphql/queries";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { fetchData } from "~/utils/fetchdata";
 import LoadingTest from "~/common-components/loading-test";
-import { LoaderFunctionArgs, defer } from "@remix-run/node";
+import { LinksFunction, LoaderFunctionArgs, defer } from "@remix-run/node";
 import ServicesStyle from '~/styles/Services.css'
 
 export const links: LinksFunction = () => [
@@ -44,7 +44,7 @@ const Footer = React.lazy(() => import("~/common-components/footer"));
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Ivoyant | Mobile App Development" },
+    { title: "Ivoyant |  Service" },
     {
       property: "og:title",
       content: "Services Page",
@@ -166,7 +166,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
   });
 }
 
-const MobDev = () => {
+const Service = () => {
   const data = useLoaderData<typeof loader>();
   return (
     <>
@@ -190,4 +190,4 @@ const MobDev = () => {
   );
 };
 
-export default MobDev;
+export default Service;

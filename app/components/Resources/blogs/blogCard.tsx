@@ -1,5 +1,4 @@
 import IBlogMedia from "~/interfaces/IBlogMedia";
-import { strapiUrl } from "~/utils/urls";
 const BlogCard = ({ blog }: { blog: IBlogMedia }) => {
     // Extract data from the blog object
     function trimWords(text:string) {
@@ -32,7 +31,7 @@ const BlogCard = ({ blog }: { blog: IBlogMedia }) => {
               {trimWords(blog.description1)}  </div>
               <div className="items-stretch flex justify-between gap-5  mt-5  max-md:mt-10">
               <img
-                loading="lazy"
+                loading="lazy" alt="avatar"
                 src={blog.author.avatar} className="aspect-square object-contain object-center w-[84px] overflow-hidden max-w-full rounded-[50%]"
               />
                 <div className="items-stretch flex grow basis-[0%] flex-col self-start">
