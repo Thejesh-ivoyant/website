@@ -26,13 +26,17 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export async function loader({   params }: LoaderFunctionArgs) {  
+export async function loader({ params }: LoaderFunctionArgs) {
   try {
-   const industry=`${params.slug}`;
-const jsonParsed = await fetchData(`/api/${industry}/?populate=%2A`);
-const section7PairsJson = await fetchData(`/api/${industry}/?populate=pairs.pic`);
-const section5Parsed = await fetchData(`/api/${industry}/?populate=process.ornament`);
-const techParsed = await fetchData(`/api/${industry}/?populate=technologies.pic`)
+    const industry = `${params.slug}`;
+
+    const [jsonParsed, section7PairsJson, section5Parsed, techParsed] = await Promise.all([
+      fetchData(`/api/${industry}/?populate=%2A`),
+      fetchData(`/api/${industry}/?populate=pairs.pic`),
+      fetchData(`/api/${industry}/?populate=process.ornament`),
+      fetchData(`/api/${industry}/?populate=technologies.pic`),
+    ]);
+
     const section7Pairs = section7PairsJson.pairs.map((pair:typeof section7PairsJson) => ({
       id: pair.id,
       text: pair.text,
@@ -44,20 +48,21 @@ const techParsed = await fetchData(`/api/${industry}/?populate=technologies.pic`
     const technologies = techParsed.technologies.map((pair:typeof techParsed) => ({
       id: pair.id,
       text: pair.text,
-      picUrl:  pair.pic.data?.attributes.url,
+      picUrl: pair.pic.data?.attributes.url,
       name: pair.pic.data?.attributes.name,
     }));
+
     const PhasesList = section5Parsed.process.map((item:any) => ({
       id: item.id,
       title: item.title,
       description: item.description,
-      ornament:  item.ornament.data?.attributes.url, // Access the nested structure
+      ornament: item.ornament.data?.attributes.url,
     }));
 
     return defer({
       heroBgImageURl: jsonParsed.heroBgImage.data?.attributes.formats.large.url,
       heroTitle: jsonParsed.heroTitle,
-      heroDescription : jsonParsed.heroDescription,
+      heroDescription: jsonParsed.heroDescription,
       section2Title: jsonParsed.section_2_title,
       section2Image: jsonParsed.section_2_image.data?.attributes.url,
       section2Desc: jsonParsed.section_2_description,
@@ -72,22 +77,21 @@ const techParsed = await fetchData(`/api/${industry}/?populate=technologies.pic`
       section7Desc: jsonParsed.section_7_description,
       section7Pairs: section7Pairs,
       PhasesList: PhasesList,
-      techTitle : techParsed.techTitle,
-      techList : technologies
+      techTitle: techParsed.techTitle,
+      techList: technologies,
     });
-  } catch (error:any) {
-    return json({})
+  } catch (error) {
+    return json({});
   }
 }
 
-
 const Index = () => {
-  const data =  useLoaderData<typeof loader>() as any;
+  const data = useLoaderData<typeof loader>() as any;
   return (
     <>
-    <Suspense fallback={<LoadingTest />}>
-    <Await resolve={data.jsonParsed}>
-      <Hero />
+      <Suspense fallback={<LoadingTest />}>
+        <Await resolve={data.jsonParsed}>
+          <Hero />
           <Section2 />
           <Section3 />
           <Section4 />
@@ -95,9 +99,9 @@ const Index = () => {
           <Section6 />
           <Section7 />
           <Outlet />
-      </Await>
-    </Suspense>
+        </Await>
+      </Suspense>
     </>
   );
-}
+};
 export default Index;

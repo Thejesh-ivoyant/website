@@ -276,7 +276,7 @@ query {
 export const whitepaperQuery = `query {
   whitePapers(
     sort: "date:desc",
-    pagination: {limit:1}
+    pagination: {limit:6}
   ){
    data{
      id,
@@ -313,7 +313,10 @@ export const whitepaperQuery = `query {
 `;
 
 export const blogQuery = `query{
-  blogs{
+  blogs(
+  sort: "date:desc",
+  pagination: {limit:3}
+){
     data{
       id,
       attributes{
@@ -447,6 +450,47 @@ export const getWhitepaperBasedonLimit = (limit: number) => {
   `;
 };
 
+export const getBlogsBasedonLimit = (limit: number) => {
+  return `
+  query{
+    blogs(
+    sort: "date:desc",
+    pagination: { limit: ${limit} }
+  ){
+      data{
+        id,
+        attributes{
+          title
+          description1
+          maxReadTime
+          date
+          bannerImage{
+            data{
+              attributes{
+                url
+              }
+            }
+          }
+          author{
+            data{
+              attributes{
+              name
+              avatar{
+                data{
+                  attributes{
+                    url
+                  }
+                }
+              }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  `;
+};
 
 export const getPaperAuthorIDQuery = (id:any) => {
   console.warn("paper id is ", id);
