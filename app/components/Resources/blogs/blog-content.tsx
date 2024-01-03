@@ -5,11 +5,10 @@ import { errorMessage, success } from "~/utils/notifications";
 
 const BlogContent = () => {
   const loaderData = useLoaderData() as any;
-
   const match = useMatch("/resources/whitepaper/:id");
   const isResourcesRoute = match !== null;
   console.warn("..............test",loaderData.description1);
-  console.warn("data is",loaderData.blogData[0])
+  
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault();
