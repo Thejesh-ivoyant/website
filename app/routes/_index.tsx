@@ -6,18 +6,14 @@ import Section5 from "~/components/Homepage/industry";
 import Consultation from "~/components/Homepage/consultation";
 import Technology from "~/components/Homepage/technology";
 import Testimonials from "~/components/Homepage/testimonials";
-
-import Footer from "~/common-components/footer";
 import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
 import { MetaFunction, useLoaderData } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { homeQuery, topBlogQuery } from "~/graphql/queries";
 import ContactUs from "~/common-components/contactUs";
-import LoadingTest from "~/common-components/loading-test";
 import { Attributes } from "~/interfaces/Homepage";
 import WhyChooseUs from "~/components/Homepage/why-choose-us";
 import ErrorBoundary from "~/components/ErrorBoundary";
-import { ActionFunction } from "@remix-run/node";
 import AboutCardContainer from "~/components/Homepage/about-card-container";
 export const meta: MetaFunction = () => {
   return [

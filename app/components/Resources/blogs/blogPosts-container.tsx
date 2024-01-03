@@ -21,7 +21,7 @@ const BlogPostsContainer = () => {
       <div className="w-full h-full justify-center flex gap-x-6 p-6  px-40 mx-auto">
   
         {loaderData.blogData.map((blog:IBlogMedia) => (
-           <Link to={`resources/blog/${blog.id}`} key={blog.id}>
+           <Link to={`../resources/blog/${blog.id}`} key={blog.id}>
             <BlogPostCard key={blog.id} blog={blog} />
             </Link>
         ))}
