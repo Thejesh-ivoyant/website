@@ -21,6 +21,7 @@ import Nav from "./common-components/nav";
 import Footer from "./common-components/footer";
 import { fetchGraphQL } from "./graphql/fetchGraphQl";
 import { navQuery } from "./graphql/queries";
+import ScrollToTop from "./ScrollToTop";
 
 
 export const links: LinksFunction = () => [
@@ -42,7 +43,7 @@ export async function loader() {
   }
 };
 export default function App() {
- 
+ ScrollToTop()
   return (
     <html lang="en">
       <head>
@@ -57,7 +58,8 @@ export default function App() {
       <body>
         <Nav />
         <Outlet />
-        <ScrollRestoration />
+        <ScrollToTop></ScrollToTop>
+        <ScrollRestoration></ScrollRestoration>
         <Scripts />
         <LiveReload />
         <Footer  />
