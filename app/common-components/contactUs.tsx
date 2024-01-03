@@ -358,7 +358,7 @@ const ContactUs = () => {
             className={toggleState === 2 ? "glider ml-[15rem]" : "glider ml-5"}
           ></div>
           <Form
-            preventScrollReset
+          
             onSubmit={(event) => handleSubmit(event, "contact")}
             method="post"
             encType="multipart/form-data"
@@ -505,7 +505,7 @@ const ContactUs = () => {
            onSubmit={(event) => handleSubmit(event, "hireus")}
             method="post"
             encType="multipart/form-data"
-            preventScrollReset
+           
             className={
               toggleState === 2
                 ? "flex flex-col gap-10 active-content px-10 py-4"

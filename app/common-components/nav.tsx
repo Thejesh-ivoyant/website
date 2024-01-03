@@ -70,7 +70,9 @@ const Nav = () => {
   const handleHamburgerClick = () => {
     setSidebarOpen(!sidebarOpen);
   };
- 
+  const handleCancel = () => {
+    setOpen(false);
+  };
   
   useEffect(() => {
     const handleScroll = () => {
@@ -102,7 +104,7 @@ const Nav = () => {
        <Modal
         open={open}
         title="Download Whitepaper"
-       
+        onCancel={handleCancel}
        
       >
    <Form className="form" onSubmit={handleSubmit}>

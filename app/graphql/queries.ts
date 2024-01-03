@@ -274,7 +274,10 @@ query {
   }  
 `;
 export const whitepaperQuery = `query {
-  whitePapers{
+  whitePapers(
+    sort: "date:desc",
+    pagination: {limit:1}
+  ){
    data{
      id,
      attributes{
@@ -401,6 +404,50 @@ export const getBlogAuthorIDQuery = (id:any) => {
   }
   `;
 }; 
+export const getWhitepaperBasedonLimit = (limit: number) => {
+  return `
+    query {
+      whitePapers (
+        sort: "date:desc",
+        pagination: { limit: ${limit} }
+      ) {
+        data {
+          id,
+          attributes {
+            title,
+            description1,
+            date,
+            maxReadTime,
+            bannerImage {
+              data {
+                attributes {
+                  name,
+                  url
+                }
+              }
+            },
+            author {
+              data {
+                attributes {
+                  name,
+                  avatar {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+};
+
+
 export const getPaperAuthorIDQuery = (id:any) => {
   console.warn("paper id is ", id);
   return `
@@ -474,13 +521,23 @@ query{
         s3_title
         s3_description
         s3_email
-        job_descriptions{
+        job_descriptions(pagination: { limit: 2 }){
           data{
             id
             attributes{
               job_id
               Title
               location
+              Role
+              MinExperience
+              MaxExperience
+              department{
+                data{
+                  attributes{
+                   DepartmentName 
+                  }
+                }
+              }
             }
           }
         }
@@ -489,6 +546,38 @@ query{
   }
 }
 `;
+export const getJDBasedonLimit = (limit: number) => {
+  return `
+  query{
+    career{
+       data{
+        attributes{
+          job_descriptions(pagination: { limit: ${limit} }){
+            data{
+              id
+              attributes{
+                job_id
+                Title
+                location
+                Role
+                MinExperience
+                MaxExperience
+                department{
+                  data{
+                    attributes{
+                     DepartmentName 
+                    }
+                  }
+                }
+              }
+            }
+          }
+        } 
+      }
+    }
+  }
+  `;
+}
 
 export const productsQuery = `
 query{
