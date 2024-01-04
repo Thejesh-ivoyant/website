@@ -1,7 +1,4 @@
 import { useEffect, useState } from "react";
-import LoadingComponent from "~/common-components/loading";
-
-import Footer from "~/common-components/footer";
 import { MetaFunction, Outlet } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import Why_Join_Us from "~/components/careers/section-2/why-join-us";

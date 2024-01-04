@@ -1,4 +1,3 @@
-import React from 'react';
 import SummaryCard from '../Homepage/summary-card';
 import { useLoaderData } from '@remix-run/react';
 import { loader } from '~/routes/about-us';

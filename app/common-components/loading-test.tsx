@@ -1,4 +1,3 @@
-import React from "react";
 import LoadingImg from "../../public/assets/ivoyant-white.png";
 
 const LoadingTest = () => {

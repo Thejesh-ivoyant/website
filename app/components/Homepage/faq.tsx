@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 const Faq = () => {
   const SECTION12_API_URL = `${strapiUrl}/api/section12s?populate=%2A`

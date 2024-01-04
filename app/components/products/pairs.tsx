@@ -1,5 +1,4 @@
-import { Outlet, useLoaderData } from "@remix-run/react";
-import { strapiUrl } from "~/utils/urls";
+import { useLoaderData } from "@remix-run/react";
 
 const Pairs = () => {
   const data = useLoaderData() as any;

@@ -1,4 +1,4 @@
-import { Outlet, useLoaderData, useRouteLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { ellipsis } from "~/utils/format";
 const Phases = () => {
   const loaderData = useLoaderData() as any;

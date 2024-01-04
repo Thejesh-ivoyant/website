@@ -1,8 +1,8 @@
-import { Outlet, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import Section2 from "~/components/case-study/slug/Section2";
 import Section3 from "~/components/case-study/slug/Section3";
 import Hero from "~/components/case-study/slug/hero";
-import { case_study_query, productsQuery } from "~/graphql/queries";
+import { case_study_query } from "~/graphql/queries";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import Section4 from "~/components/case-study/slug/Section4";
 import { LinksFunction, defer } from "@remix-run/node";

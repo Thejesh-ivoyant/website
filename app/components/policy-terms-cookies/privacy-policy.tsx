@@ -1,6 +1,3 @@
-import { useEffect, useState } from "react";
-import { strapiUrl } from "~/utils/urls";
-import { Button, Col, DatePicker, Drawer, Form, Input, Row, Select, Space } from 'antd';
 import  Bulletimg from "../../../public/assets/BulletPoint.svg";
 
 import { useLoaderData } from "@remix-run/react";

@@ -1,5 +1,4 @@
 import { Carousel } from "antd";
-import type { LinksFunction } from "@remix-run/node"; // or cloudflare/deno
 
 const Section4 = ({ data }: { data: any }) => {
   return (

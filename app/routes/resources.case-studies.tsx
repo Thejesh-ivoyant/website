@@ -7,7 +7,6 @@ import { Suspense } from "react";
 import LoadingTest from "~/common-components/loading-test";
 import Hero from "~/components/case-study/Hero";
 import { Container } from "~/components/case-study/Search-containter";
-import { fetchData } from "~/utils/fetchdata";
 import { Daum } from "~/interfaces/CategoriesType";
 
 export async function loader() {

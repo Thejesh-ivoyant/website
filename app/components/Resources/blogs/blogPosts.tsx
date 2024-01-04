@@ -1,5 +1,4 @@
 import IBlogMedia from "~/interfaces/IBlogMedia";
-import { strapiUrl } from "~/utils/urls";
 
 const BlogPostCard = ({ blog }: { blog: IBlogMedia }) => {
   return (

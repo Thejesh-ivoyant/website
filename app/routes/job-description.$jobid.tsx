@@ -1,5 +1,3 @@
-import LoadingComponent from "~/common-components/loading";
-import Footer from "~/common-components/footer";
 import { MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import JobDescription from "~/components/careers/job-description";

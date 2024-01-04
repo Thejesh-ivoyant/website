@@ -1,8 +1,6 @@
 // src/components/Card.js
 import { Link } from "@remix-run/react";
-import React, { useEffect, useState } from "react";
-import { Attributes, Attributes2 } from "~/interfaces/Homepage";
-import { strapiUrl } from "~/utils/urls";
+import { Attributes } from "~/interfaces/Homepage";
 
 const AboutCard = ({attributes}:{attributes:Attributes}) => {
   

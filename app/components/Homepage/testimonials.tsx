@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 interface Testimonial {
   title: string;

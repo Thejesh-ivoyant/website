@@ -1,6 +1,4 @@
 import { useLoaderData } from "@remix-run/react";
-import React, { useEffect, useState } from "react";
-import { strapiUrl } from "~/utils/urls";
 
 
 const Why_Join_Us = () => {

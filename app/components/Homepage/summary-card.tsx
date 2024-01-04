@@ -1,7 +1,4 @@
-// src/components/Card.js
-import React, { useEffect, useState } from "react";
 import { Attributes } from "~/interfaces/Homepage";
-import { strapiUrl } from "~/utils/urls";
 
 const SummaryCard = ({attributes}:{attributes:Attributes}) => {
   return (

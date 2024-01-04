@@ -1,5 +1,3 @@
-// Sidebar.tsx
-import React, { useEffect, useState } from "react";
 import { Partners } from "~/interfaces/Homepage";
 import line from '../../../public/assets/pur-line.svg'
 
