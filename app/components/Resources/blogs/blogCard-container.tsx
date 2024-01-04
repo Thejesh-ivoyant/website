@@ -137,7 +137,7 @@ const BlogCardContainer = () => {
           className="absolute top-4 left-4"
           alt="ornament"
         />
-        <div className="w-[1100px] z-10 h-full flex flex-col justify-center gap-y-6 p-6  px-20 overflow-y-scroll  ">
+        <div className="w-[1000px] z-10 h-full flex flex-col justify-center gap-y-8 p-6  px-20 overflow-y-scroll  ">
           {blogData.map((blog: IBlogMedia) => (
             <Link to={`../resources/blog/${blog.id}`} key={blog.id}>
               <BlogCard key={blog.id} blog={blog} />

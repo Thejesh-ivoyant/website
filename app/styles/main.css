@@ -15,7 +15,7 @@ html, body {
   padding:0;
   width:100%;
   height:100%;
-  overflow-x: auto;
+  /* overflow-x: auto; Never use this, this will effect the scroll of remix*/ 
   }
 ::-webkit-scrollbar {
     width: 0em;

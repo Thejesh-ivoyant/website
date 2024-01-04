@@ -3,10 +3,12 @@ import { Button, Modal } from "antd";
 import { useState } from "react";
 import { errorMessage, success } from "~/utils/notifications";
 
-const BlobContent = () => {
+const BlogContent = () => {
   const loaderData = useLoaderData() as any;
   const match = useMatch("/resources/whitepaper/:id");
   const isResourcesRoute = match !== null;
+  console.warn("..............test",loaderData.description1);
+  
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault();
@@ -292,4 +294,4 @@ const BlobContent = () => {
       </div>
       );  
 };
-export default BlobContent;
+export default BlogContent;
