@@ -1,12 +1,8 @@
-// Index.tsx
-import { useEffect, useState } from "react";
 import { Suspense } from "react";
-import LoadingComponent from "~/common-components/loading";
 import Consultation from "~/components/Homepage/consultation";
 import { Await, MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
-import { LinksFunction, LoaderFunctionArgs, defer } from "@remix-run/node";
-import IBlogMedia from "../interfaces/IBlogMedia";
+import { defer } from "@remix-run/node";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { blogQuery } from "~/graphql/queries";
 import BlogCardContainer from "~/components/Resources/blogs/blogCard-container";

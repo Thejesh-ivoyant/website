@@ -1,4 +1,3 @@
-import React from 'react';
 import AboutCard from './about-card';
 import SummaryCard from './summary-card';
 import { Attributes } from '~/interfaces/Homepage';

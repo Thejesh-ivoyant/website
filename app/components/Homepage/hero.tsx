@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { strapiUrl } from "~/utils/urls";
-import { scrollTo } from "~/root";
+import React, { useState } from "react";
 import { HeroBg } from "~/interfaces/Homepage";
 
 const Hero = ({

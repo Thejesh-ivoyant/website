@@ -1,5 +1,4 @@
-import { Outlet, useLoaderData, useRouteLoaderData } from "@remix-run/react";
-import { strapiUrl } from "~/utils/urls";
+import { useLoaderData } from "@remix-run/react";
 const Technologies = () => {
   const loaderData = useLoaderData() as any;
 

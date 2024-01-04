@@ -1,4 +1,4 @@
-import { Outlet, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 
 const Section7 = () => {
   const loaderData = useLoaderData() as any;

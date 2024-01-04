@@ -1,7 +1,3 @@
-import React, { useEffect, useState } from "react";
-
-
-
 import BlogPostCard from "./blogPosts";
 import { Link, useLoaderData } from "@remix-run/react";
 import IBlogMedia from "../../../interfaces/IBlogMedia";
@@ -12,7 +8,7 @@ const BlogPostsContainer = () => {
     <div className="w-full bg-white p-8 h-fit ">
       <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
         <span className="h-fit whitespace-nowrap font-montserrat font-bold">
-        {loaderData.s2_title}
+        Whats new in our blogs
         </span>
       </div>
       

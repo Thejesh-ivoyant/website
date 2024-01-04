@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import BlogCard from "./service-card";
-import { strapiUrl } from "~/utils/urls";
 import { useLoaderData } from "@remix-run/react";
 import ServiceCard from "./service-card";
 const ServiceCardContainer = () => {

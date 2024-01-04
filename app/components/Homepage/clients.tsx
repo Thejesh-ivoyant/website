@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { Clients } from "~/interfaces/Homepage";
 import line from '../../../public/assets/pur-line.svg'
 

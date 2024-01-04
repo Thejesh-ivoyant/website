@@ -1,7 +1,6 @@
 import { defer } from "@remix-run/node";
 import { Await, MetaFunction, useLoaderData } from "@remix-run/react";
 import Hero from "~/components/about-us/Hero";
-import Footer from "~/common-components/footer";
 import Testimonials from "~/components/Homepage/testimonials";
 import MissionCard from "~/components/about-us/mission";
 import Faq from "~/components/about-us/faq";

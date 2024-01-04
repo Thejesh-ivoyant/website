@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./sidebar";
 import { Form, Link, useRouteLoaderData } from "@remix-run/react";
-import { scrollTo } from "~/root";
-import { Button, Modal } from "antd";
+import { Modal } from "antd";
 
 import ivurl from '../../public/assets/ivoyant.svg';
 import defaultsvg from '../../public/assets/default.svg';

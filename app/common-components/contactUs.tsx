@@ -1,22 +1,15 @@
-import { Form, useLoaderData, useRouteLoaderData } from "@remix-run/react";
+import { Form } from "@remix-run/react";
 
 import { useEffect, useRef, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
-import { loader } from "~/routes/_index";
 import React from "react";
 import dayjs, { Dayjs } from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import { Button, DatePicker, Space, Upload, UploadProps, message } from "antd";
-import {
-  CalendarOutlined,
-  FileAddOutlined,
-  DeleteOutlined,
-  CloseOutlined,
-} from "@ant-design/icons";
+import { DatePicker, Space } from "antd";
+import { CalendarOutlined, FileAddOutlined, DeleteOutlined } from "@ant-design/icons";
 import Country from "country-calling-code";
 
 import type { RangePickerProps } from "antd/es/date-picker";
-import { UploadOutlined } from "@ant-design/icons";
 import { errorMessage, success } from "~/utils/notifications";
 dayjs.extend(customParseFormat);
 
