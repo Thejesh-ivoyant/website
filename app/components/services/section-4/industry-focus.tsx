@@ -1,6 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
 import { Carousel } from "antd";
-import React, { useState } from "react";
 import { CarouselItem } from "~/interfaces/ServicesType";
 
 const IndustryFocus = () => {

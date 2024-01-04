@@ -1,10 +1,9 @@
 // Index.tsx
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 import Consultation from "~/components/Homepage/consultation";
 import { Await, MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
-import { LinksFunction, LoaderFunctionArgs, defer } from "@remix-run/node";
+import { defer } from "@remix-run/node";
 import { strapiUrl } from "~/utils/urls";
-import IBlogMedia from "../interfaces/IBlogMedia";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { whitepaperQuery } from "~/graphql/queries";
 import WhitePaperCardContainer from "~/components/Resources/whitepapers/whitepaper-container";

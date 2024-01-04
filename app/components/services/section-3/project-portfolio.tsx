@@ -1,7 +1,5 @@
 // src/components/Card.js
 import { useLoaderData } from "@remix-run/react";
-import React, { useEffect, useState } from "react";
-import { strapiUrl } from "~/utils/urls";
 
 
 const ProjectPortfolio = () => {

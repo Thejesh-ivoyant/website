@@ -1,9 +1,7 @@
 import { useCallback, useState } from "react";
-import { strapiUrl } from "~/utils/urls";
-import { Button, Col, DatePicker, Drawer, Input, Row, Select, Space } from 'antd';
-import { useLoaderData, useLocation, useParams } from "@remix-run/react";
-import { loader } from "~/root";
-import { Form, Link, useRouteLoaderData } from "@remix-run/react";
+import { Button, Drawer, Select, Space } from 'antd';
+import { useLoaderData } from "@remix-run/react";
+import { Form } from "@remix-run/react";
 import { errorMessage, success } from "~/utils/notifications";
 import { useDropzone } from 'react-dropzone';
 import { FileAddOutlined, DeleteOutlined } from '@ant-design/icons';

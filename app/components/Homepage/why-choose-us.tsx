@@ -1,4 +1,4 @@
-import { Outlet, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { Pair } from "~/interfaces/Homepage";
 
 const WhyChooseUs = ({pairs, title, description}:{pairs:Pair[],title:string, description:string}) => {

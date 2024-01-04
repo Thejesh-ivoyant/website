@@ -1,6 +1,4 @@
-import LoadingComponent from "~/common-components/loading";
 import Consultation from "~/components/Homepage/consultation";
-import Footer from "~/common-components/footer";
 import { MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import PTCHero from "~/components/policy-terms-cookies/ptc-hero";

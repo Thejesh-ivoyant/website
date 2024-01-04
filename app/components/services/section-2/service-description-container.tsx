@@ -1,4 +1,3 @@
-import React from 'react';
 import Description from './service-description';
 import ServiceKeypoints from './service-keypoints';
 

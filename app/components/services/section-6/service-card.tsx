@@ -1,4 +1,3 @@
-import { strapiUrl } from "~/utils/urls";
 const ServiceCard = ({ service }: { service: any }) => {
     
     return (

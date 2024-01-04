@@ -1,8 +1,4 @@
-// src/components/Card.js
-import { Link } from "@remix-run/react";
-import React, { useEffect, useState } from "react";
-import { strapiUrl } from "~/utils/urls";
-import { Outlet, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 
 const Description = () => {
   const loaderData = useLoaderData() as any;

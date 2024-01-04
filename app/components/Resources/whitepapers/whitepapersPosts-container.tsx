@@ -1,7 +1,3 @@
-import React, { useEffect, useState } from "react";
-
-
-
 import WhitePaperPostCard from "./whitepaperPosts";
 import { Link, useLoaderData } from "@remix-run/react";
 import IBlogMedia from "../../../interfaces/IBlogMedia";

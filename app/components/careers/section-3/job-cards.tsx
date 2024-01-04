@@ -1,8 +1,5 @@
-import { Link, useLoaderData, useNavigate } from "@remix-run/react";
-import React, { useEffect, useState } from "react";
-import { strapiUrl } from "~/utils/urls";
-import JobDescription from "../job-description";
-import { redirect } from "@remix-run/node";
+import { Link, useLoaderData } from "@remix-run/react";
+import { useState } from "react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { getJDBasedonLimit } from "~/graphql/queries";
 const JobCards = () => {

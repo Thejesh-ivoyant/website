@@ -1,9 +1,4 @@
-import React from "react";
-import { useMatch } from "@remix-run/react";
-import { strapiUrl } from "~/utils/urls";
-import { scrollTo } from "~/root";
-import { Outlet, useLoaderData } from "@remix-run/react";
-import { loader } from "~/routes/services.MobileDev";
+import { useLoaderData } from "@remix-run/react";
 
 const PTCHero = () => {
   const loaderData = useLoaderData() as any;

@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useLoaderData } from "@remix-run/react";
 import { useState } from "react";
 import { FAQItem } from "~/DTO/faq";
 

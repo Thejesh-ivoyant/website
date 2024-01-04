@@ -1,10 +1,7 @@
-import LoadingComponent from "~/common-components/loading";
-import Footer from "~/common-components/footer";
 import { MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { getAuthorQuery, getBlogAuthorIDQuery } from "~/graphql/queries";
-import BlobContent from "~/components/Resources/blogs/blog-content";
 import { LoaderFunctionArgs } from "@remix-run/node";
 import BlogHero from "~/components/Resources/blogs/blog-hero";
 import LoadingTest from "~/common-components/loading-test";

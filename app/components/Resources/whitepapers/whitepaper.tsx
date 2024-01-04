@@ -1,6 +1,5 @@
 
 import IWhitePaper from "~/interfaces/IWhitePaper";
-import { strapiUrl } from "~/utils/urls";
 const WhitePaperCard = ({ paper }: { paper: IWhitePaper }) => {
     // Extract data from the blog object
     function trimWords(text:string) {

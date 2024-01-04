@@ -1,11 +1,10 @@
-import { Input, Select, Space } from "antd";
+import { Select, Space } from "antd";
 import DropDownIcon from "./arrow";
 import { useState } from "react";
 import { generateDynamicQuery } from "~/utils/parameterized-gql";
 import { case_study_paginated } from "~/graphql/queries";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { Link } from "@remix-run/react";
-import { Daum } from "~/interfaces/CategoriesType";
 
 
 export const Container = ({ data, tags, categories }: { data: any, tags:any, categories: any }) => {
