@@ -83,7 +83,7 @@ const JobCards = () => {
           <div className="text-slate-950 text-xl font-medium max-md:max-w-full">
           {jobs.Title} 
           </div>
-          <div className="items-stretch flex justify-between gap-5 mt-4 self-start max-md:max-w-full max-md:flex-wrap">
+          <div className="items-stretch flex justify-between gap-10 mt-4 self-start max-md:max-w-full max-md:flex-wrap">
             <div className="items-stretch flex justify-between gap-2">
               <img
                 loading="lazy"

@@ -1,12 +1,8 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
-import { defer, type LinksFunction } from "@remix-run/node";
+import { type LinksFunction } from "@remix-run/node";
 import stylesheet from "~/tailwind.css";
-
 import globalstyle from "~/styles/main.css";
 import Navstyle from "~/common-components/nav.css";
 import Sidebarstyle from "~/common-components/sidebar.css"
-
-
 import {
   Links,
   LiveReload,
@@ -16,21 +12,16 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-import Sidebar from "./common-components/sidebar";
 import Nav from "./common-components/nav";
 import Footer from "./common-components/footer";
 import { fetchGraphQL } from "./graphql/fetchGraphQl";
 import { navQuery } from "./graphql/queries";
-import ScrollToTop from "./ScrollToTop";
-
-
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
   { rel: "stylesheet", href: globalstyle },
   { rel: "stylesheet", href: Navstyle},
   {rel:"stylesheet", href:Sidebarstyle}
 ];
-
 
 export function scrollTo(section: string) {
   (document.getElementById(section)!).scrollIntoView({ behavior: "smooth" });
@@ -41,9 +32,8 @@ export async function loader() {
   return {
     navGraphql : navGraphql
   }
-};
+}
 export default function App() {
- ScrollToTop()
   return (
     <html lang="en">
       <head>
@@ -58,8 +48,7 @@ export default function App() {
       <body>
         <Nav />
         <Outlet />
-        <ScrollToTop></ScrollToTop>
-        <ScrollRestoration></ScrollRestoration>
+        <ScrollRestoration/>
         <Scripts />
         <LiveReload />
         <Footer  />

@@ -565,7 +565,7 @@ query{
         s3_title
         s3_description
         s3_email
-        job_descriptions(pagination: { limit: 2 }){
+        job_descriptions(pagination: { limit: 1 }){
           data{
             id
             attributes{
