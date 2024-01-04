@@ -8,7 +8,23 @@ import { getJDBasedonLimit } from "~/graphql/queries";
 const JobCards = () => {
   const loaderData = useLoaderData() as any;
   const [JobDesc, setJobDescData] = useState(loaderData.JobDesc || []);
-  const [limit, setLimit] = useState(0); // Initial limit
+
+  const [category, setCategory] = useState("");
+  const [tag, setTag] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+
+  const [limit, setLimit] = useState(5); // Initial limit
+  const categories = ["Category1", "Category2", "Category3"];
+  const tags = ["Tag1", "Tag2", "Tag3"];
+  const handleInputChange = (value: any) => {
+    setSearchValue(value);
+    console.warn("search is", searchValue)
+    const filteredJobs = loaderData.JobDesc.filter((job: any) =>
+    job.Title.toLowerCase().includes(value.toLowerCase())
+  );
+  setJobDescData(filteredJobs);
+
+  };
 
   const fetchMoreData = async () => {
     const updatedQuery = getJDBasedonLimit(limit + 3);
@@ -41,29 +57,73 @@ const JobCards = () => {
       <section className="heading gradient-bottom">
         <h2>{loaderData.s3_title}</h2>
       </section>
+      <div className="flex w-full font-montserrat justify-center gap-2 h-12 ">
+        <div className="flex flex-col gap-1">
+          <div className="flex">
+            <label className="text-haiti font-normal">Filter by:</label>
+          </div>
+          {/* Category select */}
+          <div className="flex flex-row gap-4">
+            <select
+           style={{ width: "190px", borderRadius: "2px", border: "0.5px solid #1B0740" }}
 
-      <div className="px-10 flex justify-between gap-3 max-md:flex-wrap max-md:justify-center">
-        <div className="items-stretch flex grow basis-[0%] flex-col px-5">
-          <div className="text-indigo-950 text-sm capitalize whitespace-nowrap">
-            Filter By:
-          </div>
-          <input className="flex w-full flex-col justify-center items-stretch mt-3.5 pl-2.5 pr-7 py-2.5 rounded-sm border-[0.5px] border-solid border-indigo-950 max-md:pr-5" />
-        </div>
-        <div className="flex items-center justify-between gap-5 mt-7 pl-2.5 pr-5 py-2.5 rounded-sm border-[0.5px] border-solid border-indigo-950 self-end max-md:pr-5">
-          <option className="text-indigo-950 text-sm capitalize grow whitespace-nowrap my-auto">
-            All Locations
-            <select>BANGALORRE</select>
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="" selected>
+                All Categories
+              </option>
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+            <select
+       style={{ width: "190px", borderRadius: "2px", border: "0.5px solid #1B0740" }}
+
+          onChange={(e) => setTag(e.target.value)}
+        >
+          <option value="" selected>
+            All Tags
           </option>
-       
+          {tags.map((tag) => (
+            <option key={tag} value={tag}>
+              {tag}
+            </option>
+          ))}
+        </select>
+
+        {/* Search input */}
+        <div className="relative flex items-center">
+          <svg
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 ml-2"
+            width="13"
+            height="12"
+            viewBox="0 0 13 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.25 10.5a4.75 4.75 0 1 0 0-9.5 4.75 4.75 0 0 0 0 9.5Zm5.25.5-1-1"
+              stroke="#1B0740"
+              strokeWidth=".75"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          {/* Search input */}
+          <input
+            value={searchValue}
+            onChange={(e) => handleInputChange(e.target.value)}
+            placeholder="Search"
+            className="h-34 border-haiti w-96 border-[1px] border-solid rounded-sm pl-10 py-2 focus:outline-none text-xs"
+          />
         </div>
-        <div className="flex grow basis-[0%] flex-col justify-center items-stretch mt-7 py-1.5 rounded-sm border-[0.5px] border-solid border-indigo-950 self-end">
-          <div className="items-stretch flex justify-between gap-2 px-5 py-1.5">
-           
-            <div className="text-indigo-950 text-sm capitalize grow whitespace-nowrap self-start">
-              Search
-            </div>
           </div>
         </div>
+
+        {/* Tag select */}
+      
       </div>
 
       <section className="px-4 py-8 ">
