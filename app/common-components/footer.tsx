@@ -10,7 +10,7 @@ const Footer = () => {
   const attributes = data.navGraphql?.data?.navbar?.data
     ?.attributes as Attributes;
   return (
-    <footer className="w-full  bg-haiti py-16 px-16 font-montserrat text-white screen-height">
+    <footer className="w-full  bg-haiti py-16 px-16 font-montserrat text-white screen-height ">
       <section className="flex flex-row w-full gradient-bottom p-6"></section>
       <section className="flex flex-row w-full  p-6">
         <div className="flex-1">
