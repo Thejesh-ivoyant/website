@@ -33,64 +33,100 @@ const BlogCardContainer = () => {
         avatar:
           item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
       },
+      topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
+      category: {
+       name:item.attributes.category.data?.attributes.name
+      
+      },
       }))
     ]);
 
     // Increment the limit for the next fetch
     setLimit(limit + 3);
   };
-  // Mock data for categories and tags
-  const categories = ["Category1", "Category2", "Category3"];
-  const tags = ["Tag1", "Tag2", "Tag3"];
+  
+  const handleDropChange = (value: any) => {
+    
+    const filteredBlogs = loaderData.blogData.filter((blog: IBlogMedia) => {
+      const categoryMatches = !value || blog.category?.name.toLowerCase() === value.toLowerCase();
 
-  // Event handler for input change
-  const handleInputChange = (value: any) => {
-    setSearchValue(value);
-    console.warn("search is", searchValue)
-    const filteredBlogs = loaderData.blogData.filter((blog: IBlogMedia) =>
-    blog.title.toLowerCase().includes(value.toLowerCase())
-  );
+      return categoryMatches
+    });
+  
+    setBlogData(filteredBlogs);
+  }
+
+  const handleTagDropChange = (value: any) => {
+    
+    const filteredBlogs = loaderData.blogData.filter((blog: IBlogMedia) => {
+
+      const tagMatches = !value || blog.topic_tags?.includes(value);
+      return tagMatches
+    });
+  
+    setBlogData(filteredBlogs);
+  }
+ const handleInputChange = (value: any) => {
+
+  const filteredBlogs = loaderData.blogData.filter((blog: IBlogMedia) => {
+    const titleMatches = blog.title.toLowerCase().includes(value.toLowerCase());
+    return titleMatches
+  });
+
   setBlogData(filteredBlogs);
+};
 
-  };
 
   return (
     <div className="w-full bg-white p-8 min-h-[90vh]">
-      <div className="flex w-full font-montserrat justify-center gap-2 h-12 ">
+      
+
+      <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
+        <span className="h-fit whitespace-nowrap font-montserrat font-bold">
+          {loaderData.s2_title}
+        </span>
+      </div>
+      <div className="flex w-full font-montserrat justify-center gap-2 h-12 mt-2 mb-2 ">
         <div className="flex flex-col gap-1">
           <div className="flex">
             <label className="text-haiti font-normal">Filter by:</label>
           </div>
           {/* Category select */}
           <div className="flex flex-row gap-4">
-            <select
-           style={{ width: "190px", borderRadius: "2px", border: "0.5px solid #1B0740" }}
+          <select
+  style={{ width: "190px", borderRadius: "2px", border: "0.5px solid #1B0740" }}
+  onChange={(e) => {
+    setCategory(e.target.value);
+    handleDropChange(e.target.value); // Trigger filtering when category changes
+  }}
+>
+  <option value="" selected>
+    All Categories
+  </option>
+  {loaderData.categoriesList.map((category:any) => (
+    <option key={category.value} value={category.value}>
+      {category.label}
+    </option>
+  ))}
+</select>
 
-              onChange={(e) => setCategory(e.target.value)}
-            >
-              <option value="" selected>
-                All Categories
-              </option>
-              {categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-            <select
-       style={{ width: "190px", borderRadius: "2px", border: "0.5px solid #1B0740" }}
+<select
+  style={{ width: "190px", borderRadius: "2px", border: "0.5px solid #1B0740" }}
+  onChange={(e) => {
+    setTag(e.target.value);
+    handleTagDropChange(e.target.value); 
+  }}
+>
+  <option value="" selected>
+    All Tags
+  </option>
+  {loaderData.tags.map((tag:any) => (
+    <option key={tag.value} value={tag.value}>
+      {tag.label}
+    </option>
+  ))}
+</select>
 
-          onChange={(e) => setTag(e.target.value)}
-        >
-          <option value="" selected>
-            All Tags
-          </option>
-          {tags.map((tag) => (
-            <option key={tag} value={tag}>
-              {tag}
-            </option>
-          ))}
-        </select>
 
         {/* Search input */}
         <div className="relative flex items-center">
@@ -113,7 +149,11 @@ const BlogCardContainer = () => {
           {/* Search input */}
           <input
             value={searchValue}
-            onChange={(e) => handleInputChange(e.target.value)}
+            onChange={(e) => {
+              setSearchValue(e.target.value);
+              handleInputChange(e.target.value); // Trigger filtering when category changes
+            }}
+          
             placeholder="Search"
             className="h-34 border-haiti w-96 border-[1px] border-solid rounded-sm pl-10 py-2 focus:outline-none text-xs"
           />
@@ -123,12 +163,6 @@ const BlogCardContainer = () => {
 
         {/* Tag select */}
       
-      </div>
-
-      <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
-        <span className="h-fit whitespace-nowrap font-montserrat font-bold">
-          {loaderData.s2_title}
-        </span>
       </div>
 
       <div className="w-full h-fit relative p-2 flex flex-row justify-around">

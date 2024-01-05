@@ -331,6 +331,21 @@ export const blogQuery = `query{
             }
           }
         }
+        topic_tags{
+          data{
+						attributes{
+  						name	
+              }
+          }
+        }
+        category{
+          data
+          {
+            attributes{
+              name
+            }
+          }
+        }
         author{
           data{
             attributes{
@@ -471,6 +486,21 @@ export const getBlogsBasedonLimit = (limit: number) => {
               }
             }
           }
+          topic_tags{
+            data{
+              attributes{
+                name	
+                }
+            }
+          }
+          category{
+            data
+            {
+              attributes{
+                name
+              }
+            }
+          }
           author{
             data{
               attributes{
@@ -530,6 +560,21 @@ query {
           data {
             attributes {
               url
+            }
+          }
+        }
+        topic_tags{
+          data{
+						attributes{
+  						name	
+              }
+          }
+        }
+        category{
+          data
+          {
+            attributes{
+              name
             }
           }
         }
