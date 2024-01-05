@@ -58,15 +58,15 @@ export const meta: MetaFunction = () => {
 export async function loader({ params }: LoaderFunctionArgs) {
 
   const slugToServiceMap: Record<string, string> = {
-    mobiledev: "s-mad",
+    "mobiledev": "s-mad",
     "ui-ux": "s-ui-ux",
-    apiintegration: "s-api-integration",
-    cloudmigration: "s-cloud-migration",
-    customapplication: "s-custom-application",
-    dataintegration: "s-data-integration",
+    "apiintegration": "s-api-integration",
+    "cloudmigration": "s-cloud-migration",
+    "customapplication": "s-custom-application",
+    "dataintegration": "s-data-integration",
     "lowcode-nocode": "s-low-code-no-code",
-    devops: "s-dev-op",
-    websitedev: "s-website-development",
+    "devops": "s-dev-op",
+    "websitedev": "s-website-development",
   };
 
   const service = slugToServiceMap[`${params.slug}`];
@@ -97,6 +97,11 @@ export async function loader({ params }: LoaderFunctionArgs) {
       name: item.attributes.author.data?.attributes.name,
       profileSummary: item.attributes.author.data?.attributes.profileSummary,
     },
+    topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
+      category: {
+       name:item.attributes.category.data?.attributes.name
+      
+      }
   }));
   const IndustryFocus = industryComponentRes.s4_industryFocus.map((item: any) => ({
     id: item.id,
