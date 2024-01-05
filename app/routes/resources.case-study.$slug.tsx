@@ -1,15 +1,15 @@
 import { useLoaderData } from "@remix-run/react";
-import Section2 from "~/components/case-study/slug/Section2";
-import Section3 from "~/components/case-study/slug/Section3";
-import Hero from "~/components/case-study/slug/hero";
+import Section2 from "~/components/Resources/case-study/slug/Section2";
+import Section3 from "~/components/Resources/case-study/slug/Section3";
+import Hero from "~/components/Resources/case-study/slug/hero";
 import { case_study_query } from "~/graphql/queries";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import Section4 from "~/components/case-study/slug/Section4";
+import Section4 from "~/components/Resources/case-study/slug/Section4";
 import { LinksFunction, defer } from "@remix-run/node";
-import Section5 from "~/components/case-study/slug/section5";
-import Section6 from "~/components/case-study/slug/Section6";
+import Section5 from "~/components/Resources/case-study/slug/section5";
+import Section6 from "~/components/Resources/case-study/slug/Section6";
 import { generateDynamicQuery } from "~/utils/parameterized-gql";
-import { Features } from "~/components/case-study/slug/key-features";
+import { Features } from "~/components/Resources/case-study/slug/key-features";
 import CaseStyle from '~/styles/CaseStudySlug.css'
 
 export const links: LinksFunction = () => [

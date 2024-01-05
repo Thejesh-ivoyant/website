@@ -36,7 +36,7 @@ const Hero = ({
         <div className="w-fit h-fit grid place-items-center  gap-4 z-20">
           <div className=" hero-title leading-[4rem] tracking-wider animated-text">
           
-          {heroText.split(" ").map((word, wordIndex) => (
+          {heroText?.split(" ").map((word, wordIndex) => (
             <React.Fragment key={wordIndex}>
               {word.split("").map((char, charIndex) => (
                 <span key={charIndex} className="animated-char">
