@@ -5,8 +5,8 @@ import { generateDynamicQuery } from "~/utils/parameterized-gql";
 import { defer } from "@remix-run/node";
 import { Suspense } from "react";
 import LoadingTest from "~/common-components/loading-test";
-import Hero from "~/components/case-study/Hero";
-import { Container } from "~/components/case-study/Search-containter";
+import Hero from "~/components/Resources/case-study/Hero";
+import { Container } from "~/components/Resources/case-study/Search-containter";
 import { Daum } from "~/interfaces/CategoriesType";
 
 export async function loader() {
