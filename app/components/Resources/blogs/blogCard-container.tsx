@@ -69,7 +69,7 @@ const BlogCardContainer = () => {
   }
  const handleInputChange = (value: any) => {
 
-  const filteredBlogs = blogData.filter((blog: IBlogMedia) => {
+  const filteredBlogs = loaderData.blogData.filter((blog: IBlogMedia) => {
     const titleLowerCase = blog.title.toLowerCase();
 
     const valueLowerCase = value.toLowerCase();
