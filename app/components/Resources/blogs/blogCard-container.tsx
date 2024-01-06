@@ -70,8 +70,13 @@ const BlogCardContainer = () => {
  const handleInputChange = (value: any) => {
 
   const filteredBlogs = blogData.filter((blog: IBlogMedia) => {
-    const titleMatches = blog.title.toLowerCase().includes(value.toLowerCase());
-    return titleMatches
+    const titleLowerCase = blog.title.toLowerCase();
+
+    const valueLowerCase = value.toLowerCase();
+
+    // Check if the title starts with or includes the current search value
+    return titleLowerCase.startsWith(valueLowerCase) || titleLowerCase.includes(valueLowerCase);
+  
   });
 
   setBlogData(filteredBlogs);
