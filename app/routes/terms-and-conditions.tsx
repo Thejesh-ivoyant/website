@@ -51,7 +51,7 @@ export async function loader() {
    } = jsonParsed.data[0]?.attributes;
  
    return {
- 
+    heroImage:jsonParsed.data[0]?.attributes.heroImage.data?.attributes.url,
     heroTitle,
     heroDescription,
     last_reviewed,

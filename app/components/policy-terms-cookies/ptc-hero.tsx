@@ -5,10 +5,10 @@ const PTCHero = () => {
 
   return (
     <div>
-       <div className="bg-slate-50 w-full max-md:max-w-full">
-        <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-          <div className="flex flex-col items-stretch w-[47%] max-md:w-full max-md:ml-0">
-            <div className="flex-col fill-white overflow-hidden relative flex min-h-[691px] grow items-center px-20 py-12 max-md:max-w-full max-md:px-5">
+       <div className=" w-full">
+        <div className="gap-5 flex ">
+          <div className="flex flex-col  w-[50%] ">
+            <div className="flex-col mt-16 fill-white overflow-hidden relative flex grow items-center  max-md:max-w-full max-md:px-5">
              
               <div className="relative text-indigo-950 text-opacity-80 text-xl leading-8 whitespace-nowrap mt-24 max-md:max-w-full max-md:mt-10">
                 Last reviewed on: {loaderData.last_reviewed}
@@ -21,12 +21,17 @@ const PTCHero = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-stretch w-[53%] ml-5 max-md:w-full max-md:ml-0">
-            <img
-              loading="lazy"
-              src= '../assets/policy.jpg'              className="aspect-[1.3] object-contain object-center w-full overflow-hidden grow max-md:max-w-full"
-            />
+          <div className="flex flex-col w-[53%] z-10">
+            <div className="skew-container">
+              <img
+                loading="lazy"
+                src={loaderData.heroImage}
+                className="aspect-[1.3] object-center w-full overflow-hidden grow max-md:max-w-full"
+              />
+            </div>
           </div>
+
+
         </div>
       </div>
     </div>
