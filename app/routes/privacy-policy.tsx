@@ -73,7 +73,7 @@ export async function loader() {
    } = jsonParsed.data[0]?.attributes;
  
    return {
- 
+    heroImage: jsonParsed.data[0]?.attributes.heroImage.data?.attributes.url,
      collection_of_info: collection_of_info,
      CTP_List: CTP_List,
      CTP_Points: CTP_Points,
