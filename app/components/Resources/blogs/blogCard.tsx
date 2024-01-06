@@ -27,7 +27,7 @@ const BlogCard = ({ blog }: { blog: IBlogMedia }) => {
               <div className="line-clamp-2 self-stretch text-black text-4xl font-semibold mt-3 max-md:max-w-full">
                {blog.title}
               </div>
-              <div className="text-black text-base leading-5 self-stretch mt-6 max-md:max-w-full">
+              <div className="text-black line-clamp-3 etext-base leading-5 self-stretch mt-6 max-md:max-w-full">
               {trimWords(blog.description1)}  </div>
               <div className="items-stretch flex justify-between gap-5  mt-5  max-md:mt-10">
               <img
