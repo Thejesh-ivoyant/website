@@ -46,19 +46,20 @@ const BlogCardContainer = () => {
   };
   
   const handleDropChange = (value: any) => {
-    
-    const filteredBlogs = loaderData.blogData.filter((blog: IBlogMedia) => {
-      const categoryMatches = !value || blog.category?.name.toLowerCase() === value.toLowerCase();
-
-      return categoryMatches
-    });
+    setCategory(value);
+      const filteredBlogs = blogData.filter((blog: IBlogMedia) => {
+        const categoryMatches = !value || blog.category?.name.toLowerCase() === value.toLowerCase();
   
-    setBlogData(filteredBlogs);
+        return categoryMatches
+      });
+    
+      setBlogData(filteredBlogs);
+   
   }
 
   const handleTagDropChange = (value: any) => {
-    
-    const filteredBlogs = loaderData.blogData.filter((blog: IBlogMedia) => {
+    setTag(value);
+    const filteredBlogs = blogData.filter((blog: IBlogMedia) => {
 
       const tagMatches = !value || blog.topic_tags?.includes(value);
       return tagMatches
@@ -68,7 +69,7 @@ const BlogCardContainer = () => {
   }
  const handleInputChange = (value: any) => {
 
-  const filteredBlogs = loaderData.blogData.filter((blog: IBlogMedia) => {
+  const filteredBlogs = blogData.filter((blog: IBlogMedia) => {
     const titleMatches = blog.title.toLowerCase().includes(value.toLowerCase());
     return titleMatches
   });

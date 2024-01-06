@@ -77,7 +77,7 @@ export async function loader() {
     console.warn("compsres ssssssssssssssssloader data ", blogData);
 
     return defer({
-      heroImage: jsonParsed.data?.attributes.heroImage.data?.attributes.url,
+      heroBgImageURl: jsonParsed.data?.attributes.heroImage.data?.attributes.url,
       heroTitle,
       heroDescription,
       s2_title,
@@ -93,10 +93,11 @@ export async function loader() {
 
 const Index = () => {
   const data = useLoaderData<typeof loader>();
+  
   return (
     <>
     <Suspense fallback={<LoadingTest />}>
-      <Await resolve={data.heroImage}>
+      <Await resolve={data.heroBgImageURl}>
  
       
           <Hero />
