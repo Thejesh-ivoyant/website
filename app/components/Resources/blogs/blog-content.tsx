@@ -82,7 +82,22 @@ const BlogContent = () => {
             <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
              {loaderData.description2}
             </div>
+       
+        
+
+           <img
+             loading="lazy"
+             src={`${loaderData.descriptionImage2}`}  className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+           />
+           <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
+            {loaderData.description3}
            </div>
+           <img
+             loading="lazy"
+             src={`${loaderData.descriptionImage3}`}  className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+           />
+          
+          </div>
           )}
           </div>
           <div className="bg-gray-200 self-stretch flex w-px shrink-0 h-[1653px] flex-col" />
