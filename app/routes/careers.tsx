@@ -4,10 +4,11 @@ import { strapiUrl } from "~/utils/urls";
 import Why_Join_Us from "~/components/careers/section-2/why-join-us";
 import JobCards from "~/components/careers/section-3/job-cards";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { careersQuery } from "~/graphql/queries";
+import { careersQuery, departmentQuery, expQuery, jobroles, jobrolesQuery, locations, locationsQuery } from "~/graphql/queries";
 import JoinUsCardContainer from "~/components/careers/section-4/join-us-card-container";
 import LoadingTest from "~/common-components/loading-test";
 import Hero from "~/common-components/Hero";
+import { Daum } from "~/interfaces/CategoriesType";
 
 export const meta: MetaFunction = () => {
   return [
@@ -47,16 +48,45 @@ export async function loader() {
     "/api/career?populate=s4_cards.bgImage,s2_whyJoinUs.bgImage"
   );
 
+  const [locationsList, JobRolesList, DepList, ExperienceList] = await Promise.all([
+    await fetchGraphQL(locationsQuery),
+    await fetchGraphQL(jobrolesQuery),
+    await fetchGraphQL(departmentQuery),
+    await fetchGraphQL(expQuery)
+  ]);
+  const LocData = locationsList?.data?.locations?.data
+  const RolesData = JobRolesList?.data?.jobRoles.data 
+  const DepData = DepList?.data?.departments.data 
+  const ExpData = ExperienceList?.data?.experiences.data
+
+  const LocList = LocData.map((item:any) => ({
+    value: item.attributes.location,
+    label: item.attributes.location,
+  }));
+  const RolesList = RolesData.map((item:any) => ({
+    value: item.attributes.role,
+    label: item.attributes.role,
+  }));
+  const DepartmentList = DepData.map((item:any) => ({
+    value: item.attributes.DepartmentName,
+    label: item.attributes.DepartmentName,
+  }));
+
+  const ExpList = ExpData.map((item:any) => ({
+    value: item.attributes.experienceRange,
+    label: item.attributes.experienceRange,
+  }));
+ 
+
   const JobDesc =
     jsonParsed?.data?.career?.data?.attributes?.job_descriptions?.data?.map(
       (item: any) => ({
         id: item.id, // Add this line to capture the job ID
         job_id: item.attributes.job_id,
         Title: item.attributes.Title,
-        location: item.attributes.location,
-        role: item.attributes.Role,
-        MinExperience:item.attributes.MinExperience,
-        MaxExperience:item.attributes.MaxExperience,
+        location: item.attributes.location.data.attributes.location,
+        Role: item.attributes.job_role.data.attributes.role,
+        ExperienceRange: item.attributes.experience.data.attributes.experienceRange,
         DepartmentName: item.attributes.department.data.attributes.DepartmentName,
 
       })
@@ -76,8 +106,7 @@ export async function loader() {
     link: item.link,
     bgImage: item.bgImage.data?.attributes.url,
   }));
-  // console.warn("jooobs",JobDesc);
-  // console.warn("jooobs2222",JobDesc[0].Title);
+  
 
   const {
     heroTitle,
@@ -102,6 +131,10 @@ export async function loader() {
     JoinUsCard: JoinUsCard,
     DescriptionCard: DescriptionCard,
     JobDesc: JobDesc,
+    LocList,
+    RolesList,
+    DepartmentList,
+    ExpList,
   };
 }
 

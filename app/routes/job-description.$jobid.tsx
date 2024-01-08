@@ -64,7 +64,7 @@ export async function loader({   params, }: LoaderFunctionArgs){
     s2_points: s2_points || '',
     s3_points: s3_points || '',
     title: Title || '',
-    location: location || '',
+    location: location.data.attributes.location || '',
     date: date || '',
     job_id: job_id || '',
     s1_title: s1_title || '',

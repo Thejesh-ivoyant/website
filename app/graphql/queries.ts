@@ -616,10 +616,7 @@ query{
             attributes{
               job_id
               Title
-              location
-              Role
-              MinExperience
-              MaxExperience
+             
               department{
                 data{
                   attributes{
@@ -627,6 +624,30 @@ query{
                   }
                 }
               }
+              experience{
+                data{
+                  attributes{
+                    experienceRange 
+                  }
+                }
+              }
+              
+              location{
+                data{
+                  attributes{
+                  location
+                }
+                }
+              }
+              job_role{
+                data{
+                  attributes{
+                    role
+                  }
+                }
+              }
+
+
             }
           }
         }
@@ -647,14 +668,32 @@ export const getJDBasedonLimit = (limit: number) => {
               attributes{
                 job_id
                 Title
-                location
-                Role
-                MinExperience
-                MaxExperience
+              experience{
+                    data{
+                      attributes{
+                        experienceRange
+                      }
+                    }
+                  }
+                
                 department{
                   data{
                     attributes{
                      DepartmentName 
+                    }
+                  }
+                }
+                location{
+                  data{
+                    attributes{
+                    location
+                  }
+                  }
+                }
+                job_role{
+                  data{
+                    attributes{
+                      role
                     }
                   }
                 }
@@ -955,3 +994,45 @@ query{
     }
   }
 }`
+
+export const jobrolesQuery = `
+query{
+  jobRoles{
+    data{
+      attributes{
+        role
+      }
+    }
+  }
+}`
+
+export const locationsQuery = `query{
+  locations{
+    data{
+      attributes{
+        location
+      }
+    }
+  }
+}`
+
+export const departmentQuery = `query{
+  departments{
+    data{
+      attributes{
+        DepartmentName
+      }
+    }
+  }
+}`
+
+export const expQuery = `query{
+  experiences{
+    data{
+      attributes{
+        experienceRange
+      }
+    }
+  }
+}`
+
