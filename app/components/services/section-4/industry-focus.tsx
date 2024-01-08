@@ -5,6 +5,8 @@ import { CarouselItem } from "~/interfaces/ServicesType";
 const IndustryFocus = () => {
   const loaderData = useLoaderData () as any
   const carouselContent = loaderData.IndustryFocus as CarouselItem[]
+  console.warn(".........iiii..",loaderData.IndustryFocus);
+  console.warn("........ccccc..",carouselContent);
   return (
     <div className="screen-height min-h-fit w-full flex flex-col gap-4 py-12 relative">
       <div className="carousel-ornament"></div>
