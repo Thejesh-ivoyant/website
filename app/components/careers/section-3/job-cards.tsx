@@ -91,12 +91,7 @@ const JobCards = () => {
     // Increment the limit for the next fetch
     setLimit(limit + 3);
   };
-  const categoriesList = [
-    { value: '1', label: 'Category 1' },
-    { value: '2', label: 'Category 2' },
-    { value: '3', label: 'Category 3' },
-    // Add more categories as needed
-  ];
+ 
   return (
     <div className="technology-section py-16">
       <section className="heading gradient-bottom">
@@ -110,7 +105,6 @@ const JobCards = () => {
           {/* Category select */}
           <div className="flex flex-row gap-4 ">
         
-        {/* {loaderData.categoriesList.map((category: any) => ( */}
             <select
               style={{
                 width: "190px",
@@ -126,7 +120,7 @@ const JobCards = () => {
                 All Roles
               </option>
          
-              {categoriesList.map((category: any) => (
+              {loaderData.RolesList.map((category: any) => (
                 <option key={category.value} value={category.value}>
                   {category.label}
                 </option>
@@ -148,7 +142,7 @@ const JobCards = () => {
               <option value="" selected>
                 All Departments
               </option>
-              {categoriesList.map((category: any) => (
+              {loaderData.DepartmentList.map((category: any) => (
                 <option key={category.value} value={category.value}>
                   {category.label}
                 </option>
@@ -170,7 +164,7 @@ const JobCards = () => {
               <option value="" selected>
                 All Locations
               </option>
-              {categoriesList.map((category: any) => (
+              {loaderData.LocList.map((category: any) => (
                 <option key={category.value} value={category.value}>
                   {category.label}
                 </option>
@@ -192,7 +186,7 @@ const JobCards = () => {
               <option value="" selected>
                 All Experience
               </option>
-              {categoriesList.map((category: any) => (
+              {loaderData.ExpList.map((category: any) => (
                 <option key={category.value} value={category.value}>
                   {category.label}
                 </option>
@@ -279,7 +273,7 @@ const JobCards = () => {
                           className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                         />
                         <div className="text-slate-950 text-opacity-70 text-right text-base font-medium grow whitespace-nowrap">
-                          {jobs.MinExperience}-{jobs.MaxExperience} Yrs
+                          {jobs.ExperienceRange} Yrs
                         </div>
                       </div>
                     </div>
