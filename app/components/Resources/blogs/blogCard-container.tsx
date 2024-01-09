@@ -21,8 +21,10 @@ const BlogCardContainer = () => {
    
 const handleFilterAndSearchDown = async () =>{
 
-  const updatedJobsQuery = SearchBlogs(category || "", tag || "",searchValue || "", limit);
-    const newBlogData = await fetchGraphQL(updatedJobsQuery);
+  const updatedBlogQuery = SearchBlogs(category || "", tag || "",searchValue || "", limit);
+  console.warn("Drop down 666666666666666666666666",updatedBlogQuery)
+
+    const newBlogData = await fetchGraphQL(updatedBlogQuery);
     setBlogData(() => [
       ...newBlogData.data?.blogs.data?.map((item: any) => ({
         id: item.id,
@@ -51,7 +53,7 @@ const handleFilterAndSearchDown = async () =>{
 
     const updatedQuery = SearchBlogs(category || "", tag || "",searchValue || "", limit+3);
     const newBlogData = await fetchGraphQL(updatedQuery);
- 
+ console.warn("766666666666666666666666666",updatedQuery)
     setBlogData(() => [
       ...newBlogData.data?.blogs.data?.map((item: any) => ({
         id: item.id,
@@ -80,10 +82,7 @@ const handleFilterAndSearchDown = async () =>{
  
   };
  
-  // const fetchMoreData = async () => {
-  //   const updatedQuery = getBlogsBasedonLimit(limit + 3);
-   
-  // };
+  
   
 
   return (
@@ -106,7 +105,7 @@ const handleFilterAndSearchDown = async () =>{
   style={{ width: "190px", borderRadius: "2px", border: "0.5px solid #1B0740" }}
   onChange={(e) => {
     setCategory(e.target.value);
- // Trigger filtering when category changes
+
   }}
 >
   <option value="" selected>
@@ -160,7 +159,7 @@ const handleFilterAndSearchDown = async () =>{
             value={searchValue}
             onChange={(e) => {
               setSearchValue(e.target.value);
-      // Trigger filtering when category changes
+     
             }}
           
             placeholder="Search"

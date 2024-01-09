@@ -1014,8 +1014,8 @@ export const SearchBlogs = (
     blogs(
       filters: {
        and: [
-         {category:{name:{containsi:  ${sanitizeString(category)} } },
-         { topic_tags: { name:  ${sanitizeString(tag)} } },
+         {category:{name:{containsi:  ${sanitizeString(category)} } }},
+         { topic_tags: { name: { containsi: ${sanitizeString(tag)} } }},
          { title:{ containsi: ${sanitizeString(title)} } },
        ]
      },
