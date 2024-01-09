@@ -102,7 +102,7 @@ const Nav = () => {
     <div>
        <Modal
         open={open}
-        title="Download Whitepaper"
+        title="Download PitchDeck"
         onCancel={handleCancel}
        
       >
@@ -110,7 +110,7 @@ const Nav = () => {
     <div className="items-stretch bg-white flex  flex-col py-2">
 
       <div className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
-        Please provide required information to view the Whitepaper
+        Please provide required information to view the Pitch deck
       </div>
       
       <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
