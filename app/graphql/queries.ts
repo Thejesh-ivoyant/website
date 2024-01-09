@@ -1035,4 +1035,72 @@ export const expQuery = `query{
     }
   }
 }`
+export const SearchJobs = (
+  departmentName: string,
+  experienceRange: string,
+  jobRole: string,
+  location: string,
+  Title: string,
+  limit: number
+) => {
+  // Helper function to handle empty strings
+  const sanitizeString = (value: string) => (value ? `"${value}"` : '""');
+
+  return `query {
+    career {
+      data {
+        attributes {
+          job_descriptions(
+            filters: {
+              and: [
+                { department: { DepartmentName: { containsi: ${sanitizeString(departmentName)} } } },
+                { experience: { experienceRange: { containsi: ${sanitizeString(experienceRange)} } } },
+                { job_role: { role: { startsWith: ${sanitizeString(jobRole)} } } },
+                { location: { location: { containsi: ${sanitizeString(location)} } } },
+                { Title: { containsi: ${sanitizeString(Title)} } },
+              ]
+            },
+            pagination: { limit: ${limit} }
+          ) {
+            data {
+              id
+              attributes {
+                job_id
+                Title
+                experience {
+                  data {
+                    attributes {
+                      experienceRange
+                    }
+                  }
+                }
+                department {
+                  data {
+                    attributes {
+                      DepartmentName
+                    }
+                  }
+                }
+                location {
+                  data {
+                    attributes {
+                      location
+                    }
+                  }
+                }
+                job_role {
+                  data {
+                    attributes {
+                      role
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }`;
+};
 
