@@ -1,7 +1,7 @@
 import { Link, useLoaderData } from "@remix-run/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { getJDBasedonLimit } from "~/graphql/queries";
+import { SearchJobs, getJDBasedonLimit } from "~/graphql/queries";
 const JobCards = () => {
   const loaderData = useLoaderData() as any;
   const [JobDesc, setJobDescData] = useState(loaderData.JobDesc || []);
@@ -11,65 +11,42 @@ const JobCards = () => {
   const [dep, setDep] = useState("");
   const [role, setRole] = useState("");
   const [searchValue, setSearchValue] = useState("");
+  const [limit, setLimit] = useState(5);
 
-  const [limit, setLimit] = useState(5); // Initial limit
+  useEffect(() => {
+    // This effect will run whenever role, dep, loc, or exp changes
+    handleFilterAndSearchDown();
+  }, [role, dep, loc, exp, searchValue]);
 
-  const handleRolesDropChange = (value: any) => {
-    setRole(value);
-    const filteredBlogs = JobDesc.filter((blog: any) => {
-      const tagMatches = !value || blog.topic_tags?.includes(value);
-      return tagMatches
-    });
-    setJobDescData(filteredBlogs);
-  }
+ 
+const handleFilterAndSearchDown = async () =>{
+  const updatedJobsQuery = SearchJobs(dep || "", exp || "", role || "", loc || "",searchValue || "", limit);
+    const newJobsData = await fetchGraphQL(updatedJobsQuery);
+    console.warn("0000000000000000000000",dep,exp,role,loc);
 
-  const handleDepDropChange = (value: any) => {
-    setDep(value);
-    const filteredBlogs = JobDesc.filter((blog: any) => {
-      const tagMatches = !value || blog.topic_tags?.includes(value);
-      return tagMatches
-    });
-    setJobDescData(filteredBlogs);
-  }
-
-  const handleLocDropChange = (value: any) => {
-    setLoc(value);
-    const filteredBlogs = JobDesc.filter((blog: any) => {
-      const tagMatches = !value || blog.topic_tags?.includes(value);
-      return tagMatches
-    });
-    setJobDescData(filteredBlogs);
-  }
-
-  const handleExpDropChange = (value: any) => {
-    setExp(value);
-    const filteredBlogs = JobDesc.filter((blog: any) => {
-      const tagMatches = !value || blog.topic_tags?.includes(value);
-      return tagMatches
-    });
-    setJobDescData(filteredBlogs);
-  }
+    setJobDescData(() => [
+      ...newJobsData.data?.career?.data?.attributes?.job_descriptions?.data?.map(
+        (item: any) => ({
+          id: item.id, // Add this line to capture the job ID
+          job_id: item.attributes.job_id,
+          Title: item.attributes.Title,
+          location: item.attributes.location.data.attributes.location,
+          Role: item.attributes.job_role.data.attributes.role,
+          ExperienceRange: item.attributes.experience.data.attributes.experienceRange,
+          DepartmentName: item.attributes.department.data.attributes.DepartmentName,
+        })
+      ),
+    ]);
+}
 
 
-  const handleInputChange = (value: any) => {
-    setSearchValue(value);
-    // Filter the data progressively based on the search input
-    const filteredJobs = loaderData.JobDesc.filter((job: any) => {
-      const titleLowerCase = job.Title.toLowerCase();
-      const valueLowerCase = value.toLowerCase();
-  
-      // Check if the title starts with or includes the current search value
-      return titleLowerCase.startsWith(valueLowerCase) || titleLowerCase.includes(valueLowerCase);
-    });
-  
-    setJobDescData(filteredJobs);
-  };
-  
   
 
   const fetchMoreData = async () => {
+
     const updatedQuery = getJDBasedonLimit(limit + 3);
     const newJobDescData = await fetchGraphQL(updatedQuery);
+
 
     // Map and update the state with the new data
     setJobDescData(() => [
@@ -78,17 +55,14 @@ const JobCards = () => {
           id: item.id, // Add this line to capture the job ID
           job_id: item.attributes.job_id,
           Title: item.attributes.Title,
-          location: item.attributes.location,
-          role: item.attributes.Role,
-          MinExperience: item.attributes.MinExperience,
-          MaxExperience: item.attributes.MaxExperience,
-          DepartmentName:
-            item.attributes.department.data.attributes.DepartmentName,
+          location: item.attributes.location.data.attributes.location,
+        Role: item.attributes.job_role.data.attributes.role,
+        ExperienceRange: item.attributes.experience.data.attributes.experienceRange,
+        DepartmentName: item.attributes.department.data.attributes.DepartmentName,
+
         })
       ),
     ]);
-
-    // Increment the limit for the next fetch
     setLimit(limit + 3);
   };
  
@@ -113,7 +87,7 @@ const JobCards = () => {
               }}
               onChange={(e) => {
                 setRole(e.target.value);
-                handleRolesDropChange(e.target.value); // Trigger filtering when category changes
+            
               }}
             >
               <option value="" selected>
@@ -136,7 +110,7 @@ const JobCards = () => {
               }}
               onChange={(e) => {
                 setDep(e.target.value);
-                handleDepDropChange(e.target.value); // Trigger filtering when category changes
+              // Trigger filtering when category changes
               }}
             >
               <option value="" selected>
@@ -158,7 +132,7 @@ const JobCards = () => {
               }}
               onChange={(e) => {
                 setLoc(e.target.value);
-                handleLocDropChange(e.target.value); // Trigger filtering when category changes
+              // Trigger filtering when category changes
               }}
             >
               <option value="" selected>
@@ -180,7 +154,7 @@ const JobCards = () => {
               }}
               onChange={(e) => {
                 setExp(e.target.value);
-                handleExpDropChange(e.target.value);
+            
               }}
             >
               <option value="" selected>
@@ -216,7 +190,7 @@ const JobCards = () => {
                 value={searchValue}
                 onChange={(e) => {
                   setSearchValue(e.target.value);
-                  handleInputChange(e.target.value); // Trigger filtering when category changes
+                 // Trigger filtering when category changes
                 }}
                 placeholder="Search"
                 className="h-34 border-haiti w-96 border-[1px] border-solid rounded-sm pl-10 py-2 focus:outline-none text-xs"
