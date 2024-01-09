@@ -1,7 +1,7 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { SearchJobs, getJDBasedonLimit } from "~/graphql/queries";
+import { SearchJobs } from "~/graphql/queries";
 const JobCards = () => {
   const loaderData = useLoaderData() as any;
   const [JobDesc, setJobDescData] = useState(loaderData.JobDesc || []);

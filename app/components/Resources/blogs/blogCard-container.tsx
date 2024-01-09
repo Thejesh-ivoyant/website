@@ -1,9 +1,9 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import IBlogMedia from "../../../interfaces/IBlogMedia";
 import BlogCard from "./blogCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { getBlogsBasedonLimit } from "~/graphql/queries";
+import { SearchBlogs } from "~/graphql/queries";
 const BlogCardContainer = () => {
   const loaderData = useLoaderData() as any;
   const [category, setCategory] = useState("");
@@ -12,11 +12,17 @@ const BlogCardContainer = () => {
   const [blogData, setBlogData] = useState(loaderData.blogData || []);
   const [limit, setLimit] = useState(3); // Initial limit
 
-  const fetchMoreData = async () => {
-    const updatedQuery = getBlogsBasedonLimit(limit + 3);
-    const newBlogData = await fetchGraphQL(updatedQuery);
+  useEffect(() => {
+    // This effect will run whenever role, dep, loc, or exp changes
+    handleFilterAndSearchDown();
+  }, [category, tag, searchValue]);
 
-    // Map and update the state with the new data
+
+   
+const handleFilterAndSearchDown = async () =>{
+
+  const updatedJobsQuery = SearchBlogs(category || "", tag || "",searchValue || "", limit);
+    const newBlogData = await fetchGraphQL(updatedJobsQuery);
     setBlogData(() => [
       ...newBlogData.data?.blogs.data?.map((item: any) => ({
         id: item.id,
@@ -38,50 +44,47 @@ const BlogCardContainer = () => {
        name:item.attributes.category.data?.attributes.name
       
       },
-      }))
+      })),
     ]);
+}
+  const fetchMoreData = async () => {
 
-    // Increment the limit for the next fetch
-    setLimit(limit + 3);
+    const updatedQuery = SearchBlogs(category || "", tag || "",searchValue || "", limit+3);
+    const newBlogData = await fetchGraphQL(updatedQuery);
+ 
+    setBlogData(() => [
+      ...newBlogData.data?.blogs.data?.map((item: any) => ({
+        id: item.id,
+      title: item.attributes.title,
+      description1: item.attributes.description1,
+      date: item.attributes.date,
+      maxReadTime: item.attributes.maxReadTime,
+      bannerImage: {
+        name: item.attributes.bannerImage.data?.attributes.name ?? "",
+        url: item.attributes.bannerImage.data?.attributes.url ?? "",
+      },
+      author: {
+        name: item.attributes.author.data?.attributes.name,
+        avatar:
+          item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
+      },
+      topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
+      category: {
+       name:item.attributes.category.data?.attributes.name
+      
+      },
+      })),
+    ]);
+    setLimit(limit + 3); 
+  
+ 
   };
-  
-  const handleDropChange = (value: any) => {
-    setCategory(value);
-      const filteredBlogs = blogData.filter((blog: IBlogMedia) => {
-        const categoryMatches = !value || blog.category?.name.toLowerCase() === value.toLowerCase();
-  
-        return categoryMatches
-      });
-    
-      setBlogData(filteredBlogs);
+ 
+  // const fetchMoreData = async () => {
+  //   const updatedQuery = getBlogsBasedonLimit(limit + 3);
    
-  }
-
-  const handleTagDropChange = (value: any) => {
-    setTag(value);
-    const filteredBlogs = blogData.filter((blog: IBlogMedia) => {
-
-      const tagMatches = !value || blog.topic_tags?.includes(value);
-      return tagMatches
-    });
+  // };
   
-    setBlogData(filteredBlogs);
-  }
- const handleInputChange = (value: any) => {
-
-  const filteredBlogs = loaderData.blogData.filter((blog: IBlogMedia) => {
-    const titleLowerCase = blog.title.toLowerCase();
-
-    const valueLowerCase = value.toLowerCase();
-
-    // Check if the title starts with or includes the current search value
-    return titleLowerCase.startsWith(valueLowerCase) || titleLowerCase.includes(valueLowerCase);
-  
-  });
-
-  setBlogData(filteredBlogs);
-};
-
 
   return (
     <div className="w-full bg-white p-8 min-h-[90vh]">
@@ -103,7 +106,7 @@ const BlogCardContainer = () => {
   style={{ width: "190px", borderRadius: "2px", border: "0.5px solid #1B0740" }}
   onChange={(e) => {
     setCategory(e.target.value);
-    handleDropChange(e.target.value); // Trigger filtering when category changes
+ // Trigger filtering when category changes
   }}
 >
   <option value="" selected>
@@ -120,7 +123,7 @@ const BlogCardContainer = () => {
   style={{ width: "190px", borderRadius: "2px", border: "0.5px solid #1B0740" }}
   onChange={(e) => {
     setTag(e.target.value);
-    handleTagDropChange(e.target.value); 
+
   }}
 >
   <option value="" selected>
@@ -157,7 +160,7 @@ const BlogCardContainer = () => {
             value={searchValue}
             onChange={(e) => {
               setSearchValue(e.target.value);
-              handleInputChange(e.target.value); // Trigger filtering when category changes
+      // Trigger filtering when category changes
             }}
           
             placeholder="Search"
