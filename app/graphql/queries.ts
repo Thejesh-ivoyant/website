@@ -738,8 +738,8 @@ query{
 export const case_study_paginated = `
     query {
       caseStudies(sort: "\${sort}",
-      filters:{ or: [{ category:{name : {containsi :"\${category}"}}},{heroTitle :{containsi : "\${title}"}}, { topic_tags:{name : {containsi :"\${tag}"}}}] },
-       pagination: { limit: \${limit} }) {
+      filters:{ or: [{ category:{name : {containsi :"\${category}"}}},{ topic_tags:{name : {containsi :"\${tag}"}}}], and :[{heroTitle :{containsi : "\${title}"}}] },
+       pagination: { start: \${offset}, limit: \${limit} }) {
         data {
           id
           attributes {
