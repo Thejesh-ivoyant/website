@@ -4,8 +4,7 @@ const BlogCard = ({ blog }: { blog: IBlogMedia }) => {
     function trimWords(text:string) {
       return text.split(' ').slice(0, 30).join(' ') + (text.split(' ').length > 30 ? ' .....' : '');
     }
-    
-    console.log(blog,"is the blog data passsedddd")
+
 
 
     return(
