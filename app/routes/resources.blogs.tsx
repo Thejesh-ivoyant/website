@@ -74,7 +74,7 @@ export async function loader() {
       }
 
     }));
-    console.warn("compsres ssssssssssssssssloader data ", blogData);
+ 
 
     return defer({
       heroBgImageURl: jsonParsed.data?.attributes.heroImage.data?.attributes.url,
