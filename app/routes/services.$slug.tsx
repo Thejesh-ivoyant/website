@@ -74,11 +74,11 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
   const [res, keyComponentRes, phasesComponentRes, techComponentRes, serviceComponentRes, industryComponentRes,blogGql] = await Promise.all([
     fetch(strapiUrl + `/api/${service}?populate=%2A`),
-    fetchData(`/api/s-mad/?populate=s2_keyPoints.keyPointsImage`),
-    fetchData(`/api/s-mad/?populate=s5_phasesOfDevelopment.s5_phasesImage`),
-    fetchData(`/api/s-mad/?populate=s7_techIcons.s7_techIcon`),
-    fetchData(`/api/s-mad/?populate=s6_serviceCard.s6_serviceCardImage`),
-    fetchData(`/api/s-mad/?populate=s4_industryFocus.s4_IndustryFocusImage`),
+    fetchData(`/api/${service}/?populate=s2_keyPoints.keyPointsImage`),
+    fetchData(`/api/${service}/?populate=s5_phasesOfDevelopment.s5_phasesImage`),
+    fetchData(`/api/${service}/?populate=s7_techIcons.s7_techIcon`),
+    fetchData(`/api/${service}/?populate=s6_serviceCard.s6_serviceCardImage`),
+    fetchData(`/api/${service}/?populate=s4_industryFocus.s4_IndustryFocusImage`),
     fetchGraphQL(topBlogQuery),  
   ]);
 
