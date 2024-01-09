@@ -21,18 +21,7 @@ const Section2 = () => {
       </div>
       <div className="flex flex-1 flex-col h-full">
         <section className="font-poppins leading-10 p-12 aspect-square text-justify">
-          {/* {loaderData.section2Desc} */}
-
-{/* There is something wrong with strapi long text so couldnt load it from there */}
-
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione,
-          deleniti facilis nesciunt reprehenderit atque doloremque consequatur
-          quis quo repellat libero iste. Tempore, provident. Tenetur, quod id!
-          Et laboriosam excepturi numquam. Lorem, ipsum dolor sit amet
-          consectetur adipisicing elit. Quos recusandae architecto incidunt
-          provident animi ipsam voluptatibus fugiat quasi reiciendis corporis
-          veniam, nemo culpa doloribus accusamus repudiandae? Ducimus itaque
-          saepe quisquam.
+          {loaderData.section2Desc}
         </section>
         <div className=" flex flex-row items-center inline-card w-fit -ml-32 mb-10">
           <div className="ml-auto flex gap-4 items-center text-white p-10">
