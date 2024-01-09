@@ -1,7 +1,7 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { SearchJobs, getJDBasedonLimit } from "~/graphql/queries";
+import { SearchJobs } from "~/graphql/queries";
 const JobCards = () => {
   const loaderData = useLoaderData() as any;
   const [JobDesc, setJobDescData] = useState(loaderData.JobDesc || []);
@@ -20,10 +20,9 @@ const JobCards = () => {
 
  
 const handleFilterAndSearchDown = async () =>{
+
   const updatedJobsQuery = SearchJobs(dep || "", exp || "", role || "", loc || "",searchValue || "", limit);
     const newJobsData = await fetchGraphQL(updatedJobsQuery);
-    console.warn("0000000000000000000000",dep,exp,role,loc);
-
     setJobDescData(() => [
       ...newJobsData.data?.career?.data?.attributes?.job_descriptions?.data?.map(
         (item: any) => ({
@@ -38,17 +37,11 @@ const handleFilterAndSearchDown = async () =>{
       ),
     ]);
 }
-
-
-  
-
   const fetchMoreData = async () => {
 
-    const updatedQuery = getJDBasedonLimit(limit + 3);
+    const updatedQuery = SearchJobs(dep || "", exp || "", role || "", loc || "",searchValue || "", limit+3);
     const newJobDescData = await fetchGraphQL(updatedQuery);
-
-
-    // Map and update the state with the new data
+ 
     setJobDescData(() => [
       ...newJobDescData.data?.career?.data?.attributes?.job_descriptions?.data?.map(
         (item: any) => ({
@@ -63,7 +56,9 @@ const handleFilterAndSearchDown = async () =>{
         })
       ),
     ]);
-    setLimit(limit + 3);
+    setLimit(limit + 3); 
+  
+ 
   };
  
   return (
