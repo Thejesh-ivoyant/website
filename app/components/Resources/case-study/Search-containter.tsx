@@ -7,30 +7,58 @@ import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { Link } from "@remix-run/react";
 
 
-export const Container = ({ data, tags, categories }: { data: any, tags:any, categories: any }) => {
+export const Container = ({ data, tags, categories, initLimit, initOffset }: { data: any, tags:any, categories: any, initLimit:number, initOffset:number }) => {
   const [listData, setListData] = useState(data.data?.caseStudies?.data);
   const [searchValue, setSearchValue] = useState("");
-  const [tag, setTag] = useState('')
+  const [tag, setTag] = useState<string>('')
   const [category, setCategory] = useState('')
-  
-  
-  const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const [offset,setOffset] = useState<number>(initLimit);
+  const [limit,setLimit] = useState<number>(initOffset);
+  const [btnLoading, setBtnLoading] = useState<boolean>(false)
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     setSearchValue(inputValue);
-    const dynamicQuery = await generateDynamicQuery(case_study_paginated, [
-        "limit",
-        "sort",
-        "title",
-        "tag",
-        "category"
-      ]);
-      const interpolatedQuery = dynamicQuery(10, "createdAt:asc",searchValue,tag,category);
-
-      const [lists] = await Promise.all([
-        await fetchGraphQL(interpolatedQuery),
-      ]);
-      setListData(lists.data?.caseStudies?.data)
   };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); 
+    
+    const dynamicQuery = await generateDynamicQuery(case_study_paginated, [
+      "offset",
+      "limit",
+      "sort",
+      "title",
+      "tag",
+      "category"
+    ]);
+    const interpolatedQuery = dynamicQuery(0, limit, "createdAt:asc", searchValue, tag, category);
+    debugger
+    const [lists] = await Promise.all([
+      await fetchGraphQL(interpolatedQuery),
+    ]);
+    setListData(lists.data?.caseStudies?.data);
+  };
+
+  
+  const handleViewMore = async () =>{
+    setBtnLoading(true)
+    const dynamicQuery = await generateDynamicQuery(case_study_paginated, [
+      "offset",
+      "limit",
+      "sort",
+      "title",
+      "tag",
+      "category"
+    ]);
+    setOffset(offset + limit)
+    debugger
+    const interpolatedQuery = dynamicQuery(offset, limit, "createdAt:asc", "", tag, category);
+    const [lists] = await Promise.all([
+      await fetchGraphQL(interpolatedQuery),
+    ]);
+    const newData = lists.data?.caseStudies?.data || [];
+  setListData((prevListData: any) => [...prevListData, ...newData]);
+  setBtnLoading(false)
+  }
 
   return (
     <>
@@ -41,14 +69,16 @@ export const Container = ({ data, tags, categories }: { data: any, tags:any, cat
           <Select
             placeholder="All Categories"
             style={{ width: 190 }}
-            suffixIcon={<DropDownIcon />}
+            suffixIcon={category != '' ? null:  <DropDownIcon /> }
             onChange={setCategory}
+            allowClear
             options= {categories}
           />
           <Select
             placeholder = "All Tags"
             style={{ width: 190 }}
-            suffixIcon={<DropDownIcon />}
+            suffixIcon={tag != '' ? null:  <DropDownIcon /> }
+            allowClear
             onChange={setTag}
             options={tags}
           />
@@ -69,11 +99,13 @@ export const Container = ({ data, tags, categories }: { data: any, tags:any, cat
                 strokeLinejoin="round"
               />
             </svg>
+            <form  onSubmit={handleSubmit}>
             <input
                 value={searchValue}
                 onChange={handleInputChange}
                 placeholder="Search"
                 className="h-34 border-haiti w-96 border-[1px] border-solid rounded-sm pl-10 py-2  focus:outline-none text-xs"></input>
+            </form>
           </div>
         </Space>
         </div>
@@ -86,7 +118,7 @@ export const Container = ({ data, tags, categories }: { data: any, tags:any, cat
                   item.attributes.heroBgImage?.data?.attributes.formats?.medium
                     .url
                 }
-                className="aspect-square h-full bg-red-400  object-cover"
+                className="aspect-square h-full bg-gray-200 object-cover"
                 alt={`author-name-{}`}
               ></img>
               <div className="bg-white h-full flex-grow px-4 flex flex-col gap-4 w-full">
@@ -122,7 +154,7 @@ export const Container = ({ data, tags, categories }: { data: any, tags:any, cat
             </Link>
           ))}
 
-        <button className="hue-btn-blue">
+        <button className="hue-btn-blue" onClick={handleViewMore} disabled = {btnLoading}>
           <span>View More</span>
         </button>
       </div>

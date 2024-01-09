@@ -9,14 +9,17 @@ import Hero from "~/components/Resources/case-study/Hero";
 import { Container } from "~/components/Resources/case-study/Search-containter";
 import { Daum } from "~/interfaces/CategoriesType";
 
+const limit = 3
+const offset = 0
 export async function loader() {
   const dynamicQuery = await generateDynamicQuery(case_study_paginated, [
+    "offset",
     "limit",
     "sort",
     "title",
     "category"
   ]);
-  const interpolatedQuery = dynamicQuery(3, "createdAt:asc",'','');
+  const interpolatedQuery = dynamicQuery(offset, limit, "createdAt:asc",'','');
 
   const [data, lists, tagslist, categoryList] = await Promise.all([
     await fetchGraphQL(case_study_home),
@@ -58,7 +61,7 @@ const Index = () => {
               heroTitle={attributes?.heroTitle}
               heroDescription={attributes?.heroDescription}
             />
-            <Container data={lists} tags={tags} categories={categoriesList} />
+            <Container data={lists} tags={tags} categories={categoriesList} initLimit={limit} initOffset={offset}/>
           </>
         )}
       </Await>
