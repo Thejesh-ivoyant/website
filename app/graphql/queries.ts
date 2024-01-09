@@ -465,62 +465,6 @@ export const getWhitepaperBasedonLimit = (limit: number) => {
   `;
 };
 
-export const getBlogsBasedonLimit = (limit: number) => {
-  return `
-  query{
-    blogs(
-    sort: "date:desc",
-    pagination: { limit: ${limit} }
-  ){
-      data{
-        id,
-        attributes{
-          title
-          description1
-          maxReadTime
-          date
-          bannerImage{
-            data{
-              attributes{
-                url
-              }
-            }
-          }
-          topic_tags{
-            data{
-              attributes{
-                name	
-                }
-            }
-          }
-          category{
-            data
-            {
-              attributes{
-                name
-              }
-            }
-          }
-          author{
-            data{
-              attributes{
-              name
-              avatar{
-                data{
-                  attributes{
-                    url
-                  }
-                }
-              }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  `;
-};
 
 export const getPaperAuthorIDQuery = (id:any) => {
   console.warn("paper id is ", id);
@@ -610,7 +554,7 @@ query{
         s3_title
         s3_description
         s3_email
-        job_descriptions(pagination: { limit: 5 }){
+        job_descriptions(pagination: { limit: 1 }){
           data{
             id
             attributes{
@@ -656,56 +600,7 @@ query{
   }
 }
 `;
-export const getJDBasedonLimit = (limit: number) => {
-  return `
-  query{
-    career{
-       data{
-        attributes{
-          job_descriptions(pagination: { limit: ${limit} }){
-            data{
-              id
-              attributes{
-                job_id
-                Title
-              experience{
-                    data{
-                      attributes{
-                        experienceRange
-                      }
-                    }
-                  }
-                
-                department{
-                  data{
-                    attributes{
-                     DepartmentName 
-                    }
-                  }
-                }
-                location{
-                  data{
-                    attributes{
-                    location
-                  }
-                  }
-                }
-                job_role{
-                  data{
-                    attributes{
-                      role
-                    }
-                  }
-                }
-              }
-            }
-          }
-        } 
-      }
-    }
-  }
-  `;
-}
+
 
 export const productsQuery = `
 query{
@@ -1103,4 +998,76 @@ export const SearchJobs = (
     }
   }`;
 };
+
+export const SearchBlogs = (
+  category: string,
+  tag: string,
+  title: string,
+  limit: number
+) => {
+  // Helper function to handle empty strings
+  const sanitizeString = (value: string) => (value ? `"${value}"` : '""');
+
+  return  `
+  query{
+    blogs(
+      filters: {
+       and: [
+         {category:{name:{containsi:  ${sanitizeString(category)} } },
+         { topic_tags: { name:  ${sanitizeString(tag)} } },
+         { title:{ containsi: ${sanitizeString(title)} } },
+       ]
+     },
+     pagination: { limit: ${limit} }
+   ){
+      data{
+        id,
+        attributes{
+          title
+          description1
+          maxReadTime
+          date
+          bannerImage{
+            data{
+              attributes{
+                url
+              }
+            }
+          }
+          topic_tags{
+            data{
+              attributes{
+                name	
+                }
+            }
+          }
+          category{
+            data
+            {
+              attributes{
+                name
+              }
+            }
+          }
+          author{
+            data{
+              attributes{
+              name
+              avatar{
+                data{
+                  attributes{
+                    url
+                  }
+                }
+              }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  `;
+};
+
 
