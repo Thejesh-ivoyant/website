@@ -999,6 +999,7 @@ export const SearchJobs = (
   }`;
 };
 
+
 export const SearchBlogs = (
   category: string,
   tag: string,
@@ -1069,5 +1070,6 @@ export const SearchBlogs = (
   }
   `;
 };
+
 
 
