@@ -1,5 +1,7 @@
 import { Form } from "@remix-run/react";
 
+
+import ReactFlagsSelect from "react-flags-select";
 import { useEffect, useRef, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 import React from "react";
@@ -9,7 +11,7 @@ import { DatePicker, Space } from "antd";
 import { CalendarOutlined, FileAddOutlined, DeleteOutlined } from "@ant-design/icons";
 import Country from "country-calling-code";
 
-import type { RangePickerProps } from "antd/es/date-picker";
+import type { DatePickerProps, RangePickerProps } from "antd/es/date-picker";
 import { errorMessage, success } from "~/utils/notifications";
 dayjs.extend(customParseFormat);
 
@@ -105,11 +107,13 @@ const handleSubmit = async (
 };
 
 const ContactUs = () => {
+  
+  const [selectedCode, setCountryCodeSelected] = useState("");
+  const [selectedDate, setDateSelected] = useState("");
   const ContactUsAPIData = `${strapiUrl}/api/contact-uses?populate=%2A`;
   const [contactImage, setcontactImage] = useState<string>("");
   const [hireImage, sethireImage] = useState<string>("");
-  const [countryCodes, setCountryCodes] = useState<string[]>([]);
-  const [selectedCountryCode, setSelectedCountryCode] = useState("");
+
   const [phoneNumber, setPhoneNumber] = useState("");
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -121,22 +125,12 @@ const ContactUs = () => {
   };
 
 
-  useEffect(() => {
-    // Fetch all countries and their calling codes
-    const codes = Object.values(Country).map(
-      (country) => `+${country.countryCodes}`
-    );
-
-    // Extract calling codes from the country data
-
-    setCountryCodes(codes);
-    setSelectedCountryCode(codes[0]); // Set default value
-  }, []);
-
-  const handleCountryCodeChange = (e: any) => {
-    setSelectedCountryCode(e.target.value);
+  const onChange: DatePickerProps['onChange'] = (date, dateString) => {
+    console.warn( dateString);
+    setDateSelected(dateString);
   };
 
+ 
   const handlePhoneNumberChange = (e: any) => {
     setPhoneNumber(e.target.value);
   };
@@ -386,19 +380,21 @@ const ContactUs = () => {
               <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex gap-2.5  h-10 py-3 ">
                 <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center pr-3 border-r border-solid">
                   <div className="items-stretch flex  gap-1 ">
-                    <select
-                      value={selectedCountryCode}
-                      onChange={handleCountryCodeChange}
-                      className=" text-base h-10  font-medium leading-5 grow country-text outline-none cursor-pointer"
-                      required
-                      name="country_code"
-                    >
-                      {countryCodes.map((code) => (
-                        <option key={code} value={code}>
-                          {code}
-                        </option>
-                      ))}
-                    </select>
+                    
+  <ReactFlagsSelect
+    selected={selectedCode}
+    onSelect={(code) => setCountryCodeSelected(code)}
+    searchable
+    searchPlaceholder="Search countries"
+  />  <input
+  type="text"
+  placeholder=""
+  value={selectedCode}
+
+  required
+  className="hidden"
+  name="country_code"
+/>
                   </div>
                 </div>
 
@@ -457,7 +453,17 @@ const ContactUs = () => {
                   suffixIcon={null}
                   open={openc1}
                   onOk={() => setOpen(false)}
+                  onChange={onChange} 
                 />
+                <input
+  type="text"
+  placeholder=""
+  value={selectedDate}
+
+  required
+  className="hidden"
+  name="date"
+/>
               </div>
 
               <div className="flex flex-col gap-1">
@@ -530,19 +536,20 @@ const ContactUs = () => {
               <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex gap-2.5  h-10 py-3 ">
                 <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center pr-3 border-r border-solid">
                   <div className="items-stretch flex  gap-1 ">
-                    <select
-                      value={selectedCountryCode}
-                      onChange={handleCountryCodeChange}
-                      className=" text-base h-10  font-medium leading-5 grow country-text outline-none cursor-pointer"
-                      required
-                      name="country_code"
-                    >
-                      {countryCodes.map((code) => (
-                        <option key={code} value={code}>
-                          {code}
-                        </option>
-                      ))}
-                    </select>
+                  <ReactFlagsSelect
+    selected={selectedCode}
+    onSelect={(code) => setCountryCodeSelected(code)}
+    searchable
+    searchPlaceholder="Search countries"
+  />  <input
+  type="text"
+  placeholder=""
+  value={selectedCode}
+
+  required
+  className="hidden"
+  name="country_code"
+/>
                   </div>
                 </div>
 
@@ -631,7 +638,17 @@ const ContactUs = () => {
                   suffixIcon={null}
                   open={openc1}
                   onOk={() => setOpen(false)}
+                  onChange={onChange} 
                 />
+                <input
+  type="text"
+  placeholder=""
+  value={selectedDate}
+
+  required
+  className="hidden"
+  name="date_hire"
+/>
               </div>
 
               <div className="flex flex-col gap-1">
