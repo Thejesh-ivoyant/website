@@ -49,11 +49,12 @@ const handleFilterAndSearchDown = async () =>{
       })),
     ]);
 }
+
   const fetchMoreData = async () => {
 
     const updatedQuery = SearchBlogs(category || "", tag || "",searchValue || "", limit+3);
     const newBlogData = await fetchGraphQL(updatedQuery);
- console.warn("766666666666666666666666666",updatedQuery)
+
     setBlogData(() => [
       ...newBlogData.data?.blogs.data?.map((item: any) => ({
         id: item.id,
@@ -79,7 +80,6 @@ const handleFilterAndSearchDown = async () =>{
     ]);
     setLimit(limit + 3); 
   
- 
   };
  
   
@@ -116,7 +116,7 @@ const handleFilterAndSearchDown = async () =>{
       {category.label}
     </option>
   ))}
-</select>
+          </select>
 
 <select
   style={{ width: "190px", borderRadius: "2px", border: "0.5px solid #1B0740" }}
