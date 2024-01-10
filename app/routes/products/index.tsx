@@ -46,7 +46,6 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 export default function Index() {
   const data = useLoaderData() as any
   const attributes = data?.productsResponse?.data?.product?.data?.attributes as Attributes;
-  console.log (JSON.stringify(data?.sortedTabContents))
   
   return (
     <>
