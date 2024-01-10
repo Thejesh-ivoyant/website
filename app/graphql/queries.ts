@@ -611,6 +611,7 @@ query{
         carousel{
           id
           title
+          name
           description
           ornament{
             data{

@@ -31,6 +31,7 @@ export interface Root {
   export interface Carousel {
     id: string
     title: string
+    name: string
     description: string
     ornament: Ornament
   }
