@@ -1,10 +1,8 @@
 import { useLoaderData } from "@remix-run/react";
 import { useState } from "react";
+import { TabContent } from "~/interfaces/ProductsPage";
 
-export default function Tabs() {
-  const data = useLoaderData() as any;
-  const attributes = data?.productsResponse?.data?.product?.data?.attributes;
-  const tabContents = attributes?.TabContents || [];
+export default function Tabs({tabContents}:{tabContents: TabContent[]}) {
   const [activeButton, setActiveButton] = useState(tabContents[0]); 
 
   const handleButtonClick = (item:any) => {
@@ -62,7 +60,7 @@ export default function Tabs() {
         </svg>
         <div className="max-w-7xl mx-auto w-full h-fit flex tab-container my-10">
       <div className="flex flex-col w-fit">
-        {tabContents.map((item: any) => (
+        {tabContents.map((item: TabContent) => (
           <button
             key={item.id}
             className={`tabs-btn ${activeButton.id === item.id ? 'tabs-btn-active' : ''}`}
@@ -87,7 +85,7 @@ export default function Tabs() {
               <img
                 src={activeButton.logo?.data?.[0]?.attributes?.url}
                 alt={activeButton.name}
-                className="flex justify-center"
+                className="flex justify-center w-24 aspect-square mx-auto"
                 id="logo"
               />
               <figcaption className="text-center justify-center flex" id="caption">
