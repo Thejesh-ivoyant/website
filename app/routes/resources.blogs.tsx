@@ -101,7 +101,7 @@ const Index = () => {
       
           <Hero />
          
-          <BlogCardContainer />
+          <BlogCardContainer  />
 
           <Consultation />
           <Outlet />

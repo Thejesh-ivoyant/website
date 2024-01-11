@@ -2,16 +2,9 @@
 import IWhitePaper from "~/interfaces/IWhitePaper";
 const WhitePaperCard = ({ paper }: { paper: IWhitePaper }) => {
     // Extract data from the blog object
-    function trimWords(text:string) {
-      return text.split(' ').slice(0, 30).join(' ') + (text.split(' ').length > 30 ? ' .....' : '');
-    }
-    
-    console.log(paper,"is the blog data passsedddd")
-
-
  
       return (
-        <div className="blog-card w-96 h-96 z-10 pb-2 cursor-pointer">
+        <div className="blog-card w-auto h-96 z-10 pb-2 cursor-pointer">
           <div className="w-full h-60">
             <img
             alt="blog-image"
@@ -20,7 +13,7 @@ const WhitePaperCard = ({ paper }: { paper: IWhitePaper }) => {
             ></img>
           </div>
           <div className="h-fit w-full text-white flex-col p-4 flex justify-between gap-y-6">
-            <div className="flex font-montserrat text-xl font-medium" style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            <div className="line-clamp-2 overflow-hidden flex font-montserrat text-xl font-medium" >
               {paper.title}
             </div>
             <div className="h-fit w-full flex flex-row justify-between mt-auto font-poppins font-light tracking-wide text-xs">

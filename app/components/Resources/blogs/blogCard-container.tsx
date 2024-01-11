@@ -4,6 +4,7 @@ import BlogCard from "./blogCard";
 import { useEffect, useState } from "react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { SearchBlogs } from "~/graphql/queries";
+
 const BlogCardContainer = () => {
   const loaderData = useLoaderData() as any;
   const [category, setCategory] = useState("");
@@ -181,7 +182,7 @@ const handleFilterAndSearchDown = async () =>{
         />
         <div className="w-[1000px] z-10 h-full flex flex-col justify-center gap-y-8 p-6  px-20 overflow-y-scroll  ">
           {blogData.map((blog: IBlogMedia) => (
-            <Link to={`../resources/blog/${blog.id}`} key={blog.id}>
+            <Link to={`../resources/blog/${blog.id}`} key={blog.id}  state={{ blogData: blogData }}>
               <BlogCard key={blog.id} blog={blog} />
             </Link>
           ))}
