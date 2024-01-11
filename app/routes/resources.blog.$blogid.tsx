@@ -1,11 +1,12 @@
-import { MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
+import { Await, MetaFunction, Outlet, defer, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { getAuthorQuery, getBlogAuthorIDQuery } from "~/graphql/queries";
 import { LoaderFunctionArgs } from "@remix-run/node";
 import BlogHero from "~/components/Resources/blogs/blog-hero";
 import LoadingTest from "~/common-components/loading-test";
-import BlogContent from "~/components/Resources/blogs/blog-content";
+import { Suspense } from "react";
+import Blog_WhitepaperContent from "~/components/Resources/blogs/blog-whitepaper-content";
 
 export const meta: MetaFunction = () => {
   return [
@@ -33,7 +34,7 @@ const blogid=`${params.blogid}`;
   const updatedQuery = getAuthorQuery(authorId);
   const authorData =  await fetchGraphQL(updatedQuery);
 
-  console.warn("/////////////////author url is ",authorData.data?.author.data?.attributes.avatar.data?.attributes?.url);
+  console.warn("/////////////////author link isssssssssss ",authorData.data.attributes.avatar.data.attributes.name);
   const url= strapiUrl+`/api/blogs/${params.blogid}?populate=%2A`;
   try {
     const res = await fetch(url);
@@ -51,7 +52,7 @@ const blogid=`${params.blogid}`;
   } = jsonParsed.data?.attributes;
 
 
-  return {
+  return defer({
         avatar:authorData.data?.author.data?.attributes.avatar.data?.attributes?.url,
         bannerImage: jsonParsed.data?.attributes?.bannerImage?.data?.attributes?.url,
         descriptionImage1: jsonParsed.data?.attributes?.descriptionImage1?.data?.attributes?.url,
@@ -66,7 +67,7 @@ const blogid=`${params.blogid}`;
         description2,
         description3,
 
-  };
+  });
  
 }
 catch (error:any) {
@@ -80,24 +81,22 @@ catch (error:any) {
 
 const Index = () => {
 
-  const data= useLoaderData() as any;
-  console.warn(JSON.stringify(data));
+  const data = useLoaderData<typeof loader>() as any;
   return (
-    <div >
-      
-
-      {!data ? (
-        <LoadingTest />
-      ) : (
-        <div>
+    <>
+   <Suspense fallback={<LoadingTest />}>
+      <Await resolve={data.bannerImage}>
+ 
           <div className="mt-16">
           <BlogHero/>
         </div>
-          <BlogContent/>
+          <Blog_WhitepaperContent/>
           <Outlet />
-        </div>
-      )}
-    </div>
+       
+      </Await>
+      </Suspense>
+
+      </>
   );
 };
 

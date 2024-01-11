@@ -25,7 +25,7 @@ const WhitePaperPostsContainer = () => {
         </div>
       </div>
       <div className="mx-auto w-full flex justify-center items-center">
-      <Link to={`resources/blogs`} key="explore"> <button className="button-test font-montserrat font-thin"> <span className="font-thin">Explore Now</span></button></Link>
+      <Link to={`../resources/whitepapers`} key="explore"> <button className="button-test font-montserrat font-thin"> <span className="font-thin">Explore Now</span></button></Link>
       </div>
       
     </div>

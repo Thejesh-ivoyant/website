@@ -1619,6 +1619,11 @@ border-bottom-style: solid;
   -webkit-text-fill-color: transparent;
 }
 
+.skew-container {
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%); /* Adjust values for desired skew */
+}
+
+
 
 .slit-gradient{
   z-index: -1;

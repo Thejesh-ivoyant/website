@@ -4,10 +4,11 @@ import { Await, MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import { defer } from "@remix-run/node";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { blogQuery } from "~/graphql/queries";
+import { blogQuery, categories, tagsQuery } from "~/graphql/queries";
 import BlogCardContainer from "~/components/Resources/blogs/blogCard-container";
 import Hero from "~/common-components/Hero";
 import LoadingTest from "~/common-components/loading-test";
+import { Daum } from "~/interfaces/CategoriesType";
 
 export const meta: MetaFunction = () => {
   return [
@@ -23,35 +24,31 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-async function fetchData(endpoint: string) {
-  try {
-    const response = await fetch(strapiUrl + endpoint);
-
-    if (!response.ok) {
-      throw new Error(
-        `Error fetching data from ${endpoint}: ${response.status} ${response.statusText}`
-      );
-    }
-
-    const jsonData = await response.json();
-    return jsonData.data;
-  } catch (error: any) {
-    console.error(`Error fetching data from ${endpoint}: ${error.message}`);
-    throw error;
-  }
-}
 
 export async function loader() {
   try {
     const blogGql = await fetchGraphQL(blogQuery);
+    const [tagslist, categoryList] = await Promise.all([
+      await fetchGraphQL(tagsQuery),
+      await fetchGraphQL(categories)
+    ]);
+    const tagsData = tagslist?.data?.topicTags?.data as Daum[]
+    const categoryListData = categoryList?.data?.categories.data as Daum[]
+  
+    const tags = tagsData.map((daum) => ({
+      value: daum.attributes.name,
+      label: daum.attributes.name,
+    }));
+    const categoriesList = categoryListData.map((daum) => ({
+      value: daum.attributes.name,
+      label: daum.attributes.name,
+    }));
+
 
     const res = await fetch(strapiUrl + "/api/resource?populate=%2A");
     let jsonParsed = await res.json();
 
-    const componentRes = await fetchData("/api/blogs?populate=%2A");
-    if (!componentRes || !Array.isArray(componentRes)) {
-      throw new Error("Invalid API response structure");
-    }
+    
     const { heroTitle, heroDescription, s2_title } =
       jsonParsed.data?.attributes ?? "";
 
@@ -70,16 +67,23 @@ export async function loader() {
         avatar:
           item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
       },
-    }));
-    console.log("compsres loader data ", blogData);
+      topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
+      category: {
+       name:item.attributes.category.data?.attributes.name
+      
+      }
 
-    console.log("loader data ", blogGql.data?.blogs.data);
+    }));
+ 
+
     return defer({
-      heroImage: jsonParsed.data?.attributes.heroImage.data?.attributes.url,
+      heroBgImageURl: jsonParsed.data?.attributes.heroImage.data?.attributes.url,
       heroTitle,
       heroDescription,
       s2_title,
       blogData: blogData,
+      tags,
+      categoriesList,
     });
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -88,16 +92,16 @@ export async function loader() {
 }
 
 const Index = () => {
-  const data = useLoaderData<typeof loader>();
+  const data = useLoaderData<typeof loader>() as any;
   return (
     <>
     <Suspense fallback={<LoadingTest />}>
-      <Await resolve={data.heroImage}>
+      <Await resolve={data.heroBgImageURl}>
  
       
           <Hero />
          
-          <BlogCardContainer />
+          <BlogCardContainer  />
 
           <Consultation />
           <Outlet />

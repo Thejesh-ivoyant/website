@@ -46,6 +46,11 @@ export async function loader() {
       author: {
         name: item.attributes.author.data?.attributes.name,
       },
+      topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
+      category: {
+       name:item.attributes.category.data?.attributes.name
+      
+      }
     }));
 
     return {

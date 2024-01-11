@@ -331,6 +331,21 @@ export const blogQuery = `query{
             }
           }
         }
+        topic_tags{
+          data{
+						attributes{
+  						name	
+              }
+          }
+        }
+        category{
+          data
+          {
+            attributes{
+              name
+            }
+          }
+        }
         author{
           data{
             attributes{
@@ -450,47 +465,6 @@ export const getWhitepaperBasedonLimit = (limit: number) => {
   `;
 };
 
-export const getBlogsBasedonLimit = (limit: number) => {
-  return `
-  query{
-    blogs(
-    sort: "date:desc",
-    pagination: { limit: ${limit} }
-  ){
-      data{
-        id,
-        attributes{
-          title
-          description1
-          maxReadTime
-          date
-          bannerImage{
-            data{
-              attributes{
-                url
-              }
-            }
-          }
-          author{
-            data{
-              attributes{
-              name
-              avatar{
-                data{
-                  attributes{
-                    url
-                  }
-                }
-              }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  `;
-};
 
 export const getPaperAuthorIDQuery = (id:any) => {
   console.warn("paper id is ", id);
@@ -533,6 +507,21 @@ query {
             }
           }
         }
+        topic_tags{
+          data{
+						attributes{
+  						name	
+              }
+          }
+        }
+        category{
+          data
+          {
+            attributes{
+              name
+            }
+          }
+        }
         author {
           data {
             attributes {
@@ -565,16 +554,13 @@ query{
         s3_title
         s3_description
         s3_email
-        job_descriptions(pagination: { limit: 5 }){
+        job_descriptions(pagination: { limit: 1 }){
           data{
             id
             attributes{
               job_id
               Title
-              location
-              Role
-              MinExperience
-              MaxExperience
+             
               department{
                 data{
                   attributes{
@@ -582,6 +568,30 @@ query{
                   }
                 }
               }
+              experience{
+                data{
+                  attributes{
+                    experienceRange 
+                  }
+                }
+              }
+              
+              location{
+                data{
+                  attributes{
+                  location
+                }
+                }
+              }
+              job_role{
+                data{
+                  attributes{
+                    role
+                  }
+                }
+              }
+
+
             }
           }
         }
@@ -590,38 +600,7 @@ query{
   }
 }
 `;
-export const getJDBasedonLimit = (limit: number) => {
-  return `
-  query{
-    career{
-       data{
-        attributes{
-          job_descriptions(pagination: { limit: ${limit} }){
-            data{
-              id
-              attributes{
-                job_id
-                Title
-                location
-                Role
-                MinExperience
-                MaxExperience
-                department{
-                  data{
-                    attributes{
-                     DepartmentName 
-                    }
-                  }
-                }
-              }
-            }
-          }
-        } 
-      }
-    }
-  }
-  `;
-}
+
 
 export const productsQuery = `
 query{
@@ -911,3 +890,187 @@ query{
     }
   }
 }`
+
+export const jobrolesQuery = `
+query{
+  jobRoles{
+    data{
+      attributes{
+        role
+      }
+    }
+  }
+}`
+
+export const locationsQuery = `query{
+  locations{
+    data{
+      attributes{
+        location
+      }
+    }
+  }
+}`
+
+export const departmentQuery = `query{
+  departments{
+    data{
+      attributes{
+        DepartmentName
+      }
+    }
+  }
+}`
+
+export const expQuery = `query{
+  experiences{
+    data{
+      attributes{
+        experienceRange
+      }
+    }
+  }
+}`
+export const SearchJobs = (
+  departmentName: string,
+  experienceRange: string,
+  jobRole: string,
+  location: string,
+  Title: string,
+  limit: number
+) => {
+  // Helper function to handle empty strings
+  const sanitizeString = (value: string) => (value ? `"${value}"` : '""');
+
+  return `query {
+    career {
+      data {
+        attributes {
+          job_descriptions(
+            filters: {
+              and: [
+                { department: { DepartmentName: { containsi: ${sanitizeString(departmentName)} } } },
+                { experience: { experienceRange: { containsi: ${sanitizeString(experienceRange)} } } },
+                { job_role: { role: { startsWith: ${sanitizeString(jobRole)} } } },
+                { location: { location: { containsi: ${sanitizeString(location)} } } },
+                { Title: { containsi: ${sanitizeString(Title)} } },
+              ]
+            },
+            pagination: { limit: ${limit} }
+          ) {
+            data {
+              id
+              attributes {
+                job_id
+                Title
+                experience {
+                  data {
+                    attributes {
+                      experienceRange
+                    }
+                  }
+                }
+                department {
+                  data {
+                    attributes {
+                      DepartmentName
+                    }
+                  }
+                }
+                location {
+                  data {
+                    attributes {
+                      location
+                    }
+                  }
+                }
+                job_role {
+                  data {
+                    attributes {
+                      role
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }`;
+};
+
+
+export const SearchBlogs = (
+  category: string,
+  tag: string,
+  title: string,
+  limit: number
+) => {
+  // Helper function to handle empty strings
+  const sanitizeString = (value: string) => (value ? `"${value}"` : '""');
+
+  return  `
+  query{
+    blogs(
+      filters: {
+       and: [
+         {category:{name:{containsi:  ${sanitizeString(category)} } }},
+         { topic_tags: { name: { containsi: ${sanitizeString(tag)} } }},
+         { title:{ containsi: ${sanitizeString(title)} } },
+       ]
+     },
+     pagination: { limit: ${limit} }
+   ){
+      data{
+        id,
+        attributes{
+          title
+          description1
+          maxReadTime
+          date
+          bannerImage{
+            data{
+              attributes{
+                url
+              }
+            }
+          }
+          topic_tags{
+            data{
+              attributes{
+                name	
+                }
+            }
+          }
+          category{
+            data
+            {
+              attributes{
+                name
+              }
+            }
+          }
+          author{
+            data{
+              attributes{
+              name
+              avatar{
+                data{
+                  attributes{
+                    url
+                  }
+                }
+              }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  `;
+};
+
+
+

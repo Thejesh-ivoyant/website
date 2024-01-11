@@ -1,8 +1,9 @@
-import { MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
+import { Await, MetaFunction, Outlet, defer, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import JobDescription from "~/components/careers/job-description";
 import { LoaderFunctionArgs } from "@remix-run/node";
 import LoadingTest from "~/common-components/loading-test";
+import { Suspense } from "react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -59,19 +60,19 @@ export async function loader({   params, }: LoaderFunctionArgs){
 
   } = jsonParsed.data?.attributes;
 
-  return {
+  return defer({
     s1_points: s1_points || '',
     s2_points: s2_points || '',
     s3_points: s3_points || '',
     title: Title || '',
-    location: location || '',
+    location: location.data.attributes.location || '',
     date: date || '',
     job_id: job_id || '',
     s1_title: s1_title || '',
     s2_title: s2_title || '',
     s3_title: s3_title || '',
     summary: summary || '',
-  };
+  });
 }
 catch (error:any) {
 
@@ -80,21 +81,21 @@ catch (error:any) {
 
 }
 const Index = () => {
-const data= useLoaderData() as any;
-console.warn(JSON.stringify(data));
+  const data = useLoaderData<typeof loader>() as any;
   return (
-    <div style={{ padding: "0px", overflowX: "hidden" }}>
-      {/* Video Background */}
-
-      {!data ? (
-        <LoadingTest />
-      ) : (
-        <div>
+   
+    <>
+    <Suspense fallback={<LoadingTest />}>
+       <Await resolve={data.title}>
+  
           <JobDescription />
           <Outlet />
-        </div>
-      )}
-    </div>
+    
+          </Await>
+      </Suspense>
+
+      </>
+   
   );
 };
 

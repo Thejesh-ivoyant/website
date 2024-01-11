@@ -1,11 +1,12 @@
-import { MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
+import { Await, MetaFunction, Outlet, defer, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { getAuthorQuery, getPaperAuthorIDQuery } from "~/graphql/queries";
 import { LoaderFunctionArgs } from "@remix-run/node";
 import BlogHero from "~/components/Resources/blogs/blog-hero";
 import LoadingTest from "~/common-components/loading-test";
-import BlogContent from "~/components/Resources/blogs/blog-content";
+import { Suspense } from "react";
+import Blog_WhitepaperContent from "~/components/Resources/blogs/blog-whitepaper-content";
 
 export const meta: MetaFunction = () => {
   return [
@@ -50,7 +51,7 @@ const paperid=`${params.whitepaperid}`;
   } = jsonParsed.data?.attributes;
 
 
-  return {
+  return defer({
     avatar:authorData.data?.author.data?.attributes.avatar.data?.attributes?.url,
     bannerImage: jsonParsed.data?.attributes?.bannerImage?.data?.attributes?.url,
     whitepaper: jsonParsed.data?.attributes?.whitepaper?.data?.attributes?.url,
@@ -61,7 +62,7 @@ const paperid=`${params.whitepaperid}`;
     date,
     description1,
 
-  };
+  });
  
 }
 catch (error:any) {
@@ -75,24 +76,21 @@ catch (error:any) {
 
 const Index = () => {
 
-  const data= useLoaderData() as any;
-  return (
-    <div >
-      
-
-      {!data ? (
-        <LoadingTest />
-      ) : (
-      
-        <div>
+  const data = useLoaderData<typeof loader>() as any;  return (
+    <>
+    <Suspense fallback={<LoadingTest />}>
+       <Await resolve={data.heroImage}>
+  
           <div className="mt-16">
           <BlogHero/>
         </div>
-          <BlogContent/>
+          <Blog_WhitepaperContent/>
           <Outlet />
-        </div>
-      )}
-    </div>
+        
+      </Await>
+      </Suspense>
+
+      </>
   );
 };
 

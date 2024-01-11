@@ -7,49 +7,54 @@ import { useDropzone } from 'react-dropzone';
 import { FileAddOutlined, DeleteOutlined } from '@ant-design/icons';
 
 import React from "react";
-const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-  try {
-    event.preventDefault();
 
-    const formData = new FormData(event.currentTarget);
-    formData.append('action', 'Internship');
-    formData.forEach((value, key) => {
-      console.warn(">>>>>>>>>>>>>>>>>>>>>>>");
-      console.warn(`attribute is ${key}: ${value}`);
-    });
-    const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/b3a88f65-2b4f-4515-b186-2191b2c01494', {
-      method: 'POST',
-      body: formData,
-    });
-    
-
-    if (response.ok) {
-          
-    success("Thank you for showing interest in us!",2);
-      console.warn('Form submitted successfully');
-      
-    } else {
-      errorMessage("Error occured, please retry",3);
-      console.warn('Form submission failed');
-      
-    }
-
-  } catch (error) {
-    errorMessage("Error occured, please retry",3);
-    console.error('An error occurred during form submission:', error);
-  }
-};
 const JobDescription = () => {
 
   const [selectedFileName, setSelectedFileName] = React.useState<string | null>(null);
-
+  const [selectedFile, setSelectedFile] = useState<any | null>(null);
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    try {
+      event.preventDefault();
+  
+      const formData = new FormData(event.currentTarget);
+      formData.append('action', 'Internship');
+      if (selectedFile) {
+        formData.append('hire_attachment', selectedFile);
+      }
+      formData.forEach((value, key) => {
+        console.warn(">>>>>>>>>>>>>>>>>>>>>>>");
+        console.warn(`attribute is ${key}: ${value}`);
+      });
+      const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/b3a88f65-2b4f-4515-b186-2191b2c01494', {
+        method: 'POST',
+        body: formData,
+      });
+      
+  
+      if (response.ok) {
+            
+      success("Thank you for showing interest in us!",2);
+        console.warn('Form submitted successfully');
+        
+      } else {
+        errorMessage("Error occured, please retry",3);
+        console.warn('Form submission failed');
+        
+      }
+  
+    } catch (error) {
+      errorMessage("Error occured, please retry",3);
+      console.error('An error occurred during form submission:', error);
+    }
+  };
   const onDrop = useCallback((acceptedFiles:any) => {
     // Handle the dropped files
     if (acceptedFiles.length > 0) {
       const file = acceptedFiles[0];
+  setSelectedFile(file);
       setSelectedFileName(file.name);
       // Perform actions with the selected file
-      console.warn("Selected File:", file);
+      console.warn("Selected File:", file.size);
     }
   }, []);
 
@@ -91,6 +96,7 @@ const { Option } = Select;
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
     return (
+      <>
         <div className=" main-jd-content items-start flex flex-col mt-10 p-20">
           <div className="text-black text-4xl font-semibold self-stretch w-full max-md:max-w-full">
   {loaderData.title}
@@ -277,11 +283,12 @@ const { Option } = Select;
       {...getRootProps()}
       className={`flex flex-col gap-1 text-black text-sm text-center border-[color:var(--gray-gray-7,#8C8C8C)] bg-violet-700 bg-opacity-10 self-stretch items-center mt-8 pt-6 pb-1 px-16 border-[0.5px] border-dashed max-md:max-w-full max-md:px-5`}
     >
-      <label htmlFor="attachment" style={{ cursor: "pointer" }}>
+      <label htmlFor="hire_attachment" style={{ cursor: "pointer" }}>
         <FileAddOutlined className="bg-[#AF99DD] rounded-full p-2 text-black mr-2" />
         Upload resume
       </label>
-      <input {...getInputProps()} type="file" name="resume_attachement" style={{ display: "none" }} />
+      
+      <input {...getInputProps()} type="file" name="hire_attachment" style={{ display: "none" }} />
       {selectedFileName && (
         <div className="file-info">
           <span>{`${selectedFileName}`}</span>
@@ -320,6 +327,7 @@ const { Option } = Select;
 
 
         </div>
+        </>
       );  
 };
 export default JobDescription;
