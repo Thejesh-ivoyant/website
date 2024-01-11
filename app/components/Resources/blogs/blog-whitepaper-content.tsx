@@ -93,7 +93,7 @@ const Blog_WhitepaperContent = () => {
     return (
         <div className="justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 py-12 max-md:px-5">
         <div className="flex ml-0 justify-between gap-5  max-md:max-w-full max-md:flex-wrap max-md:justify-center">
-          <div className=" items-stretch flex  flex-col  max-md:max-w-full">
+          <div className=" items-stretch flex  flex-col w-[718px]">
             <div className="text-black text-3xl font-semibold max-md:max-w-full">
              {loaderData.title}
             </div>
