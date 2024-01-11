@@ -53,7 +53,7 @@ const WhitePaperCardContainer = () => {
         <img src="../assets/Ornament.png" className="absolute z-0 top-4 left-4" alt="ornament" />
       <div className="w-full h-full justify-center flex gap-x-6 p-6 z-10 px-40 mx-auto">
   
-      <div className="grid grid-cols-3 gap-6 p-6 z-10 mx-auto">
+      <div className="grid grid-cols-3 gap-12 p-6 z-10 mx-auto">
   {whitePaperData.map((paper: IWhitePaper) => (
     <Link to={`../resources/whitepaper/${paper.id}`} key={paper.id}>
       <WhitePaperCard key={paper.id} paper={paper} />

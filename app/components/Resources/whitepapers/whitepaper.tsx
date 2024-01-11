@@ -11,7 +11,7 @@ const WhitePaperCard = ({ paper }: { paper: IWhitePaper }) => {
 
  
       return (
-        <div className="blog-card w-96 h-96 z-10 pb-2 cursor-pointer">
+        <div className="blog-card w-auto h-96 z-10 pb-2 cursor-pointer">
           <div className="w-full h-60">
             <img
             alt="blog-image"
