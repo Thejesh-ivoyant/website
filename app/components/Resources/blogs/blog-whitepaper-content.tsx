@@ -1,13 +1,46 @@
-import { useLoaderData, useMatch } from "@remix-run/react";
+import { useLoaderData, useLocation, useMatch } from "@remix-run/react";
 import { Modal } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { fetchGraphQL } from "~/graphql/fetchGraphQl";
+import { tagsQuery } from "~/graphql/queries";
 import { errorMessage, success } from "~/utils/notifications";
 
-const BlogContent = () => {
+const Blog_WhitepaperContent = () => {
+  const [tagsData, setTagsData] = useState([]);
+
+  useEffect(() => {
+    const fetchTagsData = async () => {
+      try {
+        const tagsList = await fetchGraphQL(tagsQuery);
+        const newTagsData = tagsList?.data?.topicTags?.data;
+        setTagsData(newTagsData);
+      } catch (error) {
+        console.error("Error fetching tags:", error);
+        // Handle the error as needed
+      }
+    };
+
+    fetchTagsData();
+  }, []); // Empty dependency array to ensure the effect runs only once
+
+  const tags = tagsData.map((item:any) => ({
+    value: item.attributes.name,
+    label: item.attributes.name,
+  }));
+
+ 
+  const location = useLocation();
+  const { blogData, whitePaperData } = location.state; 
+
+  const Blogmatched = useMatch("/resources/blog/:id");
+  const isBlogRoute = Blogmatched !== null;
+
+  // Check the route type and use the corresponding data
+  const LatestData = isBlogRoute ? blogData : whitePaperData;
   const loaderData = useLoaderData() as any;
   const match = useMatch("/resources/whitepaper/:id");
   const isResourcesRoute = match !== null;
-  console.warn("..............test",loaderData.description1);
+  console.warn("..............rouet paased data",tags);
   
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
@@ -122,24 +155,21 @@ const BlogContent = () => {
               <div className="text-black text-2xl font-medium leading-9">
                 Related post
               </div>
-              <div className="flex items-stretch justify-between gap-3.5 mt-11 max-md:mt-10">
-                <div className="flex basis-[0%] flex-col items-center">
+              {LatestData.slice(0, 3).map((item:any, index:any) => (
+
+              <div key={index} className="flex items-stretch justify-between gap-3.5 mt-11 max-md:mt-10">
+                <div className="flex flex-col items-center">
                   <img
+                  alt={`Related post ${index + 1}`}
                     loading="lazy"
-                    src= '../../assets/error-mobile.png'                     className="aspect-[0.93] object-contain object-center w-[83px] shadow-sm overflow-hidden"
-                  />
-                  <img
-                    loading="lazy"
-                    src= '../../assets/error-mobile.png'                  className="aspect-[0.93] object-contain object-center w-[83px] shadow-sm overflow-hidden mt-8"
-                  />
-                  <img
-                    loading="lazy"
-                    src= '../assets/error-mobile.png'                   className="aspect-[0.93] object-contain object-center w-[83px] shadow-sm overflow-hidden mt-8"
+                    src={item.bannerImage.url} className="object-contain object-center w-[83px] aspect-[0.93] overflow-hidden"
                   />
                 </div>
+
                 <div className="self-center flex grow basis-[0%] flex-col items-stretch my-auto">
-                  <div className="text-black text-base font-medium leading-6">
-                    Thoughtful man using laptop pondering
+                
+                  <div className="text-black text-base font-medium leading-6 line-clamp-2 overflow-hidden">
+                    {item.title}
                   </div>
                   <div className="flex justify-between gap-2 mt-4 pr-20 items-start max-md:pr-5">
                     <img
@@ -147,36 +177,16 @@ const BlogContent = () => {
                       src= '../../assets/calendericon.svg'                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                     />
                     <div className="text-zinc-600 text-sm font-medium self-stretch grow whitespace-nowrap">
-                      31 May 2022
-                    </div>
-                  </div>
-                  <div className="text-black text-base font-medium leading-6 mt-11 max-md:mt-10">
-                    Thoughtful man using laptop pondering
-                  </div>
-                  <div className="flex justify-between gap-2 mt-4 pr-20 items-start max-md:pr-5">
-                    <img
-                      loading="lazy"
-                      src= '../../assets/calendericon.svg'                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
-                    />
-                    <div className="text-zinc-600 text-sm font-medium self-stretch grow whitespace-nowrap">
-                      31 May 2022
-                    </div>
-                  </div>
-                  <div className="text-black text-base font-medium leading-6 mt-11 max-md:mt-10">
-                    Thoughtful man using laptop pondering
-                  </div>
-                  <div className="flex justify-between gap-2 mt-4 pr-20 items-start max-md:pr-5">
-                    <img
-                      loading="lazy"
-                      src= '../../assets/calendericon.svg'                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
-                    />
-                    <div className="text-zinc-600 text-sm font-medium self-stretch grow whitespace-nowrap">
-                      31 May 2022
+                    {item.date}
                     </div>
                   </div>
                 </div>
+
               </div>
+              ))}
             </div>
+
+
             <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 pl-7 pr-9 py-10 max-md:px-5">
               <div className="text-black text-2xl font-medium whitespace-nowrap">
                 Categories
@@ -230,30 +240,21 @@ const BlogContent = () => {
                 Popular Tags
               </div>
               <div className="bg-zinc-300 flex shrink-0 h-px flex-col mt-6" />
-              <div className="items-stretch flex gap-1 mt-6 pr-12 max-md:pr-5">
-                <div className="text-neutral-800 text-sm whitespace-nowrap justify-center items-stretch border-[color:var(--gray-gray-6,#BFBFBF)] aspect-[1.8717948717948718] px-2.5 py-2.5 border-[0.5px] border-solid">
-                  Agency
+              <div className="items-stretch flex gap-1 mt-6">
+              {tags.slice(0, 3).map((item:any, index:any) => ( 
+              <div className="text-neutral-800 text-sm flex flex-row  justify-center w-full border-[color:var(--gray-gray-6,#BFBFBF)]  px-2.5 py-1.5 border-[0.5px] border-solid">
+             {item.label}
                 </div>
-                <div className="text-neutral-800 text-sm whitespace-nowrap justify-center items-stretch border-[color:var(--gray-gray-6,#BFBFBF)] grow pl-3 pr-2 py-2.5 border-[0.5px] border-solid">
-                  Creative
-                </div>
-                <div className="text-neutral-800 text-sm whitespace-nowrap justify-center items-stretch border-[color:var(--gray-gray-6,#BFBFBF)] aspect-[1.2564102564102564] px-2 py-2.5 border-[0.5px] border-solid">
-                  Data
-                </div>
-                <div className="text-neutral-800 text-sm whitespace-nowrap justify-center items-stretch border-[color:var(--gray-gray-6,#BFBFBF)] aspect-[1.4615384615384615] px-3.5 py-2.5 border-[0.5px] border-solid">
-                  Idea
-                </div>
+              ))}
+
               </div>
-              <div className="items-stretch flex gap-1 pr-8 max-md:justify-center max-md:pr-5">
-                <div className="text-neutral-800 text-sm whitespace-nowrap justify-center items-stretch border-[color:var(--gray-gray-6,#BFBFBF)] grow pl-3 pr-1.5 py-2.5 border-[0.5px] border-solid">
-                  Technology
-                </div>
-                <div className="text-neutral-800 text-sm whitespace-nowrap justify-center items-stretch border-[color:var(--gray-gray-6,#BFBFBF)] grow pl-2.5 pr-1 py-2.5 border-[0.5px] border-solid">
-                  Development
-                </div>
-                <div className="text-neutral-800 text-sm whitespace-nowrap justify-center items-stretch border-[color:var(--gray-gray-6,#BFBFBF)] grow px-2.5 py-2.5 border-[0.5px] border-solid">
-                  Generic
-                </div>
+              <div className="items-stretch mt-2 flex gap-1  max-md:justify-center ">
+               
+              {tags.slice(3, 5).map((item:any, index:any) => (
+                 <div className="text-neutral-800 text-sm whitespace-nowrap justify-center items-stretch border-[color:var(--gray-gray-6,#BFBFBF)] grow pl-3 pr-1.5 py-1.5 border-[0.5px] border-solid">
+              {item.label}
+                </div>))}
+                
               </div>
             </div>
           </div>
@@ -309,4 +310,4 @@ const BlogContent = () => {
       </div>
       );  
 };
-export default BlogContent;
+export default Blog_WhitepaperContent;

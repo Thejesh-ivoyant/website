@@ -5,8 +5,8 @@ import { getAuthorQuery, getBlogAuthorIDQuery } from "~/graphql/queries";
 import { LoaderFunctionArgs } from "@remix-run/node";
 import BlogHero from "~/components/Resources/blogs/blog-hero";
 import LoadingTest from "~/common-components/loading-test";
-import BlogContent from "~/components/Resources/blogs/blog-content";
 import { Suspense } from "react";
+import Blog_WhitepaperContent from "~/components/Resources/blogs/blog-whitepaper-content";
 
 export const meta: MetaFunction = () => {
   return [
@@ -90,7 +90,7 @@ const Index = () => {
           <div className="mt-16">
           <BlogHero/>
         </div>
-          <BlogContent/>
+          <Blog_WhitepaperContent/>
           <Outlet />
        
       </Await>

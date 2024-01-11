@@ -55,7 +55,7 @@ const WhitePaperCardContainer = () => {
   
       <div className="grid grid-cols-3 gap-12 p-6 z-10 mx-auto">
   {whitePaperData.map((paper: IWhitePaper) => (
-    <Link to={`../resources/whitepaper/${paper.id}`} key={paper.id}>
+    <Link to={`../resources/whitepaper/${paper.id}`} key={paper.id} state={{ whitePaperData: whitePaperData }}>
       <WhitePaperCard key={paper.id} paper={paper} />
     </Link>
   ))}
