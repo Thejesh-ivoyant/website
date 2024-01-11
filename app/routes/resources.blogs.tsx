@@ -93,7 +93,7 @@ export async function loader() {
 
 const Index = () => {
   const data = useLoaderData<typeof loader>();
-  
+  console.warn("<<<<<<<<<<<<<<<<<<<<<<<<<<blogdata",data.blogData);
   return (
     <>
     <Suspense fallback={<LoadingTest />}>
