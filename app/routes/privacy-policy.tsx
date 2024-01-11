@@ -1,9 +1,10 @@
 import Consultation from "~/components/Homepage/consultation";
-import { MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
+import { Await, MetaFunction, Outlet, defer, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import PrivacyPolicy from "~/components/policy-terms-cookies/privacy-policy";
 import PTCHero from "~/components/policy-terms-cookies/ptc-hero";
 import LoadingTest from "~/common-components/loading-test";
+import { Suspense } from "react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -72,7 +73,7 @@ export async function loader() {
  
    } = jsonParsed.data[0]?.attributes;
  
-   return {
+   return defer({
     heroImage: jsonParsed.data[0]?.attributes.heroImage.data?.attributes.url,
      collection_of_info: collection_of_info,
      CTP_List: CTP_List,
@@ -94,7 +95,7 @@ export async function loader() {
      contact_us,
      rights,
      changes_to_privacy,
-   };
+   });
        
   
 }
@@ -106,23 +107,21 @@ catch (error:any) {
 }
 
 const Index = () => {
-  const data= useLoaderData() as any;
- 
+  const data = useLoaderData<typeof loader>() as any; 
   return (
-    <div style={{ padding: "0px", overflowX: "hidden" }}>
-      {/* Video Background */}
-
-      {!data ? (
-        <LoadingTest />
-      ) : (
-        <div>
+    <>
+    <Suspense fallback={<LoadingTest />}>
+       <Await resolve={data.heroImage}>
+  
           <PTCHero/>
         <PrivacyPolicy/>
         <Consultation/>
           <Outlet />
-        </div>
-      )}
-    </div>
+        
+      </Await>
+      </Suspense>
+
+      </>
   );
 };
 
