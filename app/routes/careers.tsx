@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { MetaFunction, Outlet } from "@remix-run/react";
+import { Suspense, useEffect, useState } from "react";
+import { Await, MetaFunction, Outlet, defer, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import Why_Join_Us from "~/components/careers/section-2/why-join-us";
 import JobCards from "~/components/careers/section-3/job-cards";
@@ -118,8 +118,8 @@ export async function loader() {
     s3_email,
   } = jsonParsed.data?.career.data?.attributes;
 
-  return {
-    heroImage:
+  return defer ({
+    heroBgImageURl:
       jsonParsed.data?.career.data?.attributes.heroImage.data?.attributes.url,
     heroTitle,
     heroDescription,
@@ -135,47 +135,29 @@ export async function loader() {
     RolesList,
     DepartmentList,
     ExpList,
-  };
+  });
 }
 
 const Careers = () => {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    const fetchDataAsync = async () => {
-      try {
-        const fetchedData = await loader();
-
-        setData(fetchedData);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setLoading(false); // Set loading to false in case of an error
-      }
-    };
-
-    fetchDataAsync();
-  }, []);
+  const data = useLoaderData<typeof loader>() as any;
 
   return (
-    <div style={{ padding: "0px", overflowX: "hidden" }}>
-      {/* Video Background */}
-
-      {loading ? (
-        <LoadingTest />
-      ) : (
-        <div>
-        
-            <Hero />
+  <>
+   <Suspense fallback={<LoadingTest />}>
+      <Await resolve={data.heroBgImageURl}>
+ 
+   <Hero />
        
-          <Why_Join_Us />
-          <JobCards />
-          <JoinUsCardContainer />
-          <Outlet />
-        </div>
-      )}
-    </div>
+       <Why_Join_Us />
+       <JobCards />
+       <JoinUsCardContainer />
+       <Outlet />
+       </Await>
+       </Suspense>
+  </>
+           
+      
+    
   );
 };
 
