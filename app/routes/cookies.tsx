@@ -1,9 +1,10 @@
 import Consultation from "~/components/Homepage/consultation";
-import { MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
+import { Await, MetaFunction, Outlet, defer, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import Cookies from "~/components/policy-terms-cookies/cookies";
 import PTCHero from "~/components/policy-terms-cookies/ptc-hero";
 import LoadingTest from "~/common-components/loading-test";
+import { Suspense } from "react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -37,7 +38,7 @@ export async function loader() {
       more_info,
     } = jsonParsed.data[0]?.attributes;
 
-    return {
+    return defer({
       heroImage:jsonParsed.data[0]?.attributes.heroImage.data?.attributes.url,
       heroTitle,
       heroDescription,
@@ -48,30 +49,29 @@ export async function loader() {
       forms_cookies,
       third_party_cookies,
       more_info,
-    };
+    });
   } catch (error: any) {
     console.error(`Error fetching data hggfrom ${url}: ${error.message}`);
   }
 }
 
 const Index = () => {
-  const data = useLoaderData() as any;
-console.log(",,,,,,,,,,,cookie ",JSON.stringify(data))
+  const data = useLoaderData<typeof loader>() as any;
   return (
-    <div style={{ padding: "0px", overflowX: "hidden" }}>
-      {/* Video Background */}
-
-      {!data ? (
-        <LoadingTest />
-      ) : (
-        <div>
+    <>
+    <Suspense fallback={<LoadingTest />}>
+       <Await resolve={data.heroImage}>
+  
+      
           <PTCHero />
           <Cookies />
           <Consultation />
           <Outlet />
-        </div>
-      )}
-    </div>
+      
+      </Await>
+      </Suspense>
+
+      </>
   );
 };
 

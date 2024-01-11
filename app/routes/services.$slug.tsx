@@ -172,8 +172,8 @@ export async function loader({ params }: LoaderFunctionArgs) {
 }
 
 const Service = () => {
-  const data = useLoaderData<typeof loader>();
-  return (
+  const data = useLoaderData<typeof loader>() as any;
+    return (
     <>
       <Suspense fallback={<LoadingTest />}>
     <Await resolve={data.IndustryFocus}>

@@ -26,9 +26,7 @@ export default function Index() {
         <div className="flex w-full">
           <ContactCard />
         </div>
-        {/* <div className="flex w-1/2">
-    <GoogleMapComponent/>
-  </div> */}
+     
       </div>
 
     </>
