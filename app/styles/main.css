@@ -230,9 +230,7 @@ justify-content: center;
   text-align: center;
   z-index: 12;
 }
-.ant-drawer-close{
-  display:none;
-}
+
 /* Styles for the hero title */
 .hero-title {
   font-size: 2rem;
@@ -612,6 +610,12 @@ display: block;
   border:none;
 }
 
+.ant-drawer-header div{
+display: none;
+}
+.ant-drawer-header-title {
+  display: none;
+}
 .ant-btn {
 background-color: #000;
 }

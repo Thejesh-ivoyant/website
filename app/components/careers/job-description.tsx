@@ -177,9 +177,10 @@ const { Option } = Select;
       </div>
       <div className="items-center self-stretch flex aspect-square flex-col justify-center">
         <img
-          loading="lazy"
-          srcSet="..."
-          className="aspect-square object-contain object-center w-10 overflow-hidden rounded-[50%]"
+
+          srcSet="../../assets/closebtn.png"
+          onClick={onClose}
+          className="pointer aspect-square object-contain object-center w-10 overflow-hidden rounded-[50%]"
         />
       </div>
     </div>
