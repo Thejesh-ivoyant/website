@@ -600,10 +600,10 @@ grid-gap: 50px;
 grid-template-columns: 400px auto;
 margin-top: 80px;
 }
-.contact-sidebar{
+/* .contact-sidebar{
   position: relative;
   display: block;
-}
+} */
 .contact-main{
 display: block;
 }
@@ -1891,6 +1891,10 @@ border-bottom-style: solid;
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.contact-sidebar .contact-content-wrapper div {
+  margin-bottom:20px;
 }
 
 .screen-height {
