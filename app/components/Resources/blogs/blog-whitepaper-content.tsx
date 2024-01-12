@@ -109,7 +109,7 @@ const Blog_WhitepaperContent = () => {
           <div>
 
             <img
-              loading="lazy"
+           
               src={`${loaderData.descriptionImage1}`}  className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
             />
             <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
@@ -137,7 +137,7 @@ const Blog_WhitepaperContent = () => {
           <div className=" flex grow basis-[0%] flex-col items-stretch self-start">
             <div className="shadow-sm author-card flex flex-col px-7 pr-10 py-7  rounded-sm items-start max-md:px-5">
               <img
-                loading="lazy"
+             
                 src={loaderData.avatar}   className="aspect-square object-contain object-center w-[84px] overflow-hidden max-w-full rounded-[50%]"
               />
               <div className="text-black text-xl font-medium self-stretch whitespace-nowrap mt-8 max-md:mr-1.5">
@@ -161,7 +161,7 @@ const Blog_WhitepaperContent = () => {
                 <div className="flex flex-col items-center">
                   <img
                   alt={`Related post ${index + 1}`}
-                    loading="lazy"
+                 
                     src={item.bannerImage.url} className="object-contain object-center w-[83px] aspect-[0.93] overflow-hidden"
                   />
                 </div>

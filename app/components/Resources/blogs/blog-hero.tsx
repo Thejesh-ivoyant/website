@@ -13,7 +13,7 @@ const BlogHero = () => {
         <div className=" pt-6 flex flex-row gap-4">
 <div className="flex">
 <img
-                loading="lazy"
+         
                 src={loaderData.avatar} className="aspect-square object-contain object-center w-[84px] overflow-hidden max-w-full rounded-[50%]"
               />
 </div>
