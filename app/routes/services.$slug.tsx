@@ -12,10 +12,8 @@ import ServicesStyle from '~/styles/Services.css'
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:ServicesStyle}
 ];
+import Hero from "~/common-components/Hero";
 
-const Hero = React.lazy(
-  () => import("~/common-components/Hero")
-);
 const ServiceContainer = React.lazy(
   () =>
     import(

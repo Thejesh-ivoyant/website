@@ -13,7 +13,7 @@ const BlogCard = ({ blog }: { blog: IBlogMedia }) => {
           <div className="flex flex-col items-center w-[42%] max-md:w-full max-md:ml-0">
             <header className="justify-between items-stretch shadow-sm flex grow flex-col w-full  max-md:max-w-full max-md:mt-6">
               <img className="h-full  aspect-[241/78] "
-                loading="lazy"
+             
                 src={blog?.bannerImage.url}   alt="AI Protection"
               />
             </header>
@@ -30,7 +30,7 @@ const BlogCard = ({ blog }: { blog: IBlogMedia }) => {
               {trimWords(blog.description1)}  </div>
               <div className="items-stretch flex justify-between gap-5  mt-5  max-md:mt-10">
               <img
-                loading="lazy" alt="avatar"
+              alt="avatar"
                 src={blog.author.avatar} className="aspect-square object-contain object-center w-[84px] overflow-hidden max-w-full rounded-[50%]"
               />
                 <div className="items-stretch flex grow basis-[0%] flex-col self-start">
