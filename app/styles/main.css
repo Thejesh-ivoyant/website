@@ -40,6 +40,7 @@ html, body {
   :root {
     --color-tin: rgba(244, 243, 251, 0.80);
     --color-geekblue-2: #D6E4FF;
+    --color-hue-indigo: rgba(27, 7, 64, 0.80);
     --font-size: 16px;
   }
   .geekblue-1{
@@ -1946,7 +1947,7 @@ border-bottom-style: solid;
 
 .logos-slide {
   display: inline-flex;
-  animation: 5s slidex infinite linear;
+  animation: 15s slidex infinite linear;
 }
 
 .logos-slide img {
@@ -1983,4 +1984,7 @@ border-bottom-style: solid;
   height: 100%;
   aspect-ratio: 1/1;
   margin-left: -1/2;
+}
+.privacy-hero-text{
+  color: var(--color-hue-indigo);
 }

@@ -34,7 +34,7 @@ const blogid=`${params.blogid}`;
   const updatedQuery = getAuthorQuery(authorId);
   const authorData =  await fetchGraphQL(updatedQuery);
 
-  console.warn("/////////////////author url is ",authorData.data?.author.data?.attributes.avatar.data?.attributes?.url);
+  console.warn("/////////////////author link isssssssssss ",authorData.data.attributes.avatar.data.attributes.name);
   const url= strapiUrl+`/api/blogs/${params.blogid}?populate=%2A`;
   try {
     const res = await fetch(url);
