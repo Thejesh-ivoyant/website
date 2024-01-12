@@ -1,5 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
-import heroImage from '~/../public/assets/policy.jpg'
+import heroImage from '~/../public/assets/policy.png'
 const PTCHero = () => {
   const loaderData = useLoaderData() as any;
   const gradientStyle = {
@@ -13,10 +13,10 @@ const PTCHero = () => {
     <div  className="relative screen-height mt-20 text-white flex flex-row" style={gradientStyle}>
       <div className="w-1/2 grid place-items-center">
         <div className="privacy-hero-text flex flex-col my-auto max-w-lg">
-          <small className="text-lg font-poppins leading-8 font-normal">Last reviewed on: Dec 09, 2023</small>
-          <h1 className="font-montserrat text-4xl font-extrabold text-haiti italic">iVoyant Web Privacy policy</h1>
+          <small className="text-lg font-poppins leading-8 font-normal">Last reviewed on: {loaderData?.last_reviewed}</small>
+          <h1 className="font-montserrat text-4xl font-extrabold text-haiti italic">{loaderData?.heroTitle}</h1>
           <p className="font-poppins text-lg font-normal leading-8 text-justify mt-5">
-          At iVoyant, safeguarding your privacy is our top priority. Committed to responsible data processing, we adhere to global data protection laws. Our Privacy Statement outlines how we handle personal information collected from consumers, clients, and business partners. Trust iVoyant for secure and compliant data practices.
+            {loaderData.heroDescription}
           </p>
         </div> 
       </div>     
