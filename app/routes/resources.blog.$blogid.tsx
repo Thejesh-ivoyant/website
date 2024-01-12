@@ -34,11 +34,11 @@ const blogid=`${params.blogid}`;
   const updatedQuery = getAuthorQuery(authorId);
   const authorData =  await fetchGraphQL(updatedQuery);
 
-  console.warn("/////////////////author link isssssssssss ",authorData.data.attributes.avatar.data.attributes.name);
+  console.warn("/////////////////author link isssssssssss ",authorData.data.attributes);
   const url= strapiUrl+`/api/blogs/${params.blogid}?populate=%2A`;
   try {
     const res = await fetch(url);
-    let jsonParsed = await res.json();
+           let jsonParsed = await res.json();
    
     
  const {
@@ -48,7 +48,6 @@ const blogid=`${params.blogid}`;
   description1,
   description2,
   description3,
-
   } = jsonParsed.data?.attributes;
 
 
@@ -66,21 +65,17 @@ const blogid=`${params.blogid}`;
         description1,
         description2,
         description3,
-
   });
  
 }
 catch (error:any) {
-
   console.error(`Error fetching data from ${url}: ${error.message}`);
   return null;
-}
-
+  }
 }
 
 
 const Index = () => {
-
   const data = useLoaderData<typeof loader>() as any;
   return (
     <>
