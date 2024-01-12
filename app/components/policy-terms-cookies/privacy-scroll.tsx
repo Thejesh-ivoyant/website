@@ -42,7 +42,7 @@ const PrivacyPolicyScroll = () => {
     <>
       {" "}
       <div className="gap-5 px-5 mt-10 w-full flex flex-row justify-center">
-        <div id="contact-sidebar" className=" w-[30%] contact-sidebar ">
+        <div id="contact-sidebar" className="w-[30%] contact-sidebar ">
            {/* <div className="contact-content-wrapper items-stretch flex flex-col max-md:max-w-full max-md:mt-10"> */}
           <div className="contact-content-wrapper">
             <div className="items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full">
