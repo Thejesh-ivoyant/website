@@ -16,6 +16,7 @@ import Nav from "./common-components/nav";
 import Footer from "./common-components/footer";
 import { fetchGraphQL } from "./graphql/fetchGraphQl";
 import { navQuery } from "./graphql/queries";
+import ScrollToTopIcon from "./ScrollToTop";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
   { rel: "stylesheet", href: globalstyle },
@@ -52,6 +53,7 @@ export default function App() {
         <Scripts />
         <LiveReload />
         <Footer  />
+        <ScrollToTopIcon/>
       </body>
     </html>
   );
