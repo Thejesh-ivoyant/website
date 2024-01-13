@@ -216,7 +216,31 @@ background-clip: text;
   }
 }
 
+/* scrollToTop.css or your preferred styles file */
 
+/* Styles for the scroll-to-top button */
+#scrollToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  background-color: #007bff; /* Change this to your preferred background color */
+  color: #fff; /* Change this to your preferred text color */
+  border: none;
+  border-radius: 50%;;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add a smooth transition effect */
+}
+
+#scrollToTopBtn:hover {
+  background-color: #0056b3; /* Change this to a slightly darker shade for hover effect */
+}
+
+/* Show the button when scrolled halfway down the page */
+body.scrolled #scrollToTopBtn {
+  display: block;
+}
 
 .hero-container {
 justify-content: center;
