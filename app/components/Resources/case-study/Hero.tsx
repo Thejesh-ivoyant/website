@@ -1,6 +1,6 @@
 const Hero = ({heroBgImageUrl,heroTitle,heroDescription}:{heroBgImageUrl: string, heroTitle:string, heroDescription:string}) => {
    const gradientStyle = {
-     background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${heroBgImageUrl}) lightgray 50% / 100% 100% no-repeat`,
+     background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${heroBgImageUrl}) lightgray 50% / cover no-repeat`,
    };
    return (
      <section className="mt-[4.5rem] screen-height text-white flex justify-center " style={gradientStyle}>

@@ -3,7 +3,7 @@ import { useLoaderData } from "@remix-run/react";
 const BlogHero = () => {
   const loaderData = useLoaderData() as any;
   const gradientStyle = {
-    background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${loaderData.bannerImage}) lightgray 50% / 100% 100% no-repeat`,
+    background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${loaderData.bannerImage}) lightgray 50% / cover no-repeat`,
   };
   return (
     <section className="py-32 text-white flex" style={gradientStyle}>

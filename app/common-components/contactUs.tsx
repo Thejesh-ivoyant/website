@@ -400,7 +400,7 @@ const ContactUs = () => {
 
                 <input
                   type="tel"
-                  placeholder="Phone Number*"
+                  placeholder="Ph No*"
                   value={phoneNumber}
                   onChange={handlePhoneNumberChange}
                   required
@@ -555,7 +555,7 @@ const ContactUs = () => {
 
                 <input
                   type="tel"
-                  placeholder="Phone Number*"
+                  placeholder="Ph No*"
                   value={phoneNumber}
                   onChange={handlePhoneNumberChange}
                   required
