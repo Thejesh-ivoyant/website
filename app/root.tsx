@@ -32,7 +32,7 @@ export function scrollToSection(section: string) {
 
     if (scrollableParent) {
       // Declare scrollPosition here, within the if block
-      const scrollPosition = targetElement.offsetTop - 64;
+      const scrollPosition = targetElement.offsetTop - 94;
 
       scrollableParent.scrollTo({
         top: scrollPosition,
@@ -40,7 +40,7 @@ export function scrollToSection(section: string) {
       });
     } else {
       // Declare scrollPosition here, within the else block
-      const scrollPosition = targetElement.offsetTop - 64;
+      const scrollPosition = targetElement.offsetTop - 94;
 
       window.scrollTo({
         top: scrollPosition,
