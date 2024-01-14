@@ -24,9 +24,36 @@ export const links: LinksFunction = () => [
   {rel:"stylesheet", href:Sidebarstyle}
 ];
 
-export function scrollTo(section: string) {
-  (document.getElementById(section)!).scrollIntoView({ behavior: "smooth" });
+export function scrollToSection(section: string) {
+  const targetElement = document.getElementById(section);
+
+  if (targetElement) {
+    const scrollableParent = targetElement.closest('scrollable-element');
+
+    if (scrollableParent) {
+      // Declare scrollPosition here, within the if block
+      const scrollPosition = targetElement.offsetTop - 94;
+
+      scrollableParent.scrollTo({
+        top: scrollPosition,
+        behavior: "smooth"
+      });
+    } else {
+      // Declare scrollPosition here, within the else block
+      const scrollPosition = targetElement.offsetTop - 94;
+
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: "smooth"
+      });
+    }
+  } else {
+    console.error(`Element with ID '${section}' not found.`);
+  }
 }
+
+
+
 export async function loader() {
   const navGraphql = await fetchGraphQL(navQuery)
   
