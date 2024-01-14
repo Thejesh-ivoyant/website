@@ -1817,7 +1817,6 @@ border-bottom-style: solid;
   background-color: transparent; 
   gap: 0.625rem;
   padding: 0.83rem;
-  color: white; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1832,6 +1831,8 @@ border-bottom-style: solid;
   text-transform: uppercase;
 }
 .hue-btn-blue:hover{
+  border: 2px solid transparent; 
+
   background: linear-gradient(
     45deg, 
     #6C39DB 0.62%, 
@@ -1839,7 +1840,6 @@ border-bottom-style: solid;
   ) 
   0 0 / 200% 100% no-repeat;
 
-    border: none;
     background-position: 100% 0%;
     animation: shade-movement 4s linear infinite;
 }

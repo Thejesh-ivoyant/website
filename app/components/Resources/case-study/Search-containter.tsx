@@ -1,6 +1,6 @@
 import { Select, Space } from "antd";
 import DropDownIcon from "./arrow";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { generateDynamicQuery } from "~/utils/parameterized-gql";
 import { case_study_paginated } from "~/graphql/queries";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
@@ -12,8 +12,8 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
   const [searchValue, setSearchValue] = useState("");
   const [tag, setTag] = useState<string>('')
   const [category, setCategory] = useState('')
-  const [offset,setOffset] = useState<number>(initLimit);
-  const [limit,setLimit] = useState<number>(initOffset);
+  const [offset,setOffset] = useState<number>(initOffset);
+  const [limit,setLimit] = useState<number>(initLimit);
   const [btnLoading, setBtnLoading] = useState<boolean>(false)
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
@@ -38,7 +38,27 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
     setListData(lists.data?.caseStudies?.data);
   };
 
-  
+  const simulateFormSubmit = async ( ) => {
+    
+    const syntheticEvent = {
+      preventDefault: () => {}, // Mock the preventDefault function
+    } as React.FormEvent<HTMLFormElement>;
+    
+    await handleSubmit(syntheticEvent);
+  };
+  useEffect(() => {
+    debugger
+    simulateFormSubmit();
+  }, [category,tag]); 
+
+  const handleCategoryChange = (value:string) => {
+    setCategory(value);
+  };
+
+  const handleTagChange = (value:string) => {
+    setTag((prevTag) => prevTag = value )
+    simulateFormSubmit()
+  };
   const handleViewMore = async () =>{
     setBtnLoading(true)
     const dynamicQuery = await generateDynamicQuery(case_study_paginated, [
@@ -49,9 +69,9 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
       "tag",
       "category"
     ]);
-    setOffset(offset + limit)
+    setOffset((prevOffset) => prevOffset + limit);
     debugger
-    const interpolatedQuery = dynamicQuery(offset, limit, "createdAt:asc", "", tag, category);
+    const interpolatedQuery = dynamicQuery(limit+offset, limit, "createdAt:asc", "", tag, category);
     const [lists] = await Promise.all([
       await fetchGraphQL(interpolatedQuery),
     ]);
@@ -70,7 +90,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
             placeholder="All Categories"
             style={{ width: 190 }}
             suffixIcon={category != '' ? null:  <DropDownIcon /> }
-            onChange={setCategory}
+            onChange={handleCategoryChange}
             allowClear
             options= {categories}
           />
@@ -79,7 +99,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
             style={{ width: 190 }}
             suffixIcon={tag != '' ? null:  <DropDownIcon /> }
             allowClear
-            onChange={setTag}
+            onChange={handleCategoryChange}
             options={tags}
           />
           <div className="relative">
