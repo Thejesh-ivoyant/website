@@ -760,6 +760,67 @@ export const case_study_paginated = `
       }
     }
   `;
+  export const SearchCaseStudies = (
+    category: string,
+    tag: string,
+    title: string,
+    limit: number,
+    offset:number
+  ) => {
+    // Helper function to handle empty strings
+    const sanitizeString = (value: string) => (value ? `"${value}"` : '""');
+  
+    return `
+    query {
+      caseStudies(sort: "\${sort}",
+      filters:{ or: [{ category:{name : {containsi :"${sanitizeString(category)}"}}},
+      { topic_tags:{name : {containsi :"${sanitizeString(tag)}"}}}], 
+        and :[{heroTitle :{containsi : "${sanitizeString(title)}"}}] },
+        pagination: {
+           start: ${offset}, 
+           limit: ${limit} 
+          }) {
+        data {
+          id
+          attributes {
+            publishedAt
+            heroTitle
+            heroDescription
+            heroBgImage{
+              data{
+                attributes{
+                  url
+                  formats
+                }
+              }
+            }
+            category{
+              data{
+                attributes{
+                  name
+                }
+              }
+            }
+            author {
+              data {
+                attributes {
+                  name
+                  avatar {
+                    data {
+                      attributes {
+                        formats
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }`;
+  };
+  
 export const case_study_home = `query{
   caseStudyHome{
     data{
