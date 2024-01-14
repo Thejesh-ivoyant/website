@@ -99,6 +99,7 @@ export async function loader() {
     link: item.link,
     bgImage: item.bgImage.data?.attributes.url,
   }));
+  
   const DescriptionCard = componentRes.s4_cards.map((item: any) => ({
     id: item.id,
     title: item.title,

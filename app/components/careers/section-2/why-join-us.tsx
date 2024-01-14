@@ -6,61 +6,90 @@ const Why_Join_Us = () => {
 
 
   return (
-    <div className="section-container">
-      <section className="section-heading py-8 gradient-bottom">
-        <h2>{loaderData.s2_title} </h2>
-      </section>
+    <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white p-10 gap-8">
+      <h1 className="text-HeaderGray font-montserrat text-5xl font-semibold">
+      {loaderData.s2_title}
+      </h1>
+      <svg
+        width="1257"
+        height="25"
+        viewBox="0 0 1257 25"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          y="12.248"
+          width="0.5"
+          height="628.5"
+          transform="rotate(-90 0 12.248)"
+          fill="url(#paint0_linear_3363_29830)"
+        />
+        <rect
+          x="1257"
+          y="11.748"
+          width="0.5"
+          height="628.5"
+          transform="rotate(90 1257 11.748)"
+          fill="url(#paint1_linear_3363_29830)"
+        />
+        <defs>
+          <linearGradient
+            id="paint0_linear_3363_29830"
+            x1="0.75"
+            y1="636.065"
+            x2="0.749987"
+            y2="1.0081"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stopColor="#AEBEFF" />
+            <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient
+            id="paint1_linear_3363_29830"
+            x1="1257.75"
+            y1="635.565"
+            x2="1257.75"
+            y2="0.508102"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stopColor="#AEBEFF" />
+            <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+      </svg>
 
-      <div className="text-center text-violet-200 text-base font-normal font-poppins p-4 lg:mx-40">
-        {loaderData.s2_description}
-          </div>
+      <p className="text-center w-2/3 font-normal leading-6 text-sm tracking-wider font-poppins">
+      {loaderData.s2_description}
 
-      {loaderData.JoinUsCard.length > 0 && (
-        <div>
-          <section>
-            <div className="flex flex-col space-y-4 py-8 ">
-              {Array.from({
-                length: Math.ceil(loaderData.JoinUsCard.length / 3),
-              }).map((_, row) => (
-                <div
-                  key={row}
-                  className="w-full gap-2 justify-evenly why-choose-us-Container"
-                >
-                  {loaderData.JoinUsCard
-                    .slice(row * 3, (row + 1) * 3)
-                    .map((item:any, index:any) => (
-                      <div className=" flex flex-col Card-Container items-center justify-center gap-4">
-                        <div className="flex card-image">
-                                <img src={item.bgImage} alt="cardIcon" />
-                        </div>
-                        <div className="card-title flex   text-sm font-poppins font-normal">
-                          {item.title}
-                        </div>
-
-                        <span className="card-line h-6"></span>
-                        <div className="flex text-sm py-4 font-poppins font-normal card-description">
-                          <div className="flex flex-row justify-between">
-                         <div className="flex">
-                           <img src={item.bgImage} alt="cardIcon" />
-                          </div>
-                          <div className="flex text-start text-sm font-poppins font-normal ml-2">
-                                  {item.title}
-                          </div>
-
-                          </div>
-                               
-                         {item.description}
-
-                        </div>
-                      </div>
-                    ))}
-                </div>
-              ))}
-            </div>
-          </section>
-        </div>
-      )}
+      </p>
+      <div className="grid grid-cols-3 gap-4 p-6 blur-[150%] bg-opacity-[0.16] moving-noise">
+      {loaderData.JoinUsCard.map((item:any, index:any) => (
+    <div
+      key={index}
+      className="group relative flex flex-col items-center opaque-card aspect-video py-2 w-[28.5rem] h-[16.563rem] cursor-pointer"
+    >
+      <img
+        src={item.bgImage}
+        alt={item.title}
+        className="hidden mb-2 p-2 aspect-square absolute top-0 left-0 transition-opacity group-hover:block"
+      />
+      
+      <img
+          src={item.bgImage}
+          alt={item.title}
+        className="mb-2 p-2 aspect-square group-hover:hidden"
+      ></img>
+      <p className="text-center leading-8 text-[FFFFFFD9] font-poppins w-3/5 group-hover:hidden">
+        {item.title}
+      </p>
+      <p className="relative p-4 text-sm text-left text-[FFFFFFD9] font-poppins  hidden group-hover:block font-thin">
+      {item.description}
+      </p>
     </div>
+  ))}
+</div>
+
+    </section>
   );
 };
 
