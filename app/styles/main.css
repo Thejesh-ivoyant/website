@@ -41,7 +41,11 @@ html, body {
     --color-tin: rgba(244, 243, 251, 0.80);
     --color-geekblue-2: #D6E4FF;
     --color-hue-indigo: rgba(27, 7, 64, 0.80);
+    --indigo-light : #BAA5E7;
     --font-size: 16px;
+  }
+  .light-indigo-bg{
+    background-color: var(--indigo-light);
   }
   .geekblue-1{
     color: var(--geekblue-1, #F0F5FF);

@@ -102,49 +102,6 @@ const Hero = ({
           </button>
         </div>
       </div>
-      {c === 0 && (
-        <div className="social-media-container">
-          <div className="ellipse-container">
-            <img
-              src="../assets/Ellipse.svg"
-              alt="Ellipse"
-              className="ellipse-image"
-            />
-            <img
-              src="../assets/Chats.svg"
-              alt="close"
-              className="minus-image"
-              onClick={() => openChats()}
-            />
-          </div>
-        </div>
-      )}
-      {c === 1 && (
-        <div className={`social-media-container ${c === 1 ? "open" : ""}`}>
-          <img
-            className="social-media-item"
-            src="../assets/Facebook.png"
-            alt="social-media-icons"
-          />
-          <img
-            className="social-media-item"
-            src="../assets/linkedin.svg"
-            alt="social-media-icons"
-          />
-
-          <img src="../assets/skype.svg" alt="close" className="minus-image" />
-
-          <img className="social-media-item" src="../assets/skype.svg" />
-          <div className="chats-ellipse-container" onClick={() => closeChats()}>
-            <img
-              src="../assets/Ellipse.svg"
-              alt="Ellipse"
-              className="chats-ellipse-image"
-            />
-            <img src="../assets/X.svg" alt="close" className="minus-image" />
-          </div>
-        </div>
-      )}
     </>
   );
 };

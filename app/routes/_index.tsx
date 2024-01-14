@@ -7,7 +7,7 @@ import Consultation from "~/components/Homepage/consultation";
 import Technology from "~/components/Homepage/technology";
 import Testimonials from "~/components/Homepage/testimonials";
 import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
-import { MetaFunction, useLoaderData } from "@remix-run/react";
+import { Link, MetaFunction, useLoaderData } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { homeQuery, topBlogQuery } from "~/graphql/queries";
 import ContactUs from "~/common-components/contactUs";
@@ -15,6 +15,7 @@ import { Attributes } from "~/interfaces/Homepage";
 import WhyChooseUs from "~/components/Homepage/why-choose-us";
 import ErrorBoundary from "~/components/ErrorBoundary";
 import AboutCardContainer from "~/components/Homepage/about-card-container";
+import { Popup } from "~/common-components/social-media-popup";
 export const meta: MetaFunction = () => {
   return [
     { title: "Ivoyant | Homepage" },
@@ -60,8 +61,6 @@ export async function loader() {
   } catch (error) {
     console.warn("Error fetching data from contact API:", error);
     return {
-      hireUsImage: "",
-      contactUsImage: "",
     };
   }
 }
@@ -69,6 +68,7 @@ export async function loader() {
 const App = () => {
   const data = useLoaderData<typeof loader>() as any
   const attributes = data?.homePage?.homepage?.data?.attributes as Attributes
+  
   return (
     <>
     <ErrorBoundary>
@@ -85,6 +85,7 @@ const App = () => {
       <WhyChooseUs pairs={attributes.pairs} title={attributes.whychooseus} description={attributes.whychooseusDesc} />
       <ContactUs />
     </ErrorBoundary>
+    <Popup/>
     </>
   );
 };
