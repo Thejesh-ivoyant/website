@@ -12,13 +12,17 @@ const ScrollToTopIcon: React.FC = () => {
     }
 
     const handleScroll = () => {
-      if (document.body.scrollTop > window.innerHeight / 2 || document.documentElement.scrollTop > window.innerHeight / 2) {
+      const scrollThreshold = document.documentElement.scrollHeight / 2;
+      const scrollPosition = document.body.scrollTop || document.documentElement.scrollTop;
+    
+      if (scrollPosition > scrollThreshold) {
         scrollToTopBtn.style.display = 'block';
         document.body.classList.add('scrolled');
       } else {
         scrollToTopBtn.style.display = 'none';
         document.body.classList.remove('scrolled');
       }
+  
     };
 
     const scrollToTop = () => {
