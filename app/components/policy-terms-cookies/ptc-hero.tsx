@@ -27,7 +27,7 @@ const PTCHero = () => {
               <img
                
                 src={loaderData.heroImage}
-                className=" screen-height object-center w-full overflow-hidden grow max-md:max-w-full"
+                className=" screen-height object-center w-full overflow-hidden grow max-md:max-w-full h-full"
               />
             </div>
           </div>

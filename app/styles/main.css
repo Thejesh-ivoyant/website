@@ -1585,13 +1585,7 @@ border-bottom-style: solid;
 .animated-text span:nth-child(11) { animation-delay: 0.11s; }
 .animated-text span:nth-child(12) { animation-delay: 0.12s; }
 /* Add more nth-child declarations for each span */
-.hero{
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  position: relative;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), lightgray 50% / cover no-repeat;
-}
+
 .top-gradient {
   border-image: linear-gradient(to right,
                   transparent 10%, 

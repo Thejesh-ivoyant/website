@@ -4,7 +4,7 @@ import { strapiUrl } from "~/utils/urls";
 import Why_Join_Us from "~/components/careers/section-2/why-join-us";
 import JobCards from "~/components/careers/section-3/job-cards";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { careersQuery, departmentQuery, expQuery, jobroles, jobrolesQuery, locations, locationsQuery } from "~/graphql/queries";
+import { careersQuery, departmentQuery, expQuery, jobrolesQuery, locationsQuery } from "~/graphql/queries";
 import JoinUsCardContainer from "~/components/careers/section-4/join-us-card-container";
 import LoadingTest from "~/common-components/loading-test";
 import Hero from "~/common-components/Hero";
@@ -99,7 +99,7 @@ export async function loader() {
     link: item.link,
     bgImage: item.bgImage.data?.attributes.url,
   }));
-  
+
   const DescriptionCard = componentRes.s4_cards.map((item: any) => ({
     id: item.id,
     title: item.title,
