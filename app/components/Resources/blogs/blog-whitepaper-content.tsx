@@ -2,11 +2,15 @@ import { useLoaderData, useLocation, useMatch } from "@remix-run/react";
 import { Modal } from "antd";
 import { useEffect, useState } from "react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { tagsQuery } from "~/graphql/queries";
+import { blogQuery, tagsQuery, whitepaperQuery } from "~/graphql/queries";
 import { errorMessage, success } from "~/utils/notifications";
 
 const Blog_WhitepaperContent = () => {
   const [tagsData, setTagsData] = useState([]);
+  const location = useLocation();
+  const { blogData, whitePaperData } = location.state || [];
+  const Blogmatched = useMatch("/resources/blog/:id");
+  const isBlogRoute = Blogmatched !== null;
 
   useEffect(() => {
     const fetchTagsData = async () => {
@@ -29,14 +33,86 @@ const Blog_WhitepaperContent = () => {
   }));
 
  
-  const location = useLocation();
-  const { blogData, whitePaperData } = location.state; 
+  const [blogData1, setBlogData] = useState([]);
+  const [whitePaperData1, setWhitePaperData] = useState([]);
 
-  const Blogmatched = useMatch("/resources/blog/:id");
-  const isBlogRoute = Blogmatched !== null;
+
+
+ 
+  useEffect(() => {
+    const fetchData = async () => {
+
+      if (blogData) {
+        console.error("123456");
+                setBlogData(blogData);
+      } else if (whitePaperData) {
+        console.error("567890");
+        setWhitePaperData(whitePaperData);
+      } else {
+        try {
+    
+          if (isBlogRoute) {
+            console.error("567890");
+            const blogGql = await fetchGraphQL(blogQuery);
+            setBlogData(
+              blogGql.data?.blogs.data?.map((item: any) => ({
+                  id: item.id,
+                  title: item.attributes.title,
+                  description1: item.attributes.description1,
+                  date: item.attributes.date,
+                  maxReadTime: item.attributes.maxReadTime,
+                  bannerImage: {
+                    name: item.attributes.bannerImage.data?.attributes.name ?? "",
+                    url: item.attributes.bannerImage.data?.attributes.url ?? "",
+                  },
+                  author: {
+                    name: item.attributes.author.data?.attributes.name,
+                    avatar:
+                      item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
+                  },
+                  topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
+                  category: {
+                   name:item.attributes.category.data?.attributes.name
+                  
+                  }
+            
+              }))
+            );
+          } else {
+
+           
+            const whitepaperGql = await fetchGraphQL(whitepaperQuery);
+            setWhitePaperData(
+              whitepaperGql.data?.whitePapers.data?.map((item: any) => ({
+                id: item.id,
+              title: item.attributes.title,
+              description1: item.attributes.description1,
+              date: item.attributes.date,
+              maxReadTime: item.attributes.maxReadTime,
+              bannerImage: {
+                name: item.attributes.bannerImage.data?.attributes.name ?? "",
+                url:  item.attributes.bannerImage.data?.attributes.url ?? "",
+              },
+              author: {
+                name: item.attributes.author.data?.attributes.name,
+                avatar: item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
+              },
+              }))
+            );
+          }
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          // Handle the error as needed
+        }
+      }
+    };
+
+    fetchData();
+  }, [blogData, whitePaperData]);
+
 
   // Check the route type and use the corresponding data
-  const LatestData = isBlogRoute ? blogData : whitePaperData;
+  const LatestData = isBlogRoute ? blogData1 : whitePaperData1;
   const loaderData = useLoaderData() as any;
   const match = useMatch("/resources/whitepaper/:id");
   const isResourcesRoute = match !== null;
