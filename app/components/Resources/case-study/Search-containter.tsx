@@ -79,7 +79,6 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
   setListData((prevListData: any) => [...prevListData, ...newData]);
   setBtnLoading(false)
   }
-
   return (
     <>
       <div className="h-fit p-12 grid place-items-center gap-10">
@@ -130,12 +129,12 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
         </Space>
         </div>
         {listData &&
-          listData.map((item: any) => (
+          listData?.map((item: any) => (
             <Link prefetch="intent" to={`../resources/case-study/${item?.id}`} className="h-96  aspect-[241/78] flex ">
               <img
-                key={item.id}
+                key={item?.id}
                 src={
-                  item.attributes.heroBgImage?.data?.attributes.formats?.medium
+                  item?.attributes?.heroBgImage?.data?.attributes?.formats?.medium
                     .url
                 }
                 className="aspect-square h-full bg-gray-200 object-cover"
@@ -143,30 +142,29 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
               ></img>
               <div className="bg-white h-full flex-grow px-4 flex flex-col gap-4 w-full">
                 <p className="font-montserrat italic bg-haiti w-fit text-white p-1">
-                  {item.attributes.category.data.attributes.name}
+                  {item?.attributes?.category.data.attributes?.name}
                 </p>
                 <h1 className="text-5xl font-montserrat font-semibold leading-[3.75rem]">
-                  {item.attributes.heroTitle &&
-                    (item.attributes.heroTitle.length > 60
-                      ? item.attributes.heroTitle.substring(0, 60) + "..."
-                      : item.attributes.heroTitle)}
+                  {item?.attributes?.heroTitle &&
+                    (item.attributes?.heroTitle.length > 60
+                      ? item.attributes?.heroTitle.substring(0, 60) + "..."
+                      : item.attributes?.heroTitle)}
                 </h1>
                 <p className="font-poppins text-base font-normal leading-6">
-                {item.attributes.heroDescription &&
-                    (item.attributes.heroDescription.length > 250
-                      ? item.attributes.heroDescription.substring(0, 250) + "..."
-                      : item.attributes.heroDescription)}
+                {item?.attributes?.heroDescription &&
+                    (item.attributes?.heroDescription.length > 250
+                      ? item.attributes?.heroDescription.substring(0, 250) + "..."
+                      : item.attributes?.heroDescription)}
                 </p>
                 <div className="flex gap-4">
                   <img
                     src={
-                      item.attributes.author.data.attributes.avatar.data
-                        .attributes.formats.thumbnail.url
+                      item?.attributes?.author?.data?.attributes?.avatar.data?.attributes?.formats?.thumbnail?.url
                     }
                     className="flex rounded-full h-12 w-12 object-cover"
                   ></img>
                   <div className="flex flex-col justify-start items-start">
-                    <p>{item.attributes.author.data.attributes.name}</p>
+                    <p>{item?.attributes?.author?.data?.attributes?.name}</p>
                     <p> 2 min read</p>
                   </div>
                 </div>
