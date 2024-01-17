@@ -195,7 +195,7 @@ const Blog_WhitepaperContent = () => {
         
 
            <img
-             loading="lazy"
+             loading="eager"
              alt="icon"
              src={`${loaderData.descriptionImage2}`}  className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
            />
