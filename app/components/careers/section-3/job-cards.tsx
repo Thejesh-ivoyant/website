@@ -217,6 +217,7 @@ const handleFilterAndSearchDown = async () =>{
                     <div className="items-stretch flex justify-between gap-10 mt-4 self-start max-md:max-w-full max-md:flex-wrap">
                       <div className="items-stretch flex justify-between gap-2">
                         <img
+                          alt="locationicon"
                           loading="lazy"
                           src="../assets/location.svg"
                           className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
@@ -228,6 +229,7 @@ const handleFilterAndSearchDown = async () =>{
                       <div className="items-stretch flex justify-between gap-2">
                         <img
                           loading="lazy"
+                          alt="locationicon"
                           src="../assets/department.svg"
                           className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                         />
@@ -238,6 +240,7 @@ const handleFilterAndSearchDown = async () =>{
                       <div className="items-stretch flex justify-between gap-2">
                         <img
                           loading="lazy"
+                          alt="locationicon"
                           src="../assets/experience.svg"
                           className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                         />
@@ -250,6 +253,7 @@ const handleFilterAndSearchDown = async () =>{
                   <div className="items-center self-center flex aspect-square flex-col justify-center my-auto">
                     <img
                       loading="lazy"
+                      alt="locationicon"
                       src="../assets/Arrow.png"
                       className="aspect-square object-contain object-center w-10 overflow-hidden rounded-[50%]"
                     />
@@ -259,15 +263,16 @@ const handleFilterAndSearchDown = async () =>{
             </div>
           ))}
         </div>
-        <div
-          className="mx-auto w-full flex justify-center items-center"
-          onClick={fetchMoreData}
-        >
+
+        <div className="mx-auto w-full flex justify-center items-center" onClick={fetchMoreData}>
+        
           <button className="button-test font-montserrat font-thin">
             {" "}
             <span className="font-thin">Show More</span>
           </button>
+
         </div>
+
       </section>
     </div>
   );

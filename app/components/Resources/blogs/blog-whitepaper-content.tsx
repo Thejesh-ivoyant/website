@@ -185,7 +185,7 @@ const Blog_WhitepaperContent = () => {
           <div>
 
             <img
-           
+                alt="icon"
               src={`${loaderData.descriptionImage1}`}  className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
             />
             <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
@@ -195,13 +195,15 @@ const Blog_WhitepaperContent = () => {
         
 
            <img
-             loading="lazy"
+             loading="eager"
+             alt="icon"
              src={`${loaderData.descriptionImage2}`}  className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
            />
            <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
             {loaderData.description3}
            </div>
            <img
+              alt="icon"
              loading="lazy"
              src={`${loaderData.descriptionImage3}`}  className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
            />
@@ -213,7 +215,7 @@ const Blog_WhitepaperContent = () => {
           <div className=" flex grow basis-[0%] flex-col items-stretch self-start">
             <div className="shadow-sm author-card flex flex-col px-7 pr-10 py-7  rounded-sm items-start max-md:px-5">
               <img
-             
+                alt="icon"
                 src={loaderData.avatar}   className="aspect-square object-contain object-center w-[84px] overflow-hidden max-w-full rounded-[50%]"
               />
               <div className="text-black text-xl font-medium self-stretch whitespace-nowrap mt-8 max-md:mr-1.5">
@@ -223,6 +225,7 @@ const Blog_WhitepaperContent = () => {
        {loaderData.authorSummary}
               </div>
               <img
+                 alt="icon"
                 loading="lazy"
                 src= '../../assets/socialdummyplaceholder.png'                 className="aspect-[6.92] object-contain object-center w-[173px] items-center overflow-hidden max-w-full mt-7"
               />
@@ -249,6 +252,7 @@ const Blog_WhitepaperContent = () => {
                   </div>
                   <div className="flex justify-between gap-2 mt-4 pr-20 items-start max-md:pr-5">
                     <img
+                       alt="icon"
                       loading="lazy"
                       src= '../../assets/calendericon.svg'                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                     />

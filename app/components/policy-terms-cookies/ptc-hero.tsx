@@ -25,7 +25,8 @@ const PTCHero = () => {
           <div className="flex flex-col w-[53%] z-10">
             <div className="skew-container">
               <img
-               
+                    alt="heroimage"
+                    loading="eager"
                 src={loaderData.heroImage}
                 className=" screen-height object-center w-full overflow-hidden grow max-md:max-w-full h-full"
               />

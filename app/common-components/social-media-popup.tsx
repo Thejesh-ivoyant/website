@@ -16,19 +16,19 @@ return (
     <>
         <div className="fixed grid bottom-20 right-4 z-50 w-fit rounded-full gap-2 place-items-center">
             <Link className={`rounded-full h-8 w-8 ${open ? '' : 'hidden'}`} to={'#'}>
-                <img src = {facebook}  className="w-7 h-7"></img>
+                <img src = {facebook}  className="w-7 h-7" alt="facebook"></img>
             </Link>
             <Link className={`rounded-full h-8 w-8 ${open ? '' : 'hidden'}`} to={'https://in.linkedin.com/company/ivoyant-llc'}>
-                <img src = {linkedin}  className="w-7 h-7"></img>
+                <img src = {linkedin}  className="w-7 h-7" alt="linkedin"></img>
             </Link>
             <Link className={`rounded-full h-8 w-8 ${open ? '' : 'hidden'}`} to={'#'}>
-                <img src = {skype}  className="w-7 h-7"></img>
+                <img src = {skype}  className="w-7 h-7" alt="skype"></img>
             </Link>
             <Link className={`rounded-full h-8 w-8 ${open ? '' : 'hidden'}`} to={'#'}>
-                <img src = {phone}  className="w-7 h-7"></img>
+                <img src = {phone}  className="w-7 h-7" alt="phone"></img>
             </Link>
             <button className="light-indigo-bg rounded-full w-8 h-8 grid place-items-center" onClick={handleButtonClick}>
-                <img loading="eager" src={(!open)? chatsIcon : closeIcon} className="w-7 h-7"/>
+                <img loading="eager" src={(!open)? chatsIcon : closeIcon} className="w-7 h-7" alt="chats"/>
             </button>
         </div>
     </>

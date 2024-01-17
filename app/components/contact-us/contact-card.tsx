@@ -20,7 +20,8 @@ const ContactCard = () => {
                         <div className="flex flex-col items-stretch w-[21%] max-md:w-full max-md:ml-0">
                             <img
                             loading="lazy"
-                            src= '../assets/contactavatar.jpg'   className="aspect-square object-contain object-center w-[117px] overflow-hidden shrink-0 max-w-full max-md:mt-6"
+                            src= '../assets/contactavatar.jpg' 
+                            alt="contactavatar"   className="aspect-square object-contain object-center w-[117px] overflow-hidden shrink-0 max-w-full max-md:mt-6"
                             />
                         </div>
                         <div className="flex flex-col items-stretch w-[79%] ml-5 max-md:w-full max-md:ml-0">
@@ -34,7 +35,8 @@ const ContactCard = () => {
                             <div className="items-center flex gap-2 mt-2.5 self-start">
                                 <img
                                 loading="lazy"
-                                src= '../assets/phoneicon.svg'                                className="aspect-square object-contain object-center w-5 justify-center items-center overflow-hidden shrink-0 max-w-full my-auto"
+                                src= '../assets/phoneicon.svg' 
+                                alt="icon"                                className="aspect-square object-contain object-center w-5 justify-center items-center overflow-hidden shrink-0 max-w-full my-auto"
                                 />
                                 <div className="text-black text-base leading-7 tracking-wide self-stretch grow whitespace-nowrap">
                                 {" "}
@@ -44,7 +46,7 @@ const ContactCard = () => {
                             <div className="items-center flex gap-2 mt-2.5 self-start">
                                 <img
                                 loading="lazy"
-                                src= '../assets/Chatsicon.svg'                                className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full my-auto"
+                                src= '../assets/Chatsicon.svg'     alt="icon"                           className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full my-auto"
                                 />
                                 <div className="text-black text-base leading-7 tracking-wide self-stretch grow whitespace-nowrap">
                                 mail@ivoyant.com
@@ -72,7 +74,8 @@ const ContactCard = () => {
                 <div className="flex flex-col items-stretch w-[21%] max-md:w-full max-md:ml-0">
                     <img
                     loading="lazy"
-                    src= '../assets/contactavatar.jpg'                    className="aspect-square object-contain object-center w-[117px] overflow-hidden shrink-0 max-w-full max-md:mt-6"
+                    src= '../assets/contactavatar.jpg'     
+                    alt="contactavatar"                className="aspect-square object-contain object-center w-[117px] overflow-hidden shrink-0 max-w-full max-md:mt-6"
                     />
                 </div>
                 <div className="flex flex-col items-stretch w-[79%] ml-5 max-md:w-full max-md:ml-0">
@@ -86,7 +89,8 @@ const ContactCard = () => {
                     <div className="items-center flex gap-2 mt-2.5 self-start">
                         <img
                         loading="lazy"
-                        src= '../assets/phoneicon.svg'                        className="aspect-square object-contain object-center w-5 justify-center items-center overflow-hidden shrink-0 max-w-full my-auto"
+                        src= '../assets/phoneicon.svg'
+                        alt="icon"                        className="aspect-square object-contain object-center w-5 justify-center items-center overflow-hidden shrink-0 max-w-full my-auto"
                         />
                         <div className="text-black text-base leading-7 tracking-wide self-stretch grow whitespace-nowrap">
                         {" "}
@@ -96,7 +100,8 @@ const ContactCard = () => {
                     <div className="items-center flex gap-2 mt-2.5 self-start">
                         <img
                         loading="lazy"
-                        src= '../assets/Chatsicon.svg'                         className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full my-auto"
+                        src= '../assets/Chatsicon.svg'  
+                        alt="icon"                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full my-auto"
                         />
                         <div className="text-black text-base leading-7 tracking-wide self-stretch grow whitespace-nowrap">
                         mail@ivoyant.com

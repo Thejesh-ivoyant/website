@@ -166,6 +166,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
                 </p>
                 <div className="flex gap-4">
                   <img
+                     alt="icon"
                     src={
                       item?.attributes?.author?.data?.attributes?.avatar.data?.attributes?.formats?.thumbnail?.url
                     }

@@ -5,7 +5,7 @@ const Hero = ({data}:{data:any}) => {
   return (
     <>
     <section className="mt-[4.5rem] screen-height text-white flex justify-center object-cover relative" style={gradientStyle}>
-      <img src={data?.heroImage?.data.attributes.url} className="w-3/5 rounded-xl aspect-video mx-auto mt-auto"></img>
+      <img src={data?.heroImage?.data.attributes.url} className="w-3/5 rounded-xl aspect-video mx-auto mt-auto"    alt="icon"></img>
       <div className="w-fit h-fit flex flex-col px-10 py-12 gap-4 mx-12 -bottom-1/4 absolute text-black z-10 bg-white shadow-xl">
         
         <h1 className="font-montserrat text-4xl font-semibold"> {data?.heroTitle} </h1>

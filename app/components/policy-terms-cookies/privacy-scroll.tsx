@@ -50,6 +50,7 @@ const PrivacyPolicyScroll = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -62,6 +63,7 @@ const PrivacyPolicyScroll = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -74,6 +76,7 @@ const PrivacyPolicyScroll = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -86,6 +89,7 @@ const PrivacyPolicyScroll = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -98,6 +102,7 @@ const PrivacyPolicyScroll = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -110,6 +115,7 @@ const PrivacyPolicyScroll = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -122,6 +128,7 @@ const PrivacyPolicyScroll = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -134,6 +141,7 @@ const PrivacyPolicyScroll = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -146,6 +154,7 @@ const PrivacyPolicyScroll = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -157,6 +166,7 @@ const PrivacyPolicyScroll = () => {
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
                 <img
                   loading="lazy"
+                  alt="bulleticon"
                   src={Bulletimg}
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
@@ -170,6 +180,7 @@ const PrivacyPolicyScroll = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -182,6 +193,7 @@ const PrivacyPolicyScroll = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -193,6 +205,7 @@ const PrivacyPolicyScroll = () => {
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
                 <img
                   loading="lazy"
+                  alt="bulleticon"
                   src={Bulletimg}
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
@@ -206,6 +219,7 @@ const PrivacyPolicyScroll = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -231,6 +245,7 @@ const PrivacyPolicyScroll = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-4 fill-[linear-gradient(180deg,#360E81_0%,#20084D_100%)] overflow-hidden shrink-0 max-w-full my-auto"
                 />{" "}
                 <div className="text-neutral-800 text-base leading-7 self-stretch grow whitespace-nowrap max-md:max-w-full">
