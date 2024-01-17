@@ -8,6 +8,7 @@ import LoadingTest from "~/common-components/loading-test";
 import Hero from "~/components/Resources/case-study/Hero";
 import { Container } from "~/components/Resources/case-study/Search-containter";
 import { Daum } from "~/interfaces/CategoriesType";
+import Consultation from "~/components/Homepage/consultation";
 
 const limit = 3
 const offset = 0
@@ -62,6 +63,7 @@ const Index = () => {
               heroDescription={attributes?.heroDescription}
             />
             <Container data={lists} tags={tags} categories={categoriesList} initLimit={limit} initOffset={offset}/>
+            <Consultation/>
           </>
         )}
       </Await>
