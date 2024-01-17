@@ -8,13 +8,14 @@ import { Link } from "@remix-run/react";
 
 
 export const Container = ({ data, tags, categories, initLimit, initOffset }: { data: any, tags:any, categories: any, initLimit:number, initOffset:number }) => {
-  const [listData, setListData] = useState(data.data?.caseStudies?.data);
+  const [listData, setListData] = useState(new Set(data.data?.caseStudies?.data));
   const [searchValue, setSearchValue] = useState("");
-  const [tag, setTag] = useState<string>('')
-  const [category, setCategory] = useState('')
+  let [tag, setTag] = useState<string>('')
+  let [category, setCategory] = useState<string>('')
   const [offset,setOffset] = useState<number>(initOffset);
   const [limit,setLimit] = useState<number>(initLimit);
   const [btnLoading, setBtnLoading] = useState<boolean>(false)
+  const [arrayData, setArrayData] = useState<any[]>([]);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     setSearchValue(inputValue);
@@ -30,12 +31,14 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
       "tag",
       "category"
     ]);
+    tag = tag !== undefined ? tag : '';
+    category = category !== undefined ? category : ''
     const interpolatedQuery = dynamicQuery(0, limit, "createdAt:asc", searchValue, tag, category);
     debugger
     const [lists] = await Promise.all([
       await fetchGraphQL(interpolatedQuery),
     ]);
-    setListData(lists.data?.caseStudies?.data);
+    setListData(new Set(lists.data?.caseStudies?.data));
   };
 
   const simulateFormSubmit = async ( ) => {
@@ -50,14 +53,15 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
     debugger
     simulateFormSubmit();
   }, [category,tag]); 
-
+  useEffect(() => {
+    setArrayData(Array.from(listData));
+  }, [listData]);
   const handleCategoryChange = (value:string) => {
     setCategory(value);
   };
 
   const handleTagChange = (value:string) => {
-    setTag((prevTag) => prevTag = value )
-    simulateFormSubmit()
+    setTag(value)
   };
   const handleViewMore = async () =>{
     setBtnLoading(true)
@@ -69,14 +73,17 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
       "tag",
       "category"
     ]);
+    
     setOffset((prevOffset) => prevOffset + limit);
     debugger
-    const interpolatedQuery = dynamicQuery(limit+offset, limit, "createdAt:asc", "", tag, category);
+    tag = tag !== undefined ? tag : '';
+    category = category !== undefined ? category : ''
+    const interpolatedQuery = dynamicQuery(limit+offset, limit, "createdAt:asc", "", tag ?? "", category ?? "");
     const [lists] = await Promise.all([
       await fetchGraphQL(interpolatedQuery),
     ]);
     const newData = lists.data?.caseStudies?.data || [];
-  setListData((prevListData: any) => [...prevListData, ...newData]);
+  setListData((prevListData: any) => new Set([...prevListData, ...newData]));
   setBtnLoading(false)
   }
   return (
@@ -98,7 +105,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
             style={{ width: 190 }}
             suffixIcon={tag != '' ? null:  <DropDownIcon /> }
             allowClear
-            onChange={handleCategoryChange}
+            onChange={handleTagChange}
             options={tags}
           />
           <div className="relative">
@@ -128,8 +135,9 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
           </div>
         </Space>
         </div>
-        {listData &&
-          listData?.map((item: any) => (
+        
+        {arrayData &&
+          arrayData?.map((item: any) => (
             <Link prefetch="intent" to={`../resources/case-study/${item?.id}`} className="h-96  aspect-[241/78] flex ">
               <img
                 key={item?.id}
