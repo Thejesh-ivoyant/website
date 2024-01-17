@@ -68,6 +68,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
                   <img
                     loading="lazy"
                     src= '../assets/backarrow.svg'
+                    alt='error'
                     className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full my-auto"
                   />{" "}
                   <div className="text-blue-600 text-base self-stretch grow whitespace-nowrap">
@@ -80,6 +81,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
             <div className="flex flex-col items-stretch w-[42%] ml-5 max-md:w-full max-md:ml-0">
               <div className="flex-col overflow-hidden relative flex aspect-square justify-center items-stretch max-md:mt-10 ">
                   <img
+                  alt='error'
                   loading="lazy"
                   src= '../assets/error.png' className="absolute h-full w-full object-cover object-center inset-0"
                 />{" "}
@@ -126,6 +128,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
             </div>
           </div>{" "}
           <img
+          alt='error'
             loading="lazy"
       src='../assets/error-mobile.png'  
           className="aspect-[0.33] object-contain object-center w-[166px] overflow-hidden self-stretch shrink-0 max-w-full"

@@ -54,6 +54,7 @@ const Terms = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -66,6 +67,7 @@ const Terms = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -78,6 +80,7 @@ const Terms = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -90,6 +93,7 @@ const Terms = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -102,6 +106,7 @@ const Terms = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -114,6 +119,7 @@ const Terms = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
@@ -126,6 +132,7 @@ const Terms = () => {
                 <img
                   loading="lazy"
                   src={Bulletimg}
+                  alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
                 <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
