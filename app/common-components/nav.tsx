@@ -13,6 +13,14 @@ const Nav = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [open, setOpen] = useState(false);
   const [download, setDownload] = useState<string>("");
+  const [toggleNav, setToggleNav] = useState<boolean>(false);
+  const handleClick = () => {
+    setToggleNav(!toggleNav);
+
+    setTimeout(() => {
+      setToggleNav(false);
+    }, 100);
+  };
 
   const showModal = (url:any) => {
     // Your existing code for opening the modal
@@ -182,7 +190,8 @@ const Nav = () => {
                   )}
                 </button>
                 <div
-                  className="absolute hidden w-full left-0 top-16 bg-black group-hover:block h-72"
+                  className={(!toggleNav)? `absolute hidden w-full left-0 top-16 bg-black group-hover:block h-72` : `hidden`}
+                  onClick={handleClick}
                   id={`links-${index}`}
                 >
                   <div className="px-2 pt-2 pb-4 shadow-lg h-full">
