@@ -1,18 +1,51 @@
-import { Link, useLoaderData } from "@remix-run/react";
+import { Form, Link, useLoaderData } from "@remix-run/react";
 import { Attributes } from "~/interfaces/NavType";
 import fb from '~/../public/assets/Facebook svg.svg'
 import mail from '~/../public/assets/Twitter  svg.svg'
 import linkedin from '~/../public/assets/Linkedin-white.svg'
 import yt from '~/../public/assets/YouTube svg.svg'
+import { errorMessage, success } from "~/utils/notifications";
 
 const Footer = () => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    try {
+      event.preventDefault();
+      console.warn("pitchdck download form clicked ");
+      const formData = new FormData(event.currentTarget);
+  
+      formData.forEach((value, key) => {
+        console.warn(`${key}: ${value}`);
+      });
+      const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/30829101-edb6-4d51-8bb7-1a089dd60533', {
+        method: 'POST',
+        body: formData,
+      });
+      
+  
+      if (response.ok) {
+            
+      success("Subscribed for NewsLetter, Thank you for showing interest in us!",2);
+        console.warn('Form submitted successfully');
+      
+      } else {
+        console.warn('Form submission failed');
+        
+      }
+ 
+    } catch (error) {
+      errorMessage("Error occured, please retry",3);
+      console.error('An error occurred during form submission:', error);
+    }
+  };
+  
   const data = useLoaderData() as any;
   const attributes = data.navGraphql?.data?.navbar?.data
     ?.attributes as Attributes;
   return (
     <footer className="w-full  bg-haiti py-16 px-16 font-montserrat text-white screen-height ">
       <section className="flex flex-row w-full gradient-bottom p-6"></section>
-      <section className="flex flex-row w-full  p-6">
+      <Form onSubmit={handleSubmit}>
+        <section className="flex flex-row w-full  p-6">
         <div className="flex-1">
           <span className="footer-heading">Services</span>
           <div className="flex items-start py-3 gap-2">
@@ -129,7 +162,11 @@ const Footer = () => {
               </div>
             </div>
           </div>
+         
+
+         
           <input
+          name="email"
             placeholder="Email*"
             className="footer-font email-container  w-full mt-auto focus:outline-none"
           />
@@ -154,11 +191,14 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <button className="bg-white h-10 w-full font-montserrat  text-sm font-semibold text-haiti mx-1">
+          <button type="submit" className="bg-white h-10 w-full font-montserrat  text-sm font-semibold text-haiti mx-1">
                Subscribe to Newsletter
           </button>
+          
         </div>
+        
       </section>
+      </Form>
       
       <div className="flex flex-row gap-[6rem] justify-center w-full text-xs gradient-top font-medium text-center p-4">
         <Link to={"/privacy-policy"}>
