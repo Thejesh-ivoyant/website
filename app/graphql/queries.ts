@@ -364,6 +364,28 @@ export const blogQuery = `query{
     }
   }
 }`;
+export const blogCategoryQuery = `
+query{
+  blogs{
+    data{
+      id,
+      attributes{
+       
+        category{
+          data
+          {
+            attributes{
+              name
+            }
+          }
+        }
+       
+      }
+    }
+  }
+}
+
+`;
 
 export const getAuthorQuery = (id:any) => {
   console.warn("author id is ", id);

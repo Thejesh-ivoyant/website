@@ -1,7 +1,7 @@
 import { Await, MetaFunction, Outlet, defer, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { getAuthorQuery, getBlogAuthorIDQuery } from "~/graphql/queries";
+import { blogCategoryQuery, categories, getAuthorQuery, getBlogAuthorIDQuery, tagsQuery } from "~/graphql/queries";
 import { LoaderFunctionArgs } from "@remix-run/node";
 import BlogHero from "~/components/Resources/blogs/blog-hero";
 import LoadingTest from "~/common-components/loading-test";
@@ -34,8 +34,32 @@ const blogid=`${params.blogid}`;
   const updatedQuery = getAuthorQuery(authorId);
   const authorData =  await fetchGraphQL(updatedQuery);
 
-  console.warn("/////////////////author link isssssssssss ",authorData.data.attributes);
   const url= strapiUrl+`/api/blogs/${params.blogid}?populate=%2A`;
+  const blogCategoryGql = await fetchGraphQL(blogCategoryQuery);
+  const blog = blogCategoryGql.data?.blogs.data || [];
+  const BlogCategory = blog.map((item:any) => ({
+    id: item.id,
+    category: {
+      name: item.attributes.category.data?.attributes.name,
+    },
+  }));
+
+  const [tagslist, categoryList] = await Promise.all([
+    await fetchGraphQL(tagsQuery),
+    await fetchGraphQL(categories)
+  ]);
+  const tagsData = tagslist?.data?.topicTags?.data 
+  const categoryListData = categoryList?.data?.categories.data 
+
+  const tags = tagsData.map((item:any) => ({
+    value: item.attributes.name,
+    label: item.attributes.name,
+  }));
+  const categoriesList = categoryListData.map((item:any) => ({
+    value: item.attributes.name,
+    label: item.attributes.name,
+  }));
+
   try {
     const res = await fetch(url);
            let jsonParsed = await res.json();
@@ -65,6 +89,9 @@ const blogid=`${params.blogid}`;
         description1,
         description2,
         description3,
+        tags,
+        categoriesList,
+        BlogCategory,
   });
  
 }
@@ -77,6 +104,8 @@ catch (error:any) {
 
 const Index = () => {
   const data = useLoaderData<typeof loader>() as any;
+
+
   return (
     <>
    <Suspense fallback={<LoadingTest />}>
