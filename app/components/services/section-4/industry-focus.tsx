@@ -12,7 +12,7 @@ const IndustryFocus = () => {
       <p className="text-PurpBlue font-semibold tracking-wide leading-10 font-montserrat text-[2.5rem] mx-auto">
         {loaderData?.s4_industryFocusTitle}
       </p>
-      <svg className="mx-auto" width="1280" height="24" viewBox="0 0 1280 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path transform="rotate(-90 0 12.5)" fill="url(#a)" d="M0 12.5h1v1280H0z"/><defs><linearGradient id="a" x1="1.5" y1="1282.96" x2="1.5" y2="-10.391" gradientUnits="userSpaceOnUse"><stop stop-color="#2E51E4" stop-opacity="0"/><stop offset=".472" stop-color="#1D3493"/><stop offset="1" stop-color="#2F54EB" stop-opacity="0"/></linearGradient></defs></svg>
+      <svg className="mx-auto" width="1280" height="24" viewBox="0 0 1280 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path transform="rotate(-90 0 12.5)" fill="url(#a)" d="M0 12.5h1v1280H0z"/><defs><linearGradient id="a" x1="1.5" y1="1282.96" x2="1.5" y2="-10.391" gradientUnits="userSpaceOnUse"><stop stopColor="#2E51E4" stopOpacity="0"/><stop offset=".472" stopColor="#1D3493"/><stop offset="1" stopColor="#2F54EB" stopOpacity="0"/></linearGradient></defs></svg>
       <Carousel>
       {carouselContent?.map((item:CarouselItem) => (
         <>

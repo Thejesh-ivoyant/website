@@ -446,7 +446,6 @@ const ContactUs = () => {
   type="text"
   placeholder=""
   value={selectedDate}
-
   required
   className="hidden"
   name="date"
@@ -553,10 +552,11 @@ const ContactUs = () => {
               <div className="w-56 relative group col-span-1">
                 <select
                   id="username"
+                  defaultValue="" 
                   name="area_of_expertise"
                   className="w-full h-10  text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 >
-                  <option value="" disabled selected hidden>
+                  <option value="" disabled  hidden>
                     Area of Expertise
                   </option>
                   <option value="option1">Front End coding</option>
@@ -567,9 +567,10 @@ const ContactUs = () => {
                 <select
                   id="username"
                   name="hiring_duration"
+                  defaultValue="" 
                   className="w-full h-10  text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 >
-                  <option value="" disabled selected hidden>
+                  <option value="" disabled hidden>
                     Hiring Duration
                   </option>
                   <option value="option1">10</option>
@@ -580,9 +581,10 @@ const ContactUs = () => {
                 <select
                   id="username"
                   name="choose_skill_set"
+                  defaultValue="" 
                   className="w-full h-10  text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 >
-                  <option value="" disabled selected hidden>
+                  <option value="" disabled  hidden>
                     Choose skillset
                   </option>
                   <option value="option1">python</option>

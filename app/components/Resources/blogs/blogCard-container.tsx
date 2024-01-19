@@ -116,8 +116,9 @@ const BlogCardContainer = () => {
               onChange={(e) => {
                 setCategory(e.target.value);
               }}
+              defaultValue="" 
             >
-              <option value="" selected>
+              <option value="">
                 All Categories
               </option>
               {loaderData.categoriesList.map((category: any) => (
@@ -136,8 +137,9 @@ const BlogCardContainer = () => {
               onChange={(e) => {
                 setTag(e.target.value);
               }}
+              defaultValue="" 
             >
-              <option value="" selected>
+              <option value="">
                 All Tags
               </option>
               {loaderData.tags.map((tag: any) => (

@@ -18,6 +18,17 @@ const JobDescription = () => {
   
       const formData = new FormData(event.currentTarget);
       formData.append('action', 'Internship');
+        // Remove existing 'todate' entry if it exists
+   
+    // Check if the checkbox is checked and update the "To" date in the form data
+    if (isCurrentlyAttend) {
+      formData.delete('todate');
+
+      const today = new Date();
+      const formattedDate = today.toISOString().split('T')[0];
+      formData.append('todate', formattedDate); // Assuming 'todate' is the field name for the "To" date
+    }
+
       if (selectedFile) {
         formData.append('hire_attachment', selectedFile);
       }
@@ -67,6 +78,7 @@ const JobDescription = () => {
       const today = new Date();
       const formattedDate = today.toISOString().split('T')[0];
       setToDate(formattedDate);
+      
     } else {
       // If checkbox is unchecked, clear the "To" date
       setToDate('');
@@ -232,6 +244,15 @@ alt="close"
           <div className="text-neutral-800 text-xs whitespace-nowrap">
             From
           </div>
+          <div className="search">
+          <img
+      loading="lazy"
+      src="https://cdn.builder.io/api/v1/image/assets/TEMP/0118f903c2f12f99dc850b1a8f285e554023cfbd6ff78abb939a09b41b4d5f96?apiKey=9e16588387084fb2a9a51a1b99489136&"
+      className="aspect-square object-contain object-center w-5 overflow-hidden max-w-full"
+    />
+          <input className="searchicon" type="text" placeholder="Search" />
+          
+        </div>
           <input
           name="FromDate"
             type="date"
@@ -243,14 +264,17 @@ alt="close"
           <div className="text-neutral-800 text-xs whitespace-nowrap">
             To
           </div>
+
           <input
             type="date"
             name="todate"
             id="toDate"
-            value={toDate}
+           
+     
             className="border-[color:var(--gray-gray-7,#8C8C8C)] flex flex-col justify-center mt-1 pr-16 py-1.5 border-[0.5px] border-solid items-start max-md:pr-5"
             disabled={isCurrentlyAttend}
           />
+
         </div>
       </div>
 
