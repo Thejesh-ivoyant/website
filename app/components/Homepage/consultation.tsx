@@ -16,10 +16,9 @@ const Consultation = () => {
         setTagline(ContactUsDescription);
      
         setImageUrl(section7bg.data[0].attributes.url);
-        console.log("url is ggggggggggggggggggggggggggggg" +section7bg.data[0].attributes.url);
       })
       .catch((error) => {
-        console.warn("Section 7 Error fetching data from API:", error);
+        console.error("Error fetching data from API:", error);
       });
   }, []);
 

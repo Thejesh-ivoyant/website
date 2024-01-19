@@ -10,11 +10,9 @@ const Footer = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault();
-      console.warn("pitchdck download form clicked ");
       const formData = new FormData(event.currentTarget);
   
       formData.forEach((value, key) => {
-        console.warn(`${key}: ${value}`);
       });
       const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/30829101-edb6-4d51-8bb7-1a089dd60533', {
         method: 'POST',
@@ -25,16 +23,13 @@ const Footer = () => {
       if (response.ok) {
             
       success("Subscribed for NewsLetter, Thank you for showing interest in us!",2);
-        console.warn('Form submitted successfully');
       
       } else {
-        console.warn('Form submission failed');
-        
+        errorMessage("Form submission failed",3);
       }
  
     } catch (error) {
       errorMessage("Error occured, please retry",3);
-      console.error('An error occurred during form submission:', error);
     }
   };
   

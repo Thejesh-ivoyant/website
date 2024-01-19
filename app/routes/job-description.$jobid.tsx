@@ -29,9 +29,7 @@ export async function loader({   params, }: LoaderFunctionArgs){
     let jsonParsed = await res.json();
        
     const componentRes = jsonParsed.data?.attributes;
-    console.warn("/////////////",componentRes.s1_points[0].description)
-   console.warn("//////////////",JSON.stringify(componentRes))
-   
+  
 
     const s1_points = componentRes.s1_points?.map((item: any) => ({
       id: item.id,

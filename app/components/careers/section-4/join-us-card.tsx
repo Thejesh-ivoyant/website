@@ -1,6 +1,5 @@
 import { strapiUrl } from "~/utils/urls";
 const JobCard = ({ service }: { service: any }) => {
-    console.warn("service desc card in join us card",service)
     return (
         <div className="blog-card flex flex-col w-full h-full">
              <img

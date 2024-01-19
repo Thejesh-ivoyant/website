@@ -25,7 +25,6 @@ const BlogCardContainer = () => {
       searchValue || "",
       limit
     );
-    console.warn("Drop down 666666666666666666666666", updatedBlogQuery);
 
     const newBlogData = await fetchGraphQL(updatedBlogQuery);
     setBlogData(() => [

@@ -31,15 +31,12 @@ const Blog_WhitepaperContent = () => {
   useEffect(() => {
     const fetchData = async () => {
       if (blogData) {
-        console.error("123456");
         setBlogData(blogData);
       } else if (whitePaperData) {
-        console.error("567890");
         setWhitePaperData(whitePaperData);
       } else {
         try {
           if (isBlogRoute) {
-            console.error("567890");
             const blogGql = await fetchGraphQL(blogQuery);
             setBlogData(
               blogGql.data?.blogs.data?.map((item: any) => ({
@@ -91,7 +88,6 @@ const Blog_WhitepaperContent = () => {
           }
         } catch (error) {
           console.error("Error fetching data:", error);
-          // Handle the error as needed
         }
       }
     };
@@ -109,12 +105,9 @@ const Blog_WhitepaperContent = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault();
-      console.warn("Whitepaper download form clicked ");
       const formData = new FormData(event.currentTarget);
       formData.append("action", "whitepaper");
-      formData.forEach((value, key) => {
-        console.warn(`${key}: ${value}`);
-      });
+    
       const response = await fetch(
         "https://forms.hubspot.com/uploads/form/v2/39872873/c4e42171-a7d2-4ce1-b0dc-c7adeba7c46d",
         {
@@ -136,7 +129,6 @@ const Blog_WhitepaperContent = () => {
   };
 
   const handleDownload = () => {
-    console.warn("white paper donluad");
     const whitepaperURL = loaderData.whitepaper;
     setOpen(false);
     window.open(whitepaperURL, "_blank");
@@ -147,7 +139,6 @@ const Blog_WhitepaperContent = () => {
     setOpen(true);
   };
   const handleCancel = () => {
-    console.warn("cancel clicked.................");
     setOpen(false);
   };
 

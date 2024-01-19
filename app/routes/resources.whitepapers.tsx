@@ -58,7 +58,6 @@ export async function loader() {
         avatar: item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
       },
     }));
-    console.log("whitepaper loader data ", whitePaperData);
 
     
 

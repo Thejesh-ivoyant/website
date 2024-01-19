@@ -21,10 +21,7 @@ const JobDescription = () => {
       if (selectedFile) {
         formData.append('hire_attachment', selectedFile);
       }
-      formData.forEach((value, key) => {
-        console.warn(">>>>>>>>>>>>>>>>>>>>>>>");
-        console.warn(`attribute is ${key}: ${value}`);
-      });
+    
       const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/b3a88f65-2b4f-4515-b186-2191b2c01494', {
         method: 'POST',
         body: formData,
@@ -34,17 +31,13 @@ const JobDescription = () => {
       if (response.ok) {
             
       success("Thank you for showing interest in us!",2);
-        console.warn('Form submitted successfully');
         
       } else {
-        errorMessage("Error occured, please retry",3);
-        console.warn('Form submission failed');
-        
+        errorMessage("Error occured, please retry",3);        
       }
   
     } catch (error) {
       errorMessage("Error occured, please retry",3);
-      console.error('An error occurred during form submission:', error);
     }
   };
   const onDrop = useCallback((acceptedFiles:any) => {
@@ -54,7 +47,6 @@ const JobDescription = () => {
   setSelectedFile(file);
       setSelectedFileName(file.name);
       // Perform actions with the selected file
-      console.warn("Selected File:", file.size);
     }
   }, []);
 
