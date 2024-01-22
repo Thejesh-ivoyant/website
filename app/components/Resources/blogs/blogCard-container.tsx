@@ -25,7 +25,6 @@ const BlogCardContainer = () => {
       searchValue || "",
       limit
     );
-    console.warn("Drop down 666666666666666666666666", updatedBlogQuery);
 
     const newBlogData = await fetchGraphQL(updatedBlogQuery);
     setBlogData(() => [
@@ -117,8 +116,9 @@ const BlogCardContainer = () => {
               onChange={(e) => {
                 setCategory(e.target.value);
               }}
+              defaultValue="" 
             >
-              <option value="" selected>
+              <option value="">
                 All Categories
               </option>
               {loaderData.categoriesList.map((category: any) => (
@@ -137,8 +137,9 @@ const BlogCardContainer = () => {
               onChange={(e) => {
                 setTag(e.target.value);
               }}
+              defaultValue="" 
             >
-              <option value="" selected>
+              <option value="">
                 All Tags
               </option>
               {loaderData.tags.map((tag: any) => (

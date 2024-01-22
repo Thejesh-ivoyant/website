@@ -48,11 +48,9 @@ const handleSubmit = async (
   try {
     event.preventDefault();
     if (formType === "contact") {
-      console.warn("contact us submit download form clicked ");
       const formData = new FormData(event.currentTarget);
       formData.append("action", "Contact");
       formData.forEach((value, key) => {
-        console.warn(`attribute is :  ${key}: ${value}`);
       });
       const response = await fetch(
         "https://forms.hubspot.com/uploads/form/v2/39872873/52d6bea6-d664-4d5c-a3e9-81a21ba79d3b",
@@ -63,23 +61,19 @@ const handleSubmit = async (
       );
 
       if (response.ok) {
-        console.warn
+    
         success(
           "Thank you for contacting us! We will get back to you soon.",
           3
         );
-        console.warn("Form submitted successfully ");
       } else {
         errorMessage("Error occured while submitting, Please retry", 3);
-        console.warn("Form submission failed");
       }
     } else if (formType === "hireus") {
-      console.warn("hire us submit  form clicked ");
       const formData = new FormData(event.currentTarget);
       formData.append("action", "HireUs");
 
       formData.forEach((value, key) => {
-        console.warn(`attribute is : ${key}: ${value}`);
       });
       const response = await fetch(
         "https://forms.hubspot.com/uploads/form/v2/39872873/28d8b167-abb4-44db-b4a3-19758d09a360",
@@ -94,15 +88,12 @@ const handleSubmit = async (
           "Thank you for contacting us! We will get back to you soon.",
           3
         );
-        console.warn("Form submitted successfully");
       } else {
         errorMessage("Error occured, please retry",3);
-        console.warn("Form submission failed");
       }
     }
   } catch (error) {
     errorMessage("Error occured, please retry",3);
-    console.error("An error occurred during form submission:", error);
   }
 };
 
@@ -126,7 +117,6 @@ const ContactUs = () => {
 
 
   const onChange: DatePickerProps['onChange'] = (date, dateString) => {
-    console.warn( dateString);
     setDateSelected(dateString);
   };
 
@@ -145,7 +135,6 @@ const ContactUs = () => {
         sethireImage(hireImage.data?.attributes?.url);
       })
       .catch((error) => {
-        console.error("Error fetching data from API:", error);
       });
   }, []);
 
@@ -158,7 +147,6 @@ const ContactUs = () => {
     if (selectedFile) {
       setSelectedFileName(selectedFile.name);
       // Perform actions with the selected file
-      console.warn("Selected File:", selectedFile);
     }
   };
   const handleClearFile = () => {
@@ -175,7 +163,6 @@ const ContactUs = () => {
     if (selectedFile) {
       sethireSelectedFileName(selectedFile.name);
       // Perform actions with the selected file
-      console.warn("Selected File:", selectedFile);
     }
   };
   const handlehireClearFile = () => {
@@ -459,7 +446,6 @@ const ContactUs = () => {
   type="text"
   placeholder=""
   value={selectedDate}
-
   required
   className="hidden"
   name="date"
@@ -566,10 +552,11 @@ const ContactUs = () => {
               <div className="w-56 relative group col-span-1">
                 <select
                   id="username"
+                  defaultValue="" 
                   name="area_of_expertise"
                   className="w-full h-10  text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 >
-                  <option value="" disabled selected hidden>
+                  <option value="" disabled  hidden>
                     Area of Expertise
                   </option>
                   <option value="option1">Front End coding</option>
@@ -580,9 +567,10 @@ const ContactUs = () => {
                 <select
                   id="username"
                   name="hiring_duration"
+                  defaultValue="" 
                   className="w-full h-10  text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 >
-                  <option value="" disabled selected hidden>
+                  <option value="" disabled hidden>
                     Hiring Duration
                   </option>
                   <option value="option1">10</option>
@@ -593,9 +581,10 @@ const ContactUs = () => {
                 <select
                   id="username"
                   name="choose_skill_set"
+                  defaultValue="" 
                   className="w-full h-10  text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 >
-                  <option value="" disabled selected hidden>
+                  <option value="" disabled  hidden>
                     Choose skillset
                   </option>
                   <option value="option1">python</option>

@@ -1,26 +1,26 @@
 import { useEffect } from "react";
 import Bulletimg from "../../../public/assets/BulletPoint.svg";
-
 import { useLoaderData } from "@remix-run/react";
 
 const PrivacyPolicyScroll = () => {
-  const loaderData = useLoaderData() as any;
+const loaderData = useLoaderData() as any;
 
   useEffect(() => {
     const handleScroll = () => {
       let sidebar = document.getElementById("contact-sidebar");
       let sidebarContent = document.getElementsByClassName("contact-content-wrapper")[0] as HTMLElement;
-
-      if (!sidebar || !sidebarContent) return;
-
+      let contactMain = document.getElementById("contact-main");
+  
+      if (!sidebar || !sidebarContent || !contactMain) return;
+  
       let scrollTop = window.scrollY;
       let viewportHeight = window.innerHeight;
       let contentHeight = sidebarContent.getBoundingClientRect().height;
       let sidebarTop = sidebar.getBoundingClientRect().top + window.pageYOffset;
-
-      if (scrollTop >= contentHeight - viewportHeight + sidebarTop) {
-        sidebarContent.style.transform =
-          `translateY(-${contentHeight - viewportHeight + sidebarTop}px)`;
+      let contactMainBottom = contactMain.getBoundingClientRect().bottom;
+  
+      if (scrollTop >= contentHeight - viewportHeight + sidebarTop && scrollTop <= contactMainBottom) {
+        sidebarContent.style.transform = `translateY(-${contentHeight - viewportHeight + sidebarTop}px)`;
         sidebarContent.style.position = "fixed";
         sidebarContent.style.width = "30%";
       } else {
@@ -29,15 +29,14 @@ const PrivacyPolicyScroll = () => {
         sidebarContent.style.width = "";
       }
     };
-
+  
     window.addEventListener("scroll", handleScroll);
-
+  
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-
+  
   return (
     <>
       {" "}
@@ -230,7 +229,7 @@ const PrivacyPolicyScroll = () => {
           </div>
         </div>
 
-        <div id="contact-main" className="  w-1/2 flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0">
+        <div id="contact-main" className=" contact-main mb-4 w-1/2 flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0">
           {/* main content goes here */}
 
           <div className="items-stretch flex grow flex-col max-md:max-w-full max-md:mt-10">
@@ -260,13 +259,7 @@ const PrivacyPolicyScroll = () => {
                 </div>{" "}
                 <div className="text-violet-950 text-base leading-7 underline mt-3 max-md:max-w-full">
                   <span className="text-neutral-800">{item.description}</span>
-                  {/* <a
-                      href="mailto:marketing@ivoyant.com"
-                      className="text-violet-950"
-                      target="_blank"
-                    >
-                      marketing@ivoyant.com
-                    </a> */}
+                
                   <span className="text-violet-950"> </span>
                 </div>
               </div>

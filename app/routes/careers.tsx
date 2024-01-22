@@ -27,7 +27,6 @@ export const meta: MetaFunction = () => {
 async function fetchData(endpoint: string) {
   try {
     const response = await fetch(strapiUrl + endpoint);
-    console.log("fetttttttttc response", response);
     if (!response.ok) {
       throw new Error(
         `Error fetching data from ${endpoint}: ${response.status} ${response.statusText}`

@@ -28,7 +28,6 @@ const blogid=`${params.blogid}`;
   const updatedAuthorGetIdQuery= getBlogAuthorIDQuery(blogid)
 
   const authorIdData=await fetchGraphQL(updatedAuthorGetIdQuery);
-  console.warn("////////////////////// is ",authorIdData.data?.blog.data?.attributes.author.data?.id);
   const authorId=authorIdData.data?.blog.data?.attributes.author.data?.id;
 
   const updatedQuery = getAuthorQuery(authorId);

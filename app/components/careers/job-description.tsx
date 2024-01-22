@@ -18,13 +18,21 @@ const JobDescription = () => {
   
       const formData = new FormData(event.currentTarget);
       formData.append('action', 'Internship');
+        // Remove existing 'todate' entry if it exists
+   
+    // Check if the checkbox is checked and update the "To" date in the form data
+    if (isCurrentlyAttend) {
+      formData.delete('todate');
+
+      const today = new Date();
+      const formattedDate = today.toISOString().split('T')[0];
+      formData.append('todate', formattedDate); // Assuming 'todate' is the field name for the "To" date
+    }
+
       if (selectedFile) {
         formData.append('hire_attachment', selectedFile);
       }
-      formData.forEach((value, key) => {
-        console.warn(">>>>>>>>>>>>>>>>>>>>>>>");
-        console.warn(`attribute is ${key}: ${value}`);
-      });
+    
       const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/b3a88f65-2b4f-4515-b186-2191b2c01494', {
         method: 'POST',
         body: formData,
@@ -34,17 +42,13 @@ const JobDescription = () => {
       if (response.ok) {
             
       success("Thank you for showing interest in us!",2);
-        console.warn('Form submitted successfully');
         
       } else {
-        errorMessage("Error occured, please retry",3);
-        console.warn('Form submission failed');
-        
+        errorMessage("Error occured, please retry",3);        
       }
   
     } catch (error) {
       errorMessage("Error occured, please retry",3);
-      console.error('An error occurred during form submission:', error);
     }
   };
   const onDrop = useCallback((acceptedFiles:any) => {
@@ -54,7 +58,6 @@ const JobDescription = () => {
   setSelectedFile(file);
       setSelectedFileName(file.name);
       // Perform actions with the selected file
-      console.warn("Selected File:", file.size);
     }
   }, []);
 
@@ -75,6 +78,7 @@ const JobDescription = () => {
       const today = new Date();
       const formattedDate = today.toISOString().split('T')[0];
       setToDate(formattedDate);
+      
     } else {
       // If checkbox is unchecked, clear the "To" date
       setToDate('');
@@ -240,6 +244,15 @@ alt="close"
           <div className="text-neutral-800 text-xs whitespace-nowrap">
             From
           </div>
+          <div className="search">
+          <img
+      loading="lazy"
+      src="https://cdn.builder.io/api/v1/image/assets/TEMP/0118f903c2f12f99dc850b1a8f285e554023cfbd6ff78abb939a09b41b4d5f96?apiKey=9e16588387084fb2a9a51a1b99489136&"
+      className="aspect-square object-contain object-center w-5 overflow-hidden max-w-full"
+    />
+          <input className="searchicon" type="text" placeholder="Search" />
+          
+        </div>
           <input
           name="FromDate"
             type="date"
@@ -251,14 +264,17 @@ alt="close"
           <div className="text-neutral-800 text-xs whitespace-nowrap">
             To
           </div>
+
           <input
             type="date"
             name="todate"
             id="toDate"
-            value={toDate}
+           
+     
             className="border-[color:var(--gray-gray-7,#8C8C8C)] flex flex-col justify-center mt-1 pr-16 py-1.5 border-[0.5px] border-solid items-start max-md:pr-5"
             disabled={isCurrentlyAttend}
           />
+
         </div>
       </div>
 

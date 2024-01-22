@@ -11,13 +11,13 @@ const Section4 = ({ clients }: { clients: Clients | undefined }) => {
       <div className="logos">
         <div className="logos-slide whitespace-nowrap">
           {clients?.data.map((logo, index: number) => (
-            <img src={`${logo.attributes.url}`} alt="Client Logo" className="gradient-left grayscale hover:grayscale-0" />
+            <img src={`${logo.attributes.url}`} alt="Client Logo" key={index} className="gradient-left grayscale hover:grayscale-0" />
           ))}
         </div>
 
         <div className="logos-slide">
           {clients?.data.map((logo, index: number) => (
-            <img src={`${logo.attributes.url}`} alt="Client Logo" className="gradient-left grayscale hover:grayscale-0" />
+            <img src={`${logo.attributes.url}`} alt="Client Logo"  key={index}  className="gradient-left grayscale hover:grayscale-0" />
           ))}
         </div>
       </div>

@@ -179,13 +179,13 @@ const Service = () => {
             <Hero />
       
           <ServiceContainer />
-          <ProjectPortfolio />
-        <IndustryFocus/>
+          {/* <ProjectPortfolio /> */}
+        {/* <IndustryFocus/>
           <Phases />
-          <ServiceCardContainer />
-          <Technologies />
-          <Consultation />
-          <BlogPostsContainer />
+          <ServiceCardContainer /> */}
+          {/* <Technologies /> */}
+          {/* <Consultation />
+          <BlogPostsContainer /> */}
           <Outlet />
         </Await>
       </Suspense>

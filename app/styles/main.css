@@ -50,15 +50,7 @@ html, body {
   .geekblue-1{
     color: var(--geekblue-1, #F0F5FF);
   }
-.phases-description{
-  color: #FFF;
-font-family: Poppins;
-font-size: 12px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-display: flex;
-}
+
 .ant-modal-footer{
   visibility:hidden;
   padding: 0;
@@ -81,12 +73,8 @@ text-transform: capitalize;
   top: 0;
   width: 100%;
 }
-.main {
-  margin-top: 30px; /* Add a top margin to avoid content overlay */
-}
-.highlight span{
-  color: #7534F1;
-}
+
+
 
   .btn{
     display: flex;
@@ -105,6 +93,7 @@ text-transform: capitalize;
     text-transform: uppercase;
     background: linear-gradient(135deg, #6C39DB 0.62%, #1C083E 100%);
     }
+
   .ant-drawer-header {
 display: none;
     }
@@ -246,68 +235,168 @@ body.scrolled #scrollToTopBtn {
   display: block;
 }
 
-.hero-container {
-justify-content: center;
-  top: 50%;
-  left: 50%;
-  display: grid;
-  flex-direction: column;
+
+
+
+.hero-wrapper {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  max-width: 42rem; /* Replace '2xl' with the actual value from your Tailwind config */
+  text-align: center;
   align-items: center;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-  z-index: 12;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem; /* Adjust the gap as needed */
+}
+.hero-description{
+  font-weight: 400;
+  line-height: 1.5rem; /* 24px / 16px */
+  letter-spacing: 0.28px;
+  font-size: 0.875rem;
+  font-family: Poppins;
 }
 
 
-/* Styles for the hero title */
+.hero-container-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: #ffffff;
+}
+
+/* Default styles for large screens */
+.hero-wrapper {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  max-width: 42rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Styles for the hero title on large screens */
+
 .hero-title {
-  font-size: 2rem;
-  color: white;
-
-}
-
-/* Styles for the hero subtitle */
-.hero-subtitle {
-  text-align: center;
-  font-family: Montserrat;
-  font-size: 4.00rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 0.085rem;
-  background: linear-gradient(180deg, #FFF 0%, #ECC5FE 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   
-}
-
-
-
-.hero-nav-left{
-  display: flex;
-  width: 2rem;
-  height: 2rem;
-  padding: 0.5rem;
-  justify-content: start;
-  align-items: start;
-  flex-shrink: 0;
-  border-radius: 0.25rem;
-background: #58448E;
+  font-weight: 600;
+   font-family: Montserrat;
+    font-size: 2.2rem/* 36px */;
+   line-height: 2.4rem;
+   color: white;
+   
 
 }
-.hero-nav-right{
-  display: flex;
-  width: 2rem;
-  height: 2rem;
-  padding: 0.5rem;
-  justify-content: end;
-  align-items: end;
-  flex-shrink: 0;
-  border-radius: 0.25rem;
-background: #58448E;
+/* Styles for the "Let's Talk" button on large screens */
+.hero-btn {
+  margin-top: 20px;
+  width: 140px;
+  height: 50px;
+  font-size: 1rem;
 }
+
+/* Media query for small screens (e.g., phones) */
+@media (max-width: 576px) {
+  .hero-wrapper {
+    max-width: 90%; /* Adjust the value as needed */
+  }
+
+  .hero-title {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+  }
+  .hero-description{
+    font-weight: 300;
+    line-height: 0.8rem; /* 24px / 16px */
+    letter-spacing: 0.18px;
+    font-size: 0.575rem;
+
+  }
+  .hero-btn {
+    width: 100px;
+    height: 30px;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+}
+
+/* Media query for medium-sized screens (e.g., tablets) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .hero-wrapper {
+    max-width: 80%;
+  }
+  .hero-description{
+    font-weight: 400;
+    line-height: 0.8rem; /* 24px / 16px */
+    letter-spacing: 0.14px;
+    font-size: 0.775rem;
+
+  }
+  .hero-title {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+  }
+
+  .hero-btn {
+    width: 115px;
+    height: 38px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Media query for medium-sized screens (landscape orientation) */
+@media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+  .hero-wrapper {
+    max-width: 70%;
+  }
+}
+
+/* Media query for large screens (e.g., laptops) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .hero-wrapper {
+    max-width: 60%;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.95rem;
+  }
+
+  .hero-btn {
+    width: 160px;
+    height: 50px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Media query for large screens (e.g., desktops) */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .hero-wrapper {
+    max-width: 50%;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+  }
+
+  .hero-btn {
+    width: 180px;
+    height: 50px;
+    font-size: 1rem;
+  }
+}
+
+/* Media query for extra-large screens (e.g., large desktops) */
+@media (min-width: 1201px) {
+  .hero-wrapper {
+    max-width: 42rem;
+  }
+}
+
 .labels{
   color: #7D7890;
 font-family: Montserrat;
@@ -316,41 +405,11 @@ font-style: normal;
 font-weight: 500;
 line-height: 20px; /* 125% */
 }
-/* Styles for the hero line */
-.hero-line {
-  
-  width: 100%;
-  margin-top: 15px;
-  position: relative;
-}
-.country-text{
-  color: #7D7890;
-font-family: Montserrat;
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: 20px; /* 125% */
-width:70px;
-}
-
-.hero-description{
-
-  color: #FFF;
-  text-align: center;
-  font-family: Poppins;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
 
 
-.hero-btn{
-  margin-top: 40px;
-  width: 180px;
-  height: 50px;
-  font-size: 1rem;
-}
+
+
+
 
 .button-test {
   width: 10rem;
@@ -1170,52 +1229,7 @@ hr {
   margin: 10px 0;
 }
 
-@media screen and (max-width: 1100px) {
 
-  #main-menu {
-    display: none;
-  }
-  #hamburger-menu {
-    display: inline;
-  }
-  .hamburger{
-    color: white;
-    visibility: visible;
-    display: block;
-  }
-  .hero-container {
-    font-size: 1.5rem;
-    top: 40%;
-    left: 50%;
-  }
-  .hero-title{
-    font-size: 1rem;
-  }
-
- 
-.why-choose-us-Container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;  
-  justify-content: center;
-}
-
-  .hero-description{
-    font-size: 12px;
-    margin-top: 8px;
-    
-  }
-
-  .hero-line {
-    margin-top: 4px;
-    width: 80%;
-  }
-  .hero-btn {
-    width: 80px;
-    height: 26px;
-    font-size: 0.5rem;
-  }
-}
 .hero-gradient-top{
 
     border-image: linear-gradient(to left, 
@@ -1665,6 +1679,7 @@ border-bottom-style: solid;
   background: linear-gradient(100deg, white 50%, #AB99C8 50%);
   filter: drop-shadow(8px 4px 24px rgba(0, 0, 0, 0.25));
 }
+
 .blur-bg-img{
   display: flex;
   padding: 1.25rem 0 0 1.25rem ;
@@ -1934,6 +1949,7 @@ border-bottom-style: solid;
 
 .screen-height {
   height: calc(100vh - 4.5rem);
+  margin-top: 4.5rem;
 }
 
 .gradient-mesh{

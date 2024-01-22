@@ -79,7 +79,7 @@ export default function App() {
         <ScrollRestoration/>
         <Scripts />
         <LiveReload />
-        <Footer  />
+        {/* <Footer  /> */}
         <ScrollToTopIcon/>
       </body>
     </html>

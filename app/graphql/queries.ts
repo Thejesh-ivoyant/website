@@ -388,7 +388,6 @@ query{
 `;
 
 export const getAuthorQuery = (id:any) => {
-  console.warn("author id is ", id);
   return `
     query GetAuthorById {
       author(id: ${id}) {
@@ -423,7 +422,6 @@ export const getAuthorQuery = (id:any) => {
 
 
 export const getBlogAuthorIDQuery = (id:any) => {
-  console.warn("blog id is ", id);
   return `
   query GetBlogById{
     blog(id: ${id}){
@@ -489,7 +487,6 @@ export const getWhitepaperBasedonLimit = (limit: number) => {
 
 
 export const getPaperAuthorIDQuery = (id:any) => {
-  console.warn("paper id is ", id);
   return `
   query GetWhitePaperById{
     whitePaper(id: ${id}){
