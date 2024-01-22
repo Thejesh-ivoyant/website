@@ -11,7 +11,6 @@ const Footer = () => {
     try {
       event.preventDefault();
       const formData = new FormData(event.currentTarget);
-  
       formData.forEach((value, key) => {
       });
       const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/30829101-edb6-4d51-8bb7-1a089dd60533', {
@@ -36,6 +35,7 @@ const Footer = () => {
   const data = useLoaderData() as any;
   const attributes = data.navGraphql?.data?.navbar?.data
     ?.attributes as Attributes;
+
   return (
     <footer className="w-full  bg-haiti py-16 px-16 font-montserrat text-white screen-height ">
       <section className="flex flex-row w-full gradient-bottom p-6"></section>
@@ -55,6 +55,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <div className="flex-1">
           <span className="footer-heading">Industries</span>
           <div className="flex items-start py-3 gap-2">
@@ -69,6 +70,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <div className="flex-1">
           <span className="footer-heading">Products</span>
           <div className="flex items-start py-3 gap-2">
@@ -162,6 +164,8 @@ const Footer = () => {
          
           <input
           name="email"
+          type="email"
+          required
             placeholder="Email*"
             className="footer-font email-container  w-full mt-auto focus:outline-none"
           />
