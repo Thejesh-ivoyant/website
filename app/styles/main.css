@@ -85,7 +85,6 @@ text-transform: capitalize;
     gap: 10px;
     color: var(--geekblue-1, #F0F5FF);
     font-family: Montserrat;
-    font-size: 14px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -295,7 +294,7 @@ body.scrolled #scrollToTopBtn {
   margin-top: 20px;
   width: 140px;
   height: 50px;
-  font-size: 1rem;
+
 }
 
 /* Media query for small screens (e.g., phones) */
@@ -319,7 +318,7 @@ body.scrolled #scrollToTopBtn {
     width: 100px;
     height: 30px;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.5rem;
   }
 }
 
@@ -343,7 +342,7 @@ body.scrolled #scrollToTopBtn {
   .hero-btn {
     width: 115px;
     height: 38px;
-    font-size: 0.9rem;
+    font-size: 0.6rem;
   }
 }
 
@@ -1878,8 +1877,7 @@ border-bottom-style: solid;
 }
 
 .hue-btn-primary{
-  height: 3.75rem;
-  aspect-ratio: 3/1;
+ 
   cursor: pointer; 
   border: 2px solid #B9C1EC;
   gap: 0.625rem;
@@ -1890,7 +1888,6 @@ border-bottom-style: solid;
   align-items: center;
   flex: 1 0 0;
   font-family: Montserrat;
-  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
