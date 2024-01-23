@@ -29,7 +29,6 @@ export interface GraphQLResponse {
        
         console.error(JSON.stringify(result.errors));
       }
-  
       return result;
     } catch (error) {
       console.error('GraphQL Request Error:', error);

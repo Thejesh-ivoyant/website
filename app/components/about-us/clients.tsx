@@ -18,10 +18,3 @@ const Clients = ({ clients , title  } : { clients: Client[], title:string }) => 
 };
 
 export default Clients;
-
-// {clients.map((client, index) => (
-//   <li key={index}>
-//     <p>{client.text}</p>
-//     <img src={client.pic.data.attributes.url} alt={client.text} />
-//   </li>
-// ))}

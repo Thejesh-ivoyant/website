@@ -28,18 +28,15 @@ const Nav = () => {
     setOpen(true);
 
     // Now, you can use the 'url' parameter as needed, for example, log it
-    console.log(url);
 };
 
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault();
-      console.warn("pitchdck download form clicked ");
       const formData = new FormData(event.currentTarget);
       formData.append('action', 'pitchdeck');
       formData.forEach((value, key) => {
-        console.warn(`${key}: ${value}`);
       });
       const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/c4e42171-a7d2-4ce1-b0dc-c7adeba7c46d', {
         method: 'POST',
@@ -50,16 +47,13 @@ const Nav = () => {
       if (response.ok) {
             
       success("Thank you for showing interest in us!",2);
-        console.warn('Form submitted successfully');
         handleDownload();
       } else {
-        console.warn('Form submission failed');
-        
+        errorMessage("Form submission failed",3);        
       }
  
     } catch (error) {
       errorMessage("Error occured, please retry",3);
-      console.error('An error occurred during form submission:', error);
     }
   };
   
@@ -68,7 +62,6 @@ const Nav = () => {
   const handleDownload = () => {
  
     const PitchDeskUrl = download;
-    console.warn("pich deck ul issjsjssssssssssssss",download)
     setOpen(false);
     //success mesage here
     window.open(PitchDeskUrl, '_blank');

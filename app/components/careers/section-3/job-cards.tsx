@@ -84,8 +84,9 @@ const handleFilterAndSearchDown = async () =>{
                 setRole(e.target.value);
             
               }}
+              defaultValue="" 
             >
-              <option value="" selected>
+              <option value="" >
                 All Roles
               </option>
          
@@ -107,8 +108,9 @@ const handleFilterAndSearchDown = async () =>{
                 setDep(e.target.value);
               // Trigger filtering when category changes
               }}
+              defaultValue="" 
             >
-              <option value="" selected>
+              <option value="" >
                 All Departments
               </option>
               {loaderData.DepartmentList.map((category: any) => (
@@ -129,8 +131,9 @@ const handleFilterAndSearchDown = async () =>{
                 setLoc(e.target.value);
               // Trigger filtering when category changes
               }}
+              defaultValue="" 
             >
-              <option value="" selected>
+              <option value="" >
                 All Locations
               </option>
               {loaderData.LocList.map((category: any) => (
@@ -151,8 +154,9 @@ const handleFilterAndSearchDown = async () =>{
                 setExp(e.target.value);
             
               }}
+              defaultValue="" 
             >
-              <option value="" selected>
+              <option value="">
                 All Experience
               </option>
               {loaderData.ExpList.map((category: any) => (

@@ -10,11 +10,8 @@ const Footer = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault();
-      console.warn("pitchdck download form clicked ");
       const formData = new FormData(event.currentTarget);
-  
       formData.forEach((value, key) => {
-        console.warn(`${key}: ${value}`);
       });
       const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/30829101-edb6-4d51-8bb7-1a089dd60533', {
         method: 'POST',
@@ -25,22 +22,20 @@ const Footer = () => {
       if (response.ok) {
             
       success("Subscribed for NewsLetter, Thank you for showing interest in us!",2);
-        console.warn('Form submitted successfully');
       
       } else {
-        console.warn('Form submission failed');
-        
+        errorMessage("Form submission failed",3);
       }
  
     } catch (error) {
       errorMessage("Error occured, please retry",3);
-      console.error('An error occurred during form submission:', error);
     }
   };
   
   const data = useLoaderData() as any;
   const attributes = data.navGraphql?.data?.navbar?.data
     ?.attributes as Attributes;
+
   return (
     <footer className="w-full  bg-haiti py-16 px-16 font-montserrat text-white screen-height ">
       <section className="flex flex-row w-full gradient-bottom p-6"></section>
@@ -60,6 +55,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <div className="flex-1">
           <span className="footer-heading">Industries</span>
           <div className="flex items-start py-3 gap-2">
@@ -74,6 +70,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <div className="flex-1">
           <span className="footer-heading">Products</span>
           <div className="flex items-start py-3 gap-2">
@@ -167,6 +164,8 @@ const Footer = () => {
          
           <input
           name="email"
+          type="email"
+          required
             placeholder="Email*"
             className="footer-font email-container  w-full mt-auto focus:outline-none"
           />

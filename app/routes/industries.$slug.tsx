@@ -28,7 +28,7 @@ export const meta: MetaFunction = () => {
 export async function loader({ params }: LoaderFunctionArgs) {
   try {
     const industry = `${params.slug}`;
-
+    
     const [jsonParsed, section7PairsJson, section5Parsed, techParsed] = await Promise.all([
       fetchData(`/api/${industry}/?populate=%2A`),
       fetchData(`/api/${industry}/?populate=pairs.pic`),
