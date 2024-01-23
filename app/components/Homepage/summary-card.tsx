@@ -3,9 +3,9 @@ import { Attributes } from "~/interfaces/Homepage";
 const SummaryCard = ({attributes}:{attributes:Attributes}) => {
   return (
     <>
-    <div className="relative screen-height flex items-center  justify-center font-montserrat p-2 overflow-hidden opacity-95">
+    <div className="relative h-full flex items-center  justify-center font-montserrat overflow-hidden opacity-95">
       <div className="moving-bg"></div>
-        <div className="grid grid-cols-2 aspect-square w-fit m-4">
+        <div className="grid grid-cols-2 aspect-square w-full">
           <div className="aspect-square inline-flex justify-center items-center col-span-1 grape-shadow">
             <div className="flex w-fit gap-6 p-10">
               <div className="text-7xl font-extrabold ">{attributes.ClientCount}</div>
