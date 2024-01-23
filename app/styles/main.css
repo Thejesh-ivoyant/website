@@ -264,7 +264,7 @@ body.scrolled #scrollToTopBtn {
   color: #ffffff;
 }
 
-/* Default styles for large screens */
+
 .hero-wrapper {
   position: relative;
   display: flex;
@@ -277,7 +277,6 @@ body.scrolled #scrollToTopBtn {
   gap: 1rem;
 }
 
-/* Styles for the hero title on large screens */
 
 .hero-title {
   
@@ -289,7 +288,17 @@ body.scrolled #scrollToTopBtn {
    
 
 }
-/* Styles for the "Let's Talk" button on large screens */
+.hero-subtitle{
+  color: #FFF;
+text-align: center;
+font-family: Montserrat;
+font-size: 62px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 1.44px;
+}
+
 .hero-btn {
   margin-top: 20px;
   width: 140px;
