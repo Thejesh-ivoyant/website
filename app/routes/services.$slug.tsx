@@ -179,8 +179,8 @@ const Service = () => {
             <Hero />
       
           <ServiceContainer />
-          {/* <ProjectPortfolio /> */}
-        <IndustryFocus/>
+          <ProjectPortfolio />
+        {/* <IndustryFocus/> */}
           {/* <Phases />
           <ServiceCardContainer /> */}
           {/* <Technologies /> */}

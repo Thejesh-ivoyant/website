@@ -11,6 +11,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import ClarityScript from "./clarityScript";
 
 import Nav from "./common-components/nav";
 import Footer from "./common-components/footer";
@@ -65,6 +66,8 @@ export default function App() {
   return (
     <html lang="en">
       <head>
+       
+      <ClarityScript />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title className="title">iVoyant Systems</title>
