@@ -79,7 +79,23 @@ letter-spacing: 0.4px;
   height: 20rem;
   background-color: #1B0740;
 }
+.service-points-container{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+background-color: #F9F8FC;
+}
 
+.service-IndustryFocusTitle{
+  color: #0D0B71;
+font-family: Montserrat;
+font-size: 40px;
+font-style: normal;
+font-weight: 600;
+justify-content: center;
+line-height: 60px; /* 150% */
+letter-spacing: 0.8px;
+}
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
   .portfolio-text{
@@ -112,6 +128,9 @@ letter-spacing: 0.4px;
   .svg-lines{
     transform: rotate(90deg);
     display: none;
+  }
+  .service-points-container{
+    flex-direction: column;
   }
 
 }
@@ -150,6 +169,9 @@ letter-spacing: 0.4px;
   .svg-lines{
     transform: rotate(90deg);
     display: none;
+  }
+  .service-points-container{
+    flex-direction: column;
   }
 }
 
@@ -215,7 +237,9 @@ letter-spacing: 0.4px;
 
 /* Media query for extra-large screens (e.g., large desktops) */
 @media (min-width: 1201px) { 
-
+  .service-points-container{
+    flex-direction: row;
+  }
 }
 
 /* Media query for medium-sized screens (landscape orientation) */
