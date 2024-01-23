@@ -40,18 +40,23 @@
   }
   
 .portfolio-text{
+display: flex;
+width: 50%;
+
+justify-content: flex-end;
   color: rgba(244, 243, 251, 0.80);
   font-family: "Mplus 1p";
   font-size: 64px;
-  font-style: normal;
   font-weight: 800;
   line-height: 100px; /* 156.25% */
 }
 .portfolio-titles{
+
+  display: flex;
+  width: 50%;
   color: rgba(244, 243, 251, 0.80);
 font-family: Poppins;
 font-size: 20px;
-font-style: normal;
 font-weight: 500;
 line-height: 28px; /* 140% */
 letter-spacing: 0.4px;
@@ -59,8 +64,11 @@ letter-spacing: 0.4px;
 .portfolio-summary-card{
   padding: 2.5rem;
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 2rem;
+  width: 100%;
+  justify-content: center;
 }
 
 .portfolio-container{
@@ -87,8 +95,10 @@ letter-spacing: 0.4px;
   }
   
   .portfolio-summary-card{
-    padding: 2.5rem;
-    gap: 2rem;
+    padding: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    gap: 1rem;
   
   }
   
@@ -97,7 +107,7 @@ letter-spacing: 0.4px;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 80rem;
+    height: 40rem;
   }
   .svg-lines{
     transform: rotate(90deg);
@@ -109,7 +119,7 @@ letter-spacing: 0.4px;
 /* Media query for medium-sized screens (e.g., tablets) */
 @media (min-width: 577px) and (max-width: 768px) {
   .portfolio-text{
-    font-size: 44px;
+    font-size: 38px;
     font-weight: 800;
     line-height: 100px; /* 156.25% */
   }
@@ -122,8 +132,10 @@ letter-spacing: 0.4px;
   
   .portfolio-summary-card{
     display: flex;
-    padding: 2.5rem;
-    gap: 2rem;
+    padding: 1.5rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    gap: 1.2rem;
   
   }
   
@@ -133,7 +145,7 @@ letter-spacing: 0.4px;
     align-items: center;
     justify-content: space-evenly;
    /* Assuming 'bg-haiti' is a custom color */
-    height: 80rem;
+    height: 40rem;
   }
   .svg-lines{
     transform: rotate(90deg);
@@ -144,21 +156,21 @@ letter-spacing: 0.4px;
 /* Media query for large screens (e.g., laptops) */
 @media (min-width: 769px) and (max-width: 992px) {
   .portfolio-text{
-    font-size: 54px;
+    font-size: 40px;
     font-weight: 800;
-    line-height: 100px; /* 156.25% */
+    line-height: 80px; /* 156.25% */
   }
   .portfolio-titles{
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 500;
-  line-height: 28px; /* 140% */
-  letter-spacing: 0.4px;
+  line-height: 24px; /* 140% */
+  letter-spacing: 0.3px;
   }
   
   .portfolio-summary-card{
-    padding: 2.5rem;
+    padding: 1.4rem;
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
   
   }
   
@@ -175,7 +187,7 @@ letter-spacing: 0.4px;
 @media (min-width: 993px) and (max-width: 1200px) {
       
 .portfolio-text{
-  font-size: 64px;
+  font-size: 54px;
   font-weight: 800;
   line-height: 100px; /* 156.25% */
 }
@@ -187,7 +199,7 @@ letter-spacing: 0.4px;
 }
 
 .portfolio-summary-card{
-  padding: 2.5rem;
+  padding: 2rem;
   display: flex;
   gap: 2rem;
 }
