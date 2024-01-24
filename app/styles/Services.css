@@ -100,7 +100,7 @@ letter-spacing: 0.8px;
 
     display: grid;
     grid-column: span 1;
-    width: 24rem;
+    width: auto;
     aspect-ratio: 1/1;
     object-fit: cover;
   
@@ -155,7 +155,7 @@ letter-spacing: 0.8px;
 
     display: grid;
     grid-column: span 1;
-    width: 18rem;
+    width: auto;
     aspect-ratio: 1/1;
    
 }
@@ -214,7 +214,7 @@ letter-spacing: 0.8px;
 
     display: grid;
     grid-column: span 1;
-    width: 20rem;
+    width: auto;
     aspect-ratio: 1/1;
    
 }
@@ -262,7 +262,7 @@ letter-spacing: 0.8px;
 
     display: grid;
     grid-column: span 1;
-    width: 22rem;
+    width: auto;
     aspect-ratio: 1/1;
    
 }
