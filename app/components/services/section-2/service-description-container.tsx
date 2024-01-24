@@ -4,7 +4,7 @@ import ServiceKeypoints from './service-keypoints';
 
 const ServiceContainer = () => {
   return (
-    <div className = "flex flex-col w-full lg:flex-row bg-[#F9F8FC]">
+    <div className = "service-points-container">
       <Description />
       <ServiceKeypoints />
     </div>
