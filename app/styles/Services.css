@@ -112,8 +112,11 @@ letter-spacing: 0.8px;
     align-self: center;
     width: fit-content;
     gap: 1.2rem; /* Adjust the gap as needed */
-    padding: 1rem; /* Adjust the padding as needed */
+    padding: 1rem;
+    padding-left: 5rem; 
+    padding-right: 5rem;/* Adjust the padding as needed */
   }
+  
  
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
@@ -166,7 +169,9 @@ letter-spacing: 0.8px;
   align-self: center;
   width: fit-content;
   gap: 1rem; /* Adjust the gap as needed */
-  padding: 0.5rem; /* Adjust the padding as needed */
+  padding: 0.5rem;
+  padding-left: 1rem; 
+  padding-right: 1rem; /* Adjust the padding as needed */
 
 }
 
@@ -226,7 +231,8 @@ letter-spacing: 0.8px;
   width: fit-content;
   gap: 1rem; /* Adjust the gap as needed */
   padding: 0.5rem; /* Adjust the padding as needed */
-
+  padding-left: 1.2rem; 
+  padding-right: 1.2rem;
 }
 }
 

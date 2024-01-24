@@ -131,6 +131,7 @@ body.scrolled #scrollToTopBtn {
   font-size: 2.2rem /* 36px */;
   line-height: 2.4rem;
   color: white;
+  text-align: center;
 }
 .hero-subtitle {
   color: #fff;
@@ -141,6 +142,7 @@ body.scrolled #scrollToTopBtn {
   font-weight: 700;
   line-height: normal;
   letter-spacing: 1.44px;
+  text-align: center;
 }
 
 .hero-btn {
@@ -164,6 +166,7 @@ body.scrolled #scrollToTopBtn {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  text-align: center;
 }
 
 .card-title {
@@ -173,6 +176,7 @@ body.scrolled #scrollToTopBtn {
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.4px;
+  text-align: center;
 }
 .card-desc {
   color: #fff;
@@ -182,6 +186,44 @@ body.scrolled #scrollToTopBtn {
   font-weight: 300;
   line-height: normal;
   letter-spacing: 0.36px;
+}
+.consulation-container{
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  width: 100%;
+  align-items: center;
+  height: 12rem;
+  padding: 1rem;
+}
+.consulation-tagline{
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-size: 2rem; /* Adjust the value based on your needs */
+  font-weight: bold;
+  line-height: 3.75rem; /* Adjust the value based on your needs */
+  letter-spacing: 0.1rem; 
+
+}
+.btn-white {
+  display: flex;
+  height: 3.75rem;
+  padding: 0px 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  background: #f1f0f4;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  box-shadow: 0px 3px 5px 0px rgba(176, 190, 197, 0.32),
+    0px 8px 24px 0px rgba(176, 190, 197, 0.32);
 }
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
@@ -214,10 +256,34 @@ body.scrolled #scrollToTopBtn {
   }
   .card-title{
     font-size: 0.8rem;
+    text-align: center;
   }
   .card-desc {
     display: none;
   }
+  
+  .consulation-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    width: 100%;
+    align-items: center;
+    height: 14rem;
+    padding: 0.5rem;
+    text-align: center;
+    justify-content: space-around;
+  }
+  .consulation-tagline{
+    font-size: 1.2rem; /* Adjust the value based on your needs */
+    font-weight: bold;
+    line-height: 1.75rem; /* Adjust the value based on your needs */
+    letter-spacing: 0.1rem; 
+    text-align: center;
+  }
+  .btn-white {
+    font-size: 12px;
+  }
+
 }
 
 /* Media query for medium-sized screens (e.g., tablets) */
@@ -251,9 +317,32 @@ body.scrolled #scrollToTopBtn {
   }
   .card-title{
     font-size: 1rem;
+    text-align: center;
   }
   .card-desc {
     display: none;
+  }
+  
+  .consulation-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    width: 100%;
+    align-items: center;
+    height: 12rem;
+    padding: 0.7rem;
+    text-align: center;
+    justify-content: space-around;
+  }
+  .consulation-tagline{
+    font-size: 1.4rem; /* Adjust the value based on your needs */
+    font-weight: bold;
+    line-height: 1.95rem; /* Adjust the value based on your needs */
+    letter-spacing: 0.1rem; 
+    text-align: center;
+  }
+  .btn-white {
+    font-size: 14px;
   }
 }
 
@@ -288,6 +377,25 @@ body.scrolled #scrollToTopBtn {
   .card-desc{
    font-size: 0.55rem;
         }
+        
+  .consulation-container{
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+    width: 100%;
+    align-items: center;
+    height: 12rem;
+    padding: 0.8rem;
+  }
+  .consulation-tagline{
+    font-size: 1.5rem; /* Adjust the value based on your needs */
+    font-weight: bold;
+    line-height: 2.25rem; /* Adjust the value based on your needs */
+    letter-spacing: 0.1rem; 
+  }
+  .btn-white {
+    font-size: 16px;
+  }
 }
 
 /* Media query for large screens (e.g., desktops) */
@@ -733,6 +841,7 @@ body.scrolled #scrollToTopBtn {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  text-align: center;
 }
 
 .designation {
@@ -834,17 +943,7 @@ body.scrolled #scrollToTopBtn {
   display: none; /* Show the description when hovered */
 }
 
-.card-title {
-  color: var(--colorTextHeading, rgba(255, 255, 255, 0.85));
-  text-align: center;
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 32px; /* 200% */
-  letter-spacing: 0.32px;
-  display: block;
-}
+
 .card-image {
   display: block;
 }
@@ -1089,6 +1188,7 @@ body.scrolled #scrollToTopBtn {
   font-size: 2rem;
   font-style: normal;
   font-weight: 700;
+  text-align: center;
 }
 
 .heading h2 {
@@ -1143,6 +1243,7 @@ body.scrolled #scrollToTopBtn {
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.32px;
+  text-align: center;
 }
 
 .service-card-summary {
@@ -1401,24 +1502,7 @@ hr {
     rgba(2, 4, 24, 0.2) 100%
   );
 }
-.btn-white {
-  display: flex;
-  height: 3.75rem;
-  padding: 0px 1.5rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.625rem;
-  background: #f1f0f4;
-  font-family: Montserrat;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  box-shadow: 0px 3px 5px 0px rgba(176, 190, 197, 0.32),
-    0px 8px 24px 0px rgba(176, 190, 197, 0.32);
-}
+
 .btn > ::content {
   font-family: Montserrat;
   font-size: 20px;
@@ -1726,6 +1810,7 @@ hr {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-align: center;
 }
 .opaque-card {
   display: flex;

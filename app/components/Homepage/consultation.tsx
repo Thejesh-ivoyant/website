@@ -1,3 +1,4 @@
+import { Link } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 
@@ -25,14 +26,16 @@ const Consultation = () => {
   };
   return (
     <div
-      className=" flex flex-row  gap-4 w-full items-center h-48"
+      className="consulation-container"
       style={gradientStyle}
     >
-      <div className=" flex flex-wrap  font-montserrat text-white text-4xl font-bold leading-[60px] tracking-wide ">
+      <div className="consulation-tagline">
         {tagline}
       </div>
       <div className="flex items-center right-0 ">
-        <button className="btn-white">GRAB A CONSULTATION</button>
+      <Link to="/contact-us" prefetch="intent"> 
+      <button className="btn-white">GRAB A CONSULTATION</button>
+      </Link>
       </div>
     </div>
   );
