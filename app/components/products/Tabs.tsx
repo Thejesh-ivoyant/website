@@ -1,5 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TabContent } from "~/interfaces/ProductsPage";
 
 export default function Tabs({tabContents}:{tabContents: TabContent[]}) {
@@ -8,7 +8,9 @@ export default function Tabs({tabContents}:{tabContents: TabContent[]}) {
   const handleButtonClick = (item:any) => {
     setActiveButton(item);
   };
-
+  useEffect(()=>{
+      setActiveButton(tabContents[0])
+  }, [tabContents])
   return (
     <>
       <div className="w-full h-fit p-16 bg-slate">
