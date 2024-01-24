@@ -4,7 +4,7 @@ const Technologies = () => {
 
   return (
     <div className="bg-white py-5">
-      <h1 className="text-PurpBlue flex items-center justify-center text-5xl font-montserrat p-6">
+  <h1 className="section-title text-center  flex-wrap items-center py-6">
         {loaderData.s7_techTitle}
       </h1>
       <div className="w-full flex justify-around flex-wrap text-black p-10 border-t-2">

@@ -75,6 +75,233 @@ text-transform: capitalize;
 }
 
 
+/* scrollToTop.css or your preferred styles file */
+
+/* Styles for the scroll-to-top button */
+#scrollToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  background-color: #007bff; /* Change this to your preferred background color */
+  color: #fff; /* Change this to your preferred text color */
+  border: none;
+  border-radius: 50%;;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add a smooth transition effect */
+}
+
+#scrollToTopBtn:hover {
+  background-color: #0056b3; /* Change this to a slightly darker shade for hover effect */
+}
+
+/* Show the button when scrolled halfway down the page */
+body.scrolled #scrollToTopBtn {
+  display: block;
+}
+
+
+
+
+.hero-wrapper {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  max-width: 42rem; /* Replace '2xl' with the actual value from your Tailwind config */
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem; /* Adjust the gap as needed */
+}
+.hero-description{
+  font-weight: 400;
+  line-height: 1.5rem; /* 24px / 16px */
+  letter-spacing: 0.28px;
+  font-size: 0.875rem;
+  font-family: Poppins;
+}
+
+
+.hero-container-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: #ffffff;
+}
+
+
+
+
+.hero-title {
+  
+  font-weight: 600;
+   font-family: Montserrat;
+    font-size: 2.2rem/* 36px */;
+   line-height: 2.4rem;
+   color: white;
+   
+
+}
+.hero-subtitle{
+  color: #FFF;
+text-align: center;
+font-family: Montserrat;
+font-size: 62px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 1.44px;
+}
+
+.hero-btn {
+  margin-top: 20px;
+  width: 140px;
+  height: 50px;
+
+}
+.section-summary{
+  color: #262626;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 175% */
+  }
+  .section-title{
+    color: #0D0B71;
+font-family: Montserrat;
+font-size: 2.5rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+  }
+
+/* Media query for small screens (e.g., phones) */
+@media (max-width: 576px) {
+  .hero-wrapper {
+    max-width: 90%;
+    gap: 0rem; /* Adjust the value as needed */
+  }
+
+  .hero-title {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+  }
+  .hero-description{
+    font-weight: 300;
+    line-height: 0.8rem; /* 24px / 16px */
+    letter-spacing: 0.18px;
+    font-size: 0.575rem;
+
+  }
+  .hero-btn {
+    width: 100px;
+    height: 30px;
+    align-items: center;
+    font-size: 0.5rem;
+  }
+  .section-summary{
+    font-size: 10px;
+    }
+    .section-title{
+  font-size: 1.4rem;
+    }
+}
+
+/* Media query for medium-sized screens (e.g., tablets) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .hero-wrapper {
+    max-width: 80%;
+    gap: 0rem;
+  }
+  .hero-description{
+    font-weight: 400;
+    line-height: 0.8rem; /* 24px / 16px */
+    letter-spacing: 0.14px;
+    font-size: 0.775rem;
+
+  }
+  .hero-title {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+  }
+
+  .hero-btn {
+    width: 115px;
+    height: 38px;
+    font-size: 0.6rem;
+  }
+  .section-summary{
+    font-size: 12px;
+    }
+    .section-title{
+      font-size: 1.8rem;
+        }
+}
+
+/* Media query for medium-sized screens (landscape orientation) */
+/* @media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+  
+} */
+
+/* Media query for large screens (e.g., laptops) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .hero-wrapper {
+    max-width: 60%;
+    gap: 0.3rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.95rem;
+  }
+
+  .hero-btn {
+    width: 160px;
+    height: 50px;
+    font-size: 0.9rem;
+  }
+  .section-summary{
+    font-size: 14px;
+    }
+    .section-title{
+      font-size: 2rem;
+        }
+}
+
+/* Media query for large screens (e.g., desktops) */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .hero-wrapper {
+    max-width: 50%;
+    gap: 0.6rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+  }
+
+  .hero-btn {
+    width: 180px;
+    height: 50px;
+    font-size: 1rem;
+  }
+  .section-summary{
+    font-size: 15px;
+    }
+    
+}
+
+/* Media query for extra-large screens (e.g., large desktops) */
+@media (min-width: 1201px) {
+  .hero-wrapper {
+    max-width: 42rem;
+
+  }
+}
 
   .btn{
     display: flex;
@@ -208,197 +435,6 @@ background-clip: text;
   }
 }
 
-/* scrollToTop.css or your preferred styles file */
-
-/* Styles for the scroll-to-top button */
-#scrollToTopBtn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 10px;
-  background-color: #007bff; /* Change this to your preferred background color */
-  color: #fff; /* Change this to your preferred text color */
-  border: none;
-  border-radius: 50%;;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Add a smooth transition effect */
-}
-
-#scrollToTopBtn:hover {
-  background-color: #0056b3; /* Change this to a slightly darker shade for hover effect */
-}
-
-/* Show the button when scrolled halfway down the page */
-body.scrolled #scrollToTopBtn {
-  display: block;
-}
-
-
-
-
-.hero-wrapper {
-  position: relative;
-  display: flex;
-  margin: 0 auto;
-  max-width: 42rem; /* Replace '2xl' with the actual value from your Tailwind config */
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.5rem; /* Adjust the gap as needed */
-}
-.hero-description{
-  font-weight: 400;
-  line-height: 1.5rem; /* 24px / 16px */
-  letter-spacing: 0.28px;
-  font-size: 0.875rem;
-  font-family: Poppins;
-}
-
-
-.hero-container-section {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  color: #ffffff;
-}
-
-
-
-
-.hero-title {
-  
-  font-weight: 600;
-   font-family: Montserrat;
-    font-size: 2.2rem/* 36px */;
-   line-height: 2.4rem;
-   color: white;
-   
-
-}
-.hero-subtitle{
-  color: #FFF;
-text-align: center;
-font-family: Montserrat;
-font-size: 62px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-letter-spacing: 1.44px;
-}
-
-.hero-btn {
-  margin-top: 20px;
-  width: 140px;
-  height: 50px;
-
-}
-
-/* Media query for small screens (e.g., phones) */
-@media (max-width: 576px) {
-  .hero-wrapper {
-    max-width: 90%;
-    gap: 0rem; /* Adjust the value as needed */
-  }
-
-  .hero-title {
-    font-size: 1.2rem;
-    line-height: 1.2rem;
-  }
-  .hero-description{
-    font-weight: 300;
-    line-height: 0.8rem; /* 24px / 16px */
-    letter-spacing: 0.18px;
-    font-size: 0.575rem;
-
-  }
-  .hero-btn {
-    width: 100px;
-    height: 30px;
-    align-items: center;
-    font-size: 0.5rem;
-  }
-}
-
-/* Media query for medium-sized screens (e.g., tablets) */
-@media (min-width: 577px) and (max-width: 768px) {
-  .hero-wrapper {
-    max-width: 80%;
-    gap: 0rem;
-  }
-  .hero-description{
-    font-weight: 400;
-    line-height: 0.8rem; /* 24px / 16px */
-    letter-spacing: 0.14px;
-    font-size: 0.775rem;
-
-  }
-  .hero-title {
-    font-size: 1.8rem;
-    line-height: 1.8rem;
-  }
-
-  .hero-btn {
-    width: 115px;
-    height: 38px;
-    font-size: 0.6rem;
-  }
-}
-
-/* Media query for medium-sized screens (landscape orientation) */
-@media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
-  .hero-wrapper {
-    max-width: 70%;
-    gap: 0rem;
-  }
-}
-
-/* Media query for large screens (e.g., laptops) */
-@media (min-width: 769px) and (max-width: 992px) {
-  .hero-wrapper {
-    max-width: 60%;
-    gap: 0.3rem;
-  }
-
-  .hero-title {
-    font-size: 2rem;
-    line-height: 1.95rem;
-  }
-
-  .hero-btn {
-    width: 160px;
-    height: 50px;
-    font-size: 0.9rem;
-  }
-}
-
-/* Media query for large screens (e.g., desktops) */
-@media (min-width: 993px) and (max-width: 1200px) {
-  .hero-wrapper {
-    max-width: 50%;
-    gap: 0.6rem;
-  }
-
-  .hero-title {
-    font-size: 1.8rem;
-    line-height: 2.2rem;
-  }
-
-  .hero-btn {
-    width: 180px;
-    height: 50px;
-    font-size: 1rem;
-  }
-}
-
-/* Media query for extra-large screens (e.g., large desktops) */
-@media (min-width: 1201px) {
-  .hero-wrapper {
-    max-width: 42rem;
-    
-  }
-}
 
 .labels{
   color: #7D7890;
@@ -1083,15 +1119,8 @@ font-weight: 300;
 line-height: normal;
 letter-spacing: 0.36px;
 }
-.service-summary{
-color: #262626;
-text-align: center;
-font-family: Poppins;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 28px; /* 175% */
-}
+
+
 .phases-desc{
   color: #FFF;
 font-family: Poppins;
