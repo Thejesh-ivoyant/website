@@ -11,7 +11,7 @@ const ClarityScript = () => {
     })(window, document, "clarity", "script", "kq7x3nyolo");
   }, []);
 
-  return null; // This component doesn't render anything
+  return null;
 };
 
 export default ClarityScript;

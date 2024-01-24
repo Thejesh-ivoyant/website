@@ -111,8 +111,8 @@ letter-spacing: 0.8px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-self: center;
     width: fit-content;
-    gap: 1rem; /* Adjust the gap as needed */
-    padding: 0.5rem; /* Adjust the padding as needed */
+    gap: 1.2rem; /* Adjust the gap as needed */
+    padding: 1rem; /* Adjust the padding as needed */
   }
  
 /* Media query for small screens (e.g., phones) */
