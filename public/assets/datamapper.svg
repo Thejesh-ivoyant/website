@@ -5,20 +5,20 @@
 <path d="M0.5 80.9935C16.2906 80.9935 34.9903 74.5947 44.7452 60.7502C52.6535 49.5367 62.2168 44.7399 81.5 44.7399V36.6855C66.7545 36.6855 49.7445 38.377 38.5613 54.244C29.7384 66.7641 14.7055 72.9391 0.5 72.9391V80.9935Z" fill="url(#paint3_radial_3673_52942)"/>
 <defs>
 <radialGradient id="paint0_radial_3673_52942" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(40.9993 58.8317) scale(32.4444 33.337)">
-<stop stopColor="#2B15D1"/>
-<stop offset="1" stopColor="#6762D9"/>
+<stop stop-color="#2B15D1"/>
+<stop offset="1" stop-color="#6762D9"/>
 </radialGradient>
 <radialGradient id="paint1_radial_3673_52942" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(11.9797 40.322) scale(83.1751 85.4633)">
-<stop stopColor="#2B15D1"/>
-<stop offset="1" stopColor="#6762D9"/>
+<stop stop-color="#2B15D1"/>
+<stop offset="1" stop-color="#6762D9"/>
 </radialGradient>
 <radialGradient id="paint2_radial_3673_52942" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(41.0035 22.1292) scale(45.4296 75.7747)">
-<stop stopColor="#2B15D1"/>
-<stop offset="1" stopColor="#6762D9"/>
+<stop stop-color="#2B15D1"/>
+<stop offset="1" stop-color="#6762D9"/>
 </radialGradient>
 <radialGradient id="paint3_radial_3673_52942" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(40.9993 58.8317) scale(32.4444 33.337)">
-<stop stopColor="#2B15D1"/>
-<stop offset="1" stopColor="#6762D9"/>
+<stop stop-color="#2B15D1"/>
+<stop offset="1" stop-color="#6762D9"/>
 </radialGradient>
 </defs>
 </svg>

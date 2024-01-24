@@ -181,9 +181,9 @@ const Service = () => {
           <ServiceContainer />
           <ProjectPortfolio />
         <IndustryFocus/>
-          {/* <Phases />
-          <ServiceCardContainer /> */}
-          {/* <Technologies /> */}
+          <Phases />
+          <ServiceCardContainer />
+          <Technologies />
           {/* <Consultation />
           <BlogPostsContainer /> */}
           <Outlet />

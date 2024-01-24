@@ -17,12 +17,12 @@ const ServiceCardContainer = () => {
         {loaderData.s6_serviceSummary}
       </p>
       <div className="w-full  flex flex-col p-4">
-        <div className="grid grid-cols-3 self-center h-fit gap-4 p-2">
+        <div className="service-grid-container">
           {loaderData.ServicesCard.map(
             (item: { id: React.Key | null | undefined }, index: any) => (
               <div
                 key={item.id}
-                className="grid col-span-1 w-96 aspect-square object-cover"
+                className="custom-service-grid "
               >
                 <ServiceCard service={item} />
               </div>
