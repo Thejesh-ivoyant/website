@@ -180,10 +180,10 @@ const Service = () => {
       
           <ServiceContainer />
           <ProjectPortfolio />
-        {/* <IndustryFocus/> */}
-          {/* <Phases />
-          <ServiceCardContainer /> */}
-          {/* <Technologies /> */}
+        <IndustryFocus/>
+          <Phases />
+          <ServiceCardContainer />
+          <Technologies />
           {/* <Consultation />
           <BlogPostsContainer /> */}
           <Outlet />
