@@ -9,7 +9,6 @@ export default function Tabs({tabContents}:{tabContents: TabContent[]}) {
     setActiveButton(item);
   };
   useEffect(()=>{
-    console.log(JSON.stringify(tabContents,null,2))
       setActiveButton(tabContents[0])
   }, [tabContents])
   return (
