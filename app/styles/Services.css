@@ -113,8 +113,8 @@ letter-spacing: 0.8px;
     width: fit-content;
     gap: 1rem; /* Adjust the gap as needed */
     padding: 0.5rem; /* Adjust the padding as needed */
-  
-}
+  }
+ 
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
   .portfolio-text{
