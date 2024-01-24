@@ -8,12 +8,12 @@ const ServiceCardContainer = () => {
   return (
     <div className="w-full bg-[#F9F8FC]">
       <div className="text-PurpBlue text-4xl  w-full justify-center flex flex-col items-center text-center py-6 gradient-bottom">
-        <span className="h-fit whitespace-nowrap font-montserrat font-semibold flex ">
+        <span className="h-fit whitespace-wrap font-montserrat font-semibold flex ">
           {loaderData.s6_serviceTitle}
         </span>
       </div>
 
-      <p className="h-fit mt-2 font-montserrat flex flex-wrap service-summary lg:w-[720px] text-center mx-auto">
+      <p className="h-fit mt-2 font-montserrat flex flex-wrap service-summary lg:w-[720px] text-center mx-auto pl-2 pr-2">
         {loaderData.s6_serviceSummary}
       </p>
       <div className="w-full  flex flex-col p-4">

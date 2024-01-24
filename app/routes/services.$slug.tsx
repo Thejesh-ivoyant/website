@@ -184,8 +184,8 @@ const Service = () => {
           <Phases />
           <ServiceCardContainer />
           <Technologies />
-          {/* <Consultation />
-          <BlogPostsContainer /> */}
+          <Consultation />
+          <BlogPostsContainer />
           <Outlet />
         </Await>
       </Suspense>
