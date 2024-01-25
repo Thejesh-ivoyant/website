@@ -1788,12 +1788,12 @@ hr {
 .service-description {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease-out;
+  transition: max-height 2s;
 }
 
 .service-description.open {
   max-height: fit-content;
-  transition: max-height 0.5s ease-in-out;
+  transition: max-height 2s;
 }
 
 .service-title {
