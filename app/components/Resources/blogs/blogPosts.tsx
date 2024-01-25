@@ -2,7 +2,7 @@ import IBlogMedia from "~/interfaces/IBlogMedia";
 
 const BlogPostCard = ({ blog }: { blog: IBlogMedia }) => {
   return (
-    <div className="blog-card flex flex-col w-full h-full overflow-hidden pb-2 cursor-pointer">
+    <div className="blog-card  flex flex-col w-full h-full overflow-hidden pb-2 cursor-pointer" >
       <div className="w-full h-60">
         <img
         alt="blog-image"
@@ -10,11 +10,11 @@ const BlogPostCard = ({ blog }: { blog: IBlogMedia }) => {
           className="w-full h-full object-cover"
         ></img>
       </div>
-      <div className="h-fit w-full text-white flex-col p-4 flex justify-between gap-y-6">
+      <div className="h-full w-full text-white flex-col p-4 flex justify-between ">
         <div className="flex font-montserrat text-xl font-medium" style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
           {blog.title}
         </div>
-        <div className="h-fit w-full flex flex-row justify-between mt-auto font-poppins font-light tracking-wide text-xs ">
+        <div className="h-fit w-full flex flex-row justify-between  font-poppins font-light tracking-wide text-xs ">
           <div className="flex capitalize">By {blog?.author.name}</div>
           <div className="flex gap-x-2">
             <svg

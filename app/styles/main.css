@@ -169,14 +169,14 @@ body.scrolled #scrollToTopBtn {
   text-align: center;
 }
 
-.card-title {
+.card-title{
   color: #fff;
   font-family: Montserrat;
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.4px;
-  text-align: center;
+ 
 }
 .card-desc {
   color: #fff;
@@ -2161,6 +2161,9 @@ hr {
 .screen-height {
   height: calc(100vh - 4.5rem);
   margin-top: 4.5rem;
+}
+.screen-height-section{
+  height: calc(100vh - 4.5rem);
 }
 
 .gradient-mesh {

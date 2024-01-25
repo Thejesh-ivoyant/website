@@ -5,7 +5,7 @@ const BlogPostsContainer = () => {
   const loaderData = useLoaderData() as any;
   
   return (
-    <div className="w-full bg-white p-8 h-fit ">
+    <div className="w-full bg-white pb-8 h-fit">
       <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
         <span className="section-title">
         Whats new in our blogs
@@ -13,9 +13,11 @@ const BlogPostsContainer = () => {
       </div>
       
       <div className="w-full h-fit p-2 relative flex flex-row justify-around">
-        <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="ornament" />
+        <img src="../assets/Ornament.png" className="absolute top-4 left-4 -z-20" alt="ornament" />
       <div className="service-grid-container" style={{ 
-      gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+      paddingLeft: '4rem',
+      paddingRight: '4rem',
+      gap: '1rem'
       
     }}>
   
