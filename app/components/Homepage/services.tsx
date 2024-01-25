@@ -45,8 +45,9 @@ const Services = ({attributes}:{attributes:Attributes}) => {
       <div className="text-center text-violet-200 text-base font-normal font-poppins p-4 lg:mx-40">
         {attributes.serviceDescription}
       </div>
-      <div className="w-fit flex flex-row h-min services-gradient place-self-end lg:my-8 ml-10 cursor-pointer">
-        <div className="float-right w-fit flex flex-col overflow-y-auto items-center p-4 py-8 font-poppins cursor-pointer">
+      <div className="w-fit flex flex-row h-min  place-self-end lg:my-8 ml-10 cursor-pointer">
+      
+        <div className="float-right  w-fit flex flex-col overflow-y-auto items-center p-4  py-8 font-poppins cursor-pointer">
           {servicesArray.map((service: any) => (
             <div
               key={service.id}
@@ -71,8 +72,9 @@ const Services = ({attributes}:{attributes:Attributes}) => {
             </div>
           ))}
         </div>
+<div className="flex w-[60%] lg:h-[600px]">
 
-        <figure className="flex object-contain lg:h-[600px] lg:max-w-[52rem] xl:w-[63rem] relative service-img">
+        <figure className="flex object-contain  lg:max-w-[52rem] xl:w-[63rem] relative service-img">
           
           <img
             className="w-full h-full object-cover"
@@ -109,6 +111,8 @@ const Services = ({attributes}:{attributes:Attributes}) => {
             </figcaption>
           </div>
         </figure>
+</div>
+
       </div>
     </div>
   );

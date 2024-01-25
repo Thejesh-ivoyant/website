@@ -105,15 +105,36 @@ letter-spacing: 0.8px;
     object-fit: cover;
   
 }
+.blog-container-property{
+  padding-right: 4rem;
+  padding-left: 4rem;
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-self: center;
+  width: fit-content;
+/* Adjust the gap as needed */
+  padding: 1rem;
+    overflow-x: auto; /* Add this line to enable horizontal scrolling */
+  white-space: nowrap;
+}
+.service-container-property{
+  gap: 1.2rem; 
+  padding-left: 5rem; 
+  padding-right: 5rem;
+}
+
 .service-grid-container{
   
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-self: center;
     width: fit-content;
-    gap: 1rem; /* Adjust the gap as needed */
-    padding: 0.5rem; /* Adjust the padding as needed */
+/* Adjust the gap as needed */
+    padding: 1rem;
+   /* Adjust the padding as needed */
   }
+  
  
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
@@ -165,11 +186,16 @@ letter-spacing: 0.8px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-self: center;
   width: fit-content;
-  gap: 1rem; /* Adjust the gap as needed */
-  padding: 0.5rem; /* Adjust the padding as needed */
+  /* Adjust the gap as needed */
+  padding: 0.5rem;
+ /* Adjust the padding as needed */
 
 }
-
+.service-container-property{
+  gap: 1rem;
+  padding-left: 1rem; 
+  padding-right: 1rem;
+}
 }
 
 /* Media query for medium-sized screens (e.g., tablets) */
@@ -224,9 +250,16 @@ letter-spacing: 0.8px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-self: center;
   width: fit-content;
-  gap: 1rem; /* Adjust the gap as needed */
+ /* Adjust the gap as needed */
   padding: 0.5rem; /* Adjust the padding as needed */
 
+}
+
+
+.service-container-property{
+  gap: 1rem;
+  padding-left: 1.2rem; 
+  padding-right: 1.2rem;
 }
 }
 
