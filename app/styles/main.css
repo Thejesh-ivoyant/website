@@ -2184,7 +2184,7 @@ hr {
 
 .logos {
   overflow: hidden;
-  padding: 60px 0;
+margin: 60px;
   background: white;
   white-space: nowrap;
   position: relative;
