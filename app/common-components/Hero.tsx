@@ -21,7 +21,6 @@ const Hero = () => {
         </div>
         <button className="btn hero-btn"  onClick={() => scrollToSection('contact-us')}>Let's Talk</button>
       </div>
-      <Outlet />
     </section>
   );
 };
