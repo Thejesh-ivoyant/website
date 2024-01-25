@@ -12,14 +12,9 @@ const BlogPostsContainer = () => {
         </span>
       </div>
       
-      <div className="w-full h-fit p-2 relative flex flex-row justify-around">
+      <div className="w-full h-fit p-2 overflow-x-auto whitespace-nowrap flex flex-row justify-around">
         <img src="../assets/Ornament.png" className="absolute top-4 left-4 -z-20" alt="ornament" />
-      <div className="service-grid-container" style={{ 
-      paddingLeft: '4rem',
-      paddingRight: '4rem',
-      gap: '1rem'
-      
-    }}>
+  <div className="blog-container-property" >
   
         {loaderData.blogData.map((blog:IBlogMedia) => (
            <Link to={`../resources/blog/${blog.id}`} key={blog.id}>

@@ -1447,12 +1447,6 @@ hr {
   border-left-style: solid; /* Set the left border style to solid */
 }
 
-.services-gradient {
-  background: var(
-    --linear-card,
-    linear-gradient(180deg, #360e81 0%, #20084d 100%)
-  );
-}
 .service-list {
   width: 500px;
   font-size: 1.125rem;

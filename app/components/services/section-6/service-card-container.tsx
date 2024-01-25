@@ -17,7 +17,7 @@ const ServiceCardContainer = () => {
         {loaderData.s6_serviceSummary}
       </p>
       <div className="w-full pl-6 pr-6 flex flex-col p-4">
-        <div className="service-grid-container">
+        <div className="service-grid-container service-container-property">
           {loaderData.ServicesCard.map(
             (item: { id: React.Key | null | undefined }, index: any) => (
               <div
