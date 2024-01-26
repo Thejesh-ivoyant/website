@@ -11,7 +11,7 @@ const BlogPostCard = ({ blog }: { blog: IBlogMedia }) => {
         ></img>
       </div>
       <div className="h-full w-full text-white flex-col p-4 flex justify-between ">
-        <div className="flex font-montserrat text-xl font-medium" style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
+        <div className="flex card-title" style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
           {blog.title}
         </div>
         <div className="h-fit w-full flex flex-row justify-between  font-poppins font-light tracking-wide text-xs ">

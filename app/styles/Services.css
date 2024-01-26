@@ -96,28 +96,8 @@ justify-content: center;
 line-height: 60px; /* 150% */
 letter-spacing: 0.8px;
 }
-.custom-service-grid{
 
-    display: grid;
-    grid-column: span 1;
-    width: auto;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-  
-}
-.blog-container-property{
-  padding-right: 4rem;
-  padding-left: 4rem;
-  gap: 1rem;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-self: center;
-  width: fit-content;
-/* Adjust the gap as needed */
-  padding: 1rem;
-    overflow-x: auto; /* Add this line to enable horizontal scrolling */
-  white-space: nowrap;
-}
+
 .service-container-property{
   gap: 1.2rem; 
   padding-left: 5rem; 
@@ -172,14 +152,7 @@ letter-spacing: 0.8px;
   .service-points-container{
     flex-direction: column;
   }
-  .custom-service-grid{
-
-    display: grid;
-    grid-column: span 1;
-    width: auto;
-    aspect-ratio: 1/1;
-   
-}
+  
 .service-grid-container{
   
   display: grid;
@@ -236,14 +209,7 @@ letter-spacing: 0.8px;
   .service-points-container{
     flex-direction: column;
   }
-  .custom-service-grid{
-
-    display: grid;
-    grid-column: span 1;
-    width: auto;
-    aspect-ratio: 1/1;
-   
-}
+  
 .service-grid-container{
   
   display: grid;
@@ -291,14 +257,7 @@ letter-spacing: 0.8px;
     justify-content: space-around; /* Assuming 'bg-haiti' is a custom color */
     height: 20rem;
   }
-  .custom-service-grid{
-
-    display: grid;
-    grid-column: span 1;
-    width: auto;
-    aspect-ratio: 1/1;
-   
-}
+  
 }
 
 /* Media query for large screens (e.g., desktops) */
