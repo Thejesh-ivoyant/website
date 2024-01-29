@@ -6,7 +6,7 @@ const ServiceCardContainer = () => {
   const loaderData = useLoaderData() as any;
 
   return (
-    <div className="service-section container " >
+    <div className="service-section-container " >
       <div className="w-full justify-center flex flex-col flex-wrap items-center text-center py-6 gradient-bottom">
         <span className="section-title">
           {loaderData.s6_serviceTitle}
