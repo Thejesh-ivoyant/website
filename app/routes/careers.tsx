@@ -154,7 +154,7 @@ const Careers = () => {
  
    <Hero />
        
-       {/* <Why_Join_Us /> */}
+       <Why_Join_Us />
        <JobCards />
        <JoinUsCardContainer />
        <Outlet />
