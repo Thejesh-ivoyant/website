@@ -1905,45 +1905,7 @@ hr {
   ); /* Adjust values for desired skew */
 }
 
-.tabs-btn {
-  color: #000;
-  font-family: Poppins;
-  font-size: 1.2rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.125rem;
-  letter-spacing: 0.025rem;
-  background-color: white;
-  white-space: nowrap;
-  display: flex;
-  width: 17.75rem;
-  padding: 1.5rem;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 0.625rem;
-  flex: 1 0 0;
-}
-.tabs-btn-active {
-  background-color: transparent;
-  font-weight: 600;
-  font-style: italic;
-}
-.tab-content {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex: 1 0 0;
-  align-self: stretch;
-}
-.tab-container {
-  background: linear-gradient(
-    100deg,
-    #ceafff 0.27%,
-    rgba(213, 187, 255, 0.24) 33.83%,
-    rgba(255, 255, 255, 0) 82.63%
-  );
-}
+
 .product-card-img {
   display: flex;
   padding: 3.125rem;
