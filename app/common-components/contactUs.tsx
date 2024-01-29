@@ -180,7 +180,7 @@ const ContactUs = () => {
     <>
       <section
         id="contact-us"
-        className="w-full h-fit bg-cover bg-center flex font-montserrat overflow-hidden"
+        className="w-full h-fit bg-cover bg-center flex  contact-container justify-center items-center font-montserrat overflow-hidden"
       >
         <div className="flex flex-col flex-1 bg-haiti p-10">
           <div className="flex flex-col w-fit mx-auto">

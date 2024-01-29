@@ -92,7 +92,7 @@ const Hero = ({
           </div>
 
           <button
-            className="hue-btn-primary btn hero-btn  "
+            className="hue-btn-primary  hero-btn "
             onClick={() => scrollToSection("contact-us")}
           >
             Let's Talk
