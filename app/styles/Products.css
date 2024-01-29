@@ -32,6 +32,25 @@
   }
 
   @media (min-width: 1280px) { 
+    .product-card-img {
+      display: flex;
+      padding: 3.125rem;
+      width: 15rem;
+      aspect-ratio: 1/1;
+      justify-content: center;
+      align-items: center;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0px 40px 80px 0px rgba(0, 0, 0, 0.1),
+        4px 4px 26px 0px rgba(255, 255, 255, 0.25) inset,
+        0px 4px 2px 0px rgba(255, 255, 255, 0.25) inset,
+        0px -4px 2px 0px rgba(0, 0, 0, 0.05) inset;
+      color: #1b0b95;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
     .ant-carousel .slick-dots-bottom {
       margin-left: -40%;
       position: relative;
@@ -41,6 +60,65 @@
     }
    }
    @media (min-width: 1024px) { 
+    .tabs-btn {
+      color: #000;
+      font-family: Poppins;
+      font-size: 1.2rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.125rem;
+      letter-spacing: 0.025rem;
+      background-color: white;
+      white-space: nowrap;
+      display: flex;
+      width: 17.75rem;
+      padding: 1.5rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0.625rem;
+      flex: 1 0 0;
+    }
+    .tabs-btn-active {
+      background-color: transparent;
+      font-weight: 600;
+      font-style: italic;
+    }
+    .tab-content {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex: 1 0 0;
+      align-self: stretch;
+    }
+    .tab-container {
+      background: linear-gradient(
+        100deg,
+        #ceafff 0.27%,
+        rgba(213, 187, 255, 0.24) 33.83%,
+        rgba(255, 255, 255, 0) 82.63%
+      );
+    }
+    .product-card-img {
+      display: flex;
+      padding: 3.125rem;
+      width: 15rem;
+      aspect-ratio: 1/1;
+      justify-content: center;
+      align-items: center;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0px 40px 80px 0px rgba(0, 0, 0, 0.1),
+        4px 4px 26px 0px rgba(255, 255, 255, 0.25) inset,
+        0px 4px 2px 0px rgba(255, 255, 255, 0.25) inset,
+        0px -4px 2px 0px rgba(0, 0, 0, 0.05) inset;
+      color: #1b0b95;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    
     .ant-carousel .slick-dots-bottom {
       margin-left: -40%;
       position: relative;
@@ -58,6 +136,8 @@
     }
   }
   @media (min-width: 768px) { 
+    /* tabres */
+    
     .ant-carousel .slick-dots-bottom {
       margin-left: -40%;
       position: relative;
@@ -110,7 +190,7 @@
     flex-wrap: wrap;
   }
  }
- @media (max-width: 48rem) { 
+ @media (max-width: 48rem){
   .prod-abt-us-btn{
     color: #1B0740;
     margin-right:auto;
@@ -129,5 +209,49 @@
     gap: 0.625rem;
     border: 2px solid var(--CardDark, #360E81);
   }
-  
+ }
+ @media (max-width: 63.938rem) { 
+  .product-card-img {
+    display: none !important;
+  }
+  .product-card-sm-img{
+    display: flex;
+    font-size: 0.75rem;
+    aspect-ratio: 1/1;
+    width: 7rem;
+    height: 7rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0px 40px 80px 0px rgba(0, 0, 0, 0.1),
+      4px 4px 26px 0px rgba(255, 255, 255, 0.25) inset,
+      0px 4px 2px 0px rgba(255, 255, 255, 0.25) inset,
+      0px -4px 2px 0px rgba(0, 0, 0, 0.05) inset;
+    color: #1b0b95;
+    font-family: Montserrat;
+    font-style: normal;
+    line-height: normal;
+  }
+  .tabs-btn-active {
+    display: flex;
+    padding: 0.25rem 0.5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.125rem;
+    border: 1px solid #D8C2FA;
+    background: linear-gradient(91deg, #D8C2FA -8.18%, rgba(216, 194, 250, 0.30) 70.04%, rgba(216, 194, 250, 0.00) 120.39%) !important;
+    font-weight: 600;
+  }
+  .tabs-btn {
+    display: flex;
+    padding: 0.25rem 0.5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.125rem;
+    border: 1px solid #D8C2FA;
+    background: #FFF;
+  }
  }
