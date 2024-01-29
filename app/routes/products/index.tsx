@@ -10,6 +10,7 @@ import { Technologies } from "~/components/products/technologies";
 import { Attributes, TabContent } from "~/interfaces/ProductsPage";
 import ProductStyle from '~/styles/Products.css'
 import { LinksFunction } from "@remix-run/node";
+import Consultation from "~/components/Homepage/consultation";
 
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:ProductStyle}
@@ -50,7 +51,7 @@ export default function Index() {
   return (
     <>
       <Hero carousel={data?.sortedCarousels}/>
-      <Section2 />
+      <Consultation/>
       <Tabs tabContents={data?.sortedTabContents}/>
       <Pairs/>
       <Technologies title={attributes.techTitle} pairs={attributes.technologies} />

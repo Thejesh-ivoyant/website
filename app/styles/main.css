@@ -196,6 +196,7 @@ body.scrolled #scrollToTopBtn {
   height: 16.875rem;
   padding: 5.91rem;
   justify-content: space-between;
+  z-index:1;
 }
 
 .consulation-tagline{
@@ -1891,6 +1892,7 @@ hr {
 }
 
 .skew-container {
+  height: 100%;
   clip-path: polygon(
     20% 0,
     100% 0,

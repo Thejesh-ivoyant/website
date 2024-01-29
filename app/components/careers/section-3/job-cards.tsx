@@ -65,8 +65,9 @@ const handleFilterAndSearchDown = async () =>{
     <div className="technology-section py-16">
       <section className="heading gradient-bottom">
         <h2>{loaderData.s3_title}</h2>
+        <p className="sub-details">"Email your resume/CV with the job code mentioned above to jobs@ivoyant.com and let us help you discover a great career"!</p>
       </section>
-      <div className="flex w-full font-montserrat justify-center gap-2 h-12 mt-2 mb-2 px-[140px]">
+      <div className="filter flex w-full font-montserrat justify-center gap-2 h-12 mt-2 mb-2 px-[140px]">
         <div className="flex flex-col gap-1 ">
           <div className="flex">
             <label className="text-haiti font-normal">Filter by:</label>
