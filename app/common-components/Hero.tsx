@@ -19,7 +19,7 @@ const Hero = () => {
           {loaderData.heroDescription}
           </span>
         </div>
-        <button className="btn hero-btn"  onClick={() => scrollToSection('contact-us')}>Let's Talk</button>
+        <button className="btn  hero-btn"  onClick={() => scrollToSection('contact-us')}>Let's Talk</button>
       </div>
     </section>
   );

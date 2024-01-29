@@ -478,9 +478,9 @@ width: 48.9375rem;
   }
 }
 
-.btn {
+.btn{
   display: flex;
-  height: 36px;
+  height: 50px;
   padding: 0px 12px;
   justify-content: center;
   align-items: center;
@@ -493,6 +493,7 @@ width: 48.9375rem;
   letter-spacing: 0.28px;
   text-transform: uppercase;
   background: linear-gradient(135deg, #6c39db 0.62%, #1c083e 100%);
+  
 }
 
 .ant-drawer-header {
@@ -1744,6 +1745,9 @@ hr {
   font-family: Montserrat;
   font-weight: 500;
 }
+.ant-modal-footer{
+  display: none !important;
+}
 .moving-bg {
   background: url("/assets/blob3.svg") no-repeat;
   object-fit: contain;
@@ -2159,10 +2163,12 @@ hr {
   text-transform: uppercase;
   background: linear-gradient(45deg, #6c39db 0.62%, #1c083e 100%) 0 0 / 200%
     100% no-repeat;
-
   border: none;
   background-position: 100% 0%;
   animation: shade-movement 4s linear infinite;
+
+
+
 }
 
 .fade-in {

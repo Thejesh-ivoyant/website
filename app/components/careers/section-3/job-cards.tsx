@@ -67,7 +67,7 @@ const handleFilterAndSearchDown = async () =>{
         <h2>{loaderData.s3_title}</h2>
         <p className="sub-details">"Email your resume/CV with the job code mentioned above to jobs@ivoyant.com and let us help you discover a great career"!</p>
       </section>
-      <div className="filter flex w-full font-montserrat justify-center gap-2 h-12 mt-2 mb-2 px-[140px]">
+      <div className="filter flex w-full font-montserrat justify-center gap-2 h-12 mt-2 mb-2 px-28">
         <div className="flex flex-col gap-1 ">
           <div className="flex">
             <label className="text-haiti font-normal">Filter by:</label>
@@ -77,7 +77,7 @@ const handleFilterAndSearchDown = async () =>{
         
             <select
               style={{
-                width: "190px",
+           
                 borderRadius: "2px",
                 border: "0.5px solid #1B0740",
               }}
@@ -101,7 +101,7 @@ const handleFilterAndSearchDown = async () =>{
             
             <select
               style={{
-                width: "190px",
+              
                 borderRadius: "2px",
                 border: "0.5px solid #1B0740",
               }}
@@ -124,7 +124,7 @@ const handleFilterAndSearchDown = async () =>{
 
             <select
               style={{
-                width: "190px",
+              
                 borderRadius: "2px",
                 border: "0.5px solid #1B0740",
               }}
@@ -147,7 +147,7 @@ const handleFilterAndSearchDown = async () =>{
 
             <select
               style={{
-                width: "190px",
+               
                 borderRadius: "2px",
                 border: "0.5px solid #1B0740",
               }}
@@ -203,7 +203,7 @@ const handleFilterAndSearchDown = async () =>{
 
         {/* Tag select */}
       </div>
-      <section className="px-4 py-8 ">
+      <section className=" py-8 ">
         <div className="flex flex-col space-y-4 py-4 relative">
           {/* <img
             src="../assets/Ornament.png"
