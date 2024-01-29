@@ -4,6 +4,7 @@ const Description = () => {
   const loaderData = useLoaderData() as any;
 
   return (
+    
     <div className="flex lg:w-1/2 bg-[#F9F8FC] w-full md:px-12 xl:px-24 lg:px-14 px-14 text-black font-[500px] justify-center items-center py-8">
       <div className="flex flex-col gap- lg:gap-10 w-full h-fit">
         <div className="leading-10 text-4xl md:text-[36px] py-4 font-montserrat font-medium">

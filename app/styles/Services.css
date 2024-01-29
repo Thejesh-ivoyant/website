@@ -96,25 +96,26 @@ justify-content: center;
 line-height: 60px; /* 150% */
 letter-spacing: 0.8px;
 }
-.custom-service-grid{
 
-    display: grid;
-    grid-column: span 1;
-    width: auto;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-  
+
+.service-container-property{
+  gap: 1.2rem; 
+  padding-left: 5rem; 
+  padding-right: 5rem;
 }
+
 .service-grid-container{
   
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-self: center;
     width: fit-content;
-    gap: 1rem; /* Adjust the gap as needed */
-    padding: 0.5rem; /* Adjust the padding as needed */
+/* Adjust the gap as needed */
+    padding: 1rem;
+   /* Adjust the padding as needed */
+  }
   
-}
+ 
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
   .portfolio-text{
@@ -151,25 +152,23 @@ letter-spacing: 0.8px;
   .service-points-container{
     flex-direction: column;
   }
-  .custom-service-grid{
-
-    display: grid;
-    grid-column: span 1;
-    width: auto;
-    aspect-ratio: 1/1;
-   
-}
+  
 .service-grid-container{
   
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-self: center;
   width: fit-content;
-  gap: 1rem; /* Adjust the gap as needed */
-  padding: 0.5rem; /* Adjust the padding as needed */
+  /* Adjust the gap as needed */
+  padding: 0.5rem;
+ /* Adjust the padding as needed */
 
 }
-
+.service-container-property{
+  gap: 1rem;
+  padding-left: 1rem; 
+  padding-right: 1rem;
+}
 }
 
 /* Media query for medium-sized screens (e.g., tablets) */
@@ -210,23 +209,23 @@ letter-spacing: 0.8px;
   .service-points-container{
     flex-direction: column;
   }
-  .custom-service-grid{
-
-    display: grid;
-    grid-column: span 1;
-    width: auto;
-    aspect-ratio: 1/1;
-   
-}
+  
 .service-grid-container{
   
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-self: center;
   width: fit-content;
-  gap: 1rem; /* Adjust the gap as needed */
+ /* Adjust the gap as needed */
   padding: 0.5rem; /* Adjust the padding as needed */
 
+}
+
+
+.service-container-property{
+  gap: 1rem;
+  padding-left: 1.2rem; 
+  padding-right: 1.2rem;
 }
 }
 
@@ -258,14 +257,7 @@ letter-spacing: 0.8px;
     justify-content: space-around; /* Assuming 'bg-haiti' is a custom color */
     height: 20rem;
   }
-  .custom-service-grid{
-
-    display: grid;
-    grid-column: span 1;
-    width: auto;
-    aspect-ratio: 1/1;
-   
-}
+  
 }
 
 /* Media query for large screens (e.g., desktops) */
