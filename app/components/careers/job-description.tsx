@@ -117,35 +117,35 @@ const { Option } = Select;
           <div className="text-black text-base leading-6 self-stretch w-full mt-6 max-md:max-w-full">
       {loaderData.summary}
           </div>
-          <div className="text-black text-lg font-semibold whitespace-nowrap mt-6 self-start max-md:max-w-full">
+          <div className="text-black text-lg font-semibold  mt-6 self-start max-md:max-w-full">
      {loaderData.s1_title}
           </div>
           {loaderData.s1_points.map((item: any) => (
-          <div className="text-black text-base whitespace-nowrap mt-4 self-start max-md:max-w-full">
+          <div className="text-black text-base mt-4 self-start max-md:max-w-full">
             <ul>
               <li>{item.description}</li>
             </ul>
           </div>
           ))}
           
-          <div className="text-black text-lg font-semibold whitespace-nowrap mt-5 self-start max-md:max-w-full">
+          <div className="text-black text-lg font-semibold  mt-5 self-start max-md:max-w-full">
      {loaderData.s2_title}
           </div>
          
           
           {loaderData.s2_points.map((item: any) => (
-          <div className="text-black text-base whitespace-nowrap mt-4 self-start max-md:max-w-full">
+          <div className="text-black text-base  mt-4 self-start max-md:max-w-full">
             <ul>
               <li>{item.description}</li>
             </ul>
           </div>
           ))}
 
-          <div className="text-black text-lg font-semibold whitespace-nowrap mt-5 self-start">
+          <div className="text-black text-lg font-semibold mt-5 self-start">
      {loaderData.s3_title}
           </div>
           {loaderData.s3_points.map((item: any) => (
-          <div className="text-black text-base whitespace-nowrap mt-4 self-start max-md:max-w-full">
+          <div className="text-black text-base mt-4 self-start max-md:max-w-full">
             <ul>
               <li>{item.description}</li>
             </ul>
@@ -176,7 +176,7 @@ const { Option } = Select;
  <Form onSubmit={handleSubmit} method="post" encType="multipart/form-data">
   <div className="items-start bg-white flex flex-col py-8 px-2">
     <div className="justify-between self-stretch flex gap-5 items-start max-md:max-w-full max-md:flex-wrap">
-      <div className="text-black text-3xl font-semibold grow whitespace-nowrap">
+      <div className="text-black text-3xl font-semibold grow ">
         Internship Application Form
       </div>
       <div className="items-center self-stretch flex aspect-square flex-col justify-center">
@@ -188,10 +188,10 @@ alt="close"
         />
       </div>
     </div>
-    <div className="text-black text-lg font-semibold self-stretch whitespace-nowrap mt-11 max-md:max-w-full max-md:mt-10">
+    <div className="text-black text-lg font-semibold self-stretch  mt-11 max-md:max-w-full max-md:mt-10">
       Personal Information
     </div>
-    <div className="text-neutral-800 text-xs self-stretch whitespace-nowrap mt-8 max-md:max-w-full">
+    <div className="text-neutral-800 text-xs self-stretch  mt-8 max-md:max-w-full">
       Name
     </div>
     <input
@@ -200,7 +200,7 @@ alt="close"
       required
       className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
     />
-    <div className="text-neutral-800 text-xs self-stretch whitespace-nowrap mt-4 max-md:max-w-full">
+    <div className="text-neutral-800 text-xs self-stretch  mt-4 max-md:max-w-full">
       Email
     </div>
     <input
@@ -244,15 +244,7 @@ alt="close"
           <div className="text-neutral-800 text-xs whitespace-nowrap">
             From
           </div>
-          <div className="search">
-          <img
-      loading="lazy"
-      src="https://cdn.builder.io/api/v1/image/assets/TEMP/0118f903c2f12f99dc850b1a8f285e554023cfbd6ff78abb939a09b41b4d5f96?apiKey=9e16588387084fb2a9a51a1b99489136&"
-      className="aspect-square object-contain object-center w-5 overflow-hidden max-w-full"
-    />
-          <input className="searchicon" type="text" placeholder="Search" />
-          
-        </div>
+        
           <input
           name="FromDate"
             type="date"
@@ -298,11 +290,11 @@ alt="close"
     </div>
     <div
       {...getRootProps()}
-      className={`flex flex-col gap-1 text-black text-sm text-center border-[color:var(--gray-gray-7,#8C8C8C)] bg-violet-700 bg-opacity-10 self-stretch items-center mt-8 pt-6 pb-1 px-16 border-[0.5px] border-dashed max-md:max-w-full max-md:px-5`}
+      className={`flex flex-col gap-1 text-black text-sm text-centery-gray-7 drop-zone self-stretch items-center mt-8 pt-6 pb-1 px-16 border-[0.5px] border-dashed max-md:max-w-full max-md:px-5`}
     >
       <label htmlFor="hire_attachment" style={{ cursor: "pointer" }}>
         <FileAddOutlined className="bg-[#AF99DD] rounded-full p-2 text-black mr-2" />
-        Upload resume
+        Upload resume or just drop it here
       </label>
       
       <input {...getInputProps()} type="file" name="hire_attachment" style={{ display: "none" }} />
@@ -315,10 +307,10 @@ alt="close"
         </div>
       )}
     </div>
-    <div className="text-black text-lg font-semibold whitespace-nowrap mt-8 self-start">
+    <div className="text-black text-lg font-semibold mt-8 self-start">
       Message to Hiring Manager
     </div>
-    <div className="text-zinc-600 text-sm whitespace-nowrap mt-2 self-start">
+    <div className="text-zinc-600 text-sm mt-2 self-start">
       Let the Company know your interest working there
     </div>
     <textarea
