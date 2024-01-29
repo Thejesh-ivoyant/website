@@ -25,7 +25,9 @@ export default {
         'nav-dark': '#1C0F38',
         'slate': '#F9F8FC',
         'light-indigo': '#7A4BD3',
-        'link-pink': '#E0D4FF'
+        'link-pink': '#E0D4FF',
+        'light-brown': '#4B4851',
+        'title-black': '#0B021D'
       },
       fontFamily:{
         poppins : ['Poppins'],
