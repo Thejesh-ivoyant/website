@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./sidebar";
-import { Form, Link, useRouteLoaderData } from "@remix-run/react";
+import { Form, Link, useMatch, useRouteLoaderData } from "@remix-run/react";
 import { Modal } from "antd";
 
 import ivurl from '../../public/assets/ivoyant.svg';
 import defaultsvg from '../../public/assets/default.svg';
 import { success,errorMessage } from "~/utils/notifications";
 const Nav = () => {
+  const Blogmatched = useMatch("/resources/blog/:id");
+  const isBlogRoute = Blogmatched !== null;
+  const CaseStudymatched = useMatch("/resources/case-study/:id");
+  const CaseStudyRoute = CaseStudymatched !== null;
+  
   const navdata = useRouteLoaderData("root") as any;
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [key, setKey] = useState(0);
@@ -324,13 +329,14 @@ const Nav = () => {
             </div>
           </div>
         </div>
+        {isBlogRoute || CaseStudyRoute ? (
         <div className="progress-container pt-2">
           <div
             className="progress-bar"
             id="myBar"
             style={{ width: `${scrollProgress}%` }}
           ></div>
-        </div>
+        </div>):(<div></div>)}
       </nav>
 
     </div>
