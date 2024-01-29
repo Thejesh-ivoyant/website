@@ -9,6 +9,12 @@ import JoinUsCardContainer from "~/components/careers/section-4/join-us-card-con
 import LoadingTest from "~/common-components/loading-test";
 import Hero from "~/common-components/Hero";
 import { Daum } from "~/interfaces/CategoriesType";
+import { LinksFunction } from "@remix-run/node";
+import CompanyStyle from '~/styles/company.css'
+
+export const links: LinksFunction = () => [
+  {rel:"stylesheet", href:CompanyStyle}
+];
 
 export const meta: MetaFunction = () => {
   return [
@@ -148,7 +154,7 @@ const Careers = () => {
  
    <Hero />
        
-       <Why_Join_Us />
+       {/* <Why_Join_Us /> */}
        <JobCards />
        <JoinUsCardContainer />
        <Outlet />

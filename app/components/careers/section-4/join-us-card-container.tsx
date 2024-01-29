@@ -13,7 +13,7 @@ const JoinUsCardContainer = () => {
 
      
       <div className="w-full  flex flex-col p-4">
-        <div className="flex justify-between flex-row self-center h-fit gap-8 p-2">
+        <div className="flex  flex-row justify-center h-fit gap-[7.38rem] py-10 ">
           {loaderData.DescriptionCard.map(
             (item: { id: React.Key | null | undefined }, index: any) => (
               <div
