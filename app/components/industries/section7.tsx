@@ -4,12 +4,12 @@ const Section7 = () => {
   const loaderData = useLoaderData() as any;
 
   return (
-    <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white p-10 gap-8">
-      <h1 className="text-HeaderGray font-montserrat text-5xl font-semibold">
+    <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-2 lg:px-5 py-10 gap-8">
+      <h1 className="text-HeaderGray font-montserrat pairs-title-font-clamp font-semibold">
         {loaderData.section7Title}
       </h1>
       <svg
-        width="1257"
+        width="100%"
         height="25"
         viewBox="0 0 1257 25"
         fill="none"
@@ -56,14 +56,14 @@ const Section7 = () => {
         </defs>
       </svg>
 
-      <p className="text-center w-2/3 font-normal leading-6 text-sm tracking-wider font-poppins">
+      <p className="text-center md:w-2/3  leading-6 text-sm tracking-wider font-poppins pairs-desc-font-clamp">
         {loaderData.section7Desc}
       </p>
-      <div className="grid grid-cols-3 gap-4 p-6 blur-[150%] bg-opacity-[0.16] moving-noise">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 py-6 xl:px-6 blur-[150%] bg-opacity-[0.16] moving-noise">
   {loaderData.section7Pairs?.map((pair: any) => (
     <div
       key={pair.id}
-      className="group relative flex flex-col items-center opaque-card aspect-video py-2 w-[28.5rem] h-[16.563rem] cursor-pointer"
+      className="group relative flex flex-col items-center opaque-card aspect-video py-2 w-full max-w-[28.5rem] cursor-pointer"
     >
       <img
         src={pair.picUrl}
@@ -79,7 +79,7 @@ const Section7 = () => {
       <p className="text-center leading-8 text-[FFFFFFD9] font-poppins w-3/5 group-hover:hidden">
         {pair.text}
       </p>
-      <p className="relative p-4 text-sm text-left text-[FFFFFFD9] font-poppins  hidden group-hover:block font-thin">
+      <p className="relative pt-4 px-4 text-xs leading-5 md:text-sm lg:text-xs 2xl:text-sm text-left text-[FFFFFFD9] font-poppins  hidden group-hover:block font-thin">
       {pair.description}
       </p>
     </div>

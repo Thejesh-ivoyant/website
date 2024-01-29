@@ -2311,3 +2311,12 @@ margin: 60px;
 .privacy-hero-text {
   color: var(--color-hue-indigo);
 }
+
+.pairs-title-font-clamp{
+  font-size: clamp(1.5rem, 2.5rem, 5vw);
+  line-height: 1;
+}
+.pairs-desc-font-clamp{
+  font-size:clamp(0.875rem,1rem,5vw);
+  line-height:1.5rem;
+}
