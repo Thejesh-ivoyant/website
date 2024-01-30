@@ -2,19 +2,12 @@
 import IWhitePaper from "~/interfaces/IWhitePaper";
 const WhitePaperCard = ({ paper }: { paper: IWhitePaper }) => {
     // Extract data from the blog object
- 
     return (
-      <div className="blog-card  flex flex-col w-full h-full overflow-hidden pb-2 cursor-pointer" >
-        <div className="w-full h-60">
-          <img
-          alt="whitepaper-image"
-          src={paper?.bannerImage.url}
-            className="w-full h-full object-cover"
-          ></img>
-        </div>
-        <div className="h-full w-full text-white flex-col p-4 flex justify-between ">
+      <div className="card-box blog-card">
+      <img src={paper?.bannerImage.url} alt="Image description"/>
+      <div className="content  flex flex-col justify-between h-full w-full  text-white p-4">
           <div className="flex card-title" style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
-          {paper.title}
+            {paper.title}
           </div>
           <div className="h-fit w-full flex flex-row justify-between  font-poppins font-light tracking-wide text-xs ">
             <div className="flex capitalize">By {paper?.author.name}</div>
@@ -44,7 +37,8 @@ const WhitePaperCard = ({ paper }: { paper: IWhitePaper }) => {
               {paper.maxReadTime} Mins Read
             </div>
           </div>
-        </div>
+        
+      </div>
       </div>
     );
 }
