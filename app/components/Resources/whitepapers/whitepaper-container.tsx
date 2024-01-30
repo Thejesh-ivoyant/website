@@ -49,7 +49,7 @@ const WhitePaperCardContainer = () => {
       
       <div className="w-full h-fit p-2  flex flex-row justify-around">
         <img src="../assets/Ornament.png" className="absolute top-4 left-4 -z-20" alt="ornament" />
-  <div className="blog-container-property" >
+  <div className="whitepaper-container-property" >
   
   {whitePaperData.map((paper: IWhitePaper) => (
         <Link to={`../resources/whitepaper/${paper.id}`} key={paper.id} state={{ whitePaperData: whitePaperData }}>
