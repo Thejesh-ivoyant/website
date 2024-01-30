@@ -26,7 +26,7 @@
 .ant-carousel .slick-dots-bottom {
   
   position: relative;
-  bottom: 5rem;
+  bottom: 4rem;
   display: flex;
   flex-wrap: wrap;
 }
@@ -180,7 +180,7 @@ align-items: center;
   padding-bottom: 0.75rem/* 12px */;
  }
   .carousel-box-right-item {
-  width: 60%;
+  width: 80%;
  }
  .carousel-box-left-item{
   width: 100%;
@@ -266,7 +266,7 @@ align-items: center;
   padding-bottom: 0.75rem/* 12px */;
  }
  .carousel-box-right-item {
-  width: 70%;
+  width: 90%;
  }
  .carousel-box-left-item{
   width: 100%;
