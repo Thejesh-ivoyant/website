@@ -176,15 +176,15 @@ const Service = () => {
       <Suspense fallback={<LoadingTest />}>
     <Await resolve={data.IndustryFocus}>
    
-          {/* <Hero />
+          <Hero />
           <ServiceContainer />
-          <ProjectPortfolio /> */}
+          <ProjectPortfolio />
         <IndustryFocus/>
-          {/* <Phases />
+          <Phases />
           <ServiceCardContainer />
           <Technologies />
           <Consultation />
-          <BlogPostsContainer /> */}
+          <BlogPostsContainer />
           <Outlet />
         </Await>
       </Suspense>
