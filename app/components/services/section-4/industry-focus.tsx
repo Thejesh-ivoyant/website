@@ -7,7 +7,7 @@ const IndustryFocus = () => {
   const carouselContent = loaderData.IndustryFocus as CarouselItem[]
 
   return (
-    <div className="screen-height">
+    <div className="py-8">
       <div className="carousel-ornament"></div>
   <p className="section-title gradient-bottom pb-4">
         {loaderData?.s4_industryFocusTitle}
