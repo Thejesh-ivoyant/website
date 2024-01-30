@@ -4,7 +4,7 @@ export const Technologies =({title,pairs}:{title:string, pairs:Technology[]})=>{
     return (
         <>
         <div className="bg-white py-5">
-        <h1 className="text-PurpBlue flex items-center justify-center text-5xl font-montserrat p-6">
+        <h1 className="text-PurpBlue flex items-center justify-center text-4xl lg:text-5xl font-montserrat p-6">
           {title}
         </h1>
         <div className="w-full flex justify-around flex-wrap text-black p-10 border-t-2">
