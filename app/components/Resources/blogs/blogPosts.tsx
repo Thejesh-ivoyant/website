@@ -2,15 +2,10 @@ import IBlogMedia from "~/interfaces/IBlogMedia";
 
 const BlogPostCard = ({ blog }: { blog: IBlogMedia }) => {
   return (
-    <div className="blog-card  flex flex-col w-full h-full overflow-hidden pb-2 cursor-pointer" >
-      <div className="w-full h-60">
-        <img
-        alt="blog-image"
-          src={blog?.bannerImage.url}
-          className="w-full h-full object-cover"
-        ></img>
-      </div>
-      <div className="h-full w-full text-white flex-col p-4 flex justify-between ">
+
+    <div className="card-box blog-card">
+    <img src={blog?.bannerImage.url} alt="Image description"/>
+    <div className="content  flex flex-col justify-between h-full w-full  text-white p-4">
         <div className="flex card-title" style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
           {blog.title}
         </div>
@@ -42,8 +37,11 @@ const BlogPostCard = ({ blog }: { blog: IBlogMedia }) => {
             {blog.maxReadTime} Mins Read
           </div>
         </div>
-      </div>
+      
     </div>
+    </div>
+
+
   );
 };
 export default BlogPostCard;
