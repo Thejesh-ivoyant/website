@@ -185,7 +185,8 @@
   .ant-carousel .slick-dots-bottom {
     margin-left: -40%;
     position: relative;
-    margin-top: -15.625rem;
+    /* margin-top: -15.625rem; */
+    transform: translateY(-15.625rem);
     display: flex;
     flex-wrap: wrap;
   }

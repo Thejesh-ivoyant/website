@@ -3,31 +3,31 @@ import { Attributes } from "~/interfaces/Homepage";
 const SummaryCard = ({attributes}:{attributes:Attributes}) => {
   return (
     <>
-    <div className="relative h-full flex items-center  justify-center font-montserrat overflow-hidden opacity-95">
+    <div className="relative h-full flex items-center  justify-center font-montserrat overflow-hidden opacity-95 my-auto">
       <div className="moving-bg"></div>
         <div className="grid grid-cols-2 aspect-square w-full">
           <div className="aspect-square inline-flex justify-center items-center col-span-1 grape-shadow">
-            <div className="flex w-fit gap-6 p-10">
-              <div className="text-7xl font-extrabold ">{attributes.ClientCount}</div>
-              <div className="text-xl h-12 aspect-[19/8] my-auto leading-none">Delighted Clients</div>
+            <div className="flex md:flex-row flex-col w-fit gap-3 p-10">
+              <div className="summary-card-txt-clamp font-extrabold md:text-left text-center">{attributes.ClientCount}</div>
+              <div className="text-xl h-12 aspect-[19/8] my-auto leading-none md:text-left text-center">Delighted Clients</div>
             </div>
           </div>
           <div className="aspect-square inline-flex justify-center border-container-top items-center col-span-1 grape-shadow">
-            <div className="flex w-fit gap-6 p-10">
-              <div className="text-7xl font-extrabold ">{attributes.ExperienceCount}</div>
-              <div className="text-xl h-12 aspect-[19/8] my-auto leading-none">Years of Experience</div>
+            <div className="flex md:flex-row flex-col w-fit gap-3 p-10">
+              <div className="summary-card-txt-clamp font-extrabold  md:text-left text-center">{attributes.ExperienceCount}</div>
+              <div className="summary-card-side-text-clamp h-12 aspect-[19/8] my-auto leading-none md:text-left text-center">Years of Experience</div>
             </div>
           </div>
           <div className="aspect-square inline-flex justify-center border-container-left  items-center col-span-1 grape-shadow">
-            <div className="flex w-fit gap-6 p-10">
-              <div className="text-7xl font-extrabold ">{attributes.ProjectsCount}</div>
-              <div className="text-xl h-12 aspect-[19/8] my-auto leading-none">Successful Projects</div>
+            <div className="flex md:flex-row flex-col w-fit gap-3 p-10">
+              <div className="summary-card-txt-clamp font-extrabold  md:text-left text-center">{attributes.ProjectsCount}</div>
+              <div className="summary-card-side-text-clamp h-12 aspect-[19/8] my-auto leading-none md:text-left text-center">Successful Projects</div>
             </div>
           </div>
           <div className="aspect-square inline-flex justify-center border-container-bottom items-center col-span-1 grape-shadow">
-            <div className="flex w-fit gap-6 p-10">
-              <div className="text-7xl font-extrabold ">{attributes.InHouseExpertsCount}</div>
-              <div className="text-xl h-12 aspect-[19/8] my-auto leading-none">In-House Experts Count</div>
+            <div className="flex md:flex-row flex-col w-fit gap-3 p-10">
+              <div className="summary-card-txt-clamp font-extrabold  md:text-left text-center">{attributes.InHouseExpertsCount}</div>
+              <div className="summary-card-side-text-clamp h-12 aspect-[19/8] my-auto leading-none md:text-left text-center">In-House Experts</div>
             </div>
           </div>
         </div>
@@ -44,7 +44,7 @@ const Square = ({ num }: { num: string }) => {
         {hasPlus ? (
           <>
             <div className="text-7xl font-extrabold">{num.split('+')[0]}</div>
-            <div className="text-xl h-12 aspect-[19/8]">
+            <div className="summary-card-side-text-clamp h-12 aspect-[19/8]">
               <span className="text-7xl font-extrabold">+</span>
               {num.split('+')[1]}
             </div>
