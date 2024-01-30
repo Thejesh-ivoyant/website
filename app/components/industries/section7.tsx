@@ -5,7 +5,7 @@ const Section7 = () => {
 
   return (
     <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-2 lg:px-5 py-10 gap-8">
-      <h1 className="text-HeaderGray font-montserrat pairs-title-font-clamp font-semibold">
+      <h1 className="section-title " style={{ color: "var(--HeadingGray, #E9E9EC)" }}>
         {loaderData.section7Title}
       </h1>
       <svg
