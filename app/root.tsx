@@ -77,7 +77,7 @@ export default function App() {
         <Links />
       </head>
       <body className="overscroll-none">
-        {/* <Nav /> */}
+        <Nav />
         <Outlet />
         <ScrollRestoration/>
         <Scripts />
