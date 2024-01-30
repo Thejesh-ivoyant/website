@@ -265,7 +265,7 @@ width: 48.9375rem;
     0px 8px 24px 0px rgba(176, 190, 197, 0.32);
 }
 
-.blog-container-property{
+.whitepaper-container-property{
   padding-right: 4rem;
   padding-left: 4rem;
   gap: 1rem;
@@ -273,10 +273,9 @@ width: 48.9375rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-self: center;
   width: fit-content;
-/* Adjust the gap as needed */
   padding: 1rem;
-   
 }
+
 .custom-service-grid{
 
   display: grid;
@@ -304,6 +303,13 @@ letter-spacing: 0.02rem;
     max-width: 90%;
     gap: 0rem;
      /* Adjust the value as needed */
+  }
+  .whitepaper-container-property{
+    padding-right: 2rem;
+    padding-left: 2rem;
+  
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    
   }
   .card-box {
     width: 15.66667rem;
@@ -387,6 +393,12 @@ letter-spacing: 0.02rem;
   }
   .btn{
     height: 40px;
+  }
+
+  .whitepaper-container-property{
+    padding-right: 2rem;
+    padding-left: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .card-box {
@@ -488,6 +500,12 @@ letter-spacing: 0.02rem;
     width: auto;
     aspect-ratio: 1/1;
    
+}
+.whitepaper-container-property{
+  padding-right: 3rem;
+  padding-left: 3rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  
 }
   .hero-btn {
     width: 160px;
