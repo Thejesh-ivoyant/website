@@ -2156,9 +2156,6 @@ hr {
   height: calc(100vh - 4.5rem);
   margin-top: 4.5rem;
 }
-.screen-height-section{
-  height: calc(100vh - 4.5rem);
-}
 
 .gradient-mesh {
   background-color: rgba(0, 0, 0, 0.5);
@@ -2260,4 +2257,15 @@ margin: 60px;
 }
 .privacy-hero-text {
   color: var(--color-hue-indigo);
+}
+.summary-card-txt-clamp{
+  font-size: clamp(2rem, 4.5rem, 5vw);
+}
+.summary-card-side-text-clamp{
+  font-size: clamp(1rem, 1.25rem, 5vw);
+}
+.summary-about-us-title{
+  font-size:clamp(1.25rem, 2.5rem, 5vw);
+  line-height: clamp(normal, 2.125rem, 5vw);
+  letter-spacing: clamp(normal, 3rem, 5vw);
 }
