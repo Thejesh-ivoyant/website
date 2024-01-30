@@ -151,8 +151,9 @@ align-items: center;
     font-weight: 800;
     line-height: 100px; /* 156.25% */
   }
+  
   .carousel-ornament{
-    aspect-ratio: 8/4;
+    aspect-ratio: 1/2;
    }
   
   .portfolio-titles{
