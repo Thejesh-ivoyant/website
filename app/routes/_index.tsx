@@ -72,18 +72,18 @@ const App = () => {
   return (
     <>
 
-      {/* <Hero heroBgImage={attributes.heroBg} heroText={attributes.heroText}  heroTitle={attributes.heroTitle} heroDescription={attributes.heroDescription}/>
+      <Hero heroBgImage={attributes.heroBg} heroText={attributes.heroText}  heroTitle={attributes.heroTitle} heroDescription={attributes.heroDescription}/>
       <AboutCardContainer attributes={attributes} />
       <Services attributes={attributes} />
       <Section4 clients={attributes?.clients} />
       <Section5 industries={attributes?.industriesTabs} title={attributes?.industriesTitle} description={attributes.IndustriesDescription} />
       <Section6 partners={attributes?.partners}/>
       <Consultation />
-      <Technology/> */}
+      <Technology/>
       <Testimonials/>
-      {/* <BlogPostsContainer />
+      <BlogPostsContainer />
       <WhyChooseUs pairs={attributes.pairs} title={attributes.whychooseus} description={attributes.whychooseusDesc} />
-      <ContactUs /> */}
+      <ContactUs />
 
         <Popup/>
     </>
