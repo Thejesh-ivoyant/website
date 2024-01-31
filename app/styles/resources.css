@@ -1,0 +1,31 @@
+
+  /* Media query for small screens (e.g., phones) */
+@media (max-width: 576px) {
+  
+  }
+  
+  /* Media query for medium-sized screens (e.g., tablets) */
+  @media (min-width: 577px) and (max-width: 768px) {
+   
+  }
+  
+  /* Media query for large screens (e.g., laptops) */
+  @media (min-width: 769px) and (max-width: 992px) {
+  }
+  
+  /* Media query for large screens (e.g., desktops) */
+  @media (min-width: 993px) and (max-width: 1200px) {
+        
+ 
+  
+  }
+  
+  /* Media query for extra-large screens (e.g., large desktops) */
+  @media (min-width: 1201px) { 
+   
+  }
+  
+  /* Media query for medium-sized screens (landscape orientation) */
+  /* @media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+  } */
+  

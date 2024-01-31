@@ -71,7 +71,7 @@ const App = () => {
   
   return (
     <>
-    <ErrorBoundary>
+
       <Hero heroBgImage={attributes.heroBg} heroText={attributes.heroText}  heroTitle={attributes.heroTitle} heroDescription={attributes.heroDescription}/>
       <AboutCardContainer attributes={attributes} />
       <Services attributes={attributes} />
@@ -84,8 +84,8 @@ const App = () => {
       <BlogPostsContainer />
       <WhyChooseUs pairs={attributes.pairs} title={attributes.whychooseus} description={attributes.whychooseusDesc} />
       <ContactUs />
-    </ErrorBoundary>
-    <Popup/>
+
+        <Popup/>
     </>
   );
 };

@@ -143,27 +143,9 @@ align-items: center;
  .carousel-box-left-item{
   width: 60%;
  }
- .service-card-box {
-  width: 24.187rem;
-  height: 24.375rem;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 0.5rem;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex: 1 0 0;
-}
+ 
 
-.service-card-box img {
-  width: 100%;
-  height:14.625rem;
 
-}
-
-.service-card-box content {
-  padding: 16px;
-}
 
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
@@ -172,13 +154,7 @@ align-items: center;
     font-weight: 800;
     line-height: 100px; /* 156.25% */
   }
-  .service-card-box {
-    width: 12.66667rem;
-    height: 12rem;
-  }
-  .service-card-box img {
-    height:5.25rem;
-  }
+ 
 
   .carousel-ornament{
     aspect-ratio: 1/2;
@@ -271,13 +247,7 @@ align-items: center;
   .carousel-ornament{
     aspect-ratio: 3/4;
    }
-   .service-card-box {
-    width: 14.66667rem;
-    height: 12rem;
-  }
-  .service-card-box img {
-    height:6.25rem;
-  }
+  
   .portfolio-titles{
   font-size: 18px;
   font-weight: 500;
@@ -369,13 +339,7 @@ align-items: center;
     width: 85%;
 
   }
-  .service-card-box {
-    width: 14.66667rem;
-    height: 14rem;
-  }
-  .service-card-box img {
-    height:9.5rem;
-  }
+ 
   .ant-carousel .slick-dots-bottom {
     bottom: 3rem;
   }
@@ -407,13 +371,7 @@ align-items: center;
   font-weight: 800;
   line-height: 100px; /* 156.25% */
 }
-.service-card-box {
-  width: 18.66667rem;
-  height: 18rem;
-}
-.service-card-box img {
-  height:12.25rem;
-}
+
 .portfolio-titles{
 font-size: 20px;
 font-weight: 500;
@@ -434,13 +392,7 @@ letter-spacing: 0.4px;
   justify-content: space-evenly;
   height:20rem;
 }
-.service-card-box {
-    width: 15.66667rem;
-    height: 15rem;
-  }
-  .service-card-box img {
-    height:12rem;
-  }
+
 }
 
 /* Media query for extra-large screens (e.g., large desktops) */
