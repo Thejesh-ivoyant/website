@@ -2,14 +2,18 @@ import { Suspense } from "react";
 import Consultation from "~/components/Homepage/consultation";
 import { Await, MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
-import { defer } from "@remix-run/node";
+import { LinksFunction, defer } from "@remix-run/node";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { blogQuery, categories, tagsQuery } from "~/graphql/queries";
 import BlogCardContainer from "~/components/Resources/blogs/blogCard-container";
 import Hero from "~/common-components/Hero";
 import LoadingTest from "~/common-components/loading-test";
 import { Daum } from "~/interfaces/CategoriesType";
+import ResourcesStyle from '~/styles/resources.css'
 
+export const links: LinksFunction = () => [
+  {rel:"stylesheet", href:ResourcesStyle}
+];
 export const meta: MetaFunction = ({data}: { data: any }) => {
   return [
     { title: `Ivoyant | ${data.heroTitle}` },

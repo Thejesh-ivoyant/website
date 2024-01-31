@@ -87,13 +87,9 @@ const Index = () => {
   return (
     <>
     <Suspense fallback={<LoadingTest />}>
-  <Await resolve={data.heroBgImageURl}>
- 
+      <Await resolve={data.heroBgImageURl}>
           <Hero/>
-          
-        
           <WhitePaperCardContainer />
-      
           <Consultation />
           <Outlet />
           </Await>

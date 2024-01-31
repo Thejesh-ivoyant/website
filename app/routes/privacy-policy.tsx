@@ -6,9 +6,9 @@ import PTCHero from "~/components/policy-terms-cookies/ptc-hero";
 import LoadingTest from "~/common-components/loading-test";
 import { Suspense } from "react";
 
-export const meta: MetaFunction = () => {
+export const meta: MetaFunction = ({data}: { data: any }) => {
   return [
-    { title: "Ivoyant | Mobile App Development" },
+    { title: `Ivoyant | ${data.heroTitle}` },
     {
       property: "og:title",
       content: "Services Page",

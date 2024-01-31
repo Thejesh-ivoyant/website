@@ -12,9 +12,9 @@ import { aboutUsQuery } from "~/graphql/queries";
 import Clients from "~/components/about-us/clients";
 import ContactUs from "../common-components/contactUs";
 
-export const meta: MetaFunction = () => {
+export const meta: MetaFunction = ({data}: { data: any }) => {
   return [
-    { title: "Ivoyant | About us" },
+    { title: `Ivoyant | ${data.aboutUsData.data?.aboutus.data.attributes.heroTitle}` },
     {
       property: "og:title",
       content: "About Ivoyant",
