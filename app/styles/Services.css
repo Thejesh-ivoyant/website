@@ -154,7 +154,9 @@ align-items: center;
     font-weight: 800;
     line-height: 100px; /* 156.25% */
   }
- 
+ .key-card-container{
+  padding-top: 0rem;
+ }
 
   .carousel-ornament{
     aspect-ratio: 1/2;
@@ -247,6 +249,9 @@ align-items: center;
   .carousel-ornament{
     aspect-ratio: 3/4;
    }
+   .ant-carousel .slick-dots-bottom {
+    bottom: 2rem;
+  }
   
   .portfolio-titles{
   font-size: 18px;

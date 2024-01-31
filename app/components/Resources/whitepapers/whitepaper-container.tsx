@@ -47,7 +47,7 @@ const WhitePaperCardContainer = () => {
         </span>
       </div>
       
-      <div className="w-full h-fit p-2  flex flex-row justify-around">
+      <div className="whitepaper-grid-container w-full h-fit   flex flex-row justify-around">
         <img src="../assets/Ornament.png" className="absolute top-4 left-4 -z-20" alt="ornament" />
   <div className="whitepaper-container-property" >
   

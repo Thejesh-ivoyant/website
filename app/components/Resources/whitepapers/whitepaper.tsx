@@ -3,7 +3,7 @@ import IWhitePaper from "~/interfaces/IWhitePaper";
 const WhitePaperCard = ({ paper }: { paper: IWhitePaper }) => {
     // Extract data from the blog object
     return (
-      <div className="common-card-box blog-card">
+      <div className="whitepaper-card-box blog-card">
       <img src={paper?.bannerImage.url} alt="Image description"/>
       <div className="content  flex flex-col justify-between h-full w-full  text-white p-4">
           <div className="flex card-title" style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
