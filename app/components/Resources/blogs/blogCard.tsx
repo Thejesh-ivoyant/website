@@ -9,8 +9,9 @@ const BlogCard = ({ blog }: { blog: IBlogMedia }) => {
 
     return(
         <form className=" bg-[#ffffff]">
-        <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-          <div className="flex flex-col items-center w-[42%] max-md:w-full max-md:ml-0">
+        <div className="landing-resource-card  gap-1  ">
+
+          <div className="landing-resource-card-left  flex flex-col items-center w-[42%] max-md:w-full ">
             <header className="justify-between items-stretch shadow-sm flex grow flex-col w-full  max-md:max-w-full max-md:mt-6">
               <img className="h-full  aspect-[241/78] "
              
@@ -18,7 +19,7 @@ const BlogCard = ({ blog }: { blog: IBlogMedia }) => {
               />
             </header>
           </div>
-          <div className="flex flex-col items-stretch w-[61%] ml-5 max-md:w-full max-md:ml-0">
+          <div className="landing-resource-card-right  flex flex-col items-stretch w-[61%] max-md:w-full ">
             <div className="self-stretch flex grow flex-col pb-3 px-5 items-start max-md:max-w-full max-md:mt-6">
               <div className="text-blue-100 text-base italic font-medium whitespace-nowrap justify-center items-stretch bg-gray-900 p-1">
               {blog.category.name}
@@ -44,6 +45,7 @@ const BlogCard = ({ blog }: { blog: IBlogMedia }) => {
               </div>
             </div>
           </div>
+
         </div>
       </form>
     );
