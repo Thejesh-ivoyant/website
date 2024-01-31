@@ -170,6 +170,7 @@ body.scrolled #scrollToTopBtn {
 }
 .container-card {
   display: flex;
+  gap: 1rem;
   flex-wrap: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
@@ -178,9 +179,6 @@ body.scrolled #scrollToTopBtn {
 .card-box {
   width: 24.187rem;
   height: 24.375rem;
-  margin: 10px;
-
- 
   display: flex;
   flex-direction: column;
 
@@ -194,6 +192,7 @@ flex: 1 0 0;
 
 .card-box img {
   width: 100%;
+  aspect-ratio:1/1;
   height:15.625rem;
   object-fit: cover;
   border-radius: 0.25rem;
@@ -210,12 +209,12 @@ flex: 1 0 0;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.4px;
- 
+
 }
 .card-desc {
   color: #fff;
   font-family: Poppins;
-  font-size: 0.75rem;
+  font-size: 0.62rem;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
@@ -265,16 +264,6 @@ width: 48.9375rem;
     0px 8px 24px 0px rgba(176, 190, 197, 0.32);
 }
 
-.whitepaper-container-property{
-  padding-right: 4rem;
-  padding-left: 4rem;
-  gap: 1rem;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-self: center;
-  width: fit-content;
-  padding: 1rem;
-}
 
 .custom-service-grid{
 
@@ -297,6 +286,42 @@ font-weight: 400;
 line-height: 1.5rem; /* 150% */
 letter-spacing: 0.02rem;
 }
+
+.common-card-box{
+  width: 100%;
+  height: 24.375rem;
+
+  display: flex;
+  flex-direction: column;
+padding-bottom: 0.5rem;
+justify-content: space-between;
+align-items: flex-start;
+flex: 1 0 0;
+}
+
+.common-card-box img {
+  width: 100%;
+  aspect-ratio:1/1;
+  height:15.625rem;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.common-card-box content {
+  padding: 16px;
+}
+
+.whitepaper-container-property{
+  padding-right: 4rem;
+  padding-left: 4rem;
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-self: center;
+  width: fit-content;
+  padding: 1rem;
+}
+
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
   .hero-wrapper {
@@ -304,13 +329,7 @@ letter-spacing: 0.02rem;
     gap: 0rem;
      /* Adjust the value as needed */
   }
-  .whitepaper-container-property{
-    padding-right: 2rem;
-    padding-left: 2rem;
   
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    
-  }
   .card-box {
     width: 15.66667rem;
     height: 15rem;
@@ -322,7 +341,21 @@ letter-spacing: 0.02rem;
   .btn{
     height: 30px;
   }
-
+  .common-card-box{
+    width: 100%;
+    height: 8.75rem;
+  }
+  .common-card-box img {
+    height:5.25rem;
+    aspect-ratio: 24/9;
+  }
+  .whitepaper-container-property{
+    padding-right: 0rem;
+    padding-left: 0rem;
+  
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    
+  }
   .hero-title {
     font-size: 1.2rem;
     line-height: 1.2rem;
@@ -395,11 +428,7 @@ letter-spacing: 0.02rem;
     height: 40px;
   }
 
-  .whitepaper-container-property{
-    padding-right: 2rem;
-    padding-left: 2rem;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+
 
   .card-box {
     width: 18.66667rem;
@@ -408,7 +437,19 @@ letter-spacing: 0.02rem;
   .card-box img {
     height:10.25rem;
   }
-
+  .common-card-box {
+    width: 100%;
+    height: 12rem;
+  }
+  .common-card-box img {
+    height:8.25rem;
+    aspect-ratio: 20/9;
+  }
+  .whitepaper-container-property{
+    padding-right: 1rem;
+    padding-left: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .hero-description {
     font-weight: 400;
     line-height: 0.8rem; /* 24px / 16px */
@@ -489,6 +530,20 @@ letter-spacing: 0.02rem;
   .card-box img {
     height:13.25rem;
   }
+  .common-card-box  {
+    width: 100%;
+    height: 18rem;
+  }
+  .common-card-box  img {
+    height:8.25rem;
+    aspect-ratio: 16/9;
+  }
+  .whitepaper-container-property{
+    padding-right: 2rem;
+    padding-left: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    
+  }
   .hero-title {
     font-size: 2rem;
     line-height: 1.95rem;
@@ -501,12 +556,7 @@ letter-spacing: 0.02rem;
     aspect-ratio: 1/1;
    
 }
-.whitepaper-container-property{
-  padding-right: 3rem;
-  padding-left: 3rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  
-}
+
   .hero-btn {
     width: 160px;
     height: 50px;

@@ -5,7 +5,7 @@ const BlogPostsContainer = () => {
   const loaderData = useLoaderData() as any;
 
   return (
-    <div className="w-full bg-[#F9F8FC] pb-8 h-fit">
+    <div className="w-full bg-[#F9F8FC] pb-8 h-fit"  style={{ backgroundImage: 'url("../assets/Ornament.png"), url("../assets/Ornament.png")', backgroundPosition: 'top 40px left 20px, bottom 40px right 20px', backgroundRepeat: 'no-repeat' }}>
       <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
         <span className="section-title">Whats new in our blogs</span>
       </div>
@@ -18,11 +18,11 @@ const BlogPostsContainer = () => {
       </Link>
     ))}
   </div>
-  <img
+  {/* <img
     src="../assets/Ornament.png"
     className="absolute top-4 left-4 z-0"
     alt="ornament"
-  />
+  /> */}
 </div>
       <div className="mx-auto w-full flex justify-center items-center">
         <Link to={`../resources/blogs`} key="explore">

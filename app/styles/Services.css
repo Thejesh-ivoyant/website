@@ -144,6 +144,9 @@ align-items: center;
   width: 60%;
  }
  
+
+
+
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
   .portfolio-text{
@@ -151,6 +154,9 @@ align-items: center;
     font-weight: 800;
     line-height: 100px; /* 156.25% */
   }
+ .key-card-container{
+  padding-top: 0rem;
+ }
 
   .carousel-ornament{
     aspect-ratio: 1/2;
@@ -243,6 +249,9 @@ align-items: center;
   .carousel-ornament{
     aspect-ratio: 3/4;
    }
+   .ant-carousel .slick-dots-bottom {
+    bottom: 2rem;
+  }
   
   .portfolio-titles{
   font-size: 18px;
@@ -335,6 +344,7 @@ align-items: center;
     width: 85%;
 
   }
+ 
   .ant-carousel .slick-dots-bottom {
     bottom: 3rem;
   }
@@ -366,6 +376,7 @@ align-items: center;
   font-weight: 800;
   line-height: 100px; /* 156.25% */
 }
+
 .portfolio-titles{
 font-size: 20px;
 font-weight: 500;
@@ -386,6 +397,7 @@ letter-spacing: 0.4px;
   justify-content: space-evenly;
   height:20rem;
 }
+
 }
 
 /* Media query for extra-large screens (e.g., large desktops) */

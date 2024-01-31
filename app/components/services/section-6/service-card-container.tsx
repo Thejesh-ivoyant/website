@@ -20,12 +20,9 @@ const ServiceCardContainer = () => {
         <div className="service-grid-container service-container-property">
           {loaderData.ServicesCard.map(
             (item: { id: React.Key | null | undefined }, index: any) => (
-              <div
-                key={item.id}
-                className="custom-service-grid "
-              >
+             
                 <ServiceCard service={item} />
-              </div>
+             
             )
           )}
         </div>

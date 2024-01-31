@@ -18,9 +18,9 @@ export const links: LinksFunction = () => [
   {rel:"stylesheet", href:CompanyStyle}
 ];
 
-export const meta: MetaFunction = () => {
+export const meta: MetaFunction = ({data}: { data: any }) => {
   return [
-    { title: "Ivoyant | Mobile App Development" },
+    { title: data.heroTitle },
     {
       property: "og:title",
       content: "Services Page",
