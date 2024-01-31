@@ -1,54 +1,10 @@
-import { Link } from '@remix-run/react';
-import React, { Component, ErrorInfo } from 'react';
+import { Link, Outlet, useLoaderData } from "@remix-run/react";
 
-interface ErrorBoundaryProps {
-  children: React.ReactNode;
-}
+const ErrorBoundaryPage = () => {
 
-interface ErrorBoundaryState {
-  hasError: boolean;
-  error?: Error;
-}
 
-class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  constructor(props: ErrorBoundaryProps) {
-    super(props);
-    this.state = { hasError: false, error: undefined };
-  }
-
-  static getDerivedStateFromError(error: Error) {
-    return { hasError: true, error };
-  }
-
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error('Error caught by error boundary:', error, errorInfo);
-    // You can log the error to an error reporting service here
-  }
-
-  componentDidMount() {
-    // Set up global error handlers
-    window.onerror = (message, source, lineno, colno, error) => {
-      this.setState({ hasError: true, error });
-      // You can log the error to an error reporting service here
-    };
-
-    window.onunhandledrejection = (event) => {
-      const error = event.reason instanceof Error ? event.reason : new Error(event.reason);
-      this.setState({ hasError: true, error });
-      // You can log the error to an error reporting service here
-    };
-  }
-
-  componentWillUnmount() {
-    // Clean up global error handlers
-    window.onerror = null;
-    window.onunhandledrejection = null;
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div className="bg-white flex mt-12 flex-col">
+    return (
+        <div className="bg-white flex flex-col">
     
         <div className="self-center w-[913px] max-w-full mt-10 max-md:mt-10">
           <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
@@ -93,8 +49,8 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
             </div>
           </div>
         </div>{" "}
-        <div className="bg-[#F9F8FC] self-stretch flex w-full items-start justify-between gap-5 mt-10 pl-20 pr-20 pb-8 max-md:max-w-full max-md:flex-wrap max-md:px-5">
-          <div className="items-start self-center flex grow basis-[0%] flex-col my-auto">
+        <div className="bg-[#F9F8FC] self-stretch flex w-full items-start justify-between gap-5 pl-20 pr-20 pb-8 max-md:max-w-full max-md:flex-wrap max-md:px-5">
+          <div className="items-start  flex grow flex-col mt-4">
             <div className="text-neutral-800 text-base leading-8 self-stretch whitespace-nowrap">
               Here are some helpful links instead
             </div>{" "}
@@ -114,8 +70,8 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
               Home
             </div>
           </div>{" "}
-          <div className="bg-gray-200 self-center flex w-px shrink-0 h-36 flex-col my-auto" />{" "}
-          <div className="items-stretch self-center flex grow basis-[0%] flex-col my-auto">
+          <div className="bg-gray-200  flex w-px shrink-0 h-36 flex-col mt-4" />{" "}
+          <div className="items-stretch flex grow mt-4 flex-col ">
             <div className="text-neutral-800 text-xl font-semibold leading-7">
               Download our latest Website accessibility Guide
             </div>{" "}
@@ -131,16 +87,13 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
           alt='error'
             loading="lazy"
       src='../assets/error-mobile.png'  
-          className="aspect-[0.33] object-contain object-center w-[166px] overflow-hidden self-stretch shrink-0 max-w-full"
+          className="mt-4  h-[16rem] object-contain object-center w-[166px] overflow-y-scroll self-stretch shrink-0 max-w-full"
           />
         </div>{" "}
        
       </div>
-      );
-    }
+      
+  );
+};
 
-    return this.props.children;
-  }
-}
-
-export default ErrorBoundary;
+export default ErrorBoundaryPage;

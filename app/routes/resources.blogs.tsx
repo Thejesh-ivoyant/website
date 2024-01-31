@@ -10,9 +10,9 @@ import Hero from "~/common-components/Hero";
 import LoadingTest from "~/common-components/loading-test";
 import { Daum } from "~/interfaces/CategoriesType";
 
-export const meta: MetaFunction = () => {
+export const meta: MetaFunction = ({data}: { data: any }) => {
   return [
-    { title: "Ivoyant | Blogs" },
+    { title: `Ivoyant | ${data.heroTitle}` },
     {
       property: "og:title",
       content: "Blogs Page",
