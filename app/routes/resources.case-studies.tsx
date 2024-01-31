@@ -2,14 +2,18 @@ import { Await, useLoaderData } from "@remix-run/react";
 import { case_study_home, case_study_paginated, categories, tagsQuery } from "~/graphql/queries";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { generateDynamicQuery } from "~/utils/parameterized-gql";
-import { defer } from "@remix-run/node";
+import { LinksFunction, defer } from "@remix-run/node";
 import { Suspense } from "react";
 import LoadingTest from "~/common-components/loading-test";
 import Hero from "~/components/Resources/case-study/Hero";
 import { Container } from "~/components/Resources/case-study/Search-containter";
 import { Daum } from "~/interfaces/CategoriesType";
 import Consultation from "~/components/Homepage/consultation";
+import ResourcesStyle from '~/styles/resources.css'
 
+export const links: LinksFunction = () => [
+  {rel:"stylesheet", href:ResourcesStyle}
+];
 const limit = 3
 const offset = 0
 export async function loader() {

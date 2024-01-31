@@ -16,9 +16,9 @@ import WhyChooseUs from "~/components/Homepage/why-choose-us";
 import ErrorBoundary from "~/components/ErrorBoundary";
 import AboutCardContainer from "~/components/Homepage/about-card-container";
 import { Popup } from "~/common-components/social-media-popup";
-export const meta: MetaFunction = () => {
+export const meta: MetaFunction = ({data}: { data: any }) => {
   return [
-    { title: "Ivoyant | Homepage" },
+    { title: `Ivoyant | ${data.homePage?.homepage?.data?.attributes.heroText}` },
     {
       property: "og:title",
       content: "Home Page",
@@ -71,7 +71,6 @@ const App = () => {
   
   return (
     <>
-
       <Hero heroBgImage={attributes.heroBg} heroText={attributes.heroText}  heroTitle={attributes.heroTitle} heroDescription={attributes.heroDescription}/>
       <AboutCardContainer attributes={attributes} />
       <Services attributes={attributes} />
