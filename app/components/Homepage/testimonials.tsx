@@ -68,7 +68,7 @@ const Testimonials = () => {
       {testimonialList.length > 0 && (
         <div>
         
-          <section className="section px-64 mt-4 gradient-top">
+          <section className="testimonial-section mt-4 gradient-top">
             <div className="inner-container w-full ">
               <div className="flex flex-col justify-center">
                 <div className="industry flex items-start justify-start text-sm font-poppins font-normal">
