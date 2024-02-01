@@ -195,7 +195,7 @@ const Blog_WhitepaperContent = () => {
             </div>
           )}
         </div>
-        <div className="bg-gray-200 self-stretch flex w-px shrink-0 h-[0px] flex-col" />
+        <div className="bg-gray-200 self-stretch flex w-px shrink-0 h-[800px] flex-col" />
         <div className=" flex grow basis-[0%] flex-col items-stretch self-start">
           <div className="shadow-sm author-card flex flex-col px-7 pr-10 py-7  rounded-sm items-start max-md:px-5">
             <img
