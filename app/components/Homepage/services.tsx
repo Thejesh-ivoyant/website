@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLoaderData } from "@remix-run/react";
 import { Attributes } from "~/interfaces/Homepage";
+import sample from '~/../public/assets/product.png'
 
 const Services = ({attributes}:{attributes:Attributes}) => {
   const servicesData = useLoaderData() as any;
@@ -37,16 +38,23 @@ const Services = ({attributes}:{attributes:Attributes}) => {
 
   return (
     <div className="flex flex-col w-full min-h-full lg:mx-0 lg:h-fit bg-haiti">
-      <div className="text-gray-200 text-4xl w-full justify-center flex py-8 h-fit gradient-bottom">
-        <span className="h-fit whitespace-nowrap font-montserrat font-bold">
+      <div className=" md:text-4xl sm:text-3xl text-xl w-full justify-center flex md:py-8 py-4 h-fit gradient-bottom">
+        <span className="h-fit font-montserrat font-bold service-heading">
          {attributes.servicesTitle}
         </span>
       </div>
-      <div className="text-center text-violet-200 text-base font-normal font-poppins p-4 lg:mx-40">
+      <div className="text-center text-violet-200 sm:text-sm text-xs md:text-base font-normal font-poppins p-4 lg:mx-40">
         {attributes.serviceDescription}
       </div>
-      <div className="w-fit flex flex-row h-min  place-self-end lg:my-8 ml-10 cursor-pointer">
-      
+      <div className="w-full grid-cols-2 grid md:hidden sm:gap-4 gap-2 p-4">
+      {servicesArray.map((service: any) => (
+          <div className="relative aspect-[10/7] w-full grid col-span-1 bg-black">
+            <img src={service?.bgImage?.data.attributes.url} className="w-full h-full object-cover"/>
+            <div className="absolute text-white sm:text-lg font-montserrat font-bold tracking-wider text-xs text-center w-full bottom-0 py-2 bg-haiti bg-opacity-95 z-10">{service?.title}</div>
+          </div>
+      ))}
+      </div>
+      <div className="w-fit hidden md:flex md:flex-row h-min  place-self-end lg:my-8 ml-10 cursor-pointer">
         <div className="float-right  w-fit flex flex-col overflow-y-auto items-center p-4  py-8 font-poppins cursor-pointer">
           {servicesArray.map((service: any) => (
             <div
@@ -72,7 +80,7 @@ const Services = ({attributes}:{attributes:Attributes}) => {
             </div>
           ))}
         </div>
-<div className="flex w-[60%] lg:h-[600px]">
+<div className="flex items-center">
 
         <figure className="flex object-contain  lg:max-w-[52rem] xl:w-[63rem] relative service-img">
           
@@ -82,20 +90,19 @@ const Services = ({attributes}:{attributes:Attributes}) => {
             loading="eager"
             alt={currentSelectedService}
           />
-          <div className="z-10 absolute inset-x-0 bottom-0 md:left-1/2 md:transform md:-translate-x-1/2 flex justify-center items-center text-white bg-opacity-50 p-4 flex-col lg:w-5/6">
-            <figcaption className="text-neutral-50 text-2xl font-medium font-poppins">
+          <div className="z-10 absolute inset-x-0 bottom-0 md:left-1/2 md:transform md:-translate-x-1/2 flex justify-center items-center text-white bg-opacity-50 p-4 flex-col lg:w-5/6 w-full">
+            <figcaption className="text-neutral-50 xl:text-2xl lg:text-xl md:text-sm font-medium font-poppins">
               <div className="w-fit px-2 p-1 bg-gray-900 items-center justify-center flex">
-                <i className="text-blue-100 text-sm font-light">
+                <i className="text-blue-100 lg:text-sm text-xs font-light">
                   {currentSelectedService}
                 </i>
               </div>
               {description}
-              <div className="flex justify-end font-montserrat font-normal items-center gap-3 text-base mt-4">
+              <div className="flex justify-end font-montserrat font-normal items-center gap-3 lg:text-base text-sm lg:mt-4 mt-2">
                 <Link to={link}>Learn more.</Link>
                 <span>
                   <svg
-                    width="40"
-                    height="40"
+                    className="lg:h-10 lg:w-10 h-6 w-6"
                     viewBox="0 0 40 40"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"

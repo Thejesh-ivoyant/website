@@ -40,7 +40,7 @@ const ScrollToTopIcon: React.FC = () => {
   }, []);
 
   return (
-    <button id="scrollToTopBtn" title="Go to top">
+    <button id="scrollToTopBtn" className="z-50" title="Back to top">
         <ArrowUpOutlined />
     </button>
   );
