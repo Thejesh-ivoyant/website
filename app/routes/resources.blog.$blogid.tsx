@@ -117,7 +117,7 @@ const Index = () => {
         </div>
           <Blog_WhitepaperContent/>
           <Consultation />
-          <BlogPostsContainer/>
+          {/* <BlogPostsContainer/> */}
           <Outlet />
        
       </Await>
