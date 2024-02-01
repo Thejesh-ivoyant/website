@@ -80,7 +80,7 @@ const App = () => {
       <Consultation />
       <Technology/>
       <Testimonials/>
-      <BlogPostsContainer />
+      <BlogPostsContainer/>
       <WhyChooseUs pairs={attributes.pairs} title={attributes.whychooseus} description={attributes.whychooseusDesc} />
       <ContactUs />
 
