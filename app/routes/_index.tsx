@@ -58,6 +58,7 @@ export async function loader() {
       blogData: blogData,
       homePage: homeGql.data,
     };
+      
   } catch (error) {
     console.warn("Error fetching data from contact API:", error);
     return {

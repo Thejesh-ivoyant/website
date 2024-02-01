@@ -1,12 +1,14 @@
 import { Await, MetaFunction, Outlet, defer, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { getAuthorQuery, getPaperAuthorIDQuery } from "~/graphql/queries";
+import { getAuthorQuery, getPaperAuthorIDQuery, whitepaperQuery } from "~/graphql/queries";
 import { LoaderFunctionArgs } from "@remix-run/node";
 import BlogHero from "~/components/Resources/blogs/blog-hero";
 import LoadingTest from "~/common-components/loading-test";
 import { Suspense } from "react";
 import Blog_WhitepaperContent from "~/components/Resources/blogs/blog-whitepaper-content";
+import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
+import Consultation from "~/components/Homepage/consultation";
 
 export const meta: MetaFunction = () => {
   return [
@@ -33,6 +35,23 @@ const paperid=`${params.whitepaperid}`;
 
   const updatedQuery = getAuthorQuery(authorId);
   const authorData =  await fetchGraphQL(updatedQuery);
+  const whitepaperGql = await fetchGraphQL(whitepaperQuery)
+  // const blogData: IBlogMedia[] = componentRes.map((item: any) => ({
+    const whitePaperData = whitepaperGql.data?.whitePapers.data?.map((item: any) => ({
+      id: item.id,
+      title: item.attributes.title,
+      description1: item.attributes.description1,
+      date: item.attributes.date,
+      maxReadTime: item.attributes.maxReadTime,
+      bannerImage: {
+        name: item.attributes.bannerImage.data?.attributes.name ?? "",
+        url:  item.attributes.bannerImage.data?.attributes.url ?? "",
+      },
+      author: {
+        name: item.attributes.author.data?.attributes.name,
+        avatar: item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
+      },
+    }));
 
   const url= strapiUrl+`/api/white-papers/${paperid}?populate=%2A`;// hardcoded value
  
@@ -61,7 +80,7 @@ const paperid=`${params.whitepaperid}`;
     maxReadTime,
     date,
     description1,
-
+    blogData: whitePaperData,
   });
  
 }
@@ -85,6 +104,8 @@ const Index = () => {
           <BlogHero/>
         </div>
           <Blog_WhitepaperContent/>
+          <Consultation />
+          <BlogPostsContainer/>
           <Outlet />
         
       </Await>

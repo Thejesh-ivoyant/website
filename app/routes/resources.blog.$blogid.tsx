@@ -1,7 +1,7 @@
 import { Await, MetaFunction, Outlet, defer, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { blogCategoryQuery, categories, getAuthorQuery, getBlogAuthorIDQuery, tagsQuery } from "~/graphql/queries";
+import { blogCategoryQuery, categories, getAuthorQuery, getBlogAuthorIDQuery, tagsQuery, topBlogQuery } from "~/graphql/queries";
 import { LoaderFunctionArgs } from "@remix-run/node";
 import BlogHero from "~/components/Resources/blogs/blog-hero";
 import LoadingTest from "~/common-components/loading-test";
@@ -51,6 +51,26 @@ const blogid=`${params.blogid}`;
   ]);
   const tagsData = tagslist?.data?.topicTags?.data 
   const categoryListData = categoryList?.data?.categories.data 
+  const blogGql = await fetchGraphQL(topBlogQuery);
+
+  const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
+    id: item.id,
+    title: item.attributes.title,
+    date: item.attributes.date,
+    maxReadTime: item.attributes.maxReadTime,
+    bannerImage: {
+      name: item.attributes.bannerImage.data?.attributes.name ?? "",
+      url: item.attributes.bannerImage.data?.attributes.url ?? "",
+    },
+    author: {
+      name: item.attributes.author.data?.attributes.name,
+    },
+    topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
+    category: {
+     name:item.attributes.category.data?.attributes.name
+    
+    }
+  }));
 
   const tags = tagsData.map((item:any) => ({
     value: item.attributes.name,
@@ -93,6 +113,7 @@ const blogid=`${params.blogid}`;
         tags,
         categoriesList,
         BlogCategory,
+        blogData: blogData,
   });
  
 }
@@ -117,7 +138,7 @@ const Index = () => {
         </div>
           <Blog_WhitepaperContent/>
           <Consultation />
-          {/* <BlogPostsContainer/> */}
+          <BlogPostsContainer/>
           <Outlet />
        
       </Await>
