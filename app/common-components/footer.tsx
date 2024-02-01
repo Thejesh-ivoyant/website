@@ -37,7 +37,7 @@ const Footer = () => {
     ?.attributes as Attributes;
 
   return (
-    <footer className="w-full  bg-haiti py-16 px-16 font-montserrat text-white screen-height ">
+    <footer className="w-full  bg-haiti py-16 px-16 font-montserrat text-white h-screen ">
       <section className="flex flex-row w-full gradient-bottom p-6"></section>
       <Form onSubmit={handleSubmit}>
         <section className="flex flex-row w-full  p-6">

@@ -7,6 +7,8 @@ import BlogHero from "~/components/Resources/blogs/blog-hero";
 import LoadingTest from "~/common-components/loading-test";
 import { Suspense } from "react";
 import Blog_WhitepaperContent from "~/components/Resources/blogs/blog-whitepaper-content";
+import Consultation from "~/components/Homepage/consultation";
+import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
 
 export const meta: MetaFunction = () => {
   return [
@@ -114,6 +116,8 @@ const Index = () => {
           <BlogHero/>
         </div>
           <Blog_WhitepaperContent/>
+          <Consultation />
+          <BlogPostsContainer/>
           <Outlet />
        
       </Await>
