@@ -1,13 +1,17 @@
 import BlogPostCard from "./blogPosts";
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData, useMatch } from "@remix-run/react";
 import IBlogMedia from "../../../interfaces/IBlogMedia";
 const BlogPostsContainer = () => {
   const loaderData = useLoaderData() as any;
+  const match = useMatch("/resources/whitepaper/:id");
+  const isResourcesRoute = match !== null;
 
   return (
     <div className="w-full bg-[#F9F8FC] pb-8 h-fit"  style={{ backgroundImage: 'url("../assets/Ornament.png"), url("../assets/Ornament.png")', backgroundPosition: 'top 40px left 20px, bottom 40px right 20px', backgroundRepeat: 'no-repeat' }}>
       <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
-        <span className="section-title">Whats new in our blogs</span>
+      {isResourcesRoute ? (<span className="section-title">Whats new in our Whitepapers</span>
+      ):
+      (<span className="section-title">Whats new in our Blogs</span>)}
       </div>
 
       <div className="relative w-full h-fit p-8 flex flex-row justify-around">
