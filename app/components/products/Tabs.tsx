@@ -73,7 +73,7 @@ export default function Tabs({tabContents}:{tabContents: TabContent[]}) {
         ))}
       </div>
       <div className="flex w-full tab-content">
-        <div className="flex flex-col h-full justify-center items-center gap-4 px-4 lg:w-[31rem]">
+        <div className="flex flex-col h-full justify-center items-center gap-4 px-4 lg:w-[30rem]">
           <div className="flex justify-between">
             <p className="flex my-auto font-montserrat text-xl lg:text-[2rem] text-light-brown lg:text-title-black leading-7 lg:leading-10 font-semibold mr-auto" id="title">
               {activeButton.title}

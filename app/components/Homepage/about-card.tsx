@@ -15,7 +15,7 @@ const AboutCard = ({attributes}:{attributes:Attributes}) => {
         <span style={{ color: '#7534F1' }}>{highlightString}</span>
         {aboutUsTitle.substring( indexOfHighlight + highlightString?.length )}
       </div>
-        <div className="text-md font-poppins font-light lg:leading-[28px] " id="about-desc">
+        <div className="text-md font-poppins font-light lg:leading-[1.75rem] " id="about-desc">
         {attributes.AboutUs}
         </div>
           <Link to={"/company/about_us"} className="button-test relative py-4 lg:py-3 hover:text-white">
