@@ -11,6 +11,7 @@ import Section6 from "~/components/Resources/case-study/slug/Section6";
 import { generateDynamicQuery } from "~/utils/parameterized-gql";
 import { Features } from "~/components/Resources/case-study/slug/key-features";
 import CaseStyle from '~/styles/CaseStudySlug.css'
+import Consultation from "~/components/Homepage/consultation";
 
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:CaseStyle}
@@ -39,13 +40,13 @@ const sample = () => {
   return (
     <>
         <Hero data={attributes} />
-        <div className="h-60 w-full"></div>
         <Section2 data={attributes}/>
         <Section3 data={attributes} />
         <Section4 data={attributes} />
         <Features data={attributes} />
         <Section5 data={attributes} />
         <Section6 data={attributes} />
+        <Consultation/>
     </>
   );
 };
