@@ -10,19 +10,19 @@ const Section2 = ({data}:{data:any}) => {
     backgroundPosition: "100% 50%",
   };
   return (
-    <section className="relative flex justify-center flex-row lg:h-[600px] w-full">
+    <section className="relative flex justify-center md:flex-row flex-col h-fit lg:min-h-[37.5rem] w-full bg-[#1B0740] ">
       <div
         id="left"
-        className="flex flex-1 flex-col h-full bg-[#1B0740] lg:p-16 text-white font-poppins justify-center col-span-2 max-w-[50%]"
+        className="flex flex-1 flex-col md:min-h-full bg-[#1B0740] xl:p-16 sm:p-10 p-6 text-white font-poppins justify-center"
       >
         <div className="bg-[#170D26] font-montserrat italic font-medium w-fit h-fit pb-2">{data?.section2MiniTag}</div>
         <h2 className="text-white font-montserrat text-4xl font-semibold">{data?.section2Title}</h2>
-        <section className="h-full w-full mt-6">
-          {/* {data?.section_2_description} */}
+        <section className="h-full w-full mt-6 markdown">
           <ReactMarkdown>{markdownString}</ReactMarkdown>
         </section>
       </div>
-      <div className="flex flex-1 flex-col h-full" style={gradientStyle}>
+      <div className="flex flex-1 flex-col  bg-black md:min-h-full md:m-0 m-3" style={gradientStyle}>
+        <div className="md:hidden h-80 aspect-[10/13] object-cover object-right"></div>
       </div>
 
     </section>
