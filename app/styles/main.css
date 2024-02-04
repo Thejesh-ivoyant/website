@@ -2486,3 +2486,9 @@ margin: 60px;
 .screen-height-section{
   height: calc(100vh - 4.5rem);
 }
+.industries-slideshow-btn-bg{
+  background: linear-gradient(97deg, rgba(149, 159, 253, 0.17) 5.48%, rgba(243, 244, 254, 0.60) 94.34%, rgba(90, 104, 231, 0.60) 100%);
+}
+.learn-more-ind{
+  background: linear-gradient(102deg, rgba(149, 159, 253, 0.60) 2.85%, rgba(90, 104, 231, 0.60) 97%, rgba(243, 244, 254, 0.60) 97%);
+}
