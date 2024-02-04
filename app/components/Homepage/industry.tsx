@@ -63,7 +63,7 @@ const Services = ({industries, title, description}:{industries:IndustriesTab[],t
               </Link>
             </div>
           </div>
-          <div className="flex h-72">
+          <div className="flex h-72 mx-auto">
             <img src={activeButton?.image?.data?.attributes.url} alt={activeButton.title}  className="object-contain" />
           </div>
         </div>
