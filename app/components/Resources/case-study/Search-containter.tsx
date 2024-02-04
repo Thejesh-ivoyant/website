@@ -152,7 +152,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
                 <p className="font-montserrat italic bg-haiti w-fit text-white p-1">
                   {item?.attributes?.category.data.attributes?.name}
                 </p>
-                <h1 className="text-5xl font-montserrat font-semibold leading-[3.75rem]">
+                <h1 className="text-[2.5rem] font-montserrat font-semibold leading-[3rem]">
                   {item?.attributes?.heroTitle &&
                     (item.attributes?.heroTitle.length > 60
                       ? item.attributes?.heroTitle.substring(0, 60) + "..."

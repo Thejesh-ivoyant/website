@@ -155,7 +155,7 @@ const Blog_WhitepaperContent = () => {
   return (
     <div className="justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 py-12 max-md:px-5">
       <div className="flex ml-0 justify-between gap-5  max-md:max-w-full max-md:flex-wrap max-md:justify-center">
-        <div className=" items-stretch flex  flex-col w-[718px]">
+        <div className=" items-stretch flex  flex-col w-[70%]">
           <div className="text-black text-3xl font-semibold max-md:max-w-full">
             {loaderData.title}
           </div>
@@ -195,7 +195,7 @@ const Blog_WhitepaperContent = () => {
             </div>
           )}
         </div>
-        <div className="bg-gray-200 self-stretch flex w-px shrink-0 h-[1653px] flex-col" />
+        <div className="bg-gray-200 self-stretch flex w-px shrink-0 h-[0px] flex-col" />
         <div className=" flex grow basis-[0%] flex-col items-stretch self-start">
           <div className="shadow-sm author-card flex flex-col px-7 pr-10 py-7  rounded-sm items-start max-md:px-5">
             <img
@@ -216,7 +216,7 @@ const Blog_WhitepaperContent = () => {
               className="aspect-[6.92] object-contain object-center w-[173px] items-center overflow-hidden max-w-full mt-7"
             />
           </div>
-          <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 pl-9 pr-16 pt-11 pb-5 max-md:px-5">
+          <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 pl-4 pr-4 pt-11 pb-5 ">
             <div className="text-black text-2xl font-medium leading-9">
               Related post
             </div>

@@ -11,9 +11,9 @@ import Section6 from "~/components/industries/section6";
 import Section7 from "~/components/industries/section7";
 import { fetchData } from "~/utils/fetchdata";
 
-export const meta: MetaFunction = () => {
+export const meta: MetaFunction = ({data}: { data: any }) => {
   return [
-    { title: "Ivoyant | Healthcare" },
+    { title: `Ivoyant | ${data.heroTitle}` },
     {
       property: "og:title",
       content: "Healthcare Page",

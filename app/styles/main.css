@@ -168,20 +168,53 @@ body.scrolled #scrollToTopBtn {
   line-height: normal;
   text-align: center;
 }
+.container-card {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.card-box {
+  width: 24.187rem;
+  height: 24.375rem;
+  display: flex;
+  flex-direction: column;
+
+
+padding-bottom: 0.5rem;
+
+justify-content: space-between;
+align-items: flex-start;
+flex: 1 0 0;
+}
+
+.card-box img {
+  width: 100%;
+  aspect-ratio:1/1;
+  height:15.625rem;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.card-box content {
+  padding: 16px;
+}
 
 .card-title{
   color: #fff;
   font-family: Montserrat;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.4px;
- 
+
 }
 .card-desc {
   color: #fff;
   font-family: Poppins;
-  font-size: 0.75rem;
+  font-size: 0.62rem;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
@@ -231,18 +264,7 @@ width: 48.9375rem;
     0px 8px 24px 0px rgba(176, 190, 197, 0.32);
 }
 
-.blog-container-property{
-  padding-right: 4rem;
-  padding-left: 4rem;
-  gap: 1rem;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-self: center;
-  width: fit-content;
-/* Adjust the gap as needed */
-  padding: 1rem;
-   
-}
+
 .custom-service-grid{
 
   display: grid;
@@ -252,13 +274,95 @@ width: 48.9375rem;
   object-fit: cover;
 
 }
+.description{
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--Gray-gray-9, #262626);
+text-align: justify;
+font-family: Poppins;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.5rem; /* 150% */
+letter-spacing: 0.02rem;
+}
+
+.common-card-box{
+  width: 100%;
+  height: 24.375rem;
+
+  display: flex;
+  flex-direction: column;
+padding-bottom: 0.5rem;
+justify-content: space-between;
+align-items: flex-start;
+flex: 1 0 0;
+}
+
+.common-card-box img {
+  width: 100%;
+  aspect-ratio:1/1;
+  height:15.625rem;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.common-card-box content {
+  padding: 16px;
+}
+
+.whitepaper-container-property{
+  padding-right: 4rem;
+  padding-left: 4rem;
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-self: center;
+  width: fit-content;
+  padding: 1rem;
+}
+
+.testimonial-section{
+  padding-left: 16rem;
+  padding-right: 16rem;
+}
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
   .hero-wrapper {
     max-width: 90%;
-    gap: 0rem; /* Adjust the value as needed */
+    gap: 0rem;
+     /* Adjust the value as needed */
+  }
+  .testimonial-section{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .card-box {
+    width: 15.66667rem;
+    height: 15rem;
+  }
+  .card-box img {
+    height:7.25rem;
   }
 
+  .btn{
+    height: 30px;
+  }
+  .common-card-box{
+    width: 100%;
+    height: 8.75rem;
+  }
+  .common-card-box img {
+    height:5.25rem;
+    aspect-ratio: 24/9;
+  }
+  .whitepaper-container-property{
+    padding-right: 0rem;
+    padding-left: 0rem;
+  
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    
+  }
   .hero-title {
     font-size: 1.2rem;
     line-height: 1.2rem;
@@ -282,8 +386,8 @@ width: 48.9375rem;
     font-size: 1.4rem;
   }
   .card-title{
-    font-size: 0.8rem;
-    text-align: center;
+    font-size: 0.6rem;
+   
   }
   .card-desc {
     display: none;
@@ -305,7 +409,7 @@ width: 48.9375rem;
     line-height: 1.75rem; /* Adjust the value based on your needs */
     letter-spacing: 0.1rem; 
     text-align: center;
-    width: 22.9375rem;
+    width: 18.9375rem;
   }
   .btn-white {
     font-size: 12px;
@@ -326,6 +430,35 @@ width: 48.9375rem;
   .hero-wrapper {
     max-width: 80%;
     gap: 0rem;
+  }
+  .btn{
+    height: 40px;
+  }
+
+  .testimonial-section{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .card-box {
+    width: 18.66667rem;
+    height: 18rem;
+  }
+  .card-box img {
+    height:10.25rem;
+  }
+  .common-card-box {
+    width: 100%;
+    height: 12rem;
+  }
+  .common-card-box img {
+    height:8.25rem;
+    aspect-ratio: 20/9;
+  }
+  .whitepaper-container-property{
+    padding-right: 1rem;
+    padding-left: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .hero-description {
     font-weight: 400;
@@ -358,8 +491,8 @@ width: 48.9375rem;
     font-size: 1.8rem;
   }
   .card-title{
-    font-size: 1rem;
-    text-align: center;
+    font-size: 0.8rem;
+    
   }
   .card-desc {
     display: none;
@@ -400,7 +533,31 @@ width: 48.9375rem;
     max-width: 60%;
     gap: 0.3rem;
   }
-
+  .testimonial-section{
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+  .card-box {
+    width: 22.66667rem;
+    height: 22rem;
+  }
+  .card-box img {
+    height:13.25rem;
+  }
+  .common-card-box  {
+    width: 100%;
+    height: 18rem;
+  }
+  .common-card-box  img {
+    height:8.25rem;
+    aspect-ratio: 16/9;
+  }
+  .whitepaper-container-property{
+    padding-right: 2rem;
+    padding-left: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    
+  }
   .hero-title {
     font-size: 2rem;
     line-height: 1.95rem;
@@ -413,13 +570,14 @@ width: 48.9375rem;
     aspect-ratio: 1/1;
    
 }
+
   .hero-btn {
-    width: 160px;
-    height: 50px;
+    width: 10rem;
+    height: 3.125rem;
     font-size: 0.9rem;
   }
   .section-summary {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .section-title {
     font-size: 2rem;
