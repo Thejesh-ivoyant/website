@@ -338,12 +338,19 @@ flex: 1 0 0;
 .ReactFlagsSelect-module_flagsSelect__2pfa2{
   padding-bottom: 0rem!important;
 }
+
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
   .hero-wrapper {
     max-width: 90%;
     gap: 0rem;
      /* Adjust the value as needed */
+  }
+  .author-card{
+    display: none;
+  }
+  .blog-para-title{
+    display: none;
   }
   .testimonial-section{
     padding-left: 0.5rem;
@@ -446,7 +453,12 @@ flex: 1 0 0;
   .btn{
     height: 40px;
   }
-
+  .author-card{
+    display: none;
+  }
+  .blog-para-title{
+    display: none;
+  }
   .testimonial-section{
     padding-left: 1rem;
     padding-right: 1rem;
@@ -545,6 +557,9 @@ flex: 1 0 0;
     max-width: 60%;
     gap: 0.3rem;
   }
+  .author-links{
+    display: none;
+  }
   .testimonial-section{
     padding-left: 8rem;
     padding-right: 8rem;
@@ -625,7 +640,9 @@ flex: 1 0 0;
     max-width: 50%;
     gap: 0.6rem;
   }
-
+  .author-links{
+    display: none;
+  }
   .hero-title {
     font-size: 1.8rem;
     line-height: 2.2rem;
@@ -645,6 +662,9 @@ flex: 1 0 0;
 @media (min-width: 1201px) {
   .hero-wrapper {
     max-width: 42rem;
+  }
+  .author-links{
+    display: none;
   }
 }
 
