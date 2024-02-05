@@ -99,7 +99,7 @@ const handleSubmit = async (
 
 const ContactUs = () => {
   
-  const [selectedCode, setCountryCodeSelected] = useState("");
+  const [selectedCode, setCountryCodeSelected] = useState("US");
   const [selectedDate, setDateSelected] = useState("");
   const ContactUsAPIData = `${strapiUrl}/api/contact-uses?populate=%2A`;
   const [contactImage, setcontactImage] = useState<string>("");
@@ -344,7 +344,7 @@ const ContactUs = () => {
             autoComplete="off"
           >
             <div className="grid grid-cols-2 gap-10">
-              <div className="w-56 relative group col-span-1">
+              <div className="w-full relative group col-span-1">
                 <input
                   type="text"
                   id="name"
@@ -354,7 +354,7 @@ const ContactUs = () => {
                   className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
               </div>
-              <div className="w-56 relative group col-span-1">
+              <div className="w-full relative group col-span-1">
                 <input
                   type="text"
                   id="email"
@@ -373,7 +373,8 @@ const ContactUs = () => {
     onSelect={(code) => setCountryCodeSelected(code)}
     searchable
     searchPlaceholder="Search countries"
-  />  <input
+  /> 
+   <input
   type="text"
   placeholder=""
   value={selectedCode}
@@ -387,7 +388,7 @@ const ContactUs = () => {
 
                 <input
                   type="tel"
-                  placeholder="Ph No*"
+                  placeholder="Phone Number*"
                   value={phoneNumber}
                   onChange={handlePhoneNumberChange}
                   required
@@ -395,7 +396,7 @@ const ContactUs = () => {
                   name="phonenumber"
                 />
               </div>
-              <div className="w-56 relative group col-span-1">
+              <div className="w-full relative group col-span-1">
                 <input
                   type="text"
                   id="organization"
@@ -446,7 +447,6 @@ const ContactUs = () => {
   type="text"
   placeholder=""
   value={selectedDate}
-  required
   className="hidden"
   name="date"
 />
@@ -499,7 +499,7 @@ const ContactUs = () => {
             autoComplete="off"
           >
             <div className="grid grid-cols-2 gap-10">
-              <div className="w-56 relative group col-span-1">
+              <div className="w-full relative group col-span-1">
                 <input
                   type="text"
                   id="name"
@@ -509,7 +509,7 @@ const ContactUs = () => {
                   className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
               </div>
-              <div className="w-56 relative group col-span-1">
+              <div className="w-full relative group col-span-1">
                 <input
                   type="text"
                   id="email"
@@ -541,7 +541,7 @@ const ContactUs = () => {
 
                 <input
                   type="tel"
-                  placeholder="Ph No*"
+                  placeholder="Phone Number*"
                   value={phoneNumber}
                   onChange={handlePhoneNumberChange}
                   required
@@ -549,7 +549,7 @@ const ContactUs = () => {
                   name="phone_number"
                 />
               </div>
-              <div className="w-56 relative group col-span-1">
+              <div className="w-full relative group col-span-1">
                 <select
                   id="username"
                   defaultValue="" 
@@ -559,11 +559,11 @@ const ContactUs = () => {
                   <option value="" disabled  hidden>
                     Area of Expertise
                   </option>
-                  <option value="option1">Front End coding</option>
-                  <option value="option2">Devops </option>
+                  <option>Front End coding</option>
+                  <option>Devops </option>
                 </select>
               </div>
-              <div className="w-56 relative group col-span-1">
+              <div className="w-full relative group col-span-1">
                 <select
                   id="username"
                   name="hiring_duration"
@@ -573,11 +573,11 @@ const ContactUs = () => {
                   <option value="" disabled hidden>
                     Hiring Duration
                   </option>
-                  <option value="option1">10</option>
-                  <option value="option2">8</option>
+                  <option>10</option>
+                  <option>8</option>
                 </select>
               </div>
-              <div className="w-56 relative group col-span-1">
+              <div className="w-full relative group col-span-1">
                 <select
                   id="username"
                   name="choose_skill_set"
@@ -587,8 +587,8 @@ const ContactUs = () => {
                   <option value="" disabled  hidden>
                     Choose skillset
                   </option>
-                  <option value="option1">python</option>
-                  <option value="option2">java</option>
+                  <option>python</option>
+                  <option>java</option>
                 </select>
               </div>
               <div className="w-full relative grid col-span-2">
@@ -633,8 +633,6 @@ const ContactUs = () => {
   type="text"
   placeholder=""
   value={selectedDate}
-
-  required
   className="hidden"
   name="date_hire"
 />
