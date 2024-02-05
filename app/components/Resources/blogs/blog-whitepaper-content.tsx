@@ -212,7 +212,7 @@ const Blog_WhitepaperContent = () => {
               {loaderData.authorName}
             </div>
             <div className="text-neutral-800 text-base leading-5 mt-5">
-              {loaderData.authorSummary}u
+              {loaderData.authorSummary}
             </div>
             <img
               alt="icon"
