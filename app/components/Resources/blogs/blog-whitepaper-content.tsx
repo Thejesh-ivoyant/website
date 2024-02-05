@@ -168,30 +168,35 @@ const Blog_WhitepaperContent = () => {
             </button>
           ) : (
             <div>
+              {loaderData.descriptionImage1 && (
               <img
                 alt="icon"
                 src={`${loaderData.descriptionImage1}`}
-                className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+                className="aspect-[2.33] object-cover object-center w-full overflow-hidden mt-4 max-md:max-w-full"
               />
+              )}
               <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
                 {loaderData.description2}
               </div>
-
+              {loaderData.descriptionImage2 && (
               <img
                 loading="eager"
                 alt="icon"
                 src={`${loaderData.descriptionImage2}`}
-                className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+                className="aspect-[2.33] object-cover object-center w-full overflow-hidden mt-4 max-md:max-w-full"
               />
+              )}
+
               <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
                 {loaderData.description3}
               </div>
+              {loaderData.descriptionImage3 && (
               <img
                 alt="icon"
                 loading="lazy"
                 src={`${loaderData.descriptionImage3}`}
-                className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
-              />
+                className="aspect-[2.33] object-cover object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+              />)}
             </div>
           )}
         </div>
@@ -207,7 +212,7 @@ const Blog_WhitepaperContent = () => {
               {loaderData.authorName}
             </div>
             <div className="text-neutral-800 text-base leading-5 mt-5">
-              {loaderData.authorSummary}
+              {loaderData.authorSummary}u
             </div>
             <img
               alt="icon"

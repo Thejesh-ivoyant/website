@@ -52,7 +52,7 @@ const blogid=`${params.blogid}`;
   const tagsData = tagslist?.data?.topicTags?.data 
   const categoryListData = categoryList?.data?.categories.data 
   const blogGql = await fetchGraphQL(topBlogQuery);
-
+console.warn("TTTTTTTTtest author",authorData.data?.author.data.attributes);
   const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
     id: item.id,
     title: item.attributes.title,
@@ -97,6 +97,7 @@ const blogid=`${params.blogid}`;
 
 
   return defer({
+        authorData:authorData,
         avatar:authorData.data?.author.data?.attributes.avatar.data?.attributes?.url,
         bannerImage: jsonParsed.data?.attributes?.bannerImage?.data?.attributes?.url,
         descriptionImage1: jsonParsed.data?.attributes?.descriptionImage1?.data?.attributes?.url,
