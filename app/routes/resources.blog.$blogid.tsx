@@ -45,6 +45,14 @@ const blogid=`${params.blogid}`;
     },
   }));
 
+  const authordataMain = authorData.data?.author.data?.attributes || {};
+const socialMediaLinks = authordataMain.socialMediaLinks || [];
+
+const authordatamapped = socialMediaLinks.map((linkItem: any) => ({
+  link: linkItem.link,
+  logo: linkItem.logo.data.attributes.url,
+}));
+
   const [tagslist, categoryList] = await Promise.all([
     await fetchGraphQL(tagsQuery),
     await fetchGraphQL(categories)
@@ -52,7 +60,6 @@ const blogid=`${params.blogid}`;
   const tagsData = tagslist?.data?.topicTags?.data 
   const categoryListData = categoryList?.data?.categories.data 
   const blogGql = await fetchGraphQL(topBlogQuery);
-
   const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
     id: item.id,
     title: item.attributes.title,
@@ -97,6 +104,7 @@ const blogid=`${params.blogid}`;
 
 
   return defer({
+        authorData:authordatamapped,
         avatar:authorData.data?.author.data?.attributes.avatar.data?.attributes?.url,
         bannerImage: jsonParsed.data?.attributes?.bannerImage?.data?.attributes?.url,
         descriptionImage1: jsonParsed.data?.attributes?.descriptionImage1?.data?.attributes?.url,

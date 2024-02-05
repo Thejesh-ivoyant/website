@@ -153,10 +153,26 @@ const Blog_WhitepaperContent = () => {
   }
 
   return (
-    <div className="justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 py-12 max-md:px-5">
+    <div className="justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 py-4 max-md:px-5">
       <div className="flex ml-0 justify-between gap-5  max-md:max-w-full max-md:flex-wrap max-md:justify-center">
         <div className=" items-stretch flex  flex-col w-[70%]">
-          <div className="text-black text-3xl font-semibold max-md:max-w-full">
+       
+       
+        <div className=" author-links flex flex-row items-start justify-start gap-4 ">
+            {loaderData.authorData?.map((item: any, index: any) => (  
+       <a href={item.link} className="text-black h-fit text-base leading-5 "  target="_blank" rel="noopener noreferrer">
+              <img
+              alt="icon"
+              loading="eager"
+          src={item.logo}
+              className=" grayscale hover:grayscale-0 object-contain object-center w-full h-fit items-center overflow-hidden max-w-full mt-7"
+            />
+         </a>
+            ))}
+            </div>
+
+
+          <div className="text-black text-3xl font-semibold max-md:max-w-full blog-para-title">
             {loaderData.title}
           </div>
           <div className="text-black  leading-5 mt-4 max-md:max-w-full">
@@ -168,34 +184,39 @@ const Blog_WhitepaperContent = () => {
             </button>
           ) : (
             <div>
+              {loaderData.descriptionImage1 && (
               <img
                 alt="icon"
                 src={`${loaderData.descriptionImage1}`}
-                className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+                className="aspect-[2.33] object-cover object-center w-full overflow-hidden mt-4 max-md:max-w-full"
               />
+              )}
               <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
                 {loaderData.description2}
               </div>
-
+              {loaderData.descriptionImage2 && (
               <img
                 loading="eager"
                 alt="icon"
                 src={`${loaderData.descriptionImage2}`}
-                className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+                className="aspect-[2.33] object-cover object-center w-full overflow-hidden mt-4 max-md:max-w-full"
               />
+              )}
+
               <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
                 {loaderData.description3}
               </div>
+              {loaderData.descriptionImage3 && (
               <img
                 alt="icon"
                 loading="lazy"
                 src={`${loaderData.descriptionImage3}`}
-                className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
-              />
+                className="aspect-[2.33] object-cover object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+              />)}
             </div>
           )}
         </div>
-        <div className="bg-gray-200 self-stretch flex w-px shrink-0 h-[0px] flex-col" />
+        <div className="bg-gray-200 self-stretch flex w-px shrink-0 h-[800px] flex-col" />
         <div className=" flex grow basis-[0%] flex-col items-stretch self-start">
           <div className="shadow-sm author-card flex flex-col px-7 pr-10 py-7  rounded-sm items-start max-md:px-5">
             <img
@@ -209,12 +230,19 @@ const Blog_WhitepaperContent = () => {
             <div className="text-neutral-800 text-base leading-5 mt-5">
               {loaderData.authorSummary}
             </div>
-            <img
+            <div className="flex flex-row gap-4">
+            {loaderData.authorData?.map((item: any, index: any) => (  
+       <a href={item.link} className="text-black h-fit text-base leading-5 "  target="_blank" rel="noopener noreferrer">
+              <img
               alt="icon"
-              loading="lazy"
-              src="../../assets/socialdummyplaceholder.png"
-              className="aspect-[6.92] object-contain object-center w-[173px] items-center overflow-hidden max-w-full mt-7"
+              loading="eager"
+          src={item.logo}
+              className=" grayscale hover:grayscale-0 object-contain object-center w-full h-fit items-center overflow-hidden max-w-full mt-7"
             />
+         </a>
+            ))}
+            </div>
+           
           </div>
           <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 pl-4 pr-4 pt-11 pb-5 ">
             <div className="text-black text-2xl font-medium leading-9">
