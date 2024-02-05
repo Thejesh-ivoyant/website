@@ -2432,7 +2432,7 @@ hr {
 
 .logos {
   overflow: hidden;
-margin: 60px;
+  margin: 0.8rem;
   background: white;
   white-space: nowrap;
   position: relative;
@@ -2442,7 +2442,7 @@ margin: 60px;
 .logos:after {
   position: absolute;
   top: 0;
-  width: 250px;
+  width: 3rem;
   height: 100%;
   content: "";
   z-index: 2;
@@ -2468,11 +2468,71 @@ margin: 60px;
 }
 
 .logos-slide img {
-  height: 160px;
+  height: 2rem;
   aspect-ratio: 21/16;
-  padding: 0 40px;
+  padding: 0 0.4rem;
   object-fit: contain;
   cursor: pointer;
+}
+@media (min-width: 375px){
+  .logos{
+    margin:1rem;
+}
+  .logos-slide img{
+    height: 2.5rem;
+    padding: 0 0.4rem;
+  }
+}
+@media (min-width: 425px){
+  .logos{
+    margin:1rem;
+}
+  .logos-slide img{
+    height: 3rem;
+    padding: 0rem 0.6rem ;
+  }
+}
+@media (min-width: 640px){
+  .logos{
+    margin:1rem;
+}
+  .logos-slide img{
+    height: 4.5rem;
+    padding: 0rem 1.5rem ;
+  }
+  .logos:before,
+  .logos:after {
+    width: 4rem;
+  }
+}
+@media (min-width: 728px){
+  .logos{
+    margin:2rem;
+}
+  .logos-slide img{
+    height: 5.2rem;
+    padding:0 1rem;
+  }
+  .logos:before,
+  .logos:after {
+    width: 6rem;
+  }
+}
+@media (min-width: 1024px){
+  .logos{
+      margin:2.5rem;
+  }
+  .logos-slide img{
+    height: 6.875rem;
+  }
+}
+@media (min-width: 1400px){
+  .logos{
+    margin:3.7rem;
+}
+  .logos-slide img{
+    height: 10rem;
+  }
 }
 .logos-slide img:hover {
   border-radius: 0.125rem;
