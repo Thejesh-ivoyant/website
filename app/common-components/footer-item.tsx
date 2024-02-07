@@ -1,18 +1,20 @@
 import { Link, Links } from "@remix-run/react";
 import { Attributes } from "~/interfaces/NavType";
-import { Service } from "~/interfaces/NavType";
+import { Resource } from "~/interfaces/NavType";
 export const AccordionItem = ({
   name,
   active,
   onToggle,
   num,
   list,
+  showModal
 }: {
   name: string;
   active: boolean;
   onToggle: (num: number) => void;
   num: number;
-  list?: Service[];
+  list?: Resource[];
+  showModal: (url: any) => void; 
 }) => {
   return (
     <>
@@ -54,12 +56,23 @@ export const AccordionItem = ({
         </button>
         <ul className={`${active ? "grid" : "hidden"} my-2 gap-3`}>
         {list && name !== null && list.map((item) => (
-            item?.name !== undefined && (
-                <li className="text-geekblue-2 text-xs mx-2 hover:text-purple-300" key={item.id}>
-                <Link to={item?.link}>{item?.name}</Link>
-                </li>
+          item?.name !== undefined && (
+            item.attachment?.data?.attributes?.url ? (
+              <button
+                key={item.id}
+                onClick={() => showModal(item.attachment?.data?.attributes?.url)}
+                className="text-geekblue-2 text-left text-xs mx-2 hover:text-purple-300"
+              >
+                {item.name}
+              </button>
+            ) : (
+              <li className="text-geekblue-2 text-xs mx-2 hover:text-purple-300" key={item.id}>
+                <Link to={item.link}>{item.name}</Link>
+              </li>
             )
+          )
         ))}
+
 
 
             {name === "contact" && !list && (
