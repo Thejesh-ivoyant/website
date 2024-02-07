@@ -20,6 +20,7 @@ import { fetchGraphQL } from "./graphql/fetchGraphQl";
 import { navQuery } from "./graphql/queries";
 import ScrollToTopIcon from "./ScrollToTop";
 import ErrorBoundaryPage from "./common-components/errorpage";
+import LoadingTest from "./common-components/loading-test";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
   { rel: "stylesheet", href: globalstyle },
@@ -80,6 +81,7 @@ export default function App() {
       </head>
       <body className="overscroll-none">
         <Nav />
+        <LoadingTest />
         <Outlet />
         <ScrollRestoration/>
         <Scripts />
