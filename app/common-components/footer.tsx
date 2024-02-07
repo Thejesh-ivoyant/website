@@ -7,9 +7,13 @@ import yt from '~/../public/assets/YouTube svg.svg'
 import ivoyantLogo from "~/../public/assets/ivoyant-footer.svg"
 import { errorMessage, success } from "~/utils/notifications";
 import AccordionItem from "./footer-item";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Modal } from "antd";
 
 const Footer = () => {
+  const [open, setOpen] = useState(false);
+  const [download, setDownload] = useState<string>("");
+  const [toggleNav, setToggleNav] = useState<boolean>(false);
   const [clicked, setClicked] = useState(-1);
   const handleToggle = (index:number) => {
     if (clicked === index) {
@@ -17,6 +21,53 @@ const Footer = () => {
     }
     setClicked(index);
    };
+   const showModal = (url:any) => {
+    debugger
+    setDownload(url);
+    setOpen(true);
+};
+
+
+  const handleModalSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    try {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      formData.append('action', 'pitchdeck');
+      formData.forEach((value, key) => {
+      });
+      const response = await fetch('https://forms.hubspot.com/uploads/form/v2/39872873/c4e42171-a7d2-4ce1-b0dc-c7adeba7c46d', {
+        method: 'POST',
+        body: formData,
+      });
+      
+  
+      if (response.ok) {
+            
+      success("Thank you for showing interest in us!",2);
+        handleDownload();
+      } else {
+        errorMessage("Form submission failed",3);        
+      }
+ 
+    } catch (error) {
+      errorMessage("Error occured, please retry",3);
+    }
+  };
+  
+  
+
+  const handleDownload = () => {
+ 
+    const PitchDeskUrl = download;
+    setOpen(false);
+    //success mesage here
+    window.open(PitchDeskUrl, '_blank');
+  };
+
+  const handleCancel = () => {
+    setOpen(false);
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault();
@@ -48,6 +99,55 @@ const Footer = () => {
 
   return (
     <>
+      <Modal
+          open={open}
+          title="Download PitchDeck"
+          onCancel={handleCancel}
+        
+        >
+        <Form className="form" onSubmit={handleModalSubmit}>
+          <div className="items-stretch bg-white flex  flex-col py-2">
+
+            <div className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
+              Please provide required information to view the Pitch deck
+            </div>
+            
+            <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
+              Full name
+            </div>
+            <input
+              type="text"
+              className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+              name="firstName"
+              required
+            />
+
+            <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
+              Email
+            </div>
+            <input
+              type="email"
+              className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+              name="email"
+              required
+            />
+
+            <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
+              Phone number
+            </div>
+            <input
+              type="tel"
+              className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+              name="phoneNumber"
+              required
+            />
+
+            <button type="submit" className="mt-6 btn w-full">
+              Get the Copy
+            </button>
+          </div>
+        </Form>
+      </Modal>
       <footer className="w-full lg:block hidden bg-haiti xl:py-16 lg:py-6 xl:px-16 md:px-4 font-montserrat text-white h-fit ">
         <section className="flex flex-row w-full gradient-bottom p-6"></section>
         <Form onSubmit={handleSubmit}>
@@ -112,14 +212,9 @@ const Footer = () => {
                       {item.name}
                     </Link>
                   ) : item.attachment?.data?.attributes?.url ? (
-                    <a
-                      key={index}
-                      href={item.attachment.data.attributes.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <button onClick={() => {showModal(item.attachment?.data?.attributes?.url)}} className="text-left">
                       {item.name}
-                    </a>
+                    </button>
                   ) : (
                     item.__typename != "ComponentCardCard" && (
                       <span
@@ -254,11 +349,11 @@ const Footer = () => {
             </defs>
           </svg>
           <ul className="grid place-items-start sm:w-80 w-72 h-fit my-2">
-            <AccordionItem list = {attributes?.services} onToggle={()=> handleToggle(1)} num = {1}  name="services" active = {clicked === 1} />
-            <AccordionItem list = {attributes?.industries} onToggle={()=> handleToggle(2)} num = {2} name="industries" active = {clicked === 2} />
-            <AccordionItem list = {attributes?.resources} onToggle={()=> handleToggle(3)} num = {3} name="resources" active = {clicked === 3} />
-            <AccordionItem onToggle={()=> handleToggle(4)} num = {4} name="contact" active = {clicked === 4} />            
-            <AccordionItem onToggle={()=> handleToggle(5)} num = {5} name="enquiry" active = {clicked === 5} />            
+            <AccordionItem list = {attributes?.services} onToggle={()=> handleToggle(1)} num = {1}  name="services" active = {clicked === 1} showModal={showModal} />
+            <AccordionItem list = {attributes?.industries} onToggle={()=> handleToggle(2)} num = {2} name="industries" active = {clicked === 2} showModal={showModal} />
+            <AccordionItem list = {attributes?.resources} onToggle={()=> handleToggle(3)} num = {3} name="resources" active = {clicked === 3} showModal={showModal} />
+            <AccordionItem onToggle={()=> handleToggle(4)} num = {4} name="contact" active = {clicked === 4} showModal={showModal} />            
+            <AccordionItem onToggle={()=> handleToggle(5)} num = {5} name="enquiry" active = {clicked === 5} showModal={showModal} />            
             
           </ul>  
           <svg width="100%" height="26" viewBox="0 0 340 26" fill="none" xmlns="http://www.w3.org/2000/svg">
