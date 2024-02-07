@@ -154,8 +154,8 @@ const Blog_WhitepaperContent = () => {
 
   return (
     <div className="justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 py-4 max-md:px-5">
-      <div className="flex ml-0 justify-between gap-5  max-md:max-w-full max-md:flex-wrap max-md:justify-center">
-        <div className=" items-stretch flex  flex-col w-[70%]">
+      <div className="blog-content-container flex ml-0 justify-between  max-md:max-w-full max-md:flex-wrap max-md:justify-center">
+        <div className="left-content-blog items-stretch flex  flex-col ">
        
        
         <div className=" author-links flex flex-row items-start justify-start gap-4 ">
@@ -216,7 +216,7 @@ const Blog_WhitepaperContent = () => {
             </div>
           )}
         </div>
-        <div className="bg-gray-200 self-stretch flex w-px shrink-0 h-[800px] flex-col" />
+        <div className="separator-line bg-gray-200 self-stretch flex w-px shrink-0 h-[800px] flex-col" />
         <div className=" flex grow basis-[0%] flex-col items-stretch self-start">
           <div className="shadow-sm author-card flex flex-col px-7 pr-10 py-7  rounded-sm items-start max-md:px-5">
             <img

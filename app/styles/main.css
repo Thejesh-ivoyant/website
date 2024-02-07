@@ -344,6 +344,13 @@ flex: 1 0 0;
   padding-top: 0rem;
   padding-bottom: 0rem;
 }
+.left-content-blog{
+width: 70%;
+}
+.blog-content-container{
+  gap:1.25rem;
+}
+
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
   .hero-wrapper {
@@ -351,7 +358,16 @@ flex: 1 0 0;
     gap: 0rem;
      /* Adjust the value as needed */
   }
+  .left-content-blog{
+    width: 100%;
+    }
+    .blog-content-container{
+      gap:0rem;
+    }
   .author-card{
+    display: none;
+  }
+  .separator-line{
     display: none;
   }
   .blog-para-title{
@@ -455,10 +471,19 @@ flex: 1 0 0;
     max-width: 80%;
     gap: 0rem;
   }
+  .left-content-blog{
+    width: 100%;
+    }
+    .blog-content-container{
+      gap:0rem;
+    }
   .btn{
     height: 40px;
   }
   .author-card{
+    display: none;
+  }
+  .separator-line{
     display: none;
   }
   .blog-para-title{
@@ -2404,10 +2429,15 @@ hr {
 }
 
 .screen-height {
-  height: calc(100vh - 4.5rem);
-  margin-top: 4.5rem;
+  height: calc(100vh - 3.5rem);
+  margin-top: 3.5rem;
 }
-
+@media (min-width:1024px){
+  .screen-height {
+    height: calc(100vh - 4.5rem);
+    margin-top: 4.5rem;
+  }
+}
 .gradient-mesh {
   background-color: rgba(0, 0, 0, 0.5);
 }
