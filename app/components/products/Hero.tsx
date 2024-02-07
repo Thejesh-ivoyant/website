@@ -5,7 +5,7 @@ const Hero = ({carousel}:{carousel: any})=>{
         <>
         <Carousel >
             {carousel.map((item:any) => (
-                <div key={item.id} className="relative h-[50rem] md:h-[30rem] mt-16 lg:h-screen text-white slit-gradient flex flex-row">
+                <div key={item.id} className="relative h-[50rem] md:h-[30rem] lg:mt-0 mt-16 lg:h-screen text-white slit-gradient flex flex-row">
                 <div className="flex md:flex-1 flex-col items-center md:w-80 lg:w-[31.5rem] max-w-xl md:h-full md:justify-center px-6 lg:mx-10 xl:mx-20 gap-5">
                     <p className="text-haiti font-extrabold prod-hero-title font-montserrat italic pt-12 md:pt-0">
                     {item.title}
