@@ -415,12 +415,29 @@ const Nav = () => {
                         {
                           navdata.navGraphql?.data?.navbar?.data?.attributes?.[category].map((item: any, linkindex: number) => (
                             item?.name !== undefined && (
-                              <Link onClick={handleHamburgerClick} key={linkindex} className={`${(index === clicked) ? 'font-base font-montserrat text-base leading-5 tracking-wide' : 'hidden'}`} to={item?.link}>
-                                {item.name}
-                              </Link>
+                              item.attachment?.data?.attributes?.url ? (
+                                <button
+                                  key={linkindex}
+                                  onClick={() => showModal(item.attachment?.data?.attributes?.url)}
+                                  className={`${(index === clicked) ? 'font-base font-montserrat text-base text-start leading-5 tracking-wide' : 'hidden'} inline font-poppins font-normal hover:text-[#bea7ef]`}
+                                >
+                                  {item.name}
+                                </button>
+                              ) : (
+                                <Link
+                                  key={linkindex}
+                                  onClick={handleHamburgerClick}
+                                  to={item.link}
+                                  prefetch="intent"
+                                  className={`${(index === clicked) ? 'font-base font-montserrat text-base leading-5 tracking-wide' : 'hidden'} inline font-poppins font-normal hover:text-[#bea7ef]`}
+                                >
+                                  {item.name}
+                                </Link>
+                              )
                             )
                           ))
                         }
+
                       </div>
 
                     ))
