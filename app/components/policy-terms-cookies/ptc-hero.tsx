@@ -6,9 +6,9 @@ const PTCHero = () => {
   return (
     <>
   
-        <div className="screen-height mt-[4.5rem] gap-5 flex ">
+        <div className="screen-height gap-5 flex ">
           <div className="flex flex-col  w-[50%] ">
-            <div className="flex-col mt-16 fill-white overflow-hidden relative flex grow items-center  max-md:max-w-full max-md:px-5">
+            <div className="flex-col  fill-white overflow-hidden relative flex grow items-center  max-md:max-w-full max-md:px-5">
              
            
               <div className="relative indigo-950 text-opacity-80  mt-24 max-md:max-w-full max-md:mt-10 text-xl leading-[58px] w-[504px] max-w-full ">
@@ -28,7 +28,7 @@ const PTCHero = () => {
                     alt="heroimage"
                     loading="eager"
                 src={loaderData.heroImage}
-                className=" screen-height object-center w-full overflow-hidden grow max-md:max-w-full h-full"
+                className="object-center w-full overflow-hidden grow max-md:max-w-full h-full"
               />
             </div>
           </div>

@@ -69,7 +69,7 @@ const Testimonials = () => {
         <div>
         
           <section className="testimonial-section mt-4 gradient-top">
-            <div className="inner-container w-full ">
+            <div className="inner-container pb-4 w-full ">
               <div className="flex flex-col justify-center">
                 <div className="industry flex items-start justify-start text-sm font-poppins font-normal">
                   {testimonialList[currentTestimonialIndex].title}

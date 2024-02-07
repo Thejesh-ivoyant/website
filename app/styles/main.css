@@ -928,7 +928,6 @@ width: 70%;
 .grape-shadow:hover {
   box-shadow: 100px 0px 150px 0px #24114f inset;
   transition: 0.3s;
-  cursor: pointer;
 }
 
 .key-points-text {
@@ -1609,7 +1608,6 @@ width: 70%;
 }
 .inner-container {
   display: flex;
-  margin-bottom: 3.18rem;
   padding: 4rem 1.875rem;
   align-items: center;
   flex-direction: row;
@@ -2433,9 +2431,7 @@ hr {
   }
 }
 
-.contact-sidebar .contact-content-wrapper div {
-  margin-bottom: 20px;
-}
+
 
 .screen-height {
   height: calc(100vh - 3.5rem);
