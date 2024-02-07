@@ -153,7 +153,7 @@ const Blog_WhitepaperContent = () => {
   }
 
   return (
-    <div className="justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 py-4 max-md:px-5">
+    <div className="blog-whitepaper-content-section justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 max-md:px-5">
       <div className="blog-content-container flex ml-0 justify-between  max-md:max-w-full max-md:flex-wrap max-md:justify-center">
         <div className="left-content-blog items-stretch flex  flex-col ">
        
@@ -188,7 +188,7 @@ const Blog_WhitepaperContent = () => {
               <img
                 alt="icon"
                 src={`${loaderData.descriptionImage1}`}
-                className="aspect-[2.33] object-cover object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+                className="aspect-[2.33]  object-center w-full overflow-hidden mt-4 max-md:max-w-full"
               />
               )}
               <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
@@ -199,7 +199,7 @@ const Blog_WhitepaperContent = () => {
                 loading="eager"
                 alt="icon"
                 src={`${loaderData.descriptionImage2}`}
-                className="aspect-[2.33] object-cover object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+                className="aspect-[2.33]  object-center w-full overflow-hidden mt-4 max-md:max-w-full"
               />
               )}
 
@@ -211,7 +211,7 @@ const Blog_WhitepaperContent = () => {
                 alt="icon"
                 loading="lazy"
                 src={`${loaderData.descriptionImage3}`}
-                className="aspect-[2.33] object-cover object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+                className="aspect-[2.33]  object-center w-full overflow-hidden mt-4 max-md:max-w-full"
               />)}
             </div>
           )}
