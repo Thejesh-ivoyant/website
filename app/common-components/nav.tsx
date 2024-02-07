@@ -406,6 +406,8 @@ const Nav = () => {
                         <button className={`capitalize text-left font-montserrat text-xl font-semibold ${(clicked === index)? 'text-geekblue': 'text-gray-200'}`} key={index} onClick={() =>{handleToggle(index)}}>{category}</button>
                     ))
                   }
+                  <Link onClick={handleHamburgerClick}  to={'/contact-us'} className='capitalize text-left font-montserrat text-xl font-semibold text-gray-200' >Contact Us</Link>
+
                 </div>
               </div>
               <div className="h-full w-fit text-white ml-10 max-h-80 overflow-y-scroll transition-opacity mr-auto">
