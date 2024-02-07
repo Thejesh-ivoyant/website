@@ -2429,10 +2429,15 @@ hr {
 }
 
 .screen-height {
-  height: calc(100vh - 4.5rem);
-  margin-top: 4.5rem;
+  height: calc(100vh - 3.5rem);
+  margin-top: 3.5rem;
 }
-
+@media (min-width:1024px){
+  .screen-height {
+    height: calc(100vh - 4.5rem);
+    margin-top: 4.5rem;
+  }
+}
 .gradient-mesh {
   background-color: rgba(0, 0, 0, 0.5);
 }
