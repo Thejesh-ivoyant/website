@@ -183,7 +183,7 @@ const BlogCardContainer = () => {
         {/* Tag select */}
       </div>
 
-      <div className="w-full h-fit relative p-2 flex flex-row justify-around">
+      <div className="blog-main-box w-full h-fit relative  flex flex-row justify-around">
         <img
           src="../assets/Ornament.png"
           className="absolute top-4 left-4"
