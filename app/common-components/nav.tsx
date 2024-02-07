@@ -403,7 +403,7 @@ const Nav = () => {
                 <div className="w-fit mx-auto gap-10 grid">
                   {
                     categories.map((category,index)=>(
-                        <button className="capitalize text-left font-montserrat text-xl font-semibold text-gray-200" key={index} onClick={() =>{handleToggle(index)}}>{category}</button>
+                        <button className={`capitalize text-left font-montserrat text-xl font-semibold ${(clicked === index)? 'text-geekblue': 'text-gray-200'}`} key={index} onClick={() =>{handleToggle(index)}}>{category}</button>
                     ))
                   }
                 </div>
