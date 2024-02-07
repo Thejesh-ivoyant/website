@@ -21,7 +21,7 @@ const BlogCard = ({ blog,blogData }: { blog: IBlogMedia, blogData:any }) => {
             </header>
           </div>
           <div className="landing-resource-card-right items-start flex flex-col  w-[60%]  max-md:w-full justify-between gap-2">
-              <div className="text-blue-100 w-fit  text-base italic font-medium whitespace-nowrap justify-center items-stretch bg-gray-900 p-1">
+              <div className="text-blue-100 w-fit category-title italic font-medium whitespace-nowrap justify-center items-stretch bg-gray-900 p-1">
               {blog.category.name}
               </div>
               <div className="line-clamp-2 blog-title self-stretch text-black  font-montserrat font-semibold ">
@@ -38,7 +38,7 @@ const BlogCard = ({ blog,blogData }: { blog: IBlogMedia, blogData:any }) => {
               </Link>
                 </div>
               <div className="flex flex-row justify-between items-end w-full">
-                <div className="items-stretch flex justify-between gap-5 ">
+                <div className="author-details-container items-stretch flex justify-between ">
                   <img
                     alt="avatar"
                   src={blog.author.avatar} className=" object-center  overflow-hidden flex rounded-full h-[3.125rem] w-[3.125rem] object-cover"
@@ -47,7 +47,7 @@ const BlogCard = ({ blog,blogData }: { blog: IBlogMedia, blogData:any }) => {
                     <div className="text-black  text-base font-medium whitespace-nowrap">
                   {blog.author.name}
                     </div>
-                    <div className="text-black text-sm whitespace-nowrap mt-2.5">
+                    <div className="text-black minutes text-sm whitespace-nowrap ">
           {blog.maxReadTime} Mins Read
                     </div>
                   </div>

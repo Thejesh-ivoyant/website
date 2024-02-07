@@ -350,13 +350,19 @@ width: 70%;
 .blog-content-container{
   gap:1.25rem;
 }
-
+.blog-whitepaper-content-section{
+  padding-top: 3rem/* 48px */;
+  padding-bottom: 3rem/* 48px */;
+}
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
   .hero-wrapper {
     max-width: 90%;
     gap: 0rem;
      /* Adjust the value as needed */
+  }
+  .blog-whitepaper-content-section{
+    padding-top: 1rem/* 48px */;
   }
   .left-content-blog{
     width: 100%;
@@ -470,6 +476,9 @@ width: 70%;
   .hero-wrapper {
     max-width: 80%;
     gap: 0rem;
+  }
+  .blog-whitepaper-content-section{
+    padding-top: 2rem/* 48px */;
   }
   .left-content-blog{
     width: 100%;
