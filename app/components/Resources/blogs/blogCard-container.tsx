@@ -94,7 +94,7 @@ const BlogCardContainer = () => {
   };
 
   return (
-    <div className="w-full bg-white p-8 min-h-[90vh]">
+    <div className="w-full bg-white py-8 blog-card-container  min-h-[90vh]">
       <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
         <span className="section-title">
           {loaderData.s2_title}
@@ -189,7 +189,7 @@ const BlogCardContainer = () => {
           className="absolute top-4 left-4"
           alt="ornament"
         />
-        <div className="w-[76.7625rem] blog-main-card z-10 h-full flex flex-col justify-center gap-y-4 p-6  overflow-y-scroll mt-8">
+        <div className="w-[76.7625rem] blog-main-card z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
           {blogData.map((blog: IBlogMedia) => (
             // <Link
             //   to={`../resources/blog/${blog.id}`}
