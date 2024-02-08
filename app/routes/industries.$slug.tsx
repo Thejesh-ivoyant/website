@@ -17,11 +17,24 @@ export const links: LinksFunction = () => [
   {rel:"stylesheet", href:ProductStyle}
 ];
 
+export const meta: MetaFunction = ({data}: { data: any }) => {
+  return [
+    { title: `Ivoyant | ${data.heroTitle}` },
+    {
+      property: "og:title",
+      content: "Healthcare Page",
+    },
+    {
+      name: "description",
+      content: "Ivoyant industries section describing healthcare services",
+    },
+  ];
+};
 
 export async function loader({ params }: LoaderFunctionArgs) {
   try {
     const industry = `${params.slug}`;
-
+    
     const [jsonParsed, section7PairsJson, section5Parsed, techParsed] = await Promise.all([
       fetchData(`/api/${industry}/?populate=%2A`),
       fetchData(`/api/${industry}/?populate=pairs.pic`),

@@ -1,9 +1,14 @@
 import { Await, MetaFunction, Outlet, defer, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import JobDescription from "~/components/careers/job-description";
-import { LoaderFunctionArgs } from "@remix-run/node";
+import { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import LoadingTest from "~/common-components/loading-test";
 import { Suspense } from "react";
+import CompanyStyle from '~/styles/company.css'
+
+export const links: LinksFunction = () => [
+  {rel:"stylesheet", href:CompanyStyle}
+];
 
 export const meta: MetaFunction = () => {
   return [
@@ -29,9 +34,7 @@ export async function loader({   params, }: LoaderFunctionArgs){
     let jsonParsed = await res.json();
        
     const componentRes = jsonParsed.data?.attributes;
-    console.warn("/////////////",componentRes.s1_points[0].description)
-   console.warn("//////////////",JSON.stringify(componentRes))
-   
+  
 
     const s1_points = componentRes.s1_points?.map((item: any) => ({
       id: item.id,

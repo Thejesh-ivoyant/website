@@ -9,10 +9,18 @@ import JoinUsCardContainer from "~/components/careers/section-4/join-us-card-con
 import LoadingTest from "~/common-components/loading-test";
 import Hero from "~/common-components/Hero";
 import { Daum } from "~/interfaces/CategoriesType";
+import { LinksFunction } from "@remix-run/node";
+import CompanyStyle from '~/styles/company.css'
+import WhyChooseUs from "~/components/Homepage/why-choose-us";
+import Section7 from "~/components/industries/section7";
 
-export const meta: MetaFunction = () => {
+export const links: LinksFunction = () => [
+  {rel:"stylesheet", href:CompanyStyle}
+];
+
+export const meta: MetaFunction = ({data}: { data: any }) => {
   return [
-    { title: "Ivoyant | Mobile App Development" },
+    { title: data.heroTitle },
     {
       property: "og:title",
       content: "Services Page",
@@ -27,7 +35,6 @@ export const meta: MetaFunction = () => {
 async function fetchData(endpoint: string) {
   try {
     const response = await fetch(strapiUrl + endpoint);
-    console.log("fetttttttttc response", response);
     if (!response.ok) {
       throw new Error(
         `Error fetching data from ${endpoint}: ${response.status} ${response.statusText}`
@@ -43,12 +50,12 @@ async function fetchData(endpoint: string) {
 }
 
 export async function loader() {
-  const jsonParsed = await fetchGraphQL(careersQuery);
   const componentRes = await fetchData(
     "/api/career?populate=s4_cards.bgImage,s2_whyJoinUs.bgImage"
   );
 
-  const [locationsList, JobRolesList, DepList, ExperienceList] = await Promise.all([
+  const [jsonParsed,locationsList, JobRolesList, DepList, ExperienceList] = await Promise.all([
+    await fetchGraphQL(careersQuery),
     await fetchGraphQL(locationsQuery),
     await fetchGraphQL(jobrolesQuery),
     await fetchGraphQL(departmentQuery),
@@ -88,7 +95,6 @@ export async function loader() {
         Role: item.attributes.job_role.data.attributes.role,
         ExperienceRange: item.attributes.experience.data.attributes.experienceRange,
         DepartmentName: item.attributes.department.data.attributes.DepartmentName,
-
       })
     );
 
@@ -150,6 +156,7 @@ const Careers = () => {
    <Hero />
        
        <Why_Join_Us />
+   
        <JobCards />
        <JoinUsCardContainer />
        <Outlet />

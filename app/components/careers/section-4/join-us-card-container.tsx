@@ -13,12 +13,12 @@ const JoinUsCardContainer = () => {
 
      
       <div className="w-full  flex flex-col p-4">
-        <div className="flex justify-between flex-row self-center h-fit gap-8 p-2">
+        <div className="join-card ">
           {loaderData.DescriptionCard.map(
             (item: { id: React.Key | null | undefined }, index: any) => (
               <div
                 key={item.id}
-                className="grid col-span-1 w-96 aspect-square object-cover"
+                className="grid-card"
               >
                 <JobCard service={item} />
               </div>

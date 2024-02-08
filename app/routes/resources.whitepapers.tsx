@@ -2,14 +2,18 @@
 import { Suspense } from "react";
 import Consultation from "~/components/Homepage/consultation";
 import { Await, MetaFunction, Outlet, useLoaderData } from "@remix-run/react";
-import { defer } from "@remix-run/node";
+import { LinksFunction, defer } from "@remix-run/node";
 import { strapiUrl } from "~/utils/urls";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { whitepaperQuery } from "~/graphql/queries";
 import WhitePaperCardContainer from "~/components/Resources/whitepapers/whitepaper-container";
 import LoadingTest from "~/common-components/loading-test";
 import Hero from "~/common-components/Hero";
+import ResourcesStyle from '~/styles/resources.css'
 
+export const links: LinksFunction = () => [
+  {rel:"stylesheet", href:ResourcesStyle}
+];
 export const meta: MetaFunction = () => {
   return [
     { title: "Ivoyant | Whitepaper" },
@@ -58,7 +62,6 @@ export async function loader() {
         avatar: item.attributes.author.data?.attributes.avatar.data?.attributes?.url,
       },
     }));
-    console.log("whitepaper loader data ", whitePaperData);
 
     
 
@@ -84,13 +87,9 @@ const Index = () => {
   return (
     <>
     <Suspense fallback={<LoadingTest />}>
-  <Await resolve={data.heroBgImageURl}>
- 
+      <Await resolve={data.heroBgImageURl}>
           <Hero/>
-          
-        
           <WhitePaperCardContainer />
-      
           <Consultation />
           <Outlet />
           </Await>

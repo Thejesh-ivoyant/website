@@ -4,6 +4,7 @@ import globalstyle from "~/styles/main.css";
 import Navstyle from "~/common-components/nav.css";
 import Sidebarstyle from "~/common-components/sidebar.css"
 import {
+  Link,
   Links,
   LiveReload,
   Meta,
@@ -11,12 +12,15 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import ClarityScript from "./clarityScript";
 
 import Nav from "./common-components/nav";
 import Footer from "./common-components/footer";
 import { fetchGraphQL } from "./graphql/fetchGraphQl";
 import { navQuery } from "./graphql/queries";
 import ScrollToTopIcon from "./ScrollToTop";
+import ErrorBoundaryPage from "./common-components/errorpage";
+import LoadingTest from "./common-components/loading-test";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
   { rel: "stylesheet", href: globalstyle },
@@ -65,15 +69,19 @@ export default function App() {
   return (
     <html lang="en">
       <head>
+       
+        <ClarityScript />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+       
         <meta name="description" content="Crafting Customer-Driven Digital Experiences" /> 
         <link rel="stylesheet"  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="overscroll-none">
         <Nav />
+        <LoadingTest />
         <Outlet />
         <ScrollRestoration/>
         <Scripts />
@@ -85,3 +93,23 @@ export default function App() {
   );
 }
 
+export function ErrorBoundary({ error }: { error: Error }) {
+ 
+  return (
+    <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title className="title">iVoyant Systems</title>
+        <meta name="description" content="Crafting Customer-Driven Digital Experiences" /> 
+        <link rel="stylesheet"  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <Meta />
+        <Links />
+      </head>
+      <body className="overscroll-none">
+       <ErrorBoundaryPage/>
+       <Footer/>
+      </body>
+    </html>
+  );
+}

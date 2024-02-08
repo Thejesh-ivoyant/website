@@ -25,7 +25,6 @@ const BlogCardContainer = () => {
       searchValue || "",
       limit
     );
-    console.warn("Drop down 666666666666666666666666", updatedBlogQuery);
 
     const newBlogData = await fetchGraphQL(updatedBlogQuery);
     setBlogData(() => [
@@ -95,13 +94,13 @@ const BlogCardContainer = () => {
   };
 
   return (
-    <div className="w-full bg-white p-8 min-h-[90vh]">
+    <div className="w-full bg-white py-8 blog-card-container  min-h-[90vh]">
       <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
-        <span className="h-fit whitespace-nowrap font-montserrat font-bold">
+        <span className="section-title">
           {loaderData.s2_title}
         </span>
       </div>
-      <div className="flex w-full font-montserrat justify-center gap-2 h-12 mt-2 mb-2 ">
+      <div className="filter flex w-full font-montserrat justify-center gap-2 h-12 mt-2 mb-2 ">
         <div className="flex flex-col gap-1">
           <div className="flex">
             <label className="text-haiti font-normal">Filter by:</label>
@@ -117,8 +116,9 @@ const BlogCardContainer = () => {
               onChange={(e) => {
                 setCategory(e.target.value);
               }}
+              defaultValue="" 
             >
-              <option value="" selected>
+              <option value="">
                 All Categories
               </option>
               {loaderData.categoriesList.map((category: any) => (
@@ -137,8 +137,9 @@ const BlogCardContainer = () => {
               onChange={(e) => {
                 setTag(e.target.value);
               }}
+              defaultValue="" 
             >
-              <option value="" selected>
+              <option value="">
                 All Tags
               </option>
               {loaderData.tags.map((tag: any) => (
@@ -182,21 +183,21 @@ const BlogCardContainer = () => {
         {/* Tag select */}
       </div>
 
-      <div className="w-full h-fit relative p-2 flex flex-row justify-around">
+      <div className="blog-main-box w-full h-fit relative  flex flex-row justify-around">
         <img
           src="../assets/Ornament.png"
           className="absolute top-4 left-4"
           alt="ornament"
         />
-        <div className="w-[1000px] z-10 h-full flex flex-col justify-center gap-y-8 p-6  px-20 overflow-y-scroll  ">
+        <div className="w-[76.7625rem] blog-main-card z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
           {blogData.map((blog: IBlogMedia) => (
-            <Link
-              to={`../resources/blog/${blog.id}`}
-              key={blog.id}
-              state={{ blogData: blogData }}
-            >
-              <BlogCard key={blog.id} blog={blog} />
-            </Link>
+            // <Link
+            //   to={`../resources/blog/${blog.id}`}
+            //   key={blog.id}
+            //   state={{ blogData: blogData }}
+            // >
+              <BlogCard key={blog.id} blog={blog} blogData={blogData} />
+            // </Link>
           ))}
         </div>
       </div>

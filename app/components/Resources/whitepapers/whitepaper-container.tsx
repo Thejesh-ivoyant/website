@@ -39,36 +39,41 @@ const WhitePaperCardContainer = () => {
   };
 
 
-  
   return (
-    <div className="w-full bg-white p-8 min-h-[90vh]">
+    <div className="w-full bg-white pb-8 h-fit">
       <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
-        <span className="h-fit whitespace-nowrap font-montserrat font-bold">
+        <span className="section-title">
         {loaderData.s2_title}
         </span>
-
       </div>
       
-      <div className="w-full h-fit p-2 relative flex flex-row justify-around">
-        <img src="../assets/Ornament.png" className="absolute z-0 top-4 left-4" alt="ornament" />
-      <div className="w-full h-full justify-center flex gap-x-6 p-6 z-10 px-40 mx-auto">
+      <div className="whitepaper-grid-container w-full h-fit   flex flex-row justify-around">
+        <img src="../assets/Ornament.png" className="absolute top-4 left-4 -z-20" alt="ornament" />
+  <div className="whitepaper-container-property" >
   
-      <div className="grid grid-cols-3 gap-4 p-6 z-10 mx-auto">
   {whitePaperData.map((paper: IWhitePaper) => (
-    <Link to={`../resources/whitepaper/${paper.id}`} key={paper.id} state={{ whitePaperData: whitePaperData }}>
-      <WhitePaperCard key={paper.id} paper={paper} />
-    </Link>
-  ))}
-</div>
-
+        <Link to={`../resources/whitepaper/${paper.id}`} key={paper.id} state={{ whitePaperData: whitePaperData }}>
+          
+            <WhitePaperCard key={paper.id} paper={paper} />
+       
+           
+            </Link>
+        ))}
 
         </div>
       </div>
       <div className="mx-auto w-full flex justify-center items-center" onClick={fetchMoreData}>
     <button className="button-test font-montserrat font-thin"> <span className="font-thin">Explore Now</span></button>
       </div>
+      
     </div>
   );
 };
 
 export default WhitePaperCardContainer;
+
+
+
+
+ 
+

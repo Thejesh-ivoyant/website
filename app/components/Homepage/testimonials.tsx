@@ -68,8 +68,8 @@ const Testimonials = () => {
       {testimonialList.length > 0 && (
         <div>
         
-          <section className="section px-64 mt-4 gradient-top">
-            <div className="inner-container w-full ">
+          <section className="testimonial-section mt-4 gradient-top">
+            <div className="inner-container pb-4 w-full ">
               <div className="flex flex-col justify-center">
                 <div className="industry flex items-start justify-start text-sm font-poppins font-normal">
                   {testimonialList[currentTestimonialIndex].title}
@@ -92,13 +92,13 @@ const Testimonials = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
                     className="w-6 h-6"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
                     />
                   </svg>
@@ -109,13 +109,13 @@ const Testimonials = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
                     className="w-6 h-6"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
                     />
                   </svg>

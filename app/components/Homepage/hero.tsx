@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { HeroBg } from "~/interfaces/Homepage";
+import { scrollToSection } from "~/root";
 
 const Hero = ({
   heroText,
@@ -22,8 +23,7 @@ const Hero = ({
   };
   return (
     <>
-      <div className="h-screen relative grid place-items-center blur-bg">
-        <div className="absolute w-full h-full z-10 bg-pink-gradient"></div>
+      <div className="screen-height hero-container-section flex-col items-center justify-center">
         <video
           preload="true"
           muted
@@ -31,62 +31,55 @@ const Hero = ({
           playsInline
           src={`${heroBgImage?.data.attributes.url}`}
           autoPlay
-          className="-z-10 absolute top-0 object-cover right-0 w-full h-full"
+          className="-z-10 absolute top-0 object-cover right-0 w-full screen-height  mt-[4.5rem]"
         />
-        <div className="w-fit h-fit grid place-items-center  gap-4 z-20">
-          <div className=" hero-title leading-[4rem] tracking-wider animated-text">
-          
-          {heroText?.split(" ").map((word, wordIndex) => (
-            <React.Fragment key={wordIndex}>
-              {word.split("").map((char, charIndex) => (
-                <span key={charIndex} className="animated-char">
-                  {char}
-                </span>
-              ))}
-              <span>&nbsp;</span>
-            </React.Fragment>
-          ))}
-        
-          </div>
-          <div className="text-white text-7xl flex font-montserrat font-bold leading-[4rem] tracking-[0.0969rem]">
+
+        <div className="hero-wrapper">
+          <p className="hero-title  animated-text">{heroText}</p>
+          <h1 className="hero-title hero-subtitle">
             {heroTitle}
-          </div>
+          </h1>
+
           <svg
-            className="fade-in"
-            width="1159"
+            width="100%"
             height="25"
-            viewBox="0 0 1159 25"
+            viewBox="0 0 888 25"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
+            <rect
+              y="12.5"
+              width="1"
+              height="444"
               transform="rotate(-90 0 12.5)"
-              fill="url(#a)"
-              d="M0 12.5h1V592H0z"
+              fill="url(#paint0_linear_1695_48769)"
             />
-            <path
-              transform="rotate(90 1159 11.5)"
-              fill="url(#b)"
-              d="M1159 11.5h1V591h-1z"
+            <rect
+              x="888"
+              y="11.5"
+              width="1"
+              height="444"
+              transform="rotate(90 888 11.5)"
+              fill="url(#paint1_linear_1695_48769)"
             />
             <defs>
               <linearGradient
-                id="a"
+                id="paint0_linear_1695_48769"
                 x1="1.5"
-                y1="587.682"
+                y1="453.191"
                 x2="1.5"
-                y2="2.136"
+                y2="4.55961"
                 gradientUnits="userSpaceOnUse"
               >
                 <stop stopColor="#AEBEFF" />
                 <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
               </linearGradient>
               <linearGradient
-                id="b"
-                x1="1160.5"
-                y1="586.682"
-                x2="1160.5"
-                y2="1.136"
+                id="paint1_linear_1695_48769"
+                x1="889.5"
+                y1="452.191"
+                x2="889.5"
+                y2="3.55961"
                 gradientUnits="userSpaceOnUse"
               >
                 <stop stopColor="#AEBEFF" />
@@ -94,11 +87,15 @@ const Hero = ({
               </linearGradient>
             </defs>
           </svg>
-          <p className="paragraph-animation flex h-14 aspect-[66/6] text-white text-center text-xl font-normal font-poppins">
-            {heroDescription}
-          </p>
-          <button className="hue-btn-primary mt-14">
-            <span>Lets Talk</span>
+          <div className="hero-description px-10">
+            <span>{heroDescription}</span>
+          </div>
+
+          <button
+            className="hue-btn-primary  hero-btn "
+            onClick={() => scrollToSection("contact-us")}
+          >
+            Let's Talk
           </button>
         </div>
       </div>

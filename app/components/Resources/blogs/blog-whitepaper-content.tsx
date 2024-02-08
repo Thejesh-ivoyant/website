@@ -31,15 +31,12 @@ const Blog_WhitepaperContent = () => {
   useEffect(() => {
     const fetchData = async () => {
       if (blogData) {
-        console.error("123456");
         setBlogData(blogData);
       } else if (whitePaperData) {
-        console.error("567890");
         setWhitePaperData(whitePaperData);
       } else {
         try {
           if (isBlogRoute) {
-            console.error("567890");
             const blogGql = await fetchGraphQL(blogQuery);
             setBlogData(
               blogGql.data?.blogs.data?.map((item: any) => ({
@@ -91,7 +88,6 @@ const Blog_WhitepaperContent = () => {
           }
         } catch (error) {
           console.error("Error fetching data:", error);
-          // Handle the error as needed
         }
       }
     };
@@ -109,12 +105,9 @@ const Blog_WhitepaperContent = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault();
-      console.warn("Whitepaper download form clicked ");
       const formData = new FormData(event.currentTarget);
       formData.append("action", "whitepaper");
-      formData.forEach((value, key) => {
-        console.warn(`${key}: ${value}`);
-      });
+    
       const response = await fetch(
         "https://forms.hubspot.com/uploads/form/v2/39872873/c4e42171-a7d2-4ce1-b0dc-c7adeba7c46d",
         {
@@ -136,7 +129,6 @@ const Blog_WhitepaperContent = () => {
   };
 
   const handleDownload = () => {
-    console.warn("white paper donluad");
     const whitepaperURL = loaderData.whitepaper;
     setOpen(false);
     window.open(whitepaperURL, "_blank");
@@ -147,7 +139,6 @@ const Blog_WhitepaperContent = () => {
     setOpen(true);
   };
   const handleCancel = () => {
-    console.warn("cancel clicked.................");
     setOpen(false);
   };
 
@@ -162,10 +153,26 @@ const Blog_WhitepaperContent = () => {
   }
 
   return (
-    <div className="justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 py-12 max-md:px-5">
-      <div className="flex ml-0 justify-between gap-5  max-md:max-w-full max-md:flex-wrap max-md:justify-center">
-        <div className=" items-stretch flex  flex-col w-[718px]">
-          <div className="text-black text-3xl font-semibold max-md:max-w-full">
+    <div className="blog-whitepaper-content-section justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 max-md:px-5">
+      <div className="blog-content-container flex ml-0 justify-between  max-md:max-w-full max-md:flex-wrap max-md:justify-center">
+        <div className="left-content-blog items-stretch flex  flex-col ">
+       
+       
+        <div className=" author-links flex flex-row items-start justify-start gap-4 ">
+            {loaderData.authorData?.map((item: any, index: any) => (  
+       <a href={item.link} className="text-black h-fit text-base leading-5 "  target="_blank" rel="noopener noreferrer">
+              <img
+              alt="icon"
+              loading="eager"
+          src={item.logo}
+              className=" grayscale hover:grayscale-0 object-contain object-center w-full h-fit items-center overflow-hidden max-w-full mt-7"
+            />
+         </a>
+            ))}
+            </div>
+
+
+          <div className="text-black text-3xl font-semibold max-md:max-w-full blog-para-title">
             {loaderData.title}
           </div>
           <div className="text-black  leading-5 mt-4 max-md:max-w-full">
@@ -177,34 +184,39 @@ const Blog_WhitepaperContent = () => {
             </button>
           ) : (
             <div>
+              {loaderData.descriptionImage1 && (
               <img
                 alt="icon"
                 src={`${loaderData.descriptionImage1}`}
-                className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+                className="aspect-[2.33]  object-center w-full overflow-hidden mt-4 max-md:max-w-full"
               />
+              )}
               <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
                 {loaderData.description2}
               </div>
-
+              {loaderData.descriptionImage2 && (
               <img
                 loading="eager"
                 alt="icon"
                 src={`${loaderData.descriptionImage2}`}
-                className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+                className="aspect-[2.33]  object-center w-full overflow-hidden mt-4 max-md:max-w-full"
               />
+              )}
+
               <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
                 {loaderData.description3}
               </div>
+              {loaderData.descriptionImage3 && (
               <img
                 alt="icon"
                 loading="lazy"
                 src={`${loaderData.descriptionImage3}`}
-                className="aspect-[2.33] object-contain object-center w-full overflow-hidden mt-4 max-md:max-w-full"
-              />
+                className="aspect-[2.33]  object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+              />)}
             </div>
           )}
         </div>
-        <div className="bg-gray-200 self-stretch flex w-px shrink-0 h-[1653px] flex-col" />
+        <div className="separator-line bg-gray-200 self-stretch flex w-px shrink-0 h-[800px] flex-col" />
         <div className=" flex grow basis-[0%] flex-col items-stretch self-start">
           <div className="shadow-sm author-card flex flex-col px-7 pr-10 py-7  rounded-sm items-start max-md:px-5">
             <img
@@ -218,14 +230,21 @@ const Blog_WhitepaperContent = () => {
             <div className="text-neutral-800 text-base leading-5 mt-5">
               {loaderData.authorSummary}
             </div>
-            <img
+            <div className="flex flex-row gap-4">
+            {loaderData.authorData?.map((item: any, index: any) => (  
+       <a href={item.link} className="text-black h-fit text-base leading-5 "  target="_blank" rel="noopener noreferrer">
+              <img
               alt="icon"
-              loading="lazy"
-              src="../../assets/socialdummyplaceholder.png"
-              className="aspect-[6.92] object-contain object-center w-[173px] items-center overflow-hidden max-w-full mt-7"
+              loading="eager"
+          src={item.logo}
+              className=" grayscale hover:grayscale-0 object-contain object-center w-full h-fit items-center overflow-hidden max-w-full mt-7"
             />
+         </a>
+            ))}
+            </div>
+           
           </div>
-          <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 pl-9 pr-16 pt-11 pb-5 max-md:px-5">
+          <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 pl-4 pr-4 pt-11 pb-5 ">
             <div className="text-black text-2xl font-medium leading-9">
               Related post
             </div>

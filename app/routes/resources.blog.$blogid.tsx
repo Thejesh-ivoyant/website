@@ -1,12 +1,14 @@
 import { Await, MetaFunction, Outlet, defer, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import { blogCategoryQuery, categories, getAuthorQuery, getBlogAuthorIDQuery, tagsQuery } from "~/graphql/queries";
+import { blogCategoryQuery, categories, getAuthorQuery, getBlogAuthorIDQuery, tagsQuery, topBlogQuery } from "~/graphql/queries";
 import { LoaderFunctionArgs } from "@remix-run/node";
 import BlogHero from "~/components/Resources/blogs/blog-hero";
 import LoadingTest from "~/common-components/loading-test";
 import { Suspense } from "react";
 import Blog_WhitepaperContent from "~/components/Resources/blogs/blog-whitepaper-content";
+import Consultation from "~/components/Homepage/consultation";
+import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
 
 export const meta: MetaFunction = () => {
   return [
@@ -28,7 +30,6 @@ const blogid=`${params.blogid}`;
   const updatedAuthorGetIdQuery= getBlogAuthorIDQuery(blogid)
 
   const authorIdData=await fetchGraphQL(updatedAuthorGetIdQuery);
-  console.warn("////////////////////// is ",authorIdData.data?.blog.data?.attributes.author.data?.id);
   const authorId=authorIdData.data?.blog.data?.attributes.author.data?.id;
 
   const updatedQuery = getAuthorQuery(authorId);
@@ -44,12 +45,39 @@ const blogid=`${params.blogid}`;
     },
   }));
 
+  const authordataMain = authorData.data?.author.data?.attributes || {};
+const socialMediaLinks = authordataMain.socialMediaLinks || [];
+
+const authordatamapped = socialMediaLinks.map((linkItem: any) => ({
+  link: linkItem.link,
+  logo: linkItem.logo.data.attributes.url,
+}));
+
   const [tagslist, categoryList] = await Promise.all([
     await fetchGraphQL(tagsQuery),
     await fetchGraphQL(categories)
   ]);
   const tagsData = tagslist?.data?.topicTags?.data 
   const categoryListData = categoryList?.data?.categories.data 
+  const blogGql = await fetchGraphQL(topBlogQuery);
+  const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
+    id: item.id,
+    title: item.attributes.title,
+    date: item.attributes.date,
+    maxReadTime: item.attributes.maxReadTime,
+    bannerImage: {
+      name: item.attributes.bannerImage.data?.attributes.name ?? "",
+      url: item.attributes.bannerImage.data?.attributes.url ?? "",
+    },
+    author: {
+      name: item.attributes.author.data?.attributes.name,
+    },
+    topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
+    category: {
+     name:item.attributes.category.data?.attributes.name
+    
+    }
+  }));
 
   const tags = tagsData.map((item:any) => ({
     value: item.attributes.name,
@@ -76,6 +104,7 @@ const blogid=`${params.blogid}`;
 
 
   return defer({
+        authorData:authordatamapped,
         avatar:authorData.data?.author.data?.attributes.avatar.data?.attributes?.url,
         bannerImage: jsonParsed.data?.attributes?.bannerImage?.data?.attributes?.url,
         descriptionImage1: jsonParsed.data?.attributes?.descriptionImage1?.data?.attributes?.url,
@@ -92,6 +121,7 @@ const blogid=`${params.blogid}`;
         tags,
         categoriesList,
         BlogCategory,
+        blogData: blogData,
   });
  
 }
@@ -115,6 +145,8 @@ const Index = () => {
           <BlogHero/>
         </div>
           <Blog_WhitepaperContent/>
+          <Consultation />
+          <BlogPostsContainer/>
           <Outlet />
        
       </Await>

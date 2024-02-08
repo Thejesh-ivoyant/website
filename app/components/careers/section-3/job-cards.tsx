@@ -65,8 +65,9 @@ const handleFilterAndSearchDown = async () =>{
     <div className="technology-section py-16">
       <section className="heading gradient-bottom">
         <h2>{loaderData.s3_title}</h2>
+        <p className="sub-details">"Email your resume/CV with the job code mentioned above to jobs@ivoyant.com and let us help you discover a great career"!</p>
       </section>
-      <div className="flex w-full font-montserrat justify-center gap-2 h-12 mt-2 mb-2 px-[140px]">
+      <div className="filter flex w-full font-montserrat justify-center gap-2 h-12 mt-2 mb-2 px-28">
         <div className="flex flex-col gap-1 ">
           <div className="flex">
             <label className="text-haiti font-normal">Filter by:</label>
@@ -76,7 +77,7 @@ const handleFilterAndSearchDown = async () =>{
         
             <select
               style={{
-                width: "190px",
+           
                 borderRadius: "2px",
                 border: "0.5px solid #1B0740",
               }}
@@ -84,8 +85,9 @@ const handleFilterAndSearchDown = async () =>{
                 setRole(e.target.value);
             
               }}
+              defaultValue="" 
             >
-              <option value="" selected>
+              <option value="" >
                 All Roles
               </option>
          
@@ -99,7 +101,7 @@ const handleFilterAndSearchDown = async () =>{
             
             <select
               style={{
-                width: "190px",
+              
                 borderRadius: "2px",
                 border: "0.5px solid #1B0740",
               }}
@@ -107,8 +109,9 @@ const handleFilterAndSearchDown = async () =>{
                 setDep(e.target.value);
               // Trigger filtering when category changes
               }}
+              defaultValue="" 
             >
-              <option value="" selected>
+              <option value="" >
                 All Departments
               </option>
               {loaderData.DepartmentList.map((category: any) => (
@@ -121,7 +124,7 @@ const handleFilterAndSearchDown = async () =>{
 
             <select
               style={{
-                width: "190px",
+              
                 borderRadius: "2px",
                 border: "0.5px solid #1B0740",
               }}
@@ -129,8 +132,9 @@ const handleFilterAndSearchDown = async () =>{
                 setLoc(e.target.value);
               // Trigger filtering when category changes
               }}
+              defaultValue="" 
             >
-              <option value="" selected>
+              <option value="" >
                 All Locations
               </option>
               {loaderData.LocList.map((category: any) => (
@@ -143,7 +147,7 @@ const handleFilterAndSearchDown = async () =>{
 
             <select
               style={{
-                width: "190px",
+               
                 borderRadius: "2px",
                 border: "0.5px solid #1B0740",
               }}
@@ -151,8 +155,9 @@ const handleFilterAndSearchDown = async () =>{
                 setExp(e.target.value);
             
               }}
+              defaultValue="" 
             >
-              <option value="" selected>
+              <option value="">
                 All Experience
               </option>
               {loaderData.ExpList.map((category: any) => (
@@ -198,7 +203,7 @@ const handleFilterAndSearchDown = async () =>{
 
         {/* Tag select */}
       </div>
-      <section className="px-4 py-8 ">
+      <section className=" py-8 ">
         <div className="flex flex-col space-y-4 py-4 relative">
           {/* <img
             src="../assets/Ornament.png"
