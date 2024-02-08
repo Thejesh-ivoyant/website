@@ -1,13 +1,12 @@
 .whitepaper-card-box{
     width: 100%;
     height: 24.375rem;
-  
     display: flex;
     flex-direction: column;
-  padding-bottom: 0.5rem;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex: 1 0 0;
+    padding-bottom: 0.5rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 1 0 0;
   }
  
   .whitepaper-card-box img {
@@ -98,6 +97,7 @@ background-clip: text;
   font-size: 1rem/* 16px */;
     line-height: 1.5rem/* 24px */;
  }
+ 
   /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
     .whitepaper-card-box{
@@ -155,9 +155,7 @@ background-clip: text;
     .blog-description{
       display: none;
     }
-    .filter{
-      display: none;
-    }
+   
     .landing-resource-card-left{
       width: 100%;
     }
@@ -177,11 +175,18 @@ background-clip: text;
         .card-title {
             font-size: 0.7rem;
         }
+         .category-dropdown{
+      display:none;
+    }
+    .tags-dropdown{
+display: none;
+    }
         .landing-resource-card {
-         border-radius: 0.5rem;
+          border-radius: 0.5rem;
           background: #FFF;
+          gap:0.8rem;
           box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.07);
-            flex-direction: column;
+          flex-direction: column;
         }
   }
   
@@ -223,10 +228,12 @@ background-clip: text;
       .blog-description{
         display: none;
       }
-      .filter{
-        display: none;
-      }
-     
+    .category-dropdown{
+      display:none;
+    }
+    .tags-dropdown{
+      display: none;
+          }
     .read-more-btn-container{
       display: none;
     }
@@ -249,6 +256,7 @@ box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.07);
  }
  .blog-main-box{
   padding: 5rem;
+  padding-top: 0rem;
  }
   }
   
@@ -274,6 +282,9 @@ box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.07);
         gap:0rem;
 
       }
+      .filter-mobile{
+        display: none;
+       }
   }
   
   /* Media query for large screens (e.g., desktops) */
@@ -282,11 +293,16 @@ box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.07);
       padding-left: 2.5rem;
       padding-right: 2.5rem;
     }
+    .filter-mobile{
+      display: none;
+     }
   }
   
   /* Media query for extra-large screens (e.g., large desktops) */
   @media (min-width: 1201px) { 
-   
+    .filter-mobile{
+      display: none;
+     }
   }
   
   /* Media query for medium-sized screens (landscape orientation) */

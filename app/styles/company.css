@@ -11,10 +11,6 @@ width: 100%;
 padding-bottom: 1rem;
 }
 
-/* .filter{
-    display: none;
-} */
-
 .ant-drawer-header{
     display: none !important;
 }
@@ -41,6 +37,13 @@ background: rgba(104, 54, 209, 0.02);
     display: grid;
     width: 24rem;
 }
+.dep-dropdown-mobile,
+.exp-dropdown-mobile,
+.loc-dropdown-mobile,
+.roles-dropdown-mobile {
+  height: 2.25rem;
+}
+
 
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
@@ -55,12 +58,36 @@ background: rgba(104, 54, 209, 0.02);
     }
     .grid-card{
  
-       width: 22rem;
+       width: 100%;
    }
+   .dep-dropdown{
+    display:none;
+  }
+  .exp-dropdown{
+    display:none;
+  }
+  .loc-dropdown{
+    display:none;
+  }
+  .roles-dropdown{
+    display:none;
+  }
   }
   
   /* Media query for medium-sized screens (e.g., tablets) */
   @media (min-width: 577px) and (max-width: 768px) {
+    .dep-dropdown{
+      display:none;
+    }
+    .exp-dropdown{
+      display:none;
+    }
+    .loc-dropdown{
+      display:none;
+    }
+    .roles-dropdown{
+      display:none;
+    }
     .join-card{
         display: flex;
         flex-direction: row;
@@ -91,7 +118,9 @@ background: rgba(104, 54, 209, 0.02);
         padding-bottom: 2rem;
       height: fit-content;
     }
-    
+    .filter-mobile{
+      display: none;
+     }
 .grid-card{
     object-fit: cover;
    aspect-ratio: 1 / 1;
@@ -104,12 +133,16 @@ background: rgba(104, 54, 209, 0.02);
   /* Media query for large screens (e.g., desktops) */
   @media (min-width: 993px) and (max-width: 1200px) {
         
-
+    .filter-mobile{
+      display: none;
+     }
   }
   
   /* Media query for extra-large screens (e.g., large desktops) */
   @media (min-width: 1201px) { 
-   
+    .filter-mobile{
+      display: none;
+     }
   }
   
   /* Media query for medium-sized screens (landscape orientation) */
