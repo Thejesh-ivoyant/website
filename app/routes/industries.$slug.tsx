@@ -16,21 +16,6 @@ import { LinksFunction } from "@remix-run/node";
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:ProductStyle}
 ];
-
-export const meta: MetaFunction = ({data}: { data: any }) => {
-  return [
-    { title: `Ivoyant | ${data.heroTitle}` },
-    {
-      property: "og:title",
-      content: "Healthcare Page",
-    },
-    {
-      name: "description",
-      content: "Ivoyant industries section describing healthcare services",
-    },
-  ];
-};
-
 export async function loader({ params }: LoaderFunctionArgs) {
   try {
     const industry = `${params.slug}`;

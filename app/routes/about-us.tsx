@@ -11,7 +11,12 @@ import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { aboutUsQuery } from "~/graphql/queries";
 import Clients from "~/components/about-us/clients";
 import ContactUs from "../common-components/contactUs";
+import AboutUsStyle from '~/styles/AboutUs.css'
+import { LinksFunction } from "@remix-run/node";
 
+export const links: LinksFunction = () => [
+  {rel:"stylesheet", href:AboutUsStyle}
+];
 export const meta: MetaFunction = ({data}: { data: any }) => {
   return [
     { title: `Ivoyant | ${data.aboutUsData.data?.aboutus.data.attributes.heroTitle}` },
