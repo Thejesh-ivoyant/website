@@ -137,8 +137,8 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
         </div>
         
         {arrayData &&
-          arrayData?.map((item: any) => (
-            <Link prefetch="intent" to={`../resources/case-study/${item?.id}`} className="h-96  aspect-[241/78] flex ">
+          arrayData?.map((item: any, index:number) => (
+            <Link key={index} prefetch="intent" to={`../resources/case-study/${item?.id}`} className="h-96  aspect-[241/78] flex ">
               <img
                 key={item?.id}
                 src={

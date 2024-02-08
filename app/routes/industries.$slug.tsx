@@ -10,21 +10,12 @@ import Section5 from "~/components/industries/section5";
 import Section6 from "~/components/industries/section6";
 import Section7 from "~/components/industries/section7";
 import { fetchData } from "~/utils/fetchdata";
+import ProductStyle from '~/styles/Industry.css'
+import { LinksFunction } from "@remix-run/node";
 
-export const meta: MetaFunction = ({data}: { data: any }) => {
-  return [
-    { title: `Ivoyant | ${data.heroTitle}` },
-    {
-      property: "og:title",
-      content: "Healthcare Page",
-    },
-    {
-      name: "description",
-      content: "Ivoyant industries section describing healthcare services",
-    },
-  ];
-};
-
+export const links: LinksFunction = () => [
+  {rel:"stylesheet", href:ProductStyle}
+];
 export async function loader({ params }: LoaderFunctionArgs) {
   try {
     const industry = `${params.slug}`;
@@ -83,6 +74,15 @@ export async function loader({ params }: LoaderFunctionArgs) {
     return json({});
   }
 }
+export const meta: MetaFunction<typeof loader> = ({
+  data,
+}) => {
+  return [{ title: data?.heroTitle as string },
+    {
+      name: "description",
+      content: data?.heroDescription,
+    }];
+};
 
 const Index = () => {
   const data = useLoaderData<typeof loader>() as any;

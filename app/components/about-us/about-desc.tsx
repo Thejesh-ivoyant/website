@@ -7,13 +7,13 @@ const AboutCard = () => {
   const loaderData = useLoaderData<typeof loader>()
   const data =  loaderData?.aboutUsData.data?.aboutus.data.attributes
   return (
-    <div className = "flex flex-1 w-full lg:flex-row h-fit">
-      <div className='flex flex-1  bg-white w-full md:px-32 xl:px-28 lg:px-16 px-16 text-black font-[500px] justify-center items-center lg:p-10 font-poppins leading-10 text-xl'>
-      {data.aboutus}
+    <div className = "flex flex-col w-full max-h-fit lg:flex-row CardDark">
+      <div className='flex flex-1  bg-white'>
+        <p className='text-black lg:text-xl text-base md:text-lg font-normal md:leading-7 lg:leading-9 lg:tracking-wider md:tracking-wide font-poppins my-auto py-6 px-4 lg:w-[30rem] xl:w-[33rem] mx-auto'>
+          {data.aboutus}
+        </p>
       </div>
-      <div className='CardDark'>
-      <SummaryCard attributes={data} />
-      </div>
+        <SummaryCard attributes={data} />
       
     </div>
   );

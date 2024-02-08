@@ -5,6 +5,7 @@
 }
 /* In your global styles or specific page styles */
 html {
+  -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth; /* or smooth */
 }
 
