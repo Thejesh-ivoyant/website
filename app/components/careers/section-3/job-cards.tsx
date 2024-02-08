@@ -358,7 +358,7 @@ const handleFilterAndSearchDown = async () =>{
           /> */}
 
           {JobDesc.map((jobs: any) => (
-            <div className="flex flex-col px-28 relative">
+            <div className="flex flex-col job-card-container relative">
               <Link to={`/job-description/${jobs.id}`} key={jobs.id}>
                 <div className="justify-between w-full bg-white p-[24px] items-stretch flex gap-0 max-md:max-w-full max-md:flex-wrap">
                   <div className="items-stretch flex grow basis-[0%] flex-col max-md:max-w-full justify-start">
