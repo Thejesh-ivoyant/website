@@ -148,11 +148,14 @@ const Footer = () => {
           </div>
         </Form>
       </Modal>
-      <footer className="w-full lg:block hidden bg-haiti xl:py-16 lg:py-6 xl:px-16 md:px-4 font-montserrat text-white h-fit ">
+      <footer className="w-full main-footer bg-haiti xl:py-16 lg:py-6 xl:px-16 md:px-4 font-montserrat text-white h-fit ">
         <section className="flex flex-row w-full gradient-bottom p-6"></section>
         <Form onSubmit={handleSubmit}>
-          <section className="flex flex-row w-full gap-4  p-6">
-          <div className="xl:flex-1 xl:max-w-none max-w-fit">
+  <section className="footer-div  w-full">
+<div className="left-box flex flex-row w-full  justify-center">
+
+
+          <div className="flex-1 flex flex-col ">
             <span className="footer-heading">Services</span>
             <div className="flex items-start py-3 gap-2">
               <div className="flex flex-col footer-font justify-center gap-4">
@@ -167,7 +170,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="xl:flex-1 xl:max-w-none max-w-fit">
+          <div className="flex-1 flex flex-col ">
             <span className="footer-heading">Industries</span>
             <div className="flex items-start py-3 gap-2">
               <div className="flex flex-col  footer-font justify-center gap-4">
@@ -182,7 +185,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="xl:flex-1 xl:max-w-none max-w-fit">
+          <div className="flex-1 flex flex-col ">
             <span className="footer-heading">Products</span>
             <div className="flex items-start py-3 gap-2">
               <div className="flex flex-col footer-font justify-center gap-4">
@@ -196,7 +199,11 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="xl:flex-1 xl:max-w-none max-w-fit">
+</div>
+<div className="right-box flex flex-row w-full  justify-center">
+
+
+          <div className="flex-1 flex flex-col ">
             <span className="footer-heading">Resources</span>
             <div className="flex items-start py-3 gap-2">
               <div className="flex flex-col footer-font justify-center gap-4 hover:text-[#]">
@@ -228,7 +235,21 @@ const Footer = () => {
                 )}
               </div>
             </div>
-            <span className="footer-heading">Company</span>
+            <span className="footer-heading tablet-hidden">Company</span>
+            <div className="flex items-start py-3 gap-2 tablet-hidden">
+              <div className="flex flex-col footer-font justify-center gap-4">
+                {attributes?.company?.map((item, index: number) => (
+                  <Link prefetch="intent" to={item?.link} key={index}>
+                    {item?.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+
+        <div className="flex-1  flex-col footer-company-item">
+          <span className="footer-heading">Company</span>
             <div className="flex items-start py-3 gap-2">
               <div className="flex flex-col footer-font justify-center gap-4">
                 {attributes?.company?.map((item, index: number) => (
@@ -240,9 +261,10 @@ const Footer = () => {
             </div>
           </div>
           
-          <div className="flex-1 flex flex-col justify-between">
+          
+          <div className="flex-1 flex flex-col  ">
             <div className="flex flex-col">
-              <span className="footer-heading">CONNECT WITH US</span>
+              <span className="footer-heading">CONNECT</span>
               <div className="flex flex-col">
                 <div className="flex items-start py-3 gap-2">
                   <div className="flex flex-col footer-font justify-center">
@@ -273,12 +295,11 @@ const Footer = () => {
             type="email"
             required
               placeholder="Email*"
-              className="footer-font email-container  w-full mt-auto focus:outline-none"
+              className="footer-font email-container tablet-hidden  w-full mt-auto focus:outline-none"
             />
           </div>
 
-
-          <div className="flex flex-1 flex-col justify-between">
+          <div className="flex flex-1 flex-col  justify-between">
             <div className="flex flex-col">
               <span className="footer-heading">MAIL US</span>
               <div className="flex flex-col items-start py-3 gap-2">
@@ -287,7 +308,7 @@ const Footer = () => {
                   <a href="mailto:info@ivoyant.com">info@ivoyant.com</a>
                   <span className="">For Future developers</span>
                   <a href="mailto:jobs@ivoyant.com">jobs@ivoyant.com</a>
-                  <span className="flex gap-2 py-4">
+                  <span className="flex gap-2 py-4 tablet-hidden">
                     <img src={fb} alt="facebook-meta" className=" xl:h-7 h-5 object-contain cursor-pointer"/>
                     <img src={mail} alt="Mail" className="xl:h-7 h-5 object-contain cursor-pointer"/>
                     <img src={linkedin} alt="Linked-in" className="xl:h-7 h-5 object-contain cursor-pointer"/>
@@ -296,12 +317,36 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <button type="submit" className="bg-white h-10 w-full font-montserrat  text-sm font-semibold text-haiti">
+            <button type="submit" className="bg-white tablet-hidden h-10 w-full font-montserrat  text-sm font-semibold text-haiti">
                 Subscribe to Newsletter
             </button>
             
           </div>
-          
+</div>
+<div className="footer-buttons flex-row justify-between w-full items-center pb-4 pr-2">
+<div className="flex">
+  <span className="flex gap-2 py-4 p-[1.5rem]">
+                    <img src={fb} alt="facebook-meta" className=" xl:h-7 h-5 object-contain cursor-pointer"/>
+                    <img src={mail} alt="Mail" className="xl:h-7 h-5 object-contain cursor-pointer"/>
+                    <img src={linkedin} alt="Linked-in" className="xl:h-7 h-5 object-contain cursor-pointer"/>
+                    <img src={yt} alt="Youtube-channel" className="xl:h-7 h-5 object-contain cursor-pointer" />
+                  </span>
+  </div>
+<div className="flex flex-row gap-2">
+            <input
+            name="email"
+            type="email"
+            required
+              placeholder="Email*"
+              className="footer-font email-container  w-full mt-auto focus:outline-none"
+            />
+            <button type="submit" className="bg-white  h-10 w-fit px-2 font-montserrat  text-sm font-semibold text-haiti">
+                Subscribe to Newsletter
+  </button>
+  </div>
+
+ 
+  </div>      
         </section>
         </Form>
         
@@ -322,8 +367,9 @@ const Footer = () => {
           <span> All Rights Reserved</span>{" "}
         </div>
       </footer>
-      <footer className="w-full lg:hidden py-6 block bg-haiti font-montserrat text-white h-fit">
-        <div className="grid place-items-center">
+
+      <footer className="w-full mobile-footer py-6  bg-haiti font-montserrat text-white h-fit">
+        <div className="grid place-items-center md:hidden">
           <Link to={'/'}>
             <img src={ivoyantLogo} alt="iVoyant Logo" />
           </Link>
@@ -348,7 +394,7 @@ const Footer = () => {
             </linearGradient>
             </defs>
           </svg>
-          <ul className="grid place-items-start sm:w-80 w-72 h-fit my-2">
+          <ul className="grid place-items-start sm:w-80 w-72 h-fit my-2 gap-2">
             <AccordionItem list = {attributes?.services} onToggle={()=> handleToggle(1)} num = {1}  name="services" active = {clicked === 1} showModal={showModal} />
             <AccordionItem list = {attributes?.industries} onToggle={()=> handleToggle(2)} num = {2} name="industries" active = {clicked === 2} showModal={showModal} />
             <AccordionItem list = {attributes?.resources} onToggle={()=> handleToggle(3)} num = {3} name="resources" active = {clicked === 3} showModal={showModal} />
@@ -370,6 +416,20 @@ const Footer = () => {
             </linearGradient>
             </defs>
           </svg>
+          <div className="flex flex-row justify-center gap-2 pb-2">
+        
+            <input
+            name="email"
+            type="email"
+            required
+              placeholder="Email*"
+              className="footer-font email-container  w-full mt-auto focus:outline-none"
+            />
+            <button type="submit" className="bg-white  h-10 w-fit px-2 font-montserrat  text-sm font-semibold text-haiti">
+                Subscribe to Newsletter
+  </button>
+  
+          </div>
           <div className="grid capitalize text-xs font-normal gap-3 place-items-center">
             <Link to={"/privacy-policy"}>
               privacy policy
@@ -378,7 +438,7 @@ const Footer = () => {
               terms and conditions
             </Link>
             <Link to={"/cookies"}>
-                Cookie policy
+              Cookie policy
             </Link>
           </div>
         </div>

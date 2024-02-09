@@ -156,7 +156,7 @@ const Blog_WhitepaperContent = () => {
   return (
     <div className="blog-whitepaper-content-section justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 max-md:px-5">
       <div className="blog-content-container flex ml-0 justify-between  max-md:max-w-full max-md:flex-wrap max-md:justify-center">
-        <div className="left-content-blog items-stretch flex  flex-col ">
+        <div className="left-content-blog markdown-container items-stretch flex  flex-col ">
        
        
         <div className=" author-links flex flex-row items-start justify-start gap-4 ">
@@ -176,6 +176,7 @@ const Blog_WhitepaperContent = () => {
           <div className="text-black text-3xl font-semibold max-md:max-w-full blog-para-title">
             {loaderData.title}
           </div>
+    
           <div className="text-black  leading-5 mt-4 max-md:max-w-full">
           <ReactMarkdown>{loaderData.description1}</ReactMarkdown>
           </div>
