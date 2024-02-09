@@ -177,7 +177,7 @@ const Blog_WhitepaperContent = () => {
             {loaderData.title}
           </div>
           <div className="text-black  leading-5 mt-4 max-md:max-w-full">
-          <ReactMarkdown>{loaderData.description1}</ReactMarkdown>
+          <ReactMarkdown className="dddd">{loaderData.description1}</ReactMarkdown>
           </div>
           {isResourcesRoute ? (
             <button className="btn hero-btn" onClick={showModal}>
