@@ -385,11 +385,17 @@ width: 70%;
   display: none;
 }
 .left-box{
-  padding: 1.5rem;
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-right: 0rem;
   gap:1rem;
 }
 .right-box{
-  padding: 1.5rem;
+  padding-top: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 0rem;
   gap:1rem;
 }
 
@@ -399,6 +405,7 @@ width: 70%;
     max-width: 90%;
     gap: 0rem;
   }
+  
   .mobile-footer{
     display: block;
   }
@@ -656,6 +663,17 @@ width: 70%;
   .btn-white {
     font-size: 14px;
   }
+  .left-box{
+    padding-left: 2rem;
+    padding-right: 2rem;
+     gap:0.5rem;
+   }
+   
+   .right-box{
+     padding-left: 2rem;
+     padding-right: 2rem;
+     gap:0.5rem;
+   }
 }
 
 /* Media query for medium-sized screens (landscape orientation) */
@@ -674,11 +692,13 @@ width: 70%;
    padding-right: 0.1rem;
     gap:0.5rem;
   }
+  
   .right-box{
     padding-left: 0.1rem;
     padding-right: 0.1rem;
     gap:0.5rem;
   }
+  
 
   .author-links{
     display: none;
