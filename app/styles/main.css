@@ -402,6 +402,7 @@ width: 70%;
   .mobile-footer{
     display: block;
   }
+
  .tags-dropdown-mobile{
     height: 2.25rem;
   }
@@ -529,6 +530,7 @@ width: 70%;
     max-width: 80%;
     gap: 0rem;
   }
+
   .tablet-hidden{
     display: none;
   }
@@ -544,6 +546,7 @@ width: 70%;
   .footer-buttons{
     display: flex;
   }
+
   .tags-dropdown-mobile{
     height: 2.25rem;
   }
