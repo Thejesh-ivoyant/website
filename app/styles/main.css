@@ -145,6 +145,16 @@ body.scrolled #scrollToTopBtn {
   letter-spacing: 1.44px;
   text-align: center;
 }
+.reset-btn{
+  color: #2A1057;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.48px;
+text-transform: capitalize;
+}
 
 .hero-btn {
   margin-top: 20px;
