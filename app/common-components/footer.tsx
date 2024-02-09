@@ -416,7 +416,7 @@ const Footer = () => {
             </linearGradient>
             </defs>
           </svg>
-          <div className="flex flex-row justify-center gap-2 pb-2">
+          <div className="flex flex-row justify-center gap-2 pb-2 pl-2 pr-2">
         
             <input
             name="email"
