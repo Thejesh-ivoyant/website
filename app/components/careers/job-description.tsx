@@ -97,6 +97,7 @@ const { Option } = Select;
       const onClose = () => {
         setOpen(false);
       };
+      
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
     return (

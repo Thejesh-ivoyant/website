@@ -1,6 +1,7 @@
 import { useLoaderData, useLocation, useMatch } from "@remix-run/react";
 import { Modal } from "antd";
 import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import {
   blogCategoryQuery,
@@ -176,7 +177,7 @@ const Blog_WhitepaperContent = () => {
             {loaderData.title}
           </div>
           <div className="text-black  leading-5 mt-4 max-md:max-w-full">
-            {loaderData.description1}
+          <ReactMarkdown>{loaderData.description1}</ReactMarkdown>
           </div>
           {isResourcesRoute ? (
             <button className="btn hero-btn" onClick={showModal}>
@@ -192,7 +193,7 @@ const Blog_WhitepaperContent = () => {
               />
               )}
               <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
-                {loaderData.description2}
+              <ReactMarkdown>{loaderData.description2}</ReactMarkdown>
               </div>
               {loaderData.descriptionImage2 && (
               <img
@@ -204,7 +205,7 @@ const Blog_WhitepaperContent = () => {
               )}
 
               <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
-                {loaderData.description3}
+              <ReactMarkdown>{loaderData.description3}</ReactMarkdown>
               </div>
               {loaderData.descriptionImage3 && (
               <img

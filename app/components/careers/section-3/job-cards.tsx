@@ -2,7 +2,30 @@ import { Link, useLoaderData } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { SearchJobs } from "~/graphql/queries";
+import CustomDrawer from "~/utils/customDrawer";
 const JobCards = () => {
+  const [state, setState] = useState({ visible: false, placement: 'bottom' });
+
+  const showDrawer = () => {
+    setState(prevState => ({
+      ...prevState,
+      visible: true,
+    }));
+  };
+
+  const onClose = () => {
+    setState(prevState => ({
+      ...prevState,
+      visible: false,
+    }));
+  };
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setState((prevState) => ({
+      ...prevState,
+      placement: e.target.value,
+    }));
+  };
   const loaderData = useLoaderData() as any;
   const [JobDesc, setJobDescData] = useState(loaderData.JobDesc || []);
   const [FilteredJobDesc, setFilteredJobDescData] = useState([]);
@@ -62,6 +85,119 @@ const handleFilterAndSearchDown = async () =>{
   };
  
   return (
+    <>
+<CustomDrawer
+  title="Basic Drawer"
+  placement="bottom"
+  closable={false}
+  onClose={onClose}
+  visible={state.visible}
+
+      >
+   <div className="flex flex-col gap-4 ">
+        
+        <select
+        className="roles-dropdown-mobile"
+          style={{
+       
+            borderRadius: "2px",
+            border: "0.5px solid #1B0740",
+          }}
+          onChange={(e) => {
+            setRole(e.target.value);
+        
+          }}
+          defaultValue="" 
+        >
+          <option value="" >
+            All Roles
+          </option>
+     
+          {loaderData.RolesList.map((category: any) => (
+            <option key={category.value} value={category.value}>
+              {category.label}
+            </option>
+          ))}
+        </select>
+
+        
+        <select
+        className="dep-dropdown-mobile"
+          style={{
+          
+            borderRadius: "2px",
+            border: "0.5px solid #1B0740",
+          }}
+          onChange={(e) => {
+            setDep(e.target.value);
+          // Trigger filtering when category changes
+          }}
+          defaultValue="" 
+        >
+          <option value="" >
+            All Departments
+          </option>
+          {loaderData.DepartmentList.map((category: any) => (
+            <option key={category.value} value={category.value}>
+              {category.label}
+            </option>
+          ))}
+        </select>
+
+
+        <select
+        className="loc-dropdown-mobile"
+          style={{
+          
+            borderRadius: "2px",
+            border: "0.5px solid #1B0740",
+          }}
+          onChange={(e) => {
+            setLoc(e.target.value);
+          // Trigger filtering when category changes
+          }}
+          defaultValue="" 
+        >
+          <option value="" >
+            All Locations
+          </option>
+          {loaderData.LocList.map((category: any) => (
+            <option key={category.value} value={category.value}>
+              {category.label}
+            </option>
+          ))}
+        </select>
+
+
+        <select
+        className="exp-dropdown-mobile"
+          style={{
+           
+            borderRadius: "2px",
+            border: "0.5px solid #1B0740",
+          }}
+          onChange={(e) => {
+            setExp(e.target.value);
+        
+          }}
+          defaultValue="" 
+        >
+          <option value="">
+            All Experience
+          </option>
+          {loaderData.ExpList.map((category: any) => (
+            <option key={category.value} value={category.value}>
+              {category.label}
+            </option>
+          ))}
+        </select>
+
+        
+
+      </div>
+            
+</CustomDrawer>
+
     <div className="technology-section py-16">
       <section className="heading gradient-bottom">
         <h2>{loaderData.s3_title}</h2>
@@ -76,6 +212,7 @@ const handleFilterAndSearchDown = async () =>{
           <div className="flex flex-row gap-4 ">
         
             <select
+            className="roles-dropdown"
               style={{
            
                 borderRadius: "2px",
@@ -100,6 +237,7 @@ const handleFilterAndSearchDown = async () =>{
 
             
             <select
+            className="dep-dropdown"
               style={{
               
                 borderRadius: "2px",
@@ -123,6 +261,7 @@ const handleFilterAndSearchDown = async () =>{
 
 
             <select
+            className="loc-dropdown"
               style={{
               
                 borderRadius: "2px",
@@ -146,6 +285,7 @@ const handleFilterAndSearchDown = async () =>{
 
 
             <select
+            className="exp-dropdown"
               style={{
                
                 borderRadius: "2px",
@@ -193,10 +333,16 @@ const handleFilterAndSearchDown = async () =>{
                  // Trigger filtering when category changes
                 }}
                 placeholder="Search"
-                className="h-34 border-haiti w-96 border-[1px] border-solid rounded-sm pl-10 py-2 focus:outline-none text-xs"
+                className="h-34 border-haiti w-full border-[1px] border-solid rounded-sm pl-10 py-2 focus:outline-none text-xs"
               />
             </div>
 
+            <button onClick={showDrawer} className="filter-mobile flex justify-center cursor-pointer items-center px-3 py-2.5 border-solid border-[0.5px] border-indigo-950 max-w-[40px]">
+              <img
+                loading="lazy"
+                src="../assets/Filter.svg"   className="w-full bg-blend-multiply aspect-square fill-white"
+              />
+            </button>
 
           </div>
         </div>
@@ -212,7 +358,7 @@ const handleFilterAndSearchDown = async () =>{
           /> */}
 
           {JobDesc.map((jobs: any) => (
-            <div className="flex flex-col px-28 relative">
+            <div className="flex flex-col job-card-container relative">
               <Link to={`/job-description/${jobs.id}`} key={jobs.id}>
                 <div className="justify-between w-full bg-white p-[24px] items-stretch flex gap-0 max-md:max-w-full max-md:flex-wrap">
                   <div className="items-stretch flex grow basis-[0%] flex-col max-md:max-w-full justify-start">
@@ -280,6 +426,7 @@ const handleFilterAndSearchDown = async () =>{
 
       </section>
     </div>
+    </>
   );
 };
 
