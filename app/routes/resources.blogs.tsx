@@ -101,12 +101,9 @@ const Index = () => {
     <>
     <Suspense fallback={<LoadingTest />}>
       <Await resolve={data.heroBgImageURl}>
- 
       
           <Hero />
-         
           <BlogCardContainer  />
-
           <Consultation />
           <Outlet />
      </Await>

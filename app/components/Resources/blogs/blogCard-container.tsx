@@ -4,8 +4,33 @@ import BlogCard from "./blogCard";
 import { useEffect, useState } from "react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { SearchBlogs } from "~/graphql/queries";
+import { Drawer } from 'antd';
+import CustomDrawer from "~/utils/customDrawer";
 
 const BlogCardContainer = () => {
+  const [state, setState] = useState({ visible: false, placement: 'bottom' });
+
+  const showDrawer = () => {
+    setState(prevState => ({
+      ...prevState,
+      visible: true,
+    }));
+  };
+
+  const onClose = () => {
+    setState(prevState => ({
+      ...prevState,
+      visible: false,
+    }));
+  };
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setState((prevState) => ({
+      ...prevState,
+      placement: e.target.value,
+    }));
+  };
+
   const loaderData = useLoaderData() as any;
   const [category, setCategory] = useState("");
   const [tag, setTag] = useState("");
@@ -94,6 +119,66 @@ const BlogCardContainer = () => {
   };
 
   return (
+    <>
+ <CustomDrawer
+  title="Basic Drawer"
+  placement="bottom"
+  closable={false}
+  onClose={onClose}
+  visible={state.visible}
+
+      >
+        <div className="flex flex-col gap-4">
+        <select className="category-dropdown-mobile"
+              style={{
+                width: "100%",
+                borderRadius: "2px",
+                border: "0.5px solid #1B0740",
+              }}
+              onChange={(e) => {
+                setCategory(e.target.value);
+              }}
+              defaultValue="" 
+            >
+              <option value="">
+                All Categories
+              </option>
+              {loaderData.categoriesList.map((category: any) => (
+                <option key={category.value} value={category.value}>
+                  {category.label}
+                </option>
+              ))}
+            </select>
+
+            <select className="tags-dropdown-mobile"
+              style={{
+                width: "100%",
+                borderRadius: "2px",
+                border: "0.5px solid #1B0740",
+              }}
+              onChange={(e) => {
+                setTag(e.target.value);
+              }}
+              defaultValue="" 
+            >
+              <option value="">
+                All Tags
+              </option>
+              {loaderData.tags.map((tag: any) => (
+                <option key={tag.value} value={tag.value}>
+                  {tag.label}
+                </option>
+              ))}
+            </select>
+</div>
+            
+</CustomDrawer>
+      
+      
+   
+
+
+  
     <div className="w-full bg-white py-8 blog-card-container  min-h-[90vh]">
       <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
         <span className="section-title">
@@ -107,7 +192,7 @@ const BlogCardContainer = () => {
           </div>
           {/* Category select */}
           <div className="flex flex-row gap-4">
-            <select
+        <select className="category-dropdown"
               style={{
                 width: "190px",
                 borderRadius: "2px",
@@ -128,7 +213,7 @@ const BlogCardContainer = () => {
               ))}
             </select>
 
-            <select
+            <select className="tags-dropdown"
               style={{
                 width: "190px",
                 borderRadius: "2px",
@@ -174,9 +259,21 @@ const BlogCardContainer = () => {
                   setSearchValue(e.target.value);
                 }}
                 placeholder="Search"
-                className="h-34 border-haiti w-96 border-[1px] border-solid rounded-sm pl-10 py-2 focus:outline-none text-xs"
+                className="h-34 border-haiti w-full border-[1px] border-solid rounded-sm pl-10 py-2 focus:outline-none text-xs"
               />
             </div>
+
+
+            
+
+            <button onClick={showDrawer} className="filter-mobile flex justify-center cursor-pointer items-center px-3 py-2.5 border-solid border-[0.5px] border-indigo-950 max-w-[40px]">
+              <img
+                loading="lazy"
+                src="../assets/Filter.svg"   className="w-full bg-blend-multiply aspect-square fill-white"
+              />
+            </button>
+
+
           </div>
         </div>
 
@@ -211,6 +308,7 @@ const BlogCardContainer = () => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 
