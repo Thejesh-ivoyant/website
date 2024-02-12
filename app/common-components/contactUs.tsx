@@ -1,6 +1,6 @@
 import { Form } from "@remix-run/react";
 
-
+import line from '~/../public/assets/line.svg'
 import ReactFlagsSelect from "react-flags-select";
 import { useEffect, useRef, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
@@ -179,118 +179,76 @@ const ContactUs = () => {
     <>
       <section
         id="contact-us"
-        className="w-full h-fit bg-cover bg-center flex  contact-container justify-center items-center font-montserrat overflow-hidden"
+        className="w-full h-fit bg-cover bg-center flex md:flex-row flex-col-reverse  contact-container font-montserrat"
       >
-        <div className="flex flex-col flex-1 bg-haiti p-10">
-          <div className="flex flex-col w-fit mx-auto">
-            <h1 className="py-4">
-              <span className="flex text-white text-4xl font-medium">
+        <div className="flex flex-col flex-1 w-full bg-haiti xl:p-10 ">
+          <div className="flex flex-col w-fit xl:mx-auto lg:ml-auto xl:pr-0 lg:pr-16 md:pr-10 md:ml-auto md:mx-0 sm:mx-16 mx-10">
+            <h1 className="lg:py-4 py-2">
+              <span className="flex text-white xl:text-5xl text-3xl font-medium">
                 Contact
               </span>
             </h1>
             <img
-              className="flex aspect-square h-[35rem] justify-self-center mx-auto object-cover"
+              className="flex aspect-square xl:h-[35rem] lg:h-[22rem] md:h-[19rem] justify-self-center mx-auto object-cover"
               src={toggleState === 1 ? contactImage : hireImage}
               alt="contactUs"
             />
           </div>
-          <div className="w-full py-6">
-            <p className="text-HeaderGray w-full text-2xl text-center p-1 font-semibold font-montserrat">
+          <div className="mx-auto">
+            <div className="grid md:grid-cols-2 grid-cols-1 xl:max-w-xl lg:max-w-sm ml-auto w-fit lg:gap-4 gap-3 lg:p-4 p-3">
+            <p className="text-HeaderGray w-full lg:text-2xl text-xl text-center font-semibold font-montserrat md:col-span-2">
               Connect with us
             </p>
-            <svg
-              className="mx-auto"
-              width="561"
-              height="24"
-              viewBox="0 0 561 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                transform="rotate(-90 0 12)"
-                fill="url(#a)"
-                d="M0 12h.5v280.5H0z"
-              />
-              <path
-                transform="rotate(90 561 11.5)"
-                fill="url(#b)"
-                d="M561 11.5h.5V292h-.5z"
-              />
-              <defs>
-                <linearGradient
-                  id="a"
-                  x1=".75"
-                  y1="290.41"
-                  x2=".75"
-                  y2="6.984"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stopColor="#AEBEFF" />
-                  <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
-                </linearGradient>
-                <linearGradient
-                  id="b"
-                  x1="561.75"
-                  y1="289.91"
-                  x2="561.75"
-                  y2="6.484"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stopColor="#AEBEFF" />
-                  <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-            </svg>
-            <div className="grid grid-cols-2 border-t-iv-purple max-w-xl mx-auto gap-x-4 gap-4 items-center p-4">
-              <div className="col-span-1 text-white items-left">
+            <img src={line} className="w-full md:col-span-2"></img>
+              <div className="col-span-1 text-white items-left w-fit md:mx-0 mx-4">
                 <div className="flex text-iv-purple items-left gap-2">
                   <img
                     className="w-4 h-4 inline"
                     src="../assets/enquire.svg"
                     alt="enquire"
                   />
-                  <span>Enquires</span>
+                  <span className="text-[0.7em]">Enquires</span>
                 </div>
-                <a className="block" href="mailto:sales@ivoyant.com">
+                <a className="text-[0.8em]" href="mailto:sales@ivoyant.com">
                   sales@ivoyant.com
                 </a>
               </div>
-              <div className="col-span-1 text-white items-left ">
+              <div className="col-span-1 text-white items-left md:mx-0 mx-4">
                 <div className="flex text-iv-purple items-left gap-2">
                   <img
                     className="w-4 h-4 inline"
                     src="../assets/phone-outlined.svg"
                     alt="phone"
                   />
-                  <span>Phone</span>
+                  <span className="text-[0.7em]">Phone</span>
                 </div>
-                <a className="block" href="tel:+91 987654121">
+                <a className="text-[0.8em]" href="tel:+91 987654121">
                   +91 987654121
                 </a>
               </div>
-              <div className="col-span-1 text-white items-left">
+              <div className="col-span-1 text-white items-left md:mx-0 mx-4">
                 <div className="flex text-iv-purple items-left gap-2">
                   <img
                     className="w-4 h-4 inline"
                     src="../assets/info.svg"
                     alt="info"
                   />
-                  <span>Information</span>
+                  <span className="text-[0.7em]">Information</span>
                 </div>
-                <a className="block" href="mailto:info@ivoyant.com">
+                <a className="text-[0.8em]" href="mailto:info@ivoyant.com">
                   info@ivoyant.com
                 </a>
               </div>
-              <div className="col-span-1 text-white items-left ">
+              <div className="col-span-1 text-white items-left md:mx-0 mx-4">
                 <div className="flex text-iv-purple items-left gap-2">
                   <img
                     className="w-4 h-4 inline"
                     src="../assets/skype-outlined.svg"
                     alt="skype"
                   />
-                  <span>Connect with us</span>
+                  <span className="text-[0.7em]">Connect with us</span>
                 </div>
-                <a className="block" href="mailto:ivoyantsales@outlook.com">
+                <a className="text-[0.8em]" href="mailto:ivoyantsales@outlook.com">
                   ivoyantsales@outlook.com
                 </a>
               </div>
@@ -298,37 +256,35 @@ const ContactUs = () => {
           </div>
         </div>
 
-        <div className="flex flex-1 flex-col bg-white p-10">
-          <div className="flex flex-row gap-x-10">
+        <div className="flex flex-1 flex-col bg-white xl:p-10 md:p-0 p-4">
+          <div className="flex flex-row xl:gap-x-10 md:gap-x-4 gap-x-3">
             <div>
               <span
                 className={
                   toggleState === 1
-                    ? "tab active-tab font-semibold"
-                    : "tab font-thin"
+                    ? "tab"
+                    : "tab text-gray-600"
                 }
                 onClick={() => toggleTab(1)}
               >
-                {" "}
-                Let's Talk{" "}
+                Let's Talk
               </span>
             </div>
             <div>
               <span
                 className={
                   toggleState === 2
-                    ? "tab active-tab font-semibold"
-                    : "tab font-thin"
+                    ? "tab"
+                    : "tab text-gray-500"
                 }
                 onClick={() => toggleTab(2)}
               >
-                {" "}
                 Work Enquiry
               </span>
             </div>
           </div>
           <div
-            className={toggleState === 2 ? "glider ml-[15rem]" : "glider ml-5"}
+            className={toggleState === 2 ? "glider xl:ml-[15rem] lg:ml-[11rem] md:ml-[11.5rem] ml-[5.5rem]" : "glider md:ml-5"}
           ></div>
           <Form
           
@@ -337,12 +293,12 @@ const ContactUs = () => {
             encType="multipart/form-data"
             className={
               toggleState === 1
-                ? "flex flex-col gap-8 active-content p-8"
+                ? "flex flex-col xl:gap-10 md:gap-8 gap-4 active-content xl:p-8 md:px-4 py-2"
                 : "hidden"
             }
             autoComplete="off"
           >
-            <div className="grid grid-cols-2 gap-10">
+            <div className="grid grid-cols-2 xl:gap-10 md:gap-6 gap-4">
               <div className="w-full relative group col-span-1">
                 <input
                   type="text"
@@ -350,7 +306,7 @@ const ContactUs = () => {
                   name="name"
                   placeholder="Name*"
                   required
-                  className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+                  className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
               </div>
               <div className="w-full relative group col-span-1">
@@ -360,28 +316,27 @@ const ContactUs = () => {
                   name="email"
                   placeholder="Email*"
                   required
-                  className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+                  className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
               </div>
-              <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex gap-2.5  h-10 py-3 ">
-                <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center pr-3 border-r border-solid">
+              <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs py-1">
+                <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
                   <div className="items-stretch flex  gap-1 ">
                     
-  <ReactFlagsSelect
-    selected={selectedCode}
-    onSelect={(code) => setCountryCodeSelected(code)}
-    searchable
-    searchPlaceholder="Search countries"
-  /> 
-   <input
-  type="text"
-  placeholder=""
-  value={selectedCode}
-
-  required
-  className="hidden"
-  name="country_code"
-/>
+                    <ReactFlagsSelect
+                      selected={selectedCode}
+                      onSelect={(code) => setCountryCodeSelected(code)}
+                      searchable
+                      searchPlaceholder="Search countries"
+                    /> 
+                    <input
+                    type="text"
+                    placeholder=""
+                    value={selectedCode}
+                    required
+                    className="hidden"
+                    name="country_code"
+                  />
                   </div>
                 </div>
 
@@ -391,7 +346,7 @@ const ContactUs = () => {
                   value={phoneNumber}
                   onChange={handlePhoneNumberChange}
                   required
-                  className="outline-none  cursor-pointer"
+                  className="outline-none  cursor-pointer overflow-hidden"
                   name="phonenumber"
                 />
               </div>
@@ -401,7 +356,7 @@ const ContactUs = () => {
                   id="organization"
                   name="organisation"
                   placeholder="Organisation"
-                  className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+                  className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
               </div>
               <div className="w-full relative grid col-span-2">
@@ -419,7 +374,6 @@ const ContactUs = () => {
             </div>
             <Space
               direction="horizontal"
-              size={12}
               className="grid-cols-1 flex justify-between"
             >
               <div className="flex">
@@ -429,7 +383,7 @@ const ContactUs = () => {
                     setOpen(!openc1);
                   }}
                 >
-                  <CalendarOutlined className="bg-[#AF99DD] rounded-full p-2 text-black" />
+                  <CalendarOutlined className="bg-[#D9C9FB] rounded-full p-2 text-black" />
                 </span>
                 <DatePicker
                   format="YYYY-MM-DD  HH:mm"
@@ -443,19 +397,19 @@ const ContactUs = () => {
                   onChange={onChange} 
                 />
                 <input
-  type="text"
-  placeholder=""
-  value={selectedDate}
-  className="hidden"
-  name="date"
-/>
+                  type="text"
+                  placeholder=""
+                  value={selectedDate}
+                  className="hidden"
+                  name="date"
+                />
               </div>
 
               <div className="flex flex-col gap-1">
-                <div className="flex flex-col">
-                  <label htmlFor="attachment" style={{ cursor: "pointer" }}>
-                    <FileAddOutlined className="bg-[#AF99DD] rounded-full p-2 text-black mr-2" />
-                    Attach File:
+                <div className="flex flex-col text-xs xl:text-sm">
+                  <label htmlFor="attachment" className="font-montserrat" style={{ cursor: "pointer" }}>
+                    <FileAddOutlined className="bg-[#D9C9FB] rounded-full p-2 text-[#] mr-2" />
+                    Attach File
                   </label>
                   <input
                     style={{ display: "none" }}
@@ -492,12 +446,12 @@ const ContactUs = () => {
            
             className={
               toggleState === 2
-                ? "flex flex-col gap-10 active-content px-10 py-4"
+                ? "flex flex-col lg:gap-10 gap-6 active-content xl:p-8  p-4"
                 : "hidden"
             }
             autoComplete="off"
           >
-            <div className="grid grid-cols-2 gap-10">
+            <div className="grid grid-cols-2 xl:gap-10 gap-6">
               <div className="w-full relative group col-span-1">
                 <input
                   type="text"
@@ -505,7 +459,7 @@ const ContactUs = () => {
                   name="name"
                   placeholder="Name*"
                   required
-                  className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+                  className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
               </div>
               <div className="w-full relative group col-span-1">
@@ -515,26 +469,26 @@ const ContactUs = () => {
                   name="email"
                   placeholder="Email*"
                   required
-                  className="w-full h-10 px-4 text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+                  className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
               </div>
-              <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex gap-2.5  h-10 py-3 ">
-                <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center pr-3 border-r border-solid">
+              <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs py-1">
+                <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
                   <div className="items-stretch flex  gap-1 ">
                   <ReactFlagsSelect
-    selected={selectedCode}
-    onSelect={(code) => setCountryCodeSelected(code)}
-    searchable
-    searchPlaceholder="Search countries"
-  />  <input
-  type="text"
-  placeholder=""
-  value={selectedCode}
+                        selected={selectedCode}
+                        onSelect={(code) => setCountryCodeSelected(code)}
+                        searchable
+                        searchPlaceholder="Search countries"
+                      />  <input
+                      type="text"
+                      placeholder=""
+                      value={selectedCode}
 
-  required
-  className="hidden"
-  name="country_code"
-/>
+                      required
+                      className="hidden"
+                      name="country_code"
+                    />
                   </div>
                 </div>
 
@@ -544,7 +498,7 @@ const ContactUs = () => {
                   value={phoneNumber}
                   onChange={handlePhoneNumberChange}
                   required
-                  className="outline-none  cursor-pointer"
+                  className="outline-none  cursor-pointer overflow-hidden"
                   name="phone_number"
                 />
               </div>
@@ -553,7 +507,7 @@ const ContactUs = () => {
                   id="username"
                   defaultValue="" 
                   name="area_of_expertise"
-                  className="w-full h-10  text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+                  className="w-full xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 >
                   <option value="" disabled  hidden>
                     Area of Expertise
@@ -567,7 +521,7 @@ const ContactUs = () => {
                   id="username"
                   name="hiring_duration"
                   defaultValue="" 
-                  className="w-full h-10  text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+                  className="w-full xl:h-10 h-8 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 >
                   <option value="" disabled hidden>
                     Hiring Duration
@@ -581,7 +535,7 @@ const ContactUs = () => {
                   id="username"
                   name="choose_skill_set"
                   defaultValue="" 
-                  className="w-full h-10  text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+                  className="w-full xl:h-10 h-8  xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer capitalize"
                 >
                   <option value="" disabled  hidden>
                     Choose skillset
@@ -615,7 +569,7 @@ const ContactUs = () => {
                     setOpen(!openc1);
                   }}
                 >
-                  <CalendarOutlined className="bg-[#AF99DD] rounded-full p-2 text-black" />
+                  <CalendarOutlined className="bg-[#D9C9FB] rounded-full p-2 text-black" />
                 </span>
                 <DatePicker
                   format="YYYY-MM-DD  HH:mm"
@@ -637,11 +591,11 @@ const ContactUs = () => {
 />
               </div>
 
-              <div className="flex flex-col gap-1">
-                <div className="flex flex-col">
-                  <label htmlFor="hire_attachment" style={{ cursor: "pointer" }}>
-                    <FileAddOutlined className="bg-[#AF99DD] rounded-full p-2 text-black mr-2" />
-                    Attach File:
+              <div className="flex flex-col gap-1 relative">
+                <div className="flex flex-col xl:text-sm text-xs">
+                  <label htmlFor="hire_attachment" className="font-montserrat" style={{ cursor: "pointer" }}>
+                    <FileAddOutlined className="bg-[#D9C9FB] rounded-full p-2 text-black mr-2" />
+                    Attach File
                   </label>
                   <input
                     name="hire_attachment"
@@ -652,8 +606,8 @@ const ContactUs = () => {
                   />
                 </div>
                 {hireselectedFileName && (
-                  <div className="file-info">
-                    <span>{`${hireselectedFileName}`}</span>
+                  <div className="absolute translate-y-8 flex">
+                    <span className="line-clamp-1" title={hireselectedFileName}>{`${hireselectedFileName}`}</span>
                     <button onClick={handlehireClearFile}>
                       <DeleteOutlined className="text-red-500 ml-2" />
                     </button>
