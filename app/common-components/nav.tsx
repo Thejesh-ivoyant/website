@@ -461,7 +461,7 @@ const Nav = () => {
                   <img src={twitter} className="w-8 h-8" />
                 </a>
               </div>
-              <small className="capitalize font-poppins text-gray-200 font-light leading-4">&#169; 2023 iVoyant All Rights Reserved</small>
+              <small className="capitalize font-poppins pt-2 text-gray-200 font-light leading-4">&#169; 2023 iVoyant All Rights Reserved</small>
             </div>
           </div>
       </nav>

@@ -355,6 +355,44 @@ width: 70%;
   padding-top: 3rem/* 48px */;
   padding-bottom: 3rem/* 48px */;
 }
+.markdown-container h1{
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.markdown-container h2{
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.markdown-container h3{
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-div{
+  display: flex;
+  flex-direction: row;
+}
+.footer-buttons{
+  display: none;
+}
+.footer-company-item{
+  display: none;
+}
+.mobile-footer{
+  display: none;
+}
+.left-box{
+  padding: 1.5rem;
+  gap:1rem;
+}
+.right-box{
+  padding: 1.5rem;
+  gap:1rem;
+}
+
 .ReactFlagsSelect-module_selectBtn__19wW7{
   font-size: 0.875rem !important;
   padding: 0rem 0rem !important;
@@ -380,8 +418,18 @@ width: 70%;
   .hero-wrapper {
     max-width: 90%;
     gap: 0rem;
-     /* Adjust the value as needed */
   }
+  .mobile-footer{
+    display: block;
+  }
+
+ .tags-dropdown-mobile{
+    height: 2.25rem;
+  }
+  .category-dropdown-mobile{
+    height: 2.25rem;
+  }
+
   .blog-whitepaper-content-section{
     padding-top: 1rem/* 48px */;
   }
@@ -489,14 +537,41 @@ width: 70%;
     aspect-ratio: 1/1;
    
 }
+.main-footer{
+  display: none;
+}
 
 }
+
 
 /* Media query for medium-sized screens (e.g., tablets) */
 @media (min-width: 577px) and (max-width: 768px) {
   .hero-wrapper {
     max-width: 80%;
     gap: 0rem;
+  }
+
+  .tablet-hidden{
+    display: none;
+  }
+  
+
+  .footer-company-item{
+    display: flex;
+  }
+  .footer-div{
+  
+    flex-direction: column;
+  }
+  .footer-buttons{
+    display: flex;
+  }
+
+  .tags-dropdown-mobile{
+    height: 2.25rem;
+  }
+  .category-dropdown-mobile{
+    height: 2.25rem;
   }
   .blog-whitepaper-content-section{
     padding-top: 2rem/* 48px */;
@@ -617,6 +692,17 @@ width: 70%;
     max-width: 60%;
     gap: 0.3rem;
   }
+  .left-box{
+   padding-left: 0.1rem;
+   padding-right: 0.1rem;
+    gap:0.5rem;
+  }
+  .right-box{
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    gap:0.5rem;
+  }
+
   .author-links{
     display: none;
   }
@@ -2424,6 +2510,7 @@ hr {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .feature-card {
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
 }
@@ -2449,9 +2536,6 @@ hr {
   border: none;
   background-position: 100% 0%;
   animation: shade-movement 4s linear infinite;
-
-
-
 }
 
 .fade-in {

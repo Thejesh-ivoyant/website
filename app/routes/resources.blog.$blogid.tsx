@@ -141,14 +141,13 @@ const Index = () => {
    <Suspense fallback={<LoadingTest />}>
       <Await resolve={data.bannerImage}>
  
-          <div className="mt-16">
+            <div className="mt-16">
           <BlogHero/>
-        </div>
+            </div>
           <Blog_WhitepaperContent/>
           <Consultation />
           <BlogPostsContainer/>
           <Outlet />
-       
       </Await>
       </Suspense>
 
