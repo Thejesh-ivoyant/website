@@ -328,13 +328,13 @@ flex: 1 0 0;
   padding-right: 16rem;
 }
 .ReactFlagsSelect-module_fullWidthOptions__1XeR6{
-  width: 16rem!important;
+  width: 16rem !important;
 }
 .ReactFlagsSelect-module_selectValue__152eS .ReactFlagsSelect-module_label__27pw9{  
-  display: none!important;
+  display: none !important;
 }
 .ReactFlagsSelect-module_selectBtn__19wW7 {
-  height: 2rem!important;
+  height: 2rem !important;
 }
 .ReactFlagsSelect-module_flagsSelect__2pfa2{
   padding-bottom: 0rem!important;
@@ -354,6 +354,26 @@ width: 70%;
 .blog-whitepaper-content-section{
   padding-top: 3rem/* 48px */;
   padding-bottom: 3rem/* 48px */;
+}
+.ReactFlagsSelect-module_selectBtn__19wW7{
+  font-size: 0.875rem !important;
+  padding: 0rem 0rem !important;
+}
+.ReactFlagsSelect-module_selectBtn__19wW7:after, .ReactFlagsSelect-module_selectBtn__19wW7[aria-expanded="true"]:after {
+  content: " ";
+  width: 0;
+  height: 0;
+  display: inline-block;
+  margin-left: 0.188rem;
+}
+@media (min-width:1298px){
+  .ReactFlagsSelect-module_selectBtn__19wW7{
+    font-size: 1rem !important;
+    padding: 0.313rem 0.625rem !important;
+  }
+  .ReactFlagsSelect-module_selectBtn__19wW7:after, .ReactFlagsSelect-module_selectBtn__19wW7[aria-expanded="true"]:after {
+    margin-left: 0.313rem !important;
+}
 }
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
@@ -1826,14 +1846,16 @@ hr {
 }
 .btn-purp-grad {
   display: flex;
-  width: 182px;
-  height: 60px;
-  padding: 13px;
+  width: 10rem;
+  height: 3rem;
+  padding: 0.5rem;
+  font-size: 0.875rem;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
   background: linear-gradient(97deg, #6c39db 0.62%, #1c083e 100%);
+}
+.ant-picker .css-dev-only-do-not-override-6j9yrn{
+  font-size: 0.4rem !important;
 }
 
 .Container {
@@ -1886,17 +1908,17 @@ hr {
   border-bottom: #000000;
 }
 .tab {
-  color: #000000;
   padding: 1rem;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   white-space: nowrap;
-  transition: 0.3s ease;
+  transition: 0.2s ease;
+  font-weight: 600;
 }
 .glider {
   font-size: 2rem;
-  width: 2ch;
+  width: 1ch;
   padding: 0px 13px;
   height: 4.5px;
   border-radius: 0 0 1px 1px;
@@ -1908,8 +1930,42 @@ hr {
     hsl(190deg 100% 55%) 100%
   ); */
   transition: 0.3s;
-  top: 36px;
+  top: 2.25rem;
   z-index: 2;
+}
+.tab {
+  padding: 0.5rem 0;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  white-space: nowrap;
+  transition: 0.2s ease;
+  font-weight: 600;
+}
+@media (min-width:768px){
+  .tab {
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-align: center;
+    white-space: nowrap;
+    transition: 0.2s ease;
+    font-weight: 600;
+  }
+}
+@media (min-width: 1298px){
+  .tab{
+    color: #000000;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 2rem;
+    text-align: center;
+    white-space: nowrap;
+    transition: 0.2s ease;
+  }
+  .glider{
+    width: 2ch;
+  }
 }
 .ant-picker-dropdown
   .ant-picker-cell-in-view.ant-picker-cell-selected
@@ -1940,7 +1996,7 @@ hr {
   margin: 0;
   padding: 4px 5px 4px;
   color: black;
-  font-size: 14px;
+  font-size: 8px;
   line-height: 1;
   list-style: none;
   font-family: poppins;
@@ -1986,8 +2042,9 @@ hr {
 
 .ant-picker-input > input::placeholder {
   color: black !important;
-  font-family: poppins;
-  font-size: medium;
+  font-family: montserrat ;
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
 }
 .ant-upload {
   display: flex;
