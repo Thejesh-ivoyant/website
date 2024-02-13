@@ -45,10 +45,10 @@ const Terms = () => {
     <>
       {" "}
       <div className="gap-5 px-5 mt-10 w-full flex flex-row justify-center">
-        <div id="contact-sidebar" className="w-[30%] contact-sidebar ">
+
           {/* side nav content goes here*/}
 
-          <div className="contact-content-wrapper">
+          <div className="w-[30%] contact-content-wrapper">
             <div onClick={() => scrollToSection("Overview")}  className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full">
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
                 <img
@@ -141,7 +141,7 @@ const Terms = () => {
               </div>
             </div>{" "}
           </div>
-        </div>
+  
 
         <div
           id="contact-main"
