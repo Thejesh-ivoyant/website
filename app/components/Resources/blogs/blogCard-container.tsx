@@ -8,6 +8,27 @@ import { Drawer } from 'antd';
 import CustomDrawer from "~/utils/customDrawer";
 
 const BlogCardContainer = () => {
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedTag, setSelectedTag] = useState('');
+  useEffect(() => {
+    // No need to update selected values here; already handled by state variables
+  }, []); // Empty dependency array
+
+  const handleApplyFilters = () => {
+    // Apply the selected filters
+    // Update the category and tag values upon clicking the "Apply Filters" button
+    setCategory(selectedCategory);
+    setTag(selectedTag);
+  };
+
+  const handleResetFilters = () => {
+    // Reset the filters
+
+    setSelectedCategory('');
+    setSelectedTag('');
+    setCategory('');
+    setTag('');
+  };
   const [state, setState] = useState({ visible: false, placement: 'bottom' });
 
   const showDrawer = () => {
@@ -136,7 +157,7 @@ const BlogCardContainer = () => {
                 border: "0.5px solid #1B0740",
               }}
               onChange={(e) => {
-                setCategory(e.target.value);
+                setSelectedCategory(e.target.value);
               }}
               defaultValue="" 
             >
@@ -157,7 +178,7 @@ const BlogCardContainer = () => {
                 border: "0.5px solid #1B0740",
               }}
               onChange={(e) => {
-                setTag(e.target.value);
+                setSelectedTag(e.target.value);
               }}
               defaultValue="" 
             >
@@ -170,6 +191,21 @@ const BlogCardContainer = () => {
                 </option>
               ))}
             </select>
+            <div className="flex flex-row justify-between gap-4 items-center">
+            <button
+            className="hue-btn-primary  hero-btn "
+            onClick={() => handleApplyFilters()}
+          >
+          Apply Filters
+          </button>
+          <button
+            className="reset-btn  hero-btn "
+            onClick={handleResetFilters}
+
+          >
+         Reset
+          </button>
+            </div>
 </div>
             
 </CustomDrawer>
