@@ -413,7 +413,7 @@ const Nav = () => {
               <div className="h-full w-fit text-white ml-10 max-h-80 overflow-y-scroll transition-opacity mr-auto">
                 {
                     categories.map((category,index)=>(
-                      <div className="gap-5 grid">
+                      <div className="gap-8 grid">
                         {
                           navdata.navGraphql?.data?.navbar?.data?.attributes?.[category].map((item: any, linkindex: number) => (
                             item?.name !== undefined && (
