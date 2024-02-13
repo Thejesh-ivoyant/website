@@ -367,7 +367,7 @@ const Footer = () => {
           <span> All Rights Reserved</span>{" "}
         </div>
       </footer>
-
+      <Form onSubmit={handleSubmit}>
       <footer className="w-full mobile-footer py-6  bg-haiti font-montserrat text-white h-fit">
         <div className="grid place-items-center md:hidden">
           <Link to={'/'}>
@@ -416,7 +416,7 @@ const Footer = () => {
             </linearGradient>
             </defs>
           </svg>
-          <div className="flex flex-row justify-center gap-2 pb-2">
+          <div className="flex flex-row justify-center gap-2 pb-2 pl-2 pr-2">
         
             <input
             name="email"
@@ -443,6 +443,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+      </Form>
     </>
     
   );
