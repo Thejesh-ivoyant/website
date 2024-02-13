@@ -262,7 +262,7 @@ const Footer = () => {
           </div>
           
           
-          <div className="flex-1 flex flex-col  ">
+          <div className="flex-1 flex flex-col justify-between ">
             <div className="flex flex-col">
               <span className="footer-heading">CONNECT</span>
               <div className="flex flex-col">
@@ -290,13 +290,15 @@ const Footer = () => {
           
 
           
-            <input
+           <div className=" tablet-hidden">
+           <input
             name="email"
             type="email"
             required
               placeholder="Email*"
-              className="footer-font email-container tablet-hidden  w-full mt-auto focus:outline-none"
+              className="footer-font email-container w-full mt-auto focus:outline-none"
             />
+            </div>
           </div>
 
           <div className="flex flex-1 flex-col  justify-between">
@@ -317,9 +319,12 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <button type="submit" className="bg-white tablet-hidden h-10 w-full font-montserrat  text-sm font-semibold text-haiti">
+            <div className=" tablet-hidden">
+            <button type="submit" className="bg-white h-10 w-full font-montserrat  text-sm font-semibold text-haiti">
                 Subscribe to Newsletter
             </button>
+            </div>
+           
             
           </div>
 </div>
