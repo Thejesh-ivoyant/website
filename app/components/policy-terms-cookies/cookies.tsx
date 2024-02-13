@@ -43,11 +43,11 @@ const Cookies = () => {
   return (
     <>
       {" "}
-      <div className="gap-5 px-5 mt-10 w-full flex flex-row justify-center">
-        <div id="contact-sidebar" className="w-[30%] contact-sidebar ">
+      <div className="gap-5 px-5 mt-10 w-full flex flex-row justify-center pb-10">
+       
           {" "}
           {/* side nav content goes here*/}
-          <div className="contact-content-wrapper">
+          <div id="contact-sidebar"  className="w-[30%] contact-content-wrapper">
             <div onClick={() => scrollToSection("what-are-cookies")} className=" cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full">
               <div  className="flex justify-between    gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
                 <img
@@ -56,7 +56,7 @@ const Cookies = () => {
                   src={Bulletimg}
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   What Are Cookies
                 </div>
               </div>
@@ -69,7 +69,7 @@ const Cookies = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   How We Use Cookies{" "}
                 </div>
               </div>
@@ -82,7 +82,7 @@ const Cookies = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Disabling Cookies{" "}
                 </div>
               </div>
@@ -95,7 +95,7 @@ const Cookies = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Forms related cookies{" "}
                 </div>
               </div>
@@ -108,7 +108,7 @@ const Cookies = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Third Party Cookies{" "}
                 </div>
               </div>
@@ -121,17 +121,17 @@ const Cookies = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   More Information {" "}
                 </div>
               </div>
             </div>{" "}
           </div>
-        </div>
+        
 
         <div
           id="contact-main"
-          className="  w-1/2 flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0"
+          className="  contact-main flex flex-col items-stretch   max-md:w-full max-md:ml-0"
         >
           {/* main content goes here */}
 
@@ -155,13 +155,13 @@ const Cookies = () => {
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.disabling}
             </div>
-            <div id="Forms-related-cookies" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
+            <div id="Forms-related-cookies" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
               Forms related cookies 
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.forms_cookies}
             </div>
-            <div id="Third-Party-Cookies" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
+            <div id="Third-Party-Cookies" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
               Third Party Cookies 
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">

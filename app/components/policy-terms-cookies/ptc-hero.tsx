@@ -6,14 +6,14 @@ const PTCHero = () => {
   return (
     <>
   
-        <div className="screen-height gap-5 flex ">
-          <div className="flex flex-col  w-[50%] ">
+        <div className="screen-height gap-5 flex ptc-hero-container ">
+          <div className="flex flex-col ptc-left-container ">
             <div className="flex-col  fill-white overflow-hidden relative flex grow items-center  max-md:max-w-full max-md:px-5">
              
            
-              <div className="relative indigo-950 text-opacity-80  mt-24 max-md:max-w-full max-md:mt-10 text-xl leading-[58px] w-[504px] max-w-full ">
+              {/* <div className="relative indigo-950 text-opacity-80  mt-24 max-md:max-w-full max-md:mt-10 text-xl leading-[58px] w-[504px] max-w-full ">
             Last reviewed on: {loaderData.last_reviewed}
-              </div>
+              </div> */}
               <div className="relative text-violet-950 text-4xl italic font-extrabold leading-[58px] w-[504px] max-w-full mt-1">
             {loaderData.heroTitle}
               </div>

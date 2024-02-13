@@ -47,9 +47,42 @@ background: rgba(104, 54, 209, 0.02);
   padding-left: 7rem/* 112px */;
   padding-right: 7rem/* 112px */;
 }
+.contact-main{
+  width: 50%;
+margin-left: 1.25rem
+}
+.ptc-left-container{
+  width:50%;
+
+}
 
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
+  .contact-content-wrapper{
+    display:none;
+  }
+  .skew-container {
+    height: 100%;
+    clip-path: polygon(
+      20% 0,
+      100% 0,
+      100% 100%,
+      0 100%
+    ); /* Adjust values for desired skew */
+  }
+  .ptc-left-container{
+    width:100%;
+    
+  }
+  .ptc-hero-container{
+    flex-direction: column;
+    height: 100vh;
+  }
+  .contact-main{
+    width: 100%;
+    margin-left: 0rem
+
+  }
     .join-card{
         display: flex;
         flex-direction: column;
@@ -91,6 +124,20 @@ background: rgba(104, 54, 209, 0.02);
   @media (min-width: 577px) and (max-width: 768px) {
     .dep-dropdown{
       display:none;
+    }
+    .ptc-left-container{
+      width:100%;
+      
+    }
+    .contact-content-wrapper{
+      display:none;
+    }
+    .ptc-hero-container{
+      flex-direction: column;
+    }
+    .contact-main{
+      width: 100%;
+ margin-left: 0rem
     }
     .exp-dropdown{
       display:none;

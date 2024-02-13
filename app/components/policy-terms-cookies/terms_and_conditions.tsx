@@ -44,11 +44,11 @@ const Terms = () => {
   return (
     <>
       {" "}
-      <div className="gap-5 px-5 mt-10 w-full flex flex-row justify-center">
+      <div className="gap-5 px-5 mt-10 w-full flex flex-row justify-center pb-10">
 
           {/* side nav content goes here*/}
 
-          <div className="w-[30%] contact-content-wrapper">
+          <div id="contact-sidebar"  className="w-[30%] contact-content-wrapper">
             <div onClick={() => scrollToSection("Overview")}  className="cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full">
               <div className="flex justify-between gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
                 <img
@@ -57,7 +57,7 @@ const Terms = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Overview
                 </div>
               </div>
@@ -70,7 +70,7 @@ const Terms = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Generic Terms of Use {" "}
                 </div>
               </div>
@@ -83,7 +83,7 @@ const Terms = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Disclaimer{" "}
                 </div>
               </div>
@@ -96,7 +96,7 @@ const Terms = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Client and Partner Confidentiality{" "}
                 </div>
               </div>
@@ -109,7 +109,7 @@ const Terms = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Business Relationships{" "}
                 </div>
               </div>
@@ -122,7 +122,7 @@ const Terms = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Disclaimer of Warranty{" "}
                 </div>
               </div>
@@ -135,7 +135,7 @@ const Terms = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Limitation of Liability{" "}
                 </div>
               </div>
@@ -145,7 +145,7 @@ const Terms = () => {
 
         <div
           id="contact-main"
-          className="  w-1/2 flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0"
+          className="  contact-main  flex flex-col items-stretch  max-md:w-full max-md:ml-0"
         >
           {/* main content goes here */}
 
@@ -166,13 +166,13 @@ const Terms = () => {
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.disclaimer}
             </div>
-            <div id="Client-and-Partner-Confidentiality" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
+            <div id="Client-and-Partner-Confidentiality" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
               Confidential Information from Clients and Partners 
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.confidentialityParagraph1}
             </div>
-            <div  id="Business-Relationships" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
+            <div  id="Business-Relationships" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
               Business Relationships 
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
