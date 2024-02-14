@@ -31,17 +31,6 @@
     flex-wrap: wrap;
   } 
 
-  .screen-height {
-    height: calc(100vh - 4.5rem);
-    margin-top: 4.5rem;
-  }
-
-  @media (min-width:1024px){
-    .screen-height{
-      min-height: 35rem;
-    }
-  }
-
   .markdown p{
     margin-bottom: 1em;
     font-size: 1em;
