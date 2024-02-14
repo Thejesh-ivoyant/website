@@ -49,9 +49,20 @@ export async function loader() {
     lists,
     tags,
     categoriesList
-  });
+  },
+  { "Cache-Control": "public, s-maxage=60" }
+  );
 }
-
+export const meta: MetaFunction<typeof loader> = ({
+  data,
+}) => {
+  const attributes = data?.data.data?.caseStudyHome?.data?.attributes;
+  return [{ title: "Ivoyant | "+attributes?.heroTitle  as string },
+    {
+      name: "description",
+      content: data?.heroDescription as string,
+    }];
+};
 const Index = () => {
   const { data, lists, tags, categoriesList } = useLoaderData<typeof loader>();
   const attributes = data?.data?.caseStudyHome?.data?.attributes;

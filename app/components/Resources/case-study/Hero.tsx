@@ -1,10 +1,9 @@
-import { redirect } from "@remix-run/react";
-
+import { Link } from "@remix-run/react";
 const Hero = ({heroBgImageUrl,heroTitle,heroDescription}:{heroBgImageUrl: string, heroTitle:string, heroDescription:string}) => {
    const gradientStyle = {
      background: `linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 66.95%, rgba(0, 0, 0, 0.00) 152.46%), url(${heroBgImageUrl}) lightgray 50% / cover no-repeat`,
    };
-   return (
+   return ( 
     <section className="screen-height hero-container-section" style={gradientStyle}>
       
     <div className="hero-wrapper" >
@@ -16,7 +15,7 @@ const Hero = ({heroBgImageUrl,heroTitle,heroDescription}:{heroBgImageUrl: string
         {heroDescription}
         </span>
       </div>
-      <button className="btn  hero-btn" onClick={()=> redirect('/contact-us')}>Let's Talk</button>
+      <Link to={'/contact-us'} className="btn  hero-btn" >Let's Talk</Link>
     </div>
   </section>
    );
