@@ -30,7 +30,16 @@ export async function loader({ params }: LoaderFunctionArgs) {
     data,
   });
   };
-  
+  export const meta: MetaFunction<typeof loader> = ({
+    data,
+  }) => {
+    const attributes = data?.data.data?.caseStudies?.data[0].attributes;
+    return [{ title: "Ivoyant | "+attributes?.heroTitle  as string },
+      {
+        name: "description",
+        content: data?.heroDescription as string,
+      }];
+  };
   
 const sample = () => {
   const data = useLoaderData() as any;
