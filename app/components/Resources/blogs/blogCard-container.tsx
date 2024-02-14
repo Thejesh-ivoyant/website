@@ -15,20 +15,18 @@ const BlogCardContainer = () => {
   }, []); // Empty dependency array
 
   const handleApplyFilters = () => {
-    // Apply the selected filters
-    // Update the category and tag values upon clicking the "Apply Filters" button
     setCategory(selectedCategory);
     setTag(selectedTag);
+    onClose();
   };
 
   const handleResetFilters = () => {
-    // Reset the filters
-
     setSelectedCategory('');
     setSelectedTag('');
     setCategory('');
     setTag('');
   };
+
   const [state, setState] = useState({ visible: false, placement: 'bottom' });
 
   const showDrawer = () => {
@@ -159,7 +157,7 @@ const BlogCardContainer = () => {
               onChange={(e) => {
                 setSelectedCategory(e.target.value);
               }}
-              defaultValue="" 
+              value={selectedCategory}
             >
               <option value="">
                 All Categories
@@ -180,7 +178,7 @@ const BlogCardContainer = () => {
               onChange={(e) => {
                 setSelectedTag(e.target.value);
               }}
-              defaultValue="" 
+              value={selectedTag}
             >
               <option value="">
                 All Tags

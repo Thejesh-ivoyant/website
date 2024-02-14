@@ -61,7 +61,7 @@ const PrivacyPolicy = () => {
 
       {/* scrolling here  */}
 
-      <div className="gap-5 px-5 mt-10 w-full flex flex-row justify-center">
+      <div className="gap-5 px-5 privacy-section2 w-full flex flex-row justify-center">
         <div id="contact-sidebar" className="w-[30%] contact-sidebar ">
           {/* <div className="contact-content-wrapper items-stretch flex flex-col max-md:max-w-full max-md:mt-10"> */}
           <div className="contact-content-wrapper">
@@ -73,7 +73,7 @@ const PrivacyPolicy = () => {
                   src={Bulletimg}
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Committed to protect
                 </div>
               </div>
@@ -85,7 +85,7 @@ const PrivacyPolicy = () => {
                   src={Bulletimg}
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Collection of user infromation
                 </div>
               </div>
@@ -98,7 +98,7 @@ const PrivacyPolicy = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   User information handeling
                 </div>
               </div>
@@ -111,7 +111,7 @@ const PrivacyPolicy = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Access and use of websites
                 </div>
               </div>
@@ -124,7 +124,7 @@ const PrivacyPolicy = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Solution and product offering
                 </div>
               </div>
@@ -138,7 +138,7 @@ const PrivacyPolicy = () => {
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />
                 {" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   User Employee contacts
                 </div>
               </div>
@@ -151,7 +151,7 @@ const PrivacyPolicy = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Visitor information
                 </div>
               </div>
@@ -164,7 +164,7 @@ const PrivacyPolicy = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Marketing
                 </div>
               </div>
@@ -177,7 +177,7 @@ const PrivacyPolicy = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Sharing of personal information
                 </div>
               </div>
@@ -190,7 +190,7 @@ const PrivacyPolicy = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Information security and accuracy
                 </div>
               </div>
@@ -203,7 +203,7 @@ const PrivacyPolicy = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Retention period
                 </div>
               </div>
@@ -216,7 +216,7 @@ const PrivacyPolicy = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   How to contact us
                 </div>
               </div>
@@ -229,7 +229,7 @@ const PrivacyPolicy = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Your rights
                 </div>
               </div>
@@ -242,7 +242,7 @@ const PrivacyPolicy = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Changes to our Privacy Statements
                 </div>
               </div>
@@ -272,14 +272,14 @@ const PrivacyPolicy = () => {
                   className="aspect-square object-contain object-center w-4 fill-[linear-gradient(180deg,#360E81_0%,#20084D_100%)] overflow-hidden shrink-0 max-w-full my-auto"
                 />
                 {" "}
-                <div className="text-neutral-800 text-base leading-7 self-stretch grow whitespace-nowrap max-md:max-w-full">
+                <div className="text-neutral-800 text-base leading-7 self-stretch grow  max-md:max-w-full">
                   {item.description}
                 </div>
               </div>
             ))}
             {loaderData.CTP_List.map((item: any) => (
               <div>
-                <div className="text-violet-950 text-xl font-medium leading-7 whitespace-nowrap mt-4 max-md:max-w-full">
+                <div className="text-violet-950 text-xl font-medium leading-7  mt-4 max-md:max-w-full">
                   {item.name}
                 </div>{" "}
                 <div className="text-violet-950 text-base leading-7 underline mt-3 max-md:max-w-full">
@@ -300,7 +300,7 @@ const PrivacyPolicy = () => {
             </div>
             {loaderData.collection_of_info.map((item: any) => (
               <div>
-                <div className="text-violet-950 text-xl font-medium leading-7 whitespace-nowrap mt-4 max-md:max-w-full">
+                <div className="text-violet-950 text-xl font-medium leading-7  mt-4 max-md:max-w-full">
                   {item.name}
                 </div>{" "}
                 <div className="text-neutral-800 text-base leading-7 mt-2 max-md:max-w-full">
@@ -314,7 +314,7 @@ const PrivacyPolicy = () => {
             {loaderData.user_info_handling.map((item: any) => (
               <div>
                 {" "}
-                <div className="text-violet-950 text-xl font-medium leading-7 whitespace-nowrap mt-4 max-md:max-w-full">
+                <div className="text-violet-950 text-xl font-medium leading-7  mt-4 max-md:max-w-full">
                   {item.name}
                 </div>
                 <div className="text-neutral-800 text-base leading-7 mt-2 max-md:max-w-full">
@@ -340,13 +340,13 @@ const PrivacyPolicy = () => {
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.contacts}
             </div>
-            <div id="Visitor-information" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
+            <div id="Visitor-information" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
               Visitor information
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.visitor}
             </div>
-            <div id="Marketing" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
+            <div id="Marketing" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
               Marketing
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
@@ -364,19 +364,19 @@ const PrivacyPolicy = () => {
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.info_and_security}
             </div>
-            <div id="Retention-period" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
+            <div id="Retention-period" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
               Retention Period
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.retention}
             </div>
-            <div id="How-to-contact-us" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
+            <div id="How-to-contact-us" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
               How to contact us
             </div>
             <div className="text-violet-950 text-base leading-7 underline mt-4 max-md:max-w-full">
               {loaderData.contact_us}
             </div>
-            <div id="Your-rights" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
+            <div id="Your-rights" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
               Your Rights
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
