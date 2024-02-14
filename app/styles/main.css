@@ -2510,6 +2510,10 @@ hr {
   line-height: normal;
   letter-spacing: 0.48px;
   text-transform: uppercase;
+  background: var(--ButtonTest, linear-gradient(97deg, #5E40A0 0.62%, #7B54B2 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .hue-btn-blue:hover {
   border: 2px solid transparent;
