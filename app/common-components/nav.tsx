@@ -410,7 +410,7 @@ const Nav = () => {
 
                 </div>
               </div>
-              <div className="h-full w-fit text-white ml-10 max-h-80 overflow-y-scroll transition-opacity mr-auto">
+              <div className="h-full w-fit text-white sm:ml-10 ml-6 max-h-80 overflow-y-scroll transition-opacity mr-auto">
                 {
                     categories.map((category,index)=>(
                       <div className="gap-5 grid">
@@ -421,7 +421,7 @@ const Nav = () => {
                                 <button
                                   key={linkindex}
                                   onClick={() => showModal(item.attachment?.data?.attributes?.url)}
-                                  className={`${(index === clicked) ? 'font-base font-montserrat text-base text-start leading-5 tracking-wide' : 'hidden'} inline font-poppins font-normal hover:text-[#bea7ef]`}
+                                  className={`${(index === clicked) ? 'font-base font-montserrat text-sm text-start leading-5 tracking-wide' : 'hidden'} inline font-poppins font-normal hover:text-[#bea7ef]`}
                                 >
                                   {item.name}
                                 </button>
@@ -431,7 +431,7 @@ const Nav = () => {
                                   onClick={handleHamburgerClick}
                                   to={item.link}
                                   prefetch="intent"
-                                  className={`${(index === clicked) ? 'font-base font-montserrat text-base leading-5 tracking-wide' : 'hidden'} inline font-poppins font-normal hover:text-[#bea7ef]`}
+                                  className={`${(index === clicked) ? 'font-base font-montserrat text-sm leading-5 tracking-wide' : 'hidden'} inline font-poppins font-normal hover:text-[#bea7ef]`}
                                 >
                                   {item.name}
                                 </Link>
