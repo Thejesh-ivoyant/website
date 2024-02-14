@@ -111,7 +111,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
   }
   return (
     <>
-      <div className="h-fit xl:py-12 lg:py-8 md:py-6 md:px-12 px-4 py-1 grid place-items-center lg:gap-10 gap-6">
+      <div className="h-fit xl:py-12 lg:py-8 md:py-6 md:px-12 px-4 py-6 grid place-items-center lg:gap-10 gap-6">
         <div className="w-fit md:flex hidden flex-col gap-4 font-montserrat">
             <label className=" text-haiti font-normal">Filter by:</label>
         <Space wrap className="lg:gap-10 gap-6">
@@ -265,7 +265,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
                       <p>{item?.attributes?.author?.data?.attributes?.name}</p>
                       <p className="text-xs"> 2 min read</p>
                     </div>
-                    <Link to={"#"} className="read-more-cs-mob ml-auto">
+                    <Link to={`../resources/case-study/${item?.id}`} className="read-more-cs-mob ml-auto">
                       Read Full Story
                     </Link>
                   </div>
