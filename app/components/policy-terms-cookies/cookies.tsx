@@ -43,11 +43,11 @@ const Cookies = () => {
   return (
     <>
       {" "}
-      <div className="gap-5 px-5 mt-10 w-full flex flex-row justify-center pb-10">
-       
+      <div className="gap-5 px-5 mt-10 w-full flex flex-row justify-center">
+        <div id="contact-sidebar" className="w-[30%] contact-sidebar ">
           {" "}
           {/* side nav content goes here*/}
-          <div id="contact-sidebar"  className="w-[30%] contact-content-wrapper">
+          <div className="contact-content-wrapper">
             <div onClick={() => scrollToSection("what-are-cookies")} className=" cursor-pointer items-stretch shadow bg-white flex flex-col justify-center max-md:max-w-full">
               <div  className="flex justify-between    gap-4 pl-4 pr-20 py-4 items-start max-md:max-w-full max-md:flex-wrap max-md:pr-5">
                 <img
@@ -127,11 +127,11 @@ const Cookies = () => {
               </div>
             </div>{" "}
           </div>
-        
+        </div>
 
         <div
           id="contact-main"
-          className="  contact-main flex flex-col items-stretch   max-md:w-full max-md:ml-0"
+          className="  w-1/2 flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0"
         >
           {/* main content goes here */}
 
