@@ -5,6 +5,12 @@ import PTCHero from "~/components/policy-terms-cookies/ptc-hero";
 import Terms from "~/components/policy-terms-cookies/terms_and_conditions";
 import LoadingTest from "~/common-components/loading-test";
 import { Suspense } from "react";
+import CompanyStyle from '~/styles/company.css'
+import { LinksFunction } from "@remix-run/node";
+
+export const links: LinksFunction = () => [
+  {rel:"stylesheet", href:CompanyStyle}
+];
 
 export const meta: MetaFunction = ({data}: { data: any }) => {
   return [

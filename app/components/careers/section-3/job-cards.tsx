@@ -5,6 +5,29 @@ import { SearchJobs } from "~/graphql/queries";
 import CustomDrawer from "~/utils/customDrawer";
 const JobCards = () => {
   const [state, setState] = useState({ visible: false, placement: 'bottom' });
+  const [selectedLoc, setSelectedLoc] = useState('');
+  const [selectedExp, setSelectedExp] = useState('');
+  const [selectedDep, setSelectedDep] = useState('');
+  const [selectedRole, setSelectedRole] = useState('');
+ 
+  const handleApplyFilters = () => {
+    setLoc(selectedLoc);
+    setExp(selectedExp);
+    setDep(selectedDep);
+    setRole(selectedRole);
+    onClose();
+  };
+
+  const handleResetFilters = () => {
+    setSelectedRole('');
+    setSelectedDep('');
+    setSelectedExp('');
+    setSelectedLoc('');
+    setLoc('');
+    setExp('');
+    setDep('');
+    setRole('');
+  };
 
   const showDrawer = () => {
     setState(prevState => ({
@@ -35,6 +58,9 @@ const JobCards = () => {
   const [role, setRole] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [limit, setLimit] = useState(5);
+  useEffect(() => {
+    // No need to update selected values here; already handled by state variables
+  }, []);
 
   useEffect(() => {
     // This effect will run whenever role, dep, loc, or exp changes
@@ -104,10 +130,10 @@ const handleFilterAndSearchDown = async () =>{
             border: "0.5px solid #1B0740",
           }}
           onChange={(e) => {
-            setRole(e.target.value);
+            setSelectedRole(e.target.value);
         
           }}
-          defaultValue="" 
+          value={selectedRole}
         >
           <option value="" >
             All Roles
@@ -129,10 +155,10 @@ const handleFilterAndSearchDown = async () =>{
             border: "0.5px solid #1B0740",
           }}
           onChange={(e) => {
-            setDep(e.target.value);
+            setSelectedDep(e.target.value);
           // Trigger filtering when category changes
           }}
-          defaultValue="" 
+          value={selectedDep} 
         >
           <option value="" >
             All Departments
@@ -153,10 +179,10 @@ const handleFilterAndSearchDown = async () =>{
             border: "0.5px solid #1B0740",
           }}
           onChange={(e) => {
-            setLoc(e.target.value);
+            setSelectedLoc(e.target.value);
           // Trigger filtering when category changes
           }}
-          defaultValue="" 
+          value={selectedLoc}
         >
           <option value="" >
             All Locations
@@ -177,10 +203,10 @@ const handleFilterAndSearchDown = async () =>{
             border: "0.5px solid #1B0740",
           }}
           onChange={(e) => {
-            setExp(e.target.value);
+            selectedExp(e.target.value);
         
           }}
-          defaultValue="" 
+          value={selectedExp}
         >
           <option value="">
             All Experience
@@ -192,7 +218,21 @@ const handleFilterAndSearchDown = async () =>{
           ))}
         </select>
 
-        
+        <div className="flex flex-row justify-between gap-4 items-center">
+            <button
+            className="hue-btn-primary  hero-btn "
+            onClick={() => handleApplyFilters()}
+          >
+          Apply Filters
+          </button>
+          <button
+            className="reset-btn  hero-btn "
+            onClick={handleResetFilters}
+
+          >
+         Reset
+          </button>
+            </div>
 
       </div>
             

@@ -56,7 +56,7 @@ const Cookies = () => {
                   src={Bulletimg}
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   What Are Cookies
                 </div>
               </div>
@@ -69,7 +69,7 @@ const Cookies = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   How We Use Cookies{" "}
                 </div>
               </div>
@@ -82,7 +82,7 @@ const Cookies = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Disabling Cookies{" "}
                 </div>
               </div>
@@ -95,7 +95,7 @@ const Cookies = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Forms related cookies{" "}
                 </div>
               </div>
@@ -108,7 +108,7 @@ const Cookies = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Third Party Cookies{" "}
                 </div>
               </div>
@@ -121,7 +121,7 @@ const Cookies = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   More Information {" "}
                 </div>
               </div>
@@ -155,13 +155,13 @@ const Cookies = () => {
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.disabling}
             </div>
-            <div id="Forms-related-cookies" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
+            <div id="Forms-related-cookies" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
               Forms related cookies 
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.forms_cookies}
             </div>
-            <div id="Third-Party-Cookies" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
+            <div id="Third-Party-Cookies" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
               Third Party Cookies 
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
