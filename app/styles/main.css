@@ -2012,7 +2012,13 @@ hr {
     ); /* Adjust the percentage for the number of slides */
   }
 }
-
+.skeleton{
+  background: var(
+    --CardDark,
+    linear-gradient(180deg, #eab5b5 0%, #bda5ee 100%)
+  );
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+}
 .blog-card {
   background: var(
     --CardDark,

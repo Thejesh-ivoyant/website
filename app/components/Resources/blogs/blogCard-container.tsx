@@ -7,6 +7,7 @@ import { SearchBlogs } from "~/graphql/queries";
 import { Drawer, List, Select, Skeleton } from 'antd';
 import CustomDrawer from "~/utils/customDrawer";
 import DropDownIcon from "../case-study/arrow";
+import { success } from "~/utils/notifications";
 
 const BlogCardContainer = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -142,9 +143,15 @@ const BlogCardContainer = () => {
         },
       })),
     ]);
+    
+  };
+  if (blogData.length < limit) {
+    success("No more Blogs available", 3);
+  }
     setLimit(limit + 3);
     setLoading(false);
-  };
+   
+
 
   return (
     <>
@@ -340,7 +347,7 @@ const BlogCardContainer = () => {
          {/* Skeleton for loading */}
          {loading &&  
           <List
-            className="w-[76.7625rem] blog-main-card z-10 h-full"
+            className="w-full blog-main-card z-10 h-full"
             itemLayout="vertical"
             size="large"
             dataSource={[1, 2, 3]} // Dummy data for skeleton

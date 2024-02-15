@@ -6,6 +6,7 @@ import { case_study_paginated } from "~/graphql/queries";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { Link } from "@remix-run/react";
 import CustomDrawer from "~/utils/customDrawer";
+import { success } from "~/utils/notifications";
 
 
 export const Container = ({ data, tags, categories, initLimit, initOffset }: { data: any, tags:any, categories: any, initLimit:number, initOffset:number }) => {
@@ -108,6 +109,8 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
     const newData = lists.data?.caseStudies?.data || [];
   setListData((prevListData: any) => new Set([...prevListData, ...newData]));
   setBtnLoading(false)
+
+  
   }
   return (
     <>
@@ -194,6 +197,9 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
           </button>
           
         </div>
+
+
+        
         {arrayData &&
           arrayData?.map((item: any, index:number) => (
             <Link key={index} prefetch="intent" to={`../resources/case-study/${item?.id}`} className="xl:h-96 lg:h-72 md:h-56  aspect-[241/78] md:flex hidden">

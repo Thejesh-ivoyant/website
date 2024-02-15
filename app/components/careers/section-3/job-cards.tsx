@@ -1,9 +1,13 @@
 import { Link, useLoaderData } from "@remix-run/react";
+import { List, Skeleton } from "antd";
 import { useEffect, useState } from "react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { SearchJobs } from "~/graphql/queries";
 import CustomDrawer from "~/utils/customDrawer";
+import { success } from "~/utils/notifications";
+
 const JobCards = () => {
+
   const [state, setState] = useState({ visible: false, placement: 'bottom' });
   const [selectedLoc, setSelectedLoc] = useState('');
   const [selectedExp, setSelectedExp] = useState('');
@@ -49,6 +53,8 @@ const JobCards = () => {
       placement: e.target.value,
     }));
   };
+  const [loading, setLoading] = useState(true);
+
   const loaderData = useLoaderData() as any;
   const [JobDesc, setJobDescData] = useState(loaderData.JobDesc || []);
   const [FilteredJobDesc, setFilteredJobDescData] = useState([]);
@@ -69,7 +75,7 @@ const JobCards = () => {
 
  
 const handleFilterAndSearchDown = async () =>{
-
+setLoading(true);
   const updatedJobsQuery = SearchJobs(dep || "", exp || "", role || "", loc || "",searchValue || "", limit);
     const newJobsData = await fetchGraphQL(updatedJobsQuery);
     setJobDescData(() => [
@@ -85,9 +91,10 @@ const handleFilterAndSearchDown = async () =>{
         })
       ),
     ]);
+    setLoading(false);
 }
   const fetchMoreData = async () => {
-
+setLoading(true);
     const updatedQuery = SearchJobs(dep || "", exp || "", role || "", loc || "",searchValue || "", limit+3);
     const newJobDescData = await fetchGraphQL(updatedQuery);
  
@@ -107,7 +114,10 @@ const handleFilterAndSearchDown = async () =>{
     ]);
     setLimit(limit + 3); 
   
- 
+ setLoading(false);
+ if (JobDesc.length <= limit) {
+  success("No more Jobs available", 3);
+}
   };
  
   return (
@@ -399,7 +409,20 @@ const handleFilterAndSearchDown = async () =>{
             className="absolute top-4 left-4"
             alt="icons"
           /> */}
-
+{loading &&  
+          <List
+            className="w-full job-card-container z-10 h-full"
+            itemLayout="vertical"
+            size="large"
+            dataSource={[1, 2, 3]} 
+            renderItem={() => (
+              <List.Item>
+                <Skeleton active avatar paragraph={{ rows: 3 }} />
+              </List.Item>
+            )}
+          />}
+          {!loading && (
+            <>
           {JobDesc.map((jobs: any) => (
             <div className="flex flex-col job-card-container relative">
               <Link to={`/job-description/${jobs.id}`} key={jobs.id}>
@@ -455,7 +478,7 @@ const handleFilterAndSearchDown = async () =>{
                 </div>
               </Link>
             </div>
-          ))}
+          ))}</>)}
         </div>
 
         <div className="mx-auto w-full flex justify-center items-center" onClick={fetchMoreData}>

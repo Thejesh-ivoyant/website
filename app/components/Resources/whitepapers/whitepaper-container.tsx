@@ -6,12 +6,15 @@ import IWhitePaper from "~/interfaces/IWhitePaper";
 import { useState } from "react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { getWhitepaperBasedonLimit } from "~/graphql/queries";
+import { success } from "~/utils/notifications";
 const WhitePaperCardContainer = () => {
   const loaderData = useLoaderData() as any;
   const [whitePaperData, setWhitePaperData] = useState(loaderData.whitePaperData || []);
   const [limit, setLimit] = useState(6); // Initial limit
+  const [loading, setLoading] = useState(false);
 
   const fetchMoreData = async () => {
+    setLoading(true);
     const updatedQuery = getWhitepaperBasedonLimit(limit + 3);
     const newWhitepaperData = await fetchGraphQL(updatedQuery);
 
@@ -36,6 +39,10 @@ const WhitePaperCardContainer = () => {
 
     // Increment the limit for the next fetch
     setLimit(limit + 3);
+    setLoading(false);
+    if (whitePaperData.length <= limit) {
+      success("No more white papers available", 3);
+    }
   };
 
 
@@ -54,8 +61,7 @@ const WhitePaperCardContainer = () => {
   {whitePaperData.map((paper: IWhitePaper) => (
         <Link to={`../resources/whitepaper/${paper.id}`} key={paper.id} state={{ whitePaperData: whitePaperData }}>
           
-            <WhitePaperCard key={paper.id} paper={paper} />
-       
+          <WhitePaperCard key={paper.id} paper={paper} isLoading={loading} />       
            
             </Link>
         ))}
