@@ -21,8 +21,13 @@ const PrivacyPolicy = () => {
       let viewportHeight = window.innerHeight;
       let contentHeight = sidebarContent.getBoundingClientRect().height;
       let sidebarTop = sidebar.getBoundingClientRect().top + window.pageYOffset;
-
-      if (scrollTop >= contentHeight - viewportHeight + sidebarTop) {
+      let contactMain = document.getElementById("contact-main");
+      let contactMainheight = contactMain?.getBoundingClientRect().height ?? 0;
+     
+      if (
+        scrollTop >= contentHeight - viewportHeight + sidebarTop &&
+        scrollTop <= contactMainheight
+      ) {
         sidebarContent.style.transform = `translateY(-${
           contentHeight - viewportHeight + sidebarTop
         }px)`;
@@ -41,6 +46,7 @@ const PrivacyPolicy = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
 
   return (
     <>
@@ -252,7 +258,7 @@ const PrivacyPolicy = () => {
 
         <div
           id="contact-main"
-          className="  w-1/2 flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0"
+          className=" pb-16 w-1/2 flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0"
         >
           {/* main content goes here */}
 
