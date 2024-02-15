@@ -9,17 +9,17 @@ const ErrorBoundaryPage = () => {
         <div className="self-center w-[913px] max-w-full mt-10 max-md:mt-10">
           <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
             <div className="flex flex-col items-stretch w-[58%] max-md:w-full max-md:ml-0">
-              <div className="items-start flex flex-col my-auto px-5 max-md:max-w-full max-md:mt-10">
+              <div className="error-left-container  flex flex-col my-auto px-5 max-md:max-w-full max-md:mt-10">
                 <div className="text-zinc-600 text-3xl font-bold leading-10">
                   Oops....{" "}
                 </div>
-                <div className="text-zinc-600 text-2xl leading-8 whitespace-nowrap mt-3 self-start">
+                <div className="text-zinc-600 text-2xl leading-8  mt-3 ">
                   Page not found{" "}
                 </div>
-                <div className="self-stretch text-zinc-600 text-base leading-6 tracking-wide whitespace-nowrap mt-4 max-md:max-w-full">
+                <div className=" text-zinc-600 text-base leading-6 tracking-wide  mt-4 max-md:max-w-full">
                   This Page doesn't exist or was removed!
                 </div>{" "}
-        <Link to="/" prefetch="intent">
+                <Link to="/">
                 <div className="justify-centeritems-center flex gap-1 mt-1 py-2 self-start">
                   <img
                     loading="lazy"
@@ -39,7 +39,7 @@ const ErrorBoundaryPage = () => {
                   <img
                   alt='error'
                   loading="lazy"
-                  src= '../assets/error.png' className="absolute h-full w-full object-cover object-center inset-0"
+                  src= '../assets/error.png' className="absolute h-full w-full object-contain object-center inset-0"
                 />{" "}
                 <div className="relative flex flex-col items-stretch pt-5 pb-12 px-7 max-md:px-5">
               
