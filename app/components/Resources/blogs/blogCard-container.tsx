@@ -4,8 +4,9 @@ import BlogCard from "./blogCard";
 import { useEffect, useState } from "react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { SearchBlogs } from "~/graphql/queries";
-import { Drawer } from 'antd';
+import { Drawer, List, Select, Skeleton } from 'antd';
 import CustomDrawer from "~/utils/customDrawer";
+import DropDownIcon from "../case-study/arrow";
 
 const BlogCardContainer = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -56,13 +57,18 @@ const BlogCardContainer = () => {
   const [searchValue, setSearchValue] = useState("");
   const [blogData, setBlogData] = useState(loaderData.blogData || []);
   const [limit, setLimit] = useState(3); // Initial limit
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     // This effect will run whenever role, dep, loc, or exp changes
     handleFilterAndSearchDown();
   }, [category, tag, searchValue]);
+  
+  const handleCategoryChange = (value:string) => {
+    setSelectedCategory(value);
+  };
 
   const handleFilterAndSearchDown = async () => {
+    setLoading(true);
     const updatedBlogQuery = SearchBlogs(
       category || "",
       tag || "",
@@ -97,9 +103,11 @@ const BlogCardContainer = () => {
         },
       })),
     ]);
+    setLoading(false);
   };
 
   const fetchMoreData = async () => {
+    setLoading(true);
     const updatedQuery = SearchBlogs(
       category || "",
       tag || "",
@@ -135,6 +143,7 @@ const BlogCardContainer = () => {
       })),
     ]);
     setLimit(limit + 3);
+    setLoading(false);
   };
 
   return (
@@ -150,9 +159,18 @@ const BlogCardContainer = () => {
         <button className="absolute -top-2 left-0 right-0 drawer-close-btn" onClick={onClose}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6 6 18M6 6l12 12" stroke="#3D3D3D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </button>
-            
+            <label className="block text-haiti font-montserrat">Filter by:</label>
         <div className="flex flex-col gap-4">
-        <select className="category-dropdown-mobile"
+        <Select
+                  placeholder="All Categories"
+                  className="w-full rounded-none"
+                  suffixIcon={ (category==null)?  <DropDownIcon /> : null }
+                  onChange={handleCategoryChange}
+                  allowClear
+                  value={selectedCategory}
+                  options= {loaderData.categoriesList}
+                />
+        {/* <select className="category-dropdown-mobile"
               style={{
                 width: "100%",
                 borderRadius: "2px",
@@ -171,7 +189,7 @@ const BlogCardContainer = () => {
                   {category.label}
                 </option>
               ))}
-            </select>
+            </select> */}
 
             <select className="tags-dropdown-mobile"
               style={{
@@ -319,6 +337,21 @@ const BlogCardContainer = () => {
       </div>
 
       <div className="blog-main-box w-full h-fit relative  flex flex-row justify-around">
+         {/* Skeleton for loading */}
+         {loading &&  
+          <List
+            className="w-[76.7625rem] blog-main-card z-10 h-full"
+            itemLayout="vertical"
+            size="large"
+            dataSource={[1, 2, 3]} // Dummy data for skeleton
+            renderItem={() => (
+              <List.Item>
+                <Skeleton active avatar paragraph={{ rows: 3 }} />
+              </List.Item>
+            )}
+          />}
+          {!loading && (
+            <>
         <img
           src="../assets/Ornament.png"
           className="absolute top-4 left-4"
@@ -335,7 +368,9 @@ const BlogCardContainer = () => {
             // </Link>
           ))}
         </div>
-      </div>
+              </>
+          )}
+          </div>
       <div
         className="mx-auto w-full flex justify-center items-center"
         onClick={fetchMoreData}
