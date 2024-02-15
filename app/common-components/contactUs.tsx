@@ -299,7 +299,7 @@ const ContactUs = () => {
             autoComplete="off"
           >
             <div className="grid grid-cols-2 xl:gap-10 md:gap-6 gap-4">
-              <div className="w-full relative group col-span-1">
+              <div className="w-full relative group sm:col-span-1 col-span-2">
                 <input
                   type="text"
                   id="name"
@@ -309,7 +309,7 @@ const ContactUs = () => {
                   className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
               </div>
-              <div className="w-full relative group col-span-1">
+              <div className="w-full relative group sm:col-span-1 col-span-2">
                 <input
                   type="text"
                   id="email"
@@ -319,7 +319,7 @@ const ContactUs = () => {
                   className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
               </div>
-              <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs py-1">
+              <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
                 <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
                   <div className="items-stretch flex  gap-1 ">
                     
@@ -350,7 +350,7 @@ const ContactUs = () => {
                   name="phonenumber"
                 />
               </div>
-              <div className="w-full relative group col-span-1">
+              <div className="w-full relative group sm:col-span-1 col-span-2">
                 <input
                   type="text"
                   id="organization"
@@ -446,13 +446,13 @@ const ContactUs = () => {
            
             className={
               toggleState === 2
-                ? "flex flex-col lg:gap-10 gap-6 active-content xl:p-8  p-4"
+                ? "flex flex-col lg:gap-10 gap-6 active-content xl:p-8  sm:p-4 py-2"
                 : "hidden"
             }
             autoComplete="off"
           >
             <div className="grid grid-cols-2 xl:gap-10 gap-6">
-              <div className="w-full relative group col-span-1">
+              <div className="w-full relative group sm:col-span-1 col-span-2">
                 <input
                   type="text"
                   id="name"
@@ -462,7 +462,7 @@ const ContactUs = () => {
                   className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
               </div>
-              <div className="w-full relative group col-span-1">
+              <div className="w-full relative group sm:col-span-1 col-span-2">
                 <input
                   type="text"
                   id="email"
@@ -472,7 +472,7 @@ const ContactUs = () => {
                   className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
               </div>
-              <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs py-1">
+              <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
                 <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
                   <div className="items-stretch flex  gap-1 ">
                   <ReactFlagsSelect
@@ -502,7 +502,7 @@ const ContactUs = () => {
                   name="phone_number"
                 />
               </div>
-              <div className="w-full relative group col-span-1">
+              <div className="w-full relative group sm:col-span-1 col-span-2">
                 <select
                   id="username"
                   defaultValue="" 
@@ -516,7 +516,7 @@ const ContactUs = () => {
                   <option>Devops </option>
                 </select>
               </div>
-              <div className="w-full relative group col-span-1">
+              <div className="w-full relative group sm:col-span-1 col-span-2">
                 <select
                   id="username"
                   name="hiring_duration"
@@ -530,7 +530,7 @@ const ContactUs = () => {
                   <option>8</option>
                 </select>
               </div>
-              <div className="w-full relative group col-span-1">
+              <div className="w-full relative group sm:col-span-1 col-span-2">
                 <select
                   id="username"
                   name="choose_skill_set"

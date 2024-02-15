@@ -66,6 +66,7 @@ export async function loader() {
   }
 }
 export default function App() {
+  const xx = "Hy thejesh"
   return (
     <html lang="en">
       <head>
@@ -79,10 +80,11 @@ export default function App() {
         <Meta />
         <Links />
       </head>
+
       <body className="overscroll-none">
         <Nav />
         <LoadingTest />
-        <Outlet />
+        <Outlet context={xx} />
         <ScrollRestoration/>
         <Scripts />
         <LiveReload />

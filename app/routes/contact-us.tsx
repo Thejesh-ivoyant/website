@@ -1,6 +1,7 @@
 import ContactCard from "~/components/contact-us/contact-card";
 import ContactUs from "~/common-components/contactUs";
 import { MetaFunction } from "@remix-run/react";
+import avatar from '~/../public/assets/contactavatar.jpg'
 
 export const meta: MetaFunction = () => {
   return [
@@ -19,15 +20,11 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <>
-      <div className="mt-16">
+      <div className="lg:mt-[4.7rem] mt-16">
         <ContactUs />
       </div>
-      <div className="flex flex-row justify-center">
-        <div className="flex w-full">
-          <ContactCard />
-        </div>
+      <ContactCard/>
      
-      </div>
 
     </>
   );
