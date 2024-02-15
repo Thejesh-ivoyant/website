@@ -420,14 +420,20 @@ width: 70%;
   display: inline-block;
   margin-left: 0.188rem;
 }
+
 @media (min-width:1298px){
   .ReactFlagsSelect-module_selectBtn__19wW7{
     font-size: 1rem !important;
     padding: 0.313rem 0.625rem !important;
   }
+
   .ReactFlagsSelect-module_selectBtn__19wW7:after, .ReactFlagsSelect-module_selectBtn__19wW7[aria-expanded="true"]:after {
     margin-left: 0.313rem !important;
 }
+}
+
+.error-left-container{
+  align-items: start;
 }
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
@@ -435,7 +441,14 @@ width: 70%;
     max-width: 90%;
     gap: 0rem;
   }
-  
+  .error-left-container{
+    align-items: center;
+  }
+  .error-left-container div{
+    align-items: center;
+    text-align: center;
+  }
+
   .mobile-footer{
     display: block;
   }
