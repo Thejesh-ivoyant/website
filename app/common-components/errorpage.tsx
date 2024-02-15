@@ -39,7 +39,7 @@ const ErrorBoundaryPage = () => {
                   <img
                   alt='error'
                   loading="lazy"
-                  src= '../assets/error.png' className="absolute h-full w-full object-cover object-center inset-0"
+                  src= '../assets/error.png' className="absolute h-full w-full object-contain object-center inset-0"
                 />{" "}
                 <div className="relative flex flex-col items-stretch pt-5 pb-12 px-7 max-md:px-5">
               
