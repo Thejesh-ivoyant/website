@@ -1,118 +1,54 @@
+import avatar from '~/../public/assets/contactavatar.jpg'
 
 const ContactCard = () => {
-  
-    //grow w-full pl-12 pr-3 py-12 max-md:max-w-full max-md:pl-5
-  return (
-    <div className="bg-[#fff] p-20 w-full flex flex-row items-center gap-[36px] justify-center">
-      
-                <div className="justify-center w-full items-stretch self-stretch shadow-sm bg-[#fff] hover:bg-violet-50 flex max-w-[641px] flex-col px-6 py-10 hover:border-t-4 hover:border-t-indigo-400 hover:border-solid max-md:px-5">
-                    <div className="text-black text-base tracking-wide uppercase max-md:max-w-full">
-                      INDIA
+    return (
+    <div className="flex lg:flex-row flex-col gap-9 items-center justify-center xl:py-16 xl:px-10 lg:px-6 lg:py-12 py-8 px-5">
+        <div className="grid font-montserrat tracking-wide py-7 px-3 max-w-[40rem] md:h-72 relative group w-full contact-card">
+            <div className="absolute h-1 w-full group-hover:bg-indigo-400"></div>
+            <small className="uppercase text-base">India</small>
+            <h1 className="text-xl font-semibold pt-2">iVoyant Systems Private Limited</h1>
+            <address className="font-poppins capitalize font-light not-italic leading-7"> No. 12, 24th Main, JP Nagar 2nd Phase, Bengaluru (Bangalore) Urban, Karnataka, 560078   </address>
+            <div className="flex sm:gap-6 gap-2">
+                <img className="sm:w-28 w-20 aspect-square object-cover object-top" src={avatar}></img>
+                <div className="grid capitalize font-light">
+                    <small className="font-poppins text-xs">Office representative</small>
+                    <h1 className="font-medium font-poppins text-sm">Representative name</h1>
+                    <>
+                    <div className="flex font-normal leading-7 items-center gap-2 normal-case sm:text-base text-xs">
+                        <svg className="sm:w-5 w-3 aspect-square"  viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.725 9.751a6.59 6.59 0 0 0 3.05 3.038.619.619 0 0 0 .612-.047l1.956-1.304a.625.625 0 0 1 .593-.055l3.66 1.569a.623.623 0 0 1 .374.648 3.75 3.75 0 0 1-3.72 3.275A10.625 10.625 0 0 1 3.625 6.25 3.75 3.75 0 0 1 6.9 2.53a.623.623 0 0 1 .648.375l1.57 3.662a.625.625 0 0 1-.052.589l-1.3 1.985a.62.62 0 0 0-.041.61v0Z" stroke="#969AFB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <a href="tel: +1 (770) 274 4336"> +1 (770) 274 4336</a>
                     </div>
-                    <div className="text-black text-xl font-semibold tracking-wide mt-2 max-md:max-w-full">
-                        iVoyant Systems Private Limited
+                    <div className="flex font-normal leading-7 items-center gap-2 normal-case sm:text-base text-xs">
+                        <svg className="sm:w-5 w-3 aspect-square" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.094 11.75 3 14.25v-10a.625.625 0 0 1 .625-.625h10a.625.625 0 0 1 .625.625v6.875a.624.624 0 0 1-.625.625H6.094Z" stroke="#969AFB" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.75 11.75v3.125a.625.625 0 0 0 .625.625h7.531L18 18V8a.625.625 0 0 0-.625-.625H14.25" stroke="#969AFB" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <a href="mailto:mail@ivoyant.com">mail@ivoyant.com</a>
                     </div>
-                    <div className="text-black text-base font-light leading-7 tracking-wide max-md:max-w-full">
-                    No. 12, 24th Main, JP Nagar 2nd Phase, Bengaluru (Bangalore) Urban, Karnataka, 560078 {" "}
-                    </div>
-                    <div className="mt-3 max-md:max-w-full">
-                        <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-                        <div className="flex flex-col items-stretch w-[21%] max-md:w-full max-md:ml-0">
-                            <img
-                            loading="lazy"
-                            src= '../assets/contactavatar.jpg' 
-                            alt="contactavatar"   className="aspect-square object-contain object-center w-[117px] overflow-hidden shrink-0 max-w-full max-md:mt-6"
-                            />
-                        </div>
-                        <div className="flex flex-col items-stretch w-[79%] ml-5 max-md:w-full max-md:ml-0">
-                            <div className="justify-between items-stretch self-stretch flex grow flex-col max-md:max-w-full max-md:mt-6">
-                            <div className="text-black text-xs font-light leading-4 tracking-wide whitespace-nowrap max-md:max-w-full">
-                                Office representative
-                            </div>
-                            <div className="text-black text-base font-medium leading-7 tracking-wide whitespace-nowrap max-md:max-w-full">
-                                Representative name
-                            </div>
-                            <div className="items-center flex gap-2 mt-2.5 self-start">
-                                <img
-                                loading="lazy"
-                                src= '../assets/phoneicon.svg' 
-                                alt="icon"                                className="aspect-square object-contain object-center w-5 justify-center items-center overflow-hidden shrink-0 max-w-full my-auto"
-                                />
-                                <div className="text-black text-base leading-7 tracking-wide self-stretch grow whitespace-nowrap">
-                                {" "}
-                                +1 (770) 274 4336
-                                </div>
-                            </div>
-                            <div className="items-center flex gap-2 mt-2.5 self-start">
-                                <img
-                                loading="lazy"
-                                src= '../assets/Chatsicon.svg'     alt="icon"                           className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full my-auto"
-                                />
-                                <div className="text-black text-base leading-7 tracking-wide self-stretch grow whitespace-nowrap">
-                                mail@ivoyant.com
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-    
-          
-                <div className="justify-center w-full items-stretch self-stretch shadow-sm bg-[#fff] hover:bg-violet-50 flex max-w-[641px] flex-col px-6 py-10 hover:border-t-4 hover:border-t-indigo-400 hover:border-solid max-md:px-5">
-            <div className="text-black text-base tracking-wide uppercase max-md:max-w-full">
-                USA
-            </div>
-            <div className="text-black text-xl font-semibold tracking-wide mt-2 max-md:max-w-full">
-                iVoyant Systems Private Limited
-            </div>
-            <div className="text-black text-base font-light leading-7 tracking-wide max-md:max-w-full">
-                1155 Perimeter Center West, Suite 600, Atlanta GA 30338{" "}
-            </div>
-            <div className="mt-3 max-md:max-w-full">
-                <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
-                <div className="flex flex-col items-stretch w-[21%] max-md:w-full max-md:ml-0">
-                    <img
-                    loading="lazy"
-                    src= '../assets/contactavatar.jpg'     
-                    alt="contactavatar"                className="aspect-square object-contain object-center w-[117px] overflow-hidden shrink-0 max-w-full max-md:mt-6"
-                    />
-                </div>
-                <div className="flex flex-col items-stretch w-[79%] ml-5 max-md:w-full max-md:ml-0">
-                    <div className="justify-between items-stretch self-stretch flex grow flex-col max-md:max-w-full max-md:mt-6">
-                    <div className="text-black text-xs font-light leading-4 tracking-wide whitespace-nowrap max-md:max-w-full">
-                        Office representative
-                    </div>
-                    <div className="text-black text-base font-medium leading-7 tracking-wide whitespace-nowrap max-md:max-w-full">
-                        Representative name
-                    </div>
-                    <div className="items-center flex gap-2 mt-2.5 self-start">
-                        <img
-                        loading="lazy"
-                        src= '../assets/phoneicon.svg'
-                        alt="icon"                        className="aspect-square object-contain object-center w-5 justify-center items-center overflow-hidden shrink-0 max-w-full my-auto"
-                        />
-                        <div className="text-black text-base leading-7 tracking-wide self-stretch grow whitespace-nowrap">
-                        {" "}
-                        +1 (770) 274 4336
-                        </div>
-                    </div>
-                    <div className="items-center flex gap-2 mt-2.5 self-start">
-                        <img
-                        loading="lazy"
-                        src= '../assets/Chatsicon.svg'  
-                        alt="icon"                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full my-auto"
-                        />
-                        <div className="text-black text-base leading-7 tracking-wide self-stretch grow whitespace-nowrap">
-                        mail@ivoyant.com
-                        </div>
-                    </div>
-                    </div>
-                </div>
+                    </>
                 </div>
             </div>
+        </div>
+        <div className="grid font-montserrat tracking-wide py-7 px-3 max-w-[40rem] md:h-72 relative group w-full contact-card">
+            <div className="absolute h-1 w-full group-hover:bg-indigo-400"></div>
+            <small className="uppercase text-base">USA</small>
+            <h1 className="text-xl font-semibold pt-2">iVoyant Systems Private Limited</h1>
+            <address className="font-poppins capitalize font-light not-italic leading-7"> 1155 Perimeter Center West, Suite 600, Atlanta GA 30338  </address>
+            <div className="flex sm:gap-6 gap-2">
+                <img className="sm:w-28 w-20 aspect-square object-cover object-top" src={avatar}></img>
+                <div className="grid capitalize font-light">
+                    <small className="font-poppins text-xs">Office representative</small>
+                    <h1 className="font-medium font-poppins text-sm">Representative name</h1>
+                    <>
+                    <div className="flex font-normal leading-7 items-center gap-2 normal-case sm:text-base text-xs">
+                        <svg className="sm:w-5 w-3 aspect-square"  viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.725 9.751a6.59 6.59 0 0 0 3.05 3.038.619.619 0 0 0 .612-.047l1.956-1.304a.625.625 0 0 1 .593-.055l3.66 1.569a.623.623 0 0 1 .374.648 3.75 3.75 0 0 1-3.72 3.275A10.625 10.625 0 0 1 3.625 6.25 3.75 3.75 0 0 1 6.9 2.53a.623.623 0 0 1 .648.375l1.57 3.662a.625.625 0 0 1-.052.589l-1.3 1.985a.62.62 0 0 0-.041.61v0Z" stroke="#969AFB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <a href="tel: +1 (770) 274 4336"> +1 (770) 274 4336</a>
+                    </div>
+                    <div className="flex font-normal leading-7 items-center gap-2 normal-case sm:text-base text-xs">
+                        <svg className="sm:w-5 w-3 aspect-square" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.094 11.75 3 14.25v-10a.625.625 0 0 1 .625-.625h10a.625.625 0 0 1 .625.625v6.875a.624.624 0 0 1-.625.625H6.094Z" stroke="#969AFB" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.75 11.75v3.125a.625.625 0 0 0 .625.625h7.531L18 18V8a.625.625 0 0 0-.625-.625H14.25" stroke="#969AFB" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <a href="mailto:mail@ivoyant.com">mail@ivoyant.com</a>
+                    </div>
+                    </>
                 </div>
-       
+            </div>
+        </div>
     </div>
       );
 };
