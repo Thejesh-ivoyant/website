@@ -143,15 +143,12 @@ const BlogCardContainer = () => {
         },
       })),
     ]);
-    
-  };
-  if (blogData.length < limit) {
-    success("No more Blogs available", 3);
-  }
     setLimit(limit + 3);
     setLoading(false);
-   
-
+if (blogData.length < limit) {
+      success("No more Blogs available", 3);
+    }
+  };
 
   return (
     <>
