@@ -108,7 +108,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
       </head>
       <body className="overscroll-none">
        <ErrorBoundaryPage/>
-       <Footer/>
+       {/* <Footer/> */}
       </body>
     </html>
   );

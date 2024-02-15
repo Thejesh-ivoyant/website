@@ -19,7 +19,7 @@ const ErrorBoundaryPage = () => {
                 <div className="self-stretch text-zinc-600 text-base leading-6 tracking-wide whitespace-nowrap mt-4 max-md:max-w-full">
                   This Page doesn't exist or was removed!
                 </div>{" "}
-        <Link to="/" prefetch="intent">
+                <Link to="/">
                 <div className="justify-centeritems-center flex gap-1 mt-1 py-2 self-start">
                   <img
                     loading="lazy"
