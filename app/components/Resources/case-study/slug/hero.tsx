@@ -4,7 +4,7 @@ const Hero = ({data}:{data:any}) => {
   };
   return (
     <>
-    <section className="mt-[4.5rem] screen-height text-white grid md:flex justify-center object-cover relative" style={gradientStyle}>
+    <section className="md:mt-[4.5rem] screen-height text-white grid md:flex justify-center object-cover relative" style={gradientStyle}>
       <img src={data?.heroImage?.data.attributes.url} className="md:h-[80%] lg:w-fit md:w-[70%] md:block hidden absolute md:rounded-xl aspect-video mx-auto lg:top-16 object-contain"    alt="icon"></img>
       <div className="w-fit h-fit md:flex hidden flex-col xl:px-10 xl:py-12 lg:py-8 lg:px-6 md:px-4 md:py-6 gap-4 mx-12 -bottom-1/4 absolute text-black z-10 bg-white shadow-xl">
         
