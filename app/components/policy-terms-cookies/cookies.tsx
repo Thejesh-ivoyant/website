@@ -19,10 +19,15 @@ const Cookies = () => {
       let viewportHeight = window.innerHeight;
       let contentHeight = sidebarContent.getBoundingClientRect().height;
       let sidebarTop = sidebar.getBoundingClientRect().top + window.pageYOffset;
-
-      if (scrollTop >= contentHeight - viewportHeight + sidebarTop) {
+      let contactMain = document.getElementById("contact-main");
+      let contactMainheight = contactMain?.getBoundingClientRect().height ?? 0;
+     
+      if (
+        scrollTop >= contentHeight - viewportHeight + sidebarTop &&
+        scrollTop <= contactMainheight
+      ){
         sidebarContent.style.transform = `translateY(-${
-          contentHeight - viewportHeight + sidebarTop
+          contentHeight - viewportHeight + sidebarTop+120
         }px)`;
         sidebarContent.style.position = "fixed";
         sidebarContent.style.width = "30%";
@@ -33,6 +38,7 @@ const Cookies = () => {
       }
     };
 
+    
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -131,7 +137,7 @@ const Cookies = () => {
 
         <div
           id="contact-main"
-          className="  w-1/2 flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0"
+          className=" pb-16 w-1/2 flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0"
         >
           {/* main content goes here */}
 
