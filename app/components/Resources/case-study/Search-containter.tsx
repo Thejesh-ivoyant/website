@@ -1,4 +1,4 @@
-import { Select, Space } from "antd";
+import { List, Select, Skeleton, Space } from "antd";
 import DropDownIcon from "./arrow";
 import { useEffect, useState } from "react";
 import { generateDynamicQuery } from "~/utils/parameterized-gql";
@@ -21,6 +21,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
   const [state, setState] = useState({ visible: false, placement: 'bottom' });
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedTag, setSelectedTag] = useState('');
+  const [loading, setLoading] = useState(true);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
@@ -72,7 +73,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
   // }
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); 
-    
+    setLoading(true);
     const dynamicQuery = await generateDynamicQuery(case_study_paginated, [
       "offset",
       "limit",
@@ -88,6 +89,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
       await fetchGraphQL(interpolatedQuery),
     ]);
     setListData(new Set(lists.data?.caseStudies?.data));
+    setLoading(false);
   };
 
   const simulateFormSubmit = async ( ) => {
@@ -101,6 +103,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
   useEffect(() => {
     simulateFormSubmit();
   }, [category,tag]); 
+
   useEffect(() => {
     setArrayData(Array.from(listData));
   }, [listData]);
@@ -112,6 +115,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
     setTag(value)
   };
   const handleViewMore = async () =>{
+    setLoading(true)
     setBtnLoading(true)
     const dynamicQuery = await generateDynamicQuery(case_study_paginated, [
       "offset",
@@ -131,7 +135,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
     const newData = lists.data?.caseStudies?.data || [];
   setListData((prevListData: any) => new Set([...prevListData, ...newData]));
   setBtnLoading(false)
-
+setLoading(false)
   
   }
   return (
@@ -220,7 +224,20 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
           
         </div>
 
-
+        {loading &&  
+          <List
+            className="w-full blog-main-card z-10 h-full"
+            itemLayout="vertical"
+            size="large"
+            dataSource={[1, 2, 3]} // Dummy data for skeleton
+            renderItem={() => (
+              <List.Item>
+                <Skeleton active avatar paragraph={{ rows: 3 }} />
+              </List.Item>
+            )}
+          />}
+          {!loading && (
+            <>
         
         {arrayData &&
           arrayData?.map((item: any, index:number) => (
@@ -266,6 +283,8 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
               </div>
             </Link>
           ))}
+          </>
+          )}
           {
             arrayData &&
               arrayData?.map((item:any, index:number)=>(
@@ -304,6 +323,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
         <button className="hue-btn-blue" onClick={handleViewMore} disabled = {btnLoading}>
           <span>View More</span>
         </button>
+
         <CustomDrawer
           title="Basic Drawer"
           placement="bottom"

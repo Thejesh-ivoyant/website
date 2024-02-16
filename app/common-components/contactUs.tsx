@@ -40,63 +40,10 @@ const disabledDateTime = (selectedDate: dayjs.Dayjs | null) => {
         : [],
   };
 };
-const handleSubmit = async (
-  event: React.FormEvent<HTMLFormElement>,
-  formType: any
-) => {
-  try {
-    event.preventDefault();
-    if (formType === "contact") {
-      const formData = new FormData(event.currentTarget);
-      formData.append("action", "Contact");
-      formData.forEach((value, key) => {
-      });
-      const response = await fetch(
-        "https://forms.hubspot.com/uploads/form/v2/39872873/52d6bea6-d664-4d5c-a3e9-81a21ba79d3b",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
 
-      if (response.ok) {
-    
-        success(
-          "Thank you for contacting us! We will get back to you soon.",
-          3
-        );
-      } else {
-        errorMessage("Error occured while submitting, Please retry", 3);
-      }
-    } else if (formType === "hireus") {
-      const formData = new FormData(event.currentTarget);
-      formData.append("action", "HireUs");
-
-      formData.forEach((value, key) => {
-      });
-      const response = await fetch(
-        "https://forms.hubspot.com/uploads/form/v2/39872873/28d8b167-abb4-44db-b4a3-19758d09a360",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-
-      if (response.ok) {
-        success(
-          "Thank you for contacting us! We will get back to you soon.",
-          3
-        );
-      } else {
-        errorMessage("Error occured, please retry",3);
-      }
-    }
-  } catch (error) {
-    errorMessage("Error occured, please retry",3);
-  }
-};
 
 const ContactUs = () => {
+  const [btnLoading, setBtnLoading] = useState<boolean>(false)
   
   const [selectedCode, setCountryCodeSelected] = useState("US");
   const [selectedDate, setDateSelected] = useState("");
@@ -106,6 +53,65 @@ const ContactUs = () => {
 
   const [phoneNumber, setPhoneNumber] = useState("");
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  const handleSubmit = async (
+    event: React.FormEvent<HTMLFormElement>,
+    formType: any
+  ) => {
+   
+    try {
+      event.preventDefault();
+      setBtnLoading(true);
+      if (formType === "contact") {
+        const formData = new FormData(event.currentTarget);
+        formData.append("action", "Contact");
+        formData.forEach((value, key) => {
+        });
+        const response = await fetch(
+          "https://forms.hubspot.com/uploads/form/v2/39872873/52d6bea6-d664-4d5c-a3e9-81a21ba79d3b",
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+  
+        if (response.ok) {
+      
+          success(
+            "Thank you for contacting us! We will get back to you soon.",
+            3
+          );
+        } else {
+          errorMessage("Error occured while submitting, Please retry", 3);
+        }
+      } else if (formType === "hireus") {
+        const formData = new FormData(event.currentTarget);
+        formData.append("action", "HireUs");
+  
+        formData.forEach((value, key) => {
+        });
+        const response = await fetch(
+          "https://forms.hubspot.com/uploads/form/v2/39872873/28d8b167-abb4-44db-b4a3-19758d09a360",
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+  
+        if (response.ok) {
+          success(
+            "Thank you for contacting us! We will get back to you soon.",
+            3
+          );
+        } else {
+          errorMessage("Error occured, please retry",3);
+        }
+      }
+    } catch (error) {
+      errorMessage("Error occured, please retry",3);
+    }
+    setBtnLoading(false);
+  };
 
   const handleLabelClick = () => {
     // Trigger click on the file input
@@ -435,6 +441,7 @@ const ContactUs = () => {
               name="_action"
               value="contact"
               className="btn-purp-grad w-fit text-HeaderGray font-normal"
+              disabled={btnLoading}
             >
               Send my message
             </button>
@@ -621,6 +628,7 @@ const ContactUs = () => {
               name="_action"
               value="hireus"
               className="btn-purp-grad w-fit text-HeaderGray font-normal"
+              disabled={btnLoading}
             >
               Send my message
             </button>
