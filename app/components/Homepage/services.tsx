@@ -38,14 +38,17 @@ const Services = ({attributes}:{attributes:Attributes}) => {
 
   return (
     <div className="flex flex-col w-full min-h-full lg:mx-0 lg:h-fit bg-haiti">
+      
       <div className=" md:text-4xl sm:text-3xl text-xl w-full justify-center flex md:py-8 py-4 h-fit gradient-bottom">
         <span className="h-fit font-montserrat font-bold service-heading">
          {attributes.servicesTitle}
         </span>
       </div>
+
       <div className="text-center text-violet-200 sm:text-sm text-xs md:text-base font-normal font-poppins p-4 lg:mx-40">
         {attributes.serviceDescription}
       </div>
+
       <div className="w-full grid-cols-2 grid md:hidden sm:gap-4 gap-2 p-4">
       {servicesArray.map((service: any, index:number) => (
           <div key={index} className="relative aspect-[10/7] w-full grid col-span-1 bg-black">
@@ -80,8 +83,8 @@ const Services = ({attributes}:{attributes:Attributes}) => {
             </div>
           ))}
         </div>
+        
 <div className="flex items-center">
-
         <figure className="flex object-contain  lg:max-w-[52rem] xl:w-[63rem] relative service-img">
           
           <img
@@ -98,22 +101,13 @@ const Services = ({attributes}:{attributes:Attributes}) => {
                 </i>
               </div>
               {description}
-              <div className="flex justify-end font-montserrat font-normal items-center gap-3 lg:text-base text-sm lg:mt-4 mt-2">
-                <Link to={link}>Learn more.</Link>
-                <span>
-                  <svg
-                    className="lg:h-10 lg:w-10 h-6 w-6"
-                    viewBox="0 0 40 40"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle cx="20" cy="20" r="20" fill="#824BEA" />
-                    <path
-                      d="M21.5 12.5L20.4275 13.5448L26.1125 19.25H11V20.75H26.1125L20.4275 26.4297L21.5 27.5L29 20L21.5 12.5Z"
-                      fill="#F0F5FF"
-                    />
-                  </svg>
+              <div className="flex flex-row justify-end font-montserrat font-normal items-center gap-3 lg:text-base text-sm lg:mt-4 mt-2">
+              <Link to= {link} className="flex flex-row justify-end ml-auto items-center gap-4">
+                <span className="text-HeaderGray text-lg flex">Learn more.</span>
+                <span className="flex w-10 h-10 rounded-full bg-[#824BEA]  items-center justify-center">
+                  <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 5L12.4275 6.04475L18.1125 11.75H3V13.25H18.1125L12.4275 18.9297L13.5 20L21 12.5L13.5 5Z" fill="#F0F5FF"/></svg>
                 </span>
+              </Link>
               </div>
             </figcaption>
           </div>

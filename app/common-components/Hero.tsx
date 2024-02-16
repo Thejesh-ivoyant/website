@@ -1,4 +1,4 @@
-import { Outlet, useLoaderData } from "@remix-run/react";
+import { Link, Outlet, useLoaderData } from "@remix-run/react";
 import { scrollToSection } from "~/root";
 const Hero = () => {
 
@@ -19,8 +19,9 @@ const Hero = () => {
           {loaderData.heroDescription}
           </span>
         </div>
-        <button className="btn  hero-btn"  onClick={() => scrollToSection('contact-us')}>Let's Talk</button>
-      </div>
+        <Link to="/contact-us"><button className="btn  hero-btn cursor-pointer" >Let's Talk</button>
+     </Link>
+         </div>
     </section>
   );
 };
