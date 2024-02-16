@@ -1,5 +1,7 @@
+import { Carousel } from "antd";
 import { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
+
 interface Testimonial {
   title: string;
   subtitle: string;
@@ -18,12 +20,10 @@ interface TestimonialData {
 }
 
 const Testimonials = () => {
-  const SECTION9_API_URL = `${strapiUrl}/api/section9s?populate=%2A`
-
+  const SECTION9_API_URL = `${strapiUrl}/api/section9s?populate=%2A`;
 
   const [testimonialList, setTestimonialList] = useState<Testimonial[]>([]);
-  const [currentTestimonialIndex, setCurrentTestimonialIndex] =
-    useState<number>(0);
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState<number>(0);
 
   useEffect(() => {
     fetch(SECTION9_API_URL)
@@ -40,24 +40,8 @@ const Testimonials = () => {
       });
   }, []);
 
-  const handleNextClick = () => {
-    const nextIndex = currentTestimonialIndex + 1;
-    if (nextIndex < testimonialList.length) {
-      setCurrentTestimonialIndex(nextIndex);
-    } else {
-      setCurrentTestimonialIndex(0)
-      // Handle case where there are no more testimonials
-    }
-  };
-
-  const handleBackClick = () => {
-    const nextIndex = currentTestimonialIndex - 1;
-
-    if (nextIndex >= 0) {
-      setCurrentTestimonialIndex(nextIndex);
-    } else {
-      setCurrentTestimonialIndex(testimonialList.length-1)
-    }
+  const handleCarouselChange = (current: number) => {
+    setCurrentTestimonialIndex(current);
   };
 
   return (
@@ -67,64 +51,30 @@ const Testimonials = () => {
       </section>
       {testimonialList.length > 0 && (
         <div>
-        
           <section className="testimonial-section mt-4 gradient-top">
-            <div className="inner-container pb-4 w-full ">
-              <div className="flex flex-col justify-center">
-                <div className="industry flex items-start justify-start text-sm font-poppins font-normal">
-                  {testimonialList[currentTestimonialIndex].title}
+            <Carousel  beforeChange={handleCarouselChange} afterChange={handleCarouselChange}>
+              {testimonialList.map((testimonial, index) => (
+                <div key={index} className="inner-container pb-4 w-full">
+                  <div className="flex flex-col justify-center">
+                    <div className="industry flex items-start justify-start text-sm font-poppins font-normal">
+                      {testimonial.title}
+                    </div>
+                    <div className="flex text-sm py-4 font-poppins font-normal subtitle justify-between">
+                      <div className="flex">{testimonial.subtitle}</div>
+                      <div className="flex mb-4">
+                        <img src="../assets/Quote.svg" alt="vector" />
+                      </div>
+                    </div>
+                    <div className="flex text-sm py-2 font-poppins font-normal designation">
+                      {testimonial.designation}
+                    </div>
+                    <div className="flex text-sm py-4 font-poppins font-normal summary">
+                      {testimonial.summary}
+                    </div>
+                  </div>
                 </div>
-                <div className="flex text-sm py-4 font-poppins font-normal subtitle justify-between" >
-                  
-                    <div className="flex">{testimonialList[currentTestimonialIndex].subtitle}</div>
-
-                                  <div className="flex mb-4"><img src="../assets/Quote.svg" alt="vector" /></div>
-                </div>
-                <div className="flex text-sm py-2 font-poppins font-normal designation ">
-                  {testimonialList[currentTestimonialIndex].designation}
-                </div>
-                <div className="flex text-sm py-4 font-poppins font-normal summary">
-                  {testimonialList[currentTestimonialIndex].summary}
-                </div>
-                <div className="flex flex-row gap-6">
-                <button id="backbutton" name="backbutton" className="my-button" onClick={handleBackClick}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-                    />
-                  </svg>
-                </button>
-
-                <button id="nextbutton"  name="nextbutton" className="my-button" onClick={handleNextClick}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                    />
-                  </svg>
-                </button>
-
-                </div>
-    
-              </div>
-            </div>
+              ))}
+            </Carousel>
           </section>
         </div>
       )}
