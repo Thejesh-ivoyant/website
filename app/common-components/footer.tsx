@@ -11,6 +11,8 @@ import { useEffect, useState } from "react";
 import { Modal } from "antd";
 
 const Footer = () => {
+  const [btnLoading, setBtnLoading] = useState<boolean>(false)
+  
   const [open, setOpen] = useState(false);
   const [download, setDownload] = useState<string>("");
   const [toggleNav, setToggleNav] = useState<boolean>(false);
@@ -70,6 +72,7 @@ const Footer = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
+      setBtnLoading(true)
       event.preventDefault();
       const formData = new FormData(event.currentTarget);
       formData.forEach((value, key) => {
@@ -91,6 +94,7 @@ const Footer = () => {
     } catch (error) {
       errorMessage("Error occured, please retry",3);
     }
+    setBtnLoading(false)
   };
   
   const data = useRouteLoaderData("root") as any;
@@ -150,57 +154,59 @@ const Footer = () => {
       </Modal>
       <footer className="w-full main-footer bg-haiti xl:py-16 lg:py-6 xl:px-16 md:px-4 font-montserrat text-white h-fit ">
         <section className="flex flex-row w-full gradient-bottom p-6"></section>
-        <Form onSubmit={handleSubmit}>
+        
+        
   <section className="footer-div  w-full">
-<div className="left-box flex flex-row w-full  justify-center">
+        <div className="left-box flex flex-row w-full  justify-center">
 
 
-          <div className="flex-1 flex flex-col ">
-            <span className="footer-heading">Services</span>
-            <div className="flex items-start py-3 gap-2">
-              <div className="flex flex-col footer-font justify-center gap-4">
-              {attributes?.services?.map((item, index) => (
-                  item.__typename != "ComponentCardCard" ? (
-                      <Link prefetch="intent" to={item.link} key={index}>
-                      {item.name}
-                      </Link>
-                  ) : null
-                  ))}
-              </div>
-            </div>
-          </div>
+                  <div className="flex-1 flex flex-col ">
+                    <span className="footer-heading">Services</span>
+                    <div className="flex items-start py-3 gap-2">
+                      <div className="flex flex-col footer-font justify-center gap-4">
+                      {attributes?.services?.map((item, index) => (
+                          item.__typename != "ComponentCardCard" ? (
+                              <Link prefetch="intent" to={item.link} key={index}>
+                              {item.name}
+                              </Link>
+                          ) : null
+                          ))}
+                      </div>
+                    </div>
+                  </div>
 
-          <div className="flex-1 flex flex-col ">
-            <span className="footer-heading">Industries</span>
-            <div className="flex items-start py-3 gap-2">
-              <div className="flex flex-col  footer-font justify-center gap-4">
-              {attributes?.industries?.map((item, index) => (
-                  item.__typename != "ComponentCardCard" ? (
-                      <Link prefetch="intent" to={item.link} key={index}>
-                      {item.name}
-                      </Link>
-                  ) : null
-                  ))}
-              </div>
-            </div>
-          </div>
+                  <div className="flex-1 flex flex-col ">
+                    <span className="footer-heading">Industries</span>
+                    <div className="flex items-start py-3 gap-2">
+                      <div className="flex flex-col  footer-font justify-center gap-4">
+                      {attributes?.industries?.map((item, index) => (
+                          item.__typename != "ComponentCardCard" ? (
+                              <Link prefetch="intent" to={item.link} key={index}>
+                              {item.name}
+                              </Link>
+                          ) : null
+                          ))}
+                      </div>
+                    </div>
+                  </div>
 
-          <div className="flex-1 flex flex-col ">
-            <span className="footer-heading">Products</span>
-            <div className="flex items-start py-3 gap-2">
-              <div className="flex flex-col footer-font justify-center gap-4">
-              {attributes?.products?.map((item, index) => (
-                  item.__typename != "ComponentCardCard" ? (
-                      <Link prefetch="intent" to={item.link} key={index}>
-                      {item.name}
-                      </Link>
-                  ) : null
-                  ))}
-              </div>
-            </div>
-          </div>
-</div>
-<div className="right-box flex flex-row w-full  justify-center">
+                  <div className="flex-1 flex flex-col ">
+                    <span className="footer-heading">Products</span>
+                    <div className="flex items-start py-3 gap-2">
+                      <div className="flex flex-col footer-font justify-center gap-4">
+                      {attributes?.products?.map((item, index) => (
+                          item.__typename != "ComponentCardCard" ? (
+                              <Link prefetch="intent" to={item.link} key={index}>
+                              {item.name}
+                              </Link>
+                          ) : null
+                          ))}
+                      </div>
+                    </div>
+                  </div>
+        </div>
+    <Form onSubmit={handleSubmit} className="right-box flex flex-row w-full  justify-center">
+    
 
 
           <div className="flex-1 flex flex-col ">
@@ -248,7 +254,7 @@ const Footer = () => {
           </div>
           
 
-        <div className="flex-1  flex-col footer-company-item">
+          <div className="flex-1  flex-col footer-company-item">
           <span className="footer-heading">Company</span>
             <div className="flex items-start py-3 gap-2">
               <div className="flex flex-col footer-font justify-center gap-4">
@@ -261,7 +267,7 @@ const Footer = () => {
             </div>
           </div>
           
-          
+         
           <div className="flex-1 flex flex-col justify-between ">
             <div className="flex flex-col">
               <span className="footer-heading">CONNECT</span>
@@ -288,7 +294,7 @@ const Footer = () => {
               </div>
             </div>
           
-
+          
           
            <div className=" tablet-hidden">
            <input
@@ -299,6 +305,7 @@ const Footer = () => {
               className="footer-font email-container w-full mt-auto focus:outline-none"
             />
             </div>
+          
           </div>
 
           <div className="flex flex-1 flex-col  justify-between">
@@ -320,40 +327,45 @@ const Footer = () => {
               </div>
             </div>
             <div className=" tablet-hidden">
-            <button type="submit" className="bg-white h-10 w-full font-montserrat  text-sm font-semibold text-haiti">
+            <button type="submit" disabled={btnLoading} className="bg-white disabled:cursor-not-allowed  h-10 w-full font-montserrat  text-sm font-semibold text-haiti">
                 Subscribe to Newsletter
             </button>
             </div>
            
             
           </div>
-</div>
-<div className="footer-buttons flex-row justify-between w-full items-center pb-4 pr-2">
-<div className="flex">
-  <span className="flex gap-2 py-4 p-[1.5rem]">
-                    <img src={fb} alt="facebook-meta" className=" xl:h-7 h-5 object-contain cursor-pointer"/>
-                    <img src={mail} alt="Mail" className="xl:h-7 h-5 object-contain cursor-pointer"/>
-                    <img src={linkedin} alt="Linked-in" className="xl:h-7 h-5 object-contain cursor-pointer"/>
-                    <img src={yt} alt="Youtube-channel" className="xl:h-7 h-5 object-contain cursor-pointer" />
-                  </span>
-  </div>
-<div className="flex flex-row gap-2">
-            <input
-            name="email"
-            type="email"
-            required
-              placeholder="Email*"
-              className="footer-font email-container  w-full mt-auto focus:outline-none"
-            />
-            <button type="submit" className="bg-white  h-10 w-fit px-2 font-montserrat  text-sm font-semibold text-haiti">
-                Subscribe to Newsletter
-  </button>
-  </div>
 
- 
-  </div>      
-        </section>
-        </Form>
+      
+    </Form>
+
+{/* Tablet view  */}
+    <div className="footer-buttons flex-row justify-between w-full items-center pb-4 pr-2">
+      <div className="flex">
+        <span className="flex gap-2 py-4 p-[1.5rem]">
+                          <img src={fb} alt="facebook-meta" className=" xl:h-7 h-5 object-contain cursor-pointer"/>
+                          <img src={mail} alt="Mail" className="xl:h-7 h-5 object-contain cursor-pointer"/>
+                          <img src={linkedin} alt="Linked-in" className="xl:h-7 h-5 object-contain cursor-pointer"/>
+                          <img src={yt} alt="Youtube-channel" className="xl:h-7 h-5 object-contain cursor-pointer" />
+                        </span>
+        </div>
+        <Form onSubmit={handleSubmit}>
+          <div className="flex flex-row gap-2">
+                  <input
+                  name="email"
+                  type="email"
+                  required
+                    placeholder="Email*"
+                    className="footer-font email-container  w-full mt-auto focus:outline-none"
+                  />
+                  <button type="submit" disabled={btnLoading} className="bg-white disabled:cursor-not-allowed h-10 w-fit px-2 font-montserrat  text-sm font-semibold text-haiti">
+                      Subscribe to Newsletter
+        </button>
+          </div>
+      </Form>
+      
+    </div>      
+</section>
+       
         
         <div className="flex flex-row gap-[6rem] justify-center w-full text-xs gradient-top font-medium text-center p-4">
           <Link to={"/privacy-policy"}>
@@ -372,7 +384,8 @@ const Footer = () => {
           <span> All Rights Reserved</span>{" "}
         </div>
       </footer>
-      <Form onSubmit={handleSubmit}>
+
+      {/* phone footer */}
       <footer className="w-full mobile-footer py-6  bg-haiti font-montserrat text-white h-fit">
         <div className="grid place-items-center md:hidden">
           <Link to={'/'}>
@@ -421,6 +434,7 @@ const Footer = () => {
             </linearGradient>
             </defs>
           </svg>
+          <Form onSubmit={handleSubmit}>
           <div className="flex flex-row justify-center gap-2 pb-2 pl-2 pr-2">
         
             <input
@@ -430,11 +444,12 @@ const Footer = () => {
               placeholder="Email*"
               className="footer-font email-container  w-full mt-auto focus:outline-none"
             />
-            <button type="submit" className="bg-white  h-10 w-fit px-2 font-montserrat  text-sm font-semibold text-haiti">
+            <button disabled={btnLoading} type="submit" className="bg-white  h-10 w-fit px-2 font-montserrat  text-sm font-semibold text-haiti disabled:cursor-not-allowed">
                 Subscribe to Newsletter
   </button>
   
           </div>
+          </Form>
           <div className="grid capitalize text-xs font-normal gap-3 place-items-center">
             <Link to={"/privacy-policy"}>
               privacy policy
@@ -448,7 +463,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      </Form>
+    
     </>
     
   );
