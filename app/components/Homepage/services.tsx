@@ -99,7 +99,7 @@ const Services = ({attributes}:{attributes:Attributes}) => {
               </div>
               {description}
               <div className="flex justify-end font-montserrat font-normal items-center gap-3 lg:text-base text-sm lg:mt-4 mt-2">
-                <Link to={link}>Learn more.</Link>
+                <Link to={link}>Learn more.
                 <span>
                   <svg
                     className="lg:h-10 lg:w-10 h-6 w-6"
@@ -114,6 +114,7 @@ const Services = ({attributes}:{attributes:Attributes}) => {
                     />
                   </svg>
                 </span>
+                </Link>
               </div>
             </figcaption>
           </div>

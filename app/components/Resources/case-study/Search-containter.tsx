@@ -19,12 +19,34 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
   const [btnLoading, setBtnLoading] = useState<boolean>(false)
   const [arrayData, setArrayData] = useState<any[]>([]);
   const [state, setState] = useState({ visible: false, placement: 'bottom' });
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedTag, setSelectedTag] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
     const inputValue = e.target.value;
     setSearchValue(inputValue);
   };
+  const handleSelectedCategoryChange = (value:string) => {
+    setSelectedCategory(value);
+  };
+  const handleSelectedTagChange = (value:string) => {
+     setSelectedTag(value);
+  };
+
+  const resetFiter = () => {
+    setSelectedCategory('');
+    setSelectedTag('');
+    setCategory('');
+    setTag('');
+  };
+
+  const applyFilter = () => {
+    setCategory(selectedCategory);
+    setTag(selectedTag);
+    onClose();
+  };
+
   const onClose = async () => {
     return new Promise(resolve => {
         setState(prevState => ({
@@ -39,15 +61,15 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
       visible: true,
     }));
   };
-  const applyFilter = async () => {
-    onClose().then(() => {
-      simulateFormSubmit();
-  });
-  };
-  const resetFiter = () => {
-    setTag(null)
-    setCategory(null)
-  }
+  // const applyFilter = async () => {
+  //   onClose().then(() => {
+  //     simulateFormSubmit();
+  // });
+  // };
+  // const resetFiter = () => {
+  //   setTag(null)
+  //   setCategory(null)
+  // }
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); 
     
@@ -298,9 +320,9 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
                   placeholder="All Categories"
                   className="w-full rounded-none"
                   suffixIcon={ (category==null)?  <DropDownIcon /> : null }
-                  onChange={handleCategoryChange}
+                  onChange={handleSelectedCategoryChange}
                   allowClear
-                  value={category}
+                  value={selectedCategory}
                   options= {categories}
                 />
                 <Select
@@ -308,8 +330,8 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
                   className="w-full rounded-none"
                   suffixIcon={(tag==null)?  <DropDownIcon /> : null }
                   allowClear
-                  value={tag}
-                  onChange={handleTagChange}
+                  value={selectedTag}
+                  onChange={handleSelectedTagChange}
                   options={tags}
                 />
               </Space>
