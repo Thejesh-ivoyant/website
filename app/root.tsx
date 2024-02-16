@@ -81,7 +81,7 @@ export default function App() {
         <Links />
       </head>
 
-      <body className="overscroll-none">
+      <body className="lg:overscroll-y-none">
         <Nav />
         <LoadingTest />
         <Outlet context={xx} />

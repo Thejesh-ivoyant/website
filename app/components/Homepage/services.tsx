@@ -48,10 +48,10 @@ const Services = ({attributes}:{attributes:Attributes}) => {
       </div>
       <div className="w-full grid-cols-2 grid md:hidden sm:gap-4 gap-2 p-4">
       {servicesArray.map((service: any, index:number) => (
-          <div key={index} className="relative aspect-[10/7] w-full grid col-span-1 bg-black">
+          <Link to={service?.link} key={index} className="relative aspect-[10/7] w-full grid col-span-1 bg-black">
             <img src={service?.bgImage?.data.attributes.url} className="w-full h-full object-cover"/>
             <div className="absolute text-white sm:text-lg font-montserrat font-bold tracking-wider text-xs text-center w-full bottom-0 py-2 bg-haiti bg-opacity-95 z-10">{service?.title}</div>
-          </div>
+          </Link>
       ))}
       </div>
       <div className="w-fit hidden md:flex md:flex-row h-min  place-self-end lg:my-8 ml-10 cursor-pointer">
@@ -100,7 +100,7 @@ const Services = ({attributes}:{attributes:Attributes}) => {
               {description}
               <div className="flex justify-end font-montserrat font-normal items-center gap-3 lg:text-base text-sm lg:mt-4 mt-2">
                 <Link to={link}>Learn more.</Link>
-                <span>
+                <Link to={link}>
                   <svg
                     className="lg:h-10 lg:w-10 h-6 w-6"
                     viewBox="0 0 40 40"
@@ -113,7 +113,7 @@ const Services = ({attributes}:{attributes:Attributes}) => {
                       fill="#F0F5FF"
                     />
                   </svg>
-                </span>
+                </Link>
               </div>
             </figcaption>
           </div>

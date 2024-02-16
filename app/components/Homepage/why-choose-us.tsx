@@ -5,9 +5,9 @@ const WhyChooseUs = ({pairs, title, description}:{pairs:Pair[],title:string, des
   const loaderData = useLoaderData() as any;
 
   return (
-  <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-2 lg:px-5 py-10 gap-8">
+  <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-2 lg:px-5 py-10 lg:gap-8 md:gap-6 gap-4">
     
-    <h1 className="text-HeaderGray font-montserrat pairs-title-font-clamp font-semibold">
+    <h1 className="text-HeaderGray font-montserrat text-3xl md:text-4xl font-semibold">
     {title}
     </h1>
    
@@ -59,7 +59,7 @@ const WhyChooseUs = ({pairs, title, description}:{pairs:Pair[],title:string, des
       </defs>
     </svg>
 
-    <p className="text-center md:w-2/3  leading-6 text-sm tracking-wider font-poppins pairs-desc-font-clamp">
+    <p className="md:text-center md:w-2/3  leading-6 text-sm tracking-wider font-poppins">
  {description}
     </p>
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 py-6 xl:px-6 blur-[150%] bg-opacity-[0.16] moving-noise">
