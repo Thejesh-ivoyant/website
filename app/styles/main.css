@@ -1001,7 +1001,7 @@ width: 70%;
     transparent 50%,
     #5d3f9c
   );
-  border-image-slice: 0.5;
+  border-image-slice: 1;
   border-image-width: 1px 0 0 0;
 }
 
@@ -1015,7 +1015,7 @@ width: 70%;
     /* Transition to transparent */ #5d3f9c
       /* End with the border color again */
   );
-  border-image-slice: 0.5; /* Make the entire border image visible */
+  border-image-slice: 1; /* Make the entire border image visible */
   border-image-width: 0 0 0 1px;
 }
 
@@ -1029,7 +1029,7 @@ width: 70%;
     /* Transition to transparent */ #5d3f9c
       /* End with the border color again */
   );
-  border-image-slice: 0.5; /* Make the entire border image visible */
+  border-image-slice: 1; /* Make the entire border image visible */
   border-image-width: 1px 0 0 1px;
 }
 .grape-shadow:hover {
@@ -2003,13 +2003,20 @@ hr {
   border-radius: 0 0 1px 1px;
   box-shadow: 0px 0px 8px 0px hsl(262deg 100% 70% / 70%);
   background: #7a4bd3;
-  /* background: linear-gradient(
-    113deg,
-    hsl(260deg 100% 64%) 0%,
-    hsl(190deg 100% 55%) 100%
-  ); */
-  transition: 0.3s;
+  transition: 0.281rem;
   top: 2.25rem;
+  z-index: 2;
+}
+.glider-mob {
+  font-size: 2rem;
+  width: 50%;
+  padding: 0 0.813rem;
+  height: 4.5px;
+  border-radius: 0 0 1px 1px;
+  box-shadow: 0px 0px 8px 0px hsl(262deg 100% 70% / 70%);
+  background: #7a4bd3;
+  transition: 0.3s;
+  top: 1.5rem;
   z-index: 2;
 }
 .tab {
@@ -2075,7 +2082,8 @@ hr {
   margin: 0;
   padding: 4px 5px 4px;
   color: black;
-  font-size: 8px;
+  font-size: .75rem;
+  font-weight: 300;
   line-height: 1;
   list-style: none;
   font-family: poppins;
@@ -2606,7 +2614,8 @@ hr {
 
 .logos {
   overflow: hidden;
-  margin: 0.8rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
   background: white;
   white-space: nowrap;
   position: relative;
@@ -2642,7 +2651,7 @@ hr {
 }
 
 .logos-slide img {
-  height: 2rem;
+  height: 2.5rem;
   aspect-ratio: 21/16;
   padding: 0 0.4rem;
   object-fit: contain;
