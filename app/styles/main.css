@@ -421,6 +421,7 @@ letter-spacing: 0.02rem;
 }
 
 .common-card-box{
+  max-width: 24.1875rem;
   width: 100%;
   height: 24.375rem;
 

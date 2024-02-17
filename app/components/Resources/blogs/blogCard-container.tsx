@@ -145,7 +145,7 @@ const BlogCardContainer = () => {
     ]);
     setLimit(limit + 3);
     setLoading(false);
-if (blogData.length < limit) {
+if (blogData.length <= limit) {
       success("No more Blogs available", 3);
     }
   };
@@ -361,7 +361,7 @@ if (blogData.length < limit) {
           className="absolute top-4 left-4"
           alt="ornament"
         />
-        <div className="w-[76.7625rem] blog-main-card z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
+        <div className="w-[76.7625rem] blog-main-card items-center z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
           {blogData.map((blog: IBlogMedia) => (
             // <Link
             //   to={`../resources/blog/${blog.id}`}
