@@ -20,10 +20,15 @@ const Terms = () => {
       let viewportHeight = window.innerHeight;
       let contentHeight = sidebarContent.getBoundingClientRect().height;
       let sidebarTop = sidebar.getBoundingClientRect().top + window.pageYOffset;
-
-      if (scrollTop >= contentHeight - viewportHeight + sidebarTop) {
+      let contactMain = document.getElementById("contact-main");
+      let contactMainheight = contactMain?.getBoundingClientRect().height ?? 0;
+     
+      if (
+        scrollTop >= contentHeight - viewportHeight + sidebarTop &&
+        scrollTop <= contactMainheight
+      ){
         sidebarContent.style.transform = `translateY(-${
-          contentHeight - viewportHeight + sidebarTop
+          contentHeight - viewportHeight + sidebarTop+120
         }px)`;
         sidebarContent.style.position = "fixed";
         sidebarContent.style.width = "30%";
@@ -57,7 +62,7 @@ const Terms = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Overview
                 </div>
               </div>
@@ -70,7 +75,7 @@ const Terms = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Generic Terms of Use {" "}
                 </div>
               </div>
@@ -83,7 +88,7 @@ const Terms = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Disclaimer{" "}
                 </div>
               </div>
@@ -96,7 +101,7 @@ const Terms = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Client and Partner Confidentiality{" "}
                 </div>
               </div>
@@ -109,7 +114,7 @@ const Terms = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Business Relationships{" "}
                 </div>
               </div>
@@ -122,7 +127,7 @@ const Terms = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Disclaimer of Warranty{" "}
                 </div>
               </div>
@@ -135,7 +140,7 @@ const Terms = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Limitation of Liability{" "}
                 </div>
               </div>
@@ -145,7 +150,7 @@ const Terms = () => {
 
         <div
           id="contact-main"
-          className="  w-1/2 flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0"
+          className="pb-16  w-1/2 flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0"
         >
           {/* main content goes here */}
 
@@ -166,13 +171,13 @@ const Terms = () => {
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.disclaimer}
             </div>
-            <div id="Client-and-Partner-Confidentiality" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
+            <div id="Client-and-Partner-Confidentiality" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
               Confidential Information from Clients and Partners 
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.confidentialityParagraph1}
             </div>
-            <div  id="Business-Relationships" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
+            <div  id="Business-Relationships" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
               Business Relationships 
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">

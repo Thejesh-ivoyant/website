@@ -19,10 +19,15 @@ const Cookies = () => {
       let viewportHeight = window.innerHeight;
       let contentHeight = sidebarContent.getBoundingClientRect().height;
       let sidebarTop = sidebar.getBoundingClientRect().top + window.pageYOffset;
-
-      if (scrollTop >= contentHeight - viewportHeight + sidebarTop) {
+      let contactMain = document.getElementById("contact-main");
+      let contactMainheight = contactMain?.getBoundingClientRect().height ?? 0;
+     
+      if (
+        scrollTop >= contentHeight - viewportHeight + sidebarTop &&
+        scrollTop <= contactMainheight
+      ){
         sidebarContent.style.transform = `translateY(-${
-          contentHeight - viewportHeight + sidebarTop
+          contentHeight - viewportHeight + sidebarTop+120
         }px)`;
         sidebarContent.style.position = "fixed";
         sidebarContent.style.width = "30%";
@@ -33,6 +38,7 @@ const Cookies = () => {
       }
     };
 
+    
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -56,7 +62,7 @@ const Cookies = () => {
                   src={Bulletimg}
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   What Are Cookies
                 </div>
               </div>
@@ -69,7 +75,7 @@ const Cookies = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   How We Use Cookies{" "}
                 </div>
               </div>
@@ -82,7 +88,7 @@ const Cookies = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Disabling Cookies{" "}
                 </div>
               </div>
@@ -95,7 +101,7 @@ const Cookies = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Forms related cookies{" "}
                 </div>
               </div>
@@ -108,7 +114,7 @@ const Cookies = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   Third Party Cookies{" "}
                 </div>
               </div>
@@ -121,7 +127,7 @@ const Cookies = () => {
                   alt="bulleticon"
                   className="aspect-square object-contain object-center w-7 overflow-hidden shrink-0 max-w-full"
                 />{" "}
-                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow whitespace-nowrap">
+                <div className="text-slate-950 text-xl font-semibold tracking-wide self-stretch grow ">
                   More Information {" "}
                 </div>
               </div>
@@ -131,7 +137,7 @@ const Cookies = () => {
 
         <div
           id="contact-main"
-          className="  w-1/2 flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0"
+          className=" pb-16 w-1/2 flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0"
         >
           {/* main content goes here */}
 
@@ -155,13 +161,13 @@ const Cookies = () => {
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.disabling}
             </div>
-            <div id="Forms-related-cookies" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
+            <div id="Forms-related-cookies" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
               Forms related cookies 
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
               {loaderData.forms_cookies}
             </div>
-            <div id="Third-Party-Cookies" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider whitespace-nowrap mt-8 max-md:max-w-full">
+            <div id="Third-Party-Cookies" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider  mt-8 max-md:max-w-full">
               Third Party Cookies 
             </div>
             <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">

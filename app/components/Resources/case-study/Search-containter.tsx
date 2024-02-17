@@ -1,4 +1,4 @@
-import { Select, Space } from "antd";
+import { List, Select, Skeleton, Space } from "antd";
 import DropDownIcon from "./arrow";
 import { useEffect, useState } from "react";
 import { generateDynamicQuery } from "~/utils/parameterized-gql";
@@ -6,6 +6,7 @@ import { case_study_paginated } from "~/graphql/queries";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { Link } from "@remix-run/react";
 import CustomDrawer from "~/utils/customDrawer";
+import { success } from "~/utils/notifications";
 
 
 export const Container = ({ data, tags, categories, initLimit, initOffset }: { data: any, tags:any, categories: any, initLimit:number, initOffset:number }) => {
@@ -18,12 +19,35 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
   const [btnLoading, setBtnLoading] = useState<boolean>(false)
   const [arrayData, setArrayData] = useState<any[]>([]);
   const [state, setState] = useState({ visible: false, placement: 'bottom' });
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedTag, setSelectedTag] = useState('');
+  const [loading, setLoading] = useState(true);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
     const inputValue = e.target.value;
     setSearchValue(inputValue);
   };
+  const handleSelectedCategoryChange = (value:string) => {
+    setSelectedCategory(value);
+  };
+  const handleSelectedTagChange = (value:string) => {
+     setSelectedTag(value);
+  };
+
+  const resetFiter = () => {
+    setSelectedCategory('');
+    setSelectedTag('');
+    setCategory('');
+    setTag('');
+  };
+
+  const applyFilter = () => {
+    setCategory(selectedCategory);
+    setTag(selectedTag);
+    onClose();
+  };
+
   const onClose = async () => {
     return new Promise(resolve => {
         setState(prevState => ({
@@ -38,18 +62,18 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
       visible: true,
     }));
   };
-  const applyFilter = async () => {
-    onClose().then(() => {
-      simulateFormSubmit();
-  });
-  };
-  const resetFiter = () => {
-    setTag(null)
-    setCategory(null)
-  }
+  // const applyFilter = async () => {
+  //   onClose().then(() => {
+  //     simulateFormSubmit();
+  // });
+  // };
+  // const resetFiter = () => {
+  //   setTag(null)
+  //   setCategory(null)
+  // }
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); 
-    
+    setLoading(true);
     const dynamicQuery = await generateDynamicQuery(case_study_paginated, [
       "offset",
       "limit",
@@ -65,6 +89,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
       await fetchGraphQL(interpolatedQuery),
     ]);
     setListData(new Set(lists.data?.caseStudies?.data));
+    setLoading(false);
   };
 
   const simulateFormSubmit = async ( ) => {
@@ -78,6 +103,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
   useEffect(() => {
     simulateFormSubmit();
   }, [category,tag]); 
+
   useEffect(() => {
     setArrayData(Array.from(listData));
   }, [listData]);
@@ -89,6 +115,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
     setTag(value)
   };
   const handleViewMore = async () =>{
+    setLoading(true)
     setBtnLoading(true)
     const dynamicQuery = await generateDynamicQuery(case_study_paginated, [
       "offset",
@@ -108,6 +135,8 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
     const newData = lists.data?.caseStudies?.data || [];
   setListData((prevListData: any) => new Set([...prevListData, ...newData]));
   setBtnLoading(false)
+setLoading(false)
+  
   }
   return (
     <>
@@ -194,6 +223,22 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
           </button>
           
         </div>
+
+        {loading &&  
+          <List
+            className="w-full blog-main-card z-10 h-full"
+            itemLayout="vertical"
+            size="large"
+            dataSource={[1, 2, 3]} // Dummy data for skeleton
+            renderItem={() => (
+              <List.Item>
+                <Skeleton active avatar paragraph={{ rows: 3 }} />
+              </List.Item>
+            )}
+          />}
+          {!loading && (
+            <>
+        
         {arrayData &&
           arrayData?.map((item: any, index:number) => (
             <Link key={index} prefetch="intent" to={`../resources/case-study/${item?.id}`} className="xl:h-96 lg:h-72 md:h-56  aspect-[241/78] md:flex hidden">
@@ -238,6 +283,8 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
               </div>
             </Link>
           ))}
+          </>
+          )}
           {
             arrayData &&
               arrayData?.map((item:any, index:number)=>(
@@ -276,6 +323,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
         <button className="hue-btn-blue" onClick={handleViewMore} disabled = {btnLoading}>
           <span>View More</span>
         </button>
+
         <CustomDrawer
           title="Basic Drawer"
           placement="bottom"
@@ -292,9 +340,9 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
                   placeholder="All Categories"
                   className="w-full rounded-none"
                   suffixIcon={ (category==null)?  <DropDownIcon /> : null }
-                  onChange={handleCategoryChange}
+                  onChange={handleSelectedCategoryChange}
                   allowClear
-                  value={category}
+                  value={selectedCategory}
                   options= {categories}
                 />
                 <Select
@@ -302,8 +350,8 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
                   className="w-full rounded-none"
                   suffixIcon={(tag==null)?  <DropDownIcon /> : null }
                   allowClear
-                  value={tag}
-                  onChange={handleTagChange}
+                  value={selectedTag}
+                  onChange={handleSelectedTagChange}
                   options={tags}
                 />
               </Space>

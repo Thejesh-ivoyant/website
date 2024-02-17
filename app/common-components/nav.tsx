@@ -400,7 +400,7 @@ const Nav = () => {
           <div className={`absolute w-full ${(sidebarOpen)? 'flex':'hidden'} lg:hidden flex-col justify-between left-0  bg-haiti h-fit gap-10 screen-height text-gray-200 p-4 z-[999]`}>
             <div className="flex ">
               <div className="flex flex-col w-fit gap-5">
-                <div className="w-fit mx-auto gap-10 grid">
+                <div className="w-fit mx-auto gap-8 grid">
                   {
                     categories.map((category,index)=>(
                         <button className={`capitalize text-left font-montserrat text-xl font-semibold ${(clicked === index)? 'text-geekblue': 'text-gray-200'}`} key={index} onClick={() =>{handleToggle(index)}}>{category}</button>
@@ -413,7 +413,7 @@ const Nav = () => {
               <div className="h-full w-fit text-white sm:ml-10 ml-6 max-h-80 overflow-y-scroll transition-opacity mr-auto">
                 {
                     categories.map((category,index)=>(
-                      <div className="gap-5 grid">
+                      <div className="gap-8 grid">
                         {
                           navdata.navGraphql?.data?.navbar?.data?.attributes?.[category].map((item: any, linkindex: number) => (
                             item?.name !== undefined && (

@@ -70,7 +70,7 @@ export async function loader() {
   })
 }
 export default function App() {
-  const xx = "Hy thejesh"
+  const errorMsg = "Hy thejesh"
   return (
     <html lang="en">
       <head>
@@ -88,33 +88,12 @@ export default function App() {
       <body className="lg:overscroll-y-none">
         <Nav />
         <LoadingTest />
-        <Outlet context={xx} />
+        <Outlet context={errorMsg} />
         <ScrollRestoration/>
         <Scripts />
         <LiveReload />
         <Footer  />
         <ScrollToTopIcon/>
-      </body>
-    </html>
-  );
-}
-
-export function ErrorBoundary({ error }: { error: Error }) {
- 
-  return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title className="title">iVoyant Systems</title>
-        <meta name="description" content="Crafting Customer-Driven Digital Experiences" /> 
-        <link rel="stylesheet"  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <Meta />
-        <Links />
-      </head>
-      <body className="overscroll-none">
-       <ErrorBoundaryPage/>
-       <Footer/>
       </body>
     </html>
   );

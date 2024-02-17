@@ -5,6 +5,12 @@ import PrivacyPolicy from "~/components/policy-terms-cookies/privacy-policy";
 import PTCHero from "~/components/policy-terms-cookies/ptc-hero";
 import LoadingTest from "~/common-components/loading-test";
 import { Suspense } from "react";
+import CompanyStyle from '~/styles/company.css'
+import { LinksFunction } from "@remix-run/node";
+
+export const links: LinksFunction = () => [
+  {rel:"stylesheet", href:CompanyStyle}
+];
 
 export const meta: MetaFunction = ({data}: { data: any }) => {
   return [
@@ -64,6 +70,7 @@ export async function loader() {
    solutions,
    contacts,
    marketing,
+   visitor,
    share_personal_info,
    info_and_security,
    retention,
@@ -89,6 +96,7 @@ export async function loader() {
      solutions,
      contacts,
      marketing,
+     visitor,
      share_personal_info,
      info_and_security,
      retention,
