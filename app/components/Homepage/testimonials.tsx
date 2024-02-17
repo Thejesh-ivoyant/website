@@ -51,16 +51,16 @@ const Testimonials = () => {
       </section>
       {testimonialList.length > 0 && (
         <div>
-          <section className="testimonial-section mt-4 gradient-top">
+          <section className="testimonial-section mt-4 gradient-top pb-4">
             <Carousel  beforeChange={handleCarouselChange} afterChange={handleCarouselChange}>
               {testimonialList.map((testimonial, index) => (
                 <div key={index} className="inner-container pb-4 w-full">
                   <div className="flex flex-col justify-center">
-                    <div className="industry flex items-start justify-start text-sm font-poppins font-normal">
+                    <div className="industry flex items-start justify-start testimonial-industry">
                       {testimonial.title}
                     </div>
                     <div className="flex text-sm py-4 font-poppins font-normal subtitle justify-between">
-                      <div className="flex">{testimonial.subtitle}</div>
+                      <div className="flex text-start">{testimonial.subtitle}</div>
                       <div className="flex mb-4">
                         <img src="../assets/Quote.svg" alt="vector" />
                       </div>
