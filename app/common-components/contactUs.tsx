@@ -389,10 +389,13 @@ const ContactUs = () => {
                     setOpen(!openc1);
                   }}
                 >
-                  <CalendarOutlined className="bg-[#D9C9FB] rounded-full p-2 text-black" />
+                  <CalendarOutlined className="bg-[#D9C9FB] rounded-full w-7 h-7 p-2 text-black" />
                 </span>
                 <DatePicker
+                size="middle"
+                  placement="topRight"
                   format="YYYY-MM-DD  HH:mm"
+                  className="text-xs"
                   disabledDate={disabledDate}
                   disabledTime={(current) => disabledDateTime(current)}
                   placeholder="Schedule a Meet"
@@ -412,7 +415,7 @@ const ContactUs = () => {
               </div>
 
               <div className="flex flex-col gap-1">
-                <div className="flex flex-col text-xs xl:text-sm">
+                <div className="flex flex-col text-sm relative">
                   <label htmlFor="attachment" className="font-montserrat" style={{ cursor: "pointer" }}>
                     <FileAddOutlined className="bg-[#D9C9FB] rounded-full p-2 text-[#] mr-2" />
                     Attach File
@@ -426,12 +429,13 @@ const ContactUs = () => {
                   />
                 </div>
                 {selectedFileName && (
-                  <div className="file-info">
-                    <span>{`${selectedFileName}`}</span>
-                    <button onClick={handleClearFile}>
-                      <DeleteOutlined className="text-red-500 ml-2" />
+                  <div className="absolute text-xs text-gray-700 flex items-center max-w-[5rem] translate-y-8">
+                    <span title={`${selectedFileName}`} className="text-ellipsis whitespace-nowrap max-w-[4rem] overflow-hidden">{`${selectedFileName}`}</span>
+                    <button title={`Remove ${selectedFileName}`} onClick={handleClearFile} className="ml-2">
+                      <DeleteOutlined className="text-red-500" />
                     </button>
-                  </div>
+                </div>
+                
                 )}
               </div>
             </Space>
@@ -576,10 +580,13 @@ const ContactUs = () => {
                     setOpen(!openc1);
                   }}
                 >
-                  <CalendarOutlined className="bg-[#D9C9FB] rounded-full p-2 text-black" />
+                  <CalendarOutlined className="bg-[#D9C9FB] rounded-full p-2 w-7 h-7 text-black" />
                 </span>
                 <DatePicker
+                  size="middle"
+                  placement="topRight"
                   format="YYYY-MM-DD  HH:mm"
+                  className="text-xs"
                   disabledDate={disabledDate}
                   disabledTime={(current) => disabledDateTime(current)}
                   placeholder="Schedule a Meet"
@@ -613,12 +620,12 @@ const ContactUs = () => {
                   />
                 </div>
                 {hireselectedFileName && (
-                  <div className="absolute translate-y-8 flex">
-                    <span className="line-clamp-1" title={hireselectedFileName}>{`${hireselectedFileName}`}</span>
-                    <button onClick={handlehireClearFile}>
-                      <DeleteOutlined className="text-red-500 ml-2" />
-                    </button>
-                  </div>
+                  <div className="absolute text-xs text-gray-700 flex items-center max-w-[5rem] translate-y-8">
+                  <span title={`${hireselectedFileName}`} className="text-ellipsis whitespace-nowrap  overflow-hidden">{`${hireselectedFileName}`}</span>
+                  <button title={`Remove ${hireselectedFileName}`} onClick={handlehireClearFile} className="ml-2">
+                    <DeleteOutlined className="text-red-500" />
+                  </button>
+              </div>
                 )}
               </div>
             </Space>
