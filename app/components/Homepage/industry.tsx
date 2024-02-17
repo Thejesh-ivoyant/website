@@ -85,8 +85,8 @@ const Services = ({industries, title, description}:{industries:IndustriesTab[],t
                 {activeButton?.description}
               </div>
               <Link to= {activeButton?.link} className="flex flex-row justify-end ml-auto items-center gap-4">
-                <span className="text-HeaderGray text-lg">Learn more.</span>
-                <span className="w-10 h-10 rounded-full bg-[#824BEA] flex items-center justify-center">
+                <span className="text-HeaderGray text-lg flex">Learn more.</span>
+                <span className="flex w-10 h-10 rounded-full bg-[#824BEA]  items-center justify-center">
                   <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 5L12.4275 6.04475L18.1125 11.75H3V13.25H18.1125L12.4275 18.9297L13.5 20L21 12.5L13.5 5Z" fill="#F0F5FF"/></svg>
                 </span>
               </Link>
