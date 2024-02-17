@@ -11,6 +11,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  defer,
 } from "@remix-run/react";
 import ClarityScript from "./clarityScript";
 
@@ -61,9 +62,12 @@ export function scrollToSection(section: string) {
 export async function loader() {
   const navGraphql = await fetchGraphQL(navQuery)
   
-  return {
+  return defer({
     navGraphql : navGraphql
-  }
+  },
+  {
+    "Cache-Control": "public, s-maxage=300",
+  })
 }
 export default function App() {
   const errorMsg = "Hy thejesh"
@@ -81,7 +85,7 @@ export default function App() {
         <Links />
       </head>
 
-      <body className="overscroll-none">
+      <body className="lg:overscroll-y-none">
         <Nav />
         <LoadingTest />
         <Outlet context={errorMsg} />

@@ -5,6 +5,8 @@ import type { AppLoadContext, EntryContext } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import isbot from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
+import { etag } from "remix-etag";
+import { mergeDefaultOptions } from "./utils/ETAGOptions.types";
 
 const ABORT_DELAY = 5_000;
 
@@ -48,14 +50,14 @@ function handleBotRequest(
         onAllReady() {
           shellRendered = true;
           const body = new PassThrough();
-
-          responseHeaders.set("Content-Type", "text/html");
-
+          const options = mergeDefaultOptions({ maxAge: 60 });
+          responseHeaders.set("Content-Type", "text/html"); 
+          const response = new Response(body, {
+            headers: responseHeaders,
+            status: responseStatusCode,
+          });
           resolve(
-            new Response(body, {
-              headers: responseHeaders,
-              status: responseStatusCode,
-            })
+            etag({ request, response, options })
           );
 
           pipe(body);
@@ -97,14 +99,15 @@ function handleBrowserRequest(
         onShellReady() {
           shellRendered = true;
           const body = new PassThrough();
-
+          const options = mergeDefaultOptions({ maxAge: 60 , weak: false});
           responseHeaders.set("Content-Type", "text/html");
-
+          
+          const response = new Response(body, {
+            headers: responseHeaders,
+            status: responseStatusCode,
+          });
           resolve(
-            new Response(body, {
-              headers: responseHeaders,
-              status: responseStatusCode,
-            })
+            etag({ request, response, options })
           );
 
           pipe(body);

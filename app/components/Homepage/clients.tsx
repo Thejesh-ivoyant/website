@@ -3,7 +3,7 @@ import line from '../../../public/assets/pur-line.svg'
 
 const Section4 = ({ clients }: { clients: Clients | undefined }) => {
   return (
-    <>
+    <div className="my-4">
       <div className="text-PurpBlue font-montserrat font-medium md:text-3xl sm:text-2xl lg:text-4xl text-center md:p-8 sm:p-6 p-5 lg:p-10 tracking-wider">
         <h1>Satisfied clients</h1>
       </div>
@@ -27,7 +27,7 @@ const Section4 = ({ clients }: { clients: Clients | undefined }) => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
