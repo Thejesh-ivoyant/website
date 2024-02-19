@@ -1,14 +1,12 @@
 import { Carousel } from "antd";
 import { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
-
 interface Testimonial {
   title: string;
   subtitle: string;
   designation: string;
   summary: string;
 }
-
 interface TestimonialData {
   data: {
     id: number;
@@ -18,13 +16,10 @@ interface TestimonialData {
     };
   }[];
 }
-
 const Testimonials = () => {
   const SECTION9_API_URL = `${strapiUrl}/api/section9s?populate=%2A`;
-
   const [testimonialList, setTestimonialList] = useState<Testimonial[]>([]);
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState<number>(0);
-
   useEffect(() => {
     fetch(SECTION9_API_URL)
       .then((response) => response.json())
@@ -39,11 +34,9 @@ const Testimonials = () => {
         console.error("Error fetching data from API:", error);
       });
   }, []);
-
   const handleCarouselChange = (current: number) => {
     setCurrentTestimonialIndex(current);
   };
-
   return (
     <div id="testimonials" className="section-container pt-4">
       <section className="section-heading">
@@ -52,7 +45,7 @@ const Testimonials = () => {
       {testimonialList.length > 0 && (
         <div>
           <section className="testimonial-section mt-4 gradient-top pb-4">
-            <Carousel  beforeChange={handleCarouselChange} afterChange={handleCarouselChange}>
+            <Carousel autoplay beforeChange={handleCarouselChange} afterChange={handleCarouselChange}>
               {testimonialList.map((testimonial, index) => (
                 <div key={index} className="inner-container pb-4 w-full">
                   <div className="flex flex-col justify-center">
@@ -81,5 +74,4 @@ const Testimonials = () => {
     </div>
   );
 };
-
 export default Testimonials;

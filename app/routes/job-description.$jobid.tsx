@@ -5,11 +5,9 @@ import { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import LoadingTest from "~/common-components/loading-test";
 import { Suspense } from "react";
 import CompanyStyle from '~/styles/company.css'
-
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:CompanyStyle}
 ];
-
 export const meta: MetaFunction = () => {
   return [
     { title: "Ivoyant | Mobile App Development" },
@@ -23,19 +21,13 @@ export const meta: MetaFunction = () => {
     },
   ];
 };
-
-
-
 export async function loader({   params, }: LoaderFunctionArgs){
   // const productsData =  await fetchGraphQLWithParameter(productsQuery,`${params.jobid}`);
  const url =  strapiUrl +`/api/job-descriptions/${params.jobid}?populate=%2A`;
   try {
     const res = await fetch(url);
     let jsonParsed = await res.json();
-       
     const componentRes = jsonParsed.data?.attributes;
-  
-
     const s1_points = componentRes.s1_points?.map((item: any) => ({
       id: item.id,
       description: item.description,
@@ -48,10 +40,7 @@ export async function loader({   params, }: LoaderFunctionArgs){
       id: item.id,
       description: item.description,
     }));
-
-      
  const {
-  
   Title,
   location,
   date,
@@ -60,9 +49,7 @@ export async function loader({   params, }: LoaderFunctionArgs){
   s2_title, 
   s3_title, 
   summary,
-
   } = jsonParsed.data?.attributes;
-
   return defer({
     s1_points: s1_points || '',
     s2_points: s2_points || '',
@@ -78,28 +65,20 @@ export async function loader({   params, }: LoaderFunctionArgs){
   });
 }
 catch (error:any) {
-
   console.error(`Error fetching data from ${url}: ${error.message}`);
 }
-
 }
 const Index = () => {
   const data = useLoaderData<typeof loader>() as any;
   return (
-   
     <>
     <Suspense fallback={<LoadingTest />}>
        <Await resolve={data.title}>
-  
           <JobDescription />
           <Outlet />
-    
           </Await>
       </Suspense>
-
       </>
-   
   );
 };
-
 export default Index;

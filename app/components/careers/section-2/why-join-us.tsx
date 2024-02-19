@@ -1,13 +1,7 @@
 import { useLoaderData } from "@remix-run/react";
-
-
 const Why_Join_Us = () => {
   const loaderData = useLoaderData() as any;
-
-
   return (
-
-
 <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-2 lg:px-5 py-10 gap-8">
 <h1 className="section-title " style={{ color: "var(--HeadingGray, #E9E9EC)" }}>
 {loaderData.s2_title}
@@ -59,7 +53,6 @@ const Why_Join_Us = () => {
     </linearGradient>
   </defs>
 </svg>
-
 <p className="text-center md:w-2/3  leading-6 text-sm tracking-wider font-poppins pairs-desc-font-clamp">
 {loaderData.s2_description}
 </p>
@@ -74,7 +67,6 @@ className="group relative flex flex-col items-center opaque-card aspect-video py
   alt={item.title}
   className="hidden mb-2 p-2 aspect-square absolute top-0 left-0 transition-opacity group-hover:block"
 />
-
 <img
   src={item.bgImage}
   alt={item.title}
@@ -89,13 +81,7 @@ className="group relative flex flex-col items-center opaque-card aspect-video py
 </div>
 ))}
 </div>
-
 </section>
-
-
- 
   );
 };
-
 export default Why_Join_Us;
-

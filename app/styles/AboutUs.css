@@ -6,7 +6,6 @@
     white-space: nowrap;
     position: relative;
   }
-  
   .client-logos:before,
   .client-logos:after {
     position: absolute;
@@ -16,21 +15,17 @@
     content: "";
     z-index: 2;
   }
-  
   .client-logos:before {
     left: 0;
     background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
   }
-  
   .client-logos:after {
     right: 0;
     background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
   }
-  
   .client-logos:hover .client-logos-slide {
     animation-play-state: paused;
   }
-  
   .client-logos-slide {
     display: inline-flex;
     animation: 15s slidex infinite linear;

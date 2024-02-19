@@ -1,19 +1,11 @@
 // Sidebar.tsx
 import React from "react";
-
 import Nav from "./nav";
 import { Link } from "@remix-run/react";
-
 const Sidebar: React.FC = () => {
-
   return (
-
-
-
-
      <div className="sidebar" >
       <Nav/>
-      
         <ul >
           <li>
             <Link to="#services">Services</Link>
@@ -32,11 +24,6 @@ const Sidebar: React.FC = () => {
           </li>
         </ul>
       </div>
-
-
-      
-    
   );
 };
-
 export default Sidebar;

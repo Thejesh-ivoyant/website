@@ -1,6 +1,4 @@
-
 const Section3 = ({data}:{data:any}) => {
-  
   return (
     <>
         <div className="flex flex-col justify center font-poppins h-fit w-full items-center md:px-10 md:py-10 px-6 py-8 gap-2">
@@ -12,5 +10,4 @@ const Section3 = ({data}:{data:any}) => {
     </>
   );
 };
-
 export default Section3;

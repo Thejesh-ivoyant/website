@@ -23,10 +23,7 @@ const Section5 = () => {
               <img src="../assets/0.svg" className="min-h-full hidden xl:block object-cover" alt="vector" />
     </div>
   </div>
-
-    
   );
 };
-
 export default Section5;
 {/* <div>Description: {item.description}</div> */}

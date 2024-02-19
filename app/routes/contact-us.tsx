@@ -1,8 +1,6 @@
 import ContactCard from "~/components/contact-us/contact-card";
 import ContactUs from "~/common-components/contactUs";
 import { MetaFunction } from "@remix-run/react";
-import avatar from '~/../public/assets/contactavatar.jpg'
-
 export const meta: MetaFunction = () => {
   return [
     { title: "Ivoyant | contact us" },
@@ -16,7 +14,6 @@ export const meta: MetaFunction = () => {
     },
   ];
 };
-
 export default function Index() {
   return (
     <>
@@ -24,8 +21,6 @@ export default function Index() {
         <ContactUs />
       </div>
       <ContactCard/>
-     
-
     </>
   );
 }

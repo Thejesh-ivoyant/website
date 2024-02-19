@@ -14,7 +14,6 @@ const Nav = () => {
   const isBlogRoute = Blogmatched !== null;
   const CaseStudymatched = useMatch("/resources/case-study/:id");
   const CaseStudyRoute = CaseStudymatched !== null;
-  
   const navdata = useRouteLoaderData("root") as any;
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [key, setKey] = useState(0);
@@ -28,21 +27,16 @@ const Nav = () => {
   }
   const handleClick = () => {
     setToggleNav(!toggleNav);
-
     setTimeout(() => {
       setToggleNav(false);
     }, 100);
   };
-
   const showModal = (url:any) => {
     // Your existing code for opening the modal
     setDownload(url);
     setOpen(true);
-
     // Now, you can use the 'url' parameter as needed, for example, log it
 };
-
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault();
@@ -54,38 +48,28 @@ const Nav = () => {
         method: 'POST',
         body: formData,
       });
-      
-  
       if (response.ok) {
-            
       success("Thank you for showing interest in us!",2);
         handleDownload();
       } else {
         errorMessage("Form submission failed",3);        
       }
- 
     } catch (error) {
       errorMessage("Error occured, please retry",3);
     }
   };
-  
-  
-
   const handleDownload = () => {
- 
     const PitchDeskUrl = download;
     setOpen(false);
     //success mesage here
     window.open(PitchDeskUrl, '_blank');
   };
-
   const handleHamburgerClick = () => {
     setSidebarOpen((prevSidebarOpen) => !prevSidebarOpen);
   };
   const handleCancel = () => {
     setOpen(false);
   };
-  
   useEffect(() => {
     const handleScroll = () => {
       const winScroll =
@@ -96,14 +80,11 @@ const Nav = () => {
       const scrolled = (winScroll / height) * 100;
       setScrollProgress(scrolled);
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   const categories = [
     "services",
     "industries",
@@ -117,15 +98,12 @@ const Nav = () => {
         open={open}
         title="Download PitchDeck"
         onCancel={handleCancel}
-       
       >
    <Form className="form" onSubmit={handleSubmit}>
     <div className="items-stretch bg-white flex  flex-col py-2">
-
       <div className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
         Please provide required information to view the Pitch deck
       </div>
-      
       <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
         Full name
       </div>
@@ -135,7 +113,6 @@ const Nav = () => {
         name="firstName"
         required
       />
-
       <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
         Email
       </div>
@@ -145,7 +122,6 @@ const Nav = () => {
         name="email"
         required
       />
-
       <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
         Phone number
       </div>
@@ -155,7 +131,6 @@ const Nav = () => {
         name="phoneNumber"
         required
       />
-
       <button type="submit" className="mt-6 btn w-full">
         Get the Copy
       </button>
@@ -167,7 +142,6 @@ const Nav = () => {
           <Link to="/">
             {" "}
             <div className="flex flex-row justify-center items-center object-contain gap-3 lg:gap-4 min-w-fit">
-              
                 <img
                   src={ivurl}
                   alt="iVoyant Logo"
@@ -175,7 +149,6 @@ const Nav = () => {
                 />
             </div>
           </Link>
-
           <div className="flex flex-row">
             {categories?.map((category, index) => (
               <div key={index} className="group text-[#F5F5F5] flex flex-row">
@@ -241,7 +214,6 @@ const Nav = () => {
                                     {item.name}
                                   </Link>
                                   }
-                                  
                                 </div>
                               )
                           )}
@@ -317,13 +289,10 @@ const Nav = () => {
               </div>
             ))}
           </div>
-
           <div className="flex flex-row gap-6 " >
           <Link to="/contact-us">
             <div>
-
               <button name="contactus" className="hue-btn" ><span>CONTACT US</span></button>
-
             </div>
             </Link>
             <div
@@ -331,7 +300,6 @@ const Nav = () => {
               onClick={handleHamburgerClick}
             >
               <svg className="w-6 h-6"></svg>
-
               {sidebarOpen && <Sidebar />}
             </div>
           </div>
@@ -348,7 +316,6 @@ const Nav = () => {
       <nav className="fixed lg:hidden top-0 z-50 w-full bg-nav-dark pt-2 pb-1 h-16 flex px-4">
         <Link to="/" prefetch="intent" className=" mr-auto flex">
               <div className="flex flex-row justify-center items-center object-contain">
-                
                   <img
                     src={ivurl}
                     alt="iVoyant Logo"
@@ -394,7 +361,6 @@ const Nav = () => {
                   </defs>
                 </svg>
               )}
-                
             </button>
           </div>
           <div className={`absolute w-full ${(sidebarOpen)? 'flex':'hidden'} lg:hidden flex-col justify-between left-0  bg-haiti h-fit gap-10 screen-height text-gray-200 p-4 z-[999]`}>
@@ -407,7 +373,6 @@ const Nav = () => {
                     ))
                   }
                   <Link onClick={handleHamburgerClick}  to={'/contact-us'} className='capitalize text-left font-montserrat text-xl font-semibold text-gray-200' >Contact Us</Link>
-
                 </div>
               </div>
               <div className="h-full w-fit text-white sm:ml-10 ml-6 max-h-80 overflow-y-scroll transition-opacity mr-auto">
@@ -439,9 +404,7 @@ const Nav = () => {
                             )
                           ))
                         }
-
                       </div>
-
                     ))
                   }
               </div>
@@ -468,5 +431,4 @@ const Nav = () => {
     </>
   );
 };
-
 export default Nav;

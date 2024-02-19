@@ -1,8 +1,5 @@
 import React, { ReactNode } from 'react';
 import { Drawer } from 'antd';
-
-
-
 interface DrawerProps {
     title: string;
     placement?: 'top' | 'right' | 'bottom' | 'left';
@@ -11,7 +8,6 @@ interface DrawerProps {
     visible: boolean;
     children: ReactNode;
   }
-  
   const CustomDrawer: React.FC<DrawerProps> = ({
     title,
     placement = 'bottom',
@@ -21,7 +17,6 @@ interface DrawerProps {
     children
   }) => {
     return (
-        
       <Drawer
         title={title}
         placement={placement}
@@ -33,5 +28,4 @@ interface DrawerProps {
     </Drawer>
   );
 };
-
 export default CustomDrawer;

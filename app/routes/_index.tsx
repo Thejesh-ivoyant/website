@@ -7,16 +7,14 @@ import Consultation from "~/components/Homepage/consultation";
 import Technology from "~/components/Homepage/technology";
 import Testimonials from "~/components/Homepage/testimonials";
 import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
-import { Link, MetaFunction, defer, useLoaderData } from "@remix-run/react";
+import { MetaFunction, defer, useLoaderData } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { homeQuery, topBlogQuery } from "~/graphql/queries";
 import ContactUs from "~/common-components/contactUs";
 import { Attributes } from "~/interfaces/Homepage";
 import WhyChooseUs from "~/components/Homepage/why-choose-us";
-import ErrorBoundary from "~/components/ErrorBoundary";
 import AboutCardContainer from "~/components/Homepage/about-card-container";
 import { Popup } from "~/common-components/social-media-popup";
-import { HeadersFunction } from "@remix-run/node";
 export const meta: MetaFunction = ({data}: { data: any }) => {
   return [
     { title: `Ivoyant | ${data.homePage?.homepage?.data?.attributes.heroText}` },
@@ -30,12 +28,10 @@ export const meta: MetaFunction = ({data}: { data: any }) => {
     },
   ];
 };
-
 export async function loader() {
   try {
     const homeGql = await fetchGraphQL(homeQuery);
     const blogGql = await fetchGraphQL(topBlogQuery);
-
     const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
       id: item.id,
       title: item.attributes.title,
@@ -51,17 +47,14 @@ export async function loader() {
       topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
       category: {
        name:item.attributes.category.data?.attributes.name
-      
       }
     }));
-
     return defer({
       blogData: blogData,
       homePage: homeGql.data,
     },{
       "Cache-Control": "public, s-maxage=600",
     });
-      
   } catch (error) {
     console.warn("Error fetching data from contact API:", error);
     return {
@@ -71,7 +64,6 @@ export async function loader() {
 const App = () => {
   const data = useLoaderData<typeof loader>() as any
   const attributes = data?.homePage?.homepage?.data?.attributes as Attributes
-  
   return (
     <>
       <Hero heroBgImage={attributes.heroBg} heroText={attributes.heroText}  heroTitle={attributes.heroTitle} heroDescription={attributes.heroDescription}/>
@@ -90,5 +82,4 @@ const App = () => {
     </>
   );
 };
-
 export default App;

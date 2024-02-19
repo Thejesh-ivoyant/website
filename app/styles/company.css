@@ -10,7 +10,6 @@ text-align: center;
 width: 100%;
 padding-bottom: 1rem;
 }
-
 .ant-drawer-header{
     display: none !important;
 }
@@ -18,7 +17,6 @@ padding-bottom: 1rem;
     border: 0.5px dashed var(--Gray-gray-7, #8C8C8C);
 background: rgba(104, 54, 209, 0.02);
 }
-
 .join-card{
     display: flex;
     flex-direction: row;
@@ -29,7 +27,6 @@ background: rgba(104, 54, 209, 0.02);
     padding-bottom: 2.5rem;
     height: fit-content;
 }
-
 .grid-card{
      object-fit: cover;
     aspect-ratio: 1 / 1;
@@ -43,6 +40,7 @@ background: rgba(104, 54, 209, 0.02);
 .roles-dropdown-mobile {
   height: 2.25rem;
 }
+
 .job-card-container{
   padding-left: 7rem/* 112px */;
   padding-right: 7rem/* 112px */;
@@ -53,7 +51,6 @@ margin-left: 1.25rem
 }
 .ptc-left-container{
   width:50%;
-
 }
 .ptc-right-container{
   width: 53%;
@@ -89,7 +86,6 @@ margin-left: 1.25rem
   .contact-main{
     width: 100%;
     margin-left: 0rem
-
   }
     .join-card{
         display: flex;
@@ -101,17 +97,14 @@ margin-left: 1.25rem
       height: fit-content;
     }
     .filter{
- 
         padding-left: 2rem/* 112px */;
         padding-right: 2rem/* 112px */;
-      
     }
     .job-card-container{
       padding-left: 2rem/* 112px */;
       padding-right: 2rem/* 112px */;
     }
     .grid-card{
- 
        width: 100%;
    }
    .dep-dropdown{
@@ -127,7 +120,6 @@ margin-left: 1.25rem
     display:none;
   }
   }
-  
   /* Media query for medium-sized screens (e.g., tablets) */
   @media (min-width: 577px) and (max-width: 768px) {
     .dep-dropdown{
@@ -185,7 +177,6 @@ margin-left: 1.25rem
         padding-bottom: 1.5rem;
       height: fit-content;
     }
-    
 .grid-card{
     object-fit: cover;
    aspect-ratio: 1 / 1;
@@ -194,7 +185,6 @@ margin-left: 1.25rem
    width: 16rem;
 }
   }
-  
   /* Media query for large screens (e.g., laptops) */
   @media (min-width: 769px) and (max-width: 992px) {
     .join-card{
@@ -217,24 +207,18 @@ margin-left: 1.25rem
    width: 20rem;
 }
   }
-  
   /* Media query for large screens (e.g., desktops) */
   @media (min-width: 993px) and (max-width: 1200px) {
-        
     .filter-mobile{
       display: none;
      }
   }
-  
   /* Media query for extra-large screens (e.g., large desktops) */
   @media (min-width: 1201px) { 
     .filter-mobile{
       display: none;
      }
   }
-  
   /* Media query for medium-sized screens (landscape orientation) */
   /* @media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
   } */
-  
-  

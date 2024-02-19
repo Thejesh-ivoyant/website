@@ -1,19 +1,17 @@
 import { Link, useLoaderData } from "@remix-run/react";
-import { List, Skeleton } from "antd";
+import { List, Select, Skeleton } from "antd";
 import { useEffect, useState } from "react";
+import DropDownIcon from "~/components/Resources/case-study/arrow";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { SearchJobs } from "~/graphql/queries";
 import CustomDrawer from "~/utils/customDrawer";
 import { success } from "~/utils/notifications";
-
 const JobCards = () => {
-
   const [state, setState] = useState({ visible: false, placement: 'bottom' });
-  const [selectedLoc, setSelectedLoc] = useState('');
-  const [selectedExp, setSelectedExp] = useState('');
-  const [selectedDep, setSelectedDep] = useState('');
-  const [selectedRole, setSelectedRole] = useState('');
- 
+  const [selectedLoc, setSelectedLoc] = useState<string|null>(null)
+  const [selectedExp, setSelectedExp] = useState<string|null>(null)
+  const [selectedDep, setSelectedDep] = useState<string|null>(null)
+  const [selectedRole, setSelectedRole] = useState<string|null>(null)
   const handleApplyFilters = () => {
     setLoc(selectedLoc);
     setExp(selectedExp);
@@ -21,7 +19,6 @@ const JobCards = () => {
     setRole(selectedRole);
     onClose();
   };
-
   const handleResetFilters = () => {
     setSelectedRole('');
     setSelectedDep('');
@@ -32,21 +29,18 @@ const JobCards = () => {
     setDep('');
     setRole('');
   };
-
   const showDrawer = () => {
     setState(prevState => ({
       ...prevState,
       visible: true,
     }));
   };
-
   const onClose = () => {
     setState(prevState => ({
       ...prevState,
       visible: false,
     }));
   };
-
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setState((prevState) => ({
       ...prevState,
@@ -54,26 +48,22 @@ const JobCards = () => {
     }));
   };
   const [loading, setLoading] = useState(true);
-
   const loaderData = useLoaderData() as any;
   const [JobDesc, setJobDescData] = useState(loaderData.JobDesc || []);
   const [FilteredJobDesc, setFilteredJobDescData] = useState([]);
-  const [loc, setLoc] = useState("");
-  const [exp, setExp] = useState("");
-  const [dep, setDep] = useState("");
-  const [role, setRole] = useState("");
+  const [loc, setLoc] = useState<string|null>(null)
+  const [exp, setExp] = useState<string|null>(null)
+  const [dep, setDep] = useState<string|null>(null)
+  const [role, setRole] = useState<string|null>(null);
   const [searchValue, setSearchValue] = useState("");
   const [limit, setLimit] = useState(5);
   useEffect(() => {
     // No need to update selected values here; already handled by state variables
   }, []);
-
   useEffect(() => {
     // This effect will run whenever role, dep, loc, or exp changes
     handleFilterAndSearchDown();
   }, [role, dep, loc, exp, searchValue]);
-
- 
 const handleFilterAndSearchDown = async () =>{
 setLoading(true);
   const updatedJobsQuery = SearchJobs(dep || "", exp || "", role || "", loc || "",searchValue || "", limit);
@@ -97,7 +87,6 @@ setLoading(true);
 setLoading(true);
     const updatedQuery = SearchJobs(dep || "", exp || "", role || "", loc || "",searchValue || "", limit+3);
     const newJobDescData = await fetchGraphQL(updatedQuery);
- 
     setJobDescData(() => [
       ...newJobDescData.data?.career?.data?.attributes?.job_descriptions?.data?.map(
         (item: any) => ({
@@ -108,18 +97,15 @@ setLoading(true);
         Role: item.attributes.job_role.data.attributes.role,
         ExperienceRange: item.attributes.experience.data.attributes.experienceRange,
         DepartmentName: item.attributes.department.data.attributes.DepartmentName,
-
         })
       ),
     ]);
     setLimit(limit + 3); 
-  
  setLoading(false);
  if (JobDesc.length <= limit) {
   success("No more Jobs available", 3);
 }
   };
- 
   return (
     <>
 <CustomDrawer
@@ -128,109 +114,65 @@ setLoading(true);
   closable={false}
   onClose={onClose}
   visible={state.visible}
-
       >
         <button className="absolute -top-2 left-0 right-0 drawer-close-btn" onClick={onClose}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6 6 18M6 6l12 12" stroke="#3D3D3D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
          </button>
          <label className="block text-haiti font-montserrat">Filter by:</label>
    <div className="flex flex-col gap-4 ">
-        
-        <select
-        className="roles-dropdown-mobile"
-          style={{
        
-            borderRadius: "2px",
-            border: "0.5px solid #1B0740",
-          }}
-          onChange={(e) => {
-            setSelectedRole(e.target.value);
+   <Select
+                placeholder="All Roles"
+                className="w-full rounded-none "
+                suffixIcon={selectedRole == null ? <DropDownIcon /> : null}
+                onChange={(value) => setSelectedRole(value)}
+                allowClear
+                value={selectedRole}
+                options={loaderData.RolesList}
+                // style={{
+                //   width: "190px",
+                // }}
+              />
+              
+              <Select
+                placeholder="All Departments"
+                className="w-full rounded-none "
+                suffixIcon={selectedDep == null ? <DropDownIcon /> : null}
+                onChange={(value) => setSelectedDep(value)}
+                allowClear
+                value={selectedDep}
+                options={loaderData.DepartmentList}
+                // style={{
+                //   width: "190px",
+                // }}
+              />
+    
+    <Select
+                placeholder="All Locations"
+                className="w-full rounded-none "
+                suffixIcon={selectedLoc == null ? <DropDownIcon /> : null}
+                onChange={(value) => setSelectedLoc(value)}
+                allowClear
+                value={selectedLoc}
+                options={loaderData.LocList}
+                // style={{
+                //   width: "190px",
+                // }}
+              />
+      
+      <Select
+                placeholder="All Experiences"
+                className="w-full rounded-none "
+                suffixIcon={selectedExp == null ? <DropDownIcon /> : null}
+                onChange={(value) => setSelectedExp(value)}
+                allowClear
+                value={selectedExp}
+                options={loaderData.ExpList}
+                // style={{
+                //   width: "190px",
+                // }}
+              />
         
-          }}
-          value={selectedRole}
-        >
-          <option value="" >
-            All Roles
-          </option>
-     
-          {loaderData.RolesList.map((category: any) => (
-            <option key={category.value} value={category.value}>
-              {category.label}
-            </option>
-          ))}
-        </select>
-
-        
-        <select
-        className="dep-dropdown-mobile"
-          style={{
-          
-            borderRadius: "2px",
-            border: "0.5px solid #1B0740",
-          }}
-          onChange={(e) => {
-            setSelectedDep(e.target.value);
-          // Trigger filtering when category changes
-          }}
-          value={selectedDep} 
-        >
-          <option value="" >
-            All Departments
-          </option>
-          {loaderData.DepartmentList.map((category: any) => (
-            <option key={category.value} value={category.value}>
-              {category.label}
-            </option>
-          ))}
-        </select>
-
-
-        <select
-        className="loc-dropdown-mobile"
-          style={{
-          
-            borderRadius: "2px",
-            border: "0.5px solid #1B0740",
-          }}
-          onChange={(e) => {
-            setSelectedLoc(e.target.value);
-          // Trigger filtering when category changes
-          }}
-          value={selectedLoc}
-        >
-          <option value="" >
-            All Locations
-          </option>
-          {loaderData.LocList.map((category: any) => (
-            <option key={category.value} value={category.value}>
-              {category.label}
-            </option>
-          ))}
-        </select>
-
-
-        <select
-        className="exp-dropdown-mobile"
-          style={{
-           
-            borderRadius: "2px",
-            border: "0.5px solid #1B0740",
-          }}
-          onChange={(e) => {
-            setSelectedExp(e.target.value);
-          }}
-          value={selectedExp}
-        >
-          <option value="">
-            All Experience
-          </option>
-          {loaderData.ExpList.map((category: any) => (
-            <option key={category.value} value={category.value}>
-              {category.label}
-            </option>
-          ))}
-        </select>
-
         <div className="flex flex-row justify-between gap-4 items-center">
             <button
             className="hue-btn-primary  hero-btn "
@@ -241,16 +183,12 @@ setLoading(true);
           <button
             className="reset-btn  hero-btn "
             onClick={handleResetFilters}
-
           >
          Reset
           </button>
             </div>
-
       </div>
-            
 </CustomDrawer>
-
     <div className="technology-section py-16">
       <section className="heading gradient-bottom">
         <h2>{loaderData.s3_title}</h2>
@@ -263,103 +201,58 @@ setLoading(true);
           </div>
           {/* Category select */}
           <div className="flex flex-row gap-4 ">
-        
-            <select
-            className="roles-dropdown"
-              style={{
+          <Select
+                placeholder="All Roles"
+                className="w-full rounded-none roles-dropdown"
+                suffixIcon={role == null ? <DropDownIcon /> : null}
+                onChange={(value) => setRole(value)}
+                allowClear
+                value={role}
+                options={loaderData.RolesList}
+                // style={{
+                //   width: "190px",
+                // }}
+              />
+            <Select
+                placeholder="All Departments"
+                className="w-full rounded-none dep-dropdown "
+                suffixIcon={dep == null ? <DropDownIcon /> : null}
+                onChange={(value) => setDep(value)}
+                allowClear
+                value={dep}
+                options={loaderData.DepartmentList}
+                // style={{
+                //   width: "190px",
+                // }}
+              />
+          
+
+          <Select
+                placeholder="All Locations"
+                className="w-full rounded-none loc-dropdown "
+                suffixIcon={loc == null ? <DropDownIcon /> : null}
+                onChange={(value) => setLoc(value)}
+                allowClear
+                value={loc}
+                options={loaderData.LocList}
+                // style={{
+                //   width: "190px",
+                // }}
+              />
            
-                borderRadius: "2px",
-                border: "0.5px solid #1B0740",
-              }}
-              onChange={(e) => {
-                setRole(e.target.value);
-            
-              }}
-              defaultValue="" 
-            >
-              <option value="" >
-                All Roles
-              </option>
-         
-              {loaderData.RolesList.map((category: any) => (
-                <option key={category.value} value={category.value}>
-                  {category.label}
-                </option>
-              ))}
-            </select>
-
-            
-            <select
-            className="dep-dropdown"
-              style={{
-              
-                borderRadius: "2px",
-                border: "0.5px solid #1B0740",
-              }}
-              onChange={(e) => {
-                setDep(e.target.value);
-              // Trigger filtering when category changes
-              }}
-              defaultValue="" 
-            >
-              <option value="" >
-                All Departments
-              </option>
-              {loaderData.DepartmentList.map((category: any) => (
-                <option key={category.value} value={category.value}>
-                  {category.label}
-                </option>
-              ))}
-            </select>
-
-
-            <select
-            className="loc-dropdown"
-              style={{
-              
-                borderRadius: "2px",
-                border: "0.5px solid #1B0740",
-              }}
-              onChange={(e) => {
-                setLoc(e.target.value);
-              // Trigger filtering when category changes
-              }}
-              defaultValue="" 
-            >
-              <option value="" >
-                All Locations
-              </option>
-              {loaderData.LocList.map((category: any) => (
-                <option key={category.value} value={category.value}>
-                  {category.label}
-                </option>
-              ))}
-            </select>
-
-
-            <select
-            className="exp-dropdown"
-              style={{
-               
-                borderRadius: "2px",
-                border: "0.5px solid #1B0740",
-              }}
-              onChange={(e) => {
-                setExp(e.target.value);
-            
-              }}
-              defaultValue="" 
-            >
-              <option value="">
-                All Experience
-              </option>
-              {loaderData.ExpList.map((category: any) => (
-                <option key={category.value} value={category.value}>
-                  {category.label}
-                </option>
-              ))}
-            </select>
-
+           <Select
+                placeholder="All Experiences"
+                className="w-full rounded-none exp-dropdown"
+                suffixIcon={exp == null ? <DropDownIcon /> : null}
+                onChange={(value) => setExp(value)}
+                allowClear
+                value={exp}
+                options={loaderData.ExpList}
+                // style={{
+                //   width: "190px",
+                // }}
+              />
+           
             {/* Search input */}
             <div className="relative flex items-center">
               <svg
@@ -389,17 +282,14 @@ setLoading(true);
                 className="h-34 border-haiti w-full border-[1px] border-solid rounded-sm pl-10 py-2 focus:outline-none text-xs"
               />
             </div>
-
             <button onClick={showDrawer} className="filter-mobile flex justify-center cursor-pointer items-center px-3 py-2.5 border-solid border-[0.5px] border-indigo-950 max-w-[40px]">
               <img
                 loading="lazy"
                 src="../assets/Filter.svg"   className="w-full bg-blend-multiply aspect-square fill-white"
               />
             </button>
-
           </div>
         </div>
-
         {/* Tag select */}
       </div>
       <section className=" py-8 ">
@@ -480,20 +370,15 @@ setLoading(true);
             </div>
           ))}</>)}
         </div>
-
         <div className="mx-auto w-full flex justify-center items-center" onClick={fetchMoreData}>
-        
           <button className="button-test font-montserrat font-thin">
             {" "}
             <span className="font-thin">Show More</span>
           </button>
-
         </div>
-
       </section>
     </div>
     </>
   );
 };
-
 export default JobCards;

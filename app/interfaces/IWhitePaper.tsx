@@ -15,5 +15,4 @@ interface IWhitePaper {
     avatar: string;
   };
 }
-
 export default IWhitePaper;

@@ -1,5 +1,4 @@
 import { Form } from "@remix-run/react";
-
 import line from '~/../public/assets/line.svg'
 import ReactFlagsSelect from "react-flags-select";
 import { useEffect, useRef, useState } from "react";
@@ -9,11 +8,9 @@ import dayjs, { Dayjs } from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { DatePicker, Space } from "antd";
 import { CalendarOutlined, FileAddOutlined, DeleteOutlined } from "@ant-design/icons";
-
 import type { DatePickerProps, RangePickerProps } from "antd/es/date-picker";
 import { errorMessage, success } from "~/utils/notifications";
 dayjs.extend(customParseFormat);
-
 const range = (start: number, end: number) => {
   const result = [];
   for (let i = start; i < end; i++) {
@@ -21,17 +18,14 @@ const range = (start: number, end: number) => {
   }
   return result;
 };
-
 const disabledDate: RangePickerProps["disabledDate"] = (current) => {
   return current && current < dayjs().startOf("day");
 };
-
 const disabledDateTime = (selectedDate: dayjs.Dayjs | null) => {
   const today: Dayjs = dayjs().startOf("day");
   const currentHour: number = dayjs().hour();
   const currentMinute: number = dayjs().minute();
   const isToday = selectedDate?.isSame(today, "day");
-
   return {
     disabledHours: () => (isToday ? range(0, currentHour) : []),
     disabledMinutes: () =>
@@ -40,25 +34,19 @@ const disabledDateTime = (selectedDate: dayjs.Dayjs | null) => {
         : [],
   };
 };
-
-
 const ContactUs = () => {
   const [btnLoading, setBtnLoading] = useState<boolean>(false)
-  
   const [selectedCode, setCountryCodeSelected] = useState("US");
   const [selectedDate, setDateSelected] = useState("");
   const ContactUsAPIData = `${strapiUrl}/api/contact-uses?populate=%2A`;
   const [contactImage, setcontactImage] = useState<string>("");
   const [hireImage, sethireImage] = useState<string>("");
-
   const [phoneNumber, setPhoneNumber] = useState("");
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>,
     formType: any
   ) => {
-   
     try {
       event.preventDefault();
       setBtnLoading(true);
@@ -74,9 +62,7 @@ const ContactUs = () => {
             body: formData,
           }
         );
-  
         if (response.ok) {
-      
           success(
             "Thank you for contacting us! We will get back to you soon.",
             3
@@ -87,7 +73,6 @@ const ContactUs = () => {
       } else if (formType === "hireus") {
         const formData = new FormData(event.currentTarget);
         formData.append("action", "HireUs");
-  
         formData.forEach((value, key) => {
         });
         const response = await fetch(
@@ -97,7 +82,6 @@ const ContactUs = () => {
             body: formData,
           }
         );
-  
         if (response.ok) {
           success(
             "Thank you for contacting us! We will get back to you soon.",
@@ -112,24 +96,18 @@ const ContactUs = () => {
     }
     setBtnLoading(false);
   };
-
   const handleLabelClick = () => {
     // Trigger click on the file input
     if (fileInputRef.current) {
       fileInputRef.current.click();
     }
   };
-
-
   const onChange: DatePickerProps['onChange'] = (date, dateString) => {
     setDateSelected(dateString);
   };
-
- 
   const handlePhoneNumberChange = (e: any) => {
     setPhoneNumber(e.target.value);
   };
-
   useEffect(() => {
     fetch(ContactUsAPIData)
       .then((response) => response.json())
@@ -142,7 +120,6 @@ const ContactUs = () => {
       .catch((error) => {
       });
   }, []);
-
   const [toggleState, setToggleState] = useState(1);
   const [openc1, setOpen] = useState(false);
   const [selectedFileName, setSelectedFileName] = useState<string | null>(null);
@@ -261,7 +238,6 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
-
         <div className="flex flex-1 flex-col bg-white xl:p-10 md:p-0 p-4">
           <div className="flex flex-row xl:gap-x-10 md:gap-x-4 gap-x-3">
             <div>
@@ -293,7 +269,6 @@ const ContactUs = () => {
             className={toggleState === 2 ? "glider xl:ml-[15rem] lg:ml-[11rem] md:ml-[11.5rem] ml-[5.5rem]" : "glider md:ml-5"}
           ></div>
           <Form
-          
             onSubmit={(event) => handleSubmit(event, "contact")}
             method="post"
             encType="multipart/form-data"
@@ -328,7 +303,6 @@ const ContactUs = () => {
               <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
                 <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
                   <div className="items-stretch flex  gap-1 ">
-                    
                     <ReactFlagsSelect
                       selected={selectedCode}
                       onSelect={(code) => setCountryCodeSelected(code)}
@@ -345,7 +319,6 @@ const ContactUs = () => {
                   />
                   </div>
                 </div>
-
                 <input
                   type="tel"
                   placeholder="Phone Number*"
@@ -413,7 +386,6 @@ const ContactUs = () => {
                   name="date"
                 />
               </div>
-
               <div className="flex flex-col gap-1">
                 <div className="flex flex-col text-sm relative">
                   <label htmlFor="attachment" className="font-montserrat" style={{ cursor: "pointer" }}>
@@ -435,11 +407,9 @@ const ContactUs = () => {
                       <DeleteOutlined className="text-red-500" />
                     </button>
                 </div>
-                
                 )}
               </div>
             </Space>
-
             <button
               type="submit"
               name="_action"
@@ -454,7 +424,6 @@ const ContactUs = () => {
            onSubmit={(event) => handleSubmit(event, "hireus")}
             method="post"
             encType="multipart/form-data"
-           
             className={
               toggleState === 2
                 ? "flex flex-col lg:gap-10 gap-6 active-content xl:p-8  sm:p-4 py-2"
@@ -495,14 +464,12 @@ const ContactUs = () => {
                       type="text"
                       placeholder=""
                       value={selectedCode}
-
                       required
                       className="hidden"
                       name="country_code"
                     />
                   </div>
                 </div>
-
                 <input
                   type="tel"
                   placeholder="Phone Number*"
@@ -604,7 +571,6 @@ const ContactUs = () => {
   name="date_hire"
 />
               </div>
-
               <div className="flex flex-col gap-1 relative">
                 <div className="flex flex-col xl:text-sm text-xs">
                   <label htmlFor="hire_attachment" className="font-montserrat" style={{ cursor: "pointer" }}>
@@ -629,7 +595,6 @@ const ContactUs = () => {
                 )}
               </div>
             </Space>
-
             <button
               type="submit"
               name="_action"
@@ -645,5 +610,4 @@ const ContactUs = () => {
     </>
   );
 };
-
 export default ContactUs;

@@ -1,6 +1,4 @@
 import { Client } from '~/DTO/clients';
-
-
 const Clients = ({ clients , title  } : { clients: Client[], title:string }) => {
   return (
     <>
@@ -33,13 +31,11 @@ const Clients = ({ clients , title  } : { clients: Client[], title:string }) => 
             <img src={`${client.pic.data.attributes.url}`} alt="Client Logo" key={index} className="gradient-left grayscale hover:grayscale-0" />
           ))}
         </div>
-
         <div className="logos-slide">
           {clients?.map((client, index: number) => (
             <img src={`${client.pic.data.attributes.url}`} alt="Client Logo"  key={index}  className="gradient-left grayscale hover:grayscale-0" />
           ))}
         </div>
-
         <div className="logos-slide">
           {clients?.map((client, index: number) => (
             <img src={`${client.pic.data.attributes.url}`} alt="Client Logo"  key={index}  className="gradient-left grayscale hover:grayscale-0" />
@@ -49,5 +45,4 @@ const Clients = ({ clients , title  } : { clients: Client[], title:string }) => 
     </>
   );
 };
-
 export default Clients;

@@ -6,7 +6,6 @@ import skype from '~/../public/assets/skype.svg'
 import phone from '~/../public/assets/phonecall.svg'
 import closeIcon from '~/../public/assets/X.svg'
 import { useState } from "react";
-
 export const Popup = ()=>{
     const [open, setOpen] = useState<boolean>(false)
     const handleButtonClick = () => {

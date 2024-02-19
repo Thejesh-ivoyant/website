@@ -1,5 +1,4 @@
 export type Carousel = CarouselItem[]
-
 export interface CarouselItem {
     id: number
     s4_industryFocusSubTitle: string

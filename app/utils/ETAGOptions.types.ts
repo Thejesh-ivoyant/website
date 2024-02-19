@@ -3,7 +3,6 @@ export interface EtagOptions {
     cacheControl?: string;
     weak?: boolean;
   }
-  
   export const mergeDefaultOptions = (
     options: EtagOptions = {}
   ): Required<EtagOptions> => {
