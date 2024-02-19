@@ -1,6 +1,4 @@
 import { Outlet, useLoaderData } from "@remix-run/react";
-import ReactMarkDown from "react-markdown"
-import fdkajf from "~/public/assets/"
 const Section2 = () => {
   const loaderData = useLoaderData() as any;
 

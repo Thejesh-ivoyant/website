@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 import { Await, MetaFunction, Outlet, defer, useLoaderData } from "@remix-run/react";
 import { strapiUrl } from "~/utils/urls";
 import Why_Join_Us from "~/components/careers/section-2/why-join-us";
@@ -8,11 +8,8 @@ import { careersQuery, departmentQuery, expQuery, jobrolesQuery, locationsQuery 
 import JoinUsCardContainer from "~/components/careers/section-4/join-us-card-container";
 import LoadingTest from "~/common-components/loading-test";
 import Hero from "~/common-components/Hero";
-import { Daum } from "~/interfaces/CategoriesType";
 import { LinksFunction } from "@remix-run/node";
 import CompanyStyle from '~/styles/company.css'
-import WhyChooseUs from "~/components/Homepage/why-choose-us";
-import Section7 from "~/components/industries/section7";
 
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:CompanyStyle}

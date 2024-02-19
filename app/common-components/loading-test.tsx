@@ -1,6 +1,6 @@
 import { useNavigation } from "@remix-run/react";
 import LoadingImg from "~/../public/assets/ivoyant-white.png";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 const LoadingTest = () => {
   const navigation = useNavigation()
   const isRoutingToAnotherPage = navigation.state === 'loading'

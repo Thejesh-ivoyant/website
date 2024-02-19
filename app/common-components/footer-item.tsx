@@ -1,5 +1,4 @@
-import { Link, Links } from "@remix-run/react";
-import { Attributes } from "~/interfaces/NavType";
+import { Link } from "@remix-run/react";
 import { Resource } from "~/interfaces/NavType";
 export const AccordionItem = ({
   name,

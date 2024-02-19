@@ -3,14 +3,7 @@ import { Modal } from "antd";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import {
-  blogCategoryQuery,
-  blogQuery,
-  categories,
-  tagsQuery,
-  whitepaperQuery,
-} from "~/graphql/queries";
-import { Daum } from "~/interfaces/CategoriesType";
+import { blogQuery, whitepaperQuery } from "~/graphql/queries";
 import { errorMessage, success } from "~/utils/notifications";
 
 const Blog_WhitepaperContent = () => {

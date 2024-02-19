@@ -1,7 +1,6 @@
 import Bulletimg from "../../../public/assets/BulletPoint.svg";
 
 import { useLoaderData } from "@remix-run/react";
-import PrivacyPolicyScroll from "./privacy-scroll";
 import { scrollToSection } from "~/root";
 import { useEffect } from "react";
 

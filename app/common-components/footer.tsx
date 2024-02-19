@@ -1,4 +1,4 @@
-import { Form, Link, useLoaderData, useRouteLoaderData } from "@remix-run/react";
+import { Form, Link, useRouteLoaderData } from "@remix-run/react";
 import { Attributes } from "~/interfaces/NavType";
 import fb from '~/../public/assets/Facebook svg.svg'
 import mail from '~/../public/assets/Twitter  svg.svg'
@@ -7,7 +7,7 @@ import yt from '~/../public/assets/YouTube svg.svg'
 import ivoyantLogo from "~/../public/assets/ivoyant-footer.svg"
 import { errorMessage, success } from "~/utils/notifications";
 import AccordionItem from "./footer-item";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Modal } from "antd";
 
 const Footer = () => {

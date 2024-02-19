@@ -6,7 +6,6 @@ import { case_study_paginated } from "~/graphql/queries";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { Link } from "@remix-run/react";
 import CustomDrawer from "~/utils/customDrawer";
-import { success } from "~/utils/notifications";
 
 
 export const Container = ({ data, tags, categories, initLimit, initOffset }: { data: any, tags:any, categories: any, initLimit:number, initOffset:number }) => {

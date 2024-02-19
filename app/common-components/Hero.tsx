@@ -1,5 +1,4 @@
-import { Link, Outlet, useLoaderData } from "@remix-run/react";
-import { scrollToSection } from "~/root";
+import { Link, useLoaderData } from "@remix-run/react";
 const Hero = () => {
 
   const loaderData = useLoaderData() as any;

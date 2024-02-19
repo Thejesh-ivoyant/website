@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { HeroBg } from "~/interfaces/Homepage";
 import { scrollToSection } from "~/root";
 

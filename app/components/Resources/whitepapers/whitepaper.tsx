@@ -1,5 +1,4 @@
 import { List, Skeleton } from 'antd';
-import React from 'react';
 import IWhitePaper from "~/interfaces/IWhitePaper";
 
 const WhitePaperCard = ({ paper, isLoading }: { paper: IWhitePaper, isLoading: boolean }) => {

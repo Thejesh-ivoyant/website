@@ -1,13 +1,12 @@
 import Tabs from "~/components/products/Tabs";
-import { useLoaderData, useSearchParams } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { productsQuery } from "~/graphql/queries";
 import Pairs from "~/components/products/pairs";
-import Section2 from "~/components/products/section2";
 import Hero from "~/components/products/Hero";
 import ContactUs from "~/common-components/contactUs";
 import { Technologies } from "~/components/products/technologies";
-import { Attributes, TabContent } from "~/interfaces/ProductsPage";
+import { Attributes } from "~/interfaces/ProductsPage";
 import ProductStyle from '~/styles/Products.css'
 import { LinksFunction } from "@remix-run/node";
 import Consultation from "~/components/Homepage/consultation";

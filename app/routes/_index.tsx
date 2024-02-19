@@ -7,16 +7,14 @@ import Consultation from "~/components/Homepage/consultation";
 import Technology from "~/components/Homepage/technology";
 import Testimonials from "~/components/Homepage/testimonials";
 import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
-import { Link, MetaFunction, defer, useLoaderData } from "@remix-run/react";
+import { MetaFunction, defer, useLoaderData } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { homeQuery, topBlogQuery } from "~/graphql/queries";
 import ContactUs from "~/common-components/contactUs";
 import { Attributes } from "~/interfaces/Homepage";
 import WhyChooseUs from "~/components/Homepage/why-choose-us";
-import ErrorBoundary from "~/components/ErrorBoundary";
 import AboutCardContainer from "~/components/Homepage/about-card-container";
 import { Popup } from "~/common-components/social-media-popup";
-import { HeadersFunction } from "@remix-run/node";
 export const meta: MetaFunction = ({data}: { data: any }) => {
   return [
     { title: `Ivoyant | ${data.homePage?.homepage?.data?.attributes.heroText}` },

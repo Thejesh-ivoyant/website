@@ -1,4 +1,4 @@
-import { Link, Outlet, useLoaderData } from "@remix-run/react";
+import { Link } from "@remix-run/react";
 
 const ErrorBoundaryPage = () => {
 

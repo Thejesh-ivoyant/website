@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLoaderData } from "@remix-run/react";
 import { Attributes } from "~/interfaces/Homepage";
-import sample from '~/../public/assets/product.png'
 
 const Services = ({attributes}:{attributes:Attributes}) => {
   const servicesData = useLoaderData() as any;

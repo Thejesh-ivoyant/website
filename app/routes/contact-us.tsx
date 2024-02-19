@@ -1,7 +1,6 @@
 import ContactCard from "~/components/contact-us/contact-card";
 import ContactUs from "~/common-components/contactUs";
 import { MetaFunction } from "@remix-run/react";
-import avatar from '~/../public/assets/contactavatar.jpg'
 
 export const meta: MetaFunction = () => {
   return [

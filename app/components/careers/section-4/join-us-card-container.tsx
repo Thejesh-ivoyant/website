@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import { strapiUrl } from "~/utils/urls";
 import { useLoaderData } from "@remix-run/react";
 
 import JobCard from "./join-us-card";

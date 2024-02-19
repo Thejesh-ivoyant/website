@@ -1,4 +1,3 @@
-import { useLoaderData } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { TabContent } from "~/interfaces/ProductsPage";
 

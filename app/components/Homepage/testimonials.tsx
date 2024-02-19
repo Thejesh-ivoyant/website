@@ -52,7 +52,7 @@ const Testimonials = () => {
       {testimonialList.length > 0 && (
         <div>
           <section className="testimonial-section mt-4 gradient-top pb-4">
-            <Carousel  beforeChange={handleCarouselChange} afterChange={handleCarouselChange}>
+            <Carousel autoplay beforeChange={handleCarouselChange} afterChange={handleCarouselChange}>
               {testimonialList.map((testimonial, index) => (
                 <div key={index} className="inner-container pb-4 w-full">
                   <div className="flex flex-col justify-center">

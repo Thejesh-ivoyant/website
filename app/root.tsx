@@ -3,16 +3,7 @@ import stylesheet from "~/tailwind.css";
 import globalstyle from "~/styles/main.css";
 import Navstyle from "~/common-components/nav.css";
 import Sidebarstyle from "~/common-components/sidebar.css"
-import {
-  Link,
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  defer,
-} from "@remix-run/react";
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, defer } from "@remix-run/react";
 import ClarityScript from "./clarityScript";
 
 import Nav from "./common-components/nav";
@@ -20,7 +11,6 @@ import Footer from "./common-components/footer";
 import { fetchGraphQL } from "./graphql/fetchGraphQl";
 import { navQuery } from "./graphql/queries";
 import ScrollToTopIcon from "./ScrollToTop";
-import ErrorBoundaryPage from "./common-components/errorpage";
 import LoadingTest from "./common-components/loading-test";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
