@@ -12,21 +12,18 @@ import Section7 from "~/components/industries/section7";
 import { fetchData } from "~/utils/fetchdata";
 import ProductStyle from '~/styles/Industry.css'
 import { LinksFunction } from "@remix-run/node";
-
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:ProductStyle}
 ];
 export async function loader({ params }: LoaderFunctionArgs) {
   try {
     const industry = `${params.slug}`;
-    
     const [jsonParsed, section7PairsJson, section5Parsed, techParsed] = await Promise.all([
       fetchData(`/api/${industry}/?populate=%2A`),
       fetchData(`/api/${industry}/?populate=pairs.pic`),
       fetchData(`/api/${industry}/?populate=process.ornament`),
       fetchData(`/api/${industry}/?populate=technologies.pic`),
     ]);
-
     const section7Pairs = section7PairsJson.pairs.map((pair:typeof section7PairsJson) => ({
       id: pair.id,
       text: pair.text,
@@ -34,21 +31,18 @@ export async function loader({ params }: LoaderFunctionArgs) {
       picUrl: pair.pic.data?.attributes.url,
       name: pair.pic.data?.attributes.name,
     }));
-
     const technologies = techParsed.technologies.map((pair:typeof techParsed) => ({
       id: pair.id,
       text: pair.text,
       picUrl: pair.pic.data?.attributes.url,
       name: pair.pic.data?.attributes.name,
     }));
-
     const PhasesList = section5Parsed.process.map((item:any) => ({
       id: item.id,
       title: item.title,
       description: item.description,
       ornament: item.ornament.data?.attributes.url,
     }));
-
     return defer({
       heroBgImageURl: jsonParsed.heroBgImage.data?.attributes.formats.large.url,
       heroTitle: jsonParsed.heroTitle,
@@ -83,7 +77,6 @@ export const meta: MetaFunction<typeof loader> = ({
       content: data?.heroDescription,
     }];
 };
-
 const Index = () => {
   const data = useLoaderData<typeof loader>() as any;
   return (

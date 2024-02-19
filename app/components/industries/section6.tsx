@@ -1,7 +1,6 @@
 import { useLoaderData } from "@remix-run/react";
 const Section6 = () => {
     const loaderData = useLoaderData() as any;
-  
     return (
       <div className="bg-white py-5">
         <h1 className="text-PurpBlue flex items-center justify-center text-5xl font-montserrat p-6">
@@ -18,6 +17,4 @@ const Section6 = () => {
       </div>
     );
   };
-  
   export default Section6;
-  

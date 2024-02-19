@@ -1,5 +1,4 @@
 const Section6 = ({ data }: { data: any }) => {
-  
   return (
     <>
       <div className="flex flex-col w-full max-h-fit lg:flex-row CardDark">
@@ -66,7 +65,6 @@ const Section6 = ({ data }: { data: any }) => {
     </>
   );
 };
-
 export default Section6;
 {
   /* <div className="flex">
@@ -96,7 +94,6 @@ export default Section6;
             <div className="aspect-square  w-fit h-[300px] flex  gap-6 items-center border-container-left px-12 grape-shadow">
               <div className="ml-auto flex gap-4  items-center">
                 <span className="lg:text-6xl text-4xl font-bold"> 77 </span>
-
                 <span className=" font-thin w-24">Successful Projects</span>
               </div>
             </div>

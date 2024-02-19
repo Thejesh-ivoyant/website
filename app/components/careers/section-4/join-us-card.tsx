@@ -12,9 +12,6 @@ const JobCard = ({ service }: { service: any }) => {
                 <p className="flex font-thin text-xs font-poppins my-auto">{service.description}</p>
             </div>
         </div>
-           
-           
           );
-    
 };
 export default JobCard;

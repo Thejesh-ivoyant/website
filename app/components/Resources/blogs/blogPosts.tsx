@@ -1,8 +1,6 @@
 import IBlogMedia from "~/interfaces/IBlogMedia";
-
 const BlogPostCard = ({ blog }: { blog: IBlogMedia }) => {
   return (
-
     <div className="card-box blog-card">
     <img src={blog?.bannerImage.url} alt="Image description"/>
     <div className="content  flex flex-col justify-between h-full w-full  text-white p-4">
@@ -37,11 +35,8 @@ const BlogPostCard = ({ blog }: { blog: IBlogMedia }) => {
             {blog.maxReadTime} Mins Read
           </div>
         </div>
-      
     </div>
     </div>
-
-
   );
 };
 export default BlogPostCard;

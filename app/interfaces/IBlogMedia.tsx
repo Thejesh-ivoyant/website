@@ -26,16 +26,11 @@ interface IBlogMedia {
     };
     author: {
       name: string;
-  
       avatar: string;
-
     };
     category:{
       name:string;
     } 
     topic_tags: string[]; 
-
   }
-  
   export default IBlogMedia;
-  

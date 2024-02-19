@@ -1,5 +1,4 @@
 import { Technology } from "~/interfaces/ProductsPage"
-
 export const Technologies =({title,pairs}:{title:string, pairs:Technology[]})=>{
     return (
         <>

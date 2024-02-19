@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { TabContent } from "~/interfaces/ProductsPage";
-
 export default function Tabs({tabContents}:{tabContents: TabContent[]}) {
   const [activeButton, setActiveButton] = useState(tabContents[0]); 
-
   const handleButtonClick = (item:any) => {
     setActiveButton(item);
   };
@@ -91,7 +89,6 @@ export default function Tabs({tabContents}:{tabContents: TabContent[]}) {
             </figure>
           </div>
           </div>
-          
           <p className="font-poppins text-sm lg:text-base font-normal leading-8" id="description">
             {activeButton.description}
           </p>

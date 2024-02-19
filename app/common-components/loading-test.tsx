@@ -6,7 +6,6 @@ const LoadingTest = () => {
   const isRoutingToAnotherPage = navigation.state === 'loading'
   useEffect(()=>{
   }, [isRoutingToAnotherPage])
-  
   if (!isRoutingToAnotherPage){
     return null
   }
@@ -17,5 +16,4 @@ const LoadingTest = () => {
     </div>
   );
 };
-
 export default LoadingTest;

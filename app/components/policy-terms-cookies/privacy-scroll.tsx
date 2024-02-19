@@ -1,24 +1,19 @@
 import { useEffect } from "react";
 import Bulletimg from "../../../public/assets/BulletPoint.svg";
 import { useLoaderData } from "@remix-run/react";
-
 const PrivacyPolicyScroll = () => {
 const loaderData = useLoaderData() as any;
-
   useEffect(() => {
     const handleScroll = () => {
       let sidebar = document.getElementById("contact-sidebar");
       let sidebarContent = document.getElementsByClassName("contact-content-wrapper")[0] as HTMLElement;
       let contactMain = document.getElementById("contact-main");
-  
       if (!sidebar || !sidebarContent || !contactMain) return;
-  
       let scrollTop = window.scrollY;
       let viewportHeight = window.innerHeight;
       let contentHeight = sidebarContent.getBoundingClientRect().height;
       let sidebarTop = sidebar.getBoundingClientRect().top + window.pageYOffset;
       let contactMainBottom = contactMain.getBoundingClientRect().bottom;
-  
       if (scrollTop >= contentHeight - viewportHeight + sidebarTop && scrollTop <= contactMainBottom) {
         sidebarContent.style.transform = `translateY(-${contentHeight - viewportHeight + sidebarTop}px)`;
         sidebarContent.style.position = "fixed";
@@ -29,14 +24,11 @@ const loaderData = useLoaderData() as any;
         sidebarContent.style.width = "";
       }
     };
-  
     window.addEventListener("scroll", handleScroll);
-  
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  
   return (
     <>
       {" "}
@@ -228,10 +220,8 @@ const loaderData = useLoaderData() as any;
             </div>
           </div>
         </div>
-
         <div id="contact-main" className=" contact-main mb-4 w-1/2 flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0">
           {/* main content goes here */}
-
           <div className="items-stretch flex grow flex-col max-md:max-w-full max-md:mt-10">
             <div className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider max-md:max-w-full">
               iVoyant is committed to protect the information you provide us
@@ -259,7 +249,6 @@ const loaderData = useLoaderData() as any;
                 </div>{" "}
                 <div className="text-violet-950 text-base leading-7 underline mt-3 max-md:max-w-full">
                   <span className="text-neutral-800">{item.description}</span>
-                
                   <span className="text-violet-950"> </span>
                 </div>
               </div>
@@ -359,7 +348,6 @@ const loaderData = useLoaderData() as any;
             </div>
           </div>
         </div>
-
       </div>
     </>
   );

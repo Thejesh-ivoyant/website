@@ -99,11 +99,9 @@ query{
   }
 }
 `
-
 export const navQuery = `
 query {
     navbar {
-      
       data {
         id
         attributes {
@@ -210,7 +208,6 @@ query {
                 data{
                   attributes{
                     url
-                    
                   }
                 }
               }
@@ -247,7 +244,6 @@ query {
                 data{
                   attributes{
                     url
-                    
                   }
                 }
               }
@@ -311,7 +307,6 @@ export const whitepaperQuery = `query {
  }
 }
 `;
-
 export const blogQuery = `query{
   blogs(
   sort: "date:desc",
@@ -370,7 +365,6 @@ query{
     data{
       id,
       attributes{
-       
         category{
           data
           {
@@ -379,14 +373,11 @@ query{
             }
           }
         }
-       
       }
     }
   }
 }
-
 `;
-
 export const getAuthorQuery = (id:any) => {
   return `
     query GetAuthorById {
@@ -418,9 +409,6 @@ export const getAuthorQuery = (id:any) => {
     }
   `;
 };
-
-
-
 export const getBlogAuthorIDQuery = (id:any) => {
   return `
   query GetBlogById{
@@ -484,8 +472,6 @@ export const getWhitepaperBasedonLimit = (limit: number) => {
     }
   `;
 };
-
-
 export const getPaperAuthorIDQuery = (id:any) => {
   return `
   query GetWhitePaperById{
@@ -553,7 +539,6 @@ query {
   }
 }
 `;
-
 export const careersQuery = `
 query{
   career{
@@ -579,7 +564,6 @@ query{
             attributes{
               job_id
               Title
-             
               department{
                 data{
                   attributes{
@@ -594,7 +578,6 @@ query{
                   }
                 }
               }
-              
               location{
                 data{
                   attributes{
@@ -609,8 +592,6 @@ query{
                   }
                 }
               }
-
-
             }
           }
         }
@@ -619,8 +600,6 @@ query{
   }
 }
 `;
-
-
 export const productsQuery = `
 query{
   product{
@@ -693,7 +672,6 @@ query{
   }
 }
 `;
-
 export const aboutUsQuery= `
 query{
   aboutus{
@@ -789,7 +767,6 @@ export const case_study_paginated = `
   ) => {
     // Helper function to handle empty strings
     const sanitizeString = (value: string) => (value ? `"${value}"` : '""');
-  
     return `
     query {
       caseStudies(sort: "\${sort}",
@@ -840,7 +817,6 @@ export const case_study_paginated = `
       }
     }`;
   };
-  
 export const case_study_home = `query{
   caseStudyHome{
     data{
@@ -859,9 +835,7 @@ export const case_study_home = `query{
     }
   }
 }`;
-
   const case_study_filterd = `
-    
   `;
 export const case_study_query = `
 query{
@@ -949,7 +923,6 @@ query{
     }
   }
 }`
-
 export const tagsQuery = `
 query{
   topicTags{
@@ -960,7 +933,6 @@ query{
     }
   }
 }`
-
 export const categories = `
 query{
   categories{
@@ -971,7 +943,6 @@ query{
     }
   }
 }`
-
 export const jobrolesQuery = `
 query{
   jobRoles{
@@ -982,7 +953,6 @@ query{
     }
   }
 }`
-
 export const locationsQuery = `query{
   locations{
     data{
@@ -992,7 +962,6 @@ export const locationsQuery = `query{
     }
   }
 }`
-
 export const departmentQuery = `query{
   departments{
     data{
@@ -1002,7 +971,6 @@ export const departmentQuery = `query{
     }
   }
 }`
-
 export const expQuery = `query{
   experiences{
     data{
@@ -1022,7 +990,6 @@ export const SearchJobs = (
 ) => {
   // Helper function to handle empty strings
   const sanitizeString = (value: string) => (value ? `"${value}"` : '""');
-
   return `query {
     career {
       data {
@@ -1080,8 +1047,6 @@ export const SearchJobs = (
     }
   }`;
 };
-
-
 export const SearchBlogs = (
   category: string,
   tag: string,
@@ -1090,7 +1055,6 @@ export const SearchBlogs = (
 ) => {
   // Helper function to handle empty strings
   const sanitizeString = (value: string) => (value ? `"${value}"` : '""');
-
   return  `
   query{
     blogs(
@@ -1152,6 +1116,3 @@ export const SearchBlogs = (
   }
   `;
 };
-
-
-

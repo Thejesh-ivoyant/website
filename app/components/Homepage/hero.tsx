@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { HeroBg } from "~/interfaces/Homepage";
 import { scrollToSection } from "~/root";
-
 const Hero = ({
   heroText,
   heroTitle,
@@ -14,7 +13,6 @@ const Hero = ({
   heroBgImage: HeroBg;
 }) => {
   const [c, setC] = useState(0);
-
   const closeChats = () => {
     setC(0);
   };
@@ -33,13 +31,11 @@ const Hero = ({
           autoPlay
           className="-z-10 absolute top-0 object-cover right-0 w-full screen-height  mt-[4.5rem]"
         />
-
         <div className="hero-wrapper">
           <p className="hero-title  animated-text">{heroText}</p>
           <h1 className="hero-title hero-subtitle">
             {heroTitle}
           </h1>
-
           <svg
             width="100%"
             height="25"
@@ -90,7 +86,6 @@ const Hero = ({
           <div className="hero-description px-10">
             <span>{heroDescription}</span>
           </div>
-
           <button
             className="hue-btn-primary  hero-btn "
             onClick={() => scrollToSection("contact-us")}
@@ -102,5 +97,4 @@ const Hero = ({
     </>
   );
 };
-
 export default Hero;

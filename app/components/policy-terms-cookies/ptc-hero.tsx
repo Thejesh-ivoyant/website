@@ -1,15 +1,12 @@
 import { useLoaderData } from "@remix-run/react";
-
 const PTCHero = () => {
   const loaderData = useLoaderData() as any;
-
   return (
     <>
    <div className="bg-slate-50 mt-[4.5rem]">
       <div className="flex gap-5 max-md:flex-col max-md:gap-0">
         <div className="flex flex-col ptc-left-container ">
           <div className="flex relative flex-col grow items-center px-14 py-12 text-xl fill-white h-fit  max-md:px-5 max-md:max-w-full">
-           
             <div className=" mt-2 text-4xl italic font-extrabold leading-[58px] text-violet-950 w-full max-md:max-w-full">
             {loaderData.heroTitle}
             </div>
@@ -18,7 +15,6 @@ const PTCHero = () => {
             </div>
           </div>
         </div>
-
     <div className="flex flex-col ptc-right-container">
         <div className="skew-container">
                 <img
@@ -32,8 +28,6 @@ const PTCHero = () => {
       </div>
     </div>
         </>
-
   );
 };
-
 export default PTCHero;

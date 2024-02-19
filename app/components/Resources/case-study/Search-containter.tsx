@@ -6,8 +6,6 @@ import { case_study_paginated } from "~/graphql/queries";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { Link } from "@remix-run/react";
 import CustomDrawer from "~/utils/customDrawer";
-
-
 export const Container = ({ data, tags, categories, initLimit, initOffset }: { data: any, tags:any, categories: any, initLimit:number, initOffset:number }) => {
   const [listData, setListData] = useState(new Set(data.data?.caseStudies?.data));
   const [searchValue, setSearchValue] = useState("");
@@ -21,9 +19,7 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedTag, setSelectedTag] = useState('');
   const [loading, setLoading] = useState(true);
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-
     const inputValue = e.target.value;
     setSearchValue(inputValue);
   };
@@ -33,20 +29,17 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
   const handleSelectedTagChange = (value:string) => {
      setSelectedTag(value);
   };
-
   const resetFiter = () => {
     setSelectedCategory('');
     setSelectedTag('');
     setCategory('');
     setTag('');
   };
-
   const applyFilter = () => {
     setCategory(selectedCategory);
     setTag(selectedTag);
     onClose();
   };
-
   const onClose = async () => {
     return new Promise(resolve => {
         setState(prevState => ({
@@ -90,26 +83,21 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
     setListData(new Set(lists.data?.caseStudies?.data));
     setLoading(false);
   };
-
   const simulateFormSubmit = async ( ) => {
-
     const syntheticEvent = {
       preventDefault: () => {}, // Mock the preventDefault function
     } as React.FormEvent<HTMLFormElement>;
-    
     await handleSubmit(syntheticEvent)
   };
   useEffect(() => {
     simulateFormSubmit();
   }, [category,tag]); 
-
   useEffect(() => {
     setArrayData(Array.from(listData));
   }, [listData]);
   const handleCategoryChange = (value:string) => {
     setCategory(value);
   };
-
   const handleTagChange = (value:string) => {
     setTag(value)
   };
@@ -135,7 +123,6 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
   setListData((prevListData: any) => new Set([...prevListData, ...newData]));
   setBtnLoading(false)
 setLoading(false)
-  
   }
   return (
     <>
@@ -220,9 +207,7 @@ setLoading(false)
               <path d="M9 14H7C6.73478 14 6.48043 13.8946 6.29289 13.7071C6.10536 13.5196 6 13.2652 6 13V9.205L2.295 5.5C2.10721 5.31332 2.00112 5.05979 2 4.795V3C2 2.73478 2.10536 2.48043 2.29289 2.29289C2.48043 2.10536 2.73478 2 3 2H13C13.2652 2 13.5196 2.10536 13.7071 2.29289C13.8946 2.48043 14 2.73478 14 3V4.795C13.9989 5.05979 13.8928 5.31332 13.705 5.5L10 9.205V13C10 13.2652 9.89464 13.5196 9.70711 13.7071C9.51957 13.8946 9.26522 14 9 14ZM3 3V4.795L7 8.795V13H9V8.795L13 4.795V3H3Z" fill="#161616" />
             </svg>
           </button>
-          
         </div>
-
         {loading &&  
           <List
             className="w-full blog-main-card z-10 h-full"
@@ -237,7 +222,6 @@ setLoading(false)
           />}
           {!loading && (
             <>
-        
         {arrayData &&
           arrayData?.map((item: any, index:number) => (
             <Link key={index} prefetch="intent" to={`../resources/case-study/${item?.id}`} className="xl:h-96 lg:h-72 md:h-56  aspect-[241/78] md:flex hidden">
@@ -318,11 +302,9 @@ setLoading(false)
                 </div>
               ))
           }
-
         <button className="hue-btn-blue" onClick={handleViewMore} disabled = {btnLoading}>
           <span>View More</span>
         </button>
-
         <CustomDrawer
           title="Basic Drawer"
           placement="bottom"

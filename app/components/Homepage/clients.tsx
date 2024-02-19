@@ -1,6 +1,5 @@
 import { Clients } from "~/interfaces/Homepage";
 import line from '../../../public/assets/pur-line.svg'
-
 const Section4 = ({ clients }: { clients: Clients | undefined }) => {
   return (
     <div className="my-4">
@@ -14,13 +13,11 @@ const Section4 = ({ clients }: { clients: Clients | undefined }) => {
             <img src={`${logo.attributes.url}`} alt="Client Logo" key={index} className="gradient-left grayscale hover:grayscale-0" />
           ))}
         </div>
-
         <div className="logos-slide">
           {clients?.data.map((logo, index: number) => (
             <img src={`${logo.attributes.url}`} alt="Client Logo"  key={index}  className="gradient-left grayscale hover:grayscale-0" />
           ))}
         </div>
-
         <div className="logos-slide">
           {clients?.data.map((logo, index: number) => (
             <img src={`${logo.attributes.url}`} alt="Client Logo"  key={index}  className="gradient-left grayscale hover:grayscale-0" />
@@ -30,5 +27,4 @@ const Section4 = ({ clients }: { clients: Clients | undefined }) => {
     </div>
   );
 };
-
 export default Section4;

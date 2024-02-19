@@ -10,11 +10,9 @@ import { Attributes } from "~/interfaces/ProductsPage";
 import ProductStyle from '~/styles/Products.css'
 import { LinksFunction } from "@remix-run/node";
 import Consultation from "~/components/Homepage/consultation";
-
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:ProductStyle}
 ];
-
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   let { searchParams } = new URL(request.url);
   let name = searchParams.get("name");
@@ -23,9 +21,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   const carousel = attributes?.carousel || [];
   const tabContents =  attributes?.TabContents || []
   const sortedCarousels = [...carousel];
-
   const sortedTabContents = [...tabContents];
-
   const index = sortedCarousels.findIndex((item) => item.name.toLowerCase().trim() === name?.toLowerCase().trim());
   const tabIndex =  sortedTabContents.findIndex((item) => item.caption?.toLowerCase().trim() === name?.toLowerCase().trim())
   if (name && index !== -1 ) {
@@ -41,12 +37,9 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   sortedTabContents
 };
 };
-
-
 export default function Index() {
   const data = useLoaderData() as any
   const attributes = data?.productsResponse?.data?.product?.data?.attributes as Attributes;
-  
   return (
     <>
       <Hero carousel={data?.sortedCarousels}/>

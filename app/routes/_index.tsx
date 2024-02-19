@@ -28,12 +28,10 @@ export const meta: MetaFunction = ({data}: { data: any }) => {
     },
   ];
 };
-
 export async function loader() {
   try {
     const homeGql = await fetchGraphQL(homeQuery);
     const blogGql = await fetchGraphQL(topBlogQuery);
-
     const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
       id: item.id,
       title: item.attributes.title,
@@ -49,17 +47,14 @@ export async function loader() {
       topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
       category: {
        name:item.attributes.category.data?.attributes.name
-      
       }
     }));
-
     return defer({
       blogData: blogData,
       homePage: homeGql.data,
     },{
       "Cache-Control": "public, s-maxage=600",
     });
-      
   } catch (error) {
     console.warn("Error fetching data from contact API:", error);
     return {
@@ -69,7 +64,6 @@ export async function loader() {
 const App = () => {
   const data = useLoaderData<typeof loader>() as any
   const attributes = data?.homePage?.homepage?.data?.attributes as Attributes
-  
   return (
     <>
       <Hero heroBgImage={attributes.heroBg} heroText={attributes.heroText}  heroTitle={attributes.heroTitle} heroDescription={attributes.heroDescription}/>
@@ -88,5 +82,4 @@ const App = () => {
     </>
   );
 };
-
 export default App;

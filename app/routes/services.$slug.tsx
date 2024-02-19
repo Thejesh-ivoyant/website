@@ -8,12 +8,10 @@ import { fetchData } from "~/utils/fetchdata";
 import LoadingTest from "~/common-components/loading-test";
 import { LinksFunction, LoaderFunctionArgs, defer } from "@remix-run/node";
 import ServicesStyle from '~/styles/Services.css'
-
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:ServicesStyle}
 ];
 import Hero from "~/common-components/Hero";
-
 const ServiceContainer = React.lazy(
   () =>
     import(
@@ -39,7 +37,6 @@ const Consultation = React.lazy(
   () => import("~/components/Homepage/consultation")
 );
 const Footer = React.lazy(() => import("~/common-components/footer"));
-
 export const meta: MetaFunction = () => {
   return [
     { title: "Ivoyant |  Service" },
@@ -54,7 +51,6 @@ export const meta: MetaFunction = () => {
   ];
 };
 export async function loader({ params }: LoaderFunctionArgs) {
-
   const slugToServiceMap: Record<string, string> = {
     "mobiledev": "s-mad",
     "ui-ux": "s-ui-ux",
@@ -66,10 +62,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
     "devops": "s-dev-op",
     "websitedev": "s-website-development",
   };
-
   const service = slugToServiceMap[`${params.slug}`];
-
-
   const [res, keyComponentRes, phasesComponentRes, techComponentRes, serviceComponentRes, industryComponentRes,blogGql] = await Promise.all([
     fetch(strapiUrl + `/api/${service}?populate=%2A`),
     fetchData(`/api/${service}/?populate=s2_keyPoints.keyPointsImage`),
@@ -79,9 +72,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
     fetchData(`/api/${service}/?populate=s4_industryFocus.s4_IndustryFocusImage`),
     fetchGraphQL(topBlogQuery),  
   ]);
-
   let jsonParsed = await res.json();
-
   const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
     id: item.id,
     title: item.attributes.title,
@@ -98,7 +89,6 @@ export async function loader({ params }: LoaderFunctionArgs) {
     topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
       category: {
        name:item.attributes.category.data?.attributes.name
-      
       }
   }));
   const IndustryFocus = industryComponentRes.s4_industryFocus.map((item: any) => ({
@@ -130,7 +120,6 @@ export async function loader({ params }: LoaderFunctionArgs) {
     s7_techIcon: item.s7_techIcon.data?.attributes.url,
     s7_techIconName: item.s7_techIconName,
   }));
-
   const {
     heroTitle,
     heroDescription,
@@ -145,7 +134,6 @@ export async function loader({ params }: LoaderFunctionArgs) {
     s6_serviceSummary,
     s7_techTitle,
   } = jsonParsed.data?.attributes;
-
   return defer({
     heroBgImageURl: jsonParsed.data?.attributes.heroImage.data?.attributes.url,
     heroTitle,
@@ -168,14 +156,12 @@ export async function loader({ params }: LoaderFunctionArgs) {
     blogData: blogData,
   });
 }
-
 const Service = () => {
   const data = useLoaderData<typeof loader>() as any;
     return (
     <>
       <Suspense fallback={<LoadingTest />}>
     <Await resolve={data.IndustryFocus}>
-   
           <Hero />
           <ServiceContainer />
           <ProjectPortfolio />
@@ -191,5 +177,4 @@ const Service = () => {
     </>
   );
 };
-
 export default Service;

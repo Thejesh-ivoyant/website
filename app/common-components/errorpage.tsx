@@ -1,11 +1,7 @@
 import { Link } from "@remix-run/react";
-
 const ErrorBoundaryPage = () => {
-
-
     return (
         <div className="bg-white flex flex-col">
-    
         <div className="self-center w-[913px] max-w-full mt-10 max-md:mt-10">
           <div className="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
             <div className="flex flex-col items-stretch w-[58%] max-md:w-full max-md:ml-0">
@@ -42,8 +38,6 @@ const ErrorBoundaryPage = () => {
                   src= '../assets/error.png' className="absolute h-full w-full object-contain object-center inset-0"
                 />{" "}
                 <div className="relative flex flex-col items-stretch pt-5 pb-12 px-7 max-md:px-5">
-              
-                  
                 </div>
               </div>
             </div>
@@ -90,10 +84,7 @@ const ErrorBoundaryPage = () => {
           className="mt-4  h-[16rem] object-contain object-center w-[166px] overflow-y-scroll self-stretch shrink-0 max-w-full"
           />
         </div>{" "}
-       
       </div>
-      
   );
 };
-
 export default ErrorBoundaryPage;

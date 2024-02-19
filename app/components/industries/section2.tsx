@@ -1,7 +1,6 @@
 import { Outlet, useLoaderData } from "@remix-run/react";
 const Section2 = () => {
   const loaderData = useLoaderData() as any;
-
   return (
     <section className="relative flex justify-center flex-col-reverse lg:flex-row max-h-fit w-full overflow-hidden bg-slate">
       <div className="flex flex-1 flex-col lg:min-h-full justify-between">
@@ -50,11 +49,9 @@ const Section2 = () => {
             </div>
         </div>
         </section>
-        
       </div>
       <Outlet />
     </section>
   );
 };
-
 export default Section2;

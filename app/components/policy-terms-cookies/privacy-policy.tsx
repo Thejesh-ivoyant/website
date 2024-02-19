@@ -1,28 +1,22 @@
 import Bulletimg from "../../../public/assets/BulletPoint.svg";
-
 import { useLoaderData } from "@remix-run/react";
 import { scrollToSection } from "~/root";
 import { useEffect } from "react";
-
 const PrivacyPolicy = () => {
   const loaderData = useLoaderData() as any;
-
   useEffect(() => {
     const handleScroll = () => {
       let sidebar = document.getElementById("contact-sidebar");
       let sidebarContent = document.getElementsByClassName(
         "contact-content-wrapper"
       )[0] as HTMLElement;
-
       if (!sidebar || !sidebarContent) return;
-
       let scrollTop = window.scrollY;
       let viewportHeight = window.innerHeight;
       let contentHeight = sidebarContent.getBoundingClientRect().height;
       let sidebarTop = sidebar.getBoundingClientRect().top + window.pageYOffset;
       let contactMain = document.getElementById("contact-main");
       let contactMainheight = contactMain?.getBoundingClientRect().height ?? 0;
-     
       if (
         scrollTop >= contentHeight - viewportHeight + sidebarTop &&
         scrollTop <= contactMainheight
@@ -38,15 +32,11 @@ const PrivacyPolicy = () => {
         sidebarContent.style.width = "";
       }
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-
   return (
     <>
       <div className="items-stretch flex flex-col">
@@ -63,9 +53,7 @@ const PrivacyPolicy = () => {
           </div>
         </div>
       </div>
-
       {/* scrolling here  */}
-
       <div className="gap-5 px-5 privacy-section2 w-full flex flex-row justify-center">
         <div id="contact-sidebar" className="w-[30%] contact-sidebar ">
           {/* <div className="contact-content-wrapper items-stretch flex flex-col max-md:max-w-full max-md:mt-10"> */}
@@ -254,13 +242,11 @@ const PrivacyPolicy = () => {
             </div>
           </div>
         </div>
-
         <div
           id="contact-main"
           className=" pb-16 w-1/2 flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0"
         >
           {/* main content goes here */}
-
           <div className="items-stretch flex grow flex-col max-md:max-w-full max-md:mt-10">
             <div id="Committed-to-protect" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider max-md:max-w-full">
               iVoyant is committed to protect the information you provide us

@@ -1,16 +1,10 @@
 import React from "react";
-
 import { useLoaderData } from "@remix-run/react";
-
 import JobCard from "./join-us-card";
 const JoinUsCardContainer = () => {
   const loaderData = useLoaderData() as any;
-
   return (
     <div className="w-full bg-[#1B0740]">
-      
-
-     
       <div className="w-full  flex flex-col p-4">
         <div className="join-card ">
           {loaderData.DescriptionCard.map(
@@ -28,5 +22,4 @@ const JoinUsCardContainer = () => {
     </div>
   );
 };
-
 export default JoinUsCardContainer;

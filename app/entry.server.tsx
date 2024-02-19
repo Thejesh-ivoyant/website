@@ -1,15 +1,11 @@
 import { PassThrough } from "node:stream";
-
 import type { AppLoadContext, EntryContext } from "@remix-run/node";
-
 import { RemixServer } from "@remix-run/react";
 import isbot from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
 import { etag } from "remix-etag";
 import { mergeDefaultOptions } from "./utils/ETAGOptions.types";
-
 const ABORT_DELAY = 5_000;
-
 export default function handleRequest(
   request: Request,
   responseStatusCode: number,
@@ -31,7 +27,6 @@ export default function handleRequest(
         remixContext
       );
 }
-
 function handleBotRequest(
   request: Request,
   responseStatusCode: number,
@@ -59,7 +54,6 @@ function handleBotRequest(
           resolve(
             etag({ request, response, options })
           );
-
           pipe(body);
         },
         onShellError(error: unknown) {
@@ -76,11 +70,9 @@ function handleBotRequest(
         },
       }
     );
-
     setTimeout(abort, ABORT_DELAY);
   });
 }
-
 function handleBrowserRequest(
   request: Request,
   responseStatusCode: number,
@@ -101,7 +93,6 @@ function handleBrowserRequest(
           const body = new PassThrough();
           const options = mergeDefaultOptions({ maxAge: 60 , weak: false});
           responseHeaders.set("Content-Type", "text/html");
-          
           const response = new Response(body, {
             headers: responseHeaders,
             status: responseStatusCode,
@@ -109,7 +100,6 @@ function handleBrowserRequest(
           resolve(
             etag({ request, response, options })
           );
-
           pipe(body);
         },
         onShellError(error: unknown) {
@@ -117,14 +107,12 @@ function handleBrowserRequest(
         },
         onError(error: unknown) {
           responseStatusCode = 500;
-         
           if (shellRendered) {
             console.error(error);
           }
         },
       }
     );
-
     setTimeout(abort, ABORT_DELAY);
   });
 }

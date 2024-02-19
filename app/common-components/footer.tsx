@@ -9,10 +9,8 @@ import { errorMessage, success } from "~/utils/notifications";
 import AccordionItem from "./footer-item";
 import { useState } from "react";
 import { Modal } from "antd";
-
 const Footer = () => {
   const [btnLoading, setBtnLoading] = useState<boolean>(false)
-  
   const [open, setOpen] = useState(false);
   const [download, setDownload] = useState<string>("");
   const [toggleNav, setToggleNav] = useState<boolean>(false);
@@ -28,8 +26,6 @@ const Footer = () => {
     setDownload(url);
     setOpen(true);
 };
-
-
   const handleModalSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault();
@@ -41,35 +37,25 @@ const Footer = () => {
         method: 'POST',
         body: formData,
       });
-      
-  
       if (response.ok) {
-            
       success("Thank you for showing interest in us!",2);
         handleDownload();
       } else {
         errorMessage("Form submission failed",3);        
       }
- 
     } catch (error) {
       errorMessage("Error occured, please retry",3);
     }
   };
-  
-  
-
   const handleDownload = () => {
- 
     const PitchDeskUrl = download;
     setOpen(false);
     //success mesage here
     window.open(PitchDeskUrl, '_blank');
   };
-
   const handleCancel = () => {
     setOpen(false);
   };
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       setBtnLoading(true)
@@ -81,41 +67,31 @@ const Footer = () => {
         method: 'POST',
         body: formData,
       });
-      
-  
       if (response.ok) {
-            
       success("Subscribed for NewsLetter, Thank you for showing interest in us!",2);
-      
       } else {
         errorMessage("Form submission failed",3);
       }
- 
     } catch (error) {
       errorMessage("Error occured, please retry",3);
     }
     setBtnLoading(false)
   };
-  
   const data = useRouteLoaderData("root") as any;
   const attributes = data.navGraphql?.data?.navbar?.data
     ?.attributes as Attributes;
-
   return (
     <>
       <Modal
           open={open}
           title="Download PitchDeck"
           onCancel={handleCancel}
-        
         >
         <Form className="form" onSubmit={handleModalSubmit}>
           <div className="items-stretch bg-white flex  flex-col py-2">
-
             <div className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
               Please provide required information to view the Pitch deck
             </div>
-            
             <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
               Full name
             </div>
@@ -125,7 +101,6 @@ const Footer = () => {
               name="firstName"
               required
             />
-
             <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
               Email
             </div>
@@ -135,7 +110,6 @@ const Footer = () => {
               name="email"
               required
             />
-
             <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
               Phone number
             </div>
@@ -145,7 +119,6 @@ const Footer = () => {
               name="phoneNumber"
               required
             />
-
             <button type="submit" className="mt-6 btn w-full">
               Get the Copy
             </button>
@@ -154,12 +127,8 @@ const Footer = () => {
       </Modal>
       <footer className="w-full main-footer bg-haiti xl:py-16 lg:py-6 xl:px-16 md:px-4 font-montserrat text-white h-fit ">
         <section className="flex flex-row w-full gradient-bottom p-6"></section>
-        
-        
   <section className="footer-div  w-full">
         <div className="left-box flex flex-row w-full  justify-center">
-
-
                   <div className="flex-1 flex flex-col ">
                     <span className="footer-heading">Services</span>
                     <div className="flex items-start py-3 gap-2">
@@ -174,7 +143,6 @@ const Footer = () => {
                       </div>
                     </div>
                   </div>
-
                   <div className="flex-1 flex flex-col ">
                     <span className="footer-heading">Industries</span>
                     <div className="flex items-start py-3 gap-2">
@@ -189,7 +157,6 @@ const Footer = () => {
                       </div>
                     </div>
                   </div>
-
                   <div className="flex-1 flex flex-col ">
                     <span className="footer-heading">Products</span>
                     <div className="flex items-start py-3 gap-2">
@@ -206,9 +173,6 @@ const Footer = () => {
                   </div>
         </div>
     <Form onSubmit={handleSubmit} className="right-box flex flex-row w-full  justify-center">
-    
-
-
           <div className="flex-1 flex flex-col ">
             <span className="footer-heading">Resources</span>
             <div className="flex items-start py-3 gap-2">
@@ -252,8 +216,6 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          
-
           <div className="flex-1  flex-col footer-company-item">
           <span className="footer-heading">Company</span>
             <div className="flex items-start py-3 gap-2">
@@ -266,8 +228,6 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          
-         
           <div className="flex-1 flex flex-col justify-between ">
             <div className="flex flex-col">
               <span className="footer-heading">CONNECT</span>
@@ -293,9 +253,6 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-          
-          
-          
            <div className=" tablet-hidden">
            <input
             name="email"
@@ -305,9 +262,7 @@ const Footer = () => {
               className="footer-font email-container w-full mt-auto focus:outline-none"
             />
             </div>
-          
           </div>
-
           <div className="flex flex-1 flex-col  justify-between">
             <div className="flex flex-col">
               <span className="footer-heading">MAIL US</span>
@@ -331,13 +286,8 @@ const Footer = () => {
                 Subscribe to Newsletter
             </button>
             </div>
-           
-            
           </div>
-
-      
     </Form>
-
 {/* Tablet view  */}
     <div className="footer-buttons flex-row justify-between w-full items-center pb-4 pr-2">
       <div className="flex">
@@ -362,11 +312,8 @@ const Footer = () => {
         </button>
           </div>
       </Form>
-      
     </div>      
 </section>
-       
-        
         <div className="flex flex-row gap-[6rem] justify-center w-full text-xs gradient-top font-medium text-center p-4">
           <Link to={"/privacy-policy"}>
             <div className="flex">Privacy Policy</div>
@@ -378,20 +325,17 @@ const Footer = () => {
             <div className="flex">Cookie Policy</div>
           </Link>
         </div>
-
         <div className="flex gap-3 justify-center w-full text-xs gradient-top font-medium text-center p-4">
           <span>&copy; 2023 iVoyant </span>
           <span> All Rights Reserved</span>{" "}
         </div>
       </footer>
-
       {/* phone footer */}
       <footer className="w-full mobile-footer py-6  bg-haiti font-montserrat text-white h-fit">
         <div className="grid place-items-center md:hidden">
           <Link to={'/'}>
             <img src={ivoyantLogo} alt="iVoyant Logo" />
           </Link>
-          
           <span className="flex gap-2 py-4">
             <a href=""><img src={fb} alt="facebook-meta" className=" xl:h-7 h-5 object-contain cursor-pointer"/></a>
             <a href=""><img src={mail} alt="Mail" className="xl:h-7 h-5 object-contain cursor-pointer"/></a>
@@ -418,7 +362,6 @@ const Footer = () => {
             <AccordionItem list = {attributes?.resources} onToggle={()=> handleToggle(3)} num = {3} name="resources" active = {clicked === 3} showModal={showModal} />
             <AccordionItem onToggle={()=> handleToggle(4)} num = {4} name="contact" active = {clicked === 4} showModal={showModal} />            
             <AccordionItem onToggle={()=> handleToggle(5)} num = {5} name="enquiry" active = {clicked === 5} showModal={showModal} />            
-            
           </ul>  
           <svg width="100%" height="26" viewBox="0 0 340 26" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect y="13.4492" width="0.5" height="170" transform="rotate(-90 0 13.4492)" fill="url(#paint0_linear_10756_24007)"/>
@@ -436,7 +379,6 @@ const Footer = () => {
           </svg>
           <Form onSubmit={handleSubmit}>
           <div className="flex flex-row justify-center gap-2 pb-2 pl-2 pr-2">
-        
             <input
             name="email"
             type="email"
@@ -447,7 +389,6 @@ const Footer = () => {
             <button disabled={btnLoading} type="submit" className="bg-white  h-10 w-fit px-2 font-montserrat  text-sm font-semibold text-haiti disabled:cursor-not-allowed">
                 Subscribe to Newsletter
   </button>
-  
           </div>
           </Form>
           <div className="grid capitalize text-xs font-normal gap-3 place-items-center">
@@ -463,10 +404,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-    
     </>
-    
   );
 };
-
 export default Footer;

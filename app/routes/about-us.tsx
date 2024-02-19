@@ -13,7 +13,6 @@ import Clients from "~/components/about-us/clients";
 import ContactUs from "../common-components/contactUs";
 import AboutUsStyle from '~/styles/AboutUs.css'
 import { LinksFunction } from "@remix-run/node";
-
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:AboutUsStyle}
 ];
@@ -39,10 +38,7 @@ export async function loader() {
     console.error(`Error in loader: ${error.message}`);
     throw error;
   }
-  
 }
-
-
 export default function Index() {
   const data = useLoaderData<typeof loader>();
   const aboutData = data?.aboutUsData.data?.aboutus.data.attributes 
@@ -55,12 +51,10 @@ export default function Index() {
         <MissionCard />
         <Clients clients={aboutData.clients} title={aboutData.clientsTitle} />
         <Testimonials />
-        
         <Faq faqContents={aboutData.faq} />
         <ContactUs/>
       </Await>
     </Suspense>
-      
     </>
   );
 }
