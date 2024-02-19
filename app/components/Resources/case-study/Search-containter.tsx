@@ -16,8 +16,8 @@ export const Container = ({ data, tags, categories, initLimit, initOffset }: { d
   const [btnLoading, setBtnLoading] = useState<boolean>(false)
   const [arrayData, setArrayData] = useState<any[]>([]);
   const [state, setState] = useState({ visible: false, placement: 'bottom' });
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedTag, setSelectedTag] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<string|null>(null)
+  const [selectedTag, setSelectedTag] = useState<string|null>(null)
   const [loading, setLoading] = useState(true);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;

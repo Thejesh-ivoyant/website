@@ -9,8 +9,8 @@ import CustomDrawer from "~/utils/customDrawer";
 import DropDownIcon from "../case-study/arrow";
 import { success } from "~/utils/notifications";
 const BlogCardContainer = () => {
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedTag, setSelectedTag] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<string|null>(null)
+  const [selectedTag, setSelectedTag] = useState<string|null>(null)
   useEffect(() => {
     // No need to update selected values here; already handled by state variables
   }, []); // Empty dependency array
@@ -45,8 +45,8 @@ const BlogCardContainer = () => {
     }));
   };
   const loaderData = useLoaderData() as any;
-  const [category, setCategory] = useState("");
-  const [tag, setTag] = useState("");
+  const [category, setCategory] = useState<string|null>(null)
+  const [tag, setTag] = useState<string|null>(null)
   const [searchValue, setSearchValue] = useState("");
   const [blogData, setBlogData] = useState(loaderData.blogData || []);
   const [limit, setLimit] = useState(3); // Initial limit
@@ -224,7 +224,7 @@ const BlogCardContainer = () => {
               <Select
                 placeholder="All Tags"
                 className="w-full rounded-none tags-dropdown"
-                suffixIcon={category == null ? <DropDownIcon /> : null}
+                suffixIcon={tag == null ? <DropDownIcon /> : null}
                 onChange={(value) => setTag(value)}
                 allowClear
                 value={tag}
