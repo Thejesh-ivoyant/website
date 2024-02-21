@@ -1,5 +1,4 @@
 import IBlogMedia from "~/interfaces/IBlogMedia";
-
 const WhitePaperPostCard = ({ blog }: { blog: IBlogMedia }) => {
   return (
     <div className="blog-card w-96 h-96 z-10 pb-2 cursor-pointer">
@@ -47,4 +46,3 @@ const WhitePaperPostCard = ({ blog }: { blog: IBlogMedia }) => {
   );
 };
 export default WhitePaperPostCard;
-

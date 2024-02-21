@@ -7,7 +7,6 @@
       return result;
     };
   }
-  
   // Example usage:
   // const query = `
   //   query {
@@ -23,9 +22,5 @@
   //     }
   //   }
   // `;
-  
   // const dynamicQuery = generateDynamicQuery(query, ['limit', 'sort']);
   // const interpolatedQuery = dynamicQuery(5, 'createdAt:asc');
-  
-
-  

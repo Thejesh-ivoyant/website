@@ -12,7 +12,6 @@ const Services = ({attributes}:{attributes:Attributes}) => {
   const [description, setDescription] = useState<string>("");
   const [link, setLink] = useState("#");
   const serviceDescription = servicesData?.homePage?.homepage?.data?.attributes?.serviceDescription;
-
   useEffect(() => {
     if (servicesArray.length > 0) {
       const defaultService = servicesArray[0];
@@ -22,12 +21,10 @@ const Services = ({attributes}:{attributes:Attributes}) => {
       setLink(defaultService.link);
     }
   }, [servicesArray]);
-
   const handleServiceClick = (serviceTitle: string) => {
     const selectedService = servicesArray.find(
       (service: any) => service.title === serviceTitle
     );
-
     if (selectedService) {
       setCurrentService(serviceTitle);
       setServiceImage(selectedService.bgImage.data.attributes.url);
@@ -35,20 +32,16 @@ const Services = ({attributes}:{attributes:Attributes}) => {
       setLink(selectedService.link);
     }
   };
-
   return (
     <div className="flex flex-col w-full min-h-full lg:mx-0 lg:h-fit bg-haiti">
-      
       <div className=" md:text-4xl sm:text-3xl text-xl w-full justify-center flex md:py-8 py-4 h-fit gradient-bottom">
         <span className="h-fit font-montserrat font-bold service-heading">
          {attributes.servicesTitle}
         </span>
       </div>
-
       <div className="text-center text-violet-200 sm:text-sm text-xs md:text-base font-normal font-poppins p-4 lg:mx-40">
         {attributes.serviceDescription}
       </div>
-
       <div className="w-full grid-cols-2 grid md:hidden sm:gap-4 gap-2 p-4">
       {servicesArray.map((service: any, index:number) => (
           <Link to={service?.link} key={index} className="relative aspect-[10/7] w-full grid col-span-1 bg-black">
@@ -82,7 +75,6 @@ const Services = ({attributes}:{attributes:Attributes}) => {
             </div>
           ))}
         </div>
-        
 <div className="flex items-center">
         <figure className="flex object-contain  lg:max-w-[52rem] xl:w-[63rem] relative service-img">
           
@@ -112,10 +104,8 @@ const Services = ({attributes}:{attributes:Attributes}) => {
           </div>
         </figure>
 </div>
-
       </div>
     </div>
   );
 };
-
 export default Services;

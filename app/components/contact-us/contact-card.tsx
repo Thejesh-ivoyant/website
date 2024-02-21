@@ -1,5 +1,4 @@
 import avatar from '~/../public/assets/contactavatar.jpg'
-
 const ContactCard = () => {
     return (
     <div className="flex lg:flex-row flex-col gap-9 items-center justify-center xl:py-16 xl:px-10 lg:px-6 lg:py-12 py-8 px-5">
@@ -52,5 +51,4 @@ const ContactCard = () => {
     </div>
       );
 };
-
 export default ContactCard;

@@ -12,17 +12,14 @@ import { generateDynamicQuery } from "~/utils/parameterized-gql";
 import { Features } from "~/components/Resources/case-study/slug/key-features";
 import CaseStyle from '~/styles/CaseStudySlug.css'
 import Consultation from "~/components/Homepage/consultation";
-
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:CaseStyle}
 ];
-
 export async function loader({ params }: LoaderFunctionArgs) {
   const dynamicQuery = generateDynamicQuery(case_study_query, [
     "id",
   ]);
   const interpolatedQuery = dynamicQuery(params.slug);
-
   const [data] = await Promise.all([
     await fetchGraphQL(interpolatedQuery),
   ]);
@@ -40,12 +37,9 @@ export async function loader({ params }: LoaderFunctionArgs) {
         content: data?.heroDescription as string,
       }];
   };
-  
 const sample = () => {
   const data = useLoaderData() as any;
-  
   const attributes = data?.data.data?.caseStudies?.data[0].attributes;
-  
   return (
     <>
         <Hero data={attributes} />
@@ -59,5 +53,4 @@ const sample = () => {
     </>
   );
 };
-
 export default sample;

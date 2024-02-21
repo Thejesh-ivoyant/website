@@ -1,4 +1,3 @@
-
 interface ICaseStudy {
     id: number;
     titpe: string;
@@ -49,6 +48,4 @@ interface ICaseStudy {
       };
     };
   }
-  
   export default ICaseStudy;
-  

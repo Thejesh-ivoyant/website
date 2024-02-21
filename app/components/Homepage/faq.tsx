@@ -2,12 +2,9 @@ import { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
 const Faq = () => {
   const SECTION12_API_URL = `${strapiUrl}/api/section12s?populate=%2A`
-
-
   const [faqList, setFaqList] = useState<{ [key: string]: string } | undefined>();
   const [selectedFaq, setSelectedFaq] = useState<string | null>(null);
   const [faqAddState, setFaqAddState] = useState<{ [key: string]: boolean }>({});
-
   useEffect(() => {
     fetch(SECTION12_API_URL)
       .then((response) => response.json())
@@ -19,7 +16,6 @@ const Faq = () => {
         console.error("Error fetching data from API:", error);
       });
   }, []);
-
   const handleFaqClick = (faq: string) => {
     setFaqAddState((prevState) => ({
       ...prevState,
@@ -27,13 +23,11 @@ const Faq = () => {
     }));
     setSelectedFaq(selectedFaq === faq ? null : faq);
   };
-
   return (
     <div className="technology-section py-16">
       <section className="heading">
         <h2>FAQ</h2>
       </section>
-
       <section className="px-4 py-8 gradient-top">
         <div className="flex flex-col space-y-4 py-4 relative">
                   <img src="../assets/Ornament.png" className="absolute top-4 left-4" alt="icons" />
@@ -52,13 +46,11 @@ const Faq = () => {
                     </div>
                     <div className="flex w-1/2 justify-end" onClick={() => handleFaqClick(faq)}>
                       <div className="ellipse-container">
-
                         <img
                           src="../assets/Ellipse.svg"
                           alt="Ellipse"
                           className="ellipse-image"
                         />
-
                        {((selectedFaq === faq) && (faqAddState[faq]!=null))  ?  (
                             <img
                             src="../assets/Minus.svg"
@@ -72,12 +64,9 @@ const Faq = () => {
                             className="add-image"
                           />
                         )}
-
-
                       </div>
                     </div>
                   </div>
-              
                     {selectedFaq === faq && (
                       <div className="flex w-full faq-description">
                         <div>{faqList[faq]}</div>
@@ -91,5 +80,4 @@ const Faq = () => {
     </div>
   );
 };
-
 export default Faq;

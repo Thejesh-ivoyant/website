@@ -1,5 +1,4 @@
 import ReactMarkdown from "react-markdown";
-
 const Section2 = ({data}:{data:any}) => {
   let markdownString = "";
   markdownString = data?.section_2_description;
@@ -24,9 +23,7 @@ const Section2 = ({data}:{data:any}) => {
       <div className="flex flex-1 flex-col  bg-black md:min-h-full md:m-0 m-3" style={gradientStyle}>
         <div className="md:hidden h-80 aspect-[10/13] object-cover object-right"></div>
       </div>
-
     </section>
   );
 };
-
 export default Section2;

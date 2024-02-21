@@ -1,5 +1,4 @@
 const ServiceCard = ({ service }: { service: any }) => {
-    
     return (
         <div className="common-card-box blog-card overflow-hidden">
             <div className="content">
@@ -13,7 +12,6 @@ const ServiceCard = ({ service }: { service: any }) => {
                 <p className="card-desc">{service.s6_serviceCardDescription}</p>
             </div>
             </div>
-            
         </div>
     );
 };

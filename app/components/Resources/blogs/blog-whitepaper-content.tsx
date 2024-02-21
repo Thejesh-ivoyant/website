@@ -3,16 +3,8 @@ import { Modal } from "antd";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
-import {
-  blogCategoryQuery,
-  blogQuery,
-  categories,
-  tagsQuery,
-  whitepaperQuery,
-} from "~/graphql/queries";
-import { Daum } from "~/interfaces/CategoriesType";
+import { blogQuery, whitepaperQuery } from "~/graphql/queries";
 import { errorMessage, success } from "~/utils/notifications";
-
 const Blog_WhitepaperContent = () => {
   const [tagsData, setTagsData] = useState([]);
   const location = useLocation();
@@ -22,13 +14,6 @@ const Blog_WhitepaperContent = () => {
   const [blogCategoryData, setBlogCategoryData] = useState([]);
   const [blogData1, setBlogData] = useState([]);
   const [whitePaperData1, setWhitePaperData] = useState([]);
-
-
- 
-
-
-
-
   useEffect(() => {
     const fetchData = async () => {
       if (blogData) {
@@ -92,23 +77,18 @@ const Blog_WhitepaperContent = () => {
         }
       }
     };
-
     fetchData();
   }, [blogData, whitePaperData]);
-
   // Check the route type and use the corresponding data
   const LatestData = isBlogRoute ? blogData1 : whitePaperData1;
   const loaderData = useLoaderData() as any;
   const match = useMatch("/resources/whitepaper/:id");
   const isResourcesRoute = match !== null;
-
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault();
       const formData = new FormData(event.currentTarget);
       formData.append("action", "whitepaper");
-    
       const response = await fetch(
         "https://forms.hubspot.com/uploads/form/v2/39872873/c4e42171-a7d2-4ce1-b0dc-c7adeba7c46d",
         {
@@ -116,10 +96,8 @@ const Blog_WhitepaperContent = () => {
           body: formData,
         }
       );
-
       if (response.ok) {
         success("Thank you for showing interest in us!", 2);
-
         handleDownload();
       } else {
         errorMessage("Error occured, please retry", 2);
@@ -128,37 +106,28 @@ const Blog_WhitepaperContent = () => {
       console.error("An error occurred during form submission:", error);
     }
   };
-
   const handleDownload = () => {
     const whitepaperURL = loaderData.whitepaper;
     setOpen(false);
     window.open(whitepaperURL, "_blank");
   };
   const [open, setOpen] = useState(false);
-
   const showModal = () => {
     setOpen(true);
   };
   const handleCancel = () => {
     setOpen(false);
   };
-
   function findcount(name: string): number {
-   
-  
     const count = loaderData.BlogCategory.filter(
       (category:any) => category.category.name === name
     ).length;
-  
     return count;
   }
-
   return (
     <div className="blog-whitepaper-content-section justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 max-md:px-5">
       <div className="blog-content-container flex ml-0 justify-between  max-md:max-w-full max-md:flex-wrap max-md:justify-center">
         <div className="left-content-blog markdown-container items-stretch flex  flex-col ">
-       
-       
         <div className=" author-links flex flex-row items-start justify-start gap-4 ">
             {loaderData.authorData?.map((item: any, index: any) => (  
        <a href={item.link} className="text-black h-fit text-base leading-5 "  target="_blank" rel="noopener noreferrer">
@@ -171,12 +140,9 @@ const Blog_WhitepaperContent = () => {
          </a>
             ))}
             </div>
-
-
           <div className="text-black text-3xl font-semibold max-md:max-w-full blog-para-title">
             {loaderData.title}
           </div>
-    
           <div className="text-black  leading-5 mt-4 max-md:max-w-full">
           <ReactMarkdown>{loaderData.description1}</ReactMarkdown>
           </div>
@@ -204,7 +170,6 @@ const Blog_WhitepaperContent = () => {
                 className="aspect-[2.33]  object-center w-full overflow-hidden mt-4 max-md:max-w-full"
               />
               )}
-
               <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
               <ReactMarkdown>{loaderData.description3}</ReactMarkdown>
               </div>
@@ -244,7 +209,6 @@ const Blog_WhitepaperContent = () => {
          </a>
             ))}
             </div>
-           
           </div>
           <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 pl-4 pr-4 pt-11 pb-5 ">
             <div className="text-black text-2xl font-medium leading-9">
@@ -262,7 +226,6 @@ const Blog_WhitepaperContent = () => {
                     className="object-contain object-center w-[83px] aspect-[0.93] overflow-hidden"
                   />
                 </div>
-
                 <div className="self-center flex grow basis-[0%] flex-col items-stretch my-auto">
                   <div className="text-black text-base font-medium leading-6 line-clamp-2 overflow-hidden">
                     {item.title}
@@ -282,14 +245,11 @@ const Blog_WhitepaperContent = () => {
               </div>
             ))}
           </div>
-
           {!isResourcesRoute ? (
-           
              <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 pl-7 pr-9 py-10 max-md:px-5">
               <div className="text-black text-2xl font-medium whitespace-nowrap">
                 Categories
               </div>
-            
             <div className="bg-zinc-300 flex shrink-0 h-px flex-col mt-6" />
             {loaderData.categoriesList.map((item: any, index: any) => (  
             <div className="flex items-stretch justify-between gap-5 mt-16 pr-3 max-md:mt-10">
@@ -297,22 +257,15 @@ const Blog_WhitepaperContent = () => {
                   <div className="text-neutral-800 text-base font-medium whitespace-nowrap">
                  {item.label}
                   </div>
-                 
                 </div>
                 <div className="flex basis-[0%] flex-col items-stretch self-start max-md:hidden">
                   <div className="text-neutral-800 text-base font-medium whitespace-nowrap">
                    ({findcount(item.label)})
                   </div>
-                  
                 </div>
-                
               </div>
                 ))}
-            
-              
-              
             </div>
-        
           ) : (
             <div></div>
           )}
@@ -348,7 +301,6 @@ const Blog_WhitepaperContent = () => {
             <div className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
               Please provide required information to view the Whitepaper
             </div>
-
             <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
               Full name
             </div>
@@ -358,7 +310,6 @@ const Blog_WhitepaperContent = () => {
               name="firstName"
               required
             />
-
             <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
               Email
             </div>
@@ -368,7 +319,6 @@ const Blog_WhitepaperContent = () => {
               name="email"
               required
             />
-
             <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
               Phone number
             </div>
@@ -378,7 +328,6 @@ const Blog_WhitepaperContent = () => {
               name="phoneNumber"
               required
             />
-
             <button type="submit" className="mt-4 btn w-full">
               Get the Copy
             </button>

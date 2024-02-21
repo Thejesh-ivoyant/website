@@ -1,8 +1,6 @@
 import SummaryCard from '../Homepage/summary-card';
 import { useLoaderData } from '@remix-run/react';
 import { loader } from '~/routes/about-us';
-
-
 const AboutCard = () => {
   const loaderData = useLoaderData<typeof loader>()
   const data =  loaderData?.aboutUsData.data?.aboutus.data.attributes
@@ -14,9 +12,7 @@ const AboutCard = () => {
         </p>
       </div>
         <SummaryCard attributes={data} />
-      
     </div>
   );
 };
-
 export default AboutCard;

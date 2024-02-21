@@ -7,11 +7,9 @@ import LoadingTest from "~/common-components/loading-test";
 import { Suspense } from "react";
 import CompanyStyle from '~/styles/company.css'
 import { LinksFunction } from "@remix-run/node";
-
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:CompanyStyle}
 ];
-
 export const meta: MetaFunction = ({data}: { data: any }) => {
   return [
     { title: `Ivoyant | ${data.heroTitle}` },
@@ -25,22 +23,16 @@ export const meta: MetaFunction = ({data}: { data: any }) => {
     },
   ];
 };
-
-
 export async function loader() {
  const url = strapiUrl +`/api/terms?populate=%2A`;
   try {
     const res = await fetch(url);
     let jsonParsed = await res.json();
     const componentRes = jsonParsed.data[0]?.attributes;
-  
- 
      const confidentialityPoints = componentRes.confidentialityPoints?.map((item: any) => ({
        id: item.id,
        description: item.description,
      }));
- 
-       
   const {
     heroTitle,
    heroDescription,
@@ -53,10 +45,7 @@ export async function loader() {
    relationships,
    warranty,
    limitation,
-  
- 
    } = jsonParsed.data[0]?.attributes;
- 
    return defer({
     heroImage:jsonParsed.data[0]?.attributes.heroImage.data?.attributes.url,
     heroTitle,
@@ -71,36 +60,25 @@ export async function loader() {
     warranty,
     limitation,
     confidentialityPoints:confidentialityPoints,
-   
    });
-       
-  
 }
 catch (error:any) {
-
   console.error(`Error fetching data hggfrom ${url}: ${error.message}`);
 }
-
 }
-
 const Index = () => {
   const data= useLoaderData() as any;
- 
   return (
     <>
     <Suspense fallback={<LoadingTest />}>
        <Await resolve={data.heroImage}>
-  
           <PTCHero/>
         <Terms/>
         <Consultation/>
           <Outlet />
-        
       </Await>
       </Suspense>
-
       </>
   );
 };
-
 export default Index;

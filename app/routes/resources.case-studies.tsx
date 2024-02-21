@@ -10,7 +10,6 @@ import { Container } from "~/components/Resources/case-study/Search-containter";
 import { Daum } from "~/interfaces/CategoriesType";
 import Consultation from "~/components/Homepage/consultation";
 import ResourcesStyle from '~/styles/resources.css'
-
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:ResourcesStyle}
 ];
@@ -25,7 +24,6 @@ export async function loader() {
     "category"
   ]);
   const interpolatedQuery = dynamicQuery(offset, limit, "createdAt:asc",'','');
-
   const [data, lists, tagslist, categoryList] = await Promise.all([
     await fetchGraphQL(case_study_home),
     await fetchGraphQL(interpolatedQuery),
@@ -34,7 +32,6 @@ export async function loader() {
   ]);
   const tagsData = tagslist?.data?.topicTags?.data as Daum[]
   const categoryListData = categoryList?.data?.categories.data as Daum[]
-
   const tags = tagsData?.map((daum) => ({
     value: daum.attributes.name,
     label: daum.attributes.name,
@@ -43,7 +40,6 @@ export async function loader() {
     value: daum.attributes.name,
     label: daum.attributes.name,
   }));
-
   return defer({
     data,
     lists,
@@ -66,7 +62,6 @@ export const meta: MetaFunction<typeof loader> = ({
 const Index = () => {
   const { data, lists, tags, categoriesList } = useLoaderData<typeof loader>();
   const attributes = data?.data?.caseStudyHome?.data?.attributes;
-
   return (
     <Suspense fallback={<LoadingTest />}>
       <Await resolve={lists}>
@@ -85,5 +80,4 @@ const Index = () => {
     </Suspense>
   );
 };
-
 export default Index;

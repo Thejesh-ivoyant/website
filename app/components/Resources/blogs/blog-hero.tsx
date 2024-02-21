@@ -1,5 +1,4 @@
 import { useLoaderData } from "@remix-run/react";
-
 const BlogHero = () => {
   const loaderData = useLoaderData() as any;
   const gradientStyle = {
@@ -29,5 +28,4 @@ const BlogHero = () => {
     </section>
   );
 };
-
 export default BlogHero;

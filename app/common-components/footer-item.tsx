@@ -1,5 +1,4 @@
-import { Link, Links } from "@remix-run/react";
-import { Attributes } from "~/interfaces/NavType";
+import { Link } from "@remix-run/react";
 import { Resource } from "~/interfaces/NavType";
 export const AccordionItem = ({
   name,
@@ -72,9 +71,6 @@ export const AccordionItem = ({
             )
           )
         ))}
-
-
-
             {name === "contact" && !list && (
               <>
                 <div className="flex flex-col gap-2 mx-2">
@@ -100,7 +96,6 @@ export const AccordionItem = ({
               </div>
               </>
             )}
-
             {name === "enquiry" && !list && (
               <>
                 <div className="flex flex-col gap-2 mx-2">

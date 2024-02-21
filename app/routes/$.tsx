@@ -1,6 +1,5 @@
 import { useOutletContext } from "@remix-run/react";
 import ErrorBoundaryPage from "~/common-components/errorpage";
-
 export default function Index({}) {
     const outletCon = useOutletContext()
     const mycon = JSON.stringify(outletCon)

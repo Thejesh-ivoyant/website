@@ -31,5 +31,4 @@ const Hero = ({carousel}:{carousel: any})=>{
         </>
     );
 }
-
 export default Hero;

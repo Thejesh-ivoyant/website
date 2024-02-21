@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-
+import { useEffect } from "react";
 const ClarityScript = () => {
   useEffect(() => {
     (function(c, l, a, r, i, t, y){
@@ -10,8 +9,6 @@ const ClarityScript = () => {
       y.parentNode.insertBefore(t, y);
     })(window, document, "clarity", "script", "kq7x3nyolo");
   }, []);
-
   return null;
 };
-
 export default ClarityScript;

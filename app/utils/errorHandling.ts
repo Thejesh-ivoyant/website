@@ -4,7 +4,6 @@ class APIResponseError extends Error {
         super(`API Error Response: ${response.status} ${response.statusText}`);
     }
 }
-
 export const checkStatus = (response: Response): Response => {
     if (response.ok) {
         // response.status >= 200 && response.status < 300
@@ -13,19 +12,16 @@ export const checkStatus = (response: Response): Response => {
         throw new APIResponseError(response);
     }
 }
-
 class MissingEnvironmentVariable extends Error {
     constructor(name: string) {
         super(`Missing Environment Variable: The ${name} environment variable must be defined`);
     }
 }
-
 export const checkEnvVars = (): void => {
     const envVars: string[] = [
         'STRAPI_URL_BASE',
         'STRAPI_API_TOKEN'
     ];
-
     for (const envVar of envVars) {
         if (!process.env[envVar]) {
             throw new MissingEnvironmentVariable(envVar);

@@ -1,8 +1,6 @@
 import { useLoaderData } from "@remix-run/react";
-
 const Section7 = () => {
   const loaderData = useLoaderData() as any;
-
   return (
     <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-2 lg:px-5 py-10 gap-8">
       <h1 className="section-title " style={{ color: "var(--HeadingGray, #E9E9EC)" }}>
@@ -55,7 +53,6 @@ const Section7 = () => {
           </linearGradient>
         </defs>
       </svg>
-
       <p className="text-center md:w-2/3  leading-6 text-sm tracking-wider font-poppins pairs-desc-font-clamp">
         {loaderData.section7Desc}
       </p>
@@ -70,7 +67,6 @@ const Section7 = () => {
         alt={pair.name}
         className="hidden mb-2 p-2 aspect-square absolute top-0 left-0 transition-opacity group-hover:block"
       />
-      
       <img
         src={pair.picUrl}
         alt={pair.name}
@@ -85,9 +81,7 @@ const Section7 = () => {
     </div>
   ))}
 </div>
-
     </section>
   );
 };
-
 export default Section7;
