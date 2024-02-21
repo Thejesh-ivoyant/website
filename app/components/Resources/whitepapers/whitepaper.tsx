@@ -1,14 +1,10 @@
 import { List, Skeleton } from 'antd';
-import React from 'react';
 import IWhitePaper from "~/interfaces/IWhitePaper";
-
 const WhitePaperCard = ({ paper, isLoading }: { paper: IWhitePaper, isLoading: boolean }) => {
   if (isLoading) {
     return (
       <div className="flex flex-col  h-[24.375rem] whitepaper-card-skeleton max-w-[24rem]">
-       
        <List
-      
       itemLayout="vertical"
       size="large"
       dataSource={[1, 2]} // Dummy data for skeleton
@@ -19,10 +15,8 @@ const WhitePaperCard = ({ paper, isLoading }: { paper: IWhitePaper, isLoading: b
       )}
     />
       </div>
-      
     );
   }
-
   return (
     <div className="whitepaper-card-box  blog-card">
       <img src={paper?.bannerImage.url} alt="Image description"/>
@@ -49,5 +43,4 @@ const WhitePaperCard = ({ paper, isLoading }: { paper: IWhitePaper, isLoading: b
     </div>
   );
 };
-
 export default WhitePaperCard;

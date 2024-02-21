@@ -1,20 +1,16 @@
 import { Link } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
-
 const API_URL = `${strapiUrl}/api/section7s?populate=%2A`;
-
 const Consultation = () => {
   const [tagline, setTagline] = useState("");
   const [bgImageUrl, setImageUrl] = useState("");
-
   useEffect(() => {
     fetch(API_URL)
       .then((response) => response.json())
       .then(({ data }) => {
         const { ContactUsDescription, section7bg } = data[0].attributes;
         setTagline(ContactUsDescription);
-
         setImageUrl(section7bg.data[0].attributes.url);
       })
       .catch((error) => {
@@ -40,5 +36,4 @@ const Consultation = () => {
     </div>
   );
 };
-
 export default Consultation;

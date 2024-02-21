@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { strapiUrl } from "~/utils/urls";
-
 interface LogoData {
   id: number;
   attributes: {
@@ -9,7 +8,6 @@ interface LogoData {
     // Add any other attributes if present in the actual API response
   };
 }
-
 interface SectionData {
   data: {
     id: number;
@@ -21,13 +19,10 @@ interface SectionData {
     };
   }[];
 }
-
 const Technology = () => {
   const SECTION8_API_URL = `${strapiUrl}/api/section8s?populate=%2A`;
-
   const [TechnologyExpertiseLogos, setTechnologyExpertiseLogos] = useState<LogoData[]>([]);
   const [columnCount, setColumnCount] = useState<number>(5); // Default column count
-
   useEffect(() => {
     // Fetch data from the API endpoint
     fetch(SECTION8_API_URL)
@@ -40,7 +35,6 @@ const Technology = () => {
         console.error("Error fetching data from API:", error);
       });
   }, []);
-
   useEffect(() => {
     function handleResize() {
       if (window.matchMedia("(max-width: 576px)").matches) {
@@ -51,25 +45,20 @@ const Technology = () => {
         setColumnCount(5);
       }
     }
-
     // Initial call to set column count based on window size
     handleResize();
-
     // Attach event listener for window resize
     window.addEventListener("resize", handleResize);
-
     // Cleanup function to remove event listener on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []); // Empty dependency array ensures that this effect runs only once on component mount
-
   return (
     <div className="technology-section py-16">
       <section className="section-title">
         <h2>Technology Expertise</h2>
       </section>
-
       <section className="px-4 py-2">
         <div className="flex flex-col space-y-4 gradient-bottom">
           {Array.from({ length: Math.ceil(TechnologyExpertiseLogos.length / columnCount) }).map((_, row) => (
@@ -91,5 +80,4 @@ const Technology = () => {
     </div>
   );
 };
-
 export default Technology;

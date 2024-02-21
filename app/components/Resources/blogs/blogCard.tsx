@@ -5,17 +5,12 @@ const BlogCard = ({ blog,blogData }: { blog: IBlogMedia, blogData:any }) => {
     function trimWords(text:string) {
       return text.split(' ').slice(0, 30).join(' ') + (text.split(' ').length > 30 ? ' .....' : '');
     }
-
-
-
     return(
         <form className=" bg-[#ffffff] ">
         <div className="landing-resource-card  gap-1 w-full ">
-
           <div className="landing-resource-card-left  flex flex-col items-center   ">
             <header className="justify-between items-stretch shadow-sm flex grow flex-col w-full  max-md:max-w-full">
           <img className="h-full"
-             
                 src={blog?.bannerImage.url}   alt="AI Protection"
               />
             </header>
@@ -59,13 +54,8 @@ const BlogCard = ({ blog,blogData }: { blog: IBlogMedia, blogData:any }) => {
                     <button className="read-more-btn"><p>Read Full Story</p></button>
               </Link>
                 </div>
-
               </div>
-              
-             
-        
           </div>
-
         </div>
       </form>
     );

@@ -7,11 +7,9 @@ import LoadingTest from "~/common-components/loading-test";
 import { Suspense } from "react";
 import CompanyStyle from '~/styles/company.css'
 import { LinksFunction } from "@remix-run/node";
-
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:CompanyStyle}
 ];
-
 export const meta: MetaFunction = ({data}: { data: any }) => {
   return [
     { title: `Ivoyant | ${data.heroTitle}` },
@@ -25,27 +23,21 @@ export const meta: MetaFunction = ({data}: { data: any }) => {
     },
   ];
 };
-
-
 export async function loader() {
  const url = strapiUrl +`/api/privacy-policies?populate=%2A`;
   try {
     const res = await fetch(url);
     let jsonParsed = await res.json();
     const componentRes = jsonParsed.data[0]?.attributes;
-  
- 
      const CTP_Points = componentRes.CTP_Points?.map((item: any) => ({
        id: item.id,
        description: item.description,
      }));
- 
      const CTP_List = componentRes.CTP_List?.map((item: any) => ({
        id: item.id,
        name: item.name,
        description: item.description,
      }));
- 
      const collection_of_info = componentRes.collection_of_info?.map((item: any) => ({
        id: item.id,
        name: item.name,
@@ -56,10 +48,7 @@ export async function loader() {
        name: item.name,
        description: item.description,
      }));
- 
-       
   const {
-   
    heroTitle,
    heroDescription,
    last_reviewed,
@@ -77,9 +66,7 @@ export async function loader() {
    contact_us,
    rights,
    changes_to_privacy,
- 
    } = jsonParsed.data[0]?.attributes;
- 
    return defer({
     heroImage: jsonParsed.data[0]?.attributes.heroImage.data?.attributes.url,
      collection_of_info: collection_of_info,
@@ -104,33 +91,24 @@ export async function loader() {
      rights,
      changes_to_privacy,
    });
-       
-  
 }
 catch (error:any) {
-
   console.error(`Error fetching data hggfrom ${url}: ${error.message}`);
 }
-
 }
-
 const Index = () => {
   const data = useLoaderData<typeof loader>() as any; 
   return (
     <>
     <Suspense fallback={<LoadingTest />}>
        <Await resolve={data.heroImage}>
-  
           <PTCHero/>
         <PrivacyPolicy/>
         <Consultation/>
           <Outlet />
-        
       </Await>
       </Suspense>
-
       </>
   );
 };
-
 export default Index;

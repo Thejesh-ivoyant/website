@@ -1,10 +1,8 @@
 import { useLoaderData } from "@remix-run/react";
-
 const Pairs = () => {
   const data = useLoaderData() as any;
   const attributes = data?.productsResponse?.data?.product?.data?.attributes;
   const pairsData = attributes?.pairs || [];
-
   return (
     <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-2 lg:px-5 py-10 gap-8">
       <h1 className="text-HeaderGray font-montserrat text-3xl md:text-4xl font-semibold">
@@ -71,7 +69,6 @@ const Pairs = () => {
         alt={pair.text}
         className="hidden mb-2 p-2 aspect-square absolute top-0 left-0 transition-opacity group-hover:block"
       />
-      
       <img
         src={pair.pic.data.attributes.url}
         alt={pair.text}
@@ -86,9 +83,7 @@ const Pairs = () => {
     </div>
   ))}
 </div>
-
     </section>
   );
 };
-
 export default Pairs;

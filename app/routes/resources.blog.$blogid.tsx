@@ -9,7 +9,6 @@ import { Suspense } from "react";
 import Blog_WhitepaperContent from "~/components/Resources/blogs/blog-whitepaper-content";
 import Consultation from "~/components/Homepage/consultation";
 import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
-
 export const meta: MetaFunction = () => {
   return [
     { title: "Ivoyant | Mobile App Development" },
@@ -23,18 +22,13 @@ export const meta: MetaFunction = () => {
     },
   ];
 };
-
-
 export async function loader({   params, }: LoaderFunctionArgs){
 const blogid=`${params.blogid}`;
   const updatedAuthorGetIdQuery= getBlogAuthorIDQuery(blogid)
-
   const authorIdData=await fetchGraphQL(updatedAuthorGetIdQuery);
   const authorId=authorIdData.data?.blog.data?.attributes.author.data?.id;
-
   const updatedQuery = getAuthorQuery(authorId);
   const authorData =  await fetchGraphQL(updatedQuery);
-
   const url= strapiUrl+`/api/blogs/${params.blogid}?populate=%2A`;
   const blogCategoryGql = await fetchGraphQL(blogCategoryQuery);
   const blog = blogCategoryGql.data?.blogs.data || [];
@@ -44,15 +38,12 @@ const blogid=`${params.blogid}`;
       name: item.attributes.category.data?.attributes.name,
     },
   }));
-
   const authordataMain = authorData.data?.author.data?.attributes || {};
 const socialMediaLinks = authordataMain.socialMediaLinks || [];
-
 const authordatamapped = socialMediaLinks.map((linkItem: any) => ({
   link: linkItem.link,
   logo: linkItem.logo.data.attributes.url,
 }));
-
   const [tagslist, categoryList] = await Promise.all([
     await fetchGraphQL(tagsQuery),
     await fetchGraphQL(categories)
@@ -75,10 +66,8 @@ const authordatamapped = socialMediaLinks.map((linkItem: any) => ({
     topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
     category: {
      name:item.attributes.category.data?.attributes.name
-    
     }
   }));
-
   const tags = tagsData.map((item:any) => ({
     value: item.attributes.name,
     label: item.attributes.name,
@@ -87,12 +76,9 @@ const authordatamapped = socialMediaLinks.map((linkItem: any) => ({
     value: item.attributes.name,
     label: item.attributes.name,
   }));
-
   try {
     const res = await fetch(url);
            let jsonParsed = await res.json();
-   
-    
  const {
   title,
   maxReadTime,
@@ -101,8 +87,6 @@ const authordatamapped = socialMediaLinks.map((linkItem: any) => ({
   description2,
   description3,
   } = jsonParsed.data?.attributes;
-
-
   return defer({
         authorData:authordatamapped,
         avatar:authorData.data?.author.data?.attributes.avatar.data?.attributes?.url,
@@ -123,24 +107,18 @@ const authordatamapped = socialMediaLinks.map((linkItem: any) => ({
         BlogCategory,
         blogData: blogData,
   });
- 
 }
 catch (error:any) {
   console.error(`Error fetching data from ${url}: ${error.message}`);
   return null;
   }
 }
-
-
 const Index = () => {
   const data = useLoaderData<typeof loader>() as any;
-
-
   return (
     <>
    <Suspense fallback={<LoadingTest />}>
       <Await resolve={data.bannerImage}>
- 
             <div className="mt-16">
           <BlogHero/>
             </div>
@@ -150,9 +128,7 @@ const Index = () => {
           <Outlet />
       </Await>
       </Suspense>
-
       </>
   );
 };
-
 export default Index;

@@ -1,16 +1,12 @@
 import { useLoaderData } from "@remix-run/react";
 import { Pair } from "~/interfaces/Homepage";
-
 const WhyChooseUs = ({pairs, title, description}:{pairs:Pair[],title:string, description:string}) => {
   const loaderData = useLoaderData() as any;
-
   return (
   <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-2 lg:px-5 py-10 lg:gap-8 md:gap-6 gap-4">
-    
     <h1 className="text-HeaderGray font-montserrat text-3xl md:text-4xl font-semibold">
     {title}
     </h1>
-   
     <svg
       width="100%"
       height="25"
@@ -58,7 +54,6 @@ const WhyChooseUs = ({pairs, title, description}:{pairs:Pair[],title:string, des
         </linearGradient>
       </defs>
     </svg>
-
     <p className="md:text-center md:w-2/3  leading-6 text-sm tracking-wider font-poppins">
  {description}
     </p>
@@ -73,7 +68,6 @@ const WhyChooseUs = ({pairs, title, description}:{pairs:Pair[],title:string, des
          alt={pair.text}
       className="hidden mb-2 p-2 aspect-square absolute top-0 left-0 transition-opacity group-hover:block"
     />
-    
     <img
       src={pair.pic.data.attributes.url}
       alt={pair.text}
@@ -88,12 +82,7 @@ const WhyChooseUs = ({pairs, title, description}:{pairs:Pair[],title:string, des
   </div>
 ))}
 </div>
-
   </section>
   );
 };
-
 export default WhyChooseUs;
-
-
-

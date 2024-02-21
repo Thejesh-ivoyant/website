@@ -1,5 +1,4 @@
 const { ProvidePlugin } = require('webpack');
-
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
   ignoredRouteFiles: ["**/.*"],
@@ -19,13 +18,11 @@ module.exports = {
       },
     },
   },
-  
   chainWebpack(config) {
     config.plugin('provide-mui-icons', ProvidePlugin, [
       ['@mui/material', 'icons', '@mui/icons-material'],
     ]);
   },
-  
   future: {
     // ... other future flags
     v2_dev: true,

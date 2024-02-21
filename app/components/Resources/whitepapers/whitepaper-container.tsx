@@ -1,6 +1,4 @@
-
 import { Link, useLoaderData } from "@remix-run/react";
-
 import WhitePaperCard from "./whitepaper";
 import IWhitePaper from "~/interfaces/IWhitePaper";
 import { useState } from "react";
@@ -12,12 +10,10 @@ const WhitePaperCardContainer = () => {
   const [whitePaperData, setWhitePaperData] = useState(loaderData.whitePaperData || []);
   const [limit, setLimit] = useState(6); // Initial limit
   const [loading, setLoading] = useState(false);
-
   const fetchMoreData = async () => {
     setLoading(true);
     const updatedQuery = getWhitepaperBasedonLimit(limit + 3);
     const newWhitepaperData = await fetchGraphQL(updatedQuery);
-
     // Map and update the state with the new data
     setWhitePaperData(() => [
       ...newWhitepaperData.data.whitePapers.data.map((item: any) => ({
@@ -36,7 +32,6 @@ const WhitePaperCardContainer = () => {
         },
       }))
     ]);
-
     // Increment the limit for the next fetch
     setLimit(limit + 3);
     setLoading(false);
@@ -44,8 +39,6 @@ const WhitePaperCardContainer = () => {
       success("No more white papers available", 3);
     }
   };
-
-
   return (
     <div className="w-full bg-white pb-8 h-fit">
       <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
@@ -53,33 +46,20 @@ const WhitePaperCardContainer = () => {
         {loaderData.s2_title}
         </span>
       </div>
-      
       <div className="whitepaper-grid-container w-full h-fit   flex flex-row justify-around">
         <img src="../assets/Ornament.png" className="absolute top-4 left-4 -z-20" alt="ornament" />
   <div className="whitepaper-container-property" >
-  
   {whitePaperData.map((paper: IWhitePaper) => (
         <Link to={`../resources/whitepaper/${paper.id}`} key={paper.id} state={{ whitePaperData: whitePaperData }}>
-          
           <WhitePaperCard key={paper.id} paper={paper} isLoading={loading} />       
-           
             </Link>
         ))}
-
         </div>
       </div>
       <div className="mx-auto w-full flex justify-center items-center" onClick={fetchMoreData}>
     <button className="button-test font-montserrat font-thin"> <span className="font-thin">Explore Now</span></button>
       </div>
-      
     </div>
   );
 };
-
 export default WhitePaperCardContainer;
-
-
-
-
- 
-

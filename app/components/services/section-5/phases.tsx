@@ -1,4 +1,3 @@
-
 import { useLoaderData } from "@remix-run/react";
 import { ellipsis } from "~/utils/format";
 const Phases = () => {
@@ -25,10 +24,6 @@ const Phases = () => {
               <img src="../assets/0.svg" className="min-h-full hidden xl:block object-cover" alt="vector" />
     </div>
   </div>
-
-    
   );
 };
-
 export default Phases;
-

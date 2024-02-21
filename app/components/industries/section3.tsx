@@ -1,5 +1,4 @@
 import { Outlet, useLoaderData } from "@remix-run/react";
-
 const Section3 = () => {
   const loaderData = useLoaderData() as any;
   const gradientStyle = {
@@ -32,10 +31,8 @@ const Section3 = () => {
           {loaderData.section3Title}
         </h2>
       </div>
-
       <Outlet />
     </section>
   );
 };
-
 export default Section3;

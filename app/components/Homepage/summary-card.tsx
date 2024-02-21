@@ -1,5 +1,4 @@
 import { Attributes } from "~/interfaces/Homepage";
-
 const SummaryCard = ({attributes}:{attributes:Attributes}) => {
   return (
     <>
@@ -37,7 +36,6 @@ const SummaryCard = ({attributes}:{attributes:Attributes}) => {
 };
 const Square = ({ num }: { num: string }) => {
   const hasPlus = num.includes('+');
-
   return (
     <>
       <div className="flex w-fit gap-6 p-4">
@@ -87,5 +85,4 @@ export default SummaryCard;
             </div>
           </div>
       </div>
-      
     </div> */}

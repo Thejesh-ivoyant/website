@@ -10,7 +10,6 @@ import Hero from "~/common-components/Hero";
 import LoadingTest from "~/common-components/loading-test";
 import { Daum } from "~/interfaces/CategoriesType";
 import ResourcesStyle from '~/styles/resources.css'
-
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:ResourcesStyle}
 ];
@@ -27,8 +26,6 @@ export const meta: MetaFunction = ({data}: { data: any }) => {
     },
   ];
 };
-
-
 export async function loader() {
   try {
     const blogGql = await fetchGraphQL(blogQuery);
@@ -38,7 +35,6 @@ export async function loader() {
     ]);
     const tagsData = tagslist?.data?.topicTags?.data as Daum[]
     const categoryListData = categoryList?.data?.categories.data as Daum[]
-  
     const tags = tagsData.map((daum) => ({
       value: daum.attributes.name,
       label: daum.attributes.name,
@@ -47,15 +43,10 @@ export async function loader() {
       value: daum.attributes.name,
       label: daum.attributes.name,
     }));
-
-
     const res = await fetch(strapiUrl + "/api/resource?populate=%2A");
     let jsonParsed = await res.json();
-
-    
     const { heroTitle, heroDescription, s2_title } =
       jsonParsed.data?.attributes ?? "";
-
     const blogData = blogGql.data?.blogs.data?.map((item: any) => ({
       id: item.id,
       title: item.attributes.title,
@@ -74,12 +65,8 @@ export async function loader() {
       topic_tags: item.attributes.topic_tags.data?.map((tag: any) => tag.attributes.name) ?? [],
       category: {
        name:item.attributes.category.data?.attributes.name
-      
       }
-
     }));
- 
-
     return defer({
       heroBgImageURl: jsonParsed.data?.attributes.heroImage.data?.attributes.url,
       heroTitle,
@@ -94,14 +81,12 @@ export async function loader() {
     throw error;
   }
 }
-
 const Index = () => {
   const data = useLoaderData<typeof loader>() as any;
   return (
     <>
     <Suspense fallback={<LoadingTest />}>
       <Await resolve={data.heroBgImageURl}>
-      
           <Hero />
           <BlogCardContainer  />
           <Consultation />
@@ -109,8 +94,6 @@ const Index = () => {
      </Await>
       </Suspense>
     </>
-     
   );
 };
-
 export default Index;

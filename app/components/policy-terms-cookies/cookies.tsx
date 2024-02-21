@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import Bulletimg from "../../../public/assets/BulletPoint.svg";
-
 import { useLoaderData } from "@remix-run/react";
 import { scrollToSection } from "~/root";
-
 const Cookies = () => {
   const loaderData = useLoaderData() as any;
   useEffect(() => {
@@ -12,16 +10,13 @@ const Cookies = () => {
       let sidebarContent = document.getElementsByClassName(
         "contact-content-wrapper"
       )[0] as HTMLElement;
-
       if (!sidebar || !sidebarContent) return;
-
       let scrollTop = window.scrollY;
       let viewportHeight = window.innerHeight;
       let contentHeight = sidebarContent.getBoundingClientRect().height;
       let sidebarTop = sidebar.getBoundingClientRect().top + window.pageYOffset;
       let contactMain = document.getElementById("contact-main");
       let contactMainheight = contactMain?.getBoundingClientRect().height ?? 0;
-     
       if (
         scrollTop >= contentHeight - viewportHeight + sidebarTop &&
         scrollTop <= contactMainheight
@@ -37,15 +32,11 @@ const Cookies = () => {
         sidebarContent.style.width = "";
       }
     };
-
-    
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   return (
     <>
       {" "}
@@ -134,13 +125,11 @@ const Cookies = () => {
             </div>{" "}
           </div>
         </div>
-
         <div
           id="contact-main"
           className=" pb-16 w-1/2 flex flex-col items-stretch  ml-5 max-md:w-full max-md:ml-0"
         >
           {/* main content goes here */}
-
           <div className="items-stretch flex grow flex-col max-md:max-w-full max-md:mt-10">
             <div
               id="what-are-cookies"

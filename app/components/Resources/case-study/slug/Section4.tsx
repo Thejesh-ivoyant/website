@@ -1,5 +1,4 @@
 import { Carousel } from "antd";
-
 const Section4 = ({ data }: { data: any }) => {
   return (
     <>
@@ -16,5 +15,4 @@ const Section4 = ({ data }: { data: any }) => {
     </>
   );
 };
-
 export default Section4;

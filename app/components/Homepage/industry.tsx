@@ -1,28 +1,23 @@
 import { Link } from "@remix-run/react";
 import { useState } from "react";
 import { IndustriesTab } from "~/interfaces/Homepage";
-
 const Services = ({industries, title, description}:{industries:IndustriesTab[],title:string,description:string}) => {
   if (industries==null) return;
   const [activeButton, setActiveButton] = useState(industries[0]); 
-
   const handleNext = () => {
     const currentIndex = industries.indexOf(activeButton);
     const nextIndex = (currentIndex + 1) % industries.length;
     setActiveButton(industries[nextIndex]);
   };
-
   const handlePrevious = () => {
     const currentIndex = industries.indexOf(activeButton);
     const previousIndex =
       currentIndex === 0 ? industries.length - 1 : currentIndex - 1;
     setActiveButton(industries[previousIndex]);
   };
-
   const handleButtonClick = (item:IndustriesTab) => {
     setActiveButton(item);
   };
-
   return (
     <div className="h-fit bg-haiti md:px-20 py-12">
       <div className="text-HeaderGray flex flex-col">
@@ -100,5 +95,4 @@ const Services = ({industries, title, description}:{industries:IndustriesTab[],t
     </div>
   );
 };
-
 export default Services;

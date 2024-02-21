@@ -1,7 +1,6 @@
 import { useLoaderData } from "@remix-run/react";
 const Technologies = () => {
   const loaderData = useLoaderData() as any;
-
   return (
     <div className="bg-white py-5">
   <h1 className="section-title text-center  flex-wrap items-center py-6">
@@ -24,5 +23,4 @@ const Technologies = () => {
     </div>
   );
 };
-
 export default Technologies;
