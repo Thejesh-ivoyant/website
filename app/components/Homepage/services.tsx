@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLoaderData } from "@remix-run/react";
 import { Attributes } from "~/interfaces/Homepage";
+import { Image } from "@unpic/react";
+
 const Services = ({attributes}:{attributes:Attributes}) => {
   const servicesData = useLoaderData() as any;
   const servicesArray =
@@ -43,7 +45,7 @@ const Services = ({attributes}:{attributes:Attributes}) => {
       <div className="w-full grid-cols-2 grid md:hidden sm:gap-4 gap-2 p-4">
       {servicesArray.map((service: any, index:number) => (
           <Link to={service?.link} key={index} className="relative aspect-[10/7] w-full grid col-span-1 bg-black">
-            <img src={service?.bgImage?.data.attributes.url} alt={service?.title} className="w-full h-full object-cover"/>
+            <Image width={400} height={250} src={service?.bgImage?.data.attributes.url as string} alt={service?.title as string}/>
             <div className="absolute text-white sm:text-lg font-montserrat font-bold tracking-wider text-xs text-center w-full bottom-0 py-2 bg-haiti bg-opacity-95 z-10">{service?.title}</div>
           </Link>
       ))}
@@ -62,24 +64,24 @@ const Services = ({attributes}:{attributes:Attributes}) => {
               onClick={() => handleServiceClick(service.title)}
             >
               {service.title}
-              <span
+              <svg
                 className={
                   currentSelectedService === service.title
                     ? "material-symbols-outlined text-xl font-extrabold arrow mr-4"
                     : "material-symbols-outlined text-xl opacity-0 font-extrabold arrow mr-4"
                 }
-              >
-                arrow_forward_ios
-              </span>
+                width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16 12 26l-1.4-1.4 8.6-8.6-8.6-8.6L12 6z" fill="#F0F5FF"/>
+              </svg>
             </div>
           ))}
         </div>
 <div className="flex items-center">
         <figure className="flex object-contain  lg:max-w-[52rem] xl:w-[63rem] relative service-img">
-          <img
-            className="w-full h-full object-cover"
+          
+        <Image
+            width={800}
+            height={630}
             src={serviceImage}
-            loading="eager"
             alt={currentSelectedService}
           />
           <div className="z-10 absolute inset-x-0 bottom-0 md:left-1/2 md:transform md:-translate-x-1/2 flex justify-center items-center text-white bg-opacity-50 p-4 flex-col lg:w-5/6 w-full">

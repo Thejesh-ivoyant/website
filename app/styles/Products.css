@@ -248,3 +248,12 @@
     background: #FFF;
   }
  }
+ .ant-carousel .slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  background: black;
+  touch-action: pan-y;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
