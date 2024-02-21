@@ -2064,7 +2064,7 @@ hr {
   border-radius: 0 0 1px 1px;
   box-shadow: 0px 0px 8px 0px hsl(262deg 100% 70% / 70%);
   background: #7a4bd3;
-  transition: 0.281rem;
+  transition: 0.3s;
   top: 2.25rem;
   z-index: 2;
 }
