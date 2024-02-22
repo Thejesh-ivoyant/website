@@ -3,7 +3,7 @@ const Section6 = () => {
     const loaderData = useLoaderData() as any;
     return (
       <div className="bg-white py-5">
-        <h1 className="text-PurpBlue flex items-center justify-center text-5xl font-montserrat p-6">
+        <h1 className="text-PurpBlue flex text-center items-center justify-center lg:text-5xl sm:text-4xl text-3xl font-montserrat p-6">
           {loaderData.techTitle}
         </h1>
         <div className="w-full flex justify-around flex-wrap text-black p-10 border-t-2">

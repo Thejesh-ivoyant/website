@@ -26,7 +26,7 @@ const Section4 = () => {
       {loaderData.servicesList?.map((service:any) => (
         <div key={service.id} className="flex flex-col items-center gap-1 w-full p-4">
           <div onClick={() => toggleExpansion(service.id) } className="flex justify-start bg-slate items-start cursor-pointer font-medium text-xl w-full service-title p-4">
-            <span>{service.name}</span>
+            <span className="line-clamp-1 text-left" title={service?.name}>{service?.name}</span>
                   <img src={!(service.id === currState)?`../assets/down-arrow.svg`: `../assets/up-arrow-Dbg.svg`}       className= 'ml-auto my-auto block' alt="vector" />
           </div>
           <div className={`service-description ${ (service.id === currState) ? 'open' : ''} font-poppins px-4`}>
