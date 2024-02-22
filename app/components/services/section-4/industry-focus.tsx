@@ -14,7 +14,7 @@ const IndustryFocus = () => {
       <Carousel>
       {carouselContent?.map((item:CarouselItem, index:number) => (
         <>
-        <div key={index} className="carousel-box mx-auto">
+        <div key={index} className="carousel-box bg-white mx-auto">
           <div className="carousel-box-left-item flex flex-col gap-y-4  mt-4 p-2">
             <p className="flex w-fit p-1 font-montserrat bg-haiti italic text-sm font-medium text-white flex-wrap">{item.s4_industryFocusSubTitle}</p>
             <p className="description">

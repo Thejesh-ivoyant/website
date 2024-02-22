@@ -53,7 +53,7 @@ const Section7 = () => {
           </linearGradient>
         </defs>
       </svg>
-      <p className="text-center md:w-2/3  leading-6 text-sm tracking-wider font-poppins pairs-desc-font-clamp">
+      <p className="lg:text-center sm:font-normal sm:tracking-normal font-light  md:w-2/3  leading-6 text-sm tracking-wider font-poppins pairs-desc-font-clamp">
         {loaderData.section7Desc}
       </p>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 py-6 xl:px-6 blur-[150%] bg-opacity-[0.16] moving-noise">
