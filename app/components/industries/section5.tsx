@@ -3,7 +3,7 @@ const Section5 = () => {
   const loaderData = useLoaderData() as any;
   return (
   <div className="bg-haiti py-5 h-fit">
-    <h1 className="text-HeaderGray flex items-center justify-center text-5xl font-montserrat p-6">
+    <h1 className="text-HeaderGray flex items-center justify-center lg:text-5xl sm:text-4xl text-3xl font-montserrat p-6">
     Our software development process
     </h1>
     <svg className="mx-auto" width="100%" height="24" viewBox="0 0 1200 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="20.5" y="12.25" width="0.5" height="579.5" transform="rotate(-90 20.5 12.25)" fill="url(#paint0_linear_3845_64835)"/><rect x="1179.5" y="11.75" width="0.5" height="579.5" transform="rotate(90 1179.5 11.75)" fill="url(#paint1_linear_3845_64835)"/><defs><linearGradient id="paint0_linear_3845_64835" x1="21.25" y1="587.432" x2="21.25" y2="1.88636" gradientUnits="userSpaceOnUse"><stop stopColor="#AEBEFF"/><stop offset="1" stopColor="#A7B8FE" stopOpacity="0"/></linearGradient><linearGradient id="paint1_linear_3845_64835" x1="1180.25" y1="586.932" x2="1180.25" y2="1.38636" gradientUnits="userSpaceOnUse"><stop stopColor="#AEBEFF"/><stop offset="1" stopColor="#A7B8FE" stopOpacity="0"/></linearGradient></defs></svg>
