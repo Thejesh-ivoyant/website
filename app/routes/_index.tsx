@@ -7,7 +7,7 @@ import Consultation from "~/components/Homepage/consultation";
 import Technology from "~/components/Homepage/technology";
 import Testimonials from "~/components/Homepage/testimonials";
 import BlogPostsContainer from "~/components/Resources/blogs/blogPosts-container";
-import { MetaFunction, defer, useLoaderData } from "@remix-run/react";
+import { Await, MetaFunction, defer, useLoaderData } from "@remix-run/react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { homeQuery, topBlogQuery } from "~/graphql/queries";
 import ContactUs from "~/common-components/contactUs";
@@ -15,6 +15,8 @@ import { Attributes } from "~/interfaces/Homepage";
 import WhyChooseUs from "~/components/Homepage/why-choose-us";
 import AboutCardContainer from "~/components/Homepage/about-card-container";
 import { Popup } from "~/common-components/social-media-popup";
+import { Suspense } from "react";
+import LoadingTest from "~/common-components/loading-test";
 export const meta: MetaFunction = ({data}: { data: any }) => {
   return [
     { title: `Ivoyant | ${data.homePage?.homepage?.data?.attributes.heroText}` },
@@ -52,8 +54,6 @@ export async function loader() {
     return defer({
       blogData: blogData,
       homePage: homeGql.data,
-    },{
-      "Cache-Control": "public, s-maxage=600",
     });
   } catch (error) {
     console.warn("Error fetching data from contact API:", error);
@@ -66,19 +66,36 @@ const App = () => {
   const attributes = data?.homePage?.homepage?.data?.attributes as Attributes
   return (
     <>
-      <Hero heroBgImage={attributes.heroBg} heroText={attributes.heroText}  heroTitle={attributes.heroTitle} heroDescription={attributes.heroDescription}/>
-      <AboutCardContainer attributes={attributes} />
-      <Services attributes={attributes} />
-      <Section4 clients={attributes?.clients} />
-      <Section5 industries={attributes?.industriesTabs} title={attributes?.industriesTitle} description={attributes.IndustriesDescription} />
-      <Section6 partners={attributes?.partners}/>
-      <Consultation />
-      <Technology/>
-      <Testimonials/>
-      <BlogPostsContainer/>
-      <WhyChooseUs pairs={attributes.pairs} title={attributes.whychooseus} description={attributes.whychooseusDesc} />
-      <ContactUs />
-      <Popup/>
+      <Suspense fallback={<LoadingTest/>}>
+        <Await resolve={data}>
+          <Hero
+            heroBgImage={attributes.heroBg}
+            heroText={attributes.heroText}
+            heroTitle={attributes.heroTitle}
+            heroDescription={attributes.heroDescription}
+          />
+          <AboutCardContainer attributes={attributes} />
+          <Services attributes={attributes} />
+          <Section4 clients={attributes?.clients} />
+          <Section5
+            industries={attributes?.industriesTabs}
+            title={attributes?.industriesTitle}
+            description={attributes.IndustriesDescription}
+          />
+          <Section6 partners={attributes?.partners} />
+          <Consultation />
+          <Technology />
+          <Testimonials />
+          <BlogPostsContainer />
+          <WhyChooseUs
+            pairs={attributes.pairs}
+            title={attributes.whychooseus}
+            description={attributes.whychooseusDesc}
+          />
+          <ContactUs />
+          <Popup />
+        </Await>
+      </Suspense>
     </>
   );
 };

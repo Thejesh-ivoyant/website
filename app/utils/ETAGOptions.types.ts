@@ -8,7 +8,7 @@ export interface EtagOptions {
   ): Required<EtagOptions> => {
     const {
       maxAge = 0,
-      cacheControl = `private, max-age=${maxAge}, must-revalidate`, //telling it to use cache
+      cacheControl = `public, max-age=${maxAge}, must-revalidate`, //telling it to use cache
       weak = true,
     } = options;
     return {
