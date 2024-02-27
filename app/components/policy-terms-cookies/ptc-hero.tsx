@@ -1,33 +1,61 @@
 import { useLoaderData } from "@remix-run/react";
+import { Image } from "@unpic/react";
 const PTCHero = () => {
   const loaderData = useLoaderData() as any;
+  const gradientStyle = {
+    zIndex: -1,
+    background: `linear-gradient(100deg, white 55%, transparent 50%), url(${loaderData?.heroImage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
   return (
     <>
-   <div className="bg-slate-50 mt-[4.5rem]">
-      <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-        <div className="flex flex-col ptc-left-container ">
-          <div className="flex relative flex-col grow items-center px-14 py-12 text-xl fill-white h-fit  max-md:px-5 max-md:max-w-full">
-            <div className=" mt-2 text-4xl italic font-extrabold leading-[58px] text-violet-950 w-full max-md:max-w-full">
-            {loaderData.heroTitle}
-            </div>
-            <div className=" mt-5 leading-8 text-indigo-950 w-full max-md:max-w-full">
-            {loaderData.heroDescription}
-            </div>
+      <div
+        className="relative md:flex hidden screen-height mt-20 flex-row min-h-fit"
+        style={gradientStyle}
+      >
+        <div className="w-1/2 grid place-items-center px-6">
+          <div className="privacy-hero-text flex flex-col my-auto max-w-lg">
+            <small className="text-sm lg:text-lg font-poppins leading-8 font-normal">
+              Last reviewed on: Dec 09, 2023
+            </small>
+            <h1 className="font-montserrat text-3xl lg:text-4xl font-extrabold text-haiti italic">
+              {loaderData?.heroTitle}
+            </h1>
+            <p className="font-poppins text-base lg:text-lg font-normal lg:leading-8 leading-6 text-justify mt-5">
+              {loaderData.heroDescription}
+            </p>
           </div>
         </div>
-    <div className="flex flex-col ptc-right-container">
-        <div className="skew-container">
-                <img
-                      alt="heroimage"
-                      loading="eager"
-                  src={loaderData.heroImage}
-                  className="object-center w-full overflow-hidden grow max-md:max-w-full h-full"
-                />
-              </div>
-        </div>
       </div>
-    </div>
-        </>
+      {/* Mobile */}
+      <section className=" md:hidden flex py-12 px-10 mt-20 flex-row ">
+        <div className="privacy-hero-text flex flex-col my-auto max-w-lg">
+          <small className="text-sm font-poppins leading-8 font-normal">
+            Last reviewed on: Dec 09, 2023
+          </small>
+          <h1 className="font-montserrat text-4xl font-bold text-haiti italic leading-10">
+            {loaderData?.heroTitle}
+          </h1>
+          <p className="font-poppins text-sm font-normal leading-6 text-justify mt-5">
+            {loaderData.heroDescription}
+          </p>
+        </div>
+      </section>
+      <Image
+        src={loaderData?.heroImage}
+        width={768}
+        height={500}
+        className="h-72 w-full object-cover object-right md:hidden block"
+      />
+      {/* <img
+        src={loaderData?.heroImage}
+        loading="eager"
+        className="h-72 w-full object-cover object-right"
+        alt="privacy-policy"
+      /> */}
+    </>
   );
 };
+
 export default PTCHero;
