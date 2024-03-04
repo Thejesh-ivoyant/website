@@ -899,6 +899,8 @@ body.scrolled #scrollToTopBtn {
 .btn {
   display: flex;
   height: 50px;
+  width: fit-content;
+  white-space: nowrap;
   padding: 0px 12px;
   justify-content: center;
   align-items: center;
@@ -906,10 +908,10 @@ body.scrolled #scrollToTopBtn {
   color: var(--geekblue-1, #f0f5ff);
   font-family: Montserrat;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: normal;
-  letter-spacing: 0.28px;
-  text-transform: uppercase;
+  letter-spacing: 0.0375rem;
+  text-transform: capitalize;
   background: linear-gradient(135deg, #6c39db 0.62%, #1c083e 100%);
 }
 .ant-drawer-header {
