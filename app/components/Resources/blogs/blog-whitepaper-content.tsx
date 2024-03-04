@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { blogQuery, whitepaperQuery } from "~/graphql/queries";
+import { dateFormatTxt } from "~/utils/date-format-util";
 import { errorMessage, success } from "~/utils/notifications";
 const Blog_WhitepaperContent = () => {
   const [tagsData, setTagsData] = useState([]);
@@ -120,7 +121,7 @@ const Blog_WhitepaperContent = () => {
   };
   function findcount(name: string): number {
     const count = loaderData.BlogCategory.filter(
-      (category:any) => category.category.name === name
+      (category: any) => category.category.name === name
     ).length;
     return count;
   }
@@ -128,23 +129,28 @@ const Blog_WhitepaperContent = () => {
     <div className="blog-whitepaper-content-section justify-center items-center self-stretch bg-[#F9F8FC] flex flex-col px-16 max-md:px-5">
       <div className="blog-content-container flex ml-0 justify-between  max-md:max-w-full max-md:flex-wrap max-md:justify-center">
         <div className="left-content-blog markdown-container items-stretch flex  flex-col ">
-        <div className=" author-links flex flex-row items-start justify-start gap-4 ">
-            {loaderData.authorData?.map((item: any, index: any) => (  
-       <a href={item.link} className="text-black h-fit text-base leading-5 "  target="_blank" rel="noopener noreferrer">
-              <img
-              alt="icon"
-              loading="eager"
-          src={item.logo}
-              className=" grayscale hover:grayscale-0 object-contain object-center w-full h-fit items-center overflow-hidden max-w-full mt-7"
-            />
-         </a>
+          <div className=" author-links flex flex-row items-start justify-start gap-4 ">
+            {loaderData.authorData?.map((item: any, index: any) => (
+              <a
+                href={item.link}
+                className="text-black h-fit text-base leading-5 "
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  alt="icon"
+                  loading="eager"
+                  src={item.logo}
+                  className=" grayscale hover:grayscale-0 object-contain object-center w-full h-fit items-center overflow-hidden max-w-full mt-7"
+                />
+              </a>
             ))}
-            </div>
+          </div>
           <div className="text-black text-3xl font-semibold max-md:max-w-full blog-para-title">
             {loaderData.title}
           </div>
           <div className="text-black  leading-5 mt-4 max-md:max-w-full">
-          <ReactMarkdown>{loaderData.description1}</ReactMarkdown>
+            <ReactMarkdown>{loaderData.description1}</ReactMarkdown>
           </div>
           {isResourcesRoute ? (
             <button className="btn hero-btn" onClick={showModal}>
@@ -153,33 +159,34 @@ const Blog_WhitepaperContent = () => {
           ) : (
             <div>
               {loaderData.descriptionImage1 && (
-              <img
-                alt="icon"
-                src={`${loaderData.descriptionImage1}`}
-                className="aspect-[2.33]  object-center w-full overflow-hidden mt-4 max-md:max-w-full"
-              />
+                <img
+                  alt="icon"
+                  src={`${loaderData.descriptionImage1}`}
+                  className="aspect-[2.33]  object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+                />
               )}
               <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
-              <ReactMarkdown>{loaderData.description2}</ReactMarkdown>
+                <ReactMarkdown>{loaderData.description2}</ReactMarkdown>
               </div>
               {loaderData.descriptionImage2 && (
-              <img
-                loading="eager"
-                alt="icon"
-                src={`${loaderData.descriptionImage2}`}
-                className="aspect-[2.33]  object-center w-full overflow-hidden mt-4 max-md:max-w-full"
-              />
+                <img
+                  loading="eager"
+                  alt="icon"
+                  src={`${loaderData.descriptionImage2}`}
+                  className="aspect-[2.33]  object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+                />
               )}
               <div className="text-black text-base leading-5 mt-4 max-md:max-w-full">
-              <ReactMarkdown>{loaderData.description3}</ReactMarkdown>
+                <ReactMarkdown>{loaderData.description3}</ReactMarkdown>
               </div>
               {loaderData.descriptionImage3 && (
-              <img
-                alt="icon"
-                loading="lazy"
-                src={`${loaderData.descriptionImage3}`}
-                className="aspect-[2.33]  object-center w-full overflow-hidden mt-4 max-md:max-w-full"
-              />)}
+                <img
+                  alt="icon"
+                  loading="lazy"
+                  src={`${loaderData.descriptionImage3}`}
+                  className="aspect-[2.33]  object-center w-full overflow-hidden mt-4 max-md:max-w-full"
+                />
+              )}
             </div>
           )}
         </div>
@@ -198,35 +205,40 @@ const Blog_WhitepaperContent = () => {
               {loaderData.authorSummary}
             </div>
             <div className="flex flex-row gap-4">
-            {loaderData.authorData?.map((item: any, index: any) => (  
-       <a href={item.link} className="text-black h-fit text-base leading-5 "  target="_blank" rel="noopener noreferrer">
-              <img
-              alt="icon"
-              loading="eager"
-          src={item.logo}
-              className=" grayscale hover:grayscale-0 object-contain object-center w-full h-fit items-center overflow-hidden max-w-full mt-7"
-            />
-         </a>
-            ))}
+              {loaderData.authorData?.map((item: any, index: any) => (
+                <a
+                  href={item.link}
+                  className="text-black h-fit text-base leading-5 "
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    alt="icon"
+                    loading="eager"
+                    src={item.logo}
+                    className=" grayscale hover:grayscale-0 object-contain object-center w-full h-fit items-center overflow-hidden max-w-full mt-7"
+                  />
+                </a>
+              ))}
             </div>
           </div>
           <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 pl-4 pr-4 pt-11 pb-5 ">
             <div className="text-black text-2xl font-medium leading-9">
               Related post
             </div>
-            {LatestData.slice(0, 3).map((item: any, index: any) => (
+            {LatestData?.slice(0, 3).map((item: any, index: any) => (
               <div
                 key={index}
-                className="flex items-stretch justify-between gap-3.5 mt-11 max-md:mt-10"
+                className="flex justify-between gap-3.5 mt-11 max-md:mt-10"
               >
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center ">
                   <img
                     alt={`Related post ${index + 1}`}
                     src={item.bannerImage.url}
-                    className="object-contain object-center w-[83px] aspect-[0.93] overflow-hidden"
+                    className="object-cover object-center min-w-[5rem] h-full rounded-sm"
                   />
                 </div>
-                <div className="self-center flex grow basis-[0%] flex-col items-stretch my-auto">
+                <div className="flex  flex-col flex-1">
                   <div className="text-black text-base font-medium leading-6 line-clamp-2 overflow-hidden">
                     {item.title}
                   </div>
@@ -238,7 +250,7 @@ const Blog_WhitepaperContent = () => {
                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                     />
                     <div className="text-zinc-600 text-sm font-medium self-stretch grow whitespace-nowrap">
-                      {item.date}
+                      { dateFormatTxt(item?.date as string) }
                     </div>
                   </div>
                 </div>
@@ -246,25 +258,25 @@ const Blog_WhitepaperContent = () => {
             ))}
           </div>
           {!isResourcesRoute ? (
-             <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 pl-7 pr-9 py-10 max-md:px-5">
+            <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 gap-5 pl-7 pr-9 py-10 max-md:px-5">
               <div className="text-black text-2xl font-medium whitespace-nowrap">
                 Categories
               </div>
-            <div className="bg-zinc-300 flex shrink-0 h-px flex-col mt-6" />
-            {loaderData.categoriesList.map((item: any, index: any) => (  
-            <div className="flex items-stretch justify-between gap-5 mt-16 pr-3 max-md:mt-10">
-                <div className="flex grow basis-[0%] flex-col items-stretch">
-                  <div className="text-neutral-800 text-base font-medium whitespace-nowrap">
-                 {item.label}
+              <div className="bg-zinc-300 flex shrink-0 h-px flex-col" />
+              {loaderData?.categoriesList?.map((item: any, index: any) => (
+                <div className="flex items-stretch justify-between gap-5 max-md:mt-10">
+                  <div className="flex grow basis-[0%] flex-col items-stretch">
+                    <div className="text-neutral-800 text-base font-medium whitespace-nowrap">
+                      {item.label}
+                    </div>
+                  </div>
+                  <div className="flex basis-[0%] flex-col items-stretch self-start max-md:hidden">
+                    <div className="text-neutral-800 text-base font-medium whitespace-nowrap">
+                      ({findcount(item.label)})
+                    </div>
                   </div>
                 </div>
-                <div className="flex basis-[0%] flex-col items-stretch self-start max-md:hidden">
-                  <div className="text-neutral-800 text-base font-medium whitespace-nowrap">
-                   ({findcount(item.label)})
-                  </div>
-                </div>
-              </div>
-                ))}
+              ))}
             </div>
           ) : (
             <div></div>
@@ -277,7 +289,7 @@ const Blog_WhitepaperContent = () => {
               <div className="bg-zinc-300 flex shrink-0 h-px flex-col mt-6" />
               <div className="items-stretch flex gap-1 mt-6">
                 {loaderData.tags.slice(0, 3).map((item: any, index: any) => (
-                  <div className="text-neutral-800 text-sm flex flex-row  justify-center w-full border-[color:var(--gray-gray-6,#BFBFBF)]  px-2.5 py-1.5 border-[0.5px] border-solid">
+                  <div className="text-neutral-800 text-sm flex flex-row items-center whitespace-nowrap  justify-center w-full border-[color:var(--gray-gray-6,#BFBFBF)]  px-2.5 py-1.5 border-[0.5px] border-solid">
                     {item.label}
                   </div>
                 ))}
