@@ -42,12 +42,14 @@ export function scrollToSection(section: string) {
 }
 export async function loader() {
   const navGraphql = await fetchGraphQL(navQuery)
-  return defer({
-    navGraphql : navGraphql
-  },
-  {
-    "Cache-Control": "public, s-maxage=300",
-  })
+  return defer(
+    {
+      navGraphql: navGraphql,
+    },
+    {
+      headers: { "Cache-Control": "public, s-maxage=300"},
+    }
+  );
 }
 export default function App() {
   const errorMsg = "Hy thejesh"
@@ -58,11 +60,11 @@ export default function App() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="description" content="Crafting Customer-Driven Digital Experiences" /> 
-        <link rel="stylesheet"  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <Meta />
         <Links />
       </head>
-      <body className="lg:overscroll-y-none">
+
+      <body className="lg:overscroll-y-none overscroll-y-auto">
         <Nav />
         <LoadingTest />
         <Outlet context={errorMsg} />

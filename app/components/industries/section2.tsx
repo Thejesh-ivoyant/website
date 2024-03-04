@@ -27,7 +27,7 @@ const Section2 = () => {
           </div>
       </div>
       <div className="flex flex-col h-full w-full lg:w-1/2">
-        <section className="font-poppins leading-10 p-12 lg:aspect-square text-justify flex flex-col lg:justify-between gap-4">
+        <section className="font-poppins leading-10 xl:p-12 p-4 lg:aspect-square text-justify flex flex-col lg:justify-between gap-4">
           <h2 className="lg:pt-14 xl:pt-16 lg:px-4 p-0 font-montserrat font-semibold text-[#0D0B71] text-left leading-10 text-4xl lg:hidden flex justify-center h-fit lg:max-w-[30.625rem]">
             {loaderData.section2Title}
           </h2>

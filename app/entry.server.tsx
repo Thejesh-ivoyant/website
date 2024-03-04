@@ -45,7 +45,7 @@ function handleBotRequest(
         onAllReady() {
           shellRendered = true;
           const body = new PassThrough();
-          const options = mergeDefaultOptions({ maxAge: 60 });
+          const options = mergeDefaultOptions({ maxAge: 86400, weak: false });
           responseHeaders.set("Content-Type", "text/html"); 
           const response = new Response(body, {
             headers: responseHeaders,
@@ -91,7 +91,7 @@ function handleBrowserRequest(
         onShellReady() {
           shellRendered = true;
           const body = new PassThrough();
-          const options = mergeDefaultOptions({ maxAge: 60 , weak: false});
+          const options = mergeDefaultOptions({ maxAge: 3600, weak: false });
           responseHeaders.set("Content-Type", "text/html");
           const response = new Response(body, {
             headers: responseHeaders,
