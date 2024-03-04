@@ -40,13 +40,16 @@ export async function loader() {
     value: daum.attributes.name,
     label: daum.attributes.name,
   }));
-  return defer({
-    data,
-    lists,
-    tags,
-    categoriesList
-  },
-  { "Cache-Control": "public, s-maxage=60" }
+  return defer(
+    {
+      data,
+      lists,
+      tags,
+      categoriesList,
+    },
+    {
+      headers: { "Cache-Control": "public, s-maxage=3600" },
+    }
   );
 }
 export const meta: MetaFunction<typeof loader> = ({

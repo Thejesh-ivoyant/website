@@ -42,12 +42,14 @@ export function scrollToSection(section: string) {
 }
 export async function loader() {
   const navGraphql = await fetchGraphQL(navQuery)
-  return defer({
-    navGraphql : navGraphql
-  },
-  {
-    "Cache-Control": "public, s-maxage=300",
-  })
+  return defer(
+    {
+      navGraphql: navGraphql,
+    },
+    {
+      headers: { "Cache-Control": "public, s-maxage=300"},
+    }
+  );
 }
 export default function App() {
   const errorMsg = "Hy thejesh"
