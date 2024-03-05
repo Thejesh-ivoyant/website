@@ -264,11 +264,7 @@ export const Container = ({
         )}
         {!loading && (
             <>
-              <img
-                src="../assets/Ornament.png"
-                className="absolute top-4 left-4"
-                alt="ornament"
-              />
+             
               <div className="w-[76.7625rem] blog-main-card items-center z-10 h-full flex flex-col justify-center gap-y-4 overflow-y-scroll mt-8">
       {arrayData.map((caseItem: any) => ( // Renamed `case` to `caseItem` since `case` is a reserved keyword in TypeScript
         <CaseCard key={caseItem.id} caseItem={caseItem} /> // Changed `case` to `caseItem` for clarity
@@ -278,7 +274,7 @@ export const Container = ({
         )}
         
         <button
-          className="hue-btn-blue uppercase"
+          className="hue-btn-blue btn uppercase"
           onClick={handleViewMore}
           disabled={btnLoading}
         >

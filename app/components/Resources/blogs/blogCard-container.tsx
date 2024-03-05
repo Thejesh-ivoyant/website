@@ -94,6 +94,7 @@ const BlogCardContainer = () => {
   };
   const fetchMoreData = async () => {
     setLoading(true);
+    
     const updatedQuery = SearchBlogs(
       category || "",
       tag || "",
@@ -310,13 +311,16 @@ const BlogCardContainer = () => {
         </div>
 
         <div
-          className="mx-auto w-full flex justify-center items-center"
-          onClick={fetchMoreData}
+          className="mx-auto w-fit flex justify-center items-center"
+         
         >
-          <button className="button-test btn font-montserrat font-thin mt-[2.5rem]">
-            {" "}
-            <span className="font-thin">Show More</span>
-          </button>
+          <button
+          className="hue-btn-blue btn uppercase"
+          onClick={fetchMoreData}
+          disabled={loading}
+        >
+          <span>Show More</span>
+        </button>
         </div>
       </div>
     </>
