@@ -19,7 +19,7 @@ const BlogCard = ({ blog,blogData }: { blog: IBlogMedia, blogData:any }) => {
               <div className="text-blue-100 w-fit category-title italic font-medium whitespace-nowrap justify-center items-stretch bg-gray-900 p-1">
               {blog.category.name}
               </div>
-              <div className="line-clamp-2 blog-title self-stretch text-black  font-montserrat font-semibold ">
+              <div className="line-clamp-2 mt-[1rem] blog-title self-stretch text-black  font-montserrat font-semibold ">
                {blog.title}
               </div>
               <div className="text-black description mt-[1.56rem] line-clamp-3 font-poppins font-normal ">
