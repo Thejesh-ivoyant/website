@@ -9,8 +9,8 @@ import CustomDrawer from "~/utils/customDrawer";
 import DropDownIcon from "../case-study/arrow";
 import { success } from "~/utils/notifications";
 const BlogCardContainer = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string|null>(null)
-  const [selectedTag, setSelectedTag] = useState<string|null>(null)
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  const [selectedTag, setSelectedTag] = useState<string | null>(null)
   useEffect(() => {
     // No need to update selected values here; already handled by state variables
   }, []); // Empty dependency array
@@ -45,8 +45,8 @@ const BlogCardContainer = () => {
     }));
   };
   const loaderData = useLoaderData() as any;
-  const [category, setCategory] = useState<string|null>(null)
-  const [tag, setTag] = useState<string|null>(null)
+  const [category, setCategory] = useState<string | null>(null)
+  const [tag, setTag] = useState<string | null>(null)
   const [searchValue, setSearchValue] = useState("");
   const [blogData, setBlogData] = useState(loaderData.blogData || []);
   const [limit, setLimit] = useState(3); // Initial limit
@@ -198,6 +198,7 @@ const BlogCardContainer = () => {
           </div>
         </div>
       </CustomDrawer>
+      
       <div className="w-full bg-white py-8 blog-card-container  min-h-[90vh]">
         <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
           <span className="section-title">{loaderData.s2_title}</span>
@@ -275,6 +276,8 @@ const BlogCardContainer = () => {
           </div>
           {/* Tag select */}
         </div>
+
+        
         <div className="blog-main-box w-full h-fit relative  flex flex-row justify-around">
           {/* Skeleton for loading */}
           {loading && (
@@ -299,23 +302,18 @@ const BlogCardContainer = () => {
               />
               <div className="w-[76.7625rem] blog-main-card items-center z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
                 {blogData.map((blog: IBlogMedia) => (
-                  // <Link
-                  //   to={`../resources/blog/${blog.id}`}
-                  //   key={blog.id}
-                  //   state={{ blogData: blogData }}
-                  // >
                   <BlogCard key={blog.id} blog={blog} blogData={blogData} />
-                  // </Link>
                 ))}
               </div>
             </>
           )}
         </div>
+
         <div
           className="mx-auto w-full flex justify-center items-center"
           onClick={fetchMoreData}
         >
-          <button className="button-test font-montserrat font-thin">
+          <button className="button-test font-montserrat font-thin mt-[2rem]">
             {" "}
             <span className="font-thin">Show More</span>
           </button>

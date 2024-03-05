@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
 import IBlogMedia from "~/interfaces/IBlogMedia";
-const BlogCard = ({ blog,blogData }: { blog: IBlogMedia, blogData:any }) => {
+const CaseCard = ({ caseItem}: { caseItem: any}) => {
     // Extract data from the blog object
     function trimWords(text:string) {
       return text.split(' ').slice(0, 30).join(' ') + (text.split(' ').length > 30 ? ' .....' : '');
@@ -11,24 +11,24 @@ const BlogCard = ({ blog,blogData }: { blog: IBlogMedia, blogData:any }) => {
           <div className="landing-resource-card-left  flex flex-col items-center   ">
             <header className="justify-between items-stretch shadow-sm flex grow flex-col w-full  max-md:max-w-full">
           <img className="h-full"
-                src={blog?.bannerImage.url}   alt="AI Protection"
+                src={caseItem?.attributes?.heroBgImage?.data?.attributes?.formats?.medium.url}   alt="AI Protection"
               />
             </header>
           </div>
           <div className="landing-resource-card-right items-start flex flex-col  w-[60%]  max-md:w-full justify-between gap-2">
               <div className="text-blue-100 w-fit category-title italic font-medium whitespace-nowrap justify-center items-stretch bg-gray-900 p-1">
-              {blog.category.name}
+              {caseItem.attributes?.category.data.attributes?.name}
               </div>
               <div className="line-clamp-2 blog-title self-stretch text-black  font-montserrat font-semibold ">
-               {blog.title}
+               {caseItem?.attributes?.heroTitle}
               </div>
               <div className="text-black blog-description line-clamp-3 font-poppins font-normal ">
-                {trimWords(blog.description1)} 
+                {trimWords(caseItem?.attributes?.heroDescription)} 
                </div>
                <div className="flex read-more-btn-container mt-2">
                 <Link
-                   to={`../resources/blog/${blog.id}`}  key={blog.id}
-                   state={{ blogData: blogData }}>
+                   to={`../resources/case-study/${caseItem.id}`}  key={caseItem.id}
+                   >
                     <button className="read-more-btn"><p>Read Full Story</p></button>
               </Link>
                 </div>
@@ -36,21 +36,22 @@ const BlogCard = ({ blog,blogData }: { blog: IBlogMedia, blogData:any }) => {
                 <div className="author-details-container items-stretch flex justify-between ">
                   <img
                     alt="avatar"
-                  src={blog.author.avatar} className=" object-center  overflow-hidden flex rounded-full h-[3.125rem] w-[3.125rem] object-contain"
+                  src={caseItem?.attributes?.author?.data?.attributes?.avatar.data
+                    ?.attributes?.formats?.thumbnail?.url} className=" object-center  overflow-hidden flex rounded-full h-[3.125rem] w-[3.125rem] object-contain"
                     />
                   <div className="items-stretch flex grow basis-[0%] flex-col self-start">
                     <div className="text-black  text-base font-medium whitespace-nowrap">
-                  {blog.author.name}
+                  {caseItem?.attributes?.author?.data?.attributes?.name}
                     </div>
                     <div className="text-black minutes text-sm whitespace-nowrap ">
-          {blog.maxReadTime} Mins Read
+          23 Mins Read
                     </div>
                   </div>
                 </div>
                 <div className="flex read-more-btn-container-mobile ">
                 <Link
-                   to={`../resources/blog/${blog.id}`}  key={blog.id}
-                   state={{ blogData: blogData }}>
+                   to={`../resources/case-study/${caseItem.id}`}  key={caseItem.id}
+                   >
                     <button className="read-more-btn"><p>Read Full Story</p></button>
               </Link>
                 </div>
@@ -60,4 +61,4 @@ const BlogCard = ({ blog,blogData }: { blog: IBlogMedia, blogData:any }) => {
       </form>
     );
 }
-export default BlogCard;
+export default CaseCard;
