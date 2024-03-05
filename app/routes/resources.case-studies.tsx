@@ -1,4 +1,4 @@
-import { Await, useLoaderData } from "@remix-run/react";
+import { Await, MetaFunction, useLoaderData } from "@remix-run/react";
 import { case_study_home, case_study_paginated, categories, tagsQuery } from "~/graphql/queries";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { generateDynamicQuery } from "~/utils/parameterized-gql";

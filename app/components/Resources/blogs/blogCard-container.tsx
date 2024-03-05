@@ -313,7 +313,7 @@ const BlogCardContainer = () => {
           className="mx-auto w-full flex justify-center items-center"
           onClick={fetchMoreData}
         >
-          <button className="button-test font-montserrat font-thin mt-[2rem]">
+          <button className="button-test btn font-montserrat font-thin mt-[2.5rem]">
             {" "}
             <span className="font-thin">Show More</span>
           </button>

@@ -316,7 +316,7 @@ const Blog_WhitepaperContent = () => {
             <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
               Full name*
             </div>
-            <input
+                       <input
               type="text"
               className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
               name="firstName"

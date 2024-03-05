@@ -29,9 +29,8 @@ const BlogPostsContainer = () => {
       <div className="mx-auto w-full flex justify-center items-center">
         <Link to={`../resources/blogs`} key="explore">
           {" "}
-          <button className="button-test font-montserrat font-thin">
-            {" "}
-            <span className="font-thin">Explore Now</span>
+          <button className="button-test btn">
+           <span>Explore Now</span>
           </button>
         </Link>
       </div>
