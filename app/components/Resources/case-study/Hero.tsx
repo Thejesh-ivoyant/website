@@ -68,7 +68,6 @@ const Hero = ({
         <div className="hero-description">
           <span>{heroDescription}</span>
         </div>
-    
       </div>
     </section>
     

@@ -139,6 +139,7 @@ const Nav = () => {
       </button>
     </div>
   </Form>
+
       </Modal>
       <nav className="fixed top-0 z-50 w-full bg-nav-dark py-2 lg:block hidden">
         <div className="flex flex-row items-center justify-around">
