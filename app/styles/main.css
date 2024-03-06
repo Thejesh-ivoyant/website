@@ -653,6 +653,12 @@ body.scrolled #scrollToTopBtn {
     letter-spacing: 0.18px;
     font-size: 1rem;
   }
+  .hero-btn {
+    width: 100px;
+    height: 30px;
+    align-items: center;
+    font-size: 0.5rem;
+  }
   
   .section-summary {
     font-size: 10px;
