@@ -154,10 +154,10 @@
   .prod-hero-desc{
     color: #262626;
     font-family: Poppins;
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.5rem; /* 171.429% */
+    line-height: 1.3rem;
   }
 .blur-bg-img {
   padding: 1.25rem 0 0 1.25rem;
@@ -188,7 +188,7 @@
     color: #1B0740;
     margin-right:auto;
     font-family: Montserrat;
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;

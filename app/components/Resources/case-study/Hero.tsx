@@ -68,11 +68,12 @@ const Hero = ({
         <div className="hero-description">
           <span>{heroDescription}</span>
         </div>
-        <Link to="/contact-us">
-          <button className="btn  hero-btn cursor-pointer">Let's Talk</button>
+        <Link to="/contact-us" className="mt-16" aria-label="contact-us-link">
+          <button className="hue-btn-primary">Let's Talk</button>
         </Link>
       </div>
     </section>
+    
   );
 };
 export default Hero;

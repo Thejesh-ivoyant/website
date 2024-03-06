@@ -4,9 +4,9 @@ import ServiceCard from "./service-card";
 const ServiceCardContainer = () => {
   const loaderData = useLoaderData() as any;
   return (
-    <div className="service-section-container " >
+    <div className="service-section-container ">
       <div className="w-full justify-center flex flex-col flex-wrap items-center text-center py-6 gradient-bottom">
-        <span className="section-title">
+        <span className="section-heading text-[#0D0B71]">
           {loaderData.s6_serviceTitle}
         </span>
       </div>
@@ -17,7 +17,7 @@ const ServiceCardContainer = () => {
         <div className="service-grid-container service-container-property">
           {loaderData.ServicesCard.map(
             (item: { id: React.Key | null | undefined }, index: any) => (
-                <ServiceCard service={item} />
+              <ServiceCard service={item} />
             )
           )}
         </div>

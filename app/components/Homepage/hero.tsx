@@ -21,8 +21,9 @@ const Hero = ({
   };
   return (
     <>
-      <div className="screen-height hero-container-section flex-col items-center justify-center">
+      <div className="screen-height min-h-fit hero-container-section flex-col items-center justify-center">
         <video
+          aria-label="background-video"
           preload="true"
           muted
           loop
@@ -32,10 +33,10 @@ const Hero = ({
           className="-z-10 absolute top-0 object-cover right-0 w-full screen-height  mt-[4.5rem]"
         />
         <div className="hero-wrapper">
-          <p className="hero-title  animated-text">{heroText}</p>
-          <h1 className="hero-title hero-subtitle">
-            {heroTitle}
-          </h1>
+          <div>
+            <p className="hero-title  animated-text">{heroText}</p>
+            <h1 className="hero-title hero-subtitle mt-2">{heroTitle}</h1>
+          </div>
           <svg
             width="100%"
             height="25"
@@ -83,14 +84,14 @@ const Hero = ({
               </linearGradient>
             </defs>
           </svg>
-          <div className="hero-description px-10">
+          <div className="hero-description lg:px-10 px-5">
             <span>{heroDescription}</span>
           </div>
           <button
-            className="hue-btn-primary  hero-btn "
+            className="hue-btn-primary"
             onClick={() => scrollToSection("contact-us")}
           >
-            Let's Talk
+            <span>Let's Talk</span>
           </button>
         </div>
       </div>
