@@ -107,6 +107,8 @@ letter-spacing: 0.8px;
     background-color:#F9F8FC ;
    padding-left: 1.5rem;
    padding-right: 1.5rem;
+   display: grid;
+   gap: 0.75rem;
   }
  .carousel-box{
   border-width: 2px;
@@ -115,11 +117,12 @@ letter-spacing: 0.8px;
   justify-content: center;
   flex-direction: row;
   height: 23rem;
-align-items: center;
+  align-items: center;
   width: 75%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   padding-left:0.5rem;
   padding-right:0.5rem;
-  margin-top:5.44rem;
   padding-top: 0.75rem/* 12px */;
   padding-bottom: 0.75rem/* 12px */;
  }
@@ -160,7 +163,6 @@ align-items: center;
   width: 100%;
   padding-left:0.5rem;
   padding-right:0.5rem;
-  margin-top:2.44rem;
   padding-top: 0.75rem/* 12px */;
   padding-bottom: 0.75rem/* 12px */;
  }
@@ -238,7 +240,6 @@ align-items: center;
   width: 100%;
   padding-left:0.5rem;
   padding-right:0.5rem;
-  margin-top:3.44rem;
   padding-top: 0.75rem/* 12px */;
   padding-bottom: 0.75rem/* 12px */;
  }

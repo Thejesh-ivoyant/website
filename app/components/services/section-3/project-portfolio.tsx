@@ -14,7 +14,20 @@ const ProjectPortfolio = () => {
           </p>
         </div>
         <div>
-        <svg className="svg-lines" width="2" height="300" viewBox="0 0 2 300" fill="none" xmlns="http://www.w3.org/2000/svg"><path transform="matrix(-1 0 0 1 1.666 0)" fill="url(#a)" d="M0 0h1v150H0z"/><path transform="rotate(-180 1.666 300)" fill="url(#b)" d="M1.666 300h1v150h-1z"/><defs><linearGradient id="a" x1="1.5" y1="148.882" x2="1.5" y2="-2.683" gradientUnits="userSpaceOnUse"><stop stopColor="#CDBCFF"/><stop offset="1" stopColor="#8B2BB8" stopOpacity="0"/></linearGradient><linearGradient id="b" x1="3.166" y1="448.882" x2="3.166" y2="297.317" gradientUnits="userSpaceOnUse"><stop stopColor="#CDBCFF"/><stop offset="1" stopColor="#8B2BB8" stopOpacity="0"/></linearGradient></defs></svg>
+          <svg width="2" height="100%" className="hidden md:block" viewBox="0 0 2 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="1.00001" height="150" transform="matrix(-1 8.74228e-08 8.74228e-08 1 1.33398 0)" fill="url(#paint0_linear_3845_49658)"/>
+            <rect x="1.33398" y="300" width="1.00001" height="150" transform="rotate(-180 1.33398 300)" fill="url(#paint1_linear_3845_49658)"/>
+            <defs>
+            <linearGradient id="paint0_linear_3845_49658" x1="1.50002" y1="148.882" x2="1.50002" y2="-2.68256" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#CDBCFF"/>
+            <stop offset="1" stop-color="#8B2BB8" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="paint1_linear_3845_49658" x1="2.834" y1="448.882" x2="2.834" y2="297.317" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#CDBCFF"/>
+            <stop offset="1" stop-color="#8B2BB8" stop-opacity="0"/>
+            </linearGradient>
+            </defs>
+          </svg>
         </div>
         <div className="portfolio-summary-card">
         <p  className="portfolio-text ">
@@ -25,7 +38,20 @@ const ProjectPortfolio = () => {
           </p>
         </div>
         <div>
-        <svg className="svg-lines" width="2" height="300" viewBox="0 0 2 300" fill="none" xmlns="http://www.w3.org/2000/svg"><path transform="matrix(-1 0 0 1 1.666 0)" fill="url(#a)" d="M0 0h1v150H0z"/><path transform="rotate(-180 1.666 300)" fill="url(#b)" d="M1.666 300h1v150h-1z"/><defs><linearGradient id="a" x1="1.5" y1="148.882" x2="1.5" y2="-2.683" gradientUnits="userSpaceOnUse"><stop stopColor="#CDBCFF"/><stop offset="1" stopColor="#8B2BB8" stopOpacity="0"/></linearGradient><linearGradient id="b" x1="3.166" y1="448.882" x2="3.166" y2="297.317" gradientUnits="userSpaceOnUse"><stop stopColor="#CDBCFF"/><stop offset="1" stopColor="#8B2BB8" stopOpacity="0"/></linearGradient></defs></svg>
+           <svg width="2" height="100%" className="hidden md:block" viewBox="0 0 2 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="1.00001" height="150" transform="matrix(-1 8.74228e-08 8.74228e-08 1 1.33398 0)" fill="url(#paint0_linear_3845_49658)"/>
+            <rect x="1.33398" y="300" width="1.00001" height="150" transform="rotate(-180 1.33398 300)" fill="url(#paint1_linear_3845_49658)"/>
+            <defs>
+            <linearGradient id="paint0_linear_3845_49658" x1="1.50002" y1="148.882" x2="1.50002" y2="-2.68256" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#CDBCFF"/>
+            <stop offset="1" stop-color="#8B2BB8" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="paint1_linear_3845_49658" x1="2.834" y1="448.882" x2="2.834" y2="297.317" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#CDBCFF"/>
+            <stop offset="1" stop-color="#8B2BB8" stop-opacity="0"/>
+            </linearGradient>
+            </defs>
+          </svg>
         </div>
         <div className="portfolio-summary-card">
         <p  className="portfolio-text">

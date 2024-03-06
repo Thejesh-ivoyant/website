@@ -41,8 +41,9 @@ line-height: normal;
     cursor: pointer; 
     border: 0.5px solid #FFF;
     background-color: transparent; 
-    gap: 0.625rem;
-    padding: 0.83rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    height: 2.5rem;
     color: white; 
     display: flex;
     justify-content: center;
@@ -50,12 +51,20 @@ line-height: normal;
     flex: 1 0 0;
     color: #FFF;
     font-family: Montserrat;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     letter-spacing: 0.48px;
     text-transform: uppercase;
+}
+@media (min-width:640px) {
+  .hue-btn{
+    padding: 0.875rem 2rem;
+    font-size: 1.25rem;
+    height: 3.75rem;
+  }
+  
 }
 .hue-btn:hover{
     background: linear-gradient(

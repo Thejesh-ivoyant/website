@@ -4,7 +4,7 @@ const Section7 = () => {
   return (
     <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-2 lg:px-5 py-10 gap-8">
       <h1 className="section-title " style={{ color: "var(--HeadingGray, #E9E9EC)" }}>
-        {loaderData.section7Title}
+        {loaderData?.section7Title}
       </h1>
       <svg
         width="100%"
@@ -75,7 +75,7 @@ const Section7 = () => {
       <p className="text-center leading-8 text-[FFFFFFD9] font-poppins w-3/5 group-hover:hidden">
         {pair.text}
       </p>
-      <p className="relative pt-4 px-4 text-xs leading-5 md:text-sm lg:text-xs 2xl:text-sm text-left text-[FFFFFFD9] font-poppins  hidden group-hover:block font-thin">
+      <p className="relative pt-4 px-4 text-xs leading-5 md:text-sm lg:text-xs text-left text-[FFFFFFD9] font-poppins  hidden group-hover:block font-thin">
       {pair.description}
       </p>
     </div>

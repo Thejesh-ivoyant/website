@@ -182,15 +182,25 @@ body.scrolled #scrollToTopBtn {
   cursor: pointer;
   width: 6px !important;
   opacity: 1;
-  bottom: 1.5rem;
+  border-radius: 100%;
+  height: 6px;
+  box-sizing: inherit;
+  border: solid #B9C1EC;
+  background-color: #B9C1EC;
 }
 .testimonial-section .ant-carousel .slick-dots li {
   display: block;
-  width: 6px !important;
-  opacity: 1;
-  bottom: 1.5rem;
   outline: none;
   cursor: pointer;
+  padding:2px;
+  opacity: 1;
+  width: 6px !important;
+  border-radius: 100%;
+  height: 6px;
+  box-sizing: inherit;
+  border: solid #5C4B7D;
+  background-color: #5C4B7D;
+  
 }
 .hero-wrapper {
   position: relative;
@@ -207,7 +217,7 @@ body.scrolled #scrollToTopBtn {
   font-weight: 400;
   line-height: 1.5rem; /* 24px / 16px */
   letter-spacing: 0.28px;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-family: Poppins;
 }
 .hero-container-section {
@@ -217,7 +227,7 @@ body.scrolled #scrollToTopBtn {
   color: #ffffff;
 }
 .hero-title {
-  font-weight: 600;
+  font-weight: 500;
   font-family: Montserrat;
   font-size: 2.2rem /* 36px */;
   line-height: 2.4rem;
@@ -245,7 +255,45 @@ body.scrolled #scrollToTopBtn {
   letter-spacing: 0.48px;
   text-transform: capitalize;
 }
+.hero-btn {
+  margin-top: 20px;
+  min-height: 3.75rem;
+  min-width: fit-content;
+  white-space: nowrap;
+}
+.section-p-y {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.section-heading{
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-family: Montserrat;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .section-p-y {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
 
+@media (min-width: 1024px) {
+  .section-p-y {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .section-heading{
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .section-heading {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
 .section-summary {
   color: #262626;
   text-align: center;
@@ -258,9 +306,8 @@ body.scrolled #scrollToTopBtn {
 .section-title {
   color: #0d0b71;
   font-family: Montserrat;
-  font-size: 2.5rem;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: normal;
   text-align: center;
 }
@@ -294,7 +341,7 @@ body.scrolled #scrollToTopBtn {
 .card-title {
   color: #fff;
   font-family: Montserrat;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.4px;
@@ -302,7 +349,7 @@ body.scrolled #scrollToTopBtn {
 .card-desc {
   color: #fff;
   font-family: Poppins;
-  font-size: 0.62rem;
+  font-size: 0.875rem;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
@@ -346,6 +393,7 @@ body.scrolled #scrollToTopBtn {
   line-height: normal;
   letter-spacing: 0.4px;
   text-transform: uppercase;
+  white-space: nowrap;
   box-shadow:
     0px 3px 5px 0px rgba(176, 190, 197, 0.32),
     0px 8px 24px 0px rgba(176, 190, 197, 0.32);
@@ -401,8 +449,8 @@ body.scrolled #scrollToTopBtn {
   padding: 1rem;
 }
 .testimonial-section {
-  padding-left: 16rem;
-  padding-right: 16rem;
+  max-width: 768px;
+  margin:auto;
 }
 .ReactFlagsSelect-module_fullWidthOptions__1XeR6 {
   width: 16rem !important;
@@ -525,7 +573,7 @@ body.scrolled #scrollToTopBtn {
 @media (max-width: 576px) {
   .hero-wrapper {
     max-width: 90%;
-    gap: 0rem;
+    gap: 0.5rem;
   }
   
   .error-left-container {
@@ -601,17 +649,15 @@ body.scrolled #scrollToTopBtn {
   }
   .hero-description {
     font-weight: 300;
-    line-height: 0.8rem; /* 24px / 16px */
+    line-height: 1.25rem; /* 24px / 16px */
     letter-spacing: 0.18px;
-    font-size: 0.575rem;
+    font-size: 1rem;
   }
   
   .section-summary {
     font-size: 10px;
   }
-  .section-title {
-    font-size: 1.4rem;
-  }
+  
   .card-title {
     font-size: 0.6rem;
   }
@@ -653,7 +699,7 @@ body.scrolled #scrollToTopBtn {
 @media (min-width: 577px) and (max-width: 768px) {
   .hero-wrapper {
     max-width: 80%;
-    gap: 0rem;
+    gap: 0.5rem;
   }
   .tablet-hidden {
     display: none;
@@ -726,9 +772,9 @@ body.scrolled #scrollToTopBtn {
   }
   .hero-description {
     font-weight: 400;
-    line-height: 0.8rem; /* 24px / 16px */
+    line-height: 1.5rem; /* 24px / 16px */
     letter-spacing: 0.14px;
-    font-size: 0.775rem;
+    font-size: 1rem;
   }
   .hero-title {
     font-size: 1.8rem;
@@ -743,9 +789,6 @@ body.scrolled #scrollToTopBtn {
   
   .section-summary {
     font-size: 12px;
-  }
-  .section-title {
-    font-size: 1.8rem;
   }
   .card-title {
     font-size: 0.8rem;
@@ -807,10 +850,6 @@ body.scrolled #scrollToTopBtn {
   .author-links {
     display: none;
   }
-  .testimonial-section {
-    padding-left: 8rem;
-    padding-right: 8rem;
-  }
   .card-box {
     width: 22.66667rem;
     height: 22rem;
@@ -844,12 +883,6 @@ body.scrolled #scrollToTopBtn {
  
   .section-summary {
     font-size: 0.875rem;
-  }
-  .section-title {
-    font-size: 2rem;
-  }
-  .card-desc {
-    font-size: 0.55rem;
   }
   .consulation-container {
     display: flex;
@@ -1046,20 +1079,11 @@ height: 2.5rem;
 }
 
 .button-test {
-
-  background: var(--ButtonTest, linear-gradient(97deg, #5E40A0 0.62%, #7B54B2 100%));
-background-clip: text;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-font-family: Montserrat;
-
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-letter-spacing: 0.4px;
-text-transform: capitalize;
- 
- 
+  width: fit-content;
+  position: relative;
+  height: 2.5rem;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
   border: 1px solid transparent;
   border-image: var(
     --card-dark,
@@ -1068,19 +1092,24 @@ text-transform: capitalize;
   border-image-slice: 1;
   justify-content: center;
   align-items: center;
-
+  font-weight: 400;
   display: inline-flex;
   transition:
     background 0.9s ease,
     color 0.3s ease;
 }
-
 .button-test:hover {
   background: linear-gradient(135deg, #6c39db 0.62%, #1c083e 100%);
+  color:white;
   box-shadow: 0px 0px 0px 2px #f0f5ff;
 }
-.button-test:hover >span {
-  color: white; /* Change the opacity to 1 to make the text fully visible on hover */
+@media (min-width: 640px){
+  .button-test{
+    height: 3.75rem;
+      font-size: 1.25rem;
+      font-weight: 500;
+      padding: 0.875rem 2rem;
+  }
 }
 .border-container-left {
   border: 0.1px transparent;
@@ -1592,6 +1621,7 @@ text-transform: capitalize;
 .technology-section {
   width: 100%;
   background: #f9f8fc;
+  display: grid;
 }
 .title {
   color: var(--heading-gray, #000000);
@@ -1637,10 +1667,8 @@ text-transform: capitalize;
 .section-container {
   color: var(--heading-gray, #e9e9ec);
   font-family: Montserrat;
-  font-size: 2.25rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 3.75rem; /* 166.667% */
 }
 .phases-container {
   background: #1b0740;
@@ -1690,10 +1718,8 @@ text-transform: capitalize;
 .section-heading h2 {
   color: var(--heading-gray, #e9e9ec);
   font-family: Montserrat;
-  font-size: 2rem;
   font-style: normal;
-  font-weight: 700;
-  line-height: 3.75rem; /* 150% */
+  font-weight: 500;
   letter-spacing: 0.05rem;
   justify-items: center;
   display: flex;
@@ -1734,7 +1760,7 @@ text-transform: capitalize;
 }
 .inner-container {
   display: flex;
-  padding: 4rem 1.875rem;
+  padding: 1.5rem 2rem;
   align-items: center;
   flex-direction: row;
   gap: 2rem;
@@ -1843,7 +1869,7 @@ hr {
   width: 25rem;
   white-space: nowrap;
   font-size: 1.125rem;
-  font-weight: 200;
+  font-weight: 400;
   color: var(--gray-5, #d9d9d9);
   justify-content: space-between;
   display: flex;
@@ -2526,8 +2552,9 @@ text-transform: capitalize;
 .hue-btn-primary {
   cursor: pointer;
   border: 2px solid #b9c1ec;
-  gap: 0.625rem;
-  padding: 0.83rem;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  height: 2.5rem;
   color: white;
   display: flex;
   justify-content: center;
@@ -2535,7 +2562,7 @@ text-transform: capitalize;
   flex: 1 0 0;
   font-family: Montserrat;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   line-height: normal;
   letter-spacing: 0.48px;
   text-transform: uppercase;
@@ -2544,6 +2571,22 @@ text-transform: capitalize;
   border: none;
   background-position: 100% 0%;
   animation: shade-movement 4s linear infinite;
+}
+@media (min-width:768px) {
+  .hue-btn-primary {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    height: 3rem;
+  }
+}
+@media (min-width:1024px) {
+  .hue-btn-primary{
+    font-size: 1.25rem;
+    padding: 1.25rem 2.5rem;
+    font-weight: 600;
+    height: 3.75rem;
+  }
 }
 .fade-in {
   opacity: 0;
@@ -2643,7 +2686,6 @@ text-transform: capitalize;
   aspect-ratio: 21/16;
   padding: 0 0.4rem;
   object-fit: contain;
-  cursor: pointer;
 }
 @media (min-width: 375px) {
   .logos {

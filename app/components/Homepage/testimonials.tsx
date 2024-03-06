@@ -39,13 +39,67 @@ const Testimonials = () => {
     setCurrentTestimonialIndex(current);
   };
   return (
-    <div id="testimonials" className="section-container py-14">
+    <div className="section-container lg:py-12 md:py-6 py-4">
       <section className="section-heading">
-        <h2>Testimonials</h2>
+        <h2 className="xl:text-3xl lg:text-2xl sm:text-xl text-lg tracking-wider">
+          Testimonials
+        </h2>
       </section>
+      <svg
+        className="flex mx-auto"
+        width="100%"
+        height="24"
+        viewBox="0 0 1280 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {" "}
+        <rect
+          x="60.5"
+          y="12.25"
+          width="0.5"
+          height="579.5"
+          transform="rotate(-90 60.5 12.25)"
+          fill="url(#paint0_linear_2670_97811)"
+        ></rect>{" "}
+        <rect
+          x="1219.5"
+          y="11.75"
+          width="0.5"
+          height="579.5"
+          transform="rotate(90 1219.5 11.75)"
+          fill="url(#paint1_linear_2670_97811)"
+        ></rect>{" "}
+        <defs>
+          <linearGradient
+            id="paint0_linear_2670_97811"
+            x1="61.25"
+            y1="587.432"
+            x2="61.25"
+            y2="1.88636"
+            gradientUnits="userSpaceOnUse"
+          >
+            {" "}
+            <stop stop-color="#AEBEFF"></stop>
+            <stop offset="1" stop-color="#A7B8FE" stop-opacity="0"></stop>{" "}
+          </linearGradient>
+          <linearGradient
+            id="paint1_linear_2670_97811"
+            x1="1220.25"
+            y1="586.932"
+            x2="1220.25"
+            y2="1.38636"
+            gradientUnits="userSpaceOnUse"
+          >
+            {" "}
+            <stop stop-color="#AEBEFF"></stop>
+            <stop offset="1" stop-color="#A7B8FE" stop-opacity="0"></stop>{" "}
+          </linearGradient>
+        </defs>
+      </svg>
       {testimonialList.length > 0 && (
         <>
-          <section className="testimonial-section mt-4 gradient-top pb-4">
+          <section className="testimonial-section pb-4">
             <Carousel
               beforeChange={handleCarouselChange}
               afterChange={handleCarouselChange}
