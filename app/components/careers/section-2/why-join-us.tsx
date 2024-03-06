@@ -75,7 +75,7 @@ className="group relative flex flex-col items-center opaque-card aspect-video py
 <p className="text-center leading-8 text-[FFFFFFD9] font-poppins w-3/5 group-hover:hidden">
 {item.title}
 </p>
-<p className="relative pt-4 px-4 text-xs leading-5 md:text-sm lg:text-xs 2xl:text-sm text-left text-[FFFFFFD9] font-poppins  hidden group-hover:block font-thin">
+<p className="relative pt-4 px-4 text-xs leading-5 md:text-sm lg:text-xs text-left text-[FFFFFFD9] font-poppins  hidden group-hover:block font-thin">
 {item.description}
 </p>
 </div>

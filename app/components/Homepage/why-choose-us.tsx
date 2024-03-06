@@ -84,7 +84,7 @@ const WhyChooseUs = ({
             <p className="text-center lg:leading-8 text-[FFFFFFD9] font-poppins w-4/5 lg:group-hover:hidden md:text-base text-sm">
               {pair.text}
             </p>
-            <p className="relative pt-4 px-4 text-xs leading-5 md:text-base font-light lg:text-base 2xl:text-sm text-left text-[FFFFFFD9] font-poppins  hidden lg:group-hover:block">
+            <p className="relative pt-4 px-4 text-xs leading-5 md:text-base font-light lg:text-base text-left text-[FFFFFFD9] font-poppins  hidden lg:group-hover:block">
               {pair.description}
             </p>
           </div>
