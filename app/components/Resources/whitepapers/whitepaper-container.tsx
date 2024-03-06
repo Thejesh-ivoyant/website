@@ -57,7 +57,7 @@ const WhitePaperCardContainer = () => {
         </div>
       </div>
       <div className="mx-auto w-full flex justify-center items-center" onClick={fetchMoreData}>
-    <button className="button-test font-montserrat font-thin"> <span className="font-thin">Explore Now</span></button>
+    <button className="button-test font-montserrat"> <span className="font-thin">Explore Now</span></button>
       </div>
     </div>
   );

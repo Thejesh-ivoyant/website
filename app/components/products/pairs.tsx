@@ -4,7 +4,11 @@ const Pairs = () => {
   const attributes = data?.productsResponse?.data?.product?.data?.attributes;
   const pairsData = attributes?.pairs || [];
   return (
-    <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-2 lg:px-5 py-14 lg:gap-8 md:gap-6 gap-4">
+    
+  );
+};
+export default Pairs;
+{/* <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-2 lg:px-5 py-14 lg:gap-8 md:gap-6 gap-4">
       <h1 className="text-HeaderGray font-montserrat text-3xl md:text-4xl font-semibold">
         {attributes?.section_4_title}
       </h1>
@@ -83,7 +87,4 @@ const Pairs = () => {
           </div>
         ))}
       </div>
-    </section>
-  );
-};
-export default Pairs;
+    </section> */}

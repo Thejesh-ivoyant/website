@@ -2,8 +2,8 @@ import { useLoaderData } from "@remix-run/react";
 const Technologies = () => {
   const loaderData = useLoaderData() as any;
   return (
-    <div className="bg-white py-5">
-  <h1 className="section-title text-center  flex-wrap items-center py-6">
+    <div className="bg-white grid gap-3 section-p-y">
+      <h1 className="section-heading text-[#0D0B71] text-center  flex-wrap items-center">
         {loaderData.s7_techTitle}
       </h1>
       <div className="w-full flex justify-around flex-wrap text-black p-10 border-t-2">
