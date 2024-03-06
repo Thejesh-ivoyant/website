@@ -16,7 +16,7 @@ const CaseCard = ({ caseItem}: { caseItem: any}) => {
             </header>
           </div>
           <div className="landing-resource-card-right items-start flex flex-col  max-md:w-full justify-between ">
-              <div className="text-blue-100 w-fit category-title italic font-medium whitespace-nowrap justify-center items-stretch bg-gray-900 p-1">
+              <div className="text-blue-100 w-fit category-title italic font-medium whitespace-nowrap font-montserrat justify-center items-stretch bg-gray-900 p-1">
               {caseItem.attributes?.category.data.attributes?.name}
               </div>
               <div className="line-clamp-2 blog-title self-stretch mt-[1rem] text-black  font-montserrat font-semibold ">
