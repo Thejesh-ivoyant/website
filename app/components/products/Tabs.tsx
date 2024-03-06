@@ -10,54 +10,59 @@ export default function Tabs({ tabContents }: { tabContents: TabContent[] }) {
   }, [tabContents]);
   return (
     <>
-      <div className="w-full h-fit p-3 lg:p-4 xl:p-16 bg-slate">
-        <h3 className="lg:text-center font-montserrat text-2xl text-black lg:text-5xl lg:text-PurpBlue font-semibold lg:py-10 mt-6">
+      <div className="w-full h-fit px-4 xl:px-16  lg:py-8 md:py-6 py-4 bg-slate grid gap-3">
+        <h3 className="lg:text-center font-montserrat xl:text-3xl lg:text-2xl sm:text-xl text-lg text-black lg:text-PurpBlue font-semibold">
           Our innovative integration suite
         </h3>
         <svg
-          className="mx-auto hidden lg:block"
-          width="100%"
           height="25"
           viewBox="0 0 1200 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          className="w-full hidden lg:block mx-auto"
         >
-          <path
+          <rect
+            y="12.5"
+            width="1"
+            height="600"
             transform="rotate(-90 0 12.5)"
-            fill="url(#a)"
-            d="M0 12.5h1v600H0z"
+            fill="url(#paint0_linear_7656_55083)"
           />
-          <path
+          <rect
+            x="1200"
+            y="11.5"
+            width="1"
+            height="600"
             transform="rotate(90 1200 11.5)"
-            fill="url(#b)"
-            d="M1200 11.5h1v600h-1z"
+            fill="url(#paint1_linear_7656_55083)"
           />
           <defs>
             <linearGradient
-              id="a"
+              id="paint0_linear_7656_55083"
               x1="1.5"
               y1="608.029"
-              x2="1.5"
-              y2="1.77"
+              x2="1.49999"
+              y2="1.76974"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="#AEBEFF" />
-              <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
+              <stop stop-color="#AEBEFF" />
+              <stop offset="1" stop-color="#A7B8FE" stop-opacity="0" />
             </linearGradient>
             <linearGradient
-              id="b"
+              id="paint1_linear_7656_55083"
               x1="1201.5"
               y1="607.029"
               x2="1201.5"
-              y2=".77"
+              y2="0.769742"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="#AEBEFF" />
-              <stop offset="1" stopColor="#A7B8FE" stopOpacity="0" />
+              <stop stop-color="#AEBEFF" />
+              <stop offset="1" stop-color="#A7B8FE" stop-opacity="0" />
             </linearGradient>
           </defs>
         </svg>
-        <div className="max-w-7xl mx-auto w-full h-fit flex flex-col  lg:flex-row tab-container my-10 lg:gap-0 gap-3">
+
+        <div className="max-w-7xl mx-auto w-full h-fit flex flex-col  lg:flex-row tab-container lg:gap-0 gap-3">
           <div className="flex flex-wrap lg:flex-nowrap  lg:flex-col gap-3 lg:gap-0 w-fit">
             {tabContents.map((item: TabContent) => (
               <button

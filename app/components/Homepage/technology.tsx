@@ -21,14 +21,18 @@ interface SectionData {
 }
 const Technology = () => {
   const SECTION8_API_URL = `${strapiUrl}/api/section8s?populate=%2A`;
-  const [TechnologyExpertiseLogos, setTechnologyExpertiseLogos] = useState<LogoData[]>([]);
+  const [TechnologyExpertiseLogos, setTechnologyExpertiseLogos] = useState<
+    LogoData[]
+  >([]);
   const [columnCount, setColumnCount] = useState<number>(5); // Default column count
   useEffect(() => {
     // Fetch data from the API endpoint
     fetch(SECTION8_API_URL)
       .then((response) => response.json())
       .then((section8_data: SectionData) => {
-        const logos = section8_data.data[0]?.attributes.TechnologyExpertiseLogos?.data || [];
+        const logos =
+          section8_data.data[0]?.attributes.TechnologyExpertiseLogos?.data ||
+          [];
         setTechnologyExpertiseLogos(logos);
       })
       .catch((error) => {
@@ -39,7 +43,9 @@ const Technology = () => {
     function handleResize() {
       if (window.matchMedia("(max-width: 576px)").matches) {
         setColumnCount(3);
-      } else if (window.matchMedia("(min-width: 577px) and (max-width: 768px)").matches) {
+      } else if (
+        window.matchMedia("(min-width: 577px) and (max-width: 768px)").matches
+      ) {
         setColumnCount(4);
       } else {
         setColumnCount(5);
@@ -55,21 +61,37 @@ const Technology = () => {
     };
   }, []); // Empty dependency array ensures that this effect runs only once on component mount
   return (
-    <div className="technology-section py-16">
+    <div className="technology-section lg:py-8 md:py-6 py-4 lg:gap-6 md:gap-4 gap-3">
       <section className="section-title">
-        <h2>Technology Expertise</h2>
+        <h2 className="xl:text-3xl lg:text-2xl sm:text-xl text-lg">
+          Technology Expertise
+        </h2>
       </section>
       <section className="px-4 py-2">
         <div className="flex flex-col space-y-4 gradient-bottom">
-          {Array.from({ length: Math.ceil(TechnologyExpertiseLogos.length / columnCount) }).map((_, row) => (
-            <div key={row} className="flex flex-row w-full justify-evenly gradient-top py-8">
-              {TechnologyExpertiseLogos.slice(row * columnCount, (row + 1) * columnCount).map((logo, index) => (
+          {Array.from({
+            length: Math.ceil(TechnologyExpertiseLogos.length / columnCount),
+          }).map((_, row) => (
+            <div
+              key={row}
+              className="flex flex-row w-full justify-evenly gradient-top py-8"
+            >
+              {TechnologyExpertiseLogos.slice(
+                row * columnCount,
+                (row + 1) * columnCount
+              ).map((logo, index) => (
                 <div className="logoitems flex flex-col gap-2" key={logo.id}>
                   <div className="flex">
-                    <img src={`${logo.attributes.url}`} className="ClientLogo" alt={`Logo ${index}`} />
+                    <img
+                      src={`${logo.attributes.url}`}
+                      className="ClientLogo"
+                      alt={`Logo ${index}`}
+                    />
                   </div>
                   <div className="flex">
-                    <figcaption className="text-black mt-2">{logo.attributes.caption}</figcaption>
+                    <figcaption className="text-black mt-2">
+                      {logo.attributes.caption}
+                    </figcaption>
                   </div>
                 </div>
               ))}
