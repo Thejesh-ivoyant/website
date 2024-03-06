@@ -96,7 +96,7 @@ const Footer = () => {
               Please provide required information to view the Pitch deck
             </div>
             <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
-              Full name
+              Full name*
             </div>
             <input
               type="text"
@@ -105,7 +105,7 @@ const Footer = () => {
               required
             />
             <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
-              Email
+              Email*
             </div>
             <input
               type="email"
@@ -114,7 +114,7 @@ const Footer = () => {
               required
             />
             <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
-              Phone number
+              Phone number*
             </div>
             <input
               type="tel"
