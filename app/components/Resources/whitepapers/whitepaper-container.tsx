@@ -46,7 +46,7 @@ const WhitePaperCardContainer = () => {
         {loaderData.s2_title}
         </span>
       </div>
-      <div className="whitepaper-grid-container w-full h-fit   flex flex-row justify-around">
+      <div className="whitepaper-grid-container mt-[1rem] w-full h-fit   flex flex-row justify-around">
         <img src="../assets/Ornament.png" className="absolute top-4 left-4 -z-20" alt="ornament" />
   <div className="whitepaper-container-property" >
   {whitePaperData.map((paper: IWhitePaper) => (
@@ -56,9 +56,20 @@ const WhitePaperCardContainer = () => {
         ))}
         </div>
       </div>
-      <div className="mx-auto w-full flex justify-center items-center" onClick={fetchMoreData}>
-    <button className="button-test font-montserrat"> <span className="font-thin">Explore Now</span></button>
-      </div>
+     
+
+      <div
+          className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center"
+         
+        >
+          <button
+          className="hue-btn-blue btn uppercase"
+          onClick={fetchMoreData}
+          disabled={loading}
+        >
+          <span>Explore More</span>
+        </button>
+        </div>
     </div>
   );
 };

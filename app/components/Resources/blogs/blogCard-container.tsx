@@ -204,7 +204,7 @@ const BlogCardContainer = () => {
         <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
           <span className="section-title">{loaderData.s2_title}</span>
         </div>
-        <div className="filter flex w-full font-montserrat justify-center gap-2 h-12 mt-2 mb-2 ">
+        <div className="filter flex w-full font-montserrat justify-center gap-2 h-12 mt-[2rem] mb-2 ">
           <div className="flex flex-col gap-1">
             <div className="flex">
               <label className="text-haiti font-normal">Filter by:</label>
@@ -311,7 +311,7 @@ const BlogCardContainer = () => {
         </div>
 
         <div
-          className="mx-auto w-fit flex justify-center items-center"
+          className="mx-auto mt-[2.5rem] w-fit flex justify-center items-center"
          
         >
           <button
@@ -322,6 +322,7 @@ const BlogCardContainer = () => {
           <span>Show More</span>
         </button>
         </div>
+
       </div>
     </>
   );

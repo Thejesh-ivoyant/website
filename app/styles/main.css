@@ -229,7 +229,7 @@ body.scrolled #scrollToTopBtn {
 .hero-title {
   font-weight: 500;
   font-family: Montserrat;
-  font-size: 2.2rem /* 36px */;
+  font-size: 2rem /* 36px */;
   line-height: 2.4rem;
   color: white;
   text-align: center;
@@ -2496,6 +2496,39 @@ hr {
   border-radius: 2px;
   border: 1px solid #1b0740;
   transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.hue-btn-blue-light {
+  cursor: pointer;
+  border: 0.125rem solid #b9c1ec;
+  background-color: transparent;
+  gap: 0.625rem;
+  border: 2px solid var(--L3, #B9C1EC);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 0;
+  
+  font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.32px;
+text-transform: capitalize;
+background: var(--ButtonTest, linear-gradient(97deg, #5E40A0 0.62%, #7B54B2 100%));
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.hue-btn-blue-light:hover {
+  border: 2px solid transparent;
+  -webkit-text-fill-color: white;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background: linear-gradient(45deg, #6c39db 0.62%, #1c083e 100%) 0 0 / 200%
+    100% no-repeat;
+  background-position: 100% 0%;
+  animation: shade-movement 4s linear infinite;
 }
 
 .hue-btn-blue {
