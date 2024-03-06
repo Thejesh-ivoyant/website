@@ -314,16 +314,16 @@ const Blog_WhitepaperContent = () => {
               Please provide required information to view the Whitepaper
             </div>
             <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
-              Full name
+              Full name*
             </div>
-            <input
+                       <input
               type="text"
               className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
               name="firstName"
               required
             />
             <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
-              Email
+              Email*
             </div>
             <input
               type="email"
@@ -332,7 +332,7 @@ const Blog_WhitepaperContent = () => {
               required
             />
             <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
-              Phone number
+              Phone number*
             </div>
             <input
               type="tel"
