@@ -6,6 +6,7 @@ import { case_study_paginated } from "~/graphql/queries";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { Link } from "@remix-run/react";
 import CustomDrawer from "~/utils/customDrawer";
+import CaseCard from "./caseStudyCard";
 export const Container = ({
   data,
   tags,
@@ -247,6 +248,7 @@ export const Container = ({
             </svg>
           </button>
         </div>
+
         {loading && (
           <List
             className="w-full blog-main-card z-10 h-full"
@@ -261,111 +263,24 @@ export const Container = ({
           />
         )}
         {!loading && (
-          <>
-            {arrayData &&
-              arrayData?.map((item: any, index: number) => (
-                <div
-                  key={index}
-                  className="xl:h-96 lg:h-72 md:h-56  aspect-[241/78] md:flex hidden"
-                >
-                  <img
-                    key={item?.id}
-                    src={
-                      item?.attributes?.heroBgImage?.data?.attributes?.formats
-                        ?.medium.url
-                    }
-                    className="aspect-square h-full bg-gray-200 object-cover"
-                    alt={`hero image`}
-                  ></img>
-                  <div className="bg-white h-full flex-grow pl-4 flex flex-col xl:gap-4 justify-between w-full">
-                    <p className="font-montserrat italic bg-haiti w-fit text-white xl:text-base lg:text-sm md:text-xs p-1">
-                      {item?.attributes?.category.data.attributes?.name}
-                    </p>
-                    <h1 className="font-montserrat font-semibold xl:leading-[3rem] lg:leading-10 xl:text-4xl line-clamp-2 lg:text-3xl md:text-2xl">
-                      {item?.attributes?.heroTitle}
-                    </h1>
-                    <p className="font-poppins lg:text-base md:text-sm  font-normal leading-6 xl:line-clamp-3 line-clamp-2">
-                      {item?.attributes?.heroDescription}
-                    </p>
-                    <div className="w-52">
-                      <Link
-                        prefetch="intent"
-                        to={`../resources/case-study/${item?.id}`}
-                        className="hue-btn-blue capitalize"
-                      >
-                        Read full story
-                      </Link>
-                    </div>
-                    <div className="flex gap-4">
-                      <img
-                        alt="Avatar"
-                        src={
-                          item?.attributes?.author?.data?.attributes?.avatar
-                            .data?.attributes?.formats?.thumbnail?.url
-                        }
-                        className="flex rounded-full lg:h-12 lg:w-12 md:h-8 w-8 my-auto object-cover"
-                      ></img>
-                      <div className="flex flex-col justify-start items-start">
-                        <p>
-                          {item?.attributes?.author?.data?.attributes?.name}
-                        </p>
-                        <p className="text-xs"> 2 min read</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-          </>
+            <>
+             
+              <div className="w-[76.7625rem] blog-main-card items-center z-10 h-full flex flex-col justify-center gap-y-4 overflow-y-scroll mt-8">
+      {arrayData.map((caseItem: any) => ( // Renamed `case` to `caseItem` since `case` is a reserved keyword in TypeScript
+        <CaseCard key={caseItem.id} caseItem={caseItem} /> // Changed `case` to `caseItem` for clarity
+      ))}
+    </div>
+            </>
         )}
-        {arrayData &&
-          arrayData?.map((item: any, index: number) => (
-            <div key={index} className="md:hidden grid gap-4 mob-card-cs">
-              <img
-                key={item?.id}
-                src={
-                  item?.attributes?.heroBgImage?.data?.attributes?.formats
-                    ?.medium.url
-                }
-                className="aspect-video w-full max-w-sm bg-gray-200 object-cover"
-              ></img>
-              <small className="font-montserrat italic bg-haiti w-fit text-white text-[0.625rem] px-1">
-                {item?.attributes?.category.data.attributes?.name}
-              </small>
-              <h1
-                className="font-montserrat font-semibold text-xl line-clamp-2 max-w-sm"
-                title={item?.attributes?.heroTitle}
-              >
-                {item?.attributes?.heroTitle}
-              </h1>
-              <div className="flex">
-                <img
-                  alt="Avatar"
-                  src={
-                    item?.attributes?.author?.data?.attributes?.avatar.data
-                      ?.attributes?.formats?.thumbnail?.url
-                  }
-                  className="flex rounded-full h-7 w-7 my-auto object-cover"
-                ></img>
-                <div className="grid ml-2">
-                  <p>{item?.attributes?.author?.data?.attributes?.name}</p>
-                  <p className="text-xs"> 2 min read</p>
-                </div>
-                <Link
-                  to={`../resources/case-study/${item?.id}`}
-                  className="read-more-cs-mob ml-auto"
-                >
-                  Read Full Story
-                </Link>
-              </div>
-            </div>
-          ))}
+        
         <button
-          className="hue-btn-blue uppercase"
+          className="hue-btn-blue btn uppercase"
           onClick={handleViewMore}
           disabled={btnLoading}
         >
           <span>View More</span>
         </button>
+        
         <CustomDrawer
           title="Basic Drawer"
           placement="bottom"
@@ -435,3 +350,5 @@ export const Container = ({
     </>
   );
 };
+
+

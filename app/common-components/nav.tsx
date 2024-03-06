@@ -97,44 +97,48 @@ const Nav = () => {
   ];
   return (
     <>
-      <Modal open={open} title="Download PitchDeck" onCancel={handleCancel}>
-        <Form className="form" onSubmit={handleSubmit}>
-          <div className="items-stretch bg-white flex  flex-col py-2">
-            <div className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
-              Please provide required information to view the Pitch deck
-            </div>
-            <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
-              Full name
-            </div>
-            <input
-              type="text"
-              className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
-              name="firstName"
-              required
-            />
-            <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
-              Email
-            </div>
-            <input
-              type="email"
-              className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
-              name="email"
-              required
-            />
-            <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
-              Phone number
-            </div>
-            <input
-              type="tel"
-              className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
-              name="phoneNumber"
-              required
-            />
-            <button type="submit" className="mt-6 btn w-full">
-              Get the Copy
-            </button>
-          </div>
-        </Form>
+       <Modal
+        open={open}
+        title="Download PitchDeck"
+        onCancel={handleCancel}
+      >
+   <Form className="form" onSubmit={handleSubmit}>
+    <div className="items-stretch bg-white flex  flex-col py-2">
+      <div className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
+        Please provide required information to view the Pitch deck
+      </div>
+      <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
+        Full name*
+      </div>
+      <input
+        type="text"
+        className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+        name="firstName"
+        required
+      />
+      <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
+        Email*
+      </div>
+      <input
+        type="email"
+        className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+        name="email"
+        required
+      />
+      <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
+        Phone number*
+      </div>
+      <input
+        type="tel"
+        className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+        name="phoneNumber"
+        required
+      />
+      <button type="submit" className="mt-6 btn w-full">
+        Get the Copy
+      </button>
+    </div>
+  </Form>
       </Modal>
       <nav className="fixed top-0 z-50 w-full bg-nav-dark py-2 lg:block hidden">
         <div className="flex flex-row items-center justify-around">
