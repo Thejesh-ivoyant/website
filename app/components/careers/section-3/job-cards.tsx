@@ -124,7 +124,6 @@ setLoading(true);
    <Select
                 placeholder="All Roles"
                 className="w-full rounded-none "
-                suffixIcon={selectedRole == null ? <DropDownIcon /> : null}
                 onChange={(value) => setSelectedRole(value)}
                 allowClear
                 value={selectedRole}
@@ -137,7 +136,6 @@ setLoading(true);
               <Select
                 placeholder="All Departments"
                 className="w-full rounded-none "
-                suffixIcon={selectedDep == null ? <DropDownIcon /> : null}
                 onChange={(value) => setSelectedDep(value)}
                 allowClear
                 value={selectedDep}
@@ -150,7 +148,6 @@ setLoading(true);
     <Select
                 placeholder="All Locations"
                 className="w-full rounded-none "
-                suffixIcon={selectedLoc == null ? <DropDownIcon /> : null}
                 onChange={(value) => setSelectedLoc(value)}
                 allowClear
                 value={selectedLoc}
@@ -163,7 +160,6 @@ setLoading(true);
       <Select
                 placeholder="All Experiences"
                 className="w-full rounded-none "
-                suffixIcon={selectedExp == null ? <DropDownIcon /> : null}
                 onChange={(value) => setSelectedExp(value)}
                 allowClear
                 value={selectedExp}
@@ -189,22 +185,21 @@ setLoading(true);
             </div>
       </div>
 </CustomDrawer>
-    <div className="technology-section py-16">
-      <section className="heading gradient-bottom">
+    <div className="technology-section gap-3 section-p-y">
+      <section className="heading gradient-bottom grid gap-3">
         <h2>{loaderData.s3_title}</h2>
         <p className="sub-details">"Email your resume/CV with the job code mentioned above to jobs@ivoyant.com and let us help you discover a great career"!</p>
       </section>
-      <div className="filter flex w-full font-montserrat justify-center gap-2 h-12 mt-2 mb-2 px-28">
-        <div className="flex flex-col gap-1 ">
+      <div className="filter flex w-full font-montserrat justify-center gap-2">
+        <div className="flex flex-col gap-1 w-full lg:px-28 px-4">
           <div className="flex">
             <label className="text-haiti font-normal">Filter by:</label>
           </div>
           {/* Category select */}
-          <div className="flex flex-row gap-4 ">
+          <div className="flex flex-row gap-4 mx-auto">
           <Select
                 placeholder="All Roles"
                 className="w-full rounded-none roles-dropdown"
-                suffixIcon={role == null ? <DropDownIcon /> : null}
                 onChange={(value) => setRole(value)}
                 allowClear
                 value={role}
@@ -216,7 +211,6 @@ setLoading(true);
             <Select
                 placeholder="All Departments"
                 className="w-full rounded-none dep-dropdown "
-                suffixIcon={dep == null ? <DropDownIcon /> : null}
                 onChange={(value) => setDep(value)}
                 allowClear
                 value={dep}
@@ -230,7 +224,6 @@ setLoading(true);
           <Select
                 placeholder="All Locations"
                 className="w-full rounded-none loc-dropdown "
-                suffixIcon={loc == null ? <DropDownIcon /> : null}
                 onChange={(value) => setLoc(value)}
                 allowClear
                 value={loc}
@@ -243,7 +236,6 @@ setLoading(true);
            <Select
                 placeholder="All Experiences"
                 className="w-full rounded-none exp-dropdown"
-                suffixIcon={exp == null ? <DropDownIcon /> : null}
                 onChange={(value) => setExp(value)}
                 allowClear
                 value={exp}
@@ -279,10 +271,10 @@ setLoading(true);
                  // Trigger filtering when category changes
                 }}
                 placeholder="Search"
-                className="h-34 border-haiti w-full border-[1px] border-solid rounded-sm pl-10 py-2 focus:outline-none text-xs"
+                className="border-haiti h-[1.875rem] xl:w-60 lg:w-52 border-[1px] border-solid rounded-sm pl-10 py-2 focus:outline-none text-xs"
               />
             </div>
-            <button onClick={showDrawer} className="filter-mobile flex justify-center cursor-pointer items-center px-3 py-2.5 border-solid border-[0.5px] border-indigo-950 max-w-[40px]">
+            <button onClick={showDrawer} className="filter-mobile flex justify-center cursor-pointer items-center px-3 py-2 border-solid border-[0.5px] border-indigo-950 max-w-[40px]">
               <img
                 loading="lazy"
                 src="../assets/Filter.svg"   className="w-full bg-blend-multiply aspect-square fill-white"
@@ -371,9 +363,9 @@ setLoading(true);
           ))}</>)}
         </div>
         <div className="mx-auto w-full flex justify-center items-center" onClick={fetchMoreData}>
-          <button className="button-test font-montserrat font-thin">
+          <button className="hue-btn-primary btn max-w-fit">
             {" "}
-            <span className="font-thin">Show More</span>
+            <span >Show More</span>
           </button>
         </div>
       </section>

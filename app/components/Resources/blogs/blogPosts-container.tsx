@@ -9,7 +9,7 @@ const BlogPostsContainer = () => {
   const isResourcesRoute = match !== null;
   return (
     <div
-      className="w-full bg-[#F9F8FC] lg:py-12 md:py-6 py-4"
+      className="w-full bg-[#F9F8FC] section-p-y flex flex-col gap-5"
       style={{
         backgroundImage:
           'url("../assets/Ornament.png"), url("../assets/Ornament.png")',
@@ -17,7 +17,7 @@ const BlogPostsContainer = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="text-head-grape text-4xl  w-full justify-center flex h-fit mb-3">
+      <div className="text-head-grape text-4xl  w-full justify-center flex h-fit">
         {isResourcesRoute ? (
           <span className="section-title xl:text-3xl lg:text-2xl sm:text-xl text-lg tracking-wider">
             Whats new in our Whitepapers
@@ -28,8 +28,8 @@ const BlogPostsContainer = () => {
           </span>
         )}
       </div>
-      <img className="mx-auto my-3" src={line} />
-      <div className="relative w-full h-fit px-8 flex flex-row justify-around py-3">
+      <img className="mx-auto" src={line} />
+      <div className="relative w-full h-fit px-8 flex flex-row justify-around">
         <div className="container-card">
           {loaderData.blogData.map((blog: IBlogMedia) => (
             <Link to={`../resources/blog/${blog.id}`} key={blog.id}>
@@ -46,9 +46,9 @@ const BlogPostsContainer = () => {
       <div className="mx-auto w-full flex justify-center items-center">
         <Link to={`../resources/blogs`} key="explore">
           {" "}
-          <button className="button-test font-montserrat">
+          <button className="button-test md:mt-10 mt-8">
             {" "}
-            <span className="uppercase">Explore</span>
+            <span className="uppercase font-montserrat">Explore</span>
           </button>
         </Link>
       </div>

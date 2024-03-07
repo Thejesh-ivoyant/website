@@ -27,8 +27,8 @@ const Services = ({
     setActiveButton(item);
   };
   return (
-    <div className="h-fit bg-haiti md:px-20 lg:py-12 md:py-6 py-4">
-      <div className="text-HeaderGray flex flex-col">
+    <div className="h-fit bg-haiti md:px-20 section-p-y grid gap-3">
+      <div className="text-HeaderGray flex flex-col gap-3 px-4">
         <h4 className="flex font-montserrat xl:text-3xl lg:text-2xl sm:text-xl text-lg font-medium leading-10 tracking-wider text-center mx-auto w-fit">
           {title}
         </h4>

@@ -7,9 +7,9 @@ const JobCard = ({ service }: { service: any }) => {
                     className="w-full h-[50%] object-cover"
                     alt={service.bgImage}
                 />
-            <div className="text-white p-4 flex flex-col h-full w-full">
+            <div className="text-white p-4 flex flex-col h-full w-full gap-3">
                 <p className="flex mt-4 w-full text-left text-xl font-semibold leading-7 font-montserrat">{service.title}</p>
-                <p className="flex font-thin text-xs font-poppins my-auto">{service.description}</p>
+                <p className="flex font-poppins font-light my-auto">{service.description}</p>
             </div>
         </div>
           );
