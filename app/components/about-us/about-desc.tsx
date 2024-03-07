@@ -6,7 +6,7 @@ const AboutCard = () => {
   const data =  loaderData?.aboutUsData.data?.aboutus.data.attributes
   return (
     <div className = "flex flex-col w-full max-h-fit lg:flex-row CardDark">
-      <div className='flex flex-1  bg-white'>
+      <div className='flex lg:w-1/2  bg-white'>
         <p className='text-black lg:text-xl text-base md:text-lg font-normal md:leading-7 lg:leading-9 lg:tracking-wider md:tracking-wide font-poppins my-auto py-6 px-4 lg:w-[30rem] xl:w-[33rem] mx-auto'>
           {data.aboutus}
         </p>

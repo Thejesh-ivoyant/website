@@ -1,39 +1,44 @@
-.sub-details{
-color: #000;
-font-family: Poppins;
-font-size: 1rem;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-justify-content: center;
-text-align: center;
-width: 100%;
-padding-bottom: 1rem;
+.sub-details {
+  color: #000;
+  font-family: Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 0rem 1rem 1rem 1rem;
 }
-.ant-drawer-header{
-    display: none !important;
+
+.ant-drawer-header {
+  display: none !important;
 }
-.drop-zone{
-    border: 0.5px dashed var(--Gray-gray-7, #8C8C8C);
-background: rgba(104, 54, 209, 0.02);
+
+.drop-zone {
+  border: 0.5px dashed var(--Gray-gray-7, #8C8C8C);
+  background: rgba(104, 54, 209, 0.02);
 }
-.join-card{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 7.38rem;
-    align-items: center;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-    height: fit-content;
+
+.join-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 7.38rem;
+  align-items: center;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  height: fit-content;
 }
-.grid-card{
-     object-fit: cover;
-    aspect-ratio: 1 / 1;
-    grid-column: span 1 / span 1;
-    display: grid;
-    width: 24rem;
+
+.grid-card {
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  grid-column: span 1 / span 1;
+  display: grid;
+  width: 24rem;
 }
+
 .dep-dropdown-mobile,
 .exp-dropdown-mobile,
 .loc-dropdown-mobile,
@@ -41,184 +46,224 @@ background: rgba(104, 54, 209, 0.02);
   height: 2.25rem;
 }
 
-.job-card-container{
-  padding-left: 7rem/* 112px */;
-  padding-right: 7rem/* 112px */;
+.job-card-container {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
-.contact-main{
+
+@media (min-width:1024px) {
+  .job-card-container {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+}
+
+.contact-main {
   width: 50%;
-margin-left: 1.25rem
+  margin-left: 1.25rem
 }
-.ptc-left-container{
-  width:50%;
+
+.ptc-left-container {
+  width: 50%;
 }
-.ptc-right-container{
+
+.ptc-right-container {
   width: 53%;
 }
-.privacy-section2{
+
+.privacy-section2 {
   margin-top: 2.5rem
 }
+
 /* Media query for small screens (e.g., phones) */
 @media (max-width: 576px) {
-  .contact-content-wrapper{
-    display:none;
-  }
-  .privacy-section2{
-    margin-top: 0rem
-  }
-  .contact-sidebar{
+  .contact-content-wrapper {
     display: none;
   }
+
+  .privacy-section2 {
+    margin-top: 0rem
+  }
+
+  .contact-sidebar {
+    display: none;
+  }
+
   .skew-container {
     height: 100%;
-    clip-path: none /* Adjust values for desired skew */
+    clip-path: none
+      /* Adjust values for desired skew */
   }
-  .ptc-left-container{
-    width:100%;
+
+  .ptc-left-container {
+    width: 100%;
   }
-  .ptc-right-container{
-    width:100%;
+
+  .ptc-right-container {
+    width: 100%;
   }
-  .ptc-hero-container{
+
+  .ptc-hero-container {
     flex-direction: column;
     height: 100vh;
   }
-  .contact-main{
+
+  .contact-main {
     width: 100%;
     margin-left: 0rem
   }
-    .join-card{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 2rem;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-      height: fit-content;
-    }
-    .filter{
-        padding-left: 2rem/* 112px */;
-        padding-right: 2rem/* 112px */;
-    }
-    .job-card-container{
-      padding-left: 2rem/* 112px */;
-      padding-right: 2rem/* 112px */;
-    }
-    .grid-card{
-       width: 100%;
-   }
-   .dep-dropdown{
-    display:none;
+
+  .join-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    height: fit-content;
   }
-  .exp-dropdown{
-    display:none;
+
+  .grid-card {
+    width: 100%;
   }
-  .loc-dropdown{
-    display:none;
+
+  .dep-dropdown {
+    display: none;
   }
-  .roles-dropdown{
-    display:none;
+
+  .exp-dropdown {
+    display: none;
   }
+
+  .loc-dropdown {
+    display: none;
   }
-  /* Media query for medium-sized screens (e.g., tablets) */
-  @media (min-width: 577px) and (max-width: 768px) {
-    .dep-dropdown{
-      display:none;
-    }
-    .privacy-section2{
-      margin-top: 0.5rem
-    }
-    .contact-sidebar{
-      display: none;
-    }
-    .skew-container {
-      height: 100%;
-      clip-path: none /* Adjust values for desired skew */
-    }
-    .ptc-left-container{
-      width:100%; 
-    }
-    .ptc-right-container{
-      width:100%;
-    }
-    .contact-content-wrapper{
-      display:none;
-    }
-    .ptc-hero-container{
-      flex-direction: column;
-    }
-    .contact-main{
-      width: 100%;
- margin-left: 0rem
-    }
-    .exp-dropdown{
-      display:none;
-    }
-    .filter{
-      padding-left: 2rem/* 112px */;
-      padding-right: 2rem/* 112px */;
+
+  .roles-dropdown {
+    display: none;
   }
-    .job-card-container{
-      padding-left: 4rem/* 112px */;
-      padding-right: 4rem/* 112px */;
-    }
-    .loc-dropdown{
-      display:none;
-    }
-    .roles-dropdown{
-      display:none;
-    }
-    .join-card{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 2rem;
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-      height: fit-content;
-    }
-.grid-card{
-    object-fit: cover;
-   aspect-ratio: 1 / 1;
-   grid-column: span 1 / span 1;
-   display: grid;
-   width: 16rem;
 }
+
+/* Media query for medium-sized screens (e.g., tablets) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .dep-dropdown {
+    display: none;
   }
-  /* Media query for large screens (e.g., laptops) */
-  @media (min-width: 769px) and (max-width: 992px) {
-    .join-card{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 4rem;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-      height: fit-content;
-    }
-    .filter-mobile{
-      display: none;
-     }
-.grid-card{
+
+  .privacy-section2 {
+    margin-top: 0.5rem
+  }
+
+  .contact-sidebar {
+    display: none;
+  }
+
+  .skew-container {
+    height: 100%;
+    clip-path: none
+      /* Adjust values for desired skew */
+  }
+
+  .ptc-left-container {
+    width: 100%;
+  }
+
+  .ptc-right-container {
+    width: 100%;
+  }
+
+  .contact-content-wrapper {
+    display: none;
+  }
+
+  .ptc-hero-container {
+    flex-direction: column;
+  }
+
+  .contact-main {
+    width: 100%;
+    margin-left: 0rem
+  }
+
+  .exp-dropdown {
+    display: none;
+  }
+
+  .filter {
+    padding-left: 2rem
+      /* 112px */
+    ;
+    padding-right: 2rem
+      /* 112px */
+    ;
+  }
+
+  .loc-dropdown {
+    display: none;
+  }
+
+  .roles-dropdown {
+    display: none;
+  }
+
+  .join-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    height: fit-content;
+  }
+
+  .grid-card {
     object-fit: cover;
-   aspect-ratio: 1 / 1;
-   grid-column: span 1 / span 1;
-   display: grid;
-   width: 20rem;
+    aspect-ratio: 1 / 1;
+    grid-column: span 1 / span 1;
+    display: grid;
+    width: 16rem;
+  }
 }
+
+/* Media query for large screens (e.g., laptops) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .join-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    height: fit-content;
   }
-  /* Media query for large screens (e.g., desktops) */
-  @media (min-width: 993px) and (max-width: 1200px) {
-    .filter-mobile{
-      display: none;
-     }
+
+  .filter-mobile {
+    display: none;
   }
-  /* Media query for extra-large screens (e.g., large desktops) */
-  @media (min-width: 1201px) { 
-    .filter-mobile{
-      display: none;
-     }
+
+  .grid-card {
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    grid-column: span 1 / span 1;
+    display: grid;
+    width: 20rem;
   }
-  /* Media query for medium-sized screens (landscape orientation) */
-  /* @media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
+}
+
+/* Media query for large screens (e.g., desktops) */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .filter-mobile {
+    display: none;
+  }
+}
+
+/* Media query for extra-large screens (e.g., large desktops) */
+@media (min-width: 1201px) {
+  .filter-mobile {
+    display: none;
+  }
+}
+
+/* Media query for medium-sized screens (landscape orientation) */
+/* @media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
   } */

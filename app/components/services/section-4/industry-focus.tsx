@@ -5,7 +5,7 @@ const IndustryFocus = () => {
   const loaderData = useLoaderData() as any;
   const carouselContent = loaderData.IndustryFocus as CarouselItem[];
   return (
-    <div className="section-p-y">
+    <div className="section-p-y px-4">
       <div className="carousel-ornament"></div>
       <h2 className="section-heading md:text-center text-haiti mb-3">
         {loaderData?.s4_industryFocusTitle}

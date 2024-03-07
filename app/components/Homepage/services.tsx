@@ -34,13 +34,13 @@ const Services = ({ attributes }: { attributes: Attributes }) => {
     }
   };
   return (
-    <div className="flex flex-col w-full max-h-fit lg:mx-0 lg:h-fit bg-haiti lg:py-8 md:py-6 py-4">
+    <div className="flex flex-col w-full max-h-fit lg:mx-0 lg:h-fit bg-haiti section-p-y">
       <div className="xl:text-3xl lg:text-2xl sm:text-xl text-lg w-full justify-center flex gradient-bottom">
         <h1 className="h-fit font-montserrat font-medium service-heading leading-10 md:mb-3">
           {attributes.servicesTitle}
         </h1>
       </div>
-      <div className="text-center text-violet-200 text-base md:text-base font-normal font-poppins lg:p-4 p-3 lg:mx-40">
+      <div className="text-center text-violet-200 text-base md:text-base font-normal font-poppins p-4 lg:mx-40">
         {attributes.serviceDescription}
       </div>
       <div className="w-full grid-cols-2 grid md:hidden sm:gap-4 gap-2 p-4">

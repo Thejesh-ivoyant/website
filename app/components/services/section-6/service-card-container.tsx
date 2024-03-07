@@ -4,7 +4,7 @@ import ServiceCard from "./service-card";
 const ServiceCardContainer = () => {
   const loaderData = useLoaderData() as any;
   return (
-    <div className="service-section-container ">
+    <div className="service-section-container section-p-y">
       <div className="w-full justify-center flex flex-col flex-wrap items-center text-center py-6 gradient-bottom">
         <span className="section-heading text-[#0D0B71]">
           {loaderData.s6_serviceTitle}

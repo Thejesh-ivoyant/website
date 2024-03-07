@@ -184,10 +184,10 @@ const ContactUs = () => {
           </div>
           <div className="mx-auto">
             <div className="grid md:grid-cols-2 grid-cols-1 xl:max-w-xl lg:max-w-sm ml-auto w-fit lg:gap-4 gap-3 lg:p-4 p-3">
-              <p className="text-HeaderGray w-full lg:text-2xl text-xl text-center font-semibold font-montserrat md:col-span-2">
+              <p className="text-HeaderGray w-full lg:text-2xl text-xl text-center font-semibold font-montserrat sm:col-span-2">
                 Connect with us
               </p>
-              <img src={line} className="w-full md:col-span-2"></img>
+              <img src={line} className="w-full sm:col-span-2"></img>
               <div className="col-span-1 text-white items-left w-fit md:mx-0 mx-4">
                 <div className="flex text-iv-purple items-left gap-2">
                   <img
@@ -353,7 +353,7 @@ const ContactUs = () => {
                   name="message"
                   cols={30}
                   rows={5}
-                  className="p-4 text-sm peer border-[1px] border-gray-400 outline-none cursor-pointer"
+                  className="p-4 text-sm peer border-[1px] border-black outline-none cursor-pointer"
                 ></textarea>
               </div>
             </div>
@@ -431,7 +431,7 @@ const ContactUs = () => {
               type="submit"
               name="_action"
               value="contact"
-              className="btn-purp-grad w-fit text-HeaderGray font-normal"
+              className="hue-btn-primary btn capitalize w-fit text-HeaderGray font-normal"
               disabled={btnLoading}
             >
               Send my message
@@ -551,7 +551,7 @@ const ContactUs = () => {
                   name="message_hire"
                   cols={30}
                   rows={5}
-                  className="p-4 text-sm peer border-[1px] border-gray-400 outline-none cursor-pointer"
+                  className="p-4 text-sm peer border-[1px] border-black outline-none cursor-pointer"
                 ></textarea>
               </div>
             </div>
@@ -630,7 +630,7 @@ const ContactUs = () => {
               type="submit"
               name="_action"
               value="hireus"
-              className="btn-purp-grad w-fit text-HeaderGray font-normal"
+              className="hue-btn-primary btn capitalize w-fit text-HeaderGray font-normal"
               disabled={btnLoading}
             >
               Send my message

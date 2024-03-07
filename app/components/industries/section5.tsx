@@ -3,7 +3,7 @@ const Section5 = () => {
   const loaderData = useLoaderData() as any;
   return (
     <div className="bg-haiti section-p-y h-fit grid gap-3">
-      <h1 className="text-HeaderGray flex items-center justify-center section-heading font-montserrat">
+      <h1 className="text-HeaderGray flex items-center justify-center section-heading font-montserrat px-4">
         Our software development process
       </h1>
       <svg
