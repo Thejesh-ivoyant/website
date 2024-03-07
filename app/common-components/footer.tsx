@@ -283,6 +283,14 @@ const Footer = () => {
                   </div>
                   <div className="flex items-start py-3 gap-2">
                     <div className="flex flex-col footer-font justify-center">
+                      <span className="">Phone</span>
+                      <span className="hover:font-semibold">
+                        info@ivoyant.com
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-start py-3 gap-2">
+                    <div className="flex flex-col footer-font justify-center">
                       <span className="">Skype</span>
                       <a
                         href="skype:live:.cid.37875f1d394a53b6?chat"
@@ -296,14 +304,6 @@ const Footer = () => {
                       >
                         ivoyantsales@outlook.com{" "}
                       </a>
-                    </div>
-                  </div>
-                  <div className="flex items-start py-3 gap-2">
-                    <div className="flex flex-col footer-font justify-center">
-                      <span className="">Phone</span>
-                      <span className="hover:font-semibold">
-                        info@ivoyant.com
-                      </span>
                     </div>
                   </div>
                 </div>
@@ -321,22 +321,26 @@ const Footer = () => {
             <div className="flex flex-1 flex-col  justify-between">
               <div className="flex flex-col">
                 <span className="footer-heading">MAIL US</span>
-                <div className="flex flex-col items-start py-3 gap-2">
-                  <div className="flex flex-col footer-font justify-center gap-1">
-                    <span className="">For Clients</span>
-                    <a
-                      href="mailto:info@ivoyant.com"
-                      className="hover:font-semibold"
-                    >
-                      info@ivoyant.com
-                    </a>
-                    <span className="">For Future developers</span>
-                    <a
-                      href="mailto:jobs@ivoyant.com"
-                      className="hover:font-semibold"
-                    >
-                      jobs@ivoyant.com
-                    </a>
+                <div className="flex flex-col items-start py-3 gap-4">
+                  <div className="flex flex-col footer-font justify-center gap-4">
+                    <div className="grid gap-1">
+                      <span className="">For Clients</span>
+                      <a
+                        href="mailto:info@ivoyant.com"
+                        className="hover:font-semibold"
+                      >
+                        info@ivoyant.com
+                      </a>
+                    </div>
+                    <div className="grid gap-1">
+                      <span className="">For Future developers</span>
+                      <a
+                        href="mailto:jobs@ivoyant.com"
+                        className="hover:font-semibold"
+                      >
+                        jobs@ivoyant.com
+                      </a>
+                    </div>
                     <span className="flex gap-2 py-4 tablet-hidden">
                       <img
                         src={fb}
@@ -471,7 +475,7 @@ const Footer = () => {
               />
             </a>
           </span>
-          <svg
+          <svg className="my-4"
             width="100%"
             height="26"
             viewBox="0 0 340 26"
@@ -518,7 +522,7 @@ const Footer = () => {
               </linearGradient>
             </defs>
           </svg>
-          <ul className="grid place-items-start sm:w-80 w-72 h-fit my-2 gap-2">
+          <ul className="grid place-items-start sm:w-80 w-72 h-fit my-2 gap-4">
             <AccordionItem
               list={attributes?.services}
               onToggle={() => handleToggle(1)}
@@ -558,7 +562,7 @@ const Footer = () => {
               showModal={showModal}
             />
           </ul>
-          <svg
+          <svg className="my-4"
             width="100%"
             height="26"
             viewBox="0 0 340 26"
@@ -623,7 +627,7 @@ const Footer = () => {
               </button>
             </div>
           </Form>
-          <div className="grid capitalize text-xs font-normal gap-3 place-items-center">
+          <div className="grid capitalize text-xs font-normal gap-3 place-items-center my-4">
             <Link to={"/privacy-policy"} className="hover:font-semibold">
               privacy policy
             </Link>

@@ -136,7 +136,6 @@ const Careers = () => {
        <Why_Join_Us />
        <JobCards />
        <JoinUsCardContainer />
-       <Outlet />
        </Await>
        </Suspense>
   </>

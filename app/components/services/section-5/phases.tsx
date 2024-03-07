@@ -4,7 +4,7 @@ const Phases = () => {
   const loaderData = useLoaderData() as any;
   return (
     <div className="bg-haiti section-p-y h-fit grid gap-3">
-      <h1 className="text-HeaderGray flex items-center justify-center section-heading font-montserrat">
+      <h1 className="text-HeaderGray flex items-center justify-center section-heading font-montserrat px-4">
         {loaderData?.s5_title}
       </h1>
       <svg

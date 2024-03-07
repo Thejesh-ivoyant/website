@@ -39,14 +39,14 @@ const Testimonials = () => {
     setCurrentTestimonialIndex(current);
   };
   return (
-    <div className="section-container lg:py-12 md:py-6 py-4">
+    <div className="section-container section-p-y">
       <section className="section-heading">
         <h2 className="xl:text-3xl lg:text-2xl sm:text-xl text-lg tracking-wider">
           Testimonials
         </h2>
       </section>
       <svg
-        className="flex mx-auto"
+        className="flex mx-auto my-3"
         width="100%"
         height="24"
         viewBox="0 0 1280 24"
