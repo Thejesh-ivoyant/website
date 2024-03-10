@@ -123,7 +123,7 @@ const { Option } = Select;
             </ul>
           </div>
           ))}
-          <button className="btn hero-btn" onClick={showDrawer}>
+          <button className="hue-btn-primary btn mt-16" onClick={showDrawer}>
             Apply Now
           </button>
  <Drawer

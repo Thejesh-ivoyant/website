@@ -11,7 +11,7 @@ const WhyChooseUs = ({
 }) => {
   const loaderData = useLoaderData() as any;
   return (
-    <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-4 lg:px-5 lg:py-8 md:py-6 py-4 gap-2">
+    <section className="relative flex flex-col items-center min-h-fit h-fit w-full bg-haiti text-white px-4 section-p-y gap-3">
       <h1 className="text-HeaderGray font-montserrat section-heading tracking-wider font-semibold">
         {title}
       </h1>
