@@ -15,11 +15,11 @@ export const meta: MetaFunction = ({data}: { data: any }) => {
     { title: `Ivoyant | ${data.heroTitle}` },
     {
       property: "og:title",
-      content: "Services Page",
+      content: "Cookies Page",
     },
     {
       name: "description",
-      content: "Ivoyant Services section describing all services offered",
+      content: "Ivoyant Cookies Policy",
     },
   ];
 };

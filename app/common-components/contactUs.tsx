@@ -304,7 +304,7 @@ const ContactUs = () => {
                   className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
               </div>
-              <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
+              <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:pr-4 pr-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
                 <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
                   <div className="items-stretch flex  gap-1 ">
                     <ReactFlagsSelect

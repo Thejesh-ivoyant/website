@@ -40,7 +40,7 @@ const IndustryFocus = () => {
         </defs>
       </svg>
 
-      <Carousel>
+      <Carousel className="lg:mt-10 mt-4">
         {carouselContent?.map((item: CarouselItem, index: number) => (
           <>
             <div key={index} className="carousel-box bg-white mx-auto">

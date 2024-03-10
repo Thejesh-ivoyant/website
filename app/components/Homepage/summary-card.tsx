@@ -2,7 +2,7 @@ import { Attributes } from "~/interfaces/Homepage";
 const SummaryCard = ({attributes}:{attributes:Attributes}) => {
   return (
     <>
-    <div className="relative h-full flex items-center  justify-center font-montserrat overflow-hidden opacity-95 my-auto">
+    <div className="relative h-full flex items-center  justify-center font-montserrat overflow-hidden opacity-95 my-auto mx-auto">
       <div className="moving-bg"></div>
         <div className="grid grid-cols-2 aspect-square w-full">
           <div className="aspect-square inline-flex justify-center items-center col-span-1 grape-shadow">
