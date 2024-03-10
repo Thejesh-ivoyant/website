@@ -284,7 +284,9 @@ body.scrolled #scrollToTopBtn {
 .hero-title {
   font-weight: 500;
   font-family: Montserrat;
-  font-size: 2.2rem;
+  font-size: 2.2rem
+    /* 36px */
+  ;
   line-height: 2.4rem;
   color: white;
   text-align: center;
