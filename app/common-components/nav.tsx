@@ -325,7 +325,7 @@ const Nav = () => {
           </div>
         </div>
         {isBlogRoute || CaseStudyRoute ? (
-          <div className="progress-container pt-2">
+          <div className="progress-container">
             <div
               className="progress-bar"
               id="myBar"

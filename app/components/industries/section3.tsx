@@ -29,7 +29,7 @@ const Section3 = () => {
         </div>
       </div>
       <div className="flex flex-1 flex-col h-full min-h-[16rem]" style={gradientStyle}>
-        <h2 className="flex float-left text-white font-montserrat items-center justify-center section-heading section-p-y text-right font-medium my-auto lg:my-0">
+        <h2 className="flex float-left text-white font-montserrat items-center justify-center section-heading section-p-y px-4 lg:text-right text-center font-medium my-auto lg:my-0">
           {loaderData.section3Title}
         </h2>
       </div>
