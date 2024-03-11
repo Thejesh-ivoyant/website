@@ -1,87 +1,97 @@
-.logo{
-    object-fit: contain;
-    width: 40px;
+.logo {
+  object-fit: contain;
+  width: 40px;
 }
-.nav-mid-content{
-color: var(--gray-3, #F5F5F5);
-font-family: Montserrat;
-font-weight: 500;
-line-height: normal;
+
+.nav-mid-content {
+  color: var(--gray-3, #F5F5F5);
+  font-family: Montserrat;
+  font-weight: 500;
+  line-height: normal;
 }
+
 .progress-container {
   width: 100%;
   height: 2px;
   background: #ee080800;
 }
+
 /* The progress bar (scroll indicator) */
 .progress-bar {
   height: 2px;
   background: #d7d7d7;
   width: 0%;
 }
-.company-name{
-    height: 3rem;
-    width: 6rem;
-    display: flex;
-    justify-content: center;
+
+.company-name {
+  height: 3rem;
+  width: 6rem;
+  display: flex;
+  justify-content: center;
 }
+
 @media screen and (min-width: 750px) {
-    .logo{
-        object-fit: contain;
-        width: 30px;
-    }
-    .company-name{
-        height: 3rem;
-        width: 5rem;
-        display: flex;
-        justify-content: center;
-    }
-}
-.hue-btn{
-    cursor: pointer; 
-    border: 0.5px solid #FFF;
-    background-color: transparent; 
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    height: 2.5rem;
-    color: white; 
+  .logo {
+    object-fit: contain;
+    width: 30px;
+  }
+
+  .company-name {
+    height: 3rem;
+    width: 5rem;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex: 1 0 0;
-    color: #FFF;
-    font-family: Montserrat;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    letter-spacing: 0.48px;
-    text-transform: uppercase;
+  }
 }
+
+.hue-btn {
+  cursor: pointer;
+  border: 0.5px solid #FFF;
+  background-color: transparent;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  height: 2.5rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 0;
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.48px;
+  text-transform: uppercase;
+}
+
 @media (min-width:640px) {
-  .hue-btn{
+  .hue-btn {
     padding: 0.875rem 2rem;
-    font-size: 1.25rem;
-    height: 3.75rem;
+    font-size: 1rem;
+    height: 3rem;
   }
-  
+
 }
-.hue-btn:hover{
-    background: linear-gradient(
-      45deg, 
-      #6C39DB 0.62%, 
-      #1C083E 100%
-    ) 
-    0 0 / 200% 100% no-repeat;
-      border: none;
-      background-position: 100% 0%;
-      animation: shade-movement 4s linear infinite;
+
+.hue-btn:hover {
+  background: linear-gradient(45deg,
+      #6C39DB 0.62%,
+      #1C083E 100%) 0 0 / 200% 100% no-repeat;
+  border: none;
+  background-position: 100% 0%;
+  animation: shade-movement 4s linear infinite;
 }
+
 @keyframes shade-movement {
-    0%, 100% {
-      background-position: 0% 0%;
-    }
-    50% {
-      background-position: 100% 0%;
-    }
+
+  0%,
+  100% {
+    background-position: 0% 0%;
   }
+
+  50% {
+    background-position: 100% 0%;
+  }
+}
