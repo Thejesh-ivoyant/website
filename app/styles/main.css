@@ -3084,8 +3084,8 @@ background-clip: text;
 @media (min-width: 1024px) {
   .screen-height {
     min-height: 32rem;
-    height: calc(100vh - 3rem);
-    margin-top: 3rem;
+    height: calc(100vh - 4rem);
+    margin-top: 4rem;
   }
 }
 
