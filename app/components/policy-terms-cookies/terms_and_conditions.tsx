@@ -152,7 +152,9 @@ const Terms = () => {
             <div id="Generic-Terms-of-Use" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full">
               Generic Terms of Use 
             </div>
-            {loaderData.generic}
+            <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
+              {loaderData.generic}
+            </div>
             <div id="Disclaimer" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full">
               Disclaimer
             </div>

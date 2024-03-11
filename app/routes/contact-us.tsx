@@ -17,7 +17,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <>
-      <div className="lg:mt-[4.7rem] mt-16">
+      <div className="mt-16">
         <ContactUs />
       </div>
       <ContactCard/>

@@ -414,7 +414,7 @@ body.scrolled #scrollToTopBtn {
 .card-title {
   color: #fff;
   font-family: Montserrat;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.4px;
@@ -1410,6 +1410,9 @@ body.scrolled #scrollToTopBtn {
 .key-points-container {
   display: flex;
   flex-direction: row;
+  font-family: poppins;
+  font-weight: 600;
+  letter-spacing: 0.4px;
   justify-content: start;
   padding: 10px;
   align-items: center;
@@ -3081,8 +3084,8 @@ background-clip: text;
 @media (min-width: 1024px) {
   .screen-height {
     min-height: 32rem;
-    height: calc(100vh - 4.5rem);
-    margin-top: 4.5rem;
+    height: calc(100vh - 4rem);
+    margin-top: 4rem;
   }
 }
 

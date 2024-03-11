@@ -141,7 +141,7 @@ const Nav = () => {
   </Form>
 
       </Modal>
-      <nav className="fixed top-0 z-50 w-full bg-nav-dark py-2 lg:block hidden">
+      <nav className="fixed top-0 z-50 w-full bg-nav-dark lg:block hidden max-h-16">
         <div className="flex flex-row items-center justify-around">
           <Link to="/">
             {" "}
@@ -154,7 +154,7 @@ const Nav = () => {
             </div>
           </Link>
 
-          <div className="flex flex-row transition-all">
+          <div className="flex flex-row transition-all h-16">
             {categories?.map((category, index) => (
               <div
                 key={index}
@@ -179,7 +179,7 @@ const Nav = () => {
                 <div
                   className={
                     !toggleNav
-                      ? `absolute hidden w-full left-0 top-[4.5rem] bg-black group-hover:block h-fit`
+                      ? `absolute hidden w-full left-0 top-[4rem] bg-black group-hover:block h-fit`
                       : `hidden`
                   }
                   onClick={handleClick}
@@ -235,7 +235,7 @@ const Nav = () => {
                         </div>
                       </div>
                       <div
-                        className="xl:max-w-[500px] w-[26rem] grid my-auto h-full"
+                        className="xl:max-w-[500px] w-[26rem] grid py-2 my-auto h-full"
                         id="featured-post"
                       >
                         {navdata.navGraphql?.data?.navbar?.data?.attributes?.[
@@ -309,13 +309,11 @@ const Nav = () => {
               </div>
             ))}
           </div>
-          <div className="flex flex-row gap-6 ">
+          <div className="flex flex-row gap-6">
             <Link to="/contact-us">
-              <div>
                 <button name="contactus" className="hue-btn">
                   <span>CONTACT US</span>
                 </button>
-              </div>
             </Link>
             <div
               className="hamburger justify-center items-center"
@@ -441,7 +439,7 @@ const Nav = () => {
         <div
           className={`absolute w-full ${sidebarOpen ? "flex" : "hidden"} lg:hidden flex-col justify-between left-0  bg-haiti h-fit gap-10 screen-height text-gray-200 p-4 z-[999]`}
         >
-          <div className="flex ">
+          <div className="flex h-full">
             <div className="flex flex-col w-fit gap-5">
               <div className="w-fit mx-auto gap-8 grid">
                 {categories.map((category, index) => (
@@ -465,7 +463,7 @@ const Nav = () => {
                 </Link>
               </div>
             </div>
-            <div className="h-full w-fit text-white sm:ml-10 ml-6 max-h-80 overflow-y-scroll transition-opacity mr-auto">
+            <div className="h-full w-fit text-white sm:ml-10 ml-6 overflow-y-scroll transition-opacity mr-auto">
               {categories.map((category, index) => (
                 <div className="gap-8 grid">
                   {navdata.navGraphql?.data?.navbar?.data?.attributes?.[

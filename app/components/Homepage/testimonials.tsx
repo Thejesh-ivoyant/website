@@ -103,6 +103,7 @@ const Testimonials = () => {
             <Carousel
               beforeChange={handleCarouselChange}
               afterChange={handleCarouselChange}
+              autoplay
             >
               {testimonialList.map((testimonial, index) => (
                 <div key={index} className="inner-container pb-4 w-full">

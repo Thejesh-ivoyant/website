@@ -143,7 +143,9 @@ const Cookies = () => {
             <div id="How-We-Use-Cookies" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full">
               How We Use Cookies
             </div>
-            {loaderData.use}
+            <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
+              {loaderData.use}
+            </div>
             <div id="Disabling-Cookies" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full">
               Disabling Cookies 
             </div>

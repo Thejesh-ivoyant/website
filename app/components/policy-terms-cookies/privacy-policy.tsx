@@ -323,7 +323,9 @@ const PrivacyPolicy = () => {
               Responding to your request for information for a solution or
               product offering of iVoyant
             </div>
-            {loaderData.solutions}
+            <div className="text-neutral-800 text-base leading-7 mt-4 max-md:max-w-full">
+              {loaderData.solutions}
+            </div>
             <div id="User-Employee-contacts" className="text-violet-950 text-3xl font-semibold leading-10 tracking-wider mt-8 max-md:max-w-full">
               Contacting employees of our clients, prospects, partners and
               suppliers

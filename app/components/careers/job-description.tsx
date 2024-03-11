@@ -1,16 +1,27 @@
 import { useCallback, useState } from "react";
-import { Button, Drawer, Select, Space } from 'antd';
+import { Button, DatePicker, Drawer, Select, Space } from 'antd';
 import { useLoaderData } from "@remix-run/react";
 import { Form } from "@remix-run/react";
 import { errorMessage, success } from "~/utils/notifications";
 import { useDropzone } from 'react-dropzone';
 import { FileAddOutlined, DeleteOutlined } from '@ant-design/icons';
 import React from "react";
+import dayjs from "dayjs";
 const JobDescription = () => {
   const [selectedFileName, setSelectedFileName] = React.useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<any | null>(null);
+  const [fromDate, setFromDate] = useState()
+  const onChange: DatePickerProps["onChange"] = (date, dateString) => {
+    debugger 
+    setToDate(dateString);
+  };
+  const fromDateChange: DatePickerProps["onChange"] = (date, dateString) => {
+    debugger 
+    setFromDate(dateString);
+  };
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
+      debugger
       event.preventDefault();
       const formData = new FormData(event.currentTarget);
       formData.append('action', 'Internship');
@@ -20,7 +31,8 @@ const JobDescription = () => {
       formData.delete('todate');
       const today = new Date();
       const formattedDate = today.toISOString().split('T')[0];
-      formData.append('todate', formattedDate); // Assuming 'todate' is the field name for the "To" date
+      formData.append('todate', formattedDate);
+      formData.append('fromDate', fromDate as string); // Assuming 'todate' is the field name for the "To" date
     }
       if (selectedFile) {
         formData.append('hire_attachment', selectedFile);
@@ -51,19 +63,23 @@ const JobDescription = () => {
     // Clear the selected file and hide the file information
     setSelectedFileName(null);
   };
-  const [toDate, setToDate] = useState('');
+  const [toDate, setToDate] = useState<string>('');
   const [isCurrentlyAttend, setIsCurrentlyAttend] = useState(false);
-  const handleCheckboxChange = () => {
-    setIsCurrentlyAttend((prev) => !prev); // Toggle the checkbox state
-    if (!isCurrentlyAttend) {
-      // If checkbox is checked, set "To" date to today's date
-      const today = new Date();
-      const formattedDate = today.toISOString().split('T')[0];
-      setToDate(formattedDate);
-    } else {
-      // If checkbox is unchecked, clear the "To" date
-      setToDate('');
-    }
+  // const handleCheckboxChange = () => {
+  //   setIsCurrentlyAttend((prev) => !prev); // Toggle the checkbox state
+  //   if (!isCurrentlyAttend) {
+  //     // If checkbox is checked, set "To" date to today's date
+  //     const today = new Date();
+  //     const formattedDate = today.toISOString().split('T')[0];
+  //     setToDate(formattedDate);
+  //   } else {
+  //     // If checkbox is unchecked, clear the "To" date
+  //     setToDate('');
+  //   }
+  // };
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsCurrentlyAttend(event.target.checked);
+    setToDate(event.target.checked ? new Date().toISOString().slice(0, 10) : toDate );
   };
   const loaderData = useLoaderData() as any;
     const [open, setOpen] = useState(false);
@@ -169,7 +185,7 @@ alt="close"
       type="text"
       name="firstname"
       required
-      className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+      className="intern-input"
     />
     <div className="text-neutral-800 text-xs self-stretch  mt-4 max-md:max-w-full">
       Email
@@ -178,7 +194,7 @@ alt="close"
       type="email"
       name="email"
       required
-      className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+      className="intern-input"
     />
     <div className="text-neutral-800 text-xs self-stretch whitespace-nowrap mt-4 max-md:max-w-full">
       Phone number
@@ -186,7 +202,7 @@ alt="close"
     <input
       type="tel"
       name="phone number"
-      className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+      className="intern-input"
     />
     <div className="self-stretch bg-zinc-300 flex shrink-0 h-px flex-col mt-9 max-md:max-w-full" />
     <div className="justify-between items-center self-stretch flex w-full gap-5 mt-9 max-md:max-w-full max-md:flex-wrap">
@@ -200,7 +216,7 @@ alt="close"
     <input
       type="text"
       name="institution"
-      className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+      className="intern-input"    
     />
     <div className="text-neutral-800 text-xs self-stretch whitespace-nowrap mt-4 max-md:max-w-full">
       Degree
@@ -208,31 +224,20 @@ alt="close"
     <input
       type="text"
       name="degree"
-      className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+      className="intern-input"
     />
   <div className="items-stretch self-stretch flex justify-between gap-5 mt-4 max-md:max-w-full max-md:flex-wrap">
         <div className="items-stretch flex grow basis-[0%] flex-col">
           <div className="text-neutral-800 text-xs whitespace-nowrap">
             From
           </div>
-          <input
-          name="FromDate"
-            type="date"
-            id="fromdate"
-            className="border-[color:var(--gray-gray-7,#8C8C8C)] flex flex-col justify-center mt-1 pr-16 py-1.5 border-[0.5px] border-solid items-start max-md:pr-5"
-          />
+          <DatePicker onChange={fromDateChange}/>
         </div>
         <div className="items-stretch flex grow basis-[0%] flex-col">
           <div className="text-neutral-800 text-xs whitespace-nowrap">
             To
           </div>
-          <input
-            type="date"
-            name="todate"
-            id="toDate"
-            className="border-[color:var(--gray-gray-7,#8C8C8C)] flex flex-col justify-center mt-1 pr-16 py-1.5 border-[0.5px] border-solid items-start max-md:pr-5"
-            disabled={isCurrentlyAttend}
-          />
+          <DatePicker value={toDate ? dayjs(toDate, 'YYYY-MM-DD') : null} disabled={isCurrentlyAttend}  onChange = {onChange}/>
         </div>
       </div>
 <div className="items-center flex gap-3 mt-5 self-start">
@@ -241,7 +246,7 @@ alt="close"
     id="currentlyAttendCheckbox"
     onChange={handleCheckboxChange}
   />
-  <div className="text-neutral-800 text-center text-xs self-stretch grow whitespace-nowrap">
+  <div className="text-neutral-800 text-center text-xs self-stretch grow capitalize font-montserrat">
     I Currently Attend
   </div>
 </div>
@@ -250,11 +255,10 @@ alt="close"
     </div>
     <div
       {...getRootProps()}
-      className={`flex flex-col gap-1 text-black text-sm text-centery-gray-7 drop-zone self-stretch items-center mt-8 pt-6 pb-1 px-16 border-[0.5px] border-dashed max-md:max-w-full max-md:px-5`}
+      className={`flex flex-col gap-1 text-black text-sm text-centery-gray-7 drop-zone self-stretch items-center mt-8 py-8 border-[0.5px] border-dashed max-md:max-w-full max-md:px-5`}
     >
       <label htmlFor="hire_attachment" style={{ cursor: "pointer" }}>
-        <FileAddOutlined className="bg-[#AF99DD] rounded-full p-2 text-black mr-2" />
-        Upload resume or just drop it here
+        <span className="font-semibold">Upload Resume</span> or just drop it here
       </label>
       <input {...getInputProps()} type="file" name="hire_attachment" style={{ display: "none" }} />
       {selectedFileName && (
@@ -274,11 +278,11 @@ alt="close"
     </div>
     <textarea
     name="message"
-      className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[163px] flex-col mt-8 border-[0.5px] border-solid max-md:max-w-full"
+      className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[163px] flex-col mt-8 border-[0.5px] border-solid px-4 py-2"
     ></textarea>
     <button
       type="submit"
-      className="btn mt-4 justify-end right-0"
+      className="hue-btn-primary w-full lg:w-fit lg:ml-auto btn mt-16"
     >
       Submit
     </button>
