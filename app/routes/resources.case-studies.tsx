@@ -5,7 +5,7 @@ import { generateDynamicQuery } from "~/utils/parameterized-gql";
 import { LinksFunction, defer } from "@remix-run/node";
 import { Suspense } from "react";
 import LoadingTest from "~/common-components/loading-test";
-import Hero from "~/components/Resources/case-study/Hero";
+import Hero from "~/common-components/Resources-hero";
 import { Container } from "~/components/Resources/case-study/caseStudyContainer";
 import { Daum } from "~/interfaces/CategoriesType";
 import Consultation from "~/components/Homepage/consultation";

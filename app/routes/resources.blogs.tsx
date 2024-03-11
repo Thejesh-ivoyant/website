@@ -6,10 +6,11 @@ import { LinksFunction, defer } from "@remix-run/node";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { blogQuery, categories, tagsQuery } from "~/graphql/queries";
 import BlogCardContainer from "~/components/Resources/blogs/blogCard-container";
-import Hero from "~/common-components/Hero";
+
 import LoadingTest from "~/common-components/loading-test";
 import { Daum } from "~/interfaces/CategoriesType";
 import ResourcesStyle from '~/styles/resources.css'
+import Hero from "~/common-components/Resources-hero";
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:ResourcesStyle}
 ];
@@ -87,7 +88,10 @@ const Index = () => {
     <>
     <Suspense fallback={<LoadingTest />}>
       <Await resolve={data.heroBgImageURl}>
-          <Hero />
+      <Hero  heroBgImageUrl={data?.heroBgImageURl}
+              heroTitle={data?.heroTitle}
+              heroDescription={data?.heroDescription}
+               />
           <BlogCardContainer  />
           <Consultation />
           <Outlet />
