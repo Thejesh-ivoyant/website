@@ -231,12 +231,6 @@ alt="close"
           <div className="text-neutral-800 text-xs whitespace-nowrap">
             From
           </div>
-          {/* <input
-          name="FromDate"
-            type="date"
-            id="fromdate"
-            className="border-[color:var(--gray-gray-7,#8C8C8C)] flex flex-col justify-center mt-1 pr-16 py-1.5 border-[0.5px] border-solid items-start max-md:pr-5"
-          /> */}
           <DatePicker onChange={fromDateChange}/>
         </div>
         <div className="items-stretch flex grow basis-[0%] flex-col">
@@ -244,14 +238,6 @@ alt="close"
             To
           </div>
           <DatePicker value={toDate ? dayjs(toDate, 'YYYY-MM-DD') : null} disabled={isCurrentlyAttend}  onChange = {onChange}/>
-          {/* <input
-            type="date"
-            name="todate"
-            id="toDate"
-            value={toDate}
-            className="border-[color:var(--gray-gray-7,#8C8C8C)] flex flex-col justify-center mt-1 pr-16 py-1.5 border-[0.5px] border-solid items-start max-md:pr-5"
-            disabled={isCurrentlyAttend}
-          /> */}
         </div>
       </div>
 <div className="items-center flex gap-3 mt-5 self-start">
@@ -269,7 +255,7 @@ alt="close"
     </div>
     <div
       {...getRootProps()}
-      className={`flex flex-col gap-1 text-black text-sm text-centery-gray-7 drop-zone self-stretch items-center mt-8 py-16 border-[0.5px] border-dashed max-md:max-w-full max-md:px-5`}
+      className={`flex flex-col gap-1 text-black text-sm text-centery-gray-7 drop-zone self-stretch items-center mt-8 py-8 border-[0.5px] border-dashed max-md:max-w-full max-md:px-5`}
     >
       <label htmlFor="hire_attachment" style={{ cursor: "pointer" }}>
         <span className="font-semibold">Upload Resume</span> or just drop it here
@@ -296,7 +282,7 @@ alt="close"
     ></textarea>
     <button
       type="submit"
-      className="hue-btn-primary btn mt-16"
+      className="hue-btn-primary w-full lg:w-fit lg:ml-auto btn mt-16"
     >
       Submit
     </button>

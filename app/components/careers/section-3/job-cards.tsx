@@ -192,14 +192,17 @@ setLoading(true);
       </section>
       <div className="filter flex w-full font-montserrat justify-center gap-2">
         <div className="flex flex-col gap-1 w-full lg:px-28 px-4">
-          <div className="flex">
-            <label className="text-haiti font-normal">Filter by:</label>
-          </div>
           {/* Category select */}
-          <div className="flex flex-row gap-4 mx-auto">
-          <Select
+          
+          <div className="grid gap-4 mx-auto">
+           
+              <label className="text-haiti font-normal w-full">Filter by:</label>
+      <div className="flex gap-4">
+        <Select
+        dropdownMatchSelectWidth
+            popupMatchSelectWidth={false}
                 placeholder="All Roles"
-                className="w-full rounded-none roles-dropdown"
+                className="rounded-none roles-dropdown"
                 onChange={(value) => setRole(value)}
                 allowClear
                 value={role}
@@ -209,8 +212,10 @@ setLoading(true);
                 // }}
               />
             <Select
+            dropdownMatchSelectWidth
+            popupMatchSelectWidth={false}
                 placeholder="All Departments"
-                className="w-full rounded-none dep-dropdown "
+                className=" rounded-none dep-dropdown"
                 onChange={(value) => setDep(value)}
                 allowClear
                 value={dep}
@@ -222,6 +227,8 @@ setLoading(true);
           
 
           <Select
+          dropdownMatchSelectWidth
+            popupMatchSelectWidth={false}
                 placeholder="All Locations"
                 className="w-full rounded-none loc-dropdown "
                 onChange={(value) => setLoc(value)}
@@ -234,6 +241,8 @@ setLoading(true);
               />
            
            <Select
+           dropdownMatchSelectWidth
+            popupMatchSelectWidth={false}
                 placeholder="All Experiences"
                 className="w-full rounded-none exp-dropdown"
                 onChange={(value) => setExp(value)}
@@ -280,7 +289,8 @@ setLoading(true);
                 src="../assets/Filter.svg"   className="w-full bg-blend-multiply aspect-square fill-white"
               />
             </button>
-          </div>
+      </div>    
+</div>
         </div>
         {/* Tag select */}
       </div>
@@ -362,7 +372,7 @@ setLoading(true);
             </div>
           ))}</>)}
         </div>
-        <div className="mx-auto w-full flex justify-center items-center" onClick={fetchMoreData}>
+        <div className="mx-auto w-full flex justify-center items-center lg:mt-16 mt-12" onClick={fetchMoreData}>
           <button className="hue-btn-primary btn max-w-fit">
             {" "}
             <span >Show More</span>
