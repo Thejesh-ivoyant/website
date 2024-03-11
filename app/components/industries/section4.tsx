@@ -18,7 +18,7 @@ const Section4 = () => {
         className="flex flex-1 flex-col h-full min-h-[16rem]"
         style={gradientStyle}
       >
-        <h2 className="flex float-left my-auto lg:my-0 text-white font-montserrat items-center justify-center section-heading lg:text-right section-p-y">
+        <h2 className="flex float-left my-auto lg:my-0 text-white font-montserrat items-center justify-center section-heading lg:text-right text-center section-p-y px-4">
           {loaderData.section4Title}
         </h2>
       </div>
