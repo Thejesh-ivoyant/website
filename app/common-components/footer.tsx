@@ -609,19 +609,19 @@ const Footer = () => {
               </linearGradient>
             </defs>
           </svg>
-          <Form onSubmit={handleSubmit}>
-            <div className="flex flex-row justify-center gap-2 pb-2 pl-2 pr-2">
+          <Form onSubmit={handleSubmit} className="w-full">
+            <div className="flex flex-col items-center justify-center gap-2 pb-2 pl-2 pr-2">
               <input
                 name="email"
                 type="email"
                 required
                 placeholder="Email*"
-                className="footer-font email-container  w-full mt-auto focus:outline-none"
+                className="footer-font email-container  max-w-xs w-full mt-auto focus:outline-none"
               />
               <button
                 disabled={btnLoading}
                 type="submit"
-                className="bg-white  h-10 w-fit px-2 font-montserrat  text-sm font-semibold text-haiti disabled:cursor-not-allowed"
+                className="bg-white  h-10 max-w-xs w-full px-2 font-montserrat  text-sm font-semibold text-haiti disabled:cursor-not-allowed"
               >
                 Subscribe to Newsletter
               </button>
