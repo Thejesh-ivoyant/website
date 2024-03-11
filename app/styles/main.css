@@ -3035,8 +3035,8 @@ hr {
 @media (min-width: 1024px) {
   .screen-height {
     min-height: 32rem;
-    height: calc(100vh - 4.5rem);
-    margin-top: 4.5rem;
+    height: calc(100vh - 3rem);
+    margin-top: 3rem;
   }
 }
 
