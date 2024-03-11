@@ -161,7 +161,7 @@ const Nav = () => {
                 className="group text-[#F5F5F5] flex flex-row transition-all"
               >
                 <button className="relative flex items-center w-full mx-4 py-4 text-center capitalize bg-transparent focus:outline-none text-base  tracking-wide font-montserrat">
-                  <div className="absolute w-full h-4 bg-[#5E40A0] -top-4 opacity-0 group-hover:opacity-100"></div>
+                  <div className="absolute w-full h-1 bg-[#5E40A0] top-0 opacity-0 group-hover:opacity-100"></div>
                   {category === "products" ? (
                     <Link
                       to={`./${category}`}
