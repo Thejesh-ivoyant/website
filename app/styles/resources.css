@@ -33,7 +33,7 @@
   width: 40%;
 }
 .landing-resource-card-right{
-  padding-bottom: 0.75rem/* 12px */;
+
  
   width: 60%;
 }
@@ -62,8 +62,8 @@ background-clip: text;
 -webkit-text-fill-color: transparent;
 }
 .blog-title{
-  line-height: 3.125rem;
-  font-size: 2.5rem
+  line-height: 3rem;
+  font-size: 2rem;
 }
 .description{
   line-height: 1.625rem;
@@ -80,7 +80,8 @@ background-clip: text;
   padding: 0.5rem;
  }
  .minutes{
-  margin-top: 0.625rem
+  margin-top: 0.425rem;
+  color : #6b6b6b;
  }
  .author-details-container{
   gap: 1.25rem
@@ -131,7 +132,6 @@ background-clip: text;
       display: none;
     }
     .landing-resource-card-right{
-      padding-bottom: 0.5rem/* 12px */;
       padding-left: 0rem/* 20px */;
       padding-right: 0rem/* 20px */;
       width: 100%;
@@ -208,7 +208,7 @@ display: none;
         aspect-ratio: 20/9;
       }
       .landing-resource-card-right{
-        padding-bottom: 0.5rem/* 12px */;
+       
         padding-left: 0rem/* 20px */;
         padding-right: 0rem/* 20px */;
         width: 100%;

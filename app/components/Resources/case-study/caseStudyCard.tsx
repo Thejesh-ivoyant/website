@@ -22,14 +22,14 @@ const CaseCard = ({ caseItem}: { caseItem: any}) => {
               <div className="line-clamp-2 blog-title self-stretch mt-[0.75rem] text-black  font-montserrat font-semibold ">
                {caseItem?.attributes?.heroTitle}
               </div>
-              <div className="text-black description mt-[1.56rem] line-clamp-3 font-poppins font-normal ">
+              <div className="text-black description mt-[1.2rem] line-clamp-3 font-poppins font-normal ">
                 {trimWords(caseItem?.attributes?.heroDescription)} 
                </div>
                <div className="flex read-more-btn-container mt-[1rem]">
                 <Link
                    to={`../resources/case-study/${caseItem.id}`}  key={caseItem.id}
                    >
-                    <button className="hue-btn-blue-light btn"><p>Read Full Story</p></button>
+                    <button className="hue-btn-blue-light btn btn-small"><p>Read Full Story</p></button>
               </Link>
                 </div>
               <div className="flex flex-row justify-between items-end w-full  mt-[1rem]">
