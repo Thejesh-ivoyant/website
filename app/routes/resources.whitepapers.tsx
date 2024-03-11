@@ -8,8 +8,9 @@ import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { whitepaperQuery } from "~/graphql/queries";
 import WhitePaperCardContainer from "~/components/Resources/whitepapers/whitepaper-container";
 import LoadingTest from "~/common-components/loading-test";
-import Hero from "~/common-components/Hero";
+
 import ResourcesStyle from '~/styles/resources.css'
+import Hero from "~/common-components/Resources-hero";
 export const links: LinksFunction = () => [
   {rel:"stylesheet", href:ResourcesStyle}
 ];
@@ -70,7 +71,10 @@ const Index = () => {
     <>
     <Suspense fallback={<LoadingTest />}>
       <Await resolve={data.heroBgImageURl}>
-          <Hero/>
+          <Hero  heroBgImageUrl={data?.heroBgImageURl}
+              heroTitle={data?.heroTitle}
+              heroDescription={data?.heroDescription}
+               />
           <WhitePaperCardContainer />
           <Consultation />
           <Outlet />
