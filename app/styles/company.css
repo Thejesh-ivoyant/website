@@ -264,6 +264,55 @@
   }
 }
 
+/* input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  color: black;
+  width: 100%;
+} */
+
+.ant-picker {
+  margin: 0;
+  padding: 4px 5px;
+  color: #000;
+  font-size: .75rem;
+  font-weight: 300;
+  line-height: 1;
+  list-style: none;
+  font-family: poppins;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border: transparent;
+  transition: border .2s, box-shadow .2s;
+  border: 0.5px solid #8C8C8C;
+  border-radius: 0;
+  margin-top: 0.25rem;
+}
+
+/* self-stretch border-[color:var(--gray-gray-7, #8C8C8C)] flex shrink-0 h-[29px] mt-1 border-[0.5px] border-solid max-md:max-w-full */
+.intern-input {
+  justify-self: stretch;
+  width: 100%;
+  border-color: var(--gray-gray-7, #8C8C8C);
+  display: flex;
+  flex-shrink: 0;
+  height: 1.875rem;
+  margin-top: 0.25rem;
+  padding-left: 1rem;
+  font-family: poppins;
+  border-width: 0.031rem;
+  border-style: solid;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* .ant-picker .ant-picker-input{
+  border: 0.5px solid #8C8C8C;
+  border-radius: 0;
+  margin-top: 0.25rem;
+  padding: 4px 5px;
+} */
+
 /* Media query for medium-sized screens (landscape orientation) */
 /* @media (min-width: 577px) and (max-width: 768px) and (orientation: landscape) {
   } */

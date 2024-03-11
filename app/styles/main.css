@@ -1394,6 +1394,9 @@ body.scrolled #scrollToTopBtn {
 .key-points-container {
   display: flex;
   flex-direction: row;
+  font-family: poppins;
+  font-weight: 600;
+  letter-spacing: 0.4px;
   justify-content: start;
   padding: 10px;
   align-items: center;

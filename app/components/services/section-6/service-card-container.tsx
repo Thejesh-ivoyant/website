@@ -10,10 +10,10 @@ const ServiceCardContainer = () => {
           {loaderData.s6_serviceTitle}
         </span>
       </div>
-      <p className="h-fit mt-2  flex flex-wrap section-summary  w-full text-center mx-auto ">
-        {loaderData.s6_serviceSummary}
-      </p>
-      <div className="w-full  flex flex-col ">
+      <div className="w-full  flex flex-col gap-3">
+         <p className="md:text-center mx-auto my-3 xl:max-w-6xl lg:max-w-5xl md:max-w-3xl">
+          {loaderData.s6_serviceSummary}
+        </p>
         <div className="service-grid-container service-container-property">
           {loaderData.ServicesCard.map(
             (item: { id: React.Key | null | undefined }, index: any) => (
