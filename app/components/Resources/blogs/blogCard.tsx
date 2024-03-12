@@ -10,7 +10,7 @@ const BlogCard = ({ blog,blogData }: { blog: IBlogMedia, blogData:any }) => {
         <div className="landing-resource-card  gap-1 w-full ">
           <div className="landing-resource-card-left  flex flex-col items-center   ">
             <header className="justify-between items-stretch shadow-sm flex grow flex-col w-full  max-md:max-w-full">
-          <img className="h-full"
+          <img className="h-full object-cover"
                 src={blog?.bannerImage.url}   alt="AI Protection"
               />
             </header>
