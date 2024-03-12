@@ -178,7 +178,7 @@
     margin-left: -40%;
     position: relative;
     /* margin-top: -15.625rem; */
-    transform: translateY(-15.625rem);
+    transform: translateY(-15.625rem) translateX(1rem);
     display: flex;
     flex-wrap: wrap;
   }
