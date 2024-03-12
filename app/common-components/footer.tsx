@@ -540,25 +540,33 @@ const Footer = () => {
               showModal={showModal}
             />
             <AccordionItem
-              list={attributes?.resources}
+              list={attributes?.products}
               onToggle={() => handleToggle(3)}
               num={3}
-              name="resources"
+              name="products"
               active={clicked === 3}
               showModal={showModal}
             />
             <AccordionItem
+              list={attributes?.resources}
               onToggle={() => handleToggle(4)}
               num={4}
-              name="contact"
+              name="resources"
               active={clicked === 4}
               showModal={showModal}
             />
             <AccordionItem
               onToggle={() => handleToggle(5)}
               num={5}
-              name="enquiry"
+              name="contact"
               active={clicked === 5}
+              showModal={showModal}
+            />
+            <AccordionItem
+              onToggle={() => handleToggle(6)}
+              num={6}
+              name="enquiry"
+              active={clicked === 6}
               showModal={showModal}
             />
           </ul>

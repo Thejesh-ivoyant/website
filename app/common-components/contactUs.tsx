@@ -431,7 +431,7 @@ const ContactUs = () => {
               type="submit"
               name="_action"
               value="contact"
-              className="hue-btn-primary btn capitalize w-fit text-HeaderGray font-normal"
+              className="hue-btn-primary btn capitalize md:w-fit text-HeaderGray font-normal mt-7"
               disabled={btnLoading}
             >
               Send my message
@@ -630,7 +630,7 @@ const ContactUs = () => {
               type="submit"
               name="_action"
               value="hireus"
-              className="hue-btn-primary btn capitalize w-fit text-HeaderGray font-normal"
+              className="hue-btn-primary btn capitalize md:w-fit text-HeaderGray font-normal mt-7"
               disabled={btnLoading}
             >
               Send my message
