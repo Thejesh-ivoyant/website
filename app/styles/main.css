@@ -2685,6 +2685,7 @@ hr {
 .service-description {
   max-height: 0;
   overflow: hidden;
+  font-size: 0.9em;
   transition: max-height 2s;
 }
 
