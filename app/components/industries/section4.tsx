@@ -27,11 +27,11 @@ const Section4 = () => {
           {loaderData.servicesList?.map((service: any) => (
             <div
               key={service.id}
-              className="flex flex-col items-center gap-1 w-full p-4"
+              className={`flex flex-col items-center gap-1 w-full p-4 ${(service.id===currState)? 'bg-white':'bg-[#F9F8FC]'}` }
             >
               <div
                 onClick={() => toggleExpansion(service.id)}
-                className="flex justify-start bg-slate items-start cursor-pointer font-medium text-xl w-full service-title p-4"
+                className="flex justify-start items-start cursor-pointer font-medium sm:text-xl w-full service-title p-4"
               >
                 <span className="text-left" title={service?.name}>
                   {service?.name}
