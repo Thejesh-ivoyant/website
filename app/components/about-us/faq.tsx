@@ -74,7 +74,7 @@ export default function Faq({ faqContents }: { faqContents: FAQItem[] }) {
                   {item.question}
                 </p>
                 <button
-                  className="rounded-full float-right bg-light-indigo text-white lg:p-4 lg:w-10 lg:h-10 w-8 h-8 p-3 flex items-center justify-center font-light text-xl ml-auto"
+                  className="rounded-full float-right bg-light-indigo text-white lg:p-4 lg:w-10 lg:h-10 w-8 h-8 p-3 flex text-center items-center justify-center font-light text-xl ml-auto"
                   onClick={() => toggleExpansion(item.id)}
                 >
                   {item.id === currState ? "-" : "+"}
