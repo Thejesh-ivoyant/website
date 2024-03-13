@@ -1,5 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
-import { loader } from "~/routes/about-us";
+import { loader } from "~/routes/company.about-us";
 const MissionCard = () => {
   const loaderData = useLoaderData<typeof loader>();
   const data = loaderData?.aboutUsData.data?.aboutus.data.attributes;
