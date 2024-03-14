@@ -18,7 +18,7 @@ const Section4 = () => {
         className="flex flex-1 flex-col h-full min-h-[16rem]"
         style={gradientStyle}
       >
-        <h2 className="flex float-left my-auto lg:my-0 text-white font-montserrat items-center justify-center section-heading lg:text-right section-p-y">
+        <h2 className="flex float-left my-auto lg:my-0 text-white font-montserrat items-center justify-center section-heading lg:text-right text-center section-p-y px-4">
           {loaderData.section4Title}
         </h2>
       </div>
@@ -27,11 +27,11 @@ const Section4 = () => {
           {loaderData.servicesList?.map((service: any) => (
             <div
               key={service.id}
-              className="flex flex-col items-center gap-1 w-full p-4"
+              className={`flex flex-col items-center gap-1 w-full p-4 ${(service.id===currState)? 'bg-white':'bg-[#F9F8FC]'}` }
             >
               <div
                 onClick={() => toggleExpansion(service.id)}
-                className="flex justify-start bg-slate items-start cursor-pointer font-medium text-xl w-full service-title p-4"
+                className="flex justify-start items-start cursor-pointer font-medium sm:text-xl w-full service-title p-4"
               >
                 <span className="text-left" title={service?.name}>
                   {service?.name}

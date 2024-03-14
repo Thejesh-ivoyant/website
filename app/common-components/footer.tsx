@@ -540,25 +540,33 @@ const Footer = () => {
               showModal={showModal}
             />
             <AccordionItem
-              list={attributes?.resources}
+              list={attributes?.products}
               onToggle={() => handleToggle(3)}
               num={3}
-              name="resources"
+              name="products"
               active={clicked === 3}
               showModal={showModal}
             />
             <AccordionItem
+              list={attributes?.resources}
               onToggle={() => handleToggle(4)}
               num={4}
-              name="contact"
+              name="resources"
               active={clicked === 4}
               showModal={showModal}
             />
             <AccordionItem
               onToggle={() => handleToggle(5)}
               num={5}
-              name="enquiry"
+              name="contact"
               active={clicked === 5}
+              showModal={showModal}
+            />
+            <AccordionItem
+              onToggle={() => handleToggle(6)}
+              num={6}
+              name="enquiry"
+              active={clicked === 6}
               showModal={showModal}
             />
           </ul>
@@ -609,19 +617,19 @@ const Footer = () => {
               </linearGradient>
             </defs>
           </svg>
-          <Form onSubmit={handleSubmit}>
-            <div className="flex flex-row justify-center gap-2 pb-2 pl-2 pr-2">
+          <Form onSubmit={handleSubmit} className="w-full">
+            <div className="flex flex-col items-center justify-center gap-2 pb-2 pl-2 pr-2">
               <input
                 name="email"
                 type="email"
                 required
                 placeholder="Email*"
-                className="footer-font email-container  w-full mt-auto focus:outline-none"
+                className="footer-font email-container  max-w-xs w-full mt-auto focus:outline-none"
               />
               <button
                 disabled={btnLoading}
                 type="submit"
-                className="bg-white  h-10 w-fit px-2 font-montserrat  text-sm font-semibold text-haiti disabled:cursor-not-allowed"
+                className="bg-white  h-10 max-w-xs w-full px-2 font-montserrat  text-sm font-semibold text-haiti disabled:cursor-not-allowed"
               >
                 Subscribe to Newsletter
               </button>

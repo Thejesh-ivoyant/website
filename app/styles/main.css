@@ -11,6 +11,10 @@ html {
   /* or smooth */
 }
 
+nav {
+  z-index: 999999999 !important;
+}
+
 html,
 body {
   margin: 0;
@@ -2681,6 +2685,7 @@ hr {
 .service-description {
   max-height: 0;
   overflow: hidden;
+  font-size: 0.9em;
   transition: max-height 2s;
 }
 
@@ -2707,11 +2712,18 @@ hr {
   flex: 1 0 0;
   align-self: stretch;
   background: rgba(255, 255, 255, 0.02);
+  pointer-events: none;
 }
-
 .opaque-card:hover {
   background: rgba(150, 154, 251, 0.24);
 }
+
+@media (min-width: 1024px) and (pointer: fine) {
+  .opaque-card{
+    pointer-events: auto;
+  }
+}
+
 
 .moving-noise {
   background-size: cover;
