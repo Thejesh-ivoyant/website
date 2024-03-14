@@ -39,6 +39,8 @@ const disabledDateTime = (selectedDate: dayjs.Dayjs | null) => {
   };
 };
 const ContactUs = () => {
+  const [personname, setPersonName] = useState('');
+  const [nameerror, setNameError] = useState('');
   const [btnLoading, setBtnLoading] = useState<boolean>(false);
   const [selectedCode, setCountryCodeSelected] = useState("US");
   const [selectedDate, setDateSelected] = useState("");
@@ -162,6 +164,16 @@ const ContactUs = () => {
   };
   const toggleTab = (index: number) => {
     setToggleState(index);
+  };
+  
+  const handleNameChange = (e: any) => {
+    const personname=e.target.value;
+    setPersonName(e.target.value);
+    setNameError("");
+    if (!personname) {
+
+      setNameError("Full name is required");
+    }
   };
   return (
     <>
@@ -291,9 +303,17 @@ const ContactUs = () => {
                   name="name"
                   placeholder="Name*"
                   required
+                  value={personname}
+                  onChange={handleNameChange}
                   className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
+                
               </div>
+              {nameerror &&(
+          <span className="absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{nameerror}</span>
+          )}
+
+              
               <div className="w-full relative group sm:col-span-1 col-span-2">
                 <input
                   type="text"
@@ -432,7 +452,7 @@ const ContactUs = () => {
               name="_action"
               value="contact"
               className="hue-btn-primary btn capitalize md:w-fit text-HeaderGray font-normal mt-7"
-              disabled={btnLoading}
+              disabled={btnLoading ||  personname===''}
             >
               Send my message
             </button>
