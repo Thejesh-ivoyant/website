@@ -41,13 +41,24 @@ const disabledDateTime = (selectedDate: dayjs.Dayjs | null) => {
 const ContactUs = () => {
   const [personname, setPersonName] = useState('');
   const [nameerror, setNameError] = useState('');
+
+  const [email, setEmail] =useState("");
+  const [emailerror, setEmailError] = useState('');
+
+  const [org, setOrg] =useState("");
+  const [orgerror, setOrgError] = useState('');
+
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneerror, setPhoneError] = useState('');
+
+  
   const [btnLoading, setBtnLoading] = useState<boolean>(false);
   const [selectedCode, setCountryCodeSelected] = useState("US");
   const [selectedDate, setDateSelected] = useState("");
   const ContactUsAPIData = `${strapiUrl}/api/contact-uses?populate=%2A`;
   const [contactImage, setcontactImage] = useState<string>("");
   const [hireImage, sethireImage] = useState<string>("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>,
@@ -109,9 +120,83 @@ const ContactUs = () => {
   const onChange: DatePickerProps["onChange"] = (date, dateString) => {
     setDateSelected(dateString);
   };
+
+
+  function isValidPhoneNumber(phone: any) {
+    // Regular expression without country code check
+    const phoneRegex = /^(?:[0-9]{3})[-. ]*(?:[0-9]{3})[-. ]*(?:[0-9]{4})(?: *[x/#]{1}[0-9]+)?$/;
+  
+    return phoneRegex.test(phone);
+  }
+  
   const handlePhoneNumberChange = (e: any) => {
+    const phone= e.target.value;
     setPhoneNumber(e.target.value);
+    setPhoneError("");
+    if (!phone) {
+   setPhoneError("Phone number is required");
+    } else if (!isValidPhoneNumber(phone)) {
+     setPhoneError("Invalid phone number format");
+    }
+  
   };
+  const handleNameChange = (e: any) => {
+    const personname=e.target.value;
+    setPersonName(e.target.value);
+    setNameError("");
+    if (!personname) {
+      setNameError("Full name is required");
+  } else if (personname.length < 3) {
+      setNameError("Name must be at least 3 characters long");
+  } else if (personname.length > 35) {
+      setNameError(`Name must be less than 36 characters`);
+  }
+
+  };
+
+  const handleEmailChange = (e: any) => {
+    const emailValue = e.target.value;
+    setEmail(emailValue);
+    
+    // Reset email error
+    setEmailError("");
+  
+    // Validate email
+    if (!emailValue.trim()) {
+      setEmailError("Email is required");
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+      setEmailError("Invalid email address");
+    }
+  };
+  
+
+  const handleOrgChange = (e: any) => {
+    const org = e.target.value // Trim any leading/trailing spaces
+    setOrg(e.target.value);
+    setOrgError("");
+
+    if (!org) {
+      setOrgError("Company name is required");
+    } else if (org.length < 2) {
+      setNameError("Organisation name must be at least 3 characters long");
+  } else if (personname.length > 50) {
+      setNameError(`Organisation name must be less than 56 characters`);
+  } 
+};
+
+
+  // const handleTitleChange = (e: any) => {
+  //   const title=e.target.value;
+  //   setTitle(e.target.value);
+  //   // setTitleError("");
+  //   // if (!/^[a-zA-Z\s]*$/.test(title)) {
+  //   //   setTitleError("Title must contain only letters and spaces");
+  //   // }
+  // };
+
+
+  
+
   useEffect(() => {
     fetch(ContactUsAPIData)
       .then((response) => response.json())
@@ -166,15 +251,8 @@ const ContactUs = () => {
     setToggleState(index);
   };
   
-  const handleNameChange = (e: any) => {
-    const personname=e.target.value;
-    setPersonName(e.target.value);
-    setNameError("");
-    if (!personname) {
+  
 
-      setNameError("Full name is required");
-    }
-  };
   return (
     <>
       <section
@@ -307,11 +385,11 @@ const ContactUs = () => {
                   onChange={handleNameChange}
                   className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
-                
-              </div>
-              {nameerror &&(
-          <span className="absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{nameerror}</span>
+                  {nameerror &&(
+          <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{nameerror}</span>
           )}
+              </div>
+            
 
               
               <div className="w-full relative group sm:col-span-1 col-span-2">
@@ -321,8 +399,13 @@ const ContactUs = () => {
                   name="email"
                   placeholder="Email*"
                   required
+                  value={email}
+                  onChange={handleEmailChange}
                   className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
+                  {emailerror &&(
+          <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{emailerror}</span>
+          )}
               </div>
               <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:pr-4 pr-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
                 <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
@@ -352,15 +435,23 @@ const ContactUs = () => {
                   className="outline-none  cursor-pointer overflow-hidden"
                   name="phonenumber"
                 />
+                  {phoneerror &&(
+          <span className="absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{nameerror}</span>
+          )}
               </div>
               <div className="w-full relative group sm:col-span-1 col-span-2">
                 <input
                   type="text"
                   id="organization"
                   name="organisation"
+                  value={org}
+                  onChange={handleOrgChange}
                   placeholder="Organisation"
                   className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
+                  {orgerror &&(
+          <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{orgerror}</span>
+          )}
               </div>
               <div className="w-full relative grid col-span-2">
                 <label className="py-2 text-xs text-gray-400">
@@ -452,7 +543,7 @@ const ContactUs = () => {
               name="_action"
               value="contact"
               className="hue-btn-primary btn capitalize md:w-fit text-HeaderGray font-normal mt-7"
-              disabled={btnLoading ||  personname===''}
+              disabled={btnLoading ||  personname==='' || email==='' || !!phoneerror || !!emailerror || !!nameerror || !!orgerror}
             >
               Send my message
             </button>
