@@ -2333,6 +2333,12 @@ hr {
   cursor: not-allowed;
 }
 
+.btn:disabled {
+  cursor: not-allowed;
+  background: rgba(170, 198, 209, 0.25);
+
+}
+
 .btn-purp-grad {
   display: flex;
   width: 10rem;
