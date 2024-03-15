@@ -231,13 +231,13 @@ alt="close"
           <div className="text-neutral-800 text-xs whitespace-nowrap">
             From
           </div>
-          <DatePicker onChange={fromDateChange}/>
+          <DatePicker inputReadOnly onChange={fromDateChange}/>
         </div>
         <div className="items-stretch flex grow basis-[0%] flex-col">
           <div className="text-neutral-800 text-xs whitespace-nowrap">
             To
           </div>
-          <DatePicker value={toDate ? dayjs(toDate, 'YYYY-MM-DD') : null} disabled={isCurrentlyAttend}  onChange = {onChange}/>
+          <DatePicker inputReadOnly value={toDate ? dayjs(toDate, 'YYYY-MM-DD') : null} disabled={isCurrentlyAttend}  onChange = {onChange}/>
         </div>
       </div>
 <div className="items-center flex gap-3 mt-5 self-start">
