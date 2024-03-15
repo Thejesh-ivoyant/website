@@ -51,6 +51,10 @@ const ContactUs = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneerror, setPhoneError] = useState('');
 
+  const [msg, setMsg] = useState("");
+  const [msgerror, setMsgError] = useState('');
+
+  
   
   const [btnLoading, setBtnLoading] = useState<boolean>(false);
   const [selectedCode, setCountryCodeSelected] = useState("US");
@@ -130,43 +134,59 @@ const ContactUs = () => {
   }
   
   const handlePhoneNumberChange = (e: any) => {
-    const phone= e.target.value;
-    setPhoneNumber(e.target.value);
+    const phone = e.target.value;
+    setPhoneNumber(phone);
     setPhoneError("");
-    if (!phone) {
-   setPhoneError("Phone number is required");
-    } else if (!isValidPhoneNumber(phone)) {
-     setPhoneError("Invalid phone number format");
-    }
-  
-  };
-  const handleNameChange = (e: any) => {
-    const personname=e.target.value;
-    setPersonName(e.target.value);
-    setNameError("");
-    if (!personname) {
-      setNameError("Full name is required");
-  } else if (personname.length < 3) {
-      setNameError("Name must be at least 3 characters long");
-  } else if (personname.length > 35) {
-      setNameError(`Name must be less than 36 characters`);
-  }
 
-  };
+    // Regular expression pattern to match only digits and maximum length of 10
+    const validPhoneNumberPattern = /^\d{1,10}$/;
+
+    if (!phone) {
+        setPhoneError("Phone number is required");
+    } else if (!validPhoneNumberPattern.test(phone)) {
+        setPhoneError("Invalid phone number format");
+    }
+};
+
+
+
+  const handleNameChange = (e: any) => {
+    const personName = e.target.value;
+    setPersonName(personName);
+    setNameError("");
+
+    // Regular expression patterns for validation
+    const noNumbersPattern = /\d/;
+    const noSpecialCharsPattern = /[^\w\s]/;
+    const noConsecutiveCharsPattern = /(\w)\1{3}/;
+
+    if (!personName) {
+        setNameError("Full name is required");
+    } else if (personName.length < 3) {
+        setNameError("Name must be at least 3 characters long");
+    } else if (personName.length > 35) {
+        setNameError("Name must be less than 36 characters");
+    } else if (noNumbersPattern.test(personName)) {
+        setNameError("Name cannot contain numbers");
+    } else if (noSpecialCharsPattern.test(personName)) {
+        setNameError("Name cannot contain special characters");
+    } else if (noConsecutiveCharsPattern.test(personName)) {
+        setNameError("Name cannot contain repeating consecutive characters four times");
+    }
+};
+
 
   const handleEmailChange = (e: any) => {
     const emailValue = e.target.value;
     setEmail(emailValue);
-    
     // Reset email error
     setEmailError("");
-  
     // Validate email
     if (!emailValue.trim()) {
       setEmailError("Email is required");
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+  } else if (!/^[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*@[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*(\.[a-z]{2,3})+$/.test(emailValue)) {
       setEmailError("Invalid email address");
-    }
+  }
   };
   
 
@@ -174,25 +194,22 @@ const ContactUs = () => {
     const org = e.target.value // Trim any leading/trailing spaces
     setOrg(e.target.value);
     setOrgError("");
-
     if (!org) {
       setOrgError("Company name is required");
-    } else if (org.length < 2) {
-      setNameError("Organisation name must be at least 3 characters long");
-  } else if (personname.length > 50) {
-      setNameError(`Organisation name must be less than 56 characters`);
-  } 
+    } else if (personname.length > 35) {
+      setNameError(`Organisation name must be less than 36 characters`);
+    } 
 };
 
 
-  // const handleTitleChange = (e: any) => {
-  //   const title=e.target.value;
-  //   setTitle(e.target.value);
-  //   // setTitleError("");
-  //   // if (!/^[a-zA-Z\s]*$/.test(title)) {
-  //   //   setTitleError("Title must contain only letters and spaces");
-  //   // }
-  // };
+  const handleMessageChange = (e: any) => {
+    const msg=e.target.value;
+    setMsg(e.target.value);
+    setMsgError("");
+    if (!/^[a-zA-Z\s]*$/.test(msg)) {
+      setMsgError("Message must contain only letters and spaces");
+    }
+  };
 
 
   
@@ -214,13 +231,14 @@ const ContactUs = () => {
   const [hireselectedFileName, sethireSelectedFileName] = useState<
     string | null
   >(null);
+
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
     if (selectedFile) {
       setSelectedFileName(selectedFile.name);
-      // Perform actions with the selected file
     }
   };
+
   const handleClearFile = () => {
     // Clear the selected file and hide the file information
     setSelectedFileName(null);
@@ -407,9 +425,9 @@ const ContactUs = () => {
           <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{emailerror}</span>
           )}
               </div>
-              <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:pr-4 pr-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
-                <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
-                  <div className="items-stretch flex  gap-1 ">
+              <div className="relative items-stretch  border-b-[1px] border-form-gray self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:pr-4 pr-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
+                <div className="  items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
+                  <div className=" items-stretch flex  gap-1 ">
                     <ReactFlagsSelect
                       selected={selectedCode}
                       onSelect={(code) => setCountryCodeSelected(code)}
@@ -436,7 +454,7 @@ const ContactUs = () => {
                   name="phonenumber"
                 />
                   {phoneerror &&(
-          <span className="absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{nameerror}</span>
+          <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{phoneerror}</span>
           )}
               </div>
               <div className="w-full relative group sm:col-span-1 col-span-2">
@@ -464,8 +482,13 @@ const ContactUs = () => {
                   name="message"
                   cols={30}
                   rows={5}
+                  value={msg}
+                  onChange={handleMessageChange}
                   className="p-4 text-sm peer border-[1px] border-black outline-none cursor-pointer"
                 ></textarea>
+                {msgerror &&(
+          <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{msgerror}</span>
+          )}
               </div>
             </div>
             <Space
