@@ -196,8 +196,8 @@ const ContactUs = () => {
     setOrgError("");
     if (!org) {
       setOrgError("Company name is required");
-    } else if (personname.length > 35) {
-      setNameError(`Organisation name must be less than 36 characters`);
+    } else if (org.length > 35) {
+      setOrgError(`Organisation name must be less than 36 characters`);
     } 
 };
 
@@ -206,9 +206,9 @@ const ContactUs = () => {
     const msg=e.target.value;
     setMsg(e.target.value);
     setMsgError("");
-    if (!/^[a-zA-Z\s]*$/.test(msg)) {
-      setMsgError("Message must contain only letters and spaces");
-    }
+   if (org.length > 1000) {
+      setOrgError(`Organisation name must be less than 1001 characters`);
+    } 
   };
 
 
