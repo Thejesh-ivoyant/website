@@ -64,6 +64,11 @@ const ContactUs = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneerror, setPhoneError] = useState('');
 
+  
+  const [fileerror, setFileError] = useState("");
+  
+  const [hirefileerror, sethireFileError] = useState("");
+
   const [msg, setMsg] = useState("");
   const [msgerror, setMsgError] = useState('');
  
@@ -299,12 +304,30 @@ const hirehandleMessageChange = (e: any) => {
     string | null
   >(null);
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFile = event.target.files?.[0];
-    if (selectedFile) {
-      setSelectedFileName(selectedFile.name);
+  const allowedFormats = ['.jpg', '.jpeg', '.png', '.gif', '.pdf', '.doc', '.docx', '.txt', '.xls', '.xlsx', '.csv', '.ppt', '.pptx'];
+
+const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const selectedFile = event.target.files?.[0];
+  
+  if (selectedFile) {
+
+    if (selectedFile.size > 5 * 1024 * 1024) { // 5 MB in bytes
+      setFileError('File size exceeds 5MB');
+      return;
     }
-  };
+
+    // Check file format
+    const fileExtension = selectedFile.name.split('.').pop()?.toLowerCase();
+    if (!allowedFormats.includes(`.${fileExtension}`)) {
+      setFileError('Invalid file format');
+      return;
+    }
+
+    // If both size and format are valid, update selected file name
+    setSelectedFileName(selectedFile.name);
+  }
+};
+
 
   const handleClearFile = () => {
     // Clear the selected file and hide the file information
@@ -317,11 +340,27 @@ const hirehandleMessageChange = (e: any) => {
   };
   const handlehireFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
-    if (selectedFile) {
-      sethireSelectedFileName(selectedFile.name);
-      // Perform actions with the selected file
+  
+  if (selectedFile) {
+
+    if (selectedFile.size > 5 * 1024 * 1024) { // 5 MB in bytes
+      sethireFileError('File size exceeds 5MB');
+      return;
     }
+
+    // Check file format
+    const fileExtension = selectedFile.name.split('.').pop()?.toLowerCase();
+    if (!allowedFormats.includes(`.${fileExtension}`)) {
+      sethireFileError('Invalid file format');
+      return;
+    }
+
+    // If both size and format are valid, update selected file name
+    sethireSelectedFileName(selectedFile.name);
+  }
   };
+
+
   const handlehireClearFile = () => {
     sethireSelectedFileName(null);
     // Optionally, you can reset the file input value to allow selecting the same file again
@@ -616,6 +655,9 @@ const hirehandleMessageChange = (e: any) => {
                     name="attachment"
                     onChange={handleFileChange}
                   />
+                     {fileerror &&(
+            <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{fileerror}</span>
+            )}     
                 </div>
                 {selectedFileName && (
                   <div className="absolute text-xs text-gray-700 flex items-center max-w-[5rem] translate-y-8">
@@ -624,6 +666,9 @@ const hirehandleMessageChange = (e: any) => {
                       className="text-ellipsis whitespace-nowrap max-w-[4rem] overflow-hidden"
                     >{`${selectedFileName}`}
                     </span>
+
+                
+
                     <button
                       title={`Remove ${selectedFileName}`}
                       onClick={handleClearFile}
@@ -633,7 +678,12 @@ const hirehandleMessageChange = (e: any) => {
                     </button>
                   </div>
                 )}
+                   
+
+                
+
               </div>
+             
             </Space>
             <button
               type="submit"
@@ -840,6 +890,9 @@ const hirehandleMessageChange = (e: any) => {
                     id="hire_attachment"
                     onChange={handlehireFileChange}
                   />
+                   {hirefileerror &&(
+            <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hirefileerror}</span>
+            )}
                 </div>
                 {hireselectedFileName && (
                   <div className="absolute text-xs text-gray-700 flex items-center max-w-[5rem] translate-y-8">
