@@ -66,9 +66,12 @@ const ContactUs = () => {
 
   const [msg, setMsg] = useState("");
   const [msgerror, setMsgError] = useState('');
+ 
+  
+  const [msgcount, setMsgCount] = useState("10");
+  
+  const [hiremsgcount, sethireMsgCount] = useState("10");
 
-  
-  
   const [btnLoading, setBtnLoading] = useState<boolean>(false);
   const [selectedCode, setCountryCodeSelected] = useState("US");
   const [selectedDate, setDateSelected] = useState("");
@@ -95,6 +98,7 @@ const ContactUs = () => {
             body: formData,
           }
         );
+        debugger;
         if (response.ok) {
           success(
             "Thank you for contacting us! We will get back to you soon.",
@@ -219,7 +223,7 @@ const hirehandleEmailChange = (e: any) => {
   // Validate email
   if (!hireemailValue.trim()) {
     sethireEmailError("Email is required");
-} else if (!/^[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*@[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*(\.[a-z]{2,3})+$/.test(emailValue)) {
+} else if (!/^[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*@[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*(\.[a-z]{2,3})+$/.test(hireemailValue)) {
     sethireEmailError("Invalid email address");
 }
 };
@@ -256,6 +260,9 @@ const hirehandleMessageChange = (e: any) => {
  if (hiremsg.length > 1000) {
     sethireMsgError(`Message must be less than 1001 characters`);
   } 
+  if (hiremsg.length <= 1000) {
+    sethireMsgCount((1000-(hiremsg.length)).toString())
+   }
 };
 
   const handleMessageChange = (e: any) => {
@@ -264,7 +271,11 @@ const hirehandleMessageChange = (e: any) => {
     setMsgError("");
    if (msg.length > 1000) {
       setMsgError(`Message must be less than 1001 characters`);
-    } 
+    }
+     
+   if (msg.length <= 1000) {
+    setMsgCount((1000-(msg.length)).toString())
+   }
   };
 
 
@@ -457,7 +468,7 @@ const hirehandleMessageChange = (e: any) => {
                   required
                   value={personname}
                   onChange={handleNameChange}
-                  className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+                  className="text-box w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer   outline-none cursor-pointer"
                 ></input>
                   {nameerror &&(
           <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{nameerror}</span>
@@ -475,13 +486,13 @@ const hirehandleMessageChange = (e: any) => {
                   required
                   value={email}
                   onChange={handleEmailChange}
-                  className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+                  className="text-box  w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer  outline-none cursor-pointer"
                 ></input>
                   {emailerror &&(
           <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{emailerror}</span>
           )}
               </div>
-              <div className="relative items-stretch  border-b-[1px] border-form-gray self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:pr-4 pr-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
+              <div className="relative items-stretch  text-box  self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:pr-4 pr-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
                 <div className="  items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
                   <div className=" items-stretch flex  gap-1 ">
                     <ReactFlagsSelect
@@ -506,7 +517,8 @@ const hirehandleMessageChange = (e: any) => {
                   value={phoneNumber}
                   onChange={handlePhoneNumberChange}
                   required
-                  className="outline-none  cursor-pointer overflow-hidden"
+                  style={{borderBottom: '0rem'}}
+                  className="outline-none text-box  border-b-[0px]  cursor-pointer overflow-hidden"
                   name="phonenumber"
                 />
                   {phoneerror &&(
@@ -521,7 +533,7 @@ const hirehandleMessageChange = (e: any) => {
                   value={org}
                   onChange={handleOrgChange}
                   placeholder="Organisation"
-                  className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+                  className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box  outline-none cursor-pointer"
                 ></input>
                   {orgerror &&(
           <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{orgerror}</span>
@@ -540,11 +552,15 @@ const hirehandleMessageChange = (e: any) => {
                   rows={5}
                   value={msg}
                   onChange={handleMessageChange}
+                
                   className="p-4 text-sm peer border-[1px] border-black outline-none cursor-pointer"
                 ></textarea>
                 {msgerror &&(
           <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{msgerror}</span>
           )}
+          {msgcount &&(
+            <span className="mb-[-1rem] absolute text-gray-500 text-[0.6rem] error-msg bottom-0 right-2">{msgcount}/1000</span>
+            )}
               </div>
             </div>
             <Space
@@ -707,15 +723,17 @@ const hirehandleMessageChange = (e: any) => {
                 <select
                   id="username"
                   defaultValue=""
+                 
                   name="area_of_expertise"
                   className="w-full xl:h-10 h-8 text-xs xl:text-sm peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 >
-                  <option value="" disabled hidden>
+                  <option value="" style={{ color: '#fff' }} disabled hidden >
                     Area of Expertise
                   </option>
-                  <option>Front End coding</option>
-                  <option>Devops </option>
+                  <option style={{ paddingTop: '20px' }}>Front End coding</option>
+                  <option style={{ paddingTop: '20px' }}>Devops </option>
                 </select>
+
               </div>
               <div className="w-full relative group sm:col-span-1 col-span-2">
                 <select
@@ -763,6 +781,9 @@ const hirehandleMessageChange = (e: any) => {
                 {hiremsgerror &&(
           <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hiremsgerror}</span>
           )}
+           {hiremsgcount &&(
+            <span className="mb-[-1rem] absolute text-gray-500 text-[0.6rem] error-msg bottom-0 right-2">{hiremsgcount}/1000</span>
+            )}
               </div>
             </div>
             <Space

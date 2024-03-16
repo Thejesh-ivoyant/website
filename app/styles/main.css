@@ -179,6 +179,40 @@ input[type="number"] {
   aspect-ratio: 1.28;
 }
 
+
+.text-box:focus::placeholder {
+  color: transparent;
+}
+.text-box:hover:not(:focus)::placeholder {
+  color: #404258;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+}
+
+.text-box::placeholder{
+color: #7D7890;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px; /* 125% *//* 142.857% */
+}
+
+
+.text-box{
+  border-bottom: 0.5px solid rgba(64, 66, 88, 0.50);
+}
+.text-box:focus {
+  border-bottom: 1px solid #244D28;
+  caret-color: #000000;
+}
+.text-box:hover {
+  border-bottom: 1px solid #000000;
+}
+
 .error-btn {
   color: #fff;
   font-family: Montserrat;
