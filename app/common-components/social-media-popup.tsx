@@ -45,7 +45,7 @@ export const Popup = () => {
           <img
             loading="eager"
             src={!open ? chatsIcon : closeIcon}
-            className="w-7 h-7"
+            className="w-7 h-7 border-[color:var(--Gray-gray-7,#8C8C8C)] border-[0.5px] border-solid"
             alt="chats"
           />
         </button>
