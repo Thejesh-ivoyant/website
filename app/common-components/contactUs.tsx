@@ -505,6 +505,7 @@ const ContactUs = () => {
                   <CalendarOutlined className="bg-[#D9C9FB] rounded-full w-7 h-7 p-2 text-black" />
                 </span>
                 <DatePicker
+                inputReadOnly
                   size="middle"
                   placement="topRight"
                   format="YYYY-MM-DD  HH:mm"
@@ -704,6 +705,7 @@ const ContactUs = () => {
                   <CalendarOutlined className="bg-[#D9C9FB] rounded-full p-2 w-7 h-7 text-black" />
                 </span>
                 <DatePicker
+                inputReadOnly
                   size="middle"
                   placement="topRight"
                   format="YYYY-MM-DD  HH:mm"
