@@ -201,12 +201,30 @@ font-weight: 500;
 line-height: 20px; /* 125% *//* 142.857% */
 }
 
+.text-box-form-label{
+  color: var(--Gray-gray-9, #262626);
+font-family: Montserrat;
+font-size: 0.75rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-top: 1.2rem;
+}
+.text-box-form{
+  text-transform: capitalize;
+  border-color: var(--gray-gray-7,#8C8C8C);
+  border-width: .5px;
+  border-style: solid;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
 
 .text-box{
+    text-transform: capitalize;
   border-bottom: 0.5px solid rgba(64, 66, 88, 0.50);
 }
 .text-box:focus {
-  border-bottom: 1px solid #244D28;
+  border-bottom: 1px solid #000000;
   caret-color: #000000;
 }
 .text-box:hover {
@@ -3049,9 +3067,31 @@ background-clip: text;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
 }
 
+.hue-btn-download{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.48px;
+  text-transform: capitalize;
+
+  background: linear-gradient(45deg, #6c39db 0.62%, #1c083e 100%) 0 0 / 200% 100% no-repeat;
+  border: none;
+  background-position: 100% 0%;
+  animation: shade-movement 4s linear infinite;
+
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  height: 3.75rem;
+  width: fit-content;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .hue-btn-primary {
   cursor: pointer;
-  border: 2px solid #b9c1ec;
+
   font-size: 1rem;
   padding: 0.75rem 1.5rem;
   height: 2.5rem;
@@ -3071,6 +3111,7 @@ background-clip: text;
   background-position: 100% 0%;
   animation: shade-movement 4s linear infinite;
 }
+
 
 @media (min-width:768px) {
   .hue-btn-primary {

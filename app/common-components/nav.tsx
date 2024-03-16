@@ -11,6 +11,17 @@ import ivurl from "../../public/assets/ivoyant.svg";
 import defaultsvg from "../../public/assets/default.svg";
 import { success, errorMessage } from "~/utils/notifications";
 const Nav = () => {
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneerror, setPhoneError] = useState('');
+  const [personname, setPersonName] = useState('');
+  const [nameerror, setNameError] = useState('');
+
+  const [email, setEmail] =useState("");
+  const [emailerror, setEmailError] = useState('');
+
+
+  const [btnLoading, setBtnLoading] = useState<boolean>(false);
+
   const Blogmatched = useMatch("/resources/blog/:id");
   const isBlogRoute = Blogmatched !== null;
   const CaseStudymatched = useMatch("/resources/case-study/:id");
@@ -33,14 +44,62 @@ const Nav = () => {
       setToggleNav(false);
     }, 100);
   };
+  const handlePhoneNumberChange = (e: any) => {
+    const phone = e.target.value;
+    setPhoneNumber(phone);
+    setPhoneError("");
+    const phoneRegex = /^(?:[0-9]{3})[-. ]*(?:[0-9]{3})[-. ]*(?:[0-9]{4})(?: *[x/#]{1}[0-9]+)?$/;
+    if (!phone) {
+        setPhoneError("Phone number is required");
+    } else if (!phoneRegex.test(phone)) {
+        setPhoneError("Invalid phone number format");
+    }
+};
+const handleEmailChange = (e: any) => {
+  const emailValue = e.target.value;
+  setEmail(emailValue);
+  // Reset email error
+  setEmailError("");
+  // Validate email
+  if (!emailValue.trim()) {
+    setEmailError("Email is required");
+} else if (!/^[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*@[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*(\.[a-z]{2,3})+$/.test(emailValue)) {
+    setEmailError("Invalid email address");
+}
+};
   const showModal = (url: any) => {
     // Your existing code for opening the modal
     setDownload(url);
     setOpen(true);
     // Now, you can use the 'url' parameter as needed, for example, log it
   };
+  const handleNameChange = (e: any) => {
+    const personName = e.target.value;
+    setPersonName(personName);
+    setNameError("");
+    const noNumbersPattern = /\d/;
+    const noSpecialCharsPattern = /[^\w\s]/;
+    const noConsecutiveCharsPattern = /(\w)\1{3}/;
+
+    if (!personName) {
+        setNameError("Full name is required");
+    } else if (personName.length < 3) {
+        setNameError("Name must be at least 3 characters long");
+    } else if (personName.length > 35) {
+        setNameError("Name must be less than 36 characters");
+    } else if (noNumbersPattern.test(personName)) {
+        setNameError("Name cannot contain numbers");
+    } else if (noSpecialCharsPattern.test(personName)) {
+        setNameError("Name cannot contain special characters");
+    } else if (noConsecutiveCharsPattern.test(personName)) {
+        setNameError("Name cannot contain repeating consecutive characters four times");
+    }
+};
+
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
+      setBtnLoading(true);
       event.preventDefault();
       const formData = new FormData(event.currentTarget);
       formData.append("action", "pitchdeck");
@@ -61,6 +120,7 @@ const Nav = () => {
     } catch (error) {
       errorMessage("Error occured, please retry", 3);
     }
+    setBtnLoading(false);
   };
   const handleDownload = () => {
     const PitchDeskUrl = download;
@@ -108,34 +168,56 @@ const Nav = () => {
       <div className="text-black  text-sm font-semibold  max-md:max-w-full max-md:mt-10">
         Please provide required information to view the Pitch deck
       </div>
-      <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
-        Full name*
+      <div className="text-box-form-label mt-4 max-md:max-w-full">
+        Full Name*
       </div>
+      <div className="relative w-full flex flex-col">
       <input
         type="text"
-        className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+        className=" flex shrink-0 h-[29px] flex-col mt-1 text-box-form  max-md:max-w-full"
         name="firstName"
+        value={personname}
+        onChange={handleNameChange}
         required
       />
-      <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
+       {nameerror &&(
+          <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{nameerror}</span>
+          )}
+        </div>
+      <div className="text-box-form-label mt-4 max-md:max-w-full">
         Email*
       </div>
+      <div className="relative w-full flex flex-col">
       <input
         type="email"
-        className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+        value={email}
+        onChange={handleEmailChange}
+        className=" flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
         name="email"
         required
       />
-      <div className="text-neutral-800  text-xs mt-4 max-md:max-w-full">
-        Phone number*
+        {emailerror &&(
+          <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{emailerror}</span>
+          )}
+        </div>
+      <div className="text-box-form-label mt-4 max-md:max-w-full">
+        Phone Number*
       </div>
+      <div className="relative w-full flex flex-col">
       <input
         type="tel"
-        className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+        className="flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
         name="phoneNumber"
+        value={phoneNumber}
+        onChange={handlePhoneNumberChange}
         required
       />
-      <button type="submit" className="mt-6 btn w-full">
+       {phoneerror &&(
+          <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{phoneerror}</span>
+          )}
+          </div>
+      <button type="submit" className=" hue-btn-primary mt-6 btn w-full" disabled={btnLoading ||  personname==='' || email==='' || phoneNumber==='' || !!phoneerror || !!emailerror || !!nameerror }
+>
         Get the Copy
       </button>
     </div>
