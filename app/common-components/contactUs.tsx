@@ -45,9 +45,22 @@ const ContactUs = () => {
   const [email, setEmail] =useState("");
   const [emailerror, setEmailError] = useState('');
 
+  const [hirepersonname, sethirePersonName] = useState('');
+  const [hirenameerror, sethireNameError] = useState('');
+
+  const [hireemail, sethireEmail] =useState("");
+  const [hireemailerror, sethireEmailError] = useState('');
+
   const [org, setOrg] =useState("");
   const [orgerror, setOrgError] = useState('');
 
+  const [hirephoneNumber, sethirePhoneNumber] = useState("");
+  const [hirephoneerror, sethirePhoneError] = useState('');
+
+  const [hiremsg, sethireMsg] = useState("");
+  const [hiremsgerror, sethireMsgError] = useState('');
+
+  
   const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneerror, setPhoneError] = useState('');
 
@@ -125,37 +138,60 @@ const ContactUs = () => {
     setDateSelected(dateString);
   };
 
-
-  function isValidPhoneNumber(phone: any) {
-    // Regular expression without country code check
-    const phoneRegex = /^(?:[0-9]{3})[-. ]*(?:[0-9]{3})[-. ]*(?:[0-9]{4})(?: *[x/#]{1}[0-9]+)?$/;
-  
-    return phoneRegex.test(phone);
-  }
+  const hirehandlePhoneNumberChange = (e: any) => {
+    const hirephone = e.target.value;
+    sethirePhoneNumber(hirephone);
+    sethirePhoneError("");
+    const hirephoneRegex = /^(?:[0-9]{3})[-. ]*(?:[0-9]{3})[-. ]*(?:[0-9]{4})(?: *[x/#]{1}[0-9]+)?$/;
+    if (!hirephone) {
+        sethirePhoneError("Phone number is required");
+    } else if (!hirephoneRegex.test(hirephone)) {
+        sethirePhoneError("Invalid phone number format");
+    }
+};
   
   const handlePhoneNumberChange = (e: any) => {
     const phone = e.target.value;
     setPhoneNumber(phone);
     setPhoneError("");
-
-    // Regular expression pattern to match only digits and maximum length of 10
-    const validPhoneNumberPattern = /^\d{1,10}$/;
-
+    const phoneRegex = /^(?:[0-9]{3})[-. ]*(?:[0-9]{3})[-. ]*(?:[0-9]{4})(?: *[x/#]{1}[0-9]+)?$/;
     if (!phone) {
         setPhoneError("Phone number is required");
-    } else if (!validPhoneNumberPattern.test(phone)) {
+    } else if (!phoneRegex.test(phone)) {
         setPhoneError("Invalid phone number format");
     }
 };
 
 
+const hirehandleNameChange = (e: any) => {
+  const hirepersonName = e.target.value;
+  sethirePersonName(hirepersonName);
+  sethireNameError("");
+
+  // Regular expression patterns for validation
+  const noNumbersPattern = /\d/;
+  const noSpecialCharsPattern = /[^\w\s]/;
+  const noConsecutiveCharsPattern = /(\w)\1{3}/;
+
+  if (!hirepersonName) {
+    sethireNameError("Full name is required");
+  } else if (hirepersonName.length < 3) {
+    sethireNameError("Name must be at least 3 characters long");
+  } else if (hirepersonName.length > 35) {
+    sethireNameError("Name must be less than 36 characters");
+  } else if (noNumbersPattern.test(hirepersonName)) {
+    sethireNameError("Name cannot contain numbers");
+  } else if (noSpecialCharsPattern.test(hirepersonName)) {
+    sethireNameError("Name cannot contain special characters");
+  } else if (noConsecutiveCharsPattern.test(hirepersonName)) {
+    sethireNameError("Name cannot contain repeating consecutive characters four times");
+  }
+};
 
   const handleNameChange = (e: any) => {
     const personName = e.target.value;
     setPersonName(personName);
     setNameError("");
-
-    // Regular expression patterns for validation
     const noNumbersPattern = /\d/;
     const noSpecialCharsPattern = /[^\w\s]/;
     const noConsecutiveCharsPattern = /(\w)\1{3}/;
@@ -175,7 +211,18 @@ const ContactUs = () => {
     }
 };
 
-
+const hirehandleEmailChange = (e: any) => {
+  const hireemailValue = e.target.value;
+  sethireEmail(hireemailValue);
+  // Reset email error
+  sethireEmailError("");
+  // Validate email
+  if (!hireemailValue.trim()) {
+    sethireEmailError("Email is required");
+} else if (!/^[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*@[a-z0-9+_.-]+([.-]?[a-z0-9+_.-]+)*(\.[a-z]{2,3})+$/.test(emailValue)) {
+    sethireEmailError("Invalid email address");
+}
+};
   const handleEmailChange = (e: any) => {
     const emailValue = e.target.value;
     setEmail(emailValue);
@@ -202,12 +249,21 @@ const ContactUs = () => {
 };
 
 
+const hirehandleMessageChange = (e: any) => {
+  const hiremsg=e.target.value;
+  sethireMsg(e.target.value);
+  sethireMsgError("");
+ if (hiremsg.length > 1000) {
+    sethireMsgError(`Message must be less than 1001 characters`);
+  } 
+};
+
   const handleMessageChange = (e: any) => {
     const msg=e.target.value;
     setMsg(e.target.value);
     setMsgError("");
-   if (org.length > 1000) {
-      setOrgError(`Organisation name must be less than 1001 characters`);
+   if (msg.length > 1000) {
+      setMsgError(`Message must be less than 1001 characters`);
     } 
   };
 
@@ -550,7 +606,8 @@ const ContactUs = () => {
                     <span
                       title={`${selectedFileName}`}
                       className="text-ellipsis whitespace-nowrap max-w-[4rem] overflow-hidden"
-                    >{`${selectedFileName}`}</span>
+                    >{`${selectedFileName}`}
+                    </span>
                     <button
                       title={`Remove ${selectedFileName}`}
                       onClick={handleClearFile}
@@ -567,7 +624,7 @@ const ContactUs = () => {
               name="_action"
               value="contact"
               className="hue-btn-primary btn capitalize md:w-fit text-HeaderGray font-normal mt-7"
-              disabled={btnLoading ||  personname==='' || email==='' || !!phoneerror || !!emailerror || !!nameerror || !!orgerror}
+              disabled={btnLoading ||  personname==='' || email==='' || phoneNumber==='' || !!phoneerror || !!emailerror || !!nameerror || !!orgerror || !!msgerror}
             >
               Send my message
             </button>
@@ -589,20 +646,30 @@ const ContactUs = () => {
                   type="text"
                   id="name"
                   name="name"
+                  value={hirepersonname}
+                  onChange={hirehandleNameChange}
                   placeholder="Name*"
                   required
                   className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
+                {hirenameerror &&(
+          <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hirenameerror}</span>
+          )}
               </div>
               <div className="w-full relative group sm:col-span-1 col-span-2">
                 <input
                   type="text"
                   id="email"
                   name="email"
+                  value={hireemail}
+                  onChange={hirehandleEmailChange}
                   placeholder="Email*"
                   required
                   className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
                 ></input>
+                 {hireemailerror &&(
+          <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hireemailerror}</span>
+          )}
               </div>
               <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
                 <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
@@ -626,12 +693,15 @@ const ContactUs = () => {
                 <input
                   type="tel"
                   placeholder="Phone Number*"
-                  value={phoneNumber}
-                  onChange={handlePhoneNumberChange}
+                  value={hirephoneNumber}
+                  onChange={hirehandlePhoneNumberChange}
                   required
                   className="outline-none  cursor-pointer overflow-hidden"
                   name="phone_number"
                 />
+                  {hirephoneerror &&(
+          <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hirephoneerror}</span>
+          )}
               </div>
               <div className="w-full relative group sm:col-span-1 col-span-2">
                 <select
@@ -686,8 +756,13 @@ const ContactUs = () => {
                   name="message_hire"
                   cols={30}
                   rows={5}
+                  value={hiremsg}
+                  onChange={hirehandleMessageChange}
                   className="p-4 text-sm peer border-[1px] border-black outline-none cursor-pointer"
                 ></textarea>
+                {hiremsgerror &&(
+          <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hiremsgerror}</span>
+          )}
               </div>
             </div>
             <Space
@@ -767,7 +842,7 @@ const ContactUs = () => {
               name="_action"
               value="hireus"
               className="hue-btn-primary btn capitalize md:w-fit text-HeaderGray font-normal mt-7"
-              disabled={btnLoading}
+              disabled={btnLoading ||  hirepersonname==='' || hireemail==='' || hirephoneNumber==='' || !!hirephoneerror || !!hireemailerror || !!hirenameerror || !!hiremsgerror}
             >
               Send my message
             </button>
