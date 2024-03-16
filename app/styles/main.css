@@ -202,11 +202,16 @@ line-height: 20px; /* 125% *//* 142.857% */
 }
 
 
+.text-box-form{
+  text-transform: capitalize;
+}
+
 .text-box{
+    text-transform: capitalize;
   border-bottom: 0.5px solid rgba(64, 66, 88, 0.50);
 }
 .text-box:focus {
-  border-bottom: 1px solid #244D28;
+  border-bottom: 1px solid #000000;
   caret-color: #000000;
 }
 .text-box:hover {

@@ -318,7 +318,7 @@ const Blog_WhitepaperContent = () => {
             </div>
                        <input
               type="text"
-              className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+              className=" flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
               name="firstName"
               required
             />
@@ -327,7 +327,7 @@ const Blog_WhitepaperContent = () => {
             </div>
             <input
               type="email"
-              className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+              className="flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
               name="email"
               required
             />
@@ -336,11 +336,11 @@ const Blog_WhitepaperContent = () => {
             </div>
             <input
               type="tel"
-              className="border-[color:var(--Gray-gray-7,#8C8C8C)] flex shrink-0 h-[29px] flex-col mt-1 border-[0.5px] border-solid max-md:max-w-full"
+              className=" flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
               name="phoneNumber"
               required
             />
-            <button type="submit" className="mt-4 btn w-full">
+            <button type="submit" className="hue-btn-primary mt-4 btn w-full">
               Get the Copy
             </button>
           </div>

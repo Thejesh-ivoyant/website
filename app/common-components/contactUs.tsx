@@ -468,7 +468,7 @@ const hirehandleMessageChange = (e: any) => {
                   required
                   value={personname}
                   onChange={handleNameChange}
-                  className="text-box w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer   outline-none cursor-pointer"
+                  className="text-box  w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer   outline-none cursor-pointer"
                 ></input>
                   {nameerror &&(
           <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{nameerror}</span>
