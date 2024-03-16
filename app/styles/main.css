@@ -219,6 +219,10 @@ margin-top: 1.2rem;
   padding-right: 0.5rem;
 }
 
+.text-box-form{
+  text-transform: capitalize;
+}
+
 .text-box{
     text-transform: capitalize;
   border-bottom: 0.5px solid rgba(64, 66, 88, 0.50);
