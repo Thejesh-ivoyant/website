@@ -68,9 +68,9 @@ const ContactUs = () => {
   const [msgerror, setMsgError] = useState('');
  
   
-  const [msgcount, setMsgCount] = useState("10");
+  const [msgcount, setMsgCount] = useState("1000");
   
-  const [hiremsgcount, sethireMsgCount] = useState("10");
+  const [hiremsgcount, sethireMsgCount] = useState("1000");
 
   const [btnLoading, setBtnLoading] = useState<boolean>(false);
   const [selectedCode, setCountryCodeSelected] = useState("US");
