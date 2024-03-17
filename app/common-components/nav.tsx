@@ -34,10 +34,11 @@ const Nav = () => {
     }, 100);
   };
   const showModal = (url: any) => {
-    // Your existing code for opening the modal
     setDownload(url);
     setOpen(true);
-    // Now, you can use the 'url' parameter as needed, for example, log it
+    if(sidebarOpen){
+      handleHamburgerClick()
+    }
   };
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
@@ -135,7 +136,7 @@ const Nav = () => {
         name="phoneNumber"
         required
       />
-      <button type="submit" className="mt-6 btn w-full">
+      <button type="submit" className="hue-btn-primary mt-12">
         Get the Copy
       </button>
     </div>
