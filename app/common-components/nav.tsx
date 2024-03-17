@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Image } from "@unpic/react";
 import Sidebar from "./sidebar";
-import { Form, Link, useLocation, useMatch, useRouteLoaderData } from "@remix-run/react";
+import { Form, Link, useLocation, useMatch, useNavigation, useRouteLoaderData } from "@remix-run/react";
 import { Modal } from "antd";
 import fb from "~/../public/assets/Facebook svg.svg";
 import twitter from "~/../public/assets/og-twitter.svg";
@@ -38,6 +38,8 @@ const Nav = () => {
     index === clicked ? setClicked(-1) : setClicked(index);
   };
   const location = useLocation()
+  const navigation = useNavigation()
+  const isRoutingToAnotherPage = navigation.state === 'loading'
   const handleClick = () => {
     setToggleNav(!toggleNav);
     setTimeout(() => {
@@ -248,7 +250,8 @@ const handleEmailChange = (e: any) => {
                 className="group text-[#F5F5F5] flex flex-row transition-all"
               >
                 <button className="relative flex items-center w-full mx-4 py-4 text-center capitalize bg-transparent focus:outline-none text-base  tracking-wide font-montserrat">
-                  <div className={`absolute w-full h-1 bg-[#5E40A0] top-0 opacity-0 group-hover:opacity-100 ${location.pathname.startsWith("/"+category)? 'opacity-100':''}`}></div>
+                  <div 
+                  className={`absolute w-full h-1 bg-[#5E40A0] top-0 opacity-0 ${(location.pathname.startsWith("/"+category)) && (!isRoutingToAnotherPage) ? 'opacity-100':''}`}></div>
                   {category === "products" ? (
                     <Link
                       to={`./${category}`}
