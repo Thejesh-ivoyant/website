@@ -68,10 +68,11 @@ const handleEmailChange = (e: any) => {
 }
 };
   const showModal = (url: any) => {
-    // Your existing code for opening the modal
     setDownload(url);
     setOpen(true);
-    // Now, you can use the 'url' parameter as needed, for example, log it
+    if(sidebarOpen){
+      handleHamburgerClick()
+    }
   };
   const handleNameChange = (e: any) => {
     const personName = e.target.value;
@@ -214,6 +215,7 @@ const handleEmailChange = (e: any) => {
         onChange={handlePhoneNumberChange}
         required
       />
+
        {phoneerror &&(
           <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{phoneerror}</span>
           )}

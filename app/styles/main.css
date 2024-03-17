@@ -375,12 +375,12 @@ body.scrolled #scrollToTopBtn {
   text-transform: capitalize;
 }
 
-.hero-btn {
+/* .hero-btn {
   margin-top: 20px;
   min-height: 3.75rem;
   min-width: fit-content;
   white-space: nowrap;
-}
+} */
 
 .section-p-y {
   padding-top: 2.5rem;
@@ -733,7 +733,7 @@ body.scrolled #scrollToTopBtn {
 }
 
 .btn-small {
-  padding:.5rem .8rem !important;
+  padding: .5rem .8rem !important;
 }
 
 .btn {
