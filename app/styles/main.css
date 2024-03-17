@@ -106,6 +106,7 @@ input[type="number"] {
   margin-top: 40px;
 }
 
+
 .industryItem {
   color: #ffffff;
   /* White */
@@ -179,6 +180,14 @@ input[type="number"] {
   aspect-ratio: 1.28;
 }
 
+/* .form-input input::placeholder {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: #7D7890;
+font-family: Montserrat;
+font-style: normal;
+} */
+
 
 .text-box:focus::placeholder {
   color: transparent;
@@ -186,19 +195,20 @@ input[type="number"] {
 .text-box:hover:not(:focus)::placeholder {
   color: #404258;
   font-family: Montserrat;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px; /* 142.857% */
+font-size: 0.75rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1rem;/* 142.857% */
 }
 
 .text-box::placeholder{
 color: #7D7890;
+
 font-family: Montserrat;
-font-size: 16px;
+font-size: 0.75rem;
 font-style: normal;
 font-weight: 500;
-line-height: 20px; /* 125% *//* 142.857% */
+line-height: 1rem; /* 125% *//* 125% *//* 142.857% */
 }
 
 .text-box-form-label{
@@ -655,6 +665,8 @@ body.scrolled #scrollToTopBtn {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+
 
 .footer-div {
   display: flex;
@@ -1207,6 +1219,13 @@ body.scrolled #scrollToTopBtn {
   .hero-wrapper {
     max-width: 42rem;
   }
+ .form-input input::placeholder {
+
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  
+
+}
 
   .author-links {
     display: none;
