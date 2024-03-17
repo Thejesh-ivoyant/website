@@ -675,11 +675,9 @@ body.scrolled #scrollToTopBtn {
 .error-left-container {
   align-items: start;
 }
+
 .btn-small {
-  padding-left: 1.2rem!important;
-  padding-top: 0.5rem!important;
-  padding-bottom: 0.5rem!important;
-  padding-right: 1.2rem!important;
+  padding:.5rem .8rem !important;
 }
 
 .btn {
@@ -759,12 +757,12 @@ body.scrolled #scrollToTopBtn {
   .card-box img {
     height: 7.25rem;
   }
+
   .btn-small {
-    padding-left: 2.2rem!important;
-    padding-top: 0.75rem!important;
-  padding-bottom: 0.75rem!important;
-    padding-right: 2.2rem!important;
+    padding: 0.5rem 0.75rem;
+    white-space: nowrap;
   }
+
   .btn {
     padding-left: 2.5rem;
 
@@ -905,12 +903,14 @@ body.scrolled #scrollToTopBtn {
   .blog-content-container {
     gap: 0rem;
   }
+
   .btn-small {
-    padding-left: 1.5rem!important;
-    padding-top: 0.7rem!important;
-  padding-bottom: 0.7rem!important;
-    padding-right: 1.5rem!important;
+    padding-left: 1.5rem !important;
+    padding-top: 0.7rem !important;
+    padding-bottom: 0.7rem !important;
+    padding-right: 1.5rem !important;
   }
+
   .btn {
     padding-left: 2rem;
 
@@ -2720,12 +2720,13 @@ hr {
   background: rgba(255, 255, 255, 0.02);
   pointer-events: none;
 }
+
 .opaque-card:hover {
   background: rgba(150, 154, 251, 0.24);
 }
 
 @media (min-width: 1024px) and (pointer: fine) {
-  .opaque-card{
+  .opaque-card {
     pointer-events: auto;
   }
 }
@@ -2921,6 +2922,7 @@ hr {
   border: 1px solid #1b0740;
   transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+
 .hue-btn-blue-light {
   cursor: pointer;
   border: 0.125rem solid #b9c1ec;
@@ -2931,26 +2933,26 @@ hr {
   justify-content: center;
   align-items: center;
   flex: 1 0 0;
-  
+
   font-family: Montserrat;
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-letter-spacing: 0.32px;
-text-transform: capitalize;
-background: var(--ButtonTest, linear-gradient(97deg, #5E40A0 0.62%, #7B54B2 100%));
-background-clip: text;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.32px;
+  text-transform: capitalize;
+  background: var(--ButtonTest, linear-gradient(97deg, #5E40A0 0.62%, #7B54B2 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
 .hue-btn-blue-light:hover {
   border: 2px solid transparent;
   -webkit-text-fill-color: white;
   background-clip: text;
   -webkit-background-clip: text;
-  background: linear-gradient(45deg, #6c39db 0.62%, #1c083e 100%) 0 0 / 200%
-    100% no-repeat;
+  background: linear-gradient(45deg, #6c39db 0.62%, #1c083e 100%) 0 0 / 200% 100% no-repeat;
   background-position: 100% 0%;
   animation: shade-movement 4s linear infinite;
 }

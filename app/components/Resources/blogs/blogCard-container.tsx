@@ -204,7 +204,7 @@ const BlogCardContainer = () => {
         <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
           <span className="section-title">{loaderData.s2_title}</span>
         </div>
-        <div className="filter flex w-full font-montserrat justify-center gap-2 h-12 mt-[2rem] mb-2 ">
+        <div className="filter flex w-full font-montserrat justify-center gap-2 my-2">
           <div className="flex flex-col gap-1">
             <div className="flex">
               <label className="text-haiti font-normal">Filter by:</label>
@@ -301,7 +301,7 @@ const BlogCardContainer = () => {
                 className="absolute top-4 left-4"
                 alt="ornament"
               />
-              <div className="w-[76.7625rem] blog-main-card items-center z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
+              <div className=" max-w-7xl blog-main-card items-center z-10 h-full flex flex-col justify-center gap-y-4  overflow-y-scroll mt-8">
                 {blogData.map((blog: IBlogMedia) => (
                   <BlogCard key={blog.id} blog={blog} blogData={blogData} />
                 ))}
