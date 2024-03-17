@@ -492,7 +492,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
             encType="multipart/form-data"
             className={
               toggleState === 1
-                ? "flex flex-col xl:gap-10 md:gap-8 gap-4 active-content xl:p-8 md:px-4 py-2"
+                ? "flex flex-col xl:gap-10 md:gap-8 gap-4 active-content xl:p-8 md:px-4 pt-[1.6rem]  sm:pt-[1.8rem] md:pt-[2.06rem] lg:pt-[3.06rem] xl:pt-[3.4rem] pb-2"
                 : "hidden"
             }
             autoComplete="off"
@@ -701,7 +701,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
             encType="multipart/form-data"
             className={
               toggleState === 2
-                ? "flex flex-col lg:gap-10 gap-6 active-content xl:p-8  sm:p-4 py-2"
+                ? "flex flex-col lg:gap-10 gap-6 active-content xl:p-8  sm:p-4 pt-[1.6rem]  sm:pt-[1.8rem] md:pt-[2.06rem] lg:pt-[3.06rem] xl:pt-[3.4rem] pb-2"
                 : "hidden"
             }
             autoComplete="off"
