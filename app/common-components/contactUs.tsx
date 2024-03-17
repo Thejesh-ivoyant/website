@@ -557,7 +557,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                   onChange={handlePhoneNumberChange}
                   required
                   style={{borderBottom: '0rem'}}
-                  className="outline-none text-box  border-b-[0px]  cursor-pointer overflow-hidden"
+                  className="outline-none text-box   cursor-pointer overflow-hidden"
                   name="phonenumber"
                 />
                   {phoneerror &&(
@@ -762,7 +762,8 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                   value={hirephoneNumber}
                   onChange={hirehandlePhoneNumberChange}
                   required
-                  className="outline-none text-box  border-b-[0px]  cursor-pointer overflow-hidden"
+                  style={{borderBottom: '0rem'}}
+                  className="outline-none text-box   cursor-pointer overflow-hidden"
                   name="phone_number"
                 />
                   {hirephoneerror &&(
