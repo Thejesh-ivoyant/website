@@ -7,17 +7,79 @@ import { useDropzone } from 'react-dropzone';
 import { FileAddOutlined, DeleteOutlined } from '@ant-design/icons';
 import React from "react";
 import dayjs from "dayjs";
+import { emailPattern, namePattern, phonePattern } from "~/DTO/form-schemas/patterns";
 const JobDescription = () => {
   const [selectedFileName, setSelectedFileName] = React.useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<any | null>(null);
-  const [fromDate, setFromDate] = useState()
+  const [personname, setPersonName] = useState('');
+  const [nameerror, setNameError] = useState('');
+
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+
+  const [phone, setPhone] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+
+  const [institute, setInstitute] = useState('');
+  const [instituteError, setinstErr] = useState('');
+
+  const [deg, setDeg] = useState('');
+  const [degError, setDegError] = useState('');
+
+  const [fromDate, setFromDate] = useState<string | null>(null);
+
   const onChange: DatePickerProps["onChange"] = (date, dateString) => {
-    debugger 
+    debugger
     setToDate(dateString);
   };
   const fromDateChange: DatePickerProps["onChange"] = (date, dateString) => {
-    debugger 
     setFromDate(dateString);
+  };
+
+  const handleNameInput = (e) => {
+    const value = e.target.value;
+    setPersonName(value.replace("  "," "));
+    if (!namePattern.test(value) || value.length < 3) {
+      setNameError('Please enter a valid name with a minimum of 3 characters.');
+    } else {
+      setNameError('');
+    }
+  };
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value.replace(" ",""));
+    if (!emailPattern.test(value) || value.length < 3) {
+      setEmailError('Please enter a valid email');
+    } else {
+      setEmailError('');
+    }
+  };
+  const handlePhoneChange = (e) => {
+    const value = e.target.value;
+    setPhone(value.replace("  "," "));
+    if (!phonePattern.test(value) || value.length < 10) {
+      setPhoneError('Please enter a valid Phone number');
+    } else {
+      setPhoneError('');
+    }
+  };
+  const instituteChange = (e) => {
+    const value = e.target.value;
+    setInstitute(value.replace("  "," "));
+    if (!namePattern.test(value) || value.length < 3) {
+      setinstErr('Please enter a valid Institute name');
+    } else {
+      setinstErr('');
+    }
+  };
+  const degree = (e) => {
+    const value = e.target.value;
+    setDeg(value.replace("  "," "));
+    if (!namePattern.test(value) || value.length < 3) {
+      setDegError('Please enter a valid Degree');
+    } else {
+      setDegError('');
+    }
   };
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
@@ -32,7 +94,7 @@ const JobDescription = () => {
       const today = new Date();
       const formattedDate = today.toISOString().split('T')[0];
       formData.append('todate', formattedDate);
-      formData.append('fromDate', fromDate as string); // Assuming 'todate' is the field name for the "To" date
+      formData.append('fromDate', fromDate as string);
     }
       if (selectedFile) {
         formData.append('hire_attachment', selectedFile);
@@ -63,20 +125,9 @@ const JobDescription = () => {
     // Clear the selected file and hide the file information
     setSelectedFileName(null);
   };
-  const [toDate, setToDate] = useState<string>('');
+  const [toDate, setToDate] = useState<string | null>(null);
   const [isCurrentlyAttend, setIsCurrentlyAttend] = useState(false);
-  // const handleCheckboxChange = () => {
-  //   setIsCurrentlyAttend((prev) => !prev); // Toggle the checkbox state
-  //   if (!isCurrentlyAttend) {
-  //     // If checkbox is checked, set "To" date to today's date
-  //     const today = new Date();
-  //     const formattedDate = today.toISOString().split('T')[0];
-  //     setToDate(formattedDate);
-  //   } else {
-  //     // If checkbox is unchecked, clear the "To" date
-  //     setToDate('');
-  //   }
-  // };
+ 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsCurrentlyAttend(event.target.checked);
     setToDate(event.target.checked ? new Date().toISOString().slice(0, 10) : toDate );
@@ -181,29 +232,48 @@ alt="close"
     <div className="text-neutral-800 text-xs self-stretch  mt-8 max-md:max-w-full">
       Name
     </div>
-    <input
-      type="text"
-      name="firstname"
-      required
-      className="intern-input"
-    />
+    <div className="relative w-full">
+        <input
+          type="text"
+          name="firstname"
+          value={personname}
+          onChange={handleNameInput}
+          required
+          maxLength={70}
+          className="intern-input"
+        />
+        {nameerror && <small className="absolute text-red-500">{nameerror}</small>}
+    </div>
+    
     <div className="text-neutral-800 text-xs self-stretch  mt-4 max-md:max-w-full">
       Email
     </div>
-    <input
-      type="email"
-      name="email"
-      required
-      className="intern-input"
-    />
+    <div className="relative w-full">
+      <input
+        type="email"
+        name="email"
+        value={email}
+        maxLength={320}
+        onChange={handleEmailChange}
+        required
+        className="intern-input"
+      />
+      {emailError && <small className="absolute text-red-500">{emailError}</small>}
+    </div>
+    
     <div className="text-neutral-800 text-xs self-stretch whitespace-nowrap mt-4 max-md:max-w-full">
       Phone number
     </div>
-    <input
-      type="tel"
-      name="phone number"
-      className="intern-input"
-    />
+    <div className="relative w-full">
+      <input
+        type="tel"
+        value={phone}
+        onChange={handlePhoneChange}
+        name="phone number"
+        className="intern-input"
+      />
+       {phoneError && <small className="absolute text-red-500">{phoneError}</small>}
+    </div>
     <div className="self-stretch bg-zinc-300 flex shrink-0 h-px flex-col mt-9 max-md:max-w-full" />
     <div className="justify-between items-center self-stretch flex w-full gap-5 mt-9 max-md:max-w-full max-md:flex-wrap">
       <div className="text-black text-lg font-semibold grow whitespace-nowrap my-auto">
@@ -213,31 +283,44 @@ alt="close"
     <div className="text-neutral-800 text-xs self-stretch whitespace-nowrap mt-6 max-md:max-w-full">
       Institution
     </div>
-    <input
-      type="text"
-      name="institution"
-      className="intern-input"    
-    />
+    <div className="relative w-full">
+        <input
+          type="text"
+          name="institution"
+          value={institute}
+          maxLength={100}
+          onChange={instituteChange}
+          className="intern-input"    
+        />
+        {instituteError && <small className="absolute text-red-500">{instituteError}</small>}
+    </div>
+    
     <div className="text-neutral-800 text-xs self-stretch whitespace-nowrap mt-4 max-md:max-w-full">
       Degree
     </div>
-    <input
-      type="text"
-      name="degree"
-      className="intern-input"
-    />
+    <div className="relative w-full">
+      <input
+        type="text"
+        name="degree"
+        value={deg}
+        onChange={degree}
+        className="intern-input"
+      />
+      {degError && <small className="absolute text-red-500">{degError}</small>}
+    </div>
+    
   <div className="items-stretch self-stretch flex justify-between gap-5 mt-4 max-md:max-w-full max-md:flex-wrap">
         <div className="items-stretch flex grow basis-[0%] flex-col">
           <div className="text-neutral-800 text-xs whitespace-nowrap">
             From
           </div>
-          <DatePicker inputReadOnly onChange={fromDateChange}/>
+          <DatePicker status={(fromDate === "" )? 'error' : ''} inputReadOnly onChange={fromDateChange}/>
         </div>
         <div className="items-stretch flex grow basis-[0%] flex-col">
           <div className="text-neutral-800 text-xs whitespace-nowrap">
             To
           </div>
-          <DatePicker inputReadOnly value={toDate ? dayjs(toDate, 'YYYY-MM-DD') : null} disabled={isCurrentlyAttend}  onChange = {onChange}/>
+          <DatePicker status={(toDate === "" )? 'error' : ''}  inputReadOnly value={toDate ? dayjs(toDate, 'YYYY-MM-DD') : null} disabled={isCurrentlyAttend}  onChange = {onChange}/>
         </div>
       </div>
 <div className="items-center flex gap-3 mt-5 self-start">
@@ -277,12 +360,14 @@ alt="close"
       Let the Company know your interest working there
     </div>
     <textarea
+    minLength={3}  maxLength={250}
     name="message"
       className="self-stretch border-[color:var(--gray-gray-7,#8C8C8C)] flex shrink-0 h-[163px] flex-col mt-8 border-[0.5px] border-solid px-4 py-2"
     ></textarea>
     <button
       type="submit"
       className="hue-btn-primary w-full lg:w-fit lg:ml-auto btn mt-16"
+      disabled ={!!nameerror || !!emailError || !!phoneError || selectedFileName === null || personname ===''|| email === ''|| phone === '' || fromDate === null || toDate === null|| institute=== '' || deg ==='' }
     >
       Submit
     </button>
