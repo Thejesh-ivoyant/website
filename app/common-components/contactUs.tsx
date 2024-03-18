@@ -313,18 +313,17 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFileError('');
     if (selectedFile.size > 5 * 1024 * 1024) { // 5 MB in bytes
       setFileError('File size exceeds 5MB');
+      setSelectedFileName("");
       return;
     }
-
-    // Check file format
     const fileExtension = selectedFile.name.split('.').pop()?.toLowerCase();
     if (!allowedFormats.includes(`.${fileExtension}`)) {
       setFileError('Invalid file format');
+      setSelectedFileName("");
       return;
     }
-
-    // If both size and format are valid, update selected file name
     setSelectedFileName(selectedFile.name);
+    setFileError("");
   }
 };
 
@@ -345,6 +344,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     sethireFileError('');
     if (selectedFile.size > 5 * 1024 * 1024) { // 5 MB in bytes
       sethireFileError('File size exceeds 5MB');
+      sethireSelectedFileName("");
       return;
     }
 
@@ -352,11 +352,13 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const fileExtension = selectedFile.name.split('.').pop()?.toLowerCase();
     if (!allowedFormats.includes(`.${fileExtension}`)) {
       sethireFileError('Invalid file format');
+      sethireSelectedFileName("");
       return;
     }
 
     // If both size and format are valid, update selected file name
     sethireSelectedFileName(selectedFile.name);
+    sethireFileError("");
   }
   };
 
