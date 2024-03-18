@@ -4,9 +4,9 @@ import JobCard from "./join-us-card";
 const JoinUsCardContainer = () => {
   const loaderData = useLoaderData() as any;
   return (
-    <div className="w-full bg-[#1B0740]">
+    <div className="w-full bg-[#1B0740] h-fit lg:py-16 py-12">
       <div className="w-full  flex flex-col p-4">
-        <div className="join-card ">
+        <div className="h-fit lg:flex justify-center items-center grid gap-10">
           {loaderData.DescriptionCard.map(
             (item: { id: React.Key | null | undefined }, index: any) => (
               <div

@@ -36,7 +36,8 @@
   aspect-ratio: 1 / 1;
   grid-column: span 1 / span 1;
   display: grid;
-  width: 24rem;
+  max-width: 24rem;
+  min-width: 24rem;
 }
 
 .dep-dropdown-mobile,
@@ -208,7 +209,7 @@
 
   .join-card {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     gap: 2rem;
     padding-top: 1.5rem;
@@ -229,7 +230,7 @@
 @media (min-width: 769px) and (max-width: 992px) {
   .join-card {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     gap: 4rem;
     padding-top: 2rem;
