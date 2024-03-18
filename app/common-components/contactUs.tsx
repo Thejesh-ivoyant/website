@@ -193,7 +193,7 @@ const hirehandleNameChange = (e: any) => {
   } else if (noSpecialCharsPattern.test(hirepersonName)) {
     sethireNameError("Name cannot contain special characters");
   } else if (noConsecutiveCharsPattern.test(hirepersonName)) {
-    sethireNameError("Name cannot contain repeating consecutive characters four times");
+    sethireNameError("4 consecutive characters");
   }
 };
 
@@ -216,7 +216,7 @@ const hirehandleNameChange = (e: any) => {
     } else if (noSpecialCharsPattern.test(personName)) {
         setNameError("Name cannot contain special characters");
     } else if (noConsecutiveCharsPattern.test(personName)) {
-        setNameError("Name cannot contain repeating consecutive characters four times");
+        setNameError("4 consecutive characters");
     }
 };
 
