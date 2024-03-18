@@ -492,7 +492,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
             encType="multipart/form-data"
             className={
               toggleState === 1
-                ? "flex flex-col xl:gap-10 md:gap-8 gap-4 active-content xl:p-8 md:px-4 py-2"
+                ? "flex flex-col xl:gap-10 md:gap-8 gap-4 active-content xl:p-8 md:px-4 pt-[1.6rem]  sm:pt-[1.8rem] md:pt-[2.06rem] lg:pt-[3.06rem] xl:pt-[3.4rem] pb-2"
                 : "hidden"
             }
             autoComplete="off"
@@ -557,7 +557,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                   onChange={handlePhoneNumberChange}
                   required
                   style={{borderBottom: '0rem'}}
-                  className="outline-none text-box  border-b-[0px]  cursor-pointer overflow-hidden"
+                  className="outline-none text-box   cursor-pointer overflow-hidden"
                   name="phonenumber"
                 />
                   {phoneerror &&(
@@ -701,7 +701,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
             encType="multipart/form-data"
             className={
               toggleState === 2
-                ? "flex flex-col lg:gap-10 gap-6 active-content xl:p-8  sm:p-4 py-2"
+                ? "flex flex-col lg:gap-10 gap-6 active-content xl:p-8  sm:p-4 pt-[1.6rem]  sm:pt-[1.8rem] md:pt-[2.06rem] lg:pt-[3.06rem] xl:pt-[3.4rem] pb-2"
                 : "hidden"
             }
             autoComplete="off"
@@ -716,7 +716,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                   onChange={hirehandleNameChange}
                   placeholder="Full Name*"
                   required
-                  className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+                  className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
                 ></input>
                 {hirenameerror &&(
           <span className="absolute mb-[-1rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hirenameerror}</span>
@@ -731,13 +731,13 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                   onChange={hirehandleEmailChange}
                   placeholder="Email*"
                   required
-                  className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer border-b-[1px] border-form-gray outline-none cursor-pointer"
+                  className="w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer text-box outline-none cursor-pointer"
                 ></input>
                  {hireemailerror &&(
           <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hireemailerror}</span>
           )}
               </div>
-              <div className="items-stretch  border-b-[1px] border-form-gray self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:pr-4 pr-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
+              <div className="items-stretch text-box self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:pr-4 pr-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
                 <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
                   <div className="items-stretch flex  gap-1 ">
                     <ReactFlagsSelect
@@ -762,7 +762,8 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                   value={hirephoneNumber}
                   onChange={hirehandlePhoneNumberChange}
                   required
-                  className="outline-none  cursor-pointer overflow-hidden"
+                  style={{borderBottom: '0rem'}}
+                  className="outline-none text-box   cursor-pointer overflow-hidden"
                   name="phone_number"
                 />
                   {hirephoneerror &&(
