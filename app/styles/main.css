@@ -399,7 +399,7 @@ body.scrolled #scrollToTopBtn {
   min-width: fit-content;
   white-space: nowrap;
 } */
-:where(.css-dev-only-do-not-override-6j9yrn).ant-picker-dropdown .ant-picker-datetime-panel {
+.ant-picker-dropdown .ant-picker-datetime-panel {
   display: grid !important;
 }
 
@@ -409,9 +409,21 @@ body.scrolled #scrollToTopBtn {
   height: 5rem;
 }
 
-@media (min-width: 640px) {
-  :where(.css-dev-only-do-not-override-6j9yrn).ant-picker-dropdown .ant-picker-datetime-panel {
+.ant-picker-dropdown .ant-picker-header-view {
+  flex: auto;
+  font-weight: 600;
+  line-height: 15px !important;
+}
+
+@media (min-width: 480px) {
+  .ant-picker-dropdown .ant-picker-datetime-panel {
     display: flex !important;
+  }
+
+  .ant-picker-dropdown .ant-picker-header-view {
+    flex: auto;
+    font-weight: 600;
+    line-height: 40px !important;
   }
 
   .ant-picker-dropdown .ant-picker-time-panel .ant-picker-content {
