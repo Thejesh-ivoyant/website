@@ -193,7 +193,7 @@ const hirehandleNameChange = (e: any) => {
   } else if (noSpecialCharsPattern.test(hirepersonName)) {
     sethireNameError("Name cannot contain special characters");
   } else if (noConsecutiveCharsPattern.test(hirepersonName)) {
-    sethireNameError("Name cannot contain repeating consecutive characters four times");
+    sethireNameError("4 consecutive characters");
   }
 };
 
@@ -216,7 +216,7 @@ const hirehandleNameChange = (e: any) => {
     } else if (noSpecialCharsPattern.test(personName)) {
         setNameError("Name cannot contain special characters");
     } else if (noConsecutiveCharsPattern.test(personName)) {
-        setNameError("Name cannot contain repeating consecutive characters four times");
+        setNameError("4 consecutive characters");
     }
 };
 
@@ -308,9 +308,9 @@ const hirehandleMessageChange = (e: any) => {
 
 const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   const selectedFile = event.target.files?.[0];
-  
-  if (selectedFile) {
 
+  if (selectedFile) {
+    setFileError('');
     if (selectedFile.size > 5 * 1024 * 1024) { // 5 MB in bytes
       setFileError('File size exceeds 5MB');
       return;
@@ -342,7 +342,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
   
   if (selectedFile) {
-
+    sethireFileError('');
     if (selectedFile.size > 5 * 1024 * 1024) { // 5 MB in bytes
       sethireFileError('File size exceeds 5MB');
       return;
