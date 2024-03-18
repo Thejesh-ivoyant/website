@@ -375,6 +375,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   };
   const toggleTab = (index: number) => {
     setToggleState(index);
+    (openc1) ? setOpen(!openc1): setOpen(openc1)
   };
   
   
