@@ -308,9 +308,9 @@ const hirehandleMessageChange = (e: any) => {
 
 const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   const selectedFile = event.target.files?.[0];
-  
-  if (selectedFile) {
 
+  if (selectedFile) {
+    setFileError('');
     if (selectedFile.size > 5 * 1024 * 1024) { // 5 MB in bytes
       setFileError('File size exceeds 5MB');
       return;
@@ -342,7 +342,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
   
   if (selectedFile) {
-
+    sethireFileError('');
     if (selectedFile.size > 5 * 1024 * 1024) { // 5 MB in bytes
       sethireFileError('File size exceeds 5MB');
       return;
