@@ -5,7 +5,8 @@ type OpenMessageType = {
   content: React.ReactNode;
   duration?: number;
 };
-const openMessage = ({ type, content, duration = 2 }: OpenMessageType) => {
+
+const openMessage = ({ type, content, duration }: OpenMessageType) => {
   message[type]({
     content,
     duration,
@@ -15,6 +16,7 @@ const openMessage = ({ type, content, duration = 2 }: OpenMessageType) => {
 export const success = (content: React.ReactNode, duration?: number) => {
   openMessage({ type: 'success', content, duration });
 };
+
 export const errorMessage = (content: React.ReactNode, duration?: number) => {
   openMessage({ type: 'error', content, duration });
 };
