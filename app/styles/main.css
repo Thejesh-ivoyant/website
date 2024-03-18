@@ -408,6 +408,7 @@ body.scrolled #scrollToTopBtn {
   flex: auto;
   height: 5rem;
 }
+
 @media (min-width: 640px) {
   :where(.css-dev-only-do-not-override-6j9yrn).ant-picker-dropdown .ant-picker-datetime-panel {
     display: flex !important;
@@ -419,6 +420,7 @@ body.scrolled #scrollToTopBtn {
     height: 14rem;
   }
 }
+
 .section-p-y {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
@@ -850,7 +852,7 @@ body.scrolled #scrollToTopBtn {
   }
 
   .card-box img {
-    height: 7.25rem;
+    height: 8rem;
   }
 
   .btn-small {
