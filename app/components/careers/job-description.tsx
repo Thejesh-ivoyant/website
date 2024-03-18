@@ -7,21 +7,26 @@ import { useDropzone } from 'react-dropzone';
 import { FileAddOutlined, DeleteOutlined } from '@ant-design/icons';
 import React from "react";
 import dayjs from "dayjs";
+import { Accept } from "react-dropzone";
 const JobDescription = () => {
   const [selectedFileName, setSelectedFileName] = React.useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<any | null>(null);
   const [fromDate, setFromDate] = useState()
+  const [fileError, setFileError] = useState<null|string>(null);
+  const acceptedFileTypes: Accept = {
+    'application/msword': ['.doc'],
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx'],
+    'application/pdf': ['.pdf']
+  };
+  const MAX_FILE_SIZE = 5 * 1024 * 1024;
   const onChange: DatePickerProps["onChange"] = (date, dateString) => {
-    debugger 
     setToDate(dateString);
   };
   const fromDateChange: DatePickerProps["onChange"] = (date, dateString) => {
-    debugger 
     setFromDate(dateString);
   };
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
-      debugger
       event.preventDefault();
       const formData = new FormData(event.currentTarget);
       formData.append('action', 'Internship');
@@ -54,6 +59,15 @@ const JobDescription = () => {
     // Handle the dropped files
     if (acceptedFiles.length > 0) {
       const file = acceptedFiles[0];
+      if (file.size <= MAX_FILE_SIZE) {
+        setSelectedFile(file);
+        setSelectedFileName(file.name);
+        setFileError(null);
+      } else {
+        setSelectedFile(null);
+        setSelectedFileName(null);
+        setFileError(`File size exceeds ${MAX_FILE_SIZE}MB limit`);
+      }
   setSelectedFile(file);
       setSelectedFileName(file.name);
       // Perform actions with the selected file
@@ -65,18 +79,6 @@ const JobDescription = () => {
   };
   const [toDate, setToDate] = useState<string>('');
   const [isCurrentlyAttend, setIsCurrentlyAttend] = useState(false);
-  // const handleCheckboxChange = () => {
-  //   setIsCurrentlyAttend((prev) => !prev); // Toggle the checkbox state
-  //   if (!isCurrentlyAttend) {
-  //     // If checkbox is checked, set "To" date to today's date
-  //     const today = new Date();
-  //     const formattedDate = today.toISOString().split('T')[0];
-  //     setToDate(formattedDate);
-  //   } else {
-  //     // If checkbox is unchecked, clear the "To" date
-  //     setToDate('');
-  //   }
-  // };
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsCurrentlyAttend(event.target.checked);
     setToDate(event.target.checked ? new Date().toISOString().slice(0, 10) : toDate );
@@ -90,7 +92,7 @@ const { Option } = Select;
       const onClose = () => {
         setOpen(false);
       };
-  const { getRootProps, getInputProps } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps } = useDropzone({ onDrop, accept: acceptedFileTypes, maxSize: MAX_FILE_SIZE});
     return (
       <>
         <div className=" main-jd-content items-start flex flex-col mt-10 p-20">
@@ -179,7 +181,7 @@ alt="close"
       Personal Information
     </div>
     <div className="text-neutral-800 text-xs self-stretch  mt-8 max-md:max-w-full">
-      Name
+      Name *
     </div>
     <input
       type="text"
@@ -188,7 +190,7 @@ alt="close"
       className="intern-input"
     />
     <div className="text-neutral-800 text-xs self-stretch  mt-4 max-md:max-w-full">
-      Email
+      Email *
     </div>
     <input
       type="email"
@@ -197,7 +199,7 @@ alt="close"
       className="intern-input"
     />
     <div className="text-neutral-800 text-xs self-stretch whitespace-nowrap mt-4 max-md:max-w-full">
-      Phone number
+      Phone number *
     </div>
     <input
       type="tel"
@@ -211,7 +213,7 @@ alt="close"
       </div>
     </div>
     <div className="text-neutral-800 text-xs self-stretch whitespace-nowrap mt-6 max-md:max-w-full">
-      Institution
+      Institution *
     </div>
     <input
       type="text"
@@ -219,7 +221,7 @@ alt="close"
       className="intern-input"    
     />
     <div className="text-neutral-800 text-xs self-stretch whitespace-nowrap mt-4 max-md:max-w-full">
-      Degree
+      Degree *
     </div>
     <input
       type="text"
@@ -251,16 +253,17 @@ alt="close"
   </div>
 </div>
     <div className="text-black text-lg font-semibold self-stretch whitespace-nowrap mt-8 max-md:max-w-full">
-      Resume
+      Resume <sup> *</sup>
     </div>
     <div
       {...getRootProps()}
       className={`flex flex-col gap-1 text-black text-sm text-centery-gray-7 drop-zone self-stretch items-center mt-8 py-8 border-[0.5px] border-dashed max-md:max-w-full max-md:px-5`}
     >
-      <label htmlFor="hire_attachment" style={{ cursor: "pointer" }}>
-        <span className="font-semibold">Upload Resume</span> or just drop it here
+      <label htmlFor="hire_attachment" style={{ cursor: "pointer", textAlign:"center" }}>
+        <span className="font-semibold">Upload Resume</span> or just drop it here<br/> <small>Allowed file types include [.doc, .docx and .pdf]</small>
       </label>
-      <input {...getInputProps()} type="file" name="hire_attachment" style={{ display: "none" }} />
+      {fileError && <p className="text-red-500 w-fit mx-auto">{fileError}</p>}
+      <input {...getInputProps()} type="file" accept=".doc,.doct,.docx,.pdf" name="hire_attachment" style={{ display: "none" }} />
       {selectedFileName && (
         <div className="file-info">
           <span>{`${selectedFileName}`}</span>
