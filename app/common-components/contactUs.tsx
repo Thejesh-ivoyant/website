@@ -526,6 +526,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                   placeholder="Email*"
                   required
                   value={email}
+                  style={{textTransform:"none"}}
                   onChange={handleEmailChange}
                   className="text-box  w-full xl:h-10 h-8 xl:px-4 px-2 xl:text-sm text-xs peer  outline-none cursor-pointer"
                 ></input>
@@ -729,6 +730,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                   type="text"
                   id="email"
                   name="email"
+                  style={{textTransform:"none"}}
                   value={hireemail}
                   onChange={hirehandleEmailChange}
                   placeholder="Email*"
