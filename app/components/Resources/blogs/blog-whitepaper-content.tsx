@@ -282,34 +282,34 @@ const handleEmailChange = (e: any) => {
               ))}
             </div>
           </div>
-          <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 pl-4 pr-4 pt-11 pb-5 ">
+          <div className="shadow-sm bg-white flex w-full flex-col items-stretch mt-5 xl:px-16 lg:px-10 px-8 pt-11 pb-5">
             <div className="text-black text-2xl font-medium leading-9">
-              Related post
+              Related posts
             </div>
             {LatestData?.slice(0, 3).map((item: any, index: any) => (
               <div
                 key={index}
                 className="flex justify-between gap-3.5 mt-11 max-md:mt-10"
               >
-                <div className="flex flex-col items-center ">
+                <div className="flex flex-col items-center">
                   <img
                     alt={`Related post ${index + 1}`}
                     src={item.bannerImage.url}
-                    className="object-cover object-center min-w-[5rem] h-full rounded-sm"
+                    className="object-cover xl:h-[5.25rem] lg:h-[5rem] md:h-[4.8rem] h-[4.5rem] aspect-[83/89] rounded-sm"
                   />
                 </div>
                 <div className="flex  flex-col flex-1">
                   <div className="text-black text-base font-medium leading-6 line-clamp-2 overflow-hidden">
                     {item.title}
                   </div>
-                  <div className="flex justify-between gap-2 mt-4 pr-20 items-start max-md:pr-5">
+                  <div className="flex justify-between gap-2 mt-4 items-start">
                     <img
                       alt="icon"
                       loading="lazy"
                       src="../../assets/calendericon.svg"
                       className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                     />
-                    <div className="text-zinc-600 text-sm font-medium self-stretch grow whitespace-nowrap">
+                    <div className="text-zinc-600 text-sm font-medium self-stretch grow">
                       { dateFormatTxt(item?.date as string) }
                     </div>
                   </div>
