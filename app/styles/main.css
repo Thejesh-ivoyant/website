@@ -278,7 +278,7 @@ font-style: normal;
   display: none;
   position: fixed;
   bottom: 20px;
-  right: 56px;
+  right: 30px;
   background-color: #007bff;
   /* Change this to your preferred background color */
   color: #fff;
@@ -438,6 +438,10 @@ body.scrolled #scrollToTopBtn {
     display: flex;
     flex: auto;
     height: 14rem;
+  }
+  
+  #scrollToTopBtn{
+    right: 42px;
   }
 }
 

@@ -143,24 +143,10 @@ const ContactUs = () => {
       fileInputRef.current.click();
     }
   };
+
   const onChange: DatePickerProps["onChange"] = (date, dateString) => {
     setDateSelected(dateString);
   };
-
-  const hirehandlePhoneNumberChange = (e: any) => {
-    debugger;
-    console.warn("data is "+ e.target.value+ "here ");
-    const hirephone = e.target.value;
-    sethirePhoneNumber(hirephone);
-    sethirePhoneError("");
-    const hirephoneRegex = /^(?:[0-9]{3})[-. ]*(?:[0-9]{3})[-. ]*(?:[0-9]{4})(?: *[x/#]{1}[0-9]+)?$/;
-    if (!hirephone) {
-        sethirePhoneError("Phone number is required");
-    } else if (!hirephoneRegex.test(hirephone)) {
-        sethirePhoneError("Invalid phone number format");
-    }
-};
-  
   const handlePhoneNumberChange = (e: any) => {
     const phone = e.target.value;
     setPhoneNumber(phone);
@@ -170,6 +156,19 @@ const ContactUs = () => {
         setPhoneError("Phone number is required");
     } else if (!phoneRegex.test(phone)) {
         setPhoneError("Invalid phone number format");
+    }
+};
+
+  
+  const hirehandlePhoneNumberChange = (e: any) => {
+    const hirephone = e.target.value;
+    sethirePhoneNumber(hirephone);
+    sethirePhoneError("");
+    const hirephoneRegex = /^(?:[0-9]{3})[-. ]*(?:[0-9]{3})[-. ]*(?:[0-9]{4})(?: *[x/#]{1}[0-9]+)?$/;
+    if (!hirephone) {
+        sethirePhoneError("Phone number is required");
+    } else if (!hirephoneRegex.test(hirephone)) {
+        sethirePhoneError("Invalid phone number format");
     }
 };
 
@@ -744,7 +743,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
           <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hireemailerror}</span>
           )}
               </div>
-              <div className="items-stretch text-box self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:pr-4 pr-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
+              <div className="relative items-stretch text-box self-stretch flex xl:gap-2.5 gap-1  xl:h-10 h-8 xl:pr-4 pr-2 xl:text-sm text-xs py-1 sm:col-span-1 col-span-2">
                 <div className="items-stretch border-r-[color:var(--Gray-gray-5,#D9D9D9)] flex basis-[0%] flex-col justify-center xl:pr-3 pr-1 border-r border-solid">
                   <div className="items-stretch flex  gap-1 ">
                     <ReactFlagsSelect
@@ -774,7 +773,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                   name="phone_number"
                 />
                   {hirephoneerror &&(
-          <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hirephoneerror}</span>
+          <span className="absolute mb-[-1.15rem] text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hirephoneerror}test error</span>
           )}
               </div>
               <div className="w-full relative group sm:col-span-1 col-span-2">
