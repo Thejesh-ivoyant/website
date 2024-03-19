@@ -250,6 +250,7 @@ alt="close"
         <input
           type="text"
           name="firstname"
+          autoComplete="off"
           value={personname}
           onChange={handleNameInput}
           required
@@ -266,6 +267,7 @@ alt="close"
       <input
         type="email"
         name="email"
+        autoComplete="off"
         value={email}
         maxLength={320}
         onChange={handleEmailChange}
@@ -282,6 +284,7 @@ alt="close"
       <input
         type="tel"
         value={phone}
+        autoComplete="off"
         onChange={handlePhoneChange}
         name="phone number"
         className="intern-input"
@@ -300,6 +303,7 @@ alt="close"
     <div className="relative w-full">
         <input
           type="text"
+          autoComplete="off"
           name="institution"
           value={institute}
           maxLength={100}
@@ -315,6 +319,7 @@ alt="close"
     <div className="relative w-full">
       <input
         type="text"
+        autoComplete="off"
         name="degree"
         value={deg}
         onChange={degree}
