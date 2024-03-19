@@ -4,12 +4,19 @@ import IWhitePaper from "~/interfaces/IWhitePaper";
 import { useState } from "react";
 import { fetchGraphQL } from "~/graphql/fetchGraphQl";
 import { getWhitepaperBasedonLimit } from "~/graphql/queries";
-import { success } from "~/utils/notifications";
+
+import { message } from "antd";
 const WhitePaperCardContainer = () => {
+  const [messageApi, contextHolder] = message.useMessage();
+
   const loaderData = useLoaderData() as any;
   const [whitePaperData, setWhitePaperData] = useState(loaderData.whitePaperData || []);
   const [limit, setLimit] = useState(6); // Initial limit
   const [loading, setLoading] = useState(false);
+
+  //  const Success= async()=>{
+  //   await messageApi.info('No more white papers available');
+  //  }
   const fetchMoreData = async () => {
     setLoading(true);
     const updatedQuery = getWhitepaperBasedonLimit(limit + 3);
@@ -35,11 +42,16 @@ const WhitePaperCardContainer = () => {
     // Increment the limit for the next fetch
     setLimit(limit + 3);
     setLoading(false);
+    
     if (whitePaperData.length <= limit) {
-      success("No more white papers available", 3);
+    messageApi.info('No more white papers available here');
     }
+   
   };
+
   return (
+    <>
+    {contextHolder}
     <div className="w-full bg-white pb-8 h-fit">
       <div className="text-head-grape text-4xl  w-full justify-center flex py-8 h-fit gradient-bottom">
         <span className="section-title">
@@ -71,6 +83,7 @@ const WhitePaperCardContainer = () => {
         </button>
         </div>
     </div>
+    </>
   );
 };
 export default WhitePaperCardContainer;

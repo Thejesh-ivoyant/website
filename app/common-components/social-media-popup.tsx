@@ -13,7 +13,7 @@ export const Popup = () => {
   };
   return (
     <>
-      <div className="fixed grid bottom-1/3 right-[10px] z-50 w-fit rounded-full gap-2 place-items-center">
+      <div className="fixed grid bottom-[64px] right-[44px] z-50 w-fit rounded-full gap-2 place-items-center">
         <Link
           className={`rounded-full h-8 w-8 ${open ? "" : "hidden"}`}
           to={"#"}

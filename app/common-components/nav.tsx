@@ -178,7 +178,6 @@ const handleEmailChange = (e: any) => {
       <input
         type="text"
         className=" flex shrink-0 h-[29px] flex-col mt-1 text-box-form  max-md:max-w-full"
-        className=" flex shrink-0 h-[29px] flex-col mt-1 text-box-form  max-md:max-w-full"
         name="firstName"
         value={personname}
         onChange={handleNameChange}
@@ -195,6 +194,8 @@ const handleEmailChange = (e: any) => {
       <input
         type="email"
         value={email}
+        
+        style={{textTransform:"none"}}
         onChange={handleEmailChange}
         className=" flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
         name="email"
@@ -210,7 +211,6 @@ const handleEmailChange = (e: any) => {
       <div className="relative w-full flex flex-col">
       <input
         type="tel"
-        className="flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
         className="flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
         name="phoneNumber"
         value={phoneNumber}
