@@ -180,6 +180,8 @@ const handleNameChange = (e: any) => {
               className="text-box-form flex shrink-0 h-[29px] flex-col mt-1 max-md:max-w-full"
               name="email"
               value={email}
+              
+              style={{textTransform:"none"}}
               onChange={handleEmailChange}
               required
             />
@@ -397,6 +399,8 @@ const handleNameChange = (e: any) => {
                   type="email"
                   required
                   placeholder="Email*"
+                  
+                  style={{textTransform:"none"}}
                   className="footer-font email-container w-full mt-auto focus:outline-none"
                 />
               </div>
@@ -493,6 +497,8 @@ const handleNameChange = (e: any) => {
                   type="email"
                   required
                   placeholder="Email*"
+                  
+                  style={{textTransform:"none"}}
                   className="footer-font email-container  w-full mt-auto focus:outline-none"
                 />
                 <button
@@ -707,6 +713,8 @@ const handleNameChange = (e: any) => {
                 type="email"
                 required
                 placeholder="Email*"
+                
+                style={{textTransform:"none"}}
                 className="footer-font email-container  max-w-xs w-full mt-auto focus:outline-none"
               />
               <button

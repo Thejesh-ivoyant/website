@@ -400,6 +400,7 @@ const handleEmailChange = (e: any) => {
       <input
         type="email"
         value={email}
+        style={{textTransform:"none"}}
         onChange={handleEmailChange}
         className=" flex shrink-0 h-[29px] flex-col mt-1 text-box-form max-md:max-w-full"
         name="email"
