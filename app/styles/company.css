@@ -37,7 +37,7 @@
   grid-column: span 1 / span 1;
   display: grid;
   max-width: 24rem;
-  min-width: 24rem;
+  min-width: 18rem;
 }
 
 .dep-dropdown-mobile,
@@ -125,7 +125,8 @@
   }
 
   .grid-card {
-    width: 100%;
+    max-width: 24rem;
+    min-width: 18rem;
   }
 
   .dep-dropdown {
@@ -222,7 +223,8 @@
     aspect-ratio: 1 / 1;
     grid-column: span 1 / span 1;
     display: grid;
-    width: 16rem;
+    max-width: 24rem;
+    min-width: 18rem;
   }
 }
 
@@ -247,7 +249,8 @@
     aspect-ratio: 1 / 1;
     grid-column: span 1 / span 1;
     display: grid;
-    width: 20rem;
+    max-width: 24rem;
+    min-width: 18rem;
   }
 }
 
