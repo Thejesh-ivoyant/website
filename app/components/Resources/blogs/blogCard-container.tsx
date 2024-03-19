@@ -20,10 +20,10 @@ const BlogCardContainer = () => {
     onClose();
   };
   const handleResetFilters = () => {
-    setSelectedCategory("");
-    setSelectedTag("");
-    setCategory("");
-    setTag("");
+    setSelectedCategory(null);
+    setSelectedTag(null);
+    setCategory(null);
+    setTag(null);
   };
   const [state, setState] = useState({ visible: false, placement: "bottom" });
   const showDrawer = () => {
@@ -52,9 +52,9 @@ const BlogCardContainer = () => {
   const [limit, setLimit] = useState(3); // Initial limit
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    // This effect will run whenever role, dep, loc, or exp changes
     handleFilterAndSearchDown();
   }, [category, tag, searchValue]);
+
   const handleFilterAndSearchDown = async () => {
     setLoading(true);
     const updatedBlogQuery = SearchBlogs(
@@ -63,6 +63,8 @@ const BlogCardContainer = () => {
       searchValue || "",
       limit
     );
+
+
     const newBlogData = await fetchGraphQL(updatedBlogQuery);
     setBlogData(() => [
       ...newBlogData.data?.blogs.data?.map((item: any) => ({
@@ -92,9 +94,9 @@ const BlogCardContainer = () => {
     ]);
     setLoading(false);
   };
+
   const fetchMoreData = async () => {
     setLoading(true);
-    
     const updatedQuery = SearchBlogs(
       category || "",
       tag || "",
@@ -134,6 +136,8 @@ const BlogCardContainer = () => {
       success("No more Blogs available", 3);
     }
   };
+
+  
   return (
     <>
       <CustomDrawer
