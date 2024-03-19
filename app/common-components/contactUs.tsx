@@ -148,6 +148,8 @@ const ContactUs = () => {
   };
 
   const hirehandlePhoneNumberChange = (e: any) => {
+    debugger;
+    console.warn("data is "+ e.target.value+ "here ");
     const hirephone = e.target.value;
     sethirePhoneNumber(hirephone);
     sethirePhoneError("");
@@ -602,7 +604,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
           <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{msgerror}</span>
           )}
           {msgcount &&(
-            <span className="mb-[-1rem] absolute text-gray-500 text-[0.6rem] error-msg bottom-0 right-2">{msgcount}/1000</span>
+            <span className="mb-[-1.2rem] absolute text-gray-500 text-[0.75rem] error-msg bottom-0 right-0">{msgcount}/1000</span>
             )}
               </div>
             </div>
@@ -838,7 +840,7 @@ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
           <span className="mb-[-1rem] absolute text-red-500 text-[0.6rem] error-msg bottom-0 left-0">{hiremsgerror}</span>
           )}
            {hiremsgcount &&(
-            <span className="mb-[-1rem] absolute text-gray-500 text-[0.6rem] error-msg bottom-0 right-2">{hiremsgcount}/1000</span>
+            <span className="mb-[-1.2rem] absolute text-gray-500 text-[0.75rem] error-msg bottom-0 right-0">{hiremsgcount}/1000</span>
             )}
               </div>
             </div>

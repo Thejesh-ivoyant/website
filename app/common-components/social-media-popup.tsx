@@ -13,7 +13,7 @@ export const Popup = () => {
   };
   return (
     <>
-      <div className="fixed grid bottom-[64px] right-[44px] z-50 w-fit rounded-full gap-2 place-items-center">
+      <div className="fixed grid position-icons z-50 w-fit rounded-full gap-2 place-items-center">
         <Link
           className={`rounded-full h-8 w-8 ${open ? "" : "hidden"}`}
           to={"#"}
@@ -39,13 +39,13 @@ export const Popup = () => {
           <img src={phone} className="w-7 h-7" alt="phone"></img>
         </Link>
         <button
-          className="light-indigo-bg rounded-full lg:w-12 lg:h-12 w-10 h-10 grid place-items-center"
+          className="light-indigo-bg rounded-full  md:w-[3.75rem] md:w-[3.75rem] lg:w-[3.75rem] lg:h-[3.75rem] w-[3.75rem] h-[3.75rem] grid place-items-center"
           onClick={handleButtonClick}
         >
           <img
             loading="eager"
             src={!open ? chatsIcon : closeIcon}
-            className="w-7 h-7 border-[color:var(--Gray-gray-7,#8C8C8C)] border-[0.5px] border-solid"
+            className="w-[2.5rem] h-[2.5rem]"
             alt="chats"
           />
         </button>
