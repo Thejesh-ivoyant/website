@@ -134,6 +134,9 @@ const handleEmailChange = (e: any) => {
   const handleHamburgerClick = () => {
     setSidebarOpen((prevSidebarOpen) => !prevSidebarOpen);
   };
+  const closeMenuMob = () =>{
+    (sidebarOpen) ? setSidebarOpen(!sidebarOpen) : setSidebarOpen(sidebarOpen)
+  }
   const handleCancel = () => {
     setOpen(false);
   };
@@ -269,14 +272,14 @@ const handleEmailChange = (e: any) => {
                 <div
                   className={
                     !toggleNav
-                      ? `absolute hidden w-full left-0 top-[4rem] bg-black group-hover:block h-fit`
+                      ? `absolute hidden w-full left-0 top-[4rem] group-hover:block`
                       : `hidden`
                   }
                   onClick={handleClick}
-                  id={`links-${index}`}
+                  id="safari-black"
                 >
-                  <div className="shadow-lg h-full">
-                    <div className="flex h-full">
+                  <div className="h-full bg-black">
+                    <div className="flex h-full bg-black">
                       <div className="flex-grow flex flex-wrap gap-4 items-center justify-center">
                         <div className="w-full h-fit xl:gap-x-2 xl:gap-y-10 grid grid-cols-3 xl:p-10 xl:pl-14 gap-y-4 xl:text-sm text-xs px-4">
                           {navdata.navGraphql?.data?.navbar?.data?.attributes?.[
@@ -432,6 +435,7 @@ const handleEmailChange = (e: any) => {
             <img
               src={ivurl}
               alt="iVoyant Logo"
+              onClick={closeMenuMob}
               className="aspect-video h-14 object-contain"
             />
           </div>
