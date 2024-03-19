@@ -316,22 +316,22 @@ setLoading(true);
           {!loading && (
             <>
           {JobDesc.map((jobs: any) => (
-            <div className="flex flex-col job-card-container relative">
+            <div className="flex flex-col job-card-container relative font-montserrat">
               <Link to={`/job-description/${jobs.id}`} key={jobs.id}>
-                <div className="justify-between w-full bg-white p-[24px] items-stretch flex gap-0 max-md:max-w-full max-md:flex-wrap">
+                <div className="justify-between w-full bg-white p-6 items-stretch flex gap-4  max-md:flex-wrap">
                   <div className="items-stretch flex grow basis-[0%] flex-col max-md:max-w-full justify-start">
-                    <div className="text-slate-950 text-xl font-medium max-md:max-w-full">
+                    <div className="text-xl font-medium max-md:max-w-full font-montserrat capitalize">
                       {jobs.Title}
                     </div>
-                    <div className="items-stretch flex justify-between gap-10 mt-4 self-start max-md:max-w-full max-md:flex-wrap">
+                    <div className="items-stretch flex md:flex-row flex-col justify-between gap-10 mt-4 self-start sm:text-base text-sm">
                       <div className="items-stretch flex justify-between gap-2">
                         <img
                           alt="locationicon"
                           loading="lazy"
                           src="../assets/location.svg"
-                          className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
+                          className="aspect-square object-contain object-center w-5 overflow-hidden"
                         />
-                        <div className="text-slate-950 text-opacity-70 text-right text-base font-medium grow whitespace-nowrap">
+                        <div className="text-opacity-70 font-medium grow ">
                           {jobs.location}
                         </div>
                       </div>
@@ -342,7 +342,7 @@ setLoading(true);
                           src="../assets/department.svg"
                           className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                         />
-                        <div className="text-slate-950 text-opacity-70 text-right text-base font-medium grow whitespace-nowrap">
+                        <div className="text-opacity-70 font-medium grow ">
                           {jobs.DepartmentName}
                         </div>
                       </div>
@@ -353,19 +353,14 @@ setLoading(true);
                           src="../assets/experience.svg"
                           className="aspect-square object-contain object-center w-5 overflow-hidden shrink-0 max-w-full"
                         />
-                        <div className="text-slate-950 text-opacity-70 text-right text-base font-medium grow whitespace-nowrap">
+                        <div className="text-opacity-70 font-medium grow">
                           {jobs.ExperienceRange} Yrs
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="items-center self-center flex aspect-square flex-col justify-center my-auto">
-                    <img
-                      loading="lazy"
-                      alt="locationicon"
-                      src="../assets/Arrow.png"
-                      className="aspect-square object-contain object-center w-10 overflow-hidden rounded-[50%]"
-                    />
+                    <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20.5" r="20" transform="rotate(90 20 20.5)" fill="#824BEA"/><path d="M24.5 20.5 17 28l-1.05-1.05 6.45-6.45-6.45-6.45L17 13z" fill="#F0F5FF"/></svg>
                   </div>
                 </div>
               </Link>
